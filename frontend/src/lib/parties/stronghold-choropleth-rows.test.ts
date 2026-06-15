@@ -109,6 +109,11 @@ describe("mapPcStrongholdsToChoroplethRows", () => {
       state: "tamil-nadu",
       wins: 3,
       contested: 4,
+      // PR-7: PartyStronghold carries `last_won_year` for the
+      // one-line citizen tally; fixtures pin null since this test
+      // covers the PC -> choropleth row mapping (recency is not in
+      // scope here).
+      last_won_year: null,
       results: ["W", "W", "L", "W"],
       source_ids: [],
     },
@@ -118,6 +123,7 @@ describe("mapPcStrongholdsToChoroplethRows", () => {
       state: "tamil-nadu",
       wins: 1,
       contested: 4,
+      last_won_year: null,
       results: ["L", "L", "W", "L"],
       source_ids: [],
     },
@@ -128,6 +134,7 @@ describe("mapPcStrongholdsToChoroplethRows", () => {
       state: "tamil-nadu",
       wins: 5,
       contested: 8,
+      last_won_year: null,
       results: ["W", "W", "W", "L", "W", "W", "L", "W"],
       source_ids: [],
     },

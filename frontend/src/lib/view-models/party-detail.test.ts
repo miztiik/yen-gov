@@ -327,6 +327,10 @@ describe("foldStrongholdRows", () => {
       state: "tamil-nadu",
       wins: 2,
       contested: 3,
+      // PR-7: the legacy fold path (test-only; production loader
+      // reads `last_won_year` from the mart) emits null because
+      // `RawStrongholdRow` does not carry per-event year.
+      last_won_year: null,
       results: ["W", "W", "L"],
       source_ids: [],
     });

@@ -37,6 +37,7 @@
   import type {
     PartyDetailViewModel,
     PartyHistoryPoint,
+    PartyStronghold,
   } from "../lib/view-models/party-detail";
   import {
     getPartyColor,
@@ -232,6 +233,47 @@
     return party_id === "parties.IN.NOTA";
   }
 
+  /** Pure: format a single stronghold row as a citizen-readable
+   *  one-line tally - e.g.
+   *     "Punjab - Sangrur: won 3 of 4 times, last 2024"
+   *  PR-7 of TODO/20260615-party-page-citizen-fixes-plan.md (Jony +
+   *  Citizen, section 0.5 RIP doctrine). Replaces the prior 2-cell
+   *  layout (name on the left + SVG dot strip on the right) which
+   *  carried glyph chrome the citizen cannot parse without a legend.
+   *
+   *  Inputs:
+   *    - `stronghold`: a single row from the strongholds mart.
+   *    - `state_name`: citizen-readable state display name resolved
+   *      from `entity_id` via `stateNameFromEntityId` + `states.name`
+   *      at the call site. Empty string when the entity_id is not
+   *      state-coded (e.g. national / sentinel) - we then drop the
+   *      "State - " prefix entirely.
+   *
+   *  Recency suffix:
+   *    - When `last_won_year` is present (production loader path) we
+   *      append ", last YYYY". Citizen-honest: a stronghold that the
+   *      party last won in 1980 is materially different from one
+   *      last won in 2024 even when the W/L count is identical.
+   *    - When null (the legacy in-memory fold path, test-only) we
+   *      drop the suffix - the bare "won X of Y times" stands alone.
+   *
+   *  Constituency fallback: when the mart row's `constituency_name`
+   *  is empty (taxonomy-misses) we surface the raw entity_id rather
+   *  than rendering an empty string - matches the prior 2-cell
+   *  template's fallback. */
+  export function formatStrongholdTally(
+    stronghold: PartyStronghold,
+    state_name: string,
+  ): string {
+    const constituency = stronghold.constituency_name || stronghold.entity_id;
+    const prefix = state_name ? `${state_name} - ` : "";
+    const recency =
+      stronghold.last_won_year != null
+        ? `, last ${stronghold.last_won_year}`
+        : "";
+    return `${prefix}${constituency}: won ${stronghold.wins} of ${stronghold.contested} times${recency}`;
+  }
+
 </script>
 
 <script lang="ts">
@@ -246,7 +288,6 @@
   import DualAxisBarLine from "../lib/charts/DualAxisBarLine/DualAxisBarLine.svelte";
   import RecognitionStrip from "../lib/parties/RecognitionStrip.svelte";
   import PartyStrongholdMap from "../lib/parties/PartyStrongholdMap.svelte";
-  import StrongholdDotStrip from "../lib/parties/StrongholdDotStrip.svelte";
   // PR-6: recognitionLabel + PartyAboutCard share the same Hans H7
   // vocabulary; importing keeps the in-header subline and the
   // side-rail card on a single source of truth (future copy tweaks
@@ -782,26 +823,11 @@
               {#each view_model.ls_strongholds as s (s.entity_id)}
                 {@const parsed = stateNameFromEntityId(s.entity_id, (c) => states.name(c))}
                 <li
-                  class="flex items-center gap-3 px-3 py-2 text-sm"
+                  class="px-3 py-2 text-sm text-slate-700"
                   data-testid="party-stronghold-ls"
                   data-state={parsed.state_code}
                 >
-                  <span class="flex-1 min-w-0 flex items-baseline gap-1.5 truncate">
-                    {#if parsed.state_name}
-                      <span class="text-slate-500">{parsed.state_name}</span>
-                      <span class="text-slate-400" aria-hidden="true">·</span>
-                    {/if}
-                    <span class="font-medium text-slate-800 truncate"
-                      >{s.constituency_name || s.entity_id}</span
-                    >
-                  </span>
-                  <span
-                    class="shrink-0 text-xs text-slate-500 tabular-nums"
-                    title={s.results.join("")}
-                  >
-                    won {s.wins} of {s.contested}
-                  </span>
-                  <StrongholdDotStrip results={s.results} brand_colour={bar_color} />
+                  {formatStrongholdTally(s, parsed.state_name)}
                 </li>
               {/each}
             </ul>
@@ -820,26 +846,11 @@
               {#each view_model.vs_strongholds as s (s.entity_id)}
                 {@const parsed = stateNameFromEntityId(s.entity_id, (c) => states.name(c))}
                 <li
-                  class="flex items-center gap-3 px-3 py-2 text-sm"
+                  class="px-3 py-2 text-sm text-slate-700"
                   data-testid="party-stronghold-vs"
                   data-state={parsed.state_code}
                 >
-                  <span class="flex-1 min-w-0 flex items-baseline gap-1.5 truncate">
-                    {#if parsed.state_name}
-                      <span class="text-slate-500">{parsed.state_name}</span>
-                      <span class="text-slate-400" aria-hidden="true">·</span>
-                    {/if}
-                    <span class="font-medium text-slate-800 truncate"
-                      >{s.constituency_name || s.entity_id}</span
-                    >
-                  </span>
-                  <span
-                    class="shrink-0 text-xs text-slate-500 tabular-nums"
-                    title={s.results.join("")}
-                  >
-                    won {s.wins} of {s.contested}
-                  </span>
-                  <StrongholdDotStrip results={s.results} brand_colour={bar_color} />
+                  {formatStrongholdTally(s, parsed.state_name)}
                 </li>
               {/each}
             </ul>
