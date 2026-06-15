@@ -32,8 +32,7 @@ import { attachPageErrorTrap } from "./_helpers";
 // being ~50 KB each, the duckdb-wasm boot + party-detail loader + JSON
 // taxonomy fetches push first-paint past Playwright's 30s default on
 // a cold vite. Raise per-test timeout to 60s so the goto + loader gate
-// have headroom; the existing party-stronghold-choropleth.spec.ts
-// works around the same constraint by running on already-warm vite.
+// have headroom.
 test.setTimeout(60_000);
 
 let trap: { getErrors: () => string[] };

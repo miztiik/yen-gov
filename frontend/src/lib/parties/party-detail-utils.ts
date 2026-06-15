@@ -16,10 +16,9 @@
 // Both produce a 5-segment dash-split. Anything else (wrong prefix,
 // fewer segments, state segment that does not match `[SU]\d{2}`)
 // returns the malformed-fallback `{ state_code: null, state_name: "" }`
-// — the row's text-prefix is then suppressed rather than throwing.
+// - the row's text-prefix is then suppressed rather than throwing.
 // This matches the broader "graceful degradation, no blank UI" pattern
-// used by other party-page primitives (PartyStrongholdMap,
-// stronghold-choropleth-rows).
+// used by other party-page primitives.
 
 /** Result of parsing + resolving a constituency entity_id. */
 export interface ParsedEntityState {

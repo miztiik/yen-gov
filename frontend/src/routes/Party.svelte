@@ -287,7 +287,6 @@
   import TopicIcon from "../lib/TopicIcon.svelte";
   import DualAxisBarLine from "../lib/charts/DualAxisBarLine/DualAxisBarLine.svelte";
   import RecognitionStrip from "../lib/parties/RecognitionStrip.svelte";
-  import PartyStrongholdMap from "../lib/parties/PartyStrongholdMap.svelte";
   // PR-6: recognitionLabel + PartyAboutCard share the same Hans H7
   // vocabulary; importing keeps the in-header subline and the
   // side-rail card on a single source of truth (future copy tweaks
@@ -316,10 +315,6 @@
   // self-suppresses when `total_count === 0`.
   import PartyCoverageBadge from "../lib/parties/PartyCoverageBadge.svelte";
   import PartySourcesStrip from "../lib/parties/PartySourcesStrip.svelte";
-  import {
-    homeStateEciCodes,
-    mapPcStrongholdsToChoroplethRows,
-  } from "../lib/parties/stronghold-choropleth-rows";
   import { stateNameFromEntityId } from "../lib/parties/party-detail-utils";
   import { formatLeaderSince } from "../lib/view-models/parties";
 
@@ -465,21 +460,13 @@
     return getPartyColor(meta.party_id, partyRowFromMeta(meta)).hex;
   });
 
-  // PR-12 stronghold choropleth: derive the PC-side choropleth rows
-  // from the LS stronghold mart and the home-state ECI code set from
-  // parties.csv. The mapper silently drops rows whose entity_id does
-  // not match the PC pattern; the home_states set drives state-
-  // cropping for parties with <= 3 home states. National parties
-  // (home_states empty or >3) render full-India. See
-  // [stronghold-choropleth-rows.ts](../lib/parties/stronghold-choropleth-rows.ts).
-  const pcStrongholdRows = $derived(
-    view_model
-      ? mapPcStrongholdsToChoroplethRows(view_model.ls_strongholds)
-      : [],
-  );
-  const homeStates = $derived(
-    meta ? homeStateEciCodes(meta.home_state_codes) : new Set<string>(),
-  );
+  // PR-8a (D8c of TODO/20260615-party-page-citizen-fixes-plan.md):
+  // the 320x360 stronghold-thumbnail component + its
+  // pc-row / home-state derivations + the sibling helper module
+  // were RIP'd per section 0.5 (RIP doctrine). The PR-7
+  // state-prefixed one-line stronghold tally below carries the
+  // geographic signal textually; git is the backup if a richer
+  // interactive map is needed later.
 
   // Recognition badge label is sourced from PartyAboutCard's exported
   // helper (Hans H7 vocabulary, PR-6). Single source of truth - the
@@ -786,30 +773,6 @@
           State Assembly elections 2008-2026. Earlier history not yet
           ingested.
         </p>
-
-        <!-- PR-12 stronghold choropleth (PC body only this PR; AC
-             deferred per the delim mismatch documented in
-             stronghold-choropleth-rows.ts). Hidden under 640px per
-             Jony 2g + Citizen 3a (the existing top-10 text list
-             below remains visible across all viewports). -->
-        {#if pcStrongholdRows.length > 0}
-          <div class="hidden sm:block" data-testid="party-pc-stronghold-map-wrap">
-            <PartyStrongholdMap
-              topojson_path="/boundaries/electoral/delim=2024/pc/all.topojson"
-              feature_key="unique_id"
-              state_property="state_ut_code"
-              rows={pcStrongholdRows}
-              brand_colour={meta.brand_colour}
-              home_states={homeStates}
-              title="Parliament strongholds map"
-              caption="Stronghold map shows this party's top-10 constituencies by lifetime wins. For per-cycle winners see the respective election pages."
-              data_testid="party-pc-stronghold-map"
-              polygon_testid="pc-stronghold"
-              width={320}
-              height={360}
-            />
-          </div>
-        {/if}
 
         {#if view_model.ls_strongholds.length > 0}
           <div class="space-y-1" data-testid="party-ls-strongholds">
