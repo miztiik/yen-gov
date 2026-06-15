@@ -676,6 +676,153 @@ describe("projectAllianceContext", () => {
       "parties.IN.P2",
     ]);
   });
+
+  // PR-11 of TODO/20260615-party-page-citizen-fixes-plan.md (Jony +
+  // Citizen): the citizen-facing strip caps to events with year >=
+  // cutoff_year. Older alliance ledger rows survive in the canonical
+  // CSV (the cap is render-only); the projection just drops them
+  // from BOTH the Parliament pick and the per-state list. These
+  // tests pin the cap independently of the runtime year used in
+  // production (which is `new Date().getFullYear() - 10`).
+
+  it("PR-11 cap: drops Parliament pick whose year < cutoff_year", () => {
+    const focal_rows = [
+      {
+        event_id: "general-2014",
+        state: "IN",
+        alliance: "NDA-2014",
+        party_id: "parties.IN.BJP",
+      },
+    ];
+    const result = projectAllianceContext(
+      "parties.IN.BJP",
+      focal_rows,
+      focal_rows, // partner_rows = focal_rows (BJP solo in NDA-2014)
+      new Map(),
+      partyShort,
+      stateName,
+      2020, // cutoff: only events with year >= 2020 survive
+    );
+    // Only Parliament row was 2014 < 2020 -> dropped -> entire
+    // projection returns null (state_assemblies also empty).
+    expect(result).toBeNull();
+  });
+
+  it("PR-11 cap: keeps Parliament pick whose year >= cutoff_year (boundary)", () => {
+    const focal_rows = [
+      {
+        event_id: "general-2020",
+        state: "IN",
+        alliance: "NDA-2020",
+        party_id: "parties.IN.BJP",
+      },
+    ];
+    const result = projectAllianceContext(
+      "parties.IN.BJP",
+      focal_rows,
+      focal_rows,
+      new Map(),
+      partyShort,
+      stateName,
+      2020, // boundary: year == cutoff -> INCLUDED
+    );
+    expect(result).not.toBeNull();
+    expect(result!.parliament).not.toBeNull();
+    expect(result!.parliament!.event_id).toBe("general-2020");
+  });
+
+  it("PR-11 cap: drops per-state Assembly rows whose year < cutoff_year", () => {
+    const focal_rows = [
+      {
+        event_id: "assembly-2009",
+        state: "maharashtra",
+        alliance: "",
+        party_id: "parties.IN.BJP",
+      },
+      {
+        event_id: "assembly-2024",
+        state: "maharashtra",
+        alliance: "",
+        party_id: "parties.IN.BJP",
+      },
+      {
+        event_id: "assembly-2010",
+        state: "bihar",
+        alliance: "",
+        party_id: "parties.IN.BJP",
+      },
+      {
+        event_id: "assembly-2025",
+        state: "kerala",
+        alliance: "",
+        party_id: "parties.IN.BJP",
+      },
+    ];
+    const result = projectAllianceContext(
+      "parties.IN.BJP",
+      focal_rows,
+      [],
+      new Map(),
+      partyShort,
+      stateName,
+      2020, // cutoff: maharashtra picks 2024 (>=2020 OK), bihar
+      // picks 2010 (<2020 DROP), kerala 2025 (>=2020 OK).
+    );
+    expect(result).not.toBeNull();
+    expect(
+      result!.state_assemblies.map((r) => `${r.state}:${r.event_id}`),
+    ).toEqual(["kerala:assembly-2025", "maharashtra:assembly-2024"]);
+  });
+
+  it("PR-11 cap: returns null when EVERY row is older than cutoff", () => {
+    const focal_rows = [
+      {
+        event_id: "general-2009",
+        state: "IN",
+        alliance: "NDA-2009",
+        party_id: "parties.IN.BJP",
+      },
+      {
+        event_id: "assembly-2010",
+        state: "bihar",
+        alliance: "",
+        party_id: "parties.IN.BJP",
+      },
+    ];
+    const result = projectAllianceContext(
+      "parties.IN.BJP",
+      focal_rows,
+      focal_rows,
+      new Map(),
+      partyShort,
+      stateName,
+      2020,
+    );
+    expect(result).toBeNull();
+  });
+
+  it("PR-11 cap: omitting cutoff_year disables the cap (no-cap default)", () => {
+    const focal_rows = [
+      {
+        event_id: "assembly-2009",
+        state: "bihar",
+        alliance: "",
+        party_id: "parties.IN.BJP",
+      },
+    ];
+    const result = projectAllianceContext(
+      "parties.IN.BJP",
+      focal_rows,
+      [],
+      new Map(),
+      partyShort,
+      stateName,
+      // cutoff_year omitted -> Number.NEGATIVE_INFINITY -> no cap.
+    );
+    expect(result).not.toBeNull();
+    expect(result!.state_assemblies).toHaveLength(1);
+    expect(result!.state_assemblies[0]!.event_id).toBe("assembly-2009");
+  });
 });
 
 // --- loader contract ------------------------------------------------------
