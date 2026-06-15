@@ -163,6 +163,19 @@ export interface StateEntry {
   name: string;
   kind: "state" | "union_territory";
   notes?: string;
+  /**
+   * Wave-F F2: optional legacy LGD slug exposed so that
+   * `states.codeFromSlug` can resolve marts that still emit pre-rename
+   * LGD slugs (e.g. `state="delhi"` in strongholds.csv → canonical entity
+   * `IN-U05 "NCT of Delhi"`). Currently set only for the three entities
+   * in `entities.json` that carry a non-empty `legacy_id`: U05 Delhi
+   * (`Delhi`), S10 Karnataka (`Mysore`), S22 Tamil Nadu (`Madras`).
+   * Of those, only Delhi's legacy_id matches an active LGD slug used by
+   * the strongholds mart; the other two are present for symmetry and
+   * future-proofing. See TODO/20260615-party-page-citizen-fixes-plan.md
+   * F2 + the docs/concepts/data-spine.md LGD-joinability non-negotiable.
+   */
+  legacy_id?: string;
 }
 
 export interface StatesCollection {
@@ -186,6 +199,7 @@ interface EntityRow {
   iso_3166_2: string | null;
   entity_valid_to: number | null;
   notes?: string | null;
+  legacy_id?: string | null;
 }
 
 interface EntitiesEnvelope {
@@ -240,6 +254,7 @@ export function fetchStates(): Promise<StatesCollection> {
         name: e.display_name,
         kind: e.entity_type === "ut" ? "union_territory" : "state",
         ...(e.notes ? { notes: e.notes } : {}),
+        ...(e.legacy_id ? { legacy_id: e.legacy_id } : {}),
       })),
   }));
 }
