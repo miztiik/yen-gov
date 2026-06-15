@@ -2019,3 +2019,72 @@ def ingest_eci_mcc_seizures_2019(
     typer.echo(f"  rows written:    {result.row_count}")
     typer.echo(f"  unique states:   {result.unique_state_slugs}")
     typer.echo(f"  unique dates:    {result.unique_dates}")
+
+
+
+
+@app.command("enrich-2014-ls-candidacies-with-affidavits")
+def enrich_2014_ls_candidacies_with_affidavits(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    input_csv: Path = typer.Option(
+        ...,
+        "--input",
+        "-i",
+        help=(
+            "Publisher ephemeral CSV "
+            "(typically datasets/ephemeral/2014_lok_sabha_affidavits.csv)."
+        ),
+        exists=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Enrich 2014 LS winners with ADR/MyNeta affidavit disclosures (Row B).
+
+    Reads the ADR-curated affidavit CSV (542 winner rows) and UPSERTs
+    four nullable disclosure columns onto matching winner rows in
+    ``datasets/elections/parliament/election=2014/candidacies.csv``:
+
+      * ``criminal_cases_declared``
+      * ``total_assets_inr``
+      * ``total_liabilities_inr``
+      * ``declared_election_expense_inr``
+
+    The join is 4-pass and strictly deterministic (no fuzzy / probabilistic
+    logic, per plan D2). Per D2 + E1: if any affidavit row remains
+    unmatched after all four passes, the adapter ABORTS with exit code 2
+    and writes the unmatched list to
+    ``datasets/_ops/affidavit-2014-unmatched-YYYY-MM-DD.csv`` for operator
+    review; no candidacies / source rows are modified on the abort path.
+
+    Spec: PR-B of TODO/20260614-three-ephemeral-ingests-plan.md.
+    """
+    from yen_gov.canonical.adapters.myneta.lok_sabha_2014_winners import (
+        enrich_2014_ls_candidacies,
+    )
+
+    report = enrich_2014_ls_candidacies(root=root, affidavit_path=input_csv)
+    typer.echo("enrich-2014-ls-candidacies-with-affidavits:")
+    typer.echo(f"  affidavit_count:  {report.affidavit_count}")
+    typer.echo(f"  winner_count:     {report.winner_count}")
+    typer.echo(f"  pass1_matched:    {report.pass1_matched}")
+    typer.echo(f"  pass2_matched:    {report.pass2_matched}")
+    typer.echo(f"  pass3_matched:    {report.pass3_matched}")
+    typer.echo(f"  pass4_matched:    {report.pass4_matched}")
+    typer.echo(f"  unmatched_count:  {report.unmatched_count}")
+    if report.unmatched_csv_path is not None:
+        typer.echo(
+            f"  unmatched sidecar: "
+            f"{report.unmatched_csv_path.relative_to(root).as_posix()}"
+        )
+        typer.echo("ABORT: unmatched_count > 0 (per plan D2 / E1).")
+        raise typer.Exit(2)
+    typer.echo(f"  source_id:        {report.source_id}")
+    typer.echo("OK")
