@@ -356,3 +356,128 @@ test.describe("state event view (PR-W3b rebuild)", () => {
     );
   });
 });
+
+// R5 of TODO/20260615-state-election-event-page-redesign-plan.md
+// (2026-06-15). Cross-event Sankey + always-on diverging bar section
+// at slot 11 of the state event page. Two oracles:
+//   1. /maharashtra/elections/assembly-2024  -> diverging-bar visible
+//      by default, "Show vote-flow" pill present, expand reveals the
+//      Sankey panel.
+//   2. /jammu-and-kashmir-ut/elections/assembly-2024 -> first event on
+//      record for J&K UT; no-prior copy with NO button.
+test.describe("state event vote-flow (R5)", () => {
+  // Same cold-compile budget as the W3b siblings above; the catalogue
+  // + prev-winners loader fetches add ~3-5s on top of route mount.
+  test.describe.configure({ timeout: 90_000 });
+
+  let trap: ReturnType<typeof attachPageErrorTrap> | null = null;
+
+  test.beforeEach(({ page }) => {
+    trap = attachPageErrorTrap(page);
+  });
+
+  test.afterEach(() => {
+    const errors = trap?.getErrors() ?? [];
+    expect(
+      errors,
+      `Page emitted runtime errors:\n${errors.join("\n")}`,
+    ).toEqual([]);
+  });
+
+  test("maharashtra/assembly-2024: diverging-bar default + Show vote-flow pill expands SwingSankey", async ({
+    page,
+  }) => {
+    // assembly-2024 has assembly-2019 as the prior same-body event in
+    // the on-disk corpus, so the model resolves with ok status and the
+    // diverging-bar + opt-in pill render.
+    await page.goto("/maharashtra/elections/assembly-2024");
+
+    // Section anchor mounts once StateElection's loader resolves the
+    // prev-winners state.
+    await expect(
+      page.getByTestId("state-event-cross-event-sankey"),
+    ).toBeVisible({ timeout: 30_000 });
+
+    // Always-on diverging bar present with at least one party row.
+    // 60s budget: cold dev-server compile + cold catalogue load +
+    // cold loadElectionResults for BOTH assembly-2024 and assembly-2019
+    // (the prev-winners loader fires a second roundtrip after the
+    // current-event one resolves) can take 30-45s on a freshly-started
+    // worker.
+    await expect(
+      page.getByTestId("state-event-cross-event-diverging-bar"),
+    ).toBeVisible({ timeout: 60_000 });
+    await expect(
+      page.getByTestId("state-event-cross-event-diverging-row").first(),
+    ).toBeVisible();
+
+    // Sankey panel is COLLAPSED by default; toggle button reads
+    // "Show vote-flow" before click.
+    const toggle = page.getByTestId("state-event-cross-event-sankey-toggle");
+    await expect(toggle).toBeVisible();
+    await expect(toggle).toHaveText("Show vote-flow");
+    await expect(
+      page.getByTestId("state-event-cross-event-sankey-panel"),
+    ).toHaveCount(0);
+
+    // Click pill -> Sankey panel mounts; toggle flips to "Hide vote-flow".
+    await toggle.click();
+    await expect(
+      page.getByTestId("state-event-cross-event-sankey-panel"),
+    ).toBeVisible({ timeout: 10_000 });
+    await expect(toggle).toHaveText("Hide vote-flow");
+
+    // Caption inside expanded panel pins the "approximate flow" honesty
+    // language per the Max + Jony spec.
+    await expect(
+      page.getByTestId("state-event-cross-event-sankey-caption"),
+    ).toContainText(/Approximate flow/);
+
+    // No-prior copy MUST NOT render here (Maharashtra has a prior
+    // event); guards against the no-prior branch leaking when ok data
+    // is present.
+    await expect(
+      page.getByTestId("state-event-cross-event-sankey-no-prior"),
+    ).toHaveCount(0);
+  });
+
+  test("jammu-and-kashmir-ut/assembly-2024: no-prior copy renders, NO toggle button", async ({
+    page,
+  }) => {
+    // J&K UT was carved out of J&K state in 2019; assembly-2024 is the
+    // first Assembly event on record under the UT state_code. The
+    // prev-winners loader resolves no_prior, the model returns
+    // { no_prior: true }, and the section renders the no-prior copy.
+    await page.goto("/jammu-and-kashmir-ut/elections/assembly-2024");
+
+    await expect(
+      page.getByTestId("state-event-cross-event-sankey"),
+    ).toBeVisible({ timeout: 30_000 });
+
+    // No-prior copy mounts and pins the load-bearing string.
+    await expect(
+      page.getByTestId("state-event-cross-event-sankey-no-prior"),
+    ).toBeVisible({ timeout: 30_000 });
+    await expect(
+      page.getByTestId("state-event-cross-event-sankey-no-prior"),
+    ).toContainText(/Vote-flow comparison needs a prior election/);
+    // \s+ absorbs the JSX newline + leading whitespace gap between
+    // "first" and "{body_pretty}" in the multi-line template literal.
+    // Playwright does NOT normalize whitespace when matching a regex.
+    await expect(
+      page.getByTestId("state-event-cross-event-sankey-no-prior"),
+    ).toContainText(/first\s+Assembly\s+event\s+on\s+record/);
+
+    // Neither the diverging bar nor the toggle pill nor the Sankey
+    // panel may render in the no-prior branch.
+    await expect(
+      page.getByTestId("state-event-cross-event-diverging-bar"),
+    ).toHaveCount(0);
+    await expect(
+      page.getByTestId("state-event-cross-event-sankey-toggle"),
+    ).toHaveCount(0);
+    await expect(
+      page.getByTestId("state-event-cross-event-sankey-panel"),
+    ).toHaveCount(0);
+  });
+});
