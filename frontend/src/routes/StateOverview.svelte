@@ -30,7 +30,7 @@
     maximumFractionDigits: 2,
   });
 
-  /** Slugs of Indian UTs that do NOT have a Vidhan Sabha (state
+  /** Slugs of Indian UTs that do NOT have a state Assembly (state
    *  legislature). Administered by the Centre via a Lt. Governor; no
    *  elected MLAs, no constituencies.json SOT, no "Assembly Map" surface.
    *  Excludes Delhi (U05), Puducherry (U07), Jammu & Kashmir (U08) which

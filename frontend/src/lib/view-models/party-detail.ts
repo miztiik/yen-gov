@@ -70,7 +70,7 @@ const PARTY_ALLIANCES_URL = `${DATA_BASE}/data/entities/party_alliances.csv`;
 const METHODOLOGY_BREAKS_URL = `${DATA_BASE}/taxonomy/methodology_breaks.json`;
 
 /** Subset of `lspc-delim-*` methodology_versions PR-10 renders as
- *  vertical markers on the Lok Sabha DualAxisBarLine chart. Per the
+ *  vertical markers on the Parliament DualAxisBarLine chart. Per the
  *  PR-10 brief (Jony 1d): the 2 pre-1999 frame_change rows surfaced
  *  by PR-8 #1003's new LS coverage (1962/1989/1991/1996/1998 cycles).
  *  The 2008 delim break is NOT in this list - it lives in the
@@ -187,9 +187,9 @@ export interface PartyStronghold {
 
 /** Aggregate KPI totals for the header strip. */
 export interface PartyTotals {
-  /** Sum of party-seats-won across every Lok Sabha cycle. */
+  /** Sum of party-seats-won across every Parliament general-election cycle. */
   ls_seats: number;
-  /** Sum of party-seats-won across every Vidhan Sabha cycle. */
+  /** Sum of party-seats-won across every state Assembly cycle. */
   vs_seats: number;
   /** Number of cycles (LS + VS) where this party contested >0 or
    *  won >0. */
@@ -199,11 +199,12 @@ export interface PartyTotals {
   first_year: number;
   /** Latest polling year on file. 0 when no cycles. */
   last_year: number;
-  /** Peak Lok Sabha seats won in any single cycle. 0 when no LS. */
+  /** Peak Parliament seats won in any single general-election cycle.
+   *  0 when the party has no Parliament history. */
   peak_ls_seats: number;
   /** Year of the peak LS cycle. 0 when no LS. */
   peak_ls_year: number;
-  /** Peak Vidhan Sabha seats won in any single cycle. 0 when no VS. */
+  /** Peak state-Assembly seats won in any single cycle. 0 when no VS. */
   peak_vs_seats: number;
   /** Year of the peak VS cycle. 0 when no VS. */
   peak_vs_year: number;
@@ -212,10 +213,10 @@ export interface PartyTotals {
 /** Per-party detail page view-model. */
 export interface PartyDetailViewModel {
   metadata: PartyMeta;
-  /** Lok Sabha history (chronological ascending). Empty for parties
+  /** Parliament general-election history (chronological ascending). Empty for parties
    *  with no parliamentary contests. */
   ls_history: PartyHistoryPoint[];
-  /** Vidhan Sabha history (chronological ascending). Empty for
+  /** State-Assembly history (chronological ascending). Empty for
    *  parties that only contest parliament (rare). */
   vs_history: PartyHistoryPoint[];
   /** Top-10 LS strongholds by wins descending. Empty when no LS

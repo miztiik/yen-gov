@@ -10,8 +10,8 @@
    *
    * Use-cases qualifying the >= 2 indicator threshold (per the
    * existing closed-set extension rule):
-   *   - per-party Lok Sabha seats won (bar) vs vote-share pct (line)
-   *   - per-party Vidhan Sabha seats won (bar) vs vote-share pct (line)
+   *   - per-party Parliament seats won (bar) vs vote-share pct (line)
+   *   - per-party Assembly seats won (bar) vs vote-share pct (line)
    *   - future: candidate margin (bar) vs polling-day turnout (line)
    *   - future: party strength index (bar) vs alliance share (line)
    *

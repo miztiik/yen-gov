@@ -12,7 +12,7 @@
    - Breadcrumb -> stateElectionsLandingCrumbs(state)
    - PageHeader "{State} elections"
    - Per-body latest-event hero (one card for assembly, one for parliament)
-   - Two parallel tables (Vidhan Sabha / Lok Sabha), one row per event,
+   - Two parallel tables (Assembly / Parliament), one row per event,
      year-as-link to /<state>/elections/<event_id>
    - Last-viewed badge per J-elevated-15 (read localStorage on mount;
      30-day expiry; render Last viewed badge next to matching year-link)
@@ -149,7 +149,7 @@
             data-testid="state-elections-landing-latest-assembly"
           >
             <div class="text-xs uppercase tracking-wide text-slate-500">
-              Latest Vidhan Sabha
+              Latest Assembly
             </div>
             <div class="mt-1 text-base font-semibold text-slate-900">
               {state_name} Assembly {yearOf(ev)}
@@ -165,7 +165,7 @@
             data-testid="state-elections-landing-latest-parliament"
           >
             <div class="text-xs uppercase tracking-wide text-slate-500">
-              Latest Lok Sabha (state slice)
+              Latest Parliament (state slice)
             </div>
             <div class="mt-1 text-base font-semibold text-slate-900">
               {state_name} Parliament {yearOf(ev)}
@@ -182,7 +182,7 @@
         data-testid="state-elections-landing-assembly-table"
       >
         <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-700">
-          Vidhan Sabha ({assembly_events.length})
+          Assembly ({assembly_events.length})
         </h2>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
@@ -235,7 +235,7 @@
         data-testid="state-elections-landing-parliament-table"
       >
         <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-700">
-          Lok Sabha ({parliament_events.length})
+          Parliament ({parliament_events.length})
         </h2>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
