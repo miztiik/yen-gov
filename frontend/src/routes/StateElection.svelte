@@ -85,7 +85,9 @@
   import StateEventMap from "../lib/elections/StateEventMap.svelte";
   import StateEventPartyComposite from "../lib/elections/StateEventPartyComposite.svelte";
   import SiblingEventsRail from "../lib/elections/SiblingEventsRail.svelte";
+  import StateEventCrossEventSankey from "../lib/elections/StateEventCrossEventSankey.svelte";
   import { buildSiblingEventsRail } from "../lib/elections/sibling-events-rail-model";
+  import type { PrevWinnersState } from "../lib/elections/cross-event-sankey-model";
   import {
     loadEventSummary,
     type EventSummaryRow,
@@ -841,6 +843,81 @@
     };
   });
 
+  // ---- R5 (TODO/20260615-state-election-event-page-redesign-plan.md):
+  // Prev-event winners loader for the CrossEventSankey + diverging
+  // bar. Mirrors the current-event loader path: AC events take a
+  // per-state scope; PC events load national + filter locally. The
+  // section gracefully renders the no-prior copy when
+  // previous_same_body is null (first event on record for this body
+  // in this state).
+  let prev_winners_result = $state<LoaderResult<ElectionResultRow[]> | null>(null);
+  $effect(() => {
+    const prev_ev = previous_same_body;
+    const sc = state_code;
+    const b = body;
+    if (!prev_ev || !sc || !b) {
+      prev_winners_result = null;
+      return;
+    }
+    const target_state_slug = params.state;
+    prev_winners_result = { status: "loading" };
+    const prev_event_id = prev_ev.event_id;
+    if (b === "ac") {
+      loadElectionResults({ event: prev_event_id, state: sc }).then((r) => {
+        if (
+          prev_ev !== previous_same_body ||
+          state_code !== sc ||
+          event_row?.event_id !== event_row?.event_id
+        ) {
+          return;
+        }
+        prev_winners_result = r;
+      });
+    } else {
+      loadElectionResults({ event: prev_event_id }).then((r) => {
+        if (
+          prev_ev !== previous_same_body ||
+          state_code !== sc ||
+          params.state !== target_state_slug
+        ) {
+          return;
+        }
+        if (r.status !== "ok" && r.status !== "partial") {
+          prev_winners_result = r;
+          return;
+        }
+        const filtered = r.data.filter(
+          (row) => row.state_slug === target_state_slug,
+        );
+        prev_winners_result = {
+          status: r.status,
+          data: filtered,
+        } as LoaderResult<ElectionResultRow[]>;
+      });
+    }
+  });
+
+  const prev_winners_state = $derived.by<PrevWinnersState>(() => {
+    if (!previous_same_body) return { status: "no_prior" };
+    const r = prev_winners_result;
+    if (!r || r.status === "loading") return { status: "loading" };
+    if (r.status === "failed") return { status: "failed", reason: r.reason };
+    if (r.status === "ok" || r.status === "partial") {
+      return { status: "ok", rows: r.data };
+    }
+    return { status: "loading" };
+  });
+
+  // Pretty labels for the Sankey panel's prev->current line + the
+  // no-prior copy.
+  const body_pretty = $derived(body === "pc" ? "Parliament" : "Assembly");
+  const current_event_label = $derived.by<string>(() => {
+    const ev = event_row;
+    if (!ev) return params.event;
+    const m = /(\d{4})/.exec(ev.event_id);
+    return m ? `${body_pretty} ${m[1]}` : ev.event_id;
+  });
+
   // ---- Display label --------------------------------------------------
   // event_row.display already includes the state name for parliament
   // events ("Chhattisgarh · Parliament 2024") and assembly events
@@ -1090,6 +1167,21 @@
         {compare_href}
         {fmtInt}
         {fmtPct}
+      />
+
+      <!-- Cross-event vote-flow comparison. R5 of
+           TODO/20260615-state-election-event-page-redesign-plan.md
+           (2026-06-15): always-on diverging bar above a collapsed
+           Sankey behind a 'Show vote-flow' pill. Max + Jony verdict
+           in plan Section 6. When no prior same-body event exists
+           the section renders the no-prior copy with no button. -->
+      <StateEventCrossEventSankey
+        current_winners={winners}
+        prev_winners={prev_winners_state}
+        prev_event_label={hero_delta.prev_event_label}
+        {current_event_label}
+        {body_pretty}
+        {state_name}
       />
     {/if}
   {/if}
