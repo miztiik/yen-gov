@@ -71,6 +71,20 @@ const MAX_PARTNER_NAMES = 5;
  *  Mirrors the columns.json schema note for party_alliances.csv. */
 const PARLIAMENT_STATE_TOKEN = "IN";
 
+/** Render-time recency window for the Alliance Context strip.
+ *  PR-11 of TODO/20260615-party-page-citizen-fixes-plan.md (Jony +
+ *  Citizen, ESCALATE E4): the citizen-facing strip caps to events
+ *  in the last 10 years - alliance ledger rows older than this are
+ *  preserved in the canonical CSV but NOT rendered, because the
+ *  political alignment of an alliance from >10y ago is rarely the
+ *  same surface the citizen is asking about today (e.g. the 2009
+ *  UPA vs the 2024 INDIA bloc). The cap is computed against the
+ *  current calendar year inside `fetchPartyAllianceContext`; tests
+ *  inject an explicit `current_year` via `loadPartyAllianceContext`
+ *  opts. The cap is APPLIED INSIDE `projectAllianceContext` so the
+ *  pure projection is fully test-pinnable. */
+const RECENCY_CAP_YEARS = 10;
+
 /** Parliament alliance context - the focal party's role + partners
  *  in the latest LS event with an alliance row. Null when the focal
  *  has no national alliance row in the corpus yet. */
@@ -376,6 +390,13 @@ export function buildSeatsSql(
  *    - seat_map: (party_id, body, year, state) -> seats.
  *    - partyShortFromId: short-name resolver injected by caller.
  *    - stateNameFromSlug: state-name resolver injected by caller.
+ *    - cutoff_year: optional render-time minimum polling year.
+ *      Rows with `event_id`-derived year < cutoff_year are dropped
+ *      from BOTH the Parliament pick and the per-state Assembly
+ *      list (PR-11; see RECENCY_CAP_YEARS). Defaults to
+ *      Number.NEGATIVE_INFINITY (no cap) for backward compatibility
+ *      with vitest fixtures that pre-date the cap; production
+ *      callers always pass a concrete year.
  *
  *  Outputs the PartyAllianceContext object the renderer consumes.
  *  Returns null when there is no useful data on either body. Exported
@@ -387,7 +408,9 @@ export function projectAllianceContext(
   seat_map: Map<SeatLookupKey, number>,
   partyShortFromId: (party_id: string) => string | null,
   stateNameFromSlug: (slug: string) => string | null,
+  cutoff_year?: number,
 ): PartyAllianceContext | null {
+  const min_year = cutoff_year ?? Number.NEGATIVE_INFINITY;
   // Bucket focal rows by (body, state) - Parliament rows (state =
   // "IN") collapse to one bucket; per-state Assembly rows bucket by
   // state. Within each bucket pick the row with MAX event_id (lex
@@ -477,6 +500,13 @@ export function projectAllianceContext(
     // the citizen and clutters the strip; the historical chart
     // already covers the standalone-LS narrative).
   }
+  // PR-11 recency cap: drop the Parliament pick when its year is
+  // older than the cutoff. The underlying alliance ledger row stays
+  // in the CSV; the citizen surface just doesn't render it.
+  if (parliament !== null) {
+    const py = eventIdToYear(parliament.event_id) ?? 0;
+    if (py < min_year) parliament = null;
+  }
   // Build per-state Assembly sections.
   const state_assemblies: PartyAllianceContextStateAssembly[] = [];
   const sorted_states = Array.from(assembly_picks_by_state.entries()).sort(
@@ -487,6 +517,11 @@ export function projectAllianceContext(
     const event_id = pick.event_id;
     const alliance_raw = pick.alliance ?? "";
     const year = eventIdToYear(event_id) ?? 0;
+    // PR-11 recency cap: drop per-state Assembly rows older than
+    // the cutoff. Same rule as Parliament above; mirrors the cap
+    // applied to the Parliament pick so the strip is consistent
+    // across both bodies.
+    if (year < min_year) continue;
     const resolved_name = stateNameFromSlug(state_slug);
     const state_name =
       resolved_name && resolved_name.trim().length > 0
@@ -612,6 +647,10 @@ export function loadPartyAllianceContext(
     is_sentinel?: boolean;
     stateNameFromSlug?: (slug: string) => string | null;
     partyShortFromId?: (party_id: string) => string | null;
+    /** Test-only: override the calendar year used to compute the
+     *  PR-11 recency cap. Production omits this and the loader
+     *  uses `new Date().getFullYear()`. */
+    current_year?: number;
   } = {},
 ): Promise<PartyAllianceContext | null> {
   if (!party_id) return Promise.resolve(null);
@@ -623,6 +662,7 @@ export function loadPartyAllianceContext(
     party_id,
     opts.stateNameFromSlug ?? null,
     opts.partyShortFromId ?? null,
+    opts.current_year ?? null,
   ).catch((err) => {
     allianceCache.delete(party_id);
     throw err;
@@ -639,6 +679,7 @@ async function fetchPartyAllianceContext(
   partyShortFromIdOverride:
     | ((party_id: string) => string | null)
     | null,
+  currentYearOverride: number | null,
 ): Promise<PartyAllianceContext | null> {
   // Resolve party + state name lookups. Tests inject explicit
   // resolvers; production builds the resolvers from the cached
@@ -818,6 +859,7 @@ async function fetchPartyAllianceContext(
     seat_map,
     partyShortFromId,
     stateNameFromSlug,
+    (currentYearOverride ?? new Date().getFullYear()) - RECENCY_CAP_YEARS,
   );
 }
 
