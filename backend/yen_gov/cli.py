@@ -730,6 +730,38 @@ def derive_party_pages(
     )
 
 
+@app.command("derive-event-summary")
+def derive_event_summary(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Compute the per-event aggregate mart from canonical summary.csv files.
+
+    Emits `datasets/data/marts/elections/event_summary.csv` (one row per
+    (event_id, state_code) tuple). Reader for the redesigned `/t/elections`
+    (General elections) and `/t/elections/assemblies` (Assembly elections)
+    routes in PR-E4. Per TODO/20260615-elections-redesign-plan.md row E2.
+    """
+    from yen_gov.canonical.derived.event_summary import refresh_event_summary_mart
+
+    root_resolved = root.resolve()
+    result = refresh_event_summary_mart(root_resolved)
+    typer.echo(
+        "derive-event-summary: wrote "
+        f"{result.out_path.relative_to(root_resolved).as_posix()} "
+        f"({result.row_count} rows = {result.national_row_count} national "
+        f"+ {result.state_row_count} state; skipped {result.skipped_files} "
+        f"unmatched files; source_id={result.source_id})"
+    )
+
+
 def _read_long_csv(path: Path) -> list[dict[str, object]]:
     """Read a 4-column long-format CSV (entity_id, time, value, source_id).
 
