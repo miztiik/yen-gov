@@ -31,12 +31,12 @@ inside the open families above.
 
 ## Inventory
 
-The 22 glyphs listed below are the file set this directory carries. The
+The 23 glyphs listed below are the file set this directory carries. The
 21 originally migrated under U3 (plan chunk U3, 2026-06-05; the set was
 unchanged from the prior `frontend/src/lib/icons/` location — only the
 on-disk home moved per plan section 21.10) plus `chevron-right` (added
 under U2b, 2026-06-05) for the `Breadcrumb` separator glyph between
-ascend crumbs (see [`frontend/src/lib/Breadcrumb.svelte`](../../src/lib/Breadcrumb.svelte); the breadcrumb spine was renamed to its current shared form in PR-W1d, 2026-06-10).
+ascend crumbs (see [`frontend/src/lib/Breadcrumb.svelte`](../../src/lib/Breadcrumb.svelte); the breadcrumb spine was renamed to its current shared form in PR-W1d, 2026-06-10), plus `wikipedia` (added under PR-3 D4 of [`TODO/20260615-party-page-citizen-fixes-plan.md`](../../../TODO/20260615-party-page-citizen-fixes-plan.md)) for the Wikipedia link reinforcement glyph on `PartyAboutCard` and the Gallagher "learn more" link.
 
 | Icon | Family | Source URL | Licence | Attribution | Modifications |
 | --- | --- | --- | --- | --- | --- |
@@ -60,6 +60,7 @@ ascend crumbs (see [`frontend/src/lib/Breadcrumb.svelte`](../../src/lib/Breadcru
 | trending-up | Lucide | https://lucide.dev/icons/trending-up | ISC | | none |
 | users | Lucide | https://lucide.dev/icons/users | ISC | | none |
 | vote | Lucide | https://lucide.dev/icons/vote | ISC | | none |
+| wikipedia | yen-gov (in-house) | n/a | CC0-1.0 | | hand-authored Lucide-shaped W glyph (4-stroke W on 24x24 viewBox); Wikipedia wordmark is a registered trademark and is referenced only as semantic inspiration, not as source artwork |
 | wind | Lucide | https://lucide.dev/icons/wind | ISC | | none |
 | zap | Lucide | https://lucide.dev/icons/zap | ISC | | none |
 

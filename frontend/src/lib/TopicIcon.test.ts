@@ -90,7 +90,10 @@ describe("TopicIcon helpers", () => {
       // 2026-06-06 added `factory` (referenced by canonical
       // indicator-allowlist for installed-capacity-* indicators) and
       // `electric-tower` (energy-infrastructure glyph staged for the
-      // next round of energy indicator cards).
+      // next round of energy indicator cards). PR-3 D4 (2026-06-15)
+      // added `wikipedia` (hand-authored Lucide-shaped W glyph for the
+      // Wikipedia link reinforcement on PartyAboutCard + the Gallagher
+      // "learn more" link); see TODO/20260615-party-page-citizen-fixes-plan.md.
       expect(names).toEqual([
         "activity",
         "bar-chart",
@@ -114,6 +117,7 @@ describe("TopicIcon helpers", () => {
         "trending-up",
         "users",
         "vote",
+        "wikipedia",
         "wind",
         "zap",
       ]);
