@@ -88,6 +88,7 @@
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
+  import { SHARE_BASE } from "../lib/paths";
   import type { PartyTotals } from "../lib/data";
   import { loadAlliances } from "../lib/psephlab/alliances";
   import type { AllianceLookup } from "../lib/psephlab/types";
@@ -772,7 +773,40 @@
   }
 
   const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
+
+  // R7 (TODO/20260615-state-election-event-page-redesign-plan.md
+  // J-elevated-14): OG-card unfurl meta. Generated PNG ships at
+  // /share/{state-slug}/{event_id}.png via the build step in
+  // `frontend/scripts/build-share-cards.ts`. When the event_id
+  // cannot be resolved (404 surfaces upstream) the og:image meta is
+  // omitted entirely - WhatsApp / Twitter degrade to text-only
+  // previews rather than 404 on a broken image.
+  const og_image_url = $derived(
+    event_row && state_code
+      ? `${SHARE_BASE}/${params.state}/${event_row.event_id}.png`
+      : null,
+  );
+  const og_title = $derived(`${event_pretty} - yen-gov`);
+  const og_description = $derived.by(() => {
+    if (!event_row || !state_code) return "Election data for India.";
+    const body_word = body === "pc" ? "Parliament" : "Assembly";
+    return `${state_name} ${body_word} election polled on ${event_row.polled_on}. Seat-by-seat winners, party totals, alliance composition, and turnout context.`;
+  });
 </script>
+
+<svelte:head>
+  <title>{og_title}</title>
+  <meta property="og:title" content={og_title} />
+  <meta property="og:description" content={og_description} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={og_title} />
+  <meta name="twitter:description" content={og_description} />
+  {#if og_image_url}
+    <meta property="og:image" content={og_image_url} />
+    <meta name="twitter:image" content={og_image_url} />
+  {/if}
+</svelte:head>
 
 <Breadcrumb {crumbs} />
 
