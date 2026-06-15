@@ -287,13 +287,12 @@
   import TopicIcon from "../lib/TopicIcon.svelte";
   import DualAxisBarLine from "../lib/charts/DualAxisBarLine/DualAxisBarLine.svelte";
   import RecognitionStrip from "../lib/parties/RecognitionStrip.svelte";
-  // PR-6: recognitionLabel + PartyAboutCard share the same Hans H7
-  // vocabulary; importing keeps the in-header subline and the
-  // side-rail card on a single source of truth (future copy tweaks
-  // happen in one place; the AboutCard vitest pin covers both paths).
-  import PartyAboutCard, {
-    recognitionLabel,
-  } from "../lib/parties/PartyAboutCard.svelte";
+  // Wave-F F6: PartyAboutCard.svelte was RIP'd per CLAUDE.md section 0.5
+  // (RIP doctrine) - the metadata it carried (founding range, recognition,
+  // Wikipedia link) collapses into the per-party header meta-strip below
+  // the "Led by" line. recognitionLabel migrated to its own pure module
+  // so it survives the AboutCard delete.
+  import { recognitionLabel } from "../lib/parties/recognition-label";
   // PR-7: "Where this party sits today" strip sits directly under the
   // header card and above the latest-of one-liners on /parties/<slug>.
   // The view-model is built upstream by `loadPartyCurrentStrength`
@@ -473,10 +472,11 @@
   // geographic signal textually; git is the backup if a richer
   // interactive map is needed later.
 
-  // Recognition badge label is sourced from PartyAboutCard's exported
-  // helper (Hans H7 vocabulary, PR-6). Single source of truth - the
-  // in-header subline (line 483) and the side-rail card render the
-  // same string for the same scope.
+  // Recognition badge label is sourced from the extracted
+  // `recognition-label` helper module (Hans H7 vocabulary, originally
+  // PR-6, lifted out in Wave-F F6 so the helper outlives the deleted
+  // PartyAboutCard). Single source of truth - the in-header subline
+  // and the meta-strip render the same string for the same scope.
 
   // PR-12 (D12 of TODO/20260615-party-page-citizen-fixes-plan.md): per-
   // route crumb chain mounted via the shared `<Breadcrumb>` primitive.
@@ -586,6 +586,59 @@
             >
           </p>
         {/if}
+        <!-- Wave-F F6: compact meta-strip replacing the deleted
+             PartyAboutCard side-rail. Inlined into the header so the
+             page no longer needs an `lg:` grid wrapper. Renders the
+             three citizen-facing facts that survived the AboutCard
+             RIP:
+               1) Active range (founded - dissolved) when at least one
+                  endpoint is known.
+               2) Recognition vocabulary (Hans H7 - "Nationally
+                  recognised party" / "State-recognised party" / etc.).
+                  The same string already renders in the subline above
+                  for live parties; the meta-strip surfaces it again as
+                  a separator-prefixed item for visual symmetry.
+               3) Wikipedia link, rendered with the real CC BY-SA 4.0
+                  puzzle-globe asset at `/icons/wikipedia.svg` (Wave-F
+                  F1) instead of the prior hand-minted W glyph behind
+                  TopicIcon.
+             HQ + ideology + official website (named in the brief) are
+             not on `PartyMeta` and intentionally omitted; restoring
+             them is a separate Hans+Max data-shape PR. -->
+        {#if !meta.is_sentinel && (meta.founded_year || meta.dissolved_year || meta.wikipedia)}
+          <p
+            class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500"
+            data-testid="party-meta-strip"
+          >
+            {#if meta.founded_year !== null && meta.dissolved_year !== null}
+              <span data-testid="party-meta-active">Active {meta.founded_year}-{meta.dissolved_year}</span>
+            {:else if meta.founded_year !== null}
+              <span data-testid="party-meta-active">Active since {meta.founded_year}</span>
+            {:else if meta.dissolved_year !== null}
+              <span data-testid="party-meta-active">Dissolved {meta.dissolved_year}</span>
+            {/if}
+            {#if meta.recognition_scope}
+              <span aria-hidden="true" class="text-slate-300">.</span>
+              <span data-testid="party-meta-recognition">{recognitionLabel(meta.recognition_scope)}</span>
+            {/if}
+            {#if meta.wikipedia}
+              <span aria-hidden="true" class="text-slate-300">.</span>
+              <a
+                href={meta.wikipedia}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-sky-700 hover:underline"
+                data-testid="party-meta-wikipedia"
+              ><img
+                  src="/brands/wikipedia.svg"
+                  alt=""
+                  width="16"
+                  height="16"
+                  class="h-4 w-4 inline-block"
+                /><span>Wikipedia</span></a>
+            {/if}
+          </p>
+        {/if}
         {#if sentinel_line}
           <p
             class="text-xs text-slate-500 italic max-w-prose"
@@ -621,18 +674,14 @@
     <SourceList pills={view_model.provenance.pills_per_card.alliance_context} />
 
     <!--
-      PR-6 layout: header sits full-width above. Sections (2)-(6) live
-      in the LEFT column of a 1fr+240px grid at `lg`+; the right column
-      hosts the "About this party" side-rail (PartyAboutCard). On
-      narrow viewports the grid collapses to a single column and the
-      mobile-mode AboutCard renders below strongholds (`lg:hidden`
-      slot at the bottom of the left column). PUCL attribution survives
-      as a full-width block AFTER the grid for NOTA.
+      PR-6 layout: header sits full-width above. Wave-F F6 RIP'd
+      the right-column AboutCard, so the prior `1fr+240px` lg-grid
+      collapses to a single full-width column at every breakpoint.
+      The wrapper survives as a `space-y-6` container so the inter-
+      section vertical rhythm is unchanged. PUCL attribution lives
+      as a full-width block AFTER this container for NOTA.
     -->
-    <div
-      class="lg:grid lg:grid-cols-[1fr_240px] lg:gap-6 lg:items-start space-y-6 lg:space-y-0"
-    >
-      <div class="space-y-6 min-w-0">
+    <div class="space-y-6 min-w-0">
 
     <!-- (2) Latest-of one-liner per body. Hidden for sentinels until
          a meaningful value lands. -->
@@ -844,28 +893,16 @@
       </section>
     {/if}
 
-    <!-- (7) About this party (PR-6).
-         Renders TWICE: once below strongholds as a mobile <dl>
-         (`lg:hidden`), once in the right column of the grid as a
-         desktop bordered side-rail (`hidden lg:block`). Both mounts
-         render IDENTICAL content; the mobile flag toggles the wrapper
-         styling. The PUCL attribution for NOTA is NOT part of the
-         card - it survives as a full-width block below the grid. -->
-        <div class="lg:hidden">
-          <PartyAboutCard
-            {meta}
-            statesNameFn={(c) => states.name(c)}
-            mobile
-          />
-        </div>
-      </div>
-      <aside class="hidden lg:block">
-        <PartyAboutCard
-          {meta}
-          statesNameFn={(c) => states.name(c)}
-        />
-      </aside>
-    </div>
+    <!-- (7) About this party (PR-6, Wave-F F6).
+         Card RIP'd: the side-rail mount + mobile mount + lg-grid
+         wrapper were ALL removed in Wave-F F6 per CLAUDE.md §0.5
+         (RIP doctrine). The metadata the card carried (founding
+         range / recognition / Wikipedia) now lives inline in the
+         per-party header meta-strip below the "Led by" line.
+         The PUCL attribution for NOTA survives as the full-width
+         block below; the "About this page →" link survives as the
+         footer below it. -->
+    </div><!-- /.space-y-6 min-w-0 (full-width body container) -->
 
     {#if showPuclAttribution(meta.party_id)}
       <p

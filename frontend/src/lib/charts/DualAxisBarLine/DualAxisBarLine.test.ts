@@ -15,6 +15,7 @@ import {
   buildScales,
   composeCompositeBarSegments,
   computeMethodologyBreakMarkers,
+  niceYMax,
   pickLabelStride,
   yearFromPeriodLabel,
   yearNumberFromPeriodLabel,
@@ -169,6 +170,50 @@ describe("yearFromPeriodLabel", () => {
   it("falls back to the raw input when no year suffix matches", () => {
     expect(yearFromPeriodLabel("not-an-event-id")).toBe("not-an-event-id");
     expect(yearFromPeriodLabel("")).toBe("");
+  });
+});
+
+// --- niceYMax (Wave-F F5) -------------------------------------------------
+//
+// Wave-F F5 of TODO/20260615-party-page-citizen-fixes-plan.md replaced the
+// blunt `Math.max(100, scales.right_y_max)` cap on percent axes with a
+// proportional ceiling that pads the visible peak by ~15% and rounds up to
+// the nearest 10. The motivation is small-party vote-share charts (CPI,
+// AAM AADMI, regional parties): a 3% peak rendered on a 0-100% axis is
+// visually flat. The helper bounds the result to [10, 100] so:
+//   - charts always show at least one tick gap above zero, and
+//   - tall national parties (peak 87%) still resolve at the citizen-readable
+//     0-100% scale instead of jumping to 90% or 95% (which would imply a
+//     non-percent axis).
+//
+// The 5 canonical examples in the JSDoc on `niceYMax` are pinned here so
+// any future tweak (e.g. raise the padding factor) goes through review.
+
+describe("niceYMax", () => {
+  it("floors at 10 for non-finite or non-positive input", () => {
+    expect(niceYMax(0)).toBe(10);
+    expect(niceYMax(-5)).toBe(10);
+    expect(niceYMax(Number.NaN)).toBe(10);
+    expect(niceYMax(Number.POSITIVE_INFINITY)).toBe(10);
+  });
+
+  it("rounds a tiny peak up to the 10 floor", () => {
+    expect(niceYMax(3)).toBe(10);
+    expect(niceYMax(8)).toBe(10);
+  });
+
+  it("pads a mid-range peak by ~15% and rounds up to the next 10", () => {
+    // 28 * 1.15 = 32.2 -> ceil to 40
+    expect(niceYMax(28)).toBe(40);
+    // 41 * 1.15 = 47.15 -> ceil to 50
+    expect(niceYMax(41)).toBe(50);
+  });
+
+  it("clamps a near-max peak at the 100 ceiling", () => {
+    // 87 * 1.15 = 100.05 -> ceil to 110 -> clamp to 100
+    expect(niceYMax(87)).toBe(100);
+    expect(niceYMax(98)).toBe(100);
+    expect(niceYMax(100)).toBe(100);
   });
 });
 

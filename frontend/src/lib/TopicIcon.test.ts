@@ -92,8 +92,12 @@ describe("TopicIcon helpers", () => {
       // `electric-tower` (energy-infrastructure glyph staged for the
       // next round of energy indicator cards). PR-3 D4 (2026-06-15)
       // added `wikipedia` (hand-authored Lucide-shaped W glyph for the
-      // Wikipedia link reinforcement on PartyAboutCard + the Gallagher
-      // "learn more" link); see TODO/20260615-party-page-citizen-fixes-plan.md.
+      // Gallagher `learn more` link); see
+      // TODO/20260615-party-page-citizen-fixes-plan.md. The original
+      // Party-page consumer (PartyAboutCard) was RIP'd in Wave-F F6 and
+      // replaced with an `<img src="/brands/wikipedia.svg">` mount of
+      // the CC BY-SA puzzle-globe; the W-glyph survives here for the
+      // sole remaining consumer (`GallagherDisproportionality.svelte`).
       expect(names).toEqual([
         "activity",
         "bar-chart",

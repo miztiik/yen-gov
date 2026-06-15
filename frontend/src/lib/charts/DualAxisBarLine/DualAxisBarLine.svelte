@@ -116,6 +116,31 @@
     return m ? m[1]! : period_label;
   }
 
+  /** Wave-F F5: dynamic Y-axis ceiling for percentage axes. Rounds
+   *  the observed max UP to the next 10s boundary with a 15% headroom
+   *  buffer, then clamps to the inclusive range [10, 100]. The 15%
+   *  headroom keeps the tallest bar from kissing the chart's top edge
+   *  (citizen-readable breathing room); the 10% floor keeps tiny
+   *  parties' charts legible (a single 1% bar still gets a five-tick
+   *  ladder up to 10%); the 100% ceiling honours the closed
+   *  percentage domain.
+   *
+   *  Examples (round-trip pinned in DualAxisBarLine.test.ts):
+   *    `niceYMax(0)`   -> 10  (clamped floor; empty/zero data)
+   *    `niceYMax(3)`   -> 10  (3 * 1.15 = 3.45 -> ceil10 = 10)
+   *    `niceYMax(28)`  -> 40  (28 * 1.15 = 32.2 -> ceil10 = 40)
+   *    `niceYMax(87)`  -> 100 (87 * 1.15 = 100.05 -> ceil10 = 110 -> clamp = 100)
+   *    `niceYMax(98)`  -> 100 (98 * 1.15 = 112.7 -> ceil10 = 120 -> clamp = 100)
+   *
+   *  Defensive: non-finite or negative input collapses to the floor. */
+  export function niceYMax(maxData: number): number {
+    if (!Number.isFinite(maxData) || maxData <= 0) return 10;
+    const padded = Math.ceil((maxData * 1.15) / 10) * 10;
+    if (padded < 10) return 10;
+    if (padded > 100) return 100;
+    return padded;
+  }
+
   /** PR-10: numeric 4-digit polling year, or null when no trailing
    *  year suffix matches. Powers the methodology-break X-axis seam
    *  placement: a break at `at_year=Y` sits BETWEEN the last bar whose
@@ -452,11 +477,16 @@
     mode = "dual-axis",
   }: Props = $props();
 
-  // Layout constants. Symmetric left/right margins for the dual axes.
+  // Layout constants. Wave-F F3: MARGIN_LEFT bumped from 48 -> 60 so
+  // the rotated `bar_y_label` (e.g. "Vote share %") at y=-44 clears
+  // the left tick labels at x=-8 (which can extend back to roughly
+  // x=-32 for a `"100%"` tick). At 48px we had a ~4px gap between
+  // the y-label's rotated bounding box and the tick labels - they
+  // overlapped at any chart width and on any device pixel ratio.
   const MARGIN_TOP = 24;
   const MARGIN_RIGHT = 48;
   const MARGIN_BOTTOM = 56;
-  const MARGIN_LEFT = 48;
+  const MARGIN_LEFT = 60;
 
   // Responsive width via the wrapper's clientWidth.
   let wrapper_width = $state(640);
@@ -469,22 +499,29 @@
   const scales = $derived(buildScales(bars, line));
 
   // Detect "percentage" axis: when line_format produces a `%`-suffixed
-  // string for 1.0, clamp the right axis to 100. Otherwise scale from
-  // the right_y_max directly. Sample-once via $derived so the test
-  // doesn't have to mock window.
+  // string for 1.0, the right axis is a percentage. Wave-F F5 swaps
+  // the static `Math.max(100, right_y_max)` clamp for the dynamic
+  // `niceYMax(right_y_max)` ladder (10/20/30...100), so a small party
+  // whose peak right-axis value is ~5% gets a 10% ceiling instead of
+  // a 100% ceiling that flattens every bar visually. Sample-once via
+  // $derived so the test doesn't have to mock window.
   const right_y_cap = $derived.by(() => {
     const sample = line_format(1.0);
-    if (sample.includes("%")) return Math.max(100, scales.right_y_max);
+    if (sample.includes("%")) return niceYMax(scales.right_y_max);
     return scales.right_y_max;
   });
 
-  // PR-10: same percentage-clamp for the LEFT axis when composite
-  // mode's bar_format produces a `%`-suffixed string for 1.0. In
-  // dual-axis mode the left axis carries an absolute count and the
-  // clamp is a no-op (Math.max(0, left_y_max) === left_y_max).
+  // PR-10: same percentage detector for the LEFT axis when composite
+  // mode's bar_format produces a `%`-suffixed string for 1.0. Wave-F
+  // F5 swaps the static `Math.max(100, left_y_max)` for `niceYMax(...)`
+  // so every party's vote-share chart auto-scales to its own peak
+  // instead of always rendering against a 0-100% axis. AAP composite
+  // peaks at ~33% -> y-max = 40%; CPI peaks at ~3% -> y-max = 10%.
+  // In dual-axis mode the left axis carries an absolute count and the
+  // detector is a no-op (passes through `left_y_max`).
   const left_y_cap = $derived.by(() => {
     const sample = bar_format(1.0);
-    if (sample.includes("%")) return Math.max(100, scales.left_y_max);
+    if (sample.includes("%")) return niceYMax(scales.left_y_max);
     return scales.left_y_max;
   });
 
@@ -669,10 +706,15 @@
           {/each}
         {/if}
 
-        <!-- Axis labels -->
+        <!-- Axis labels. Wave-F F3: bar_y_label y bumped from -36 -> -44
+             so the rotated label clears the left tick labels (anchored
+             at x=-8, extending back to roughly x=-32 for a "100%" tick).
+             Combined with MARGIN_LEFT=60 (was 48) the rotated label
+             sits in dedicated whitespace instead of overlapping the
+             tick numerals. -->
         <text
           x={-inner_h / 2}
-          y={-36}
+          y={-44}
           text-anchor="middle"
           transform="rotate(-90)"
           class="fill-slate-700 text-xs font-medium"
