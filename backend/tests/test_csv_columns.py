@@ -45,6 +45,11 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # the artifact's own self-declared $schema points at the sibling validator.
     raw = json.loads(COLUMNS_PATH.read_text(encoding="utf-8"))
     assert raw["$schema"] == "./columns.schema.json"
+    # 2.3 bump (PR-1 of TODO/20260615-party-page-citizen-fixes-plan.md):
+    # ADDITIVE — parties.csv v1.1 -> v1.2 (+3 nullable trailing cols:
+    # source_id, processing_level, processing_note) per the L-4 Path A
+    # signoff (CLAUDE.md Holy Law #9 + section 12). Backfills founded_year
+    # for 12 priority parties citing ECI source row src-a0225819954c.
     # 2.2 bump (PR-E1 of TODO/20260615-elections-redesign-plan.md):
     # ADDITIVE — new file-class datasets/data/marts/elections/event_summary.csv
     # (12 cols, per-event aggregate one row per (event_id, state_code) emitted by
@@ -58,7 +63,7 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # (renamed period_label -> event_id, added state, dropped short_name).
     # 1.1 bump was the prior PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md
     # (10 nullable identity-metadata columns appended to parties.csv).
-    assert raw["$schema_version"] == "2.2"
+    assert raw["$schema_version"] == "2.3"
     assert len(contract.file_classes) >= 15
 
 

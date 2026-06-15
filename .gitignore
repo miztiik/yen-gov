@@ -67,3 +67,9 @@ datasets/ephemeral/wikidata-party-leadership-*.json
 *.topojson.meta.json
 *.tmp_*
 .tmp_*
+
+# PR-1 of TODO/20260615-party-page-citizen-fixes-plan.md: one-shot operator
+# scripts for the parties.csv v1.1 -> v1.2 schema bump + 14-row founded_year
+# backfill. The diff under datasets/data/entities/parties.csv is the
+# committed artifact; these scripts are throwaway operator state.
+tools/_pr1_*.py

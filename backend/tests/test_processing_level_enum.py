@@ -20,6 +20,7 @@ import pytest
 from yen_gov.canonical.processing_quality import (
     UNK_PARTY_ID,
     derive_processing,
+    derive_processing_for_party_founded_year_backfill,
 )
 
 
@@ -204,3 +205,64 @@ def test_tcpd_sourced_ls_summary_rows_tag_major(tmp_path: Path) -> None:
     assert "MYSTERY" in note_unk
     assert "unk-ledger" in note_unk
     assert "TCPD All_States_GA.csv" not in note_unk
+
+
+# ---------------------------------------------------------------------------
+# PR-1 of TODO/20260615-party-page-citizen-fixes-plan.md: parties.csv
+# founded_year backfill helper. Sibling to derive_processing (NOT a
+# replacement); pins L-1 doctrine for the catalogue surface.
+# ---------------------------------------------------------------------------
+
+
+def test_party_founded_year_backfill_helper_returns_major_plus_note() -> None:
+    """The parties.csv founded_year backfill always returns major + the L-1
+    note verbatim. processing_level is in the closed vocabulary; note is
+    non-empty (matches the processing_note non-empty iff major contract)."""
+    level, note = derive_processing_for_party_founded_year_backfill("parties.IN.BSP")
+    assert level == "major"
+    assert level in _VALID_LEVELS
+    assert note != ""
+    # L-1 verbatim phrasing: operational receipt for the discretionary call.
+    assert "third-party party-catalogue website" in note
+    assert "2026-06-15" in note
+    assert "cross-checked against publisher records" in note
+
+
+def test_party_founded_year_backfill_helper_does_not_name_third_party_site() -> None:
+    """L-2 doctrine extension to L-1: the note text MUST NOT name the
+    acquisition site. Forbidden tokens (wikipedia, .com, .org, http) are
+    operational knowledge in the curator's notebook, not row content."""
+    _level, note = derive_processing_for_party_founded_year_backfill("parties.IN.CPIM")
+    lowered = note.lower()
+    assert "wikipedia" not in lowered
+    assert ".com" not in lowered
+    assert ".org" not in lowered
+    assert "http://" not in lowered
+    assert "https://" not in lowered
+
+
+def test_party_founded_year_backfill_helper_is_party_id_agnostic() -> None:
+    """The party_id argument is accepted (reserved for future per-party
+    divergence) but does not change the return value today. Every backfilled
+    row receives the same (major, L-1 note) pair so the data writer can call
+    the helper inline without branching."""
+    bsp = derive_processing_for_party_founded_year_backfill("parties.IN.BSP")
+    cpim = derive_processing_for_party_founded_year_backfill("parties.IN.CPIM")
+    npp = derive_processing_for_party_founded_year_backfill("parties.IN.NPP")
+    ajsu = derive_processing_for_party_founded_year_backfill("parties.IN.AJSU")
+    assert bsp == cpim == npp == ajsu
+
+
+def test_party_founded_year_backfill_helper_is_sibling_not_replacement() -> None:
+    """The candidacy/summary derive_processing helper keeps its UNK-only
+    major trigger; the parties.csv helper does NOT disturb that contract.
+    A non-UNK candidacy row still resolves to (minor, '')."""
+    cand_level, cand_note = derive_processing("parties.IN.INC", "INC")
+    assert cand_level == "minor"
+    assert cand_note == ""
+    # The two helpers are independent surfaces.
+    party_level, party_note = derive_processing_for_party_founded_year_backfill(
+        "parties.IN.INC",
+    )
+    assert party_level == "major"
+    assert party_note != ""
