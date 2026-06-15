@@ -15,14 +15,23 @@
    *   - future: candidate margin (bar) vs polling-day turnout (line)
    *   - future: party strength index (bar) vs alliance share (line)
    *
-   * Mobile contract:
-   *   - X-label stride thins to `mobile_label_stride` (default 4) at
-   *     viewport widths < 640px.
+   * X-axis density contract (PR-10 of
+   * TODO/20260615-party-page-citizen-fixes-plan.md):
+   *   - Tick labels render every Nth band where
+   *     `N = max(1, ceil(year_count / floor(chart_width / 48)))`. The
+   *     48px minimum spacing is the OWID time-axis convention: rotated
+   *     4-digit year labels at 10px font occupy ~16px diagonally; 48px
+   *     of band width per visible label guarantees no collision down to
+   *     the 320px mobile viewport.
+   *   - Each rendered tick label is rotated -45deg around its anchor
+   *     point with `text-anchor="end"` so a citizen reads the labels
+   *     bottom-left-up-to-the-tick - the canonical d3 time-axis idiom.
    *   - tap on a bar reveals year + both values via ChartTooltip.
    *
    * Pure helpers extracted for the unit test (`DualAxisBarLine.test.ts`):
    *   - `buildScales(bars, line)` -> x_domain, left_y_max, right_y_max
-   *   - `pickLabelStride(width, year_count, mobile_stride)` -> stride
+   *   - `pickLabelStride(chart_width, year_count, min_label_spacing_px)`
+   *     -> stride
    *
    * The renderer carries no fetching, no I/O, no view-model coupling;
    * the consumer hand-shapes the `bars` + `line` props from whatever
@@ -75,20 +84,27 @@
     };
   }
 
-  /** Pure: compute the X-label rendering stride. At widths < 640px
-   *  the stride is `mobile_stride` (default 4); above 640px every
-   *  label renders (stride 1) until the year count exceeds 12, at
-   *  which point a half-strip stride (every 2nd) kicks in to keep
-   *  labels legible. */
+  /** Pure: compute the X-label rendering stride from the chart's
+   *  drawable width. The renderer keeps every Nth tick where
+   *  `N = max(1, ceil(year_count / max_ticks_that_fit))` and
+   *  `max_ticks_that_fit = max(1, floor(chart_width / min_label_spacing_px))`.
+   *
+   *  `min_label_spacing_px` defaults to 48 (OWID time-axis spacing
+   *  convention for 4-digit year labels rotated -45deg). A 0 or
+   *  negative value clamps up to 1 so the formula stays defined.
+   *
+   *  Defensive: `year_count <= 0` returns 1 so an empty domain still
+   *  produces a usable stride for the renderer's `i % stride === 0`
+   *  filter (no division by zero, no negative indices). */
   export function pickLabelStride(
-    width: number,
+    chart_width: number,
     year_count: number,
-    mobile_stride: number,
+    min_label_spacing_px: number = 48,
   ): number {
     if (year_count <= 0) return 1;
-    if (width < 640) return Math.max(1, mobile_stride);
-    if (year_count > 12) return 2;
-    return 1;
+    const spacing = Math.max(1, min_label_spacing_px);
+    const max_ticks_that_fit = Math.max(1, Math.floor(chart_width / spacing));
+    return Math.max(1, Math.ceil(year_count / max_ticks_that_fit));
   }
 
   /** Pure: extract the 4-digit polling year from an ECI event id
@@ -386,7 +402,14 @@
     bar_format?: (n: number) => string;
     line_format?: (n: number) => string;
     height?: number;
-    mobile_label_stride?: number;
+    /** PR-10 of TODO/20260615-party-page-citizen-fixes-plan.md: the
+     *  minimum horizontal pixels reserved per X-axis label, used to
+     *  derive the tick-rendering stride via
+     *  `pickLabelStride(inner_w, year_count, min_label_spacing_px)`.
+     *  Defaults to 48 (OWID time-axis convention for 4-digit year
+     *  labels rotated -45deg at 10px font). Callers should rarely
+     *  need to override this. */
+    min_label_spacing_px?: number;
     /** PR-10: methodology-break rows to render as thin grey vertical
      *  markers between bars. Default empty preserves the pre-PR-10
      *  signature for any caller that doesn't surface breaks. */
@@ -424,7 +447,7 @@
     bar_format = (n: number) => Number(n).toLocaleString(),
     line_format = (n: number) => `${Number(n).toFixed(1)}%`,
     height = 360,
-    mobile_label_stride = 4,
+    min_label_spacing_px = 48,
     methodology_breaks = [],
     mode = "dual-axis",
   }: Props = $props();
@@ -491,7 +514,7 @@
   const RIGHT_TICKS = $derived(ticks(right_y_cap, 5));
 
   const stride = $derived(
-    pickLabelStride(effective_width, scales.x_domain.length, mobile_label_stride),
+    pickLabelStride(inner_w, scales.x_domain.length, min_label_spacing_px),
   );
 
   // Build the line `path d` from the line series. Points skip when
@@ -820,15 +843,27 @@
           {/each}
         {/if}
 
-        <!-- X-axis tick labels (with stride thinning) -->
+        <!-- X-axis tick labels.
+             PR-10 of TODO/20260615-party-page-citizen-fixes-plan.md:
+             stride thinned via the width-driven formula
+             `ceil(year_count / floor(inner_w / 48))` so adjacent
+             labels never sit closer than 48px (the OWID time-axis
+             convention for 4-digit year labels). Each rendered label
+             rotates -45deg around its (tx, ty) anchor with
+             `text-anchor=end` so the right edge of the label sits
+             on the tick mark and the label slants down-left into the
+             chart's bottom margin. -->
         {#each scales.x_domain as period, i (`xt-${period}-${i}`)}
           {#if i % stride === 0}
             {@const tx = (x_scale(period) ?? 0) + x_scale.bandwidth() / 2}
+            {@const ty = inner_h + 12}
             <text
               x={tx}
-              y={inner_h + 16}
-              text-anchor="middle"
+              y={ty}
+              text-anchor="end"
+              transform={`rotate(-45 ${tx} ${ty})`}
               class="fill-slate-500 text-[10px]"
+              data-testid="x-axis-tick"
             >{yearFromPeriodLabel(period)}</text>
           {/if}
         {/each}
