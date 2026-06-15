@@ -38,10 +38,17 @@ from yen_gov.canonical.reingest.elections import (
     PARLIAMENT_SUMMARY_FC,
 )
 
-TCPD_GE_OWNER = "Trivedi Centre for Political Data, Ashoka University"
+# Producer + title rebranded by PR #1014 (2026-06-14) via
+# ``tools/rebrand_tcpd_to_eci.py``: ECI is the issuing authority for the
+# returns; the Trivedi Centre's Lok Dhaba is a redistribution channel.
+# These constants MUST match the on-disk source.csv row
+# ``src-d4b15132ad0e`` so re-emit binds candidacies to the same source_id
+# the 1962-2008 historical files already use (FK closure).
+# Variable names kept (TCPD_GE_*) because they describe the upstream
+# DATA-SHAPE origin (TCPD's All_States_GE compilation), not the citation.
+TCPD_GE_OWNER = "Election Commission of India"
 TCPD_GE_TITLE = (
-    "Indian General Elections (Lok Sabha) - Constituency-wise candidate results "
-    "(TCPD compilation of ECI returns)"
+    "Indian General Elections (Lok Sabha) - Constituency-wise candidate results"
 )
 TCPD_GE_VINTAGE = "2026-06-05"
 TCPD_GE_URL = "https://tcpd.ashoka.edu.in/lok-dhaba/"

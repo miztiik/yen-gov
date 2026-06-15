@@ -48,25 +48,77 @@ CROSSWALK_RELPATH = "data/entities/pc_historical_crosswalk.csv"
 #     governed nine consecutive general elections.
 #   - 2009-2024 share the 2008 delimitation.
 #
+# Each cohort's by-election years (single-PC by-elections held between two
+# general elections on the same boundaries) are listed alongside the GE so the
+# parliament-results emitter can bind by-election rows back to the in-force
+# PC cohort. The set of years here matches every distinct ``Year`` present in
+# ``datasets/ephemeral/All_States_GE.csv`` (PR Row A.5, 2026-06-14).
+#
 # Never overridden by the crosswalk; ``delim_year`` is a pure function of
 # ``ge_year`` (Fowler verdict, CLAUDE.md section 0a).
 DELIM_BY_GE_YEAR: dict[int, int] = {
+    # DelimID 1 (1962 cohort, pre-1967 reorganisation)
     1962: 1962,
+    1963: 1962,
+    1964: 1962,
+    1965: 1962,
+    # DelimID 2 (1967 cohort)
     1967: 1967,
+    1968: 1967,
+    1969: 1967,
+    1970: 1967,
     1971: 1967,
+    1972: 1967,
+    # DelimID 3 (1976 cohort) -- nine GEs + by-elections 1977-2008
     1977: 1976,
+    1978: 1976,
+    1979: 1976,
     1980: 1976,
+    1981: 1976,
+    1982: 1976,
     1984: 1976,
+    1985: 1976,
+    1986: 1976,
+    1987: 1976,
+    1988: 1976,
     1989: 1976,
+    1990: 1976,
     1991: 1976,
+    1992: 1976,
+    1993: 1976,
+    1994: 1976,
+    1995: 1976,
     1996: 1976,
+    1997: 1976,
     1998: 1976,
     1999: 1976,
+    2000: 1976,
+    2001: 1976,
+    2002: 1976,
+    2003: 1976,
     2004: 1976,
+    2005: 1976,
+    2006: 1976,
+    2007: 1976,
+    2008: 1976,
+    # DelimID 4 (2008 cohort) -- four GEs + interim by-elections 2009-2025
     2009: 2008,
+    2010: 2008,
+    2011: 2008,
+    2012: 2008,
+    2013: 2008,
     2014: 2008,
+    2015: 2008,
+    2016: 2008,
+    2017: 2008,
+    2018: 2008,
     2019: 2008,
+    2020: 2008,
+    2021: 2008,
+    2022: 2008,
+    2023: 2008,
     2024: 2008,
+    2025: 2008,
 }
 
 

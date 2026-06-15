@@ -1,0 +1,8 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-PC-2008-bihar-191,bihar,2020,1,VALMIKI NAGAR,Sunil Kumar,parties.IN.JDU,JD(U),404091,38.04,1,won,M,,,,challenger,src-d4b15132ad0e,minor,
+IN-PC-2008-bihar-191,bihar,2020,1,VALMIKI NAGAR,PRAVESH KUMAR MISHRA,parties.IN.INC,INC,382618,36.02,2,lost,M,,,,challenger,src-d4b15132ad0e,minor,
+IN-PC-2008-bihar-191,bihar,2020,1,VALMIKI NAGAR,Shailendra Kumar,parties.IN.BPCP,Bhartiya Panchyat Party,110013,10.36,3,forfeit,M,,,,challenger,src-d4b15132ad0e,minor,
+IN-PC-2008-bihar-191,bihar,2020,1,VALMIKI NAGAR,Prem Kumar Chowdhary,parties.IN.RLSP,Rashtriya Lok Samta Party,52451,4.94,4,forfeit,M,,,,challenger,src-d4b15132ad0e,minor,
+IN-PC-2008-bihar-191,bihar,2020,1,VALMIKI NAGAR,Dhiraj Kumar,parties.IN.UNK,Janata Congress,29884,2.81,6,forfeit,M,,,,challenger,src-d4b15132ad0e,major,Publisher label 'Janata Congress' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-PC-2008-bihar-191,bihar,2020,1,VALMIKI NAGAR,ANKUR SHARMA,parties.IN.IND,IND,25670,2.42,7,forfeit,M,,,,challenger,src-d4b15132ad0e,minor,
+IN-PC-2008-bihar-191,bihar,2020,1,VALMIKI NAGAR,LOKESH PATEL,parties.IN.IND,IND,16502,1.55,8,forfeit,M,,,,challenger,src-d4b15132ad0e,minor,

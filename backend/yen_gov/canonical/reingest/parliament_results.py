@@ -33,10 +33,17 @@ crosswalk). No network, no parquet, no ``urls.py`` / ``core.http`` import.
 from __future__ import annotations
 
 import csv
+import json
+import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.adapters.eci.pc_crosswalk import (
+    PcCrosswalkError,
+    load_crosswalk_and_lookup,
+    resolve_pc,
+)
 from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.canonical.processing_quality import derive_processing
 from yen_gov.canonical.reingest.assembly_results import (
@@ -106,12 +113,69 @@ def _slugify(tcpd_name: str) -> str:
     return tcpd_name.lower().replace("_&_", "-and-").replace("_", "-")
 
 
+def _slugify_display(display: str) -> str:
+    """Slugify an entities.json ``display_name`` to electoral.csv slug form.
+
+    Mirrors the conservative ASCII-fold used by `frontend/src/lib/states.svelte.ts`
+    (`slugify(entry.name)`) so the resulting slug matches the `state` column in
+    `electoral.csv` for the entities whose display names map cleanly.
+    """
+    text = re.sub(r"[^a-z0-9]+", "-", display.lower()).strip("-")
+    return re.sub(r"-+", "-", text)
+
+
+def _build_state_code_to_slug(
+    datasets_root: Path,
+    electoral_pc_slugs: set[str],
+) -> dict[str, str]:
+    """Map ``entity_code`` (S01/U05/...) -> electoral.csv state slug.
+
+    Built from ``entities.json`` (``display_name`` + ``legacy_id``) and
+    validated against the slug set present in ``electoral.csv``. Resolves the
+    two known display-vs-electoral drift cases:
+
+    - ``U05`` "NCT of Delhi" (display) -> ``delhi`` (via ``legacy_id`` "Delhi")
+    - ``U08`` "Jammu and Kashmir (UT)" (display) -> ``jammu-and-kashmir`` (via
+      parenthetical-strip; same canonical slug as composite S09 J&K)
+
+    Returns only codes whose slug resolves to an actual electoral.csv PC slug;
+    codes without any PCs in the cohort (e.g. legacy entities with no
+    delimitation footprint) are silently dropped - callers that need them must
+    surface the gap themselves.
+    """
+    entities_path = datasets_root / "taxonomy" / "entities.json"
+    raw = json.loads(entities_path.read_text(encoding="utf-8"))
+    out: dict[str, str] = {}
+    for entity in raw.get("entities", []):
+        code = str(entity.get("entity_code", ""))
+        if not code or code[:1] not in ("S", "U"):
+            continue
+        name = str(entity.get("display_name", "") or "")
+        legacy = str(entity.get("legacy_id", "") or "")
+        candidates: list[str] = []
+        if name:
+            candidates.append(_slugify_display(name))
+            stripped = re.sub(r"\s*\([^)]*\)\s*$", "", name).strip()
+            if stripped and stripped != name:
+                candidates.append(_slugify_display(stripped))
+        if legacy:
+            candidates.append(_slugify_display(legacy))
+        for cand in candidates:
+            if cand in electoral_pc_slugs:
+                out[code] = cand
+                break
+    return out
+
+
 def build_parliament_year(
     *,
     source_rows: list[dict[str, str]],
     pc_eci_to_entity: dict[tuple[str, int], str],
     source_id: str,
     party_lookup: dict[str, str] | None = None,
+    crosswalk: dict[tuple[int, str, int], tuple[str, int, str]] | None = None,
+    state_name_lookup: dict[str, str] | None = None,
+    state_slug_by_code: dict[str, str] | None = None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], set[tuple[str, int]]]:
     """Build (candidacies, summary, unbound) for ONE LS cycle (all states).
 
@@ -123,8 +187,63 @@ def build_parliament_year(
 
     ``party_lookup`` is the optional ``upper(short) -> party_id`` map from
     :func:`assembly_results.party_lookup_from_parties_csv` (F1.3a v1.1).
+
+    When ``crosswalk`` + ``state_name_lookup`` + ``state_slug_by_code`` are
+    all supplied, entity binding routes through
+    :func:`pc_crosswalk.resolve_pc` so state-reorganisation PCs (e.g. 2014
+    union-AP constituency_no=1 ADILABAD belongs to S29 Telangana, not modern
+    S01 AP) honour the curated ``pc_historical_crosswalk.csv`` overrides.
+    When any of the three is ``None``, falls back to the legacy
+    ``(_slugify(State_Name), pc_no)`` lookup - preserved for tests that
+    stage a minimal catalogue without entities.json + crosswalk.
     """
     lookup = party_lookup or {}
+    use_resolver = (
+        crosswalk is not None
+        and state_name_lookup is not None
+        and state_slug_by_code is not None
+    )
+
+    def _bind(src: dict[str, str]) -> tuple[str | None, str | None, int | None]:
+        """Return (state_slug_for_entity, entity_id, pc_no_for_entity).
+
+        ``state_slug_for_entity`` is the slug used for the candidacy row's
+        ``state`` column (post-resolve when the resolver lands on a different
+        modern state, e.g. union-AP 2014 -> Telangana). Returns
+        ``(unbound_state_slug, None, pc_no_or_none)`` on any failure so the
+        caller can record the (legacy_state_slug, pc_no) pair in ``unbound``.
+        """
+        pc_no = _int_or_none(src.get("Constituency_No"))
+        if pc_no is None:
+            return None, None, None
+        tcpd_state = src.get("State_Name") or ""
+        legacy_slug = _slugify(tcpd_state)
+        if use_resolver:
+            year = _int_or_none(src.get("Year"))
+            if year is None:
+                return legacy_slug, None, pc_no
+            try:
+                res = resolve_pc(
+                    year,
+                    tcpd_state,
+                    pc_no,
+                    crosswalk=crosswalk,  # type: ignore[arg-type]
+                    state_lookup=state_name_lookup,  # type: ignore[arg-type]
+                )
+            except PcCrosswalkError:
+                return legacy_slug, None, pc_no
+            modern_slug = (state_slug_by_code or {}).get(res.state_code)
+            if not modern_slug:
+                return legacy_slug, None, pc_no
+            entity_id = pc_eci_to_entity.get((modern_slug, res.pc_no))
+            if entity_id is None:
+                return modern_slug, None, res.pc_no
+            return modern_slug, entity_id, res.pc_no
+        entity_id = pc_eci_to_entity.get((legacy_slug, pc_no))
+        if entity_id is None:
+            return legacy_slug, None, pc_no
+        return legacy_slug, entity_id, pc_no
+
     # Re-poll supersede is per (state, constituency) - prefix the key with state.
     final_rows = _latest_poll_only(
         [
@@ -142,14 +261,12 @@ def build_parliament_year(
         if is_nota_row(src):
             continue
         raw_party = (src.get("Party") or "").strip()
-        pc_no = _int_or_none(src.get("Constituency_No"))
-        if pc_no is None:
-            continue
-        state_slug = _slugify(src.get("State_Name") or "")
-        entity_id = pc_eci_to_entity.get((state_slug, pc_no))
+        state_slug, entity_id, bound_pc_no = _bind(src)
         if entity_id is None:
-            unbound.add((state_slug, pc_no))
+            if state_slug is not None and bound_pc_no is not None:
+                unbound.add((state_slug, bound_pc_no))
             continue
+        assert bound_pc_no is not None  # _bind guarantees this when entity_id resolved
         position = _int_or_none(src.get("Position"))
         # PR (2026-06-14): see assembly_results.build_candidacy_rows for the
         # processing_level + processing_note doctrine; UNK fall-through is
@@ -161,7 +278,7 @@ def build_parliament_year(
                 "entity_id": entity_id,
                 "state": state_slug,
                 "election_year": _int_or_none(src.get("Year")),
-                "constituency_no": pc_no,
+                "constituency_no": bound_pc_no,
                 "constituency_name": _text_or_none(src.get("Constituency_Name")) or "",
                 "candidate_name": _text_or_none(src.get("Candidate")) or "",
                 # PR-3 (2026-06-10): every candidacy row carries a non-empty
@@ -205,11 +322,7 @@ def build_parliament_year(
     # AC-level (here PC-level) electorate facts come straight off the source rows.
     pc_facts: dict[str, dict[str, Any]] = {}
     for src in final_rows:
-        pc_no = _int_or_none(src.get("Constituency_No"))
-        if pc_no is None:
-            continue
-        state_slug = _slugify(src.get("State_Name") or "")
-        entity_id = pc_eci_to_entity.get((state_slug, pc_no))
+        _state_slug, entity_id, _bound_pc_no = _bind(src)
         if entity_id is None or entity_id in pc_facts:
             continue
         pc_facts[entity_id] = {
@@ -244,6 +357,7 @@ def emit_parliament(
     source_id: str,
     delim_id: str = DELIM_ID_2008,
     parties_csv: Path | None = None,
+    datasets_root: Path | None = None,
 ) -> dict[int, dict[str, Any]]:
     """Emit candidacies + summary CSVs for every in-force LS cycle.
 
@@ -253,6 +367,14 @@ def emit_parliament(
     ``parties_csv`` is the optional path to ``datasets/data/entities/parties.csv``
     for F1.3a v1.1 party-id resolution; see
     :func:`assembly_results.emit_state_assembly` for the same contract.
+
+    ``datasets_root`` is the optional repo-relative ``datasets/`` path used to
+    load ``taxonomy/entities.json`` + ``data/entities/pc_historical_crosswalk.csv``
+    so state-reorganisation seat bindings honour the curated override CSV
+    (e.g. union-AP 2014 ADILABAD constituency_no=1 -> S29 Telangana).
+    Defaults to ``electoral_csv.parents[2]`` for production callers; tests
+    that stage a minimal catalogue without entities.json + crosswalk can
+    leave it ``None`` to fall back to the legacy slug-only lookup.
     """
     if not ge_csv.exists():
         raise FileNotFoundError(ge_csv)
@@ -260,10 +382,30 @@ def emit_parliament(
         raise FileNotFoundError(electoral_csv)
 
     delim_year = TCPD_DELIM_ID_TO_DELIM_YEAR[delim_id]
-    pc_eci_to_entity = _pc_eci_to_entity(_read_csv_rows(electoral_csv), delim_year)
+    electoral_rows = _read_csv_rows(electoral_csv)
+    pc_eci_to_entity = _pc_eci_to_entity(electoral_rows, delim_year)
     party_lookup = (
         party_lookup_from_parties_csv(parties_csv) if parties_csv is not None else {}
     )
+
+    # Crosswalk-aware bind plumbing. ``datasets_root`` default: walk up from
+    # electoral_csv (datasets/data/entities/electoral.csv -> datasets/).
+    crosswalk: dict[tuple[int, str, int], tuple[str, int, str]] | None = None
+    state_name_lookup: dict[str, str] | None = None
+    state_slug_by_code: dict[str, str] | None = None
+    resolved_root = datasets_root or electoral_csv.parents[2]
+    crosswalk_path = resolved_root / "data" / "entities" / "pc_historical_crosswalk.csv"
+    entities_path = resolved_root / "taxonomy" / "entities.json"
+    if crosswalk_path.exists() and entities_path.exists():
+        crosswalk, state_name_lookup = load_crosswalk_and_lookup(resolved_root)
+        electoral_pc_slugs = {
+            (r.get("state") or "")
+            for r in electoral_rows
+            if r.get("entity_kind") == "pc" and (r.get("state") or "")
+        }
+        state_slug_by_code = _build_state_code_to_slug(
+            resolved_root, electoral_pc_slugs
+        )
 
     delim_rows = [
         r for r in _read_csv_rows(ge_csv) if (r.get("DelimID") or "").strip() == delim_id
@@ -281,6 +423,9 @@ def emit_parliament(
             pc_eci_to_entity=pc_eci_to_entity,
             source_id=source_id,
             party_lookup=party_lookup,
+            crosswalk=crosswalk,
+            state_name_lookup=state_name_lookup,
+            state_slug_by_code=state_slug_by_code,
         )
         if not candidacies:
             continue
