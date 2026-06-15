@@ -1896,43 +1896,6 @@ def parity_pc(
 
 
 
-@app.command("ingest-mh-ae2024-thecont1")
-def ingest_mh_ae2024_cmd(
-    root: Path = typer.Option(
-        Path.cwd(),
-        "--root",
-        "-r",
-        help="Repo root (defaults to current directory).",
-        file_okay=False,
-        dir_okay=True,
-        exists=True,
-    ),
-) -> None:
-    """Ingest Maharashtra Assembly Election 2024 from the thecont1 snapshot.
-
-    Reads ``datasets/ephemeral/thecont1-india-votes-data/2024/Assembly-Maharashtra.csv``
-    and emits canonical per-event CSVs:
-
-      - ``datasets/elections/assembly/state=maharashtra/election=2024/candidacies.csv``
-      - ``datasets/elections/assembly/state=maharashtra/election=2024/summary.csv``
-
-    Also:
-      - Appends the thecont1 citation row to ``datasets/data/entities/source.csv``
-        if missing.
-      - Flips ``datasets/taxonomy/election_events.json`` S13 ``assembly-2024``
-        ``data_status`` from ``pending_upstream`` to ``complete``.
-    """
-    from yen_gov.canonical.adapters.thecont1_mh_ae2024 import ingest_mh_ae2024
-
-    cand_n, sum_n, unk_winners, missing_acs = ingest_mh_ae2024(root)
-    typer.echo("ingest-mh-ae2024-thecont1: OK")
-    typer.echo(f"  candidacies.csv:        {cand_n} rows")
-    typer.echo(f"  summary.csv:            {sum_n} rows")
-    typer.echo(f"  unresolved winners:     {unk_winners} ACs with parties.IN.UNK")
-    typer.echo(f"  missing ACs (gap):      {missing_acs} eci_nos not in electoral.csv")
-    typer.echo("  election_events.json:   S13 assembly-2024 -> complete")
-
-
 @app.command("ingest-eci-ae-form10")
 def ingest_eci_ae_form10_cmd(
     root: Path = typer.Option(

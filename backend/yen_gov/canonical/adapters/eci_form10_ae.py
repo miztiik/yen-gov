@@ -5,10 +5,10 @@ Reads the ECI-published per-state Form-10 Detailed Results xlsx workbooks
 candidacies.csv + summary.csv into ``datasets/elections/assembly/state=<slug>/
 election=<year>/``.
 
-Lights up 13 Pending state-events from the /t/elections firehose:
+Lights up 14 Pending state-events from the /t/elections firehose:
   - 2023: Telangana, Madhya Pradesh, Mizoram, Chhattisgarh
   - 2024: Andhra Pradesh, Arunachal Pradesh, Sikkim, Odisha, Jammu & Kashmir,
-          Haryana, Jharkhand
+          Haryana, Jharkhand, Maharashtra
   - 2025: Delhi, Bihar
 
 Schema of the upstream xlsx (verified 2026-06-14 against 13 files):
@@ -95,6 +95,11 @@ JOBS: tuple[EciEventSpec, ...] = (
         "2025_DL_10-Detailed_Results_1744913508.xlsx",
         "delhi", "U05", "NCT of Delhi", "NCT OF Delhi",
         2025, "assembly-2025", "2025-02-05", "AcGenFeb2025",
+    ),
+    EciEventSpec(
+        "2024_MH_10-Detailed_Results_1744893339.xlsx",
+        "maharashtra", "S13", "Maharashtra", "Maharashtra",
+        2024, "assembly-2024", "2024-11-20", "AcGenNov2024",
     ),
     EciEventSpec(
         "2024_jharkhand_10-Detailed_Results_1744892172.xlsx",
@@ -301,6 +306,128 @@ def _get_or_mint_eci_source(root: Path, job: EciEventSpec) -> str:
     return source_id
 
 
+# ---------------------------------------------------------------------------
+# Stub-minting for AC entities missing from electoral.csv (Path B3, 2026-06-15
+# Hans + Max + Fowler persona-debate verdict). When the ECI Form 10 XLSX
+# carries an AC NO. that has no matching row in
+# datasets/data/entities/electoral.csv for (state, delim_year=2008), we
+# auto-mint a stub electoral entity_id of the form
+# ``IN-AC-2008-<state>-eci<N>`` (the convention already in production for
+# AP, Assam, Karnataka pre-2026-06-15).
+#
+# - name: XLSX publisher AC NAME with the trailing (SC)/(ST) reservation
+#   suffix stripped.
+# - reservation: derived from the stripped suffix; defaults to "GEN".
+# - parent: empty (PC parent code unknown until LGD master directory
+#   reconciles; the schema permits empty here).
+# - aliases: empty.
+#
+# This preserves writer idempotence: a stub minted on the first ingest is
+# resolved by ``_load_electoral_entities`` on a subsequent run, so
+# ``missing_from_entities`` is empty and no second mint occurs.
+#
+# Every stub-mint also appends a row to
+# ``datasets/_ops/electoral-stub-mints.csv`` as an operator-visible
+# receipt naming the LGD gap and the XLSX source.
+# ---------------------------------------------------------------------------
+
+
+_RESERVATION_SUFFIX_RE = re.compile(r"\s*\((SC|ST)\)\s*$", re.IGNORECASE)
+
+
+def _mint_stub_entities(
+    missing_eci_nos: list[int],
+    by_ac: dict[int, list[dict]],
+    state_slug: str,
+    delim_year: str,
+) -> list[dict]:
+    """Build electoral.csv stub rows for AC eci_nos missing from electoral.csv.
+
+    Pure function: takes the list of XLSX eci_nos that aren't in
+    electoral.csv and returns a list of dicts ready to be appended.
+    Mints under the established ``IN-AC-2008-<state>-eci<N>`` convention.
+    """
+    stubs: list[dict] = []
+    for eci_no in sorted(missing_eci_nos):
+        cands = by_ac.get(eci_no, [])
+        if not cands:
+            continue  # defensive; should not happen if eci_no was in by_ac.keys()
+        raw_name = cands[0]["publisher_ac_name"].strip()
+        reservation = "GEN"
+        match = _RESERVATION_SUFFIX_RE.search(raw_name)
+        if match:
+            reservation = match.group(1).upper()
+        clean_name = _RESERVATION_SUFFIX_RE.sub("", raw_name).strip()
+        stubs.append({
+            "entity_id": f"IN-AC-{delim_year}-{state_slug}-eci{eci_no}",
+            "name": clean_name,
+            "entity_kind": "ac",
+            "delim_year": delim_year,
+            "state": state_slug,
+            "parent": "",
+            "eci_no": str(eci_no),
+            "aliases": "",
+            "reservation": reservation,
+        })
+    return stubs
+
+
+def _append_stubs_to_electoral_csv(stubs: list[dict], root: Path) -> None:
+    """Append stub rows to datasets/data/entities/electoral.csv. No-op if empty."""
+    if not stubs:
+        return
+    csv_path = root / "datasets" / "data" / "entities" / "electoral.csv"
+    fields = [
+        "entity_id", "name", "entity_kind", "delim_year", "state",
+        "parent", "eci_no", "aliases", "reservation",
+    ]
+    with csv_path.open("a", encoding="utf-8", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=fields)
+        writer.writerows(stubs)
+
+
+def _append_stubs_to_receipt(
+    stubs: list[dict],
+    job: EciEventSpec,
+    root: Path,
+) -> None:
+    """Append operator-visible receipt rows to datasets/_ops/electoral-stub-mints.csv.
+
+    The receipt records every stub minted: which eci_no, AC NAME, source
+    XLSX, mint date. Used by the curator-reconciliation flow when the LGD
+    master directory next syncs.
+    """
+    if not stubs:
+        return
+    receipt_path = root / "datasets" / "_ops" / "electoral-stub-mints.csv"
+    receipt_path.parent.mkdir(parents=True, exist_ok=True)
+    fields = [
+        "entity_id", "eci_no", "ac_name", "reservation",
+        "mint_date", "source_xlsx", "gap_reason",
+    ]
+    from datetime import date
+
+    today = date.today().isoformat()
+    existed = receipt_path.exists()
+    with receipt_path.open("a", encoding="utf-8", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=fields)
+        if not existed:
+            writer.writeheader()
+        for stub in stubs:
+            writer.writerow({
+                "entity_id": stub["entity_id"],
+                "eci_no": stub["eci_no"],
+                "ac_name": stub["name"],
+                "reservation": stub["reservation"],
+                "mint_date": today,
+                "source_xlsx": job.file_name,
+                "gap_reason": (
+                    "LGD master directory lacks this AC for the 2008 delim; "
+                    "pending upstream sync"
+                ),
+            })
+
+
 @dataclass
 class IngestResult:
     state_slug: str
@@ -425,6 +552,27 @@ def _ingest_one(root: Path, job: EciEventSpec) -> IngestResult:
             job.state_slug, job.election_year, job.event_id, job.file_name,
             status="fail", reason="zero candidate rows parsed",
         )
+
+    # Auto-mint electoral.csv stubs for any XLSX eci_no that has no row in
+    # electoral.csv for (state, delim_year=2008). Path B3 of the 2026-06-15
+    # Hans + Max + Fowler persona-debate verdict; reuses the
+    # ``IN-AC-2008-<state>-eci<N>`` convention already in production for AP,
+    # Assam, Karnataka. Idempotent: a re-run finds the stubs in
+    # electoral.csv on the next ``_load_electoral_entities`` call so
+    # ``missing_from_entities`` is empty and no second mint occurs.
+    missing_from_entities = sorted(
+        ac_no for ac_no in by_ac if ac_no not in electoral_entities
+    )
+    if missing_from_entities:
+        stubs = _mint_stub_entities(
+            missing_from_entities, by_ac, job.state_slug, "2008"
+        )
+        if stubs:
+            _append_stubs_to_electoral_csv(stubs, root)
+            _append_stubs_to_receipt(stubs, job, root)
+            electoral_entities = _load_electoral_entities(
+                root, job.state_slug, "2008"
+            )
 
     candidacies_rows: list[dict] = []
     summary_rows: list[dict] = []
