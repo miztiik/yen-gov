@@ -315,6 +315,13 @@
   import { SourceList } from "../lib/sources";
   import { stateNameFromEntityId } from "../lib/parties/party-detail-utils";
   import { formatLeaderSince } from "../lib/view-models/parties";
+  // PR-13 D13: quiet footer link to the page-coverage docs concept.
+  // No in-app `/docs/concepts/:slug` route exists; the canonical
+  // pattern is `docsUrl()` building a GitHub blob URL (same as
+  // `CountingMethodDoc.svelte` + `Psephlab.svelte`). The page itself
+  // lives at `docs/concepts/party-page-coverage.md` and consolidates
+  // the meta-disclaimers the page previously rendered inline.
+  import { docsUrl } from "../lib/repo";
 
   interface Props {
     params: { slug: string };
@@ -868,5 +875,23 @@
         Introduced by the Supreme Court in PUCL v. Union of India (Sep 2013).
       </p>
     {/if}
+
+    <!-- PR-13 D13: one quiet "About this page" link. Slate-400, no
+         italic, no chrome. Points at the GitHub-rendered concept doc
+         (no in-app `/docs/concepts/:slug` route exists - canonical
+         pattern is `docsUrl()` -> GitHub blob URL, mirroring
+         `CountingMethodDoc.svelte` + `Psephlab.svelte`). The doc
+         consolidates the meta-disclaimers the page previously
+         rendered inline (PR-9 retired 2 of 4; PR-11 retires the
+         remaining 2). -->
+    <p class="mt-8 text-sm text-slate-400">
+      <a
+        href={docsUrl("docs/concepts/party-page-coverage.md")}
+        target="_blank"
+        rel="noreferrer"
+        class="hover:underline"
+        data-testid="party-page-coverage-link"
+      >About this page -&gt;</a>
+    </p>
   {/if}
 </PageContainer>
