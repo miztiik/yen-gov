@@ -1,6 +1,6 @@
 {
   "$schema": "./columns.schema.json",
-  "$schema_version": "2.1",
+  "$schema_version": "2.2",
   "file_classes": {
     "datasets/data/variables.csv": {
       "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
@@ -294,6 +294,23 @@
         { "name": "value_text", "dtype": "string", "nullable": true },
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" },
         { "name": "derivation", "dtype": "string", "nullable": true }
+      ]
+    },
+    "datasets/data/marts/elections/event_summary.csv": {
+      "notes": "Per-event aggregate mart: one row per (event_id, state_code) tuple. scope=national row collapses Parliament (general) election rows across states (state_code=null); scope=state rows are per-Assembly. Built by `python -m yen_gov derive-event-summary` from per-state election_results.csv + per-event summary.csv. leading_party_id is the canonical party with most seats; alliance attribution may be added later through the same column (writer-side, not reader-side). turnout_pct is event-scope (SUM(votes_polled) / SUM(electors) * 100). Composite PK (event_id, state_code) - state_code IS NULL for scope=national rows (one row per event_id); state_code IS NOT NULL for scope=state rows (many rows per event_id, one per state). Lives under marts/ alongside the party_pages mart (history.csv / strongholds.csv / manifest.csv) - the established home for derived aggregate CSVs, distinct from the per-indicator long-format datapoints/electoral/*.csv files. Spec: TODO/20260615-elections-redesign-plan.md row E1.",
+      "columns": [
+        { "name": "event_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "state_code", "dtype": "string", "nullable": true, "pk": true },
+        { "name": "scope", "dtype": "string", "nullable": false, "enum": ["national", "state"] },
+        { "name": "kind", "dtype": "string", "nullable": false, "enum": ["parliament", "assembly", "assembly_bye", "general_bye", "by_election"] },
+        { "name": "polled_on", "dtype": "string", "nullable": false },
+        { "name": "leading_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "seats_won", "dtype": "integer", "nullable": false },
+        { "name": "seats_contested", "dtype": "integer", "nullable": false },
+        { "name": "turnout_pct", "dtype": "number", "nullable": true, "derived": true },
+        { "name": "runner_up_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "runner_up_seats", "dtype": "integer", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]
     },
     "datasets/elections/assembly/state=*/election=*/candidacies.csv": {

@@ -3,7 +3,7 @@
   "$id": "./columns.schema.json",
   "title": "CSV column contract (schema-of-schemas)",
   "description": "Validates datasets/data/_schema/columns.json - the one machine-readable home for the per-file-class CSV column contract. Spec: docs/architecture/data/csv-column-contract.md (D-DOC0). Consumed by the backend write-time validator (B1.3), the frontend typed-read codegen (F1), and the cross-format drift test.",
-  "x-version": "2.1",
+  "x-version": "2.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -24,6 +24,11 @@
       "version": "2.1",
       "date": "2026-06-14",
       "description": "Companion bump for columns.json $schema_version 2.0 -> 2.1 (PR-A of TODO/20260614-three-ephemeral-ingests-plan.md). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: NEW file-class datasets/elections/parliament/election=*/mcc_seizures.csv for the ECI MCC-period daily enforcement-seizures press-note series (national 17th-LS 2019 press-note, 36 states/UTs x 10 dates = 360 rows, composite PK (state_slug, date), 13 columns). Publisher's TOTAL is preserved verbatim (D3 'no derived totals') so total_seizure_inr_crore is NOT derived; consumers MUST NOT recompute it. The 2 pre-2020-merger UTs (Dadra and Nagar Haveli, Daman and Diu) are kept on their historical slugs (dadra-and-nagar-haveli, daman-and-diu) - not the merged dadra-and-nagar-haveli-and-daman-and-diu slug - because the 2019 publisher rows are historically distinct; state_slug in this file-class has no FK declared (per-event publisher-distinct identity, not a state_codes.csv reference). Existing file-classes unchanged in shape."
+    },
+    {
+      "version": "2.2",
+      "date": "2026-06-15",
+      "description": "Companion bump for columns.json $schema_version 2.1 -> 2.2 (PR-E1 of TODO/20260615-elections-redesign-plan.md). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: NEW file-class datasets/data/marts/elections/event_summary.csv (12 columns, composite PK (event_id, state_code)) for the per-event aggregate emitted by `python -m yen_gov derive-event-summary`. Lives under marts/ alongside the party_pages mart (history.csv, strongholds.csv, manifest.csv) - the established home for derived aggregate CSVs. scope is a 2-value enum (national | state). state_code is nullable AND part of the composite PK (null for scope=national rows, the single Parliament row per event_id; non-null for scope=state rows, the per-Assembly rows). turnout_pct + seats_contested are derived event-scope aggregates of the upstream summary.csv. leading_party_id + runner_up_party_id FK parties.csv.party_id; source_id FK source.csv.source_id. Existing file-classes unchanged in shape."
     }
   ],
   "type": "object",

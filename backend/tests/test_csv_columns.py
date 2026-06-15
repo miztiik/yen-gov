@@ -45,6 +45,11 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # the artifact's own self-declared $schema points at the sibling validator.
     raw = json.loads(COLUMNS_PATH.read_text(encoding="utf-8"))
     assert raw["$schema"] == "./columns.schema.json"
+    # 2.2 bump (PR-E1 of TODO/20260615-elections-redesign-plan.md):
+    # ADDITIVE — new file-class datasets/data/marts/elections/event_summary.csv
+    # (12 cols, per-event aggregate one row per (event_id, state_code) emitted by
+    # `python -m yen_gov derive-event-summary`). Lives under marts/ alongside
+    # party_pages, the established home for derived aggregate CSVs.
     # 2.1 bump (PR-A of TODO/20260614-three-ephemeral-ingests-plan.md):
     # ADDITIVE — new file-class datasets/elections/parliament/election=*/mcc_seizures.csv
     # (13 cols, per-event MCC-period daily enforcement-seizures press note).
@@ -53,8 +58,8 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # (renamed period_label -> event_id, added state, dropped short_name).
     # 1.1 bump was the prior PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md
     # (10 nullable identity-metadata columns appended to parties.csv).
-    assert raw["$schema_version"] == "2.1"
-    assert len(contract.file_classes) >= 14
+    assert raw["$schema_version"] == "2.2"
+    assert len(contract.file_classes) >= 15
 
 
 @pytest.mark.parametrize(
