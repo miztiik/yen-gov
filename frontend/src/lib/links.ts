@@ -275,6 +275,16 @@ export const link = {
     );
   },
 
+  /** Per-state elections landing (`/<state>/elections`). Lists every
+   * assembly + parliament event the state has on record with year-as-link
+   * to the per-event detail page. Added in R2 of the state-event-page
+   * redesign plan (2026-06-15). No trailing slash so the route pattern
+   * `/:state/elections` matches exactly (the router's compiled regex
+   * does not normalise trailing slashes). */
+  stateElectionsLanding(stateCodeOrSlug: string): string {
+    return withBase(`/${stateSlug(stateCodeOrSlug)}/elections`);
+  },
+
   /** National per-event view (`/t/elections/<event>`). Sibling of
    * `stateElection` for national Parliament events. Added in PR-W3d
    * (2026-06-10) so the new firehose at `/t/elections` has a typed

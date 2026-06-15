@@ -96,6 +96,10 @@
   import type { PartyTotals } from "../lib/data";
   import { loadAlliances } from "../lib/psephlab/alliances";
   import type { AllianceLookup } from "../lib/psephlab/types";
+  import {
+    writeLastEvent,
+    type LastEventBody,
+  } from "../lib/elections/last-event-memory";
 
   interface Props {
     params: { state: string; event: string };
@@ -161,6 +165,18 @@
         >;
       });
     }
+  });
+
+  // R2 of TODO/20260615-state-election-event-page-redesign-plan.md
+  // (J-elevated-15): persist the last-viewed (state, event_id, body)
+  // tuple so the /<state>/elections/ landing route can render a
+  // "Last viewed" badge next to the matching year-link. 30-day
+  // expiry; per-state-slug localStorage key; no telemetry. Reads of
+  // this memory live in StateElectionsLanding.svelte.
+  $effect(() => {
+    const ev = event_row;
+    if (!ev) return;
+    writeLastEvent(params.state, ev.event_id, ev.kind as LastEventBody);
   });
 
   const winners = $derived<ElectionResultRow[]>(
