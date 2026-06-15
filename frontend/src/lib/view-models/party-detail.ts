@@ -19,6 +19,19 @@ import { query, registerCsvFile } from "../duckdb";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { DATA_BASE } from "../paths";
 import { cleanNote } from "../methodology/clean-note";
+import { slugify } from "../slug";
+import { link } from "../links";
+import { states } from "../states.svelte";
+import {
+  fetchElectionEvents,
+  defaultEventForState,
+  type ElectionEventsCatalogue,
+} from "../election-events";
+import {
+  loadConstituencyRows,
+  resolveConstituencyFromRows,
+  type ConstituencyEntity,
+} from "../elections/constituency-lookup";
 import { loadPartyMeta, type PartyMeta } from "./parties";
 import {
   loadPartyCurrentStrength,
@@ -156,6 +169,20 @@ export interface PartyStronghold {
    *  sparkline). Pipe-delimited on the mart; split + deduped at
    *  the loader boundary. */
   source_ids: string[];
+  /** PR-8b D8a: name-slug of `constituency_name` for callers that
+   *  need to build the constituency leaf URL. Non-null only when the
+   *  `(state, kind, slug)` triple resolves against the canonical
+   *  electoral.csv entity tier AT THE LATEST DELIM cohort. Null
+   *  when no current-delim entity matches (e.g. retired ACs from
+   *  pre-2008 cohorts) - the row is then unclickable on the page. */
+  pc_slug: string | null;
+  /** PR-8b D8a: full in-app URL to the constituency leaf when a
+   *  current-delim entity exists AND a target event_id is available
+   *  for this body (LS uses `current_strength.parliament_latest`,
+   *  VS uses the per-state default assembly event). Null otherwise.
+   *  When null the stronghold row renders as a plain `<span>`; when
+   *  non-null it renders as `<a href={href}>`. */
+  href: string | null;
 }
 
 /** Aggregate KPI totals for the header strip. */
@@ -479,6 +506,10 @@ export function foldStrongholdRows(
       results,
       // Legacy fold path (test-only); see `foldHistoryRows` note.
       source_ids: [],
+      // PR-8b D8a: legacy fold path does not derive clickability;
+      // production loader sets these via `attachStrongholdLink`.
+      pc_slug: null,
+      href: null,
     });
   }
   // Top-10 by wins desc, then by win-rate desc (so a 5-of-5 sweeper
@@ -663,6 +694,18 @@ async function fetchPartyDetail(
   // shared across every party page; the loader caches it on first
   // call. Run in parallel with the marts.
   const source_lookup_promise = loadSourceLookup();
+  // PR-8b D8a: the electoral entities tier + the election-events
+  // catalogue power the stronghold-row href derivation. Both are
+  // small (~500 KB CSV / ~3 KB JSON), cached at the module level
+  // by their respective loaders, and run fully in parallel with
+  // the mart fetches. A failure surfaces an empty rows array / a
+  // null catalogue so strongholds render as unlinked text rather
+  // than breaking the page.
+  const electoral_rows_promise = loadConstituencyRows().catch(
+    () => [] as readonly ConstituencyEntity[],
+  );
+  const election_events_promise: Promise<ElectionEventsCatalogue | null> =
+    fetchElectionEvents().catch(() => null);
   await Promise.all([
     registerCsvFile(PARTY_HISTORY_URL),
     registerCsvFile(PARTY_STRONGHOLDS_URL),
@@ -741,11 +784,34 @@ async function fetchPartyDetail(
 
   const ls_strongholds: PartyStronghold[] = [];
   const vs_strongholds: PartyStronghold[] = [];
+  // PR-8b D8a: resolve the link-context once before the loop so
+  // each row gets a synchronous lookup + URL derivation.
+  const electoral_rows = await electoral_rows_promise;
+  const election_catalogue = await election_events_promise;
+  const current_strength = await current_strength_promise;
+  const alliance_context = await alliance_context_promise;
+  const ls_event_id =
+    current_strength?.parliament_latest?.event_id ?? null;
   for (const row of strongholdRows) {
     const stronghold = strongholdFromMart(row);
     if (!stronghold) continue;
-    if (row.body === "parliament") ls_strongholds.push(stronghold);
-    else if (row.body === "assembly") vs_strongholds.push(stronghold);
+    if (row.body === "parliament") {
+      ls_strongholds.push(
+        attachStrongholdLink(stronghold, "parliament", {
+          electoral_rows,
+          catalogue: election_catalogue,
+          ls_event_id,
+        }),
+      );
+    } else if (row.body === "assembly") {
+      vs_strongholds.push(
+        attachStrongholdLink(stronghold, "assembly", {
+          electoral_rows,
+          catalogue: election_catalogue,
+          ls_event_id,
+        }),
+      );
+    }
   }
 
   const totals = computeTotals(ls_history, vs_history);
@@ -754,8 +820,6 @@ async function fetchPartyDetail(
     all_ls_methodology_breaks,
     ls_history,
   );
-  const current_strength = await current_strength_promise;
-  const alliance_context = await alliance_context_promise;
 
   // PR-9: derive source_ids for the two cards that don't surface
   // them on per-row VM data today.
@@ -888,7 +952,76 @@ function strongholdFromMart(
     last_won_year: intOrNull(row.last_won_year),
     results,
     source_ids: splitSourceIds(row.source_ids),
+    // pc_slug + href are derived in a second pass against the
+    // canonical electoral.csv entity tier + the election-events
+    // catalogue (see `attachStrongholdLink`). Strongholds carry
+    // the base shape here so this projection stays pure +
+    // synchronously testable.
+    pc_slug: null,
+    href: null,
   };
+}
+
+/** PR-8b D8a: derive `pc_slug` + `href` for a stronghold row.
+ *
+ *  - `pc_slug` is non-null iff `slugify(constituency_name)` matches
+ *    a row in the canonical electoral entity tier at the LATEST
+ *    delim cohort for that (state, kind). This is the delim-existence
+ *    gate per the brief's E2 cap (the brief explicitly permits an
+ *    `entities/electoral.csv` lookup; nothing heavier is used).
+ *  - `href` is non-null iff `pc_slug` is non-null AND a target
+ *    `event_id` is available for this stronghold's body:
+ *      LS -> `current_strength.parliament_latest.event_id` (e.g.
+ *            `general-2024`) - applies nationally to every LS row.
+ *      VS -> `defaultEventForState(catalogue, state_code)` per the
+ *            stronghold's state (e.g. `assembly-2026` for Kerala).
+ *
+ *  Routes:
+ *    - LS -> `link.pc(state, event_id, pc_slug)` (W3b bare-slug
+ *      route at main.ts:321; `Constituency.svelte` dispatches PC
+ *      vs AC via event prefix).
+ *    - VS -> `link.ac(state, constituency_name, event_id)` (legacy
+ *      ADR-0052 nested route with `/ac/` literal segment).
+ *
+ *  Pure; takes everything it needs as parameters so it stays
+ *  synchronously testable.
+ */
+function attachStrongholdLink(
+  base: PartyStronghold,
+  body: "parliament" | "assembly",
+  ctx: {
+    electoral_rows: readonly ConstituencyEntity[];
+    catalogue: ElectionEventsCatalogue | null;
+    ls_event_id: string | null;
+  },
+): PartyStronghold {
+  if (!base.state || !base.constituency_name) return base;
+  const kind: "ac" | "pc" = body === "parliament" ? "pc" : "ac";
+  const name_slug = slugify(base.constituency_name);
+  const hit = resolveConstituencyFromRows(ctx.electoral_rows, {
+    state: base.state,
+    kind,
+    name_slug,
+  });
+  if (!hit) return base;
+  let event_id: string | null = null;
+  if (body === "parliament") {
+    event_id = ctx.ls_event_id;
+  } else {
+    // base.state is the LGD slug; election-events keys by ECI
+    // state code (S22 etc), so go via `states.codeFromSlug`.
+    const state_code = states.codeFromSlug(base.state);
+    if (state_code) {
+      const evt = defaultEventForState(ctx.catalogue, state_code);
+      event_id = evt?.event_id ?? null;
+    }
+  }
+  if (!event_id) return { ...base, pc_slug: name_slug };
+  const href =
+    body === "parliament"
+      ? link.pc(base.state, event_id, name_slug)
+      : link.ac(base.state, base.constituency_name, event_id);
+  return { ...base, pc_slug: name_slug, href };
 }
 
 /** Module-level Promise cache, keyed by party_id. Repeated calls

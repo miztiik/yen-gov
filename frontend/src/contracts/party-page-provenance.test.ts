@@ -117,6 +117,11 @@ function stronghold(source_ids: string[]): PartyStronghold {
     last_won_year: null,
     results: ["W"],
     source_ids,
+    // PR-8b D8a: `pc_slug` + `href` widening - fixture pins null
+    // since this contract test covers the provenance envelope
+    // (clickability is not in scope).
+    pc_slug: null,
+    href: null,
   };
 }
 

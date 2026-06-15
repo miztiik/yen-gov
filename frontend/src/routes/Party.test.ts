@@ -443,6 +443,12 @@ describe("formatStrongholdTally", () => {
       last_won_year: 2024,
       results: ["W", "W", "L", "W"] as ("W" | "L")[],
       source_ids: ["src-aaaaaaaaaaaa"],
+      // PR-8b D8a: `pc_slug` + `href` widening - fixture pins null
+      // since `formatStrongholdTally` is the citizen-readable
+      // one-liner formatter (clickability is rendered separately
+      // by Party.svelte wrapping the formatter output in <a>/<span>).
+      pc_slug: null,
+      href: null,
       ...overrides,
     };
   }

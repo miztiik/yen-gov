@@ -790,7 +790,15 @@
                   data-testid="party-stronghold-ls"
                   data-state={parsed.state_code}
                 >
-                  {formatStrongholdTally(s, parsed.state_name)}
+                  {#if s.href}
+                    <a
+                      href={s.href}
+                      class="text-sky-700 hover:text-sky-900 hover:underline"
+                      data-testid="party-stronghold-ls-link"
+                    >{formatStrongholdTally(s, parsed.state_name)}</a>
+                  {:else}
+                    <span>{formatStrongholdTally(s, parsed.state_name)}</span>
+                  {/if}
                 </li>
               {/each}
             </ul>
@@ -813,7 +821,15 @@
                   data-testid="party-stronghold-vs"
                   data-state={parsed.state_code}
                 >
-                  {formatStrongholdTally(s, parsed.state_name)}
+                  {#if s.href}
+                    <a
+                      href={s.href}
+                      class="text-sky-700 hover:text-sky-900 hover:underline"
+                      data-testid="party-stronghold-vs-link"
+                    >{formatStrongholdTally(s, parsed.state_name)}</a>
+                  {:else}
+                    <span>{formatStrongholdTally(s, parsed.state_name)}</span>
+                  {/if}
                 </li>
               {/each}
             </ul>
