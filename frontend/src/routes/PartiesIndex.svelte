@@ -183,6 +183,7 @@
   import PartyPill from "../lib/party-pill/PartyPill.svelte";
   import { partyRowForResolver } from "../lib/colors/party-row";
   import { link } from "../lib/links";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { loadAllParties } from "../lib/view-models/parties";
 
   let parties: PartySummary[] = $state([]);
@@ -239,7 +240,7 @@
   }
 </script>
 
-<main class="max-w-5xl mx-auto p-4 sm:p-6 space-y-4" data-testid="parties-index">
+<PageContainer width="wide" data-testid="parties-index">
   <header class="space-y-1">
     <h1 class="text-2xl font-bold text-slate-900">Parties</h1>
     <p class="text-sm text-slate-500">
@@ -390,5 +391,5 @@
       </section>
     {/each}
   {/if}
-</main>
+</PageContainer>
 

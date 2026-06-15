@@ -86,6 +86,7 @@
   import District from "./District.svelte";
   import Constituency from "./Constituency.svelte";
   import NotFound from "./NotFound.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
 
   interface Props {
     params: { state: string; position2: string };
@@ -244,18 +245,18 @@
 </script>
 
 {#if load_error}
-  <main class="max-w-3xl mx-auto p-4 sm:p-6">
+  <PageContainer width="narrow">
     <div
       class="rounded border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900"
     >
       Could not resolve <code>/{params.state}/{params.position2}</code>:
       <code>{load_error}</code>
     </div>
-  </main>
+  </PageContainer>
 {:else if resolved === null}
-  <main class="max-w-3xl mx-auto p-4 sm:p-6">
+  <PageContainer width="narrow">
     <p class="text-sm text-slate-500">Loading...</p>
-  </main>
+  </PageContainer>
 {:else if resolved.kind === "district"}
   <District params={{ state: params.state, district_slug: params.position2 }} />
 {:else if resolved.kind === "ac"}

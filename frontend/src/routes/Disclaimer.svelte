@@ -6,10 +6,11 @@
   // When that canonical doc changes, this page must update in the same
   // commit (CLAUDE.md Holy Law #4).
   import { link } from "../lib/links";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
 </script>
 
-<main class="max-w-3xl mx-auto p-6 space-y-8 leading-relaxed text-slate-800">
+<PageContainer width="narrow" class="space-y-8 leading-relaxed text-slate-800">
   <header class="space-y-2">
     <h1 class="text-3xl font-light flex items-center gap-3">
       <TopicIcon name="shield" cls="w-7 h-7 text-slate-400 shrink-0" />
@@ -80,4 +81,4 @@
       once they publish a correction.
     </p>
   </section>
-</main>
+</PageContainer>

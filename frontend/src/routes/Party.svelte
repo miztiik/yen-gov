@@ -240,6 +240,7 @@
   import { link } from "../lib/links";
   import { states } from "../lib/states.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import DualAxisBarLine from "../lib/charts/DualAxisBarLine/DualAxisBarLine.svelte";
@@ -456,8 +457,8 @@
 
 <Breadcrumb {crumbs} />
 
-<main
-  class="max-w-5xl mx-auto p-4 sm:p-6 space-y-6"
+<PageContainer
+  width="wide"
   data-testid="party-detail"
   data-party-id={party_id}
 >
@@ -886,4 +887,4 @@
          page has zero sources (sentinel + no-data view). -->
     <PartySourcesStrip strip={view_model.provenance.strip} />
   {/if}
-</main>
+</PageContainer>
