@@ -78,6 +78,16 @@
     hiddenPidSet,
   } from "../lib/charts/india-pc-map-helpers";
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
+  import ElectionSeizuresCard from "../lib/elections/ElectionSeizuresCard.svelte";
+
+  // Events that have an MCC-period seizures CSV ingested under
+  // `datasets/elections/parliament/election=<year>/mcc_seizures.csv`.
+  // Today only 2019 is on disk (Row A of TODO/20260614-three-
+  // ephemeral-ingests-plan.md). When future LS events are ingested,
+  // add their event_id here OR lift this guard to a small manifest /
+  // catalogue once the count crosses the threshold where a hardcoded
+  // set is the wrong shape (Jony >= 4 reuses earns the abstraction).
+  const EVENTS_WITH_SEIZURES = new Set<string>(["general-2019"]);
 
   interface Props {
     /** Route params; `event` is the event slug (e.g. "general-2024"). */
@@ -800,6 +810,14 @@
         party_eci_code: w.party_eci_code,
       }))}
     />
+
+    {#if EVENTS_WITH_SEIZURES.has(event)}
+      <!-- Row D of TODO/20260614-three-ephemeral-ingests-plan.md:
+           citizen-facing card for the MCC-period enforcement
+           seizures press-note series. Gated on the event having
+           a publisher-emitted CSV on disk; today only 2019. -->
+      <ElectionSeizuresCard event_id={event} />
+    {/if}
 
     <!-- Scatter chart (PR-W4c MUST-FEATURE).
          TODO/20260612 Row A.5 + E: lock_body=true hides the Body chip

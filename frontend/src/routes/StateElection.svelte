@@ -84,6 +84,14 @@
   } from "../lib/charts/india-pc-map-helpers";
   import InlineCounterfactualSwing from "../lib/elections/InlineCounterfactualSwing.svelte";
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
+  import ElectionSeizuresCard from "../lib/elections/ElectionSeizuresCard.svelte";
+
+  // Events that have an MCC-period seizures CSV ingested under
+  // `datasets/elections/parliament/election=<year>/mcc_seizures.csv`.
+  // Today only 2019 is on disk (Row A of TODO/20260614-three-
+  // ephemeral-ingests-plan.md). Mirrors the NationalElection guard;
+  // when this set crosses 4 entries promote to a manifest read.
+  const EVENTS_WITH_SEIZURES = new Set<string>(["general-2019"]);
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import { route } from "../lib/router.svelte";
   import Scatter from "../lib/charts/Scatter.svelte";
@@ -1207,6 +1215,19 @@
         }))}
         polled_on={ev.polled_on}
       />
+
+      {#if EVENTS_WITH_SEIZURES.has(ev.event_id)}
+        <!-- Row D of TODO/20260614-three-ephemeral-ingests-plan.md:
+             state-scoped MCC-period seizures card. `state_slug`
+             scopes the headline + sparkline to this one state;
+             the choropleth still draws all 36 states for national
+             context. Gated on the event having a publisher-emitted
+             CSV on disk. -->
+        <ElectionSeizuresCard
+          event_id={ev.event_id}
+          state_slug={params.state}
+        />
+      {/if}
 
       <!-- Inline counterfactual swing (assembly only) -->
       {#if state_code}

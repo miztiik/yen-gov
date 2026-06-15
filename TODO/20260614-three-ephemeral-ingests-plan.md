@@ -59,6 +59,13 @@ The user dropped three citizen-relevant data files into `datasets/ephemeral/` an
 - Post-merge: `gh pr merge --squash --delete-branch`, prune `: gone` local branches, remove `.tmp_*` per [docs/how-to/ship-a-pr.md](../docs/how-to/ship-a-pr.md).
 - ALL paths in committed artifacts: POSIX, relative, no drive letters.
 
+### 0.7 Scope-change ledger
+
+| Row | Date | Intent (what changed, why, what it overrode) | signoff |
+|---|---|---|---|
+| C | 2026-06-15 | Row C blocked at file-class boundary: the plan §4.C.2 routes 234 TN ACs (entity grain `ac`) to `datasets/data/datapoints/geo/electors-persons-by-sex.csv`, but the on-disk file-class for `datapoints/geo/*.csv` declares `entity_id` FK to `entities/geo.csv`, which carries only `country` / `state` / `district` kinds (zero AC entities; zero AC-grain CSVs in the 218 existing files). Emitting `IN-AC-2008-tamil-nadu-*` IDs would trip Tier-A FK validation. This is a contract-tier decision (Gregor: where does AC-grain long-format datapoint data live?) compounded by a data-shape decision (Hans + Max: does AC-grain widen `geo.csv`, or does it earn its own file-class with FK to `electoral.csv`?). Per CLAUDE.md \u00a70a authority table + \u00a710 STOP-AND-SURFACE, the executor cannot resolve unilaterally. Three options surfaced: **Path A** widen `entities/geo.csv` to absorb all 4120 ACs from `electoral.csv` (single FK target; massive entity-tier expansion; \u22652 schema bumps; Level-4); **Path B** add a new file-class `datasets/data/datapoints/electoral_geo/*.csv` with `entity_id` FK to `entities/electoral.csv` (clean separation of LGD-geo vs ECI-electoral grains; one schema bump; Level-3; per-indicator allowlist seam covers the read side cleanly); **Path C** defer Row C entirely until a follow-on PR establishes the AC-grain datapoint contract \u2014 the TN file stays parked at `datasets/ephemeral/tn_acwise_gendercount.csv`. Row B + Row D are independent and proceed unblocked. | _PENDING_ |
+
+
 ---
 
 ## 1. Status Reckoner
@@ -67,7 +74,7 @@ The user dropped three citizen-relevant data files into `datasets/ephemeral/` an
 |---|---|---|---|---|
 | **A** | ECI MCC seizures 2019 — per-event CSV + schema + source | `[ ] PENDING` | — | M |
 | **B** | 2014 LS winner affidavits — extend candidacies.csv (4 cols) | `[ ] PENDING` | — | M |
-| **C** | TN electors-by-sex 2021 — long-format facet on `electors` concept | `[ ] PENDING` | — | S |
+| **C** | TN electors-by-sex 2021 — long-format facet on `electors` concept | `[ ] BLOCKED-NEEDS-SIGNOFF (2026-06-15; section 0.7)` | — | S |
 | **D** | UX — seizures national+state card + 2014 affidavit MP panel | `[ ] PENDING` | — | M |
 | **FB-1** | Fold-back: aggregate-rollup indicator rows from affidavit cols | `[ ] DEFERRED` | — | — |
 | **FB-2** | Fold-back: backfill LS-2009/2019/2024 affidavits, 2014/2024 seizures, 35 other states' electors-by-sex | `[ ] DEFERRED` | — | — |

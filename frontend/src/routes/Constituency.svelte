@@ -41,6 +41,16 @@
     type EventResultEntry,
     type HistoryRow,
   } from "../lib/elections/constituency-history-model";
+  import EntityProfilePanel from "../lib/parties/EntityProfilePanel.svelte";
+  import type { ProfileRow } from "../lib/parties/EntityProfilePanel.svelte";
+  import { loadPcAffidavit2014 } from "../lib/elections/pc-affidavit-2014-loader";
+  import { buildMpAffidavitRows } from "../lib/elections/mp-affidavit-model";
+
+  // Events that have an affidavit-enriched candidacies.csv on disk.
+  // Today only 2014 (Row B of TODO/20260614-three-ephemeral-ingests-
+  // plan.md). When future LS events are enriched, add their event_id
+  // here OR lift this guard to a manifest read once the count > 3.
+  const EVENTS_WITH_AFFIDAVITS = new Set<string>(["general-2014"]);
 
   // Three valid props shapes:
   //
@@ -160,6 +170,31 @@
       ? params.eci_no
       : (resolved_eci_no ?? -1),
   );
+
+  // MP affidavit panel (Row D of TODO/20260614-three-ephemeral-ingests-
+  // plan.md). Fetches the 2014 LS PC winner's Form-26 affidavit cols
+  // when (event, kind, eci_no, state) are all known and the event is
+  // affidavit-enriched. The loader returns null when no winner row
+  // matches OR every affidavit field is blank, which suppresses the
+  // panel (rows.length===0 inside EntityProfilePanel).
+  let mp_affidavit_rows = $state<readonly ProfileRow[]>([]);
+
+  $effect(() => {
+    mp_affidavit_rows = [];
+    const ev = event;
+    const st_slug = params.state;
+    const ec = effective_eci_no;
+    const kind = constituency_kind;
+    if (!ev || !st_slug || !ec || ec <= 0) return;
+    if (kind !== "pc") return;
+    if (!EVENTS_WITH_AFFIDAVITS.has(ev)) return;
+    loadPcAffidavit2014(st_slug, ec).then((a) => {
+      if (ev !== event || st_slug !== params.state || ec !== effective_eci_no) {
+        return;
+      }
+      mp_affidavit_rows = a ? buildMpAffidavitRows(a) : [];
+    });
+  });
 
   // Bare-AC redirect (ADR-0052): when the path carries no event but we
   // have resolved one (default or legacy-query), replaceState to the
@@ -462,6 +497,18 @@
           {/if}
         </p>
       </section>
+
+      <!-- MP affidavit panel (Row D of TODO/20260614-three-ephemeral-
+           ingests-plan.md). Only mounted when Form-26 affidavit data
+           for this (state, eci_no, event) loaded successfully and is
+           non-empty; otherwise EntityProfilePanel renders nothing. -->
+      <EntityProfilePanel
+        entity_kind="mp"
+        title="About this MP (2014 declaration)"
+        rows={mp_affidavit_rows}
+        provenance="Self-declared in Form 26 affidavit at nomination, 2014. Source: ECI / MyNeta."
+        amber_banner="Self-declared at nomination, not adjudicated. Read alongside other public records."
+      />
     {:else}
       <div
         class="p-5 bg-slate-50 border border-slate-200 rounded space-y-2"
