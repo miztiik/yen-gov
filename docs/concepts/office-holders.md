@@ -35,6 +35,21 @@ The column contract is enforced at write time by [backend/yen_gov/canonical/csv_
 - **`holder_id` is nullable.** A vacancy, President's Rule, governor's rule, or interim administration is represented with `holder_id = null` and a real source citing the gazette / notification / press release that documents the office was unassigned during that interval.
 - **`source_id` is mandatory** (Holy Law #9). Every row carries a FK to exactly one row in `datasets/data/entities/source.csv`.
 
+### Worked example: a re-elected CM splits across rows (Puducherry 2021->2026)
+
+When a CM is re-elected to a fresh term, the prior open row MUST be closed and a new open row appended. The PK `(office_id, term_start)` guarantees uniqueness; the closure date is the day the previous assembly's term ended (one day before the new ministry is sworn in).
+
+N. Rangaswamy of AINRC was sworn in on 7 May 2021 for the 15th Puducherry assembly. AINRC won again in the May 2026 Puducherry assembly election; Rangaswamy was re-sworn on 13 May 2026 for the 16th assembly. The PR-E5 backfill (2026-06-15) realised this as two rows in `office_holdings.csv`:
+
+```csv
+IN-U07-CM,2021-05-07,n-rangaswamy,2026-05-12,src-ac976494bf5e
+IN-U07-CM,2026-05-13,n-rangaswamy,,src-ac976494bf5e
+```
+
+Both rows share the same `holder_id` (the person is the same) and the same `source_id` (the Wikipedia "List of Chief Ministers of Puducherry" article covers both terms). What changes is `term_start` (the swearing-in date for each fresh assembly) and `term_end` (filled on the prior row, null on the current row). The PK uniqueness is preserved because the two `term_start` values differ.
+
+Contrast: for Assam (S03) / Kerala (S11) / Tamil Nadu (S22) / West Bengal (S25), the 2026 cycle delivered a DIFFERENT person (Himanta Biswa Sarma retained Assam for BJP; V. D. Satheesan for INC took Kerala from CPI(M); C. Joseph Vijay for TVK took Tamil Nadu from DMK; Suvendu Adhikari for BJP took West Bengal from AITC). For those states, an OPEN placeholder row already existed at `term_start=2026-05-13` from the prior election-results ingest; the PR-E5 backfill ONLY filled the `holder_id` on each pre-existing row - no row split was needed because the prior CM's term was already closed at `2026-05-12` when the results ingest landed.
+
 ## Provenance
 
 Every observation row carries a `source_id` FK to `datasets/data/entities/source.csv` per Holy Law #9. The citation ledger stores the four optional fields: `owner` (publisher), `title` (report or list name), `vintage` (edition or snapshot window), and `url`.
