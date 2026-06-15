@@ -2051,3 +2051,64 @@ def ingest_eci_mcc_seizures_2019(
     typer.echo(f"  rows written:    {result.row_count}")
     typer.echo(f"  unique states:   {result.unique_state_slugs}")
     typer.echo(f"  unique dates:    {result.unique_dates}")
+
+
+@app.command("ingest-tn-electors-by-sex-2021")
+def ingest_tn_electors_by_sex_2021(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    input_csv: Path = typer.Option(
+        ...,
+        "--input",
+        "-i",
+        help=(
+            "Publisher ephemeral CSV "
+            "(typically datasets/ephemeral/tn_acwise_gendercount.csv)."
+        ),
+        exists=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Ingest Tamil Nadu CEO AC-wise electors-by-sex (2021 electoral roll).
+
+    Reads the publisher's 273-row CSV (234 atomic AC rows + 38 per-district
+    TOTAL subtotal rows + 1 Grand Total, all interleaved) and emits the
+    canonical long-format faceted CSV:
+
+      ``datasets/data/datapoints/electoral_geo/electors-persons-by-sex.csv``
+
+    with 234 x 3 = 702 rows (one per (AC, sex) pair). The file-class
+    ``datasets/data/datapoints/electoral_geo/*.csv`` was established by
+    Row C of TODO/20260614-three-ephemeral-ingests-plan.md - the
+    sibling-at-the-datapoints-tier of ``datapoints/geo/*.csv``, with
+    FK target ``entities/electoral.csv`` so the LGD-vs-ECI
+    issuing-authority split is mirrored from the entities tier through
+    to the datapoints tier (Hans + Max + Fowler unanimous Path B).
+
+    The publisher's ``AC No.`` column maps 1:1 against ``electoral.csv``'s
+    ``eci_no`` column for the TN-2008 cohort (234 ACs); the resolver
+    raises if the corpus drifts from this universe size BEFORE any
+    write happens.
+
+    Spec: Row C of TODO/20260614-three-ephemeral-ingests-plan.md +
+    handover TODO/20260615-row-c-tn-electors-by-sex-handover.md.
+    """
+    from yen_gov.canonical.adapters.tn_ceo.electors_by_sex import ingest
+
+    result = ingest(
+        input_csv=input_csv,
+        repo_root=root,
+    )
+    typer.echo("ingest-tn-electors-by-sex-2021: OK")
+    typer.echo(f"  output:               {result.output_path.relative_to(root).as_posix()}")
+    typer.echo(f"  rows written:         {result.row_count}")
+    typer.echo(f"  unique entity_ids:    {result.unique_entity_ids}")
+    typer.echo(f"  unique sex facets:    {result.unique_sex_facets}")
+    typer.echo(f"  grand-total skipped:  {result.grand_total_observed}")
