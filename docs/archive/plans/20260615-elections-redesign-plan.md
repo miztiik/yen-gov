@@ -1,10 +1,16 @@
-# Elections redesign - General elections + Assembly elections
+# Elections redesign - General elections + Assembly elections (CLOSED 2026-06-15)
+
+> **This plan-doc is CLOSED.** All 5 rows (E1-E5) shipped end-to-end via the autonomous ship loop in one calendar day (2026-06-15). The 315-row "Elections firehose" was rip-and-replaced with two purpose-built routes (`/t/elections` General + `/t/elections/assemblies` Assembly) glued by an ARIA tablist; the CM backfill for the 5 May-2026 states closed the data gap. This file is preserved as historical record (the persona debate transcript, naming verdict, EXECUTION BLOCK) and is the reference doc for the term-shape pattern + sibling-route nav pattern.
+>
+> **Distillation receipt**: see [Section 5 - Closure ritual](#section-5---closure-ritual) for the lift map (event_summary doctrine -> canonical-store.md; no-leg-UT honest copy -> place-first-ia.md; inline progress-bar pattern + ElectionsRouteTabs reuse -> schema-is-the-design-system.md). The 2026 CM row-split worked example (Puducherry) was already lifted in PR-E5 to [`docs/concepts/office-holders.md`](../concepts/office-holders.md) under "Term-shape invariants > Worked example".
+>
+> **Merged PRs**: #1034 (E1 schema) | #1037 (E2 writer + CLI + 312 rows) | #1039 (E3 frontend loader + view-models + Tier-A contract) | #1041 (E4 rip-and-replace routes + tab strip + firehose deletion) | #1044 (E5 5-state CM backfill).
 
 **Last Updated**: 2026-06-15
 **Level**: 4 (structural; touches 4+ files across schema + backend writer + frontend routes + curator data + docs)
-**Status**: APPROVED (Section 3 sign-off receipts captured 2026-06-15). Executing autonomously per EXECUTION BLOCK.
+**Status**: CLOSED 2026-06-15. All 5 rows shipped.
 
-> Persona debate per CLAUDE.md section 0a (Jony UI -> Hans governance -> Fowler engineering), converged 2026-06-15. Naming and nav decisions (Section 0.1) converged in a second pass (Citizen + Hans + Max + Jony, 2026-06-15). This doc carries its own EXECUTION BLOCK; the executing agent runs rows E1-E5 end-to-end without further dictation.
+> Persona debate per CLAUDE.md section 0a (Jony UI -> Hans governance -> Fowler engineering), converged 2026-06-15. Naming and nav decisions (Section 0.1) converged in a second pass (Citizen + Hans + Max + Jony, 2026-06-15). This doc carried its own EXECUTION BLOCK; the executing agent ran rows E1-E5 end-to-end without further dictation.
 
 ## Section 0 - Operating contract
 
@@ -107,11 +113,11 @@ This explicitly OVERRIDES the cautious "two-PR ship then delete in E6" sequencin
 
 | Row | Title                                                                       | Status        | PR  | Effort  |
 | --- | --------------------------------------------------------------------------- | ------------- | --- | ------- |
-| E1  | Lock `event_summary.csv` schema in columns.json (READER-BEFORE-WRITER)      | [ ] PENDING   |     | S       |
-| E2  | Backend `event_summary_writer` + Typer CLI + emit + Tier-B receipt          | [ ] PENDING   |     | M       |
-| E3  | Frontend `event-summary-loader` + 2 view-models + unit + Tier-A contract     | [ ] PENDING   |     | M       |
-| E4  | RIP-AND-REPLACE: 2 routes + nav tabs + delete firehose + home rail copy      | [ ] PENDING   |     | L       |
-| E5  | CM backfill: 2026 incumbents for S03 / S11 / S22 / S25 + U07 row-split       | [ ] PENDING   |     | M       |
+| E1  | Lock `event_summary.csv` schema in columns.json (READER-BEFORE-WRITER)      | [x] DONE #1034 |   | S       |
+| E2  | Backend `event_summary_writer` + Typer CLI + emit + Tier-B receipt          | [x] DONE #1037 |   | M       |
+| E3  | Frontend `event-summary-loader` + 2 view-models + unit + Tier-A contract     | [x] DONE #1039 |   | M       |
+| E4  | RIP-AND-REPLACE: 2 routes + nav tabs + delete firehose + home rail copy      | [x] DONE #1041 |   | L       |
+| E5  | CM backfill: 2026 incumbents for S03 / S11 / S22 / S25 + U07 row-split       | [x] DONE #1044 |   | M       |
 
 Effort key: S = single sitting; M = a few hours; L = a day plus.
 
