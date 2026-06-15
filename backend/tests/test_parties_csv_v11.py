@@ -28,6 +28,12 @@ from pathlib import Path
 _REPO_ROOT = Path(__file__).resolve().parents[2]
 _PARTIES_CSV = _REPO_ROOT / "datasets" / "data" / "entities" / "parties.csv"
 
+# v1.2 (PR-1 of TODO/20260615-party-page-citizen-fixes-plan.md):
+# Holy-Law-#9 + section-12 trailing nullable triple appended. Per L-4
+# Path A signoff (additive minor bump 1.1 -> 1.2). The 12 priority
+# backfill rows populate this triple via the citation ledger
+# (src-a0225819954c) + processing_quality.derive_processing_for_party_
+# founded_year_backfill(); every other 2767 row leaves them blank.
 _EXPECTED_HEADER = (
     "party_id",
     "short",
@@ -47,6 +53,9 @@ _EXPECTED_HEADER = (
     "claims_to_parent_name",
     "name_native_script",
     "is_sentinel",
+    "source_id",
+    "processing_level",
+    "processing_note",
 )
 
 _SENTINELS = ("parties.IN.IND", "parties.IN.NOTA", "parties.IN.UNK")
@@ -62,7 +71,10 @@ def _load_rows() -> tuple[tuple[str, ...], list[dict[str, str]]]:
     return header, rows
 
 
-def test_header_has_exactly_18_columns_in_declared_order() -> None:
+def test_header_has_exactly_21_columns_in_declared_order() -> None:
+    # 21 = 18 v1.1 cols + 3 v1.2 trailing nullable triple (source_id,
+    # processing_level, processing_note) per PR-1 of
+    # TODO/20260615-party-page-citizen-fixes-plan.md.
     header, _ = _load_rows()
     assert header == _EXPECTED_HEADER, (
         f"parties.csv header drift; expected {_EXPECTED_HEADER}, got {header}"

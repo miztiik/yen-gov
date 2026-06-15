@@ -6,6 +6,28 @@ The manifest at [`datasets/manifest.json`](manifest.json) carries a programmatic
 
 ---
 
+## 2026-06-15 — `parties.csv` v1.1 -> v1.2 (PR-1 of party-page citizen-fixes plan)
+
+**Released** under [TODO/20260615-party-page-citizen-fixes-plan.md](../TODO/20260615-party-page-citizen-fixes-plan.md) PR-1 (user-ratified Path A 2026-06-15, Scope-change ledger row L-4). Companion entry in [`schema-evolution.json`](schema-evolution.json): `columns-2-2-to-2-3-parties-source-id-processing-quality`.
+
+Schema-of-schemas `datasets/data/_schema/columns.json` bumped `$schema_version` 2.2 -> 2.3 (additive minor); the per-file `datasets/data/entities/parties.csv` block extended from 18 to 21 columns with 3 nullable trailing additions:
+
+- `source_id` (string, nullable, FK -> `datasets/data/entities/source.csv.source_id`) per Holy Law #9 (every observation row carries source_id).
+- `processing_level` (string, nullable, enum `[minor, major]`) per the per-row processing-quality vocabulary at [`docs/concepts/data-quality.md`](../docs/concepts/data-quality.md) (named divergence #6 from OWID per-variable scope).
+- `processing_note` (string, nullable, free-text) carrying the per-row receipt for the discretionary call when `processing_level=major`.
+
+Pure-additive: legacy 18-col readers continue to work; the 3 new columns are trailing + nullable so older consumers see no change. New 21-col readers see the provenance metadata.
+
+12 of the 14 priority parties from PR-1's brief got their `founded_year` backfilled in the same PR + the 3 new trailing fields populated via the canonical helpers (`backend.yen_gov.canonical.processing_quality.derive_processing_for_party_founded_year_backfill()` + `backend.yen_gov.canonical.citation.derive_source_id()` - NO hand-authored literals per CLAUDE.md section 10 anti-pattern). Source FK = `src-a0225819954c` (existing ECI party-registration master notification row reused per CLAUDE.md section 12 identity-on-`(producer, title, vintage)`-triple invariant; no new source.csv mint).
+
+- National (3 of 3): `parties.IN.BSP` (1984), `parties.IN.CPIM` (1964), `parties.IN.NPP` (2013).
+- State-recognised (9 of 11): `parties.IN.AJSU` (1986), `parties.IN.BOPF` (2005), `parties.IN.MGP` (1963), `parties.IN.NPF` (2002), `parties.IN.RSP` (1940), `parties.IN.TMP` (2021), `parties.IN.ZPM` (2019), `parties.IN.AC` (1996), `parties.IN.KNA` (1946).
+- Deferred (2 of 14): `parties.IN.NPEP` + `parties.IN.TEC` — founding year could not be confirmed with sufficient confidence against publisher records cross-check; will follow in a later wave alongside the 938 unrecognised-registered long-tail.
+
+Companion helper `derive_processing_for_party_founded_year_backfill(party_id)` lands in [`backend/yen_gov/canonical/processing_quality.py`](../backend/yen_gov/canonical/processing_quality.py) as a sibling to the existing `derive_processing()` candidacy/summary helper (NOT a replacement; the UNK-only major trigger for election rows is unchanged). Backfill executed via one-shot operator scripts `tools/_pr1_extend_parties_cols.py` + `tools/_pr1_backfill_priority_parties.py` (gitignored; the diff under [`datasets/data/entities/parties.csv`](data/entities/parties.csv) is the committed artifact).
+
+---
+
 ## 2026-05-27 — Grain-over-entity rip (PR #336–#409)
 
 **Released across 69 PRs** under [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md). Substantially closes the rip-and-replace mandate for [ADR-0044 grain-over-entity](../docs/architecture/decisions/0044-grain-over-entity.md) + [ADR-0045 grapher catalogue split](../docs/architecture/decisions/0045-grapher-catalogue-split.md). Permanent prevention guardrails live; remaining D/C/E items reclassified as forward-build.
