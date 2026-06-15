@@ -20,8 +20,12 @@ The mart is the read seam for both routes:
 Inputs (read seam):
 
 - `datasets/data/_schema/columns.json` (file-class contract, PR-E1)
-- `datasets/taxonomy/election_events.json` (event_id <-> polled_on + kind)
-- `datasets/data/entities/state_codes.csv` (slug <-> ECI state-code bridge)
+- `datasets/taxonomy/election_events.json` (event_id <-> polled_on + kind;
+  state_code is recovered from the catalogue's outer dict key, never from
+  display-string parsing -- see R1.5 Gregor verdict 2026-06-15)
+- `datasets/taxonomy/lgd_states.json` via `eci_to_lgd_slug()` (eci_st_code ->
+  on-disk LGD slug -- the canonical bridge for the assembly partition
+  layout; one helper, also used by `party_pages.py`)
 - `datasets/data/entities/source.csv` (FK target; the writer UPSERTs the
   mart citation row)
 - `datasets/elections/{parliament,assembly}/.../summary.csv` (per-PC / per-AC
@@ -42,6 +46,14 @@ writer-side follow-up; the renderer never derives it. Per Fowler verdict:
 one CSV serves both routes; per Gregor: composite NULL-in-PK matches
 `electoral_district_membership.csv` precedent.
 
+Per Gregor + R1.5 persona round-2 verdict (2026-06-15): the assembly loop
+iterates the catalogue's outer dict ITEMS directly. The catalogue is
+already keyed by ECI state-code -- recovering state_code from display-string
+parsing was a Canonical Data Model violation per Hohpe (EIP ch.8). Disk
+slug derivation goes through the single canonical helper
+`eci_to_lgd_slug()` at
+`backend/yen_gov/canonical/adapters/eci/state_slug.py`.
+
 Re-run after any electoral ingest:
 
     python -m yen_gov derive-event-summary --root .
@@ -61,6 +73,7 @@ from dataclasses import dataclass, field
 from pathlib import Path, PurePosixPath
 from typing import Iterable
 
+from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
 
@@ -68,10 +81,9 @@ EVENT_SUMMARY_REL = PurePosixPath("datasets/data/marts/elections/event_summary.c
 EVENT_SUMMARY_FILE_CLASS = EVENT_SUMMARY_REL.as_posix()
 
 ELECTION_EVENTS_REL = PurePosixPath("datasets/taxonomy/election_events.json")
-STATE_CODES_REL = PurePosixPath("datasets/data/entities/state_codes.csv")
 SOURCE_CSV_REL = PurePosixPath("datasets/data/entities/source.csv")
 PARLIAMENT_GLOB = "datasets/elections/parliament/election=*/summary.csv"
-ASSEMBLY_GLOB = "datasets/elections/assembly/state=*/election=*/summary.csv"
+ASSEMBLY_BASE_REL = PurePosixPath("datasets/elections/assembly")
 
 MART_SOURCE_PRODUCER = "yen-gov"
 MART_SOURCE_TITLE = "Per-event election summary aggregate (event_summary.csv)"
@@ -115,11 +127,9 @@ def refresh_event_summary_mart(repo_root: Path) -> EventSummaryMartResult:
     root = repo_root.resolve()
 
     catalogue = _load_catalogue(root / ELECTION_EVENTS_REL)
-    slug_to_eci = _build_slug_to_eci_via_catalogue(catalogue, root / STATE_CODES_REL)
     source_id = _ensure_mart_source(root / SOURCE_CSV_REL)
 
     parliament_files = sorted(root.glob(PARLIAMENT_GLOB))
-    assembly_files = sorted(root.glob(ASSEMBLY_GLOB))
 
     aggs: dict[tuple[str, str | None], _Agg] = {}
     skipped = 0
@@ -150,33 +160,47 @@ def refresh_event_summary_mart(repo_root: Path) -> EventSummaryMartResult:
             aggs[(event_id, None)] = agg
         _accumulate_summary_rows(path, agg)
 
-    for path in assembly_files:
-        year = _year_from_election_dir(path.parent.name)
-        state_slug = _state_slug_from_state_dir(path.parent.parent.name)
-        if year is None or state_slug is None:
-            skipped += 1
+    # Assembly: iterate the catalogue's outer dict directly so state_code is
+    # never recovered from display-string parsing. The catalogue is keyed by
+    # ECI state-code; the disk slug derives from the single canonical helper
+    # `eci_to_lgd_slug()` which reads `datasets/taxonomy/lgd_states.json`.
+    # Per Gregor + R1.5 persona round-2 verdict (2026-06-15).
+    assembly_base = root / ASSEMBLY_BASE_REL
+    states_payload = catalogue["states"]
+    assert isinstance(states_payload, dict)
+    for state_code, evts in states_payload.items():
+        if not isinstance(evts, list):
             continue
-        state_code = slug_to_eci.get(state_slug)
-        if state_code is None:
-            skipped += 1
+        try:
+            state_slug = eci_to_lgd_slug(state_code)
+        except KeyError:
+            skipped += sum(1 for _ in evts)
             continue
-        canonical = _find_assembly_event(catalogue, state_code, year)
-        if canonical is None:
-            skipped += 1
+        state_dir = assembly_base / f"state={state_slug}"
+        if not state_dir.is_dir():
             continue
-        event_id = str(canonical["event_id"])
-        key = (event_id, state_code)
-        agg = aggs.get(key)
-        if agg is None:
-            agg = _Agg(
-                event_id=event_id,
-                state_code=state_code,
-                scope="state",
-                kind=str(canonical["kind"]),
-                polled_on=str(canonical["polled_on"]),
-            )
-            aggs[key] = agg
-        _accumulate_summary_rows(path, agg)
+        for path in sorted(state_dir.glob("election=*/summary.csv")):
+            year = _year_from_election_dir(path.parent.name)
+            if year is None:
+                skipped += 1
+                continue
+            canonical = _find_assembly_event(catalogue, state_code, year)
+            if canonical is None:
+                skipped += 1
+                continue
+            event_id = str(canonical["event_id"])
+            key = (event_id, state_code)
+            agg = aggs.get(key)
+            if agg is None:
+                agg = _Agg(
+                    event_id=event_id,
+                    state_code=state_code,
+                    scope="state",
+                    kind=str(canonical["kind"]),
+                    polled_on=str(canonical["polled_on"]),
+                )
+                aggs[key] = agg
+            _accumulate_summary_rows(path, agg)
 
     rows = _agg_rows(aggs.values(), source_id=source_id)
     out_path = root / EVENT_SUMMARY_REL
@@ -196,7 +220,7 @@ def refresh_event_summary_mart(repo_root: Path) -> EventSummaryMartResult:
 
 
 # ---------------------------------------------------------------------------
-# Catalogue + slug-to-ECI bridge
+# Catalogue loader
 # ---------------------------------------------------------------------------
 
 
@@ -209,70 +233,6 @@ def _load_catalogue(path: Path) -> dict[str, object]:
             f"(got {type(states).__name__})"
         )
     return {"states": states}
-
-
-def _build_slug_to_eci_via_catalogue(
-    catalogue: dict[str, object], state_codes_path: Path
-) -> dict[str, str]:
-    """Map state slug (e.g. tamil-nadu) -> ECI state-code (e.g. S22).
-
-    state_codes.csv carries `slug` + `lgd_name`. election_events.json keys
-    states by ECI 2-letter code (S22 / U05). Bridge: parse the leading
-    state-name token from each catalogue event's display string, match
-    to state_codes.csv lgd_name, return {slug: eci_code}.
-    """
-    slug_to_name: dict[str, str] = {}
-    with state_codes_path.open(encoding="utf-8", newline="") as fh:
-        for row in csv.DictReader(fh):
-            slug = (row.get("slug") or "").strip()
-            name = (row.get("lgd_name") or "").strip()
-            if slug and name:
-                slug_to_name[slug] = name
-
-    name_to_eci: dict[str, str] = {}
-    states_payload = catalogue["states"]
-    assert isinstance(states_payload, dict)
-    for eci_code, evts in states_payload.items():
-        if not isinstance(evts, list):
-            continue
-        for e in evts:
-            display = str(e.get("display", ""))
-            state_name = _parse_state_name(display)
-            if state_name:
-                name_to_eci.setdefault(state_name, eci_code)
-
-    out: dict[str, str] = {}
-    for slug, name in slug_to_name.items():
-        eci = name_to_eci.get(name)
-        if eci:
-            out[slug] = eci
-            continue
-        # Display-string conventions in the catalogue differ from state_codes
-        # lgd_name in a few known ways. Try each variant before giving up.
-        for alt in (
-            f"NCT of {name}",        # state_codes "Delhi" -> catalogue "NCT of Delhi"
-            name.replace("NCT of ", ""),
-            f"{name} (UT)",
-            name.replace(" (UT)", ""),
-            f"The {name}",
-            f"Government of {name}",
-        ):
-            eci = name_to_eci.get(alt)
-            if eci:
-                out[slug] = eci
-                break
-    return out
-
-
-_SEPARATORS = (" Assembly", " Parliament", " - ", " \u00b7 ", " . ")
-
-
-def _parse_state_name(display: str) -> str | None:
-    """Extract the leading state-name token from a catalogue display string."""
-    for sep in _SEPARATORS:
-        if sep in display:
-            return display.split(sep, 1)[0].strip()
-    return None
 
 
 def _find_parliament_event(
@@ -419,17 +379,11 @@ def _ensure_mart_source(source_csv_path: Path) -> str:
 
 
 _ELECTION_DIR_RE = re.compile(r"^election=(\d{4})$")
-_STATE_DIR_RE = re.compile(r"^state=([a-z0-9-]+)$")
 
 
 def _year_from_election_dir(name: str) -> int | None:
     m = _ELECTION_DIR_RE.match(name)
     return int(m.group(1)) if m else None
-
-
-def _state_slug_from_state_dir(name: str) -> str | None:
-    m = _STATE_DIR_RE.match(name)
-    return m.group(1) if m else None
 
 
 def _int_or_none(value: str | None) -> int | None:

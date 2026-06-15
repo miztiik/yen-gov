@@ -513,6 +513,25 @@ Post-Independence state-formation events (Madhya Pradesh -> MP + Chhattisgarh 20
 
 ---
 
+## 3c. Bridges and identity (R1.5 doctrine, 2026-06-15)
+
+When a writer needs to map between two identity spaces (e.g. `eci_st_code -> on-disk slug`, or `slug -> eci_st_code`), **the bridge lives in exactly one canonical helper, not in ad-hoc per-writer parsing**. Per Hohpe (Enterprise Integration Patterns, ch. 8): a canonical data model is the contract; recovering structural identity from display strings is a violation of that contract.
+
+**The canonical bridges**:
+
+| Direction | Helper | Source-of-truth |
+|---|---|---|
+| `eci_st_code` → on-disk LGD slug | [`backend/yen_gov/canonical/adapters/eci/state_slug.py`](../../../backend/yen_gov/canonical/adapters/eci/state_slug.py) `eci_to_lgd_slug()` | [`datasets/taxonomy/lgd_states.json`](../../../datasets/taxonomy/lgd_states.json) |
+| Publisher-name → slug (open-vocabulary) | `state_codes.csv` `aliases` column | [`datasets/data/entities/state_codes.csv`](../../../datasets/data/entities/state_codes.csv) |
+
+**The R1.5 anchor case**: `datasets/data/marts/elections/event_summary.csv`'s writer previously recovered `state_code` by parsing the leading token of each catalogue event's `display` string (e.g. `"Jammu & Kashmir Assembly · September-October 2024"` → `"Jammu & Kashmir"`) and matching it against `state_codes.csv.lgd_name` with a 6-variant hard-coded fallback set. That was wrong by construction: the catalogue's OUTER DICT KEY is the `eci_st_code` itself (`states["U08"] -> [...]`). When the lgd_name was `"Jammu And Kashmir"` (with `And` not `&`) the bridge silently dropped U08 from the mart and the AssemblyElections page rendered J&K as `"No election in the catalogue yet."` even though the per-event data shipped on disk.
+
+**The R1.5 fix** ([commit deleting `_build_slug_to_eci_via_catalogue`](../../../backend/yen_gov/canonical/derived/event_summary.py)): the writer now iterates `catalogue["states"].items()` directly so `state_code` is given by the contract, never parsed. The disk slug derives from the single canonical helper `eci_to_lgd_slug()` (already used by [`backend/yen_gov/canonical/derived/party_pages.py`](../../../backend/yen_gov/canonical/derived/party_pages.py) — precedent).
+
+**Forward rule**: writers MUST NOT recover `state_code` from display-string parsing when the contract already exposes it as a structural key or column. If a Rule-of-Three case ever needs a `eci_st_code` ⇄ `slug` bridge in a third location, extract a shared module (R1.5 alone does not yet meet Rule of Three; that work happens when the third caller appears).
+
+---
+
 ## 4. Identity vs provenance
 
 The **logical key** is `(entity_id, year, period_label, indicator_id)`. `source_id` is NOT in the key.

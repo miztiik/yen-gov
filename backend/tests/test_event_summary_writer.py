@@ -318,7 +318,13 @@ def test_writer_skips_files_without_catalogue_match(repo_root: Path) -> None:
 
 
 def test_writer_handles_delhi_via_nct_alias(repo_root: Path) -> None:
-    """The slug->ECI bridge resolves `delhi` -> `U05` via the NCT-of alias."""
+    """U05 -> 'delhi' slug bridge: the writer iterates catalogue's outer dict
+    keyed by ECI state-code (U05) and derives the disk slug via
+    eci_to_lgd_slug(). U05 maps to 'delhi' in lgd_states.json so the
+    `state=delhi/election=2025/` partition resolves regardless of the
+    catalogue display string ('NCT of Delhi'). Pre-R1.5 this passed via a
+    hard-coded 'NCT of {name}' variant in the deleted bridge; post-R1.5 it
+    passes by structural iteration. Same outcome, fewer LOC, no parser."""
     _write_summary(
         repo_root / "datasets/elections/assembly/state=delhi/election=2025/summary.csv",
         winners=[("parties.IN.BJP", 1000, 700)] * 48,
@@ -331,3 +337,78 @@ def test_writer_handles_delhi_via_nct_alias(repo_root: Path) -> None:
     st = next(r for r in rows if r["scope"] == "state")
     assert st["state_code"] == "U05"
     assert st["event_id"] == "assembly-2025"
+
+
+def test_writer_handles_jammu_and_kashmir_ut(tmp_path: Path) -> None:
+    """U08 -> 'jammu-and-kashmir' slug bridge (the R1.5 anchor case).
+
+    Pre-R1.5 the writer's deleted `_build_slug_to_eci_via_catalogue` bridge
+    parsed the display string 'Jammu & Kashmir Assembly . September-October
+    2024' to recover the state-name token 'Jammu & Kashmir', then matched it
+    against state_codes.csv `lgd_name`. The state_codes entry says
+    `lgd_name='Jammu And Kashmir'` (with 'And' not '&'), the catalogue's
+    display says 'Jammu & Kashmir', neither alias variant in the deleted
+    bridge covered the gap, U08 silently dropped from the mart, the
+    AssemblyElections page rendered J&K as 'No election in the catalogue
+    yet.' even though `datasets/elections/assembly/state=jammu-and-kashmir/
+    election=2024/summary.csv` shipped via R1 (ECI Form 10).
+
+    Post-R1.5 the writer iterates catalogue['states'].items() so state_code
+    'U08' is given by the contract, not parsed. The disk slug
+    'jammu-and-kashmir' comes from the single canonical helper
+    `eci_to_lgd_slug('U08')` which reads `datasets/taxonomy/lgd_states.json`
+    where U08 -> 'jammu-and-kashmir' (lgd_name 'Jammu And Kashmir'; the
+    canonical slug, immutable across display-string churn).
+
+    This freezes the doctrine: state_code is recovered from the catalogue's
+    structural identity, never from display-string parsing."""
+    _write_min_schema(tmp_path)
+    _write_state_codes(tmp_path)
+    _write_source(tmp_path)
+    path = tmp_path / "datasets" / "taxonomy" / "election_events.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(
+            {
+                "$schema_version": "1.3",
+                "states": {
+                    "U08": [
+                        {
+                            "event_id": "assembly-2024",
+                            "kind": "assembly",
+                            "polled_on": "2024-10-01",
+                            # Display intentionally uses '&' to prove the
+                            # writer does NOT depend on this string.
+                            "display": "Jammu & Kashmir Assembly . September-October 2024",
+                        },
+                    ],
+                },
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    _write_summary(
+        tmp_path / "datasets/elections/assembly/state=jammu-and-kashmir/election=2024/summary.csv",
+        winners=[("parties.IN.JKNC", 1000, 700)] * 42
+        + [("parties.IN.BJP", 1000, 600)] * 29
+        + [("parties.IN.JKPDP", 1000, 500)] * 3
+        + [("parties.IN.INC", 1000, 550)] * 6
+        + [("parties.IN.IND", 1000, 500)] * 10,
+        state_slug="jammu-and-kashmir",
+        year=2024,
+    )
+    result = refresh_event_summary_mart(tmp_path)
+    assert result.state_row_count == 1, (
+        "U08 row absent: writer regressed to display-string parsing"
+    )
+    rows = list(csv.DictReader((tmp_path / EVENT_SUMMARY_REL).open(encoding="utf-8")))
+    st = next(r for r in rows if r["state_code"] == "U08")
+    assert st["event_id"] == "assembly-2024"
+    assert st["kind"] == "assembly"
+    assert st["polled_on"] == "2024-10-01"
+    assert st["leading_party_id"] == "parties.IN.JKNC"
+    assert st["seats_won"] == "42"
+    assert st["seats_contested"] == "90"
+    assert st["runner_up_party_id"] == "parties.IN.BJP"
+    assert st["runner_up_seats"] == "29"
