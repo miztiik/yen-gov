@@ -36,6 +36,7 @@
   import { link } from "../lib/links";
   import { stateElectionsLandingCrumbs } from "../lib/route-crumbs";
   import { readLastEvent, type LastEventMemory } from "../lib/elections/last-event-memory";
+  import { SHARE_BASE } from "../lib/paths";
 
   interface Props {
     params: { state: string };
@@ -87,7 +88,39 @@
   function isLastViewed(ev: ElectionEventRow): boolean {
     return last_viewed?.event_id === ev.event_id;
   }
+
+  // R7 (TODO/20260615-state-election-event-page-redesign-plan.md
+  // J-elevated-14): OG card unfurl meta. Targets the latest assembly
+  // event's share card when one exists; falls back to the latest
+  // parliament event; falls back to a no-image-set state when the
+  // catalogue is empty for this state. Generated PNG ships at
+  // /share/{state-slug}/{event_id}.png via the build step.
+  let og_card_event = $derived(latest_assembly ?? latest_parliament);
+  let og_image_url = $derived(
+    og_card_event
+      ? `${SHARE_BASE}/${params.state}/${og_card_event.event_id}.png`
+      : null,
+  );
+  let og_title = $derived(`${state_name} elections - yen-gov`);
+  let og_description = $derived(
+    `Every Assembly and Parliament election on record for ${state_name}, ` +
+      `with year-as-link and a 30-day last-viewed memory.`,
+  );
 </script>
+
+<svelte:head>
+  <title>{state_name} elections - yen-gov</title>
+  <meta property="og:title" content={og_title} />
+  <meta property="og:description" content={og_description} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={og_title} />
+  <meta name="twitter:description" content={og_description} />
+  {#if og_image_url}
+    <meta property="og:image" content={og_image_url} />
+    <meta name="twitter:image" content={og_image_url} />
+  {/if}
+</svelte:head>
 
 <PageContainer width="wide">
   <Breadcrumb {crumbs} />
