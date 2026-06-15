@@ -84,14 +84,12 @@
   } from "../lib/charts/india-pc-map-helpers";
   import InlineCounterfactualSwing from "../lib/elections/InlineCounterfactualSwing.svelte";
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
+  import StateEventScatter from "../lib/elections/StateEventScatter.svelte";
+  import StateEventConstituencyList from "../lib/elections/StateEventConstituencyList.svelte";
+  import StateEventHero from "../lib/elections/StateEventHero.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
-  import Scatter from "../lib/charts/Scatter.svelte";
-  import type {
-    ScatterDatum,
-    ScatterFilters,
-  } from "../lib/charts/scatter-model";
   import PartyBar from "../lib/PartyBar.svelte";
   import type { PartyTotals } from "../lib/data";
   import { loadAlliances } from "../lib/psephlab/alliances";
@@ -776,67 +774,6 @@
   }
 
   const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
-
-  // ---- Scatter chart projection (PR-W4c) ------------------------------
-  // The state filter is implicit (winners is already pre-filtered to
-  // `params.state` via the W2b loader's state-scope arm). The body
-  // filter chip on the scatter starts on the active event kind so the
-  // chart and the page agree on first paint; afterwards the citizen
-  // may toggle freely (toggling to the inactive body simply empties
-  // the chart, which is the correct UX given the loader is single-body
-  // scoped for this surface).
-  let scatter_filters = $state<ScatterFilters>({
-    reservation: "all",
-    margin_band: "all",
-  });
-  let scatter_body_initialised = false;
-  $effect(() => {
-    if (scatter_body_initialised) return;
-    const b = body;
-    if (!b) return;
-    scatter_filters = {
-      ...scatter_filters,
-      body: b === "pc" ? "parliament" : "assembly",
-    };
-    scatter_body_initialised = true;
-  });
-  const scatter_data = $derived.by<ScatterDatum[]>(() => {
-    const out: ScatterDatum[] = [];
-    const ev = event_row?.event_id ?? params.event;
-    const body_lit: "parliament" | "assembly" =
-      body === "pc" ? "parliament" : "assembly";
-    for (const w of winners) {
-      if (w.turnout_pct == null || w.margin_pct == null) continue;
-      out.push({
-        entity_id: w.entity_id,
-        state_slug: w.state_slug,
-        constituency_slug: slugify(w.entity_name),
-        constituency_name: w.entity_name,
-        event_id: ev,
-        turnout_pct: w.turnout_pct,
-        margin_pct: w.margin_pct,
-        electors: w.electors ?? 0,
-        // TODO/20260612 Row B: margin_votes drives the radius encoding.
-        // Null at the loader becomes null on the datum; the Scatter
-        // component clamps null -> 0 for layout.
-        margin_votes: w.margin_votes,
-        winner_party_id: (function () {
-          if (w.party_id) return w.party_id;
-          const slug = (w.party_short ?? "UNK").trim().toUpperCase();
-          return `parties.IN.${slug}`;
-        })(),
-        winner_party_short: w.party_short ?? "UNK",
-        reservation: w.reservation,
-        body: body_lit,
-      });
-    }
-    return out;
-  });
-  function onScatterDotClick(d: ScatterDatum): void {
-    navigate(
-      `${link.stateElection(d.state_slug, d.event_id)}/${d.constituency_slug}`,
-    );
-  }
 </script>
 
 <Breadcrumb {crumbs} />
@@ -879,84 +816,26 @@
     </div>
   {:else}
     {@const ev = event_row}
-    <!-- Header -->
-    <header class="space-y-2">
-      <h1
-        class="text-2xl font-semibold text-slate-900"
-        data-testid="state-event-header"
-      >
-        {event_pretty}
-      </h1>
-      <div class="flex flex-wrap items-center gap-2 text-xs">
-        <span
-          class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
-          data-testid="state-event-body-chip"
-        >{body === "pc" ? "Parliament" : "Assembly"}</span>
-        <span class="text-slate-500">
-          Polled <span class="tabular-nums">{ev.polled_on}</span>
-        </span>
-      </div>
-    </header>
+    <!-- Header + load-error + KPIs + pending. R3 of
+         TODO/20260615-state-election-event-page-redesign-plan.md
+         (2026-06-15): extracted to StateEventHero.svelte as a Beck
+         two-hat structural-only refactor; data-testids and DOM shape
+         preserved verbatim. R4 will rebuild the KPI strip into the
+         J-elevated-3 HeroCards with icon glyphs + turnout-delta. -->
+    <StateEventHero
+      event_row={ev}
+      {body}
+      {event_pretty}
+      {result}
+      {loading}
+      {pending}
+      {kpis}
+      {fmtInt}
+      {fmtCompact}
+      {fmtPct}
+    />
 
-    {#if result.status === "failed"}
-      <div
-        class="rounded border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800"
-        data-testid="state-event-load-error"
-      >
-        <p>Data couldn't load: {result.reason}</p>
-      </div>
-    {:else}
-      <!-- KPIs strip -->
-      <section
-        class="grid grid-cols-2 gap-3 sm:grid-cols-4"
-        data-testid="state-event-kpis"
-      >
-        <div class="rounded border border-slate-200 bg-white p-3">
-          <div class="text-xs uppercase tracking-wide text-slate-500">
-            Seats
-          </div>
-          <div
-            class="mt-1 text-2xl font-semibold text-slate-900"
-            data-testid="state-event-kpi-seats"
-          >
-            {loading ? "-" : fmtInt(kpis.total_seats)}
-          </div>
-        </div>
-        <div class="rounded border border-slate-200 bg-white p-3">
-          <div class="text-xs uppercase tracking-wide text-slate-500">
-            Total voters
-          </div>
-          <div class="mt-1 text-2xl font-semibold text-slate-900">
-            {fmtCompact(kpis.total_electors)}
-          </div>
-        </div>
-        <div class="rounded border border-slate-200 bg-white p-3">
-          <div class="text-xs uppercase tracking-wide text-slate-500">
-            Total polled
-          </div>
-          <div class="mt-1 text-2xl font-semibold text-slate-900">
-            {fmtCompact(kpis.total_polled)}
-          </div>
-        </div>
-        <div class="rounded border border-slate-200 bg-white p-3">
-          <div class="text-xs uppercase tracking-wide text-slate-500">
-            Turnout
-          </div>
-          <div class="mt-1 text-2xl font-semibold text-slate-900">
-            {fmtPct(kpis.turnout_pct)}
-          </div>
-        </div>
-      </section>
-
-      {#if pending}
-        <div
-          class="rounded border border-dashed border-slate-300 bg-slate-50 p-3 text-center text-sm text-slate-500"
-          data-testid="state-event-pending"
-        >
-          Results for this election are not published yet.
-        </div>
-      {/if}
-
+    {#if result.status !== "failed"}
       <!-- TODO/20260612 Rows D + E + F: state choropleth.
            AC events: Winner|Margin sub-toggle + Map | Equal seats arm
                        toggle (latter only when the state has a
@@ -1234,94 +1113,36 @@
         />
       {/if}
 
-      <!-- Constituency table -->
-      <section
-        class="space-y-2"
-        data-testid="state-event-constituency-table"
-      >
-        <h2 class="text-sm font-medium text-slate-700">
-          Constituencies ({loading ? "-" : fmtInt(seat_rows.length)})
-        </h2>
-        {#if loading}
-          <p
-            class="text-xs text-slate-500"
-            data-testid="state-event-constituency-table-loading"
-          >Loading constituency results...</p>
-        {:else if seat_rows.length === 0}
-          <p class="text-xs text-slate-500">No constituency rows yet.</p>
-        {:else}
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm">
-              <thead class="text-left text-xs uppercase text-slate-500">
-                <tr>
-                  <th class="py-2">Constituency</th>
-                  <th class="py-2">Winner</th>
-                  <th class="py-2 text-right">Share</th>
-                  <th class="py-2 text-right">Margin</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y">
-                {#each seat_rows as r (r.entity_id)}
-                  <tr
-                    class="hover:bg-slate-50"
-                    data-testid="state-event-constituency-row"
-                  >
-                    <td class="py-2">
-                      <a
-                        class="text-sky-700 hover:underline"
-                        href={r.href}
-                        data-testid="state-event-constituency-link"
-                      >{r.entity_name}</a>
-                    </td>
-                    <td class="py-2">
-                      <span
-                        class="inline-block rounded px-1.5 py-0.5 text-xs font-medium text-white"
-                        style={`background-color:${r.winner_color};`}
-                      >{r.winner_party_short}</span>
-                    </td>
-                    <td class="py-2 text-right tabular-nums">
-                      {fmtPct(r.winner_share_pct)}
-                    </td>
-                    <td class="py-2 text-right tabular-nums">
-                      {fmtPct(r.margin_pct)}
-                    </td>
-                  </tr>
-                {/each}
-              </tbody>
-            </table>
-          </div>
-        {/if}
-      </section>
-
-      <!-- Compare CTA (W4b target) -->
-      {#if compare_href && previous_same_body}
-        <nav
-          class="flex flex-wrap gap-2 text-sm"
-          aria-label="Compare elections"
-        >
-          <a
-            class="rounded border border-sky-200 bg-sky-50 px-3 py-2 text-sky-800 hover:bg-sky-100"
-            href={compare_href}
-            data-testid="state-event-compare-cta"
-          >Compare with {previous_same_body.display} →</a>
-        </nav>
-      {/if}
+      <!-- Constituency table + Compare CTA. R3 of
+           TODO/20260615-state-election-event-page-redesign-plan.md
+           (2026-06-15): extracted to StateEventConstituencyList as a
+           Beck two-hat structural-only refactor; the section's
+           data-testids and DOM shape are preserved verbatim. R4 will
+           refactor this surface (fold + search; delete the flat
+           288-row table). -->
+      <StateEventConstituencyList
+        {loading}
+        {seat_rows}
+        {previous_same_body}
+        {compare_href}
+        {fmtInt}
+        {fmtPct}
+      />
 
       <!-- Scatter chart (PR-W4c MUST-FEATURE; state filter pre-applied via loader).
            TODO/20260612 Row A.5: lock_body=true hides the Body chip
-           since the state-event surface is single-body fixed by the URL. -->
-      <section class="space-y-2" data-testid="state-event-scatter">
-        <h2 class="text-sm font-medium text-slate-700">
-          Turnout vs winning margin &middot; {state_name} constituencies
-        </h2>
-        <Scatter
-          data={scatter_data}
-          filters={scatter_filters}
-          onFiltersChange={(next) => (scatter_filters = next)}
-          onDotClick={onScatterDotClick}
-          lock_body={true}
-        />
-      </section>
+           since the state-event surface is single-body fixed by the URL.
+           R3 (TODO/20260615-state-election-event-page-redesign-plan.md):
+           extracted to StateEventScatter.svelte as a Beck two-hat
+           structural-only refactor; the section's data-testid and DOM
+           shape are preserved verbatim. -->
+      <StateEventScatter
+        {winners}
+        {body}
+        {state_name}
+        fallback_event_id={params.event}
+        resolved_event_id={event_row?.event_id}
+      />
     {/if}
   {/if}
 </PageContainer>
