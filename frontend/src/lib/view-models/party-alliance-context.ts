@@ -12,7 +12,7 @@
 // (so the citizen reads: party-now -> alliance-now -> historical
 // charts). The view-model surfaces two sections:
 //
-//   parliament: latest Lok Sabha event the focal party was in an
+//   parliament: latest Parliament general-election the focal party was in an
 //     alliance for (or null if there is no national-level alliance
 //     row in the corpus yet) - one line answering "what alliance
 //     does this party ride with nationally right now?".
@@ -66,7 +66,7 @@ const INDEPENDENT_PARTY_ID = "parties.IN.IND";
  *  count via `partner_count`. v1: 5 (per Max M5b verbatim spec). */
 const MAX_PARTNER_NAMES = 5;
 
-/** Lok Sabha state slug used in the alliance ledger to denote a
+/** Parliament-event state slug used in the alliance ledger to denote a
  *  national-level alliance row (vs a per-state assembly row).
  *  Mirrors the columns.json schema note for party_alliances.csv. */
 const PARLIAMENT_STATE_TOKEN = "IN";

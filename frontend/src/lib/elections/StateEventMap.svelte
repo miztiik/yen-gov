@@ -240,7 +240,7 @@
       <div
         class="rounded border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600"
       >
-        Constituency map for pre-2009 Lok Sabha events is not yet
+        Constituency map for pre-2009 Parliament events is not yet
         available. No machine-readable GIS source for the 1976
         Delimitation Commission Order has been ingested. See the
         constituency table below for results.
