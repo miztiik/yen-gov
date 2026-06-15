@@ -23,7 +23,7 @@ The user named both precedents explicitly. The current firehose answers neither 
 
 In scope:
 
-- New `event_summary.csv` aggregate (one row per election event) at `datasets/data/datapoints/electoral/event_summary.csv`
+- New `event_summary.csv` aggregate (one row per election event) at `datasets/data/marts/elections/event_summary.csv` (mart home alongside the existing `marts/party_pages/` aggregate)
 - New backend writer `derive-event-summary` Typer command
 - Two new frontend routes - `/t/elections` (General elections) and `/t/elections/assemblies` (Assembly elections) - with a shared `ElectionsRouteTabs` nav strip
 - Inline progress-bar indicator for vote-share (pure Tailwind, no new renderer)
@@ -39,7 +39,7 @@ Out of scope (per Section 3 Q3 sign-off):
 - Per-state hero on `/<state>` (StateOverview.svelte) - retained as-is per user direction.
 - `DualAxisBarLine` composite mount on this surface - over-engineering for an inline single-row cell.
 - Indicator/topic catalogue changes; election-events.json changes.
-- Schema MAJOR bump (event_summary.csv is additive minor: columns.json 2.0 -> 2.1).
+- Schema MAJOR bump (event_summary.csv is additive minor: columns.json 2.1 -> 2.2).
 - a11y / WCAG / aria-* enforcement at project level (CLAUDE.md section 0 non-goal). The ElectionsRouteTabs ARIA tablist annotations land because they are 4 LOC, not because the project enforces a11y broadly.
 
 ### ESCALATE triggers (PAUSE and ask user)
@@ -121,14 +121,14 @@ Hard dependency: E1 -> E2 -> E3 -> E4. E5 is independent (ships any time).
 
 ### Row E1 - Lock event_summary.csv schema
 
-**Scope**: Append the `event_summary.csv` file-class to `datasets/data/_schema/columns.json` (additive minor; bump `$schema_version` 2.0 -> 2.1; bump `x-version` and add `x-changelog` entry on `columns.schema.json`). No writer ships yet; no data file ships yet. This is the READER-BEFORE-WRITER contract surface.
+**Scope**: Append the `event_summary.csv` file-class to `datasets/data/_schema/columns.json` (additive minor; bump `$schema_version` 2.1 -> 2.2; bump `x-version` and add `x-changelog` entry on `columns.schema.json`). No writer ships yet; no data file ships yet. This is the READER-BEFORE-WRITER contract surface.
 
 **Files touched**:
 
-- [datasets/data/_schema/columns.json](datasets/data/_schema/columns.json) - add the file-class block (12 columns)
-- [datasets/data/_schema/columns.schema.json](datasets/data/_schema/columns.schema.json) - bump `x-version` + new `x-changelog` entry
-- [backend/tests/test_csv_columns.py](backend/tests/test_csv_columns.py) - bump the version assertion to 2.1
-- [frontend/src/contracts/csv-columns.ts](frontend/src/contracts/csv-columns.ts) - add the file-class glob if a registry exists there
+- [datasets/data/_schema/columns.json](datasets/data/_schema/columns.json) - add the file-class block (12 columns); bump `$schema_version` 2.1 -> 2.2
+- [datasets/data/_schema/columns.schema.json](datasets/data/_schema/columns.schema.json) - bump `x-version` 2.1 -> 2.2 + new `x-changelog` entry
+- [backend/tests/test_csv_columns.py](backend/tests/test_csv_columns.py) - bump the version assertion to 2.2 + bump `file_classes >= 15`
+- (No frontend touch needed; `frontend/src/lib/canonical/csv-columns.ts` is metadata-driven and resolves the new file-class via the `[exact, filename-glob]` candidate order)
 
 **Column block for event_summary.csv**:
 
@@ -156,8 +156,8 @@ Hard dependency: E1 -> E2 -> E3 -> E4. E5 is independent (ships any time).
 
 **Acceptance gates**:
 
-- `pytest backend/tests/test_csv_columns.py -k "version"` green with bumped 2.1.
-- Frontend `csv-columns.ts` registry resolves the new file-class (or the registry's glob already covers `datasets/data/datapoints/electoral/*.csv`).
+- `pytest backend/tests/test_csv_columns.py -k "version"` green with bumped 2.2.
+- Frontend `csv-columns.ts` resolver continues to match the new file-class via `candidateFileClassKeys` (verified by reading the resolver; no code change needed).
 - `bun run check` green in `frontend/`.
 
 **Oracle**: `python -c "import json; s=json.loads(open('datasets/data/_schema/columns.json').read()); print(len(s['file_classes']['datasets/data/datapoints/electoral/event_summary.csv']['columns']))"` returns `12`.
