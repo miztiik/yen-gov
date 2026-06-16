@@ -76,8 +76,14 @@
 
   interface Props {
     /** DATA_BASE-relative topojson path, e.g.
-     *  `/boundaries/in/states/all.topojson` (the F4-shipped corpus). */
+     *  `/boundaries/in/country/all.topojson` (the sole surviving topojson
+     *  after the 2026-06-16 map-geometry rip). */
     topojson_path: string;
+    /** Named topojson object to decode. The combined country file carries
+     *  TWO objects (`states` + `districts`); pass e.g. `"states"` so the
+     *  right layer is selected. When omitted, the first object name is
+     *  decoded (single-object case). */
+    object_name?: string;
     /** The feature.properties[feature_key] field carrying the entity
      *  id used to join rows (e.g. "st_lgd", "dist_lgd"). */
     feature_key: string;
@@ -129,6 +135,7 @@
 
   const {
     topojson_path,
+    object_name,
     feature_key,
     rows,
     selected_time = null,
@@ -198,9 +205,14 @@
           load_error = `topojson has no objects: ${url}`;
           return;
         }
+        // Decode the caller-named object when present (the combined
+        // country file carries TWO objects - `states` + `districts` - so
+        // objectKeys[0] is ambiguous); else decode the first object name.
+        const objectKey =
+          object_name && topo.objects[object_name] ? object_name : objectKeys[0];
         const fc = topojsonFeature(
           topo,
-          topo.objects[objectKeys[0]] as GeometryCollection,
+          topo.objects[objectKey] as GeometryCollection,
         ) as unknown as FeatureCollection<Geometry, GeoJsonProperties>;
         if (cancelled) return;
         collection = fc;

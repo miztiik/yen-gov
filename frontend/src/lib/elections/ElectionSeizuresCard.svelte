@@ -364,7 +364,8 @@
     <!-- Map. -->
     <div data-testid="election-seizures-map">
       <GeoChoropleth
-        topojson_path="/boundaries/in/states/all.topojson"
+        topojson_path="/boundaries/in/country/all.topojson"
+        object_name="states"
         feature_key="State_LGD"
         rows={map_rows}
         direction="lower_is_better"

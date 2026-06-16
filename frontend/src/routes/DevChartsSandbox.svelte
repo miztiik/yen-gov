@@ -807,7 +807,8 @@
       the legend value-tick when hovered.
     </p>
     <GeoChoropleth
-      topojson_path="/boundaries/in/states/all.topojson"
+      topojson_path="/boundaries/in/country/all.topojson"
+      object_name="states"
       feature_key="State_LGD"
       rows={f2b3_state_rows}
       direction="higher_is_better"
@@ -951,7 +952,8 @@
       maps near-zero values to <code>symbol_min_radius_px</code>).
     </p>
     <GeoChoropleth
-      topojson_path="/boundaries/in/states/all.topojson"
+      topojson_path="/boundaries/in/country/all.topojson"
+      object_name="states"
       feature_key="State_LGD"
       rows={f2b3_state_rows}
       direction="higher_is_better"

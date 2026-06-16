@@ -5,11 +5,12 @@
 // `data/entities/boundary_layer.csv`, the X1a-fu2-E CSV-form ledger).
 // Missing village shards now resolve to null via the 404-as-null branch.
 //
-// Post-P2.3 (docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md) the
-// loader tries `.topojson` first and falls back to `.geojson` on 404.
-// These tests pin the geojson fallback path (no topojson sibling present
-// in the test fixtures), so each fetch mock returns 404 for the topojson
-// URL and the test's payload for the geojson URL.
+// Post the 2026-06-16 map-geometry rip the loader is FORMAT-AWARE: only the
+// country layer probes `.topojson` first (the sole surviving topojson);
+// every other layer fetches `.geojson` DIRECTLY. These tests pin the
+// non-country geojson-direct path (1 fetch per layer, no topojson probe);
+// `mockGeoPayload` still returns 404 for any `.topojson` URL so the
+// country fallback case stays covered too.
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { loadBoundary, _resetCachesForTesting } from "./boundaries";
 
@@ -87,26 +88,24 @@ describe("loadBoundary - composition (Hive paths)", () => {
     expect(out?.features.length).toBe(300);
   });
 
-  it("village for present district fetches the per-district Hive shard", async () => {
+  it("village for present district fetches the per-district Hive shard (geojson-direct)", async () => {
     mockGeoPayload(FC(42));
     const out = await loadBoundary("village", "603", "33");
-    // Post-P2.3: 1 fetch for topojson (404) + 1 fetch for geojson.
-    expect(fetchSpy).toHaveBeenCalledTimes(2);
-    expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/boundaries/in/villages/state=tamil-nadu/district=603/all.topojson`,
-    );
+    // Post map-geometry rip: non-country layers fetch geojson directly
+    // (1 fetch, no topojson probe).
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
     expect(fetchSpy).toHaveBeenCalledWith(
       `${BASE}/boundaries/in/villages/state=tamil-nadu/district=603/all.geojson`,
     );
     expect(out?.features.length).toBe(42);
   });
 
-  it("village for an absent district returns null when both siblings 404", async () => {
+  it("village for an absent district returns null (single geojson 404)", async () => {
     fetchSpy.mockImplementation(async () => new Response("nope", { status: 404 }));
     const out = await loadBoundary("village", "999", "33");
     expect(out).toBeNull();
-    // 2 fetches: topojson then geojson, both 404.
-    expect(fetchSpy).toHaveBeenCalledTimes(2);
+    // 1 fetch: geojson only (no topojson probe for non-country layers).
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
     expect(fetchSpy).toHaveBeenCalledWith(
       `${BASE}/boundaries/in/villages/state=tamil-nadu/district=999/all.geojson`,
     );

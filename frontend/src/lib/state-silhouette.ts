@@ -10,9 +10,10 @@
 //   - parent plan section 25.4: "both pull the outline from the SAME
 //     boundary geometry the choropleth already loads (the active
 //     node's state feature)". The shared canonical state-boundary
-//     corpus is `datasets/boundaries/in/states/all.topojson` (135 KB)
-//     already loaded by `GeoChoropleth`, `IndicatorChoropleth`, and
-//     `DevChartsSandbox` via `loadBoundaryFromPath`. Reusing the same
+//     corpus is `datasets/boundaries/in/states/all.geojson` (the
+//     `.topojson` sibling was retired in the 2026-06-16 map-geometry
+//     rip; the d3 choropleths read the `states` object of the combined
+//     `country/all.topojson`). Reusing the same
 //     seam keeps the single-state silhouette feature derived from
 //     the canonical corpus - no new bespoke geometry file, no new
 //     loader, no new dep.
@@ -23,7 +24,7 @@
 //     (e.g. "S22") to the LGD code (e.g. "33") via
 //     `boundary_join_key`.
 //
-// Cache scope: per-page-load. The 36-row crosswalk + 135 KB topojson
+// Cache scope: per-page-load. The 36-row crosswalk + state geojson
 // don't change inside a session, and a citizen browsing multiple
 // states would otherwise re-decode the topojson on each visit. The
 // cache is a `Map<eci_code, Feature | null>`; null is cached so a

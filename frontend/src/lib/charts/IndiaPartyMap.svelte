@@ -106,9 +106,11 @@
   }
   let { event, onSelect: onSelectProp }: Props = $props();
 
-  // Hand-pinned constants - the same join property + topojson the
-  // legacy MapChoropleth + INDIA_STATES entry consumed.
-  const TOPOJSON_PATH = "/boundaries/in/states/all.topojson";
+  // Hand-pinned constants - the combined country topojson's `states`
+  // object carries the same `State_LGD` join key the deleted
+  // states/all.topojson did (Row 2 map-geometry rip: country/all.topojson
+  // is the sole surviving topojson).
+  const TOPOJSON_PATH = "/boundaries/in/country/all.topojson";
   // Responsive fit: project to the measured container width (clamped to
   // MAX_MAP_W so a 4K viewport does not produce a giant hero); the SVG
   // height derives from the projected content bounds (no letterboxing).
@@ -281,14 +283,17 @@
           return;
         }
         const topo = (await r.json()) as Topology;
-        const objectKeys = Object.keys(topo.objects ?? {});
-        if (objectKeys.length === 0) {
-          load_error = `topojson has no objects: ${url}`;
+        // The combined country topojson carries TWO objects (`states` +
+        // `districts`); decode the NAMED `states` object - objectKeys[0]
+        // would be ambiguous and could yield the 785-district layer.
+        const states_object = topo.objects?.states;
+        if (!states_object) {
+          load_error = `country topojson missing 'states' object: ${url}`;
           return;
         }
         const fc = topojsonFeature(
           topo,
-          topo.objects[objectKeys[0]] as GeometryCollection,
+          states_object as GeometryCollection,
         ) as unknown as FeatureCollection<Geometry, GeoJsonProperties>;
         if (cancelled) return;
         collection = fc;
