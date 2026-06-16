@@ -146,6 +146,12 @@ describe("yen-gov design tokens - drift contract", () => {
       "--text-4xl",
       "--font-feature-tabular",
       "--dur",
+      // Directional ramp hues hold bare hue-degree numbers consumed at
+      // runtime by rampHue() in colors/palettes.ts, NOT via a Tailwind
+      // utility - same rationale as --font-feature-tabular / --dur above.
+      "--ramp-positive",
+      "--ramp-negative",
+      "--ramp-neutral",
     ]);
     const unmirrored: string[] = [];
     for (const decl of declaredVars) {
