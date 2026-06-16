@@ -233,12 +233,12 @@ Schema (5 columns; rationale [docs/architecture/data/canonical-store.md section 
 | Column | Required | Meaning |
 | --- | :---: | --- |
 | `source_id` | yes | PK. Deterministic `"src-" + sha256(f"{producer}\|{title}\|{vintage}").hexdigest()[:12]`. |
-| `producer` | yes | Publisher organisation, verbatim. `MIGRATING (PR-1)` — on-disk CSV header is still `owner`; the rename ships in the PR-1 frontend-wiring-rewrite of the [sources simplification plan](TODO/20260611-sources-simplification-plan.md). |
+| `producer` | yes | Publisher organisation, verbatim (OWID `origin.producer`). |
 | `title` | yes | Citizen-readable report name, verbatim. |
 | `vintage` | yes | Strongest period anchor available — publisher edition tag when one exists, operator snapshot window otherwise. Non-empty. |
 | `url` | no | Landing / publisher page URL the citizen can open. Empty when hand-imported / transcribed / editorial. |
 
-The 6 OWID-extension fields previously aspirated (`license`, `confidence_tier`, `is_issuing_authority`, `verification_method`, `citation_full`, `notes`) were declared in v2.0 doctrine but never populated by any writer; retired 2026-06-11 per the [sources simplification plan](TODO/20260611-sources-simplification-plan.md) + new inline ADR `citation-ledger-5col` in [docs/concepts/data-provenance.md](docs/concepts/data-provenance.md). The on-disk truth at [datasets/data/_schema/columns.json](datasets/data/_schema/columns.json) already declares the 5-col shape; this section just makes the doctrine match. Identity-on-`(producer, title, vintage)`-triple from [ADR-0032](docs/concepts/data-provenance.md#adr-0032-sources-citation-ledger) survives unchanged; v3.0 `vintage` sharpening from [ADR-0042](docs/concepts/data-provenance.md#adr-0042-sources-schema-v3-vintage-as-period-anchor) survives unchanged. Concept: [docs/concepts/data-provenance.md](docs/concepts/data-provenance.md).
+Identity adopts the OWID `(producer, title, vintage)` triple verbatim; the field set as a whole is a deliberate 5-column subset of OWID `origin.*` -- see [docs/concepts/owid-alignment.md Named divergence #7](docs/concepts/owid-alignment.md#named-divergences-from-owid-with-reasons) for the full inventory and rationale. The 6 OWID-extension fields previously aspirated (`license`, `confidence_tier`, `is_issuing_authority`, `verification_method`, `citation_full`, `notes`) were declared in v2.0 doctrine but never populated by any writer; retired 2026-06-11 via the user-ratified sources simplification cleanup (PR #943 + PR #945; distilled plan at [docs/archive/plans/20260611-sources-simplification-plan.md](docs/archive/plans/20260611-sources-simplification-plan.md)). On-disk truth at [datasets/data/_schema/columns.json](datasets/data/_schema/columns.json) is the binding shape. Concept: [docs/concepts/data-provenance.md](docs/concepts/data-provenance.md).
 
 Build `source_id` via `backend.yen_gov.canonical.citation.derive_source_id`; never hand-author.
 

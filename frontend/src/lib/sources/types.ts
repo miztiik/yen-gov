@@ -9,12 +9,6 @@
 // verification_method, citation_full, notes) are retired per the new
 // inline ADR `citation-ledger-5col` in docs/concepts/data-provenance.md
 // (2026-06-11). No enum types ship here.
-//
-// MIGRATING (PR-1 of TODO/20260611-sources-simplification-plan.md): the
-// on-disk CSV header is still `owner`; the DuckDB seam in
-// frontend/src/lib/duckdb.ts aliases `owner AS producer` until PR-1
-// renames the header + drops the alias. The TypeScript type uses the
-// canonical name (`producer`) from day one.
 export interface SourceRow {
   /** Deterministic 12-char PK: src-<sha256(producer|title|vintage)[:12]>. */
   source_id: string;

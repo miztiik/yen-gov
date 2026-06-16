@@ -60,12 +60,8 @@
     resolvePartyPalette,
     type PartyRowForResolver,
   } from "../lib/colors/resolver";
-  import StateAcMapD3 from "../lib/charts/StateAcMapD3.svelte";
-  import StatePcMapD3, {
-    type PcWinnerRow,
-  } from "../lib/charts/StatePcMapD3.svelte";
   import { INDIA_PC, INDIA_PC_2008 } from "../lib/boundaries/sources";
-  import TileCartogram from "../lib/charts/TileCartogram.svelte";
+  import type { PcWinnerRow } from "../lib/charts/StatePcMapD3.svelte";
   import {
     fetchElectionTileLayouts,
     fetchElectionTileScopes,
@@ -82,19 +78,31 @@
     buildPartyKeyToPid,
     hiddenPidSet,
   } from "../lib/charts/india-pc-map-helpers";
-  import InlineCounterfactualSwing from "../lib/elections/InlineCounterfactualSwing.svelte";
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
+  import StateEventScatter from "../lib/elections/StateEventScatter.svelte";
+  import StateEventConstituencyList from "../lib/elections/StateEventConstituencyList.svelte";
+  import StateEventHero from "../lib/elections/StateEventHero.svelte";
+  import StateEventMap from "../lib/elections/StateEventMap.svelte";
+  import StateEventPartyComposite from "../lib/elections/StateEventPartyComposite.svelte";
+  import SiblingEventsRail from "../lib/elections/SiblingEventsRail.svelte";
+  import StateEventCrossEventSankey from "../lib/elections/StateEventCrossEventSankey.svelte";
+  import { buildSiblingEventsRail } from "../lib/elections/sibling-events-rail-model";
+  import type { PrevWinnersState } from "../lib/elections/cross-event-sankey-model";
+  import {
+    loadEventSummary,
+    type EventSummaryRow,
+  } from "../lib/elections/event-summary-loader";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
-  import Scatter from "../lib/charts/Scatter.svelte";
-  import type {
-    ScatterDatum,
-    ScatterFilters,
-  } from "../lib/charts/scatter-model";
-  import PartyBar from "../lib/PartyBar.svelte";
+  import { SHARE_BASE } from "../lib/paths";
   import type { PartyTotals } from "../lib/data";
   import { loadAlliances } from "../lib/psephlab/alliances";
   import type { AllianceLookup } from "../lib/psephlab/types";
+  import {
+    writeLastEvent,
+    type LastEventBody,
+  } from "../lib/elections/last-event-memory";
 
   interface Props {
     params: { state: string; event: string };
@@ -160,6 +168,18 @@
         >;
       });
     }
+  });
+
+  // R2 of TODO/20260615-state-election-event-page-redesign-plan.md
+  // (J-elevated-15): persist the last-viewed (state, event_id, body)
+  // tuple so the /<state>/elections/ landing route can render a
+  // "Last viewed" badge next to the matching year-link. 30-day
+  // expiry; per-state-slug localStorage key; no telemetry. Reads of
+  // this memory live in StateElectionsLanding.svelte.
+  $effect(() => {
+    const ev = event_row;
+    if (!ev) return;
+    writeLastEvent(params.state, ev.event_id, ev.kind as LastEventBody);
   });
 
   const winners = $derived<ElectionResultRow[]>(
@@ -484,13 +504,14 @@
   // recompute seats or vote share. Reset on event change so muting
   // "BJP" on chhattisgarh general-2024 doesn't silently carry to
   // general-2019 when the citizen navigates.
+  //
+  // R3 of TODO/20260615-state-election-event-page-redesign-plan.md
+  // (2026-06-15): the toggleHidden handler is now owned by the
+  // extracted StateEventPartyComposite subcomponent. `hidden_parties`
+  // is passed as $bindable so the subcomponent's button writes flow
+  // back to this proxy, which is what the hidden_pids derivation +
+  // the AC / PC override paths below continue to read.
   let hidden_parties = $state<Set<string>>(new Set());
-  function toggleHidden(key: string): void {
-    const next = new Set(hidden_parties);
-    if (next.has(key)) next.delete(key);
-    else next.add(key);
-    hidden_parties = next;
-  }
   $effect(() => {
     void event_row?.event_id;
     void params.state;
@@ -726,6 +747,177 @@
     return `/compare/elections/${params.state}/${encodeURIComponent(prev.event_id)}/${encodeURIComponent(ev.event_id)}`;
   });
 
+  // ---- R4 (TODO/20260615-state-election-event-page-redesign-plan.md):
+  // Load the per-event aggregate mart once for: (a) the SiblingEventsRail
+  // winner-color underlines (resolves event_id -> leading_party brand
+  // colour), and (b) the HeroCards turnout pp-delta vs the previous
+  // same-body event. Mart shape carries leading_party_id + turnout_pct
+  // keyed by (event_id, state_code). Cached singleton, so the cost is
+  // paid once per page session.
+  let event_summary_rows = $state<EventSummaryRow[] | null>(null);
+  let event_summary_error = $state<string | null>(null);
+  $effect(() => {
+    // re-fire on identity change (event navigation reuses this route).
+    void event_row?.event_id;
+    if (event_summary_rows !== null || event_summary_error !== null) return;
+    loadEventSummary()
+      .then((rows) => (event_summary_rows = rows))
+      .catch((e) => (event_summary_error = String(e)));
+  });
+
+  const event_summary_by_id = $derived.by<Map<string, EventSummaryRow>>(() => {
+    const out = new Map<string, EventSummaryRow>();
+    if (!event_summary_rows || !state_code) return out;
+    for (const r of event_summary_rows) {
+      // Restrict to the current state's rows; the leading_party for
+      // (event_id, state_code) is the per-state winner (Assembly).
+      // For Parliament events we still scope by state_code so the
+      // colour matches the per-state winner of that LS election.
+      if (r.state_code === state_code) {
+        out.set(r.event_id, r);
+      }
+    }
+    return out;
+  });
+
+  // Resolver consumed by SiblingEventsRail: maps an event_id to its
+  // leading party's brand colour for the chip's underline. Returns
+  // null when the mart row is missing OR the leading_party has no
+  // brand_colour entry in this event's winners. The rail's component
+  // falls back to slate-200 in that case.
+  function winnerColorForEventId(event_id: string): string | null {
+    const row = event_summary_by_id.get(event_id);
+    if (!row || !row.leading_party_id) return null;
+    // Resolve via the canonical 3-tier resolver. For the leading
+    // party of a sibling event we may not have a brand_colour row
+    // loaded (winners[] is scoped to the CURRENT event). Hand the
+    // resolver a null brand_colour so it falls back to the algorithmic
+    // tier (deterministic colour from the party_id).
+    return getPartyColor(row.leading_party_id, null).hex;
+  }
+
+  const sibling_events_rail_model = $derived.by(() => {
+    if (!catalogue || !state_code || !event_row || !body) return null;
+    return buildSiblingEventsRail({
+      catalogue,
+      state_code,
+      state_slug: params.state,
+      current_event_id: event_row.event_id,
+      body,
+      winner_color_for_event_id: winnerColorForEventId,
+    });
+  });
+
+  // Hero turnout-delta payload. Compares the current event's
+  // turnout_pct against the previous same-body event's turnout_pct
+  // (both derived from event_summary.csv per the plan's RATIFIED
+  // sourcing rule). When the prior row is missing OR the field is
+  // null on either side, the delta is OMITTED entirely (first-event-
+  // on-record card-collapse pin per J-elevated-3 amend).
+  interface HeroDeltaPayload {
+    turnout_pp: number | null;
+    prev_event_label: string | null;
+  }
+  const hero_delta = $derived.by<HeroDeltaPayload>(() => {
+    const prev = previous_same_body;
+    const ev = event_row;
+    if (!ev || !prev) return { turnout_pp: null, prev_event_label: null };
+    const current_row = event_summary_by_id.get(ev.event_id);
+    const prev_row = event_summary_by_id.get(prev.event_id);
+    if (!current_row || !prev_row) {
+      return { turnout_pp: null, prev_event_label: null };
+    }
+    if (current_row.turnout_pct == null || prev_row.turnout_pct == null) {
+      return { turnout_pp: null, prev_event_label: null };
+    }
+    const pp = current_row.turnout_pct - prev_row.turnout_pct;
+    // Compact label: "Assembly 2019" rather than the full catalogue
+    // display string "Maharashtra Assembly 2019" since the citizen
+    // is already on the Maharashtra page.
+    const kind_pretty = prev.kind === "parliament" ? "Parliament" : "Assembly";
+    const year_match = /(\d{4})/.exec(prev.event_id);
+    const year = year_match ? year_match[1] : prev.event_id;
+    return {
+      turnout_pp: pp,
+      prev_event_label: `${kind_pretty} ${year}`,
+    };
+  });
+
+  // ---- R5 (TODO/20260615-state-election-event-page-redesign-plan.md):
+  // Prev-event winners loader for the CrossEventSankey + diverging
+  // bar. Mirrors the current-event loader path: AC events take a
+  // per-state scope; PC events load national + filter locally. The
+  // section gracefully renders the no-prior copy when
+  // previous_same_body is null (first event on record for this body
+  // in this state).
+  let prev_winners_result = $state<LoaderResult<ElectionResultRow[]> | null>(null);
+  $effect(() => {
+    const prev_ev = previous_same_body;
+    const sc = state_code;
+    const b = body;
+    if (!prev_ev || !sc || !b) {
+      prev_winners_result = null;
+      return;
+    }
+    const target_state_slug = params.state;
+    prev_winners_result = { status: "loading" };
+    const prev_event_id = prev_ev.event_id;
+    if (b === "ac") {
+      loadElectionResults({ event: prev_event_id, state: sc }).then((r) => {
+        if (
+          prev_ev !== previous_same_body ||
+          state_code !== sc ||
+          event_row?.event_id !== event_row?.event_id
+        ) {
+          return;
+        }
+        prev_winners_result = r;
+      });
+    } else {
+      loadElectionResults({ event: prev_event_id }).then((r) => {
+        if (
+          prev_ev !== previous_same_body ||
+          state_code !== sc ||
+          params.state !== target_state_slug
+        ) {
+          return;
+        }
+        if (r.status !== "ok" && r.status !== "partial") {
+          prev_winners_result = r;
+          return;
+        }
+        const filtered = r.data.filter(
+          (row) => row.state_slug === target_state_slug,
+        );
+        prev_winners_result = {
+          status: r.status,
+          data: filtered,
+        } as LoaderResult<ElectionResultRow[]>;
+      });
+    }
+  });
+
+  const prev_winners_state = $derived.by<PrevWinnersState>(() => {
+    if (!previous_same_body) return { status: "no_prior" };
+    const r = prev_winners_result;
+    if (!r || r.status === "loading") return { status: "loading" };
+    if (r.status === "failed") return { status: "failed", reason: r.reason };
+    if (r.status === "ok" || r.status === "partial") {
+      return { status: "ok", rows: r.data };
+    }
+    return { status: "loading" };
+  });
+
+  // Pretty labels for the Sankey panel's prev->current line + the
+  // no-prior copy.
+  const body_pretty = $derived(body === "pc" ? "Parliament" : "Assembly");
+  const current_event_label = $derived.by<string>(() => {
+    const ev = event_row;
+    if (!ev) return params.event;
+    const m = /(\d{4})/.exec(ev.event_id);
+    return m ? `${body_pretty} ${m[1]}` : ev.event_id;
+  });
+
   // ---- Display label --------------------------------------------------
   // event_row.display already includes the state name for parliament
   // events ("Chhattisgarh · Parliament 2024") and assembly events
@@ -760,71 +952,43 @@
 
   const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
 
-  // ---- Scatter chart projection (PR-W4c) ------------------------------
-  // The state filter is implicit (winners is already pre-filtered to
-  // `params.state` via the W2b loader's state-scope arm). The body
-  // filter chip on the scatter starts on the active event kind so the
-  // chart and the page agree on first paint; afterwards the citizen
-  // may toggle freely (toggling to the inactive body simply empties
-  // the chart, which is the correct UX given the loader is single-body
-  // scoped for this surface).
-  let scatter_filters = $state<ScatterFilters>({
-    reservation: "all",
-    margin_band: "all",
+  // R7 (TODO/20260615-state-election-event-page-redesign-plan.md
+  // J-elevated-14): OG-card unfurl meta. Generated PNG ships at
+  // /share/{state-slug}/{event_id}.png via the build step in
+  // `frontend/scripts/build-share-cards.ts`. When the event_id
+  // cannot be resolved (404 surfaces upstream) the og:image meta is
+  // omitted entirely - WhatsApp / Twitter degrade to text-only
+  // previews rather than 404 on a broken image.
+  const og_image_url = $derived(
+    event_row && state_code
+      ? `${SHARE_BASE}/${params.state}/${event_row.event_id}.png`
+      : null,
+  );
+  const og_title = $derived(`${event_pretty} - yen-gov`);
+  const og_description = $derived.by(() => {
+    if (!event_row || !state_code) return "Election data for India.";
+    const body_word = body === "pc" ? "Parliament" : "Assembly";
+    return `${state_name} ${body_word} election polled on ${event_row.polled_on}. Seat-by-seat winners, party totals, alliance composition, and turnout context.`;
   });
-  let scatter_body_initialised = false;
-  $effect(() => {
-    if (scatter_body_initialised) return;
-    const b = body;
-    if (!b) return;
-    scatter_filters = {
-      ...scatter_filters,
-      body: b === "pc" ? "parliament" : "assembly",
-    };
-    scatter_body_initialised = true;
-  });
-  const scatter_data = $derived.by<ScatterDatum[]>(() => {
-    const out: ScatterDatum[] = [];
-    const ev = event_row?.event_id ?? params.event;
-    const body_lit: "parliament" | "assembly" =
-      body === "pc" ? "parliament" : "assembly";
-    for (const w of winners) {
-      if (w.turnout_pct == null || w.margin_pct == null) continue;
-      out.push({
-        entity_id: w.entity_id,
-        state_slug: w.state_slug,
-        constituency_slug: slugify(w.entity_name),
-        constituency_name: w.entity_name,
-        event_id: ev,
-        turnout_pct: w.turnout_pct,
-        margin_pct: w.margin_pct,
-        electors: w.electors ?? 0,
-        // TODO/20260612 Row B: margin_votes drives the radius encoding.
-        // Null at the loader becomes null on the datum; the Scatter
-        // component clamps null -> 0 for layout.
-        margin_votes: w.margin_votes,
-        winner_party_id: (function () {
-          if (w.party_id) return w.party_id;
-          const slug = (w.party_short ?? "UNK").trim().toUpperCase();
-          return `parties.IN.${slug}`;
-        })(),
-        winner_party_short: w.party_short ?? "UNK",
-        reservation: w.reservation,
-        body: body_lit,
-      });
-    }
-    return out;
-  });
-  function onScatterDotClick(d: ScatterDatum): void {
-    navigate(
-      `${link.stateElection(d.state_slug, d.event_id)}/${d.constituency_slug}`,
-    );
-  }
 </script>
+
+<svelte:head>
+  <title>{og_title}</title>
+  <meta property="og:title" content={og_title} />
+  <meta property="og:description" content={og_description} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={og_title} />
+  <meta name="twitter:description" content={og_description} />
+  {#if og_image_url}
+    <meta property="og:image" content={og_image_url} />
+    <meta name="twitter:image" content={og_image_url} />
+  {/if}
+</svelte:head>
 
 <Breadcrumb {crumbs} />
 
-<main class="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
+<PageContainer width="wide">
   {#if catalogue_error}
     <div
       class="rounded border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900"
@@ -862,84 +1026,35 @@
     </div>
   {:else}
     {@const ev = event_row}
-    <!-- Header -->
-    <header class="space-y-2">
-      <h1
-        class="text-2xl font-semibold text-slate-900"
-        data-testid="state-event-header"
-      >
-        {event_pretty}
-      </h1>
-      <div class="flex flex-wrap items-center gap-2 text-xs">
-        <span
-          class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
-          data-testid="state-event-body-chip"
-        >{body === "pc" ? "Parliament" : "Assembly"}</span>
-        <span class="text-slate-500">
-          Polled <span class="tabular-nums">{ev.polled_on}</span>
-        </span>
-      </div>
-    </header>
+    <!-- Header + load-error + KPIs + pending. R3 of
+         TODO/20260615-state-election-event-page-redesign-plan.md
+         (2026-06-15): extracted to StateEventHero.svelte as a Beck
+         two-hat structural-only refactor; data-testids and DOM shape
+         preserved verbatim. R4 will rebuild the KPI strip into the
+         J-elevated-3 HeroCards with icon glyphs + turnout-delta. -->
+    <StateEventHero
+      event_row={ev}
+      {body}
+      {event_pretty}
+      {result}
+      {loading}
+      {pending}
+      {kpis}
+      delta={hero_delta}
+      {fmtInt}
+      {fmtCompact}
+      {fmtPct}
+    />
 
-    {#if result.status === "failed"}
-      <div
-        class="rounded border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800"
-        data-testid="state-event-load-error"
-      >
-        <p>Data couldn't load: {result.reason}</p>
-      </div>
-    {:else}
-      <!-- KPIs strip -->
-      <section
-        class="grid grid-cols-2 gap-3 sm:grid-cols-4"
-        data-testid="state-event-kpis"
-      >
-        <div class="rounded border border-slate-200 bg-white p-3">
-          <div class="text-xs uppercase tracking-wide text-slate-500">
-            Seats
-          </div>
-          <div
-            class="mt-1 text-2xl font-semibold text-slate-900"
-            data-testid="state-event-kpi-seats"
-          >
-            {loading ? "-" : fmtInt(kpis.total_seats)}
-          </div>
-        </div>
-        <div class="rounded border border-slate-200 bg-white p-3">
-          <div class="text-xs uppercase tracking-wide text-slate-500">
-            Total voters
-          </div>
-          <div class="mt-1 text-2xl font-semibold text-slate-900">
-            {fmtCompact(kpis.total_electors)}
-          </div>
-        </div>
-        <div class="rounded border border-slate-200 bg-white p-3">
-          <div class="text-xs uppercase tracking-wide text-slate-500">
-            Total polled
-          </div>
-          <div class="mt-1 text-2xl font-semibold text-slate-900">
-            {fmtCompact(kpis.total_polled)}
-          </div>
-        </div>
-        <div class="rounded border border-slate-200 bg-white p-3">
-          <div class="text-xs uppercase tracking-wide text-slate-500">
-            Turnout
-          </div>
-          <div class="mt-1 text-2xl font-semibold text-slate-900">
-            {fmtPct(kpis.turnout_pct)}
-          </div>
-        </div>
-      </section>
+    <!-- Sibling-events year-chip rail. R4 J-elevated-4: replaces the
+         deleted "Prev / Next / Compare ->" text strip; pure year
+         chips with winner-color underlines + a trailing Compare
+         pill (no arrows ever). -->
+    {#if sibling_events_rail_model}
+      <SiblingEventsRail model={sibling_events_rail_model} />
+    {/if}
 
-      {#if pending}
-        <div
-          class="rounded border border-dashed border-slate-300 bg-slate-50 p-3 text-center text-sm text-slate-500"
-          data-testid="state-event-pending"
-        >
-          Results for this election are not published yet.
-        </div>
-      {/if}
-
+    {#if result.status !== "failed"}
       <!-- TODO/20260612 Rows D + E + F: state choropleth.
            AC events: Winner|Margin sub-toggle + Map | Equal seats arm
                        toggle (latter only when the state has a
@@ -948,253 +1063,57 @@
            PC events: StatePcMapD3 + Winner|Margin sub-toggle + party-
                        mute. No Equal-seats arm (per-state PC tile
                        layouts have not been authored yet; surfaced
-                       inline below the map). -->
-      {#if body === "ac" && state_code && STATE_AC[state_code]}
-        <section
-          class="space-y-2"
-          data-testid="state-event-map"
-        >
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-sm font-medium text-slate-700">
-              Constituencies
-            </h2>
-            <div class="flex flex-wrap items-center gap-2">
-              <div
-                class="inline-flex rounded border border-slate-200 bg-white p-0.5 text-xs"
-                data-testid="state-event-map-mode"
-              >
-                <button
-                  type="button"
-                  class={color_mode === "winner"
-                    ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
-                    : "px-2 py-0.5 text-slate-500"}
-                  data-testid="state-event-map-mode-winner"
-                  onclick={() => (color_mode = "winner")}
-                >Winner</button>
-                <button
-                  type="button"
-                  class={color_mode === "margin"
-                    ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
-                    : "px-2 py-0.5 text-slate-500"}
-                  data-testid="state-event-map-mode-margin"
-                  onclick={() => (color_mode = "margin")}
-                >Margin</button>
-              </div>
-              {#if has_ac_equal_seats === true}
-                <div
-                  class="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-sm"
-                  data-testid="state-event-map-view"
-                >
-                  <button
-                    type="button"
-                    class="rounded-md px-3 py-1 transition-colors {ac_view === 'map'
-                      ? 'bg-white font-medium text-slate-900 shadow-sm'
-                      : 'text-slate-500 hover:text-slate-700'}"
-                    data-view="map"
-                    onclick={() => (ac_view = "map")}
-                  >Map</button>
-                  <button
-                    type="button"
-                    class="rounded-md px-3 py-1 transition-colors {ac_view === 'hex'
-                      ? 'bg-white font-medium text-slate-900 shadow-sm'
-                      : 'text-slate-500 hover:text-slate-700'}"
-                    data-view="hex"
-                    onclick={() => (ac_view = "hex")}
-                  >Equal seats</button>
-                </div>
-              {/if}
-            </div>
-          </div>
-          {#if ac_view === "map"}
-            <div data-testid="state-event-map-geo">
-              <StateAcMapD3
-                state={state_code}
-                rows={ac_winners_shim}
-                event={ev.event_id}
-                height="420px"
-                fillsOverride={ac_fills_override}
-                opacitiesOverride={ac_opacities_override}
-              />
-            </div>
-          {:else}
-            <div data-testid="state-event-map-hex">
-              {#if ac_tile_layout_error}
-                <div
-                  class="rounded border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800"
-                >
-                  Equal-seats layout couldn't load.
-                </div>
-              {:else if ac_tile_layout == null}
-                <p class="p-4 text-sm text-slate-500">
-                  Loading equal-seats layout...
-                </p>
-              {:else}
-                <TileCartogram
-                  tiles={ac_tile_rows}
-                  height="420px"
-                  onSelect={onAcTileSelect}
-                />
-              {/if}
-            </div>
-          {/if}
-          <p class="text-xs text-slate-500">
-            {color_mode === "winner"
-              ? "Each constituency is filled with the winning party's colour."
-              : "Each constituency is shaded by winning margin (darker = larger margin)."}
-          </p>
-          {#if ac_view === "map"}
-            <!-- TODO/20260612 Row C: sub-threshold marker legend - the
-                 StateAcMapD3 component overlays circular markers for ACs
-                 whose bbox is too small to render as a polygon at this
-                 zoom. Without this caption citizens read the circles as
-                 an unexplained second symbology. -->
-            <p
-              class="text-[11px] text-slate-500"
-              data-testid="state-ac-map-legend"
-            >
-              Circles mark dense urban constituencies whose polygon is too
-              small to render at this zoom.
-            </p>
-          {/if}
-        </section>
-      {:else if body === "pc" && state_code}
-        <!-- TODO/20260612 Row D: PC choropleth via StatePcMapD3,
-             filtering the national PC topojson by `state_ut_code ===
-             state_code`. Replaces the "Constituency map being
-             prepared" placeholder card from PR #954 for LS 2024
-             (delim=2024) AND LS 2019 / 2014 / 2009 (delim=2008,
-             ingested by FU#3 plan TODO/20260612-pc-delim-2008-
-             boundary-ingest-plan.md). Pre-2009 LS events
-             (general-2004 / general-1999 / ...) have no PC geometry
-             on disk and render the placeholder card below.
+                       inline below the map).
 
-             No "Equal seats" arm: per-state PC tile layouts have not
-             been authored (only national PC + per-state AC layouts
-             exist today). The note below directs the citizen to the
-             national surface for the hex view. -->
-        {#if pc_delim_year == null}
-          <!-- Pre-2009 LS event: no PC geometry available; placeholder
-               card persists. This is by design (FU#3 plan-doc Smoke 6
-               regression check). -->
-          <section
-            class="space-y-2"
-            data-testid="state-event-map-placeholder"
-          >
-            <h2 class="text-sm font-medium text-slate-700">
-              Constituencies
-            </h2>
-            <div
-              class="rounded border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600"
-            >
-              Constituency map for pre-2009 Lok Sabha events is not yet
-              available. No machine-readable GIS source for the 1976
-              Delimitation Commission Order has been ingested. See the
-              constituency table below for results.
-            </div>
-          </section>
-        {:else}
-        <section
-          class="space-y-2"
-          data-testid="state-event-map"
-        >
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-sm font-medium text-slate-700">
-              Constituencies
-            </h2>
-            <div
-              class="inline-flex rounded border border-slate-200 bg-white p-0.5 text-xs"
-              data-testid="state-event-map-mode"
-            >
-              <button
-                type="button"
-                class={color_mode === "winner"
-                  ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
-                  : "px-2 py-0.5 text-slate-500"}
-                data-testid="state-event-map-mode-winner"
-                onclick={() => (color_mode = "winner")}
-              >Winner</button>
-              <button
-                type="button"
-                class={color_mode === "margin"
-                  ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
-                  : "px-2 py-0.5 text-slate-500"}
-                data-testid="state-event-map-mode-margin"
-                onclick={() => (color_mode = "margin")}
-              >Margin</button>
-            </div>
-          </div>
-          <StatePcMapD3
-            state={state_code}
+           R3 of TODO/20260615-state-election-event-page-redesign-plan.md
+           (2026-06-15): extracted to StateEventMap.svelte as a Beck
+           two-hat structural-only refactor; the section's DOM shape +
+           every data-testid are preserved verbatim. R4 will reorder
+           this above the PartyComposite + add the
+           SiblingEventsRail. color_mode + ac_view are bound through
+           so the parent's override derivations still read the same
+           proxy. -->
+      {#if state_code && (body === "ac" || body === "pc")}
+        {#if body === "pc" || STATE_AC[state_code]}
+          <StateEventMap
+            {body}
+            state_code={state_code}
+            event_id={ev.event_id}
+            {ac_winners_shim}
+            {ac_fills_override}
+            {ac_opacities_override}
+            {has_ac_equal_seats}
+            {ac_tile_layout}
+            {ac_tile_layout_error}
+            {ac_tile_rows}
+            {onAcTileSelect}
+            {pc_winners}
+            {pc_delim_year}
+            {pc_boundary}
+            {pc_fills_override}
+            {pc_opacities_override}
             state_slug={params.state}
-            rows={pc_winners}
-            event={ev.event_id}
-            height="420px"
-            fillsOverride={pc_fills_override}
-            opacitiesOverride={pc_opacities_override}
-            boundary={pc_boundary}
+            bind:color_mode
+            bind:ac_view
           />
-          <p class="text-xs text-slate-500">
-            {color_mode === "winner"
-              ? "Each constituency is filled with the winning party's colour."
-              : "Each constituency is shaded by winning margin (darker = larger margin)."}
-          </p>
-          <p
-            class="text-[11px] text-slate-500"
-            data-testid="state-pc-map-legend"
-          >
-            Circles mark dense urban constituencies whose polygon is too
-            small to render at this zoom. Equal-seats view available on
-            the
-            <a
-              class="text-sky-700 hover:underline"
-              href={`/t/elections/${encodeURIComponent(ev.event_id)}`}
-            >national {ev.event_id} surface</a>.
-          </p>
-        </section>
         {/if}
       {/if}
 
-      <!-- Top parties (TODO/20260612 Row D: reuses PartyBar; vote-share +
-           seats + optional alliance tag. Row F: click-to-mute via
-           hidden_parties + reset button when N > 0; mute recedes
-           matching cells on the AC + PC maps via the override path. -->
-      <section
-        class="space-y-2"
-        data-testid="state-event-top-parties"
-      >
-        <div class="flex items-baseline justify-between gap-2 flex-wrap">
-          <h2 class="text-sm font-medium text-slate-700">
-            Top parties by seats
-          </h2>
-          {#if hidden_parties.size > 0}
-            <button
-              type="button"
-              class="text-xs text-sky-700 hover:underline"
-              data-testid="state-event-top-parties-reset"
-              onclick={() => (hidden_parties = new Set())}
-            >Show all ({hidden_parties.size} muted)</button>
-          {/if}
-        </div>
-        {#if loading}
-          <p
-            class="text-xs text-slate-500"
-            data-testid="state-event-top-parties-loading"
-          >Loading top parties...</p>
-        {:else if top_parties.length === 0}
-          <p class="text-xs text-slate-500">No party totals yet.</p>
-        {:else}
-          <PartyBar
-            parties={top_parties}
-            total_seats={kpis.total_seats}
-            {hidden_parties}
-            onToggleHidden={toggleHidden}
-          />
-          <p class="text-[11px] text-slate-500">
-            Click a party row to mute it; muted parties recede on the
-            map. Vote totals don't recompute.
-          </p>
-        {/if}
-      </section>
+      <!-- Top parties: R3 of TODO/20260615-state-election-event-page-
+           redesign-plan.md (2026-06-15): extracted to
+           StateEventPartyComposite.svelte as a Beck two-hat structural-
+           only refactor; the section's DOM shape + data-testids are
+           preserved verbatim. R4 will extend this into a per-party
+           row table with [symbol][short][alliance-chip][seats-bar]
+           [seats-count][vote-share%]. hidden_parties is bound through
+           so the parent's hidden_pids derivation continues to power
+           the AC + PC map recede paths. -->
+      <StateEventPartyComposite
+        {loading}
+        {top_parties}
+        total_seats={kpis.total_seats}
+        bind:hidden_parties
+      />
 
       <!-- Alliance totals -->
       <AllianceTotals
@@ -1208,103 +1127,62 @@
         polled_on={ev.polled_on}
       />
 
-      <!-- Inline counterfactual swing (assembly only) -->
-      {#if state_code}
-        <InlineCounterfactualSwing
-          event={ev.event_id}
-          state_code={state_code}
-          disabled={body !== "ac"}
-        />
-      {/if}
-
-      <!-- Constituency table -->
-      <section
-        class="space-y-2"
-        data-testid="state-event-constituency-table"
-      >
-        <h2 class="text-sm font-medium text-slate-700">
-          Constituencies ({loading ? "-" : fmtInt(seat_rows.length)})
-        </h2>
-        {#if loading}
-          <p
-            class="text-xs text-slate-500"
-            data-testid="state-event-constituency-table-loading"
-          >Loading constituency results...</p>
-        {:else if seat_rows.length === 0}
-          <p class="text-xs text-slate-500">No constituency rows yet.</p>
-        {:else}
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm">
-              <thead class="text-left text-xs uppercase text-slate-500">
-                <tr>
-                  <th class="py-2">Constituency</th>
-                  <th class="py-2">Winner</th>
-                  <th class="py-2 text-right">Share</th>
-                  <th class="py-2 text-right">Margin</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y">
-                {#each seat_rows as r (r.entity_id)}
-                  <tr
-                    class="hover:bg-slate-50"
-                    data-testid="state-event-constituency-row"
-                  >
-                    <td class="py-2">
-                      <a
-                        class="text-sky-700 hover:underline"
-                        href={r.href}
-                        data-testid="state-event-constituency-link"
-                      >{r.entity_name}</a>
-                    </td>
-                    <td class="py-2">
-                      <span
-                        class="inline-block rounded px-1.5 py-0.5 text-xs font-medium text-white"
-                        style={`background-color:${r.winner_color};`}
-                      >{r.winner_party_short}</span>
-                    </td>
-                    <td class="py-2 text-right tabular-nums">
-                      {fmtPct(r.winner_share_pct)}
-                    </td>
-                    <td class="py-2 text-right tabular-nums">
-                      {fmtPct(r.margin_pct)}
-                    </td>
-                  </tr>
-                {/each}
-              </tbody>
-            </table>
-          </div>
-        {/if}
-      </section>
-
-      <!-- Compare CTA (W4b target) -->
-      {#if compare_href && previous_same_body}
-        <nav
-          class="flex flex-wrap gap-2 text-sm"
-          aria-label="Compare elections"
-        >
-          <a
-            class="rounded border border-sky-200 bg-sky-50 px-3 py-2 text-sky-800 hover:bg-sky-100"
-            href={compare_href}
-            data-testid="state-event-compare-cta"
-          >Compare with {previous_same_body.display} →</a>
-        </nav>
-      {/if}
+      <!-- R4 (TODO/20260615-state-election-event-page-redesign-plan.md):
+           the InlineCounterfactualSwing mount that previously sat
+           between AllianceTotals and the constituency table is
+           DELETED on this surface. Counterfactual ergonomics live on
+           Psephlab; the state-event page is the canonical fact view.
+           The component file is retained because Psephlab still
+           mounts it; only the mount is removed here. -->
 
       <!-- Scatter chart (PR-W4c MUST-FEATURE; state filter pre-applied via loader).
            TODO/20260612 Row A.5: lock_body=true hides the Body chip
-           since the state-event surface is single-body fixed by the URL. -->
-      <section class="space-y-2" data-testid="state-event-scatter">
-        <h2 class="text-sm font-medium text-slate-700">
-          Turnout vs winning margin &middot; {state_name} constituencies
-        </h2>
-        <Scatter
-          data={scatter_data}
-          filters={scatter_filters}
-          onFiltersChange={(next) => (scatter_filters = next)}
-          onDotClick={onScatterDotClick}
-          lock_body={true}
-        />
-      </section>
+           since the state-event surface is single-body fixed by the URL.
+           R3 (TODO/20260615-state-election-event-page-redesign-plan.md):
+           extracted to StateEventScatter.svelte as a Beck two-hat
+           structural-only refactor; the section's data-testid and DOM
+           shape are preserved verbatim. R4 moves Scatter ABOVE
+           ConstituencyList so the citizen reads turnout-vs-margin
+           context BEFORE diving into per-AC rows. -->
+      <StateEventScatter
+        {winners}
+        {body}
+        {state_name}
+        fallback_event_id={params.event}
+        resolved_event_id={event_row?.event_id}
+      />
+
+      <!-- Constituency table + Compare CTA. R3 of
+           TODO/20260615-state-election-event-page-redesign-plan.md
+           (2026-06-15): extracted to StateEventConstituencyList as a
+           Beck two-hat structural-only refactor; the section's
+           data-testids and DOM shape were preserved verbatim. R4
+           rebuilds the inside (district-grouped fold + sticky search +
+           Compare CTA as a slate-link last row) - the testids stay
+           verbatim so all prior e2e assertions still pass. -->
+      <StateEventConstituencyList
+        {loading}
+        {seat_rows}
+        {previous_same_body}
+        {compare_href}
+        {fmtInt}
+        {fmtPct}
+      />
+
+      <!-- Cross-event vote-flow comparison. R5 of
+           TODO/20260615-state-election-event-page-redesign-plan.md
+           (2026-06-15): always-on diverging bar above a collapsed
+           Sankey behind a 'Show vote-flow' pill. Max + Jony verdict
+           in plan Section 6. When no prior same-body event exists
+           the section renders the no-prior copy with no button. -->
+      <StateEventCrossEventSankey
+        current_winners={winners}
+        prev_winners={prev_winners_state}
+        prev_event_label={hero_delta.prev_event_label}
+        {current_event_label}
+        {body_pretty}
+        {state_name}
+      />
     {/if}
   {/if}
-</main>
+</PageContainer>

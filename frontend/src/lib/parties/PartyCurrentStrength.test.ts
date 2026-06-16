@@ -8,7 +8,20 @@
  * block (`formatSeats` + `formatVoteShare`); the rendered-DOM smoke
  * is in `Party.test.ts` (which mounts the route) and the manual
  * §13 browser smoke recorded in the PR body.
+ *
+ * The bottom `D3 icon contract` block is a source-level pin (the
+ * doctrine forbids mounting Svelte, so we read the .svelte file
+ * from disk and grep for the regression shape). PR-2 of TODO/
+ * 20260615-party-page-citizen-fixes-plan.md swapped two
+ * `<img src="/icons/landmark.svg">` + `<img src="/icons/flag.svg">`
+ * sites to `<TopicIcon name="...">` because stroke-less /
+ * fill-less Lucide-style SVGs cannot inherit `currentColor` when
+ * loaded as an `<img>`, producing empty-square broken-image boxes.
+ * The pin asserts the structural swap survives future edits.
  */
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { formatSeats, formatVoteShare } from "./PartyCurrentStrength.svelte";
@@ -39,5 +52,31 @@ describe("formatVoteShare", () => {
     expect(formatVoteShare(0)).toBe("0.0%");
     expect(formatVoteShare(100)).toBe("100.0%");
     expect(formatVoteShare(2.345)).toBe("2.3%");
+  });
+});
+
+describe("PartyCurrentStrength.svelte D3 icon contract", () => {
+  // Source-level pin: doctrine forbids mounting Svelte, so we read
+  // the component file as text and assert the structural shape.
+  // Defends the PR-2 swap of `<img src="/icons/...">` to inline
+  // `<TopicIcon>` from regressing back to broken-image boxes.
+  const here = dirname(fileURLToPath(import.meta.url));
+  const source = readFileSync(
+    join(here, "PartyCurrentStrength.svelte"),
+    "utf-8",
+  );
+
+  it("does not load icon glyphs via <img src=\"/icons/...\">", () => {
+    // Lucide-style SVGs require inline injection to inherit
+    // `currentColor`; loading them via <img> produces empty 16x16
+    // squares (D3 defect from TODO/20260615-party-page-citizen-
+    // fixes-plan.md).
+    expect(source).not.toMatch(/<img\s[^>]*src=["']\/icons\//);
+  });
+
+  it("renders the landmark + flag glyphs via <TopicIcon>", () => {
+    expect(source).toContain('import TopicIcon from "../TopicIcon.svelte"');
+    expect(source).toMatch(/<TopicIcon[\s\S]*?name="landmark"/);
+    expect(source).toMatch(/<TopicIcon[\s\S]*?name="flag"/);
   });
 });

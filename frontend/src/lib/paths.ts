@@ -13,3 +13,12 @@
 //
 // Rationale: docs/architecture/deployment.md > "Pages URL base".
 export const DATA_BASE = `${import.meta.env.BASE_URL}data`;
+
+// R7 (TODO/20260615-state-election-event-page-redesign-plan.md):
+// generated share-card PNGs ship as static assets under
+// `frontend/public/share/`. Same base-URL rules apply - dev resolves
+// to `/share/...`, production resolves to `/yen-gov/share/...`.
+//
+// Citizen-facing `<svelte:head>` blocks build their `og:image` +
+// `twitter:image` attributes off this prefix.
+export const SHARE_BASE = `${import.meta.env.BASE_URL}share`;

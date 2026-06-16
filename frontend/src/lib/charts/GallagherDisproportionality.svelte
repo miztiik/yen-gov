@@ -211,6 +211,7 @@
   import { partyColourHex } from "../psephlab/colour-bridge";
   import PartyPill from "../party-pill/PartyPill.svelte";
   import { partyRowForResolver } from "../colors/party-row";
+  import TopicIcon from "../TopicIcon.svelte";
 
   interface Props {
     allocation: SeatAllocation;
@@ -257,7 +258,13 @@
       target="_blank"
       rel="noreferrer noopener"
       class="underline"
-    >learn more</a>
+      data-testid="gallagher-learn-more-link"
+    >
+      <TopicIcon
+        name="wikipedia"
+        cls="w-3 h-3 inline-block mr-0.5 text-slate-400 align-text-bottom"
+      />
+      learn more</a>
   </div>
 
   <ol class="space-y-2 mt-2 list-none p-0">

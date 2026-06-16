@@ -12,6 +12,7 @@
   // mount and on popstate.
   import { onMount } from "svelte";
   import { link } from "../lib/links";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
 
   function focus_section(): void {
@@ -29,7 +30,7 @@
   });
 </script>
 
-<main class="max-w-3xl mx-auto p-6 space-y-8 leading-relaxed text-slate-800">
+<PageContainer width="narrow" class="space-y-8 leading-relaxed text-slate-800">
   <header class="space-y-2">
     <h1 class="text-3xl font-light flex items-center gap-3">
       <TopicIcon name="info" cls="w-7 h-7 text-slate-400 shrink-0" />
@@ -176,4 +177,4 @@
       </li>
     </ul>
   </section>
-</main>
+</PageContainer>

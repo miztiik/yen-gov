@@ -7,6 +7,7 @@
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import HomeElectionsRail from "../lib/elections/HomeElectionsRail.svelte";
   import {
@@ -194,7 +195,7 @@
 
 <Breadcrumb {crumbs} />
 
-<main class="max-w-screen-2xl mx-auto p-6 space-y-6">
+<PageContainer width="wide">
   <header class="space-y-1">
     <h1 class="text-2xl font-bold">yen-gov</h1>
     <p class="text-sm text-slate-500">
@@ -288,4 +289,4 @@
       aria-hidden="true"
     ></div>
   {/if}
-</main>
+</PageContainer>

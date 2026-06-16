@@ -20,6 +20,7 @@
     type SeventhScheduleList,
   } from "../lib/catalogue";
   import ListBadge from "../lib/ListBadge.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import { link } from "../lib/links";
 
@@ -72,7 +73,7 @@
   });
 </script>
 
-<section class="p-4 sm:p-6 space-y-6 max-w-6xl">
+<PageContainer width="wide">
   <header class="space-y-1">
     <h1 class="text-2xl font-semibold">Topics</h1>
     <p class="text-sm text-slate-600 max-w-3xl">
@@ -130,4 +131,4 @@
       {/each}
     </div>
   {/if}
-</section>
+</PageContainer>

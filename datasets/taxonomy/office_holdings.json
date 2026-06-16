@@ -983,11 +983,11 @@
       "office_id": "IN-S03-CM",
       "start_date": "2026-05-13",
       "end_date": null,
-      "regime": "interim",
-      "person_name": null,
-      "party_eci_code": null,
-      "alliance": null,
-      "notes": "Placeholder for the post-May-2026 government. Results ingested in datasets/elections/AcGenMay2026/S03/. Backfill once the new ministry is sworn in.",
+      "regime": "elected",
+      "person_name": "Himanta Biswa Sarma",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP-led NDA retained Assam in May 2026 elections. Sarma re-sworn for a second term as 16th-assembly CM.",
       "references": [
         {
           "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
@@ -2069,11 +2069,11 @@
       "office_id": "IN-S11-CM",
       "start_date": "2026-05-13",
       "end_date": null,
-      "regime": "interim",
-      "person_name": null,
-      "party_eci_code": null,
-      "alliance": null,
-      "notes": "The new ministry has not yet been sworn in. This page will update once the cabinet is announced.",
+      "regime": "elected",
+      "person_name": "V. D. Satheesan",
+      "party_eci_code": "742",
+      "alliance": "UDF",
+      "notes": "Congress-led UDF unseated the LDF in the May 2026 Kerala assembly elections. Satheesan sworn as 13th CM of Kerala (16th assembly).",
       "references": [
         {
           "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
@@ -3373,11 +3373,11 @@
       "office_id": "IN-S22-CM",
       "start_date": "2026-05-13",
       "end_date": null,
-      "regime": "interim",
-      "person_name": null,
-      "party_eci_code": null,
+      "regime": "elected",
+      "person_name": "C. Joseph Vijay",
+      "party_eci_code": "3679",
       "alliance": null,
-      "notes": "The new ministry has not yet been sworn in. This page will update once the cabinet is announced.",
+      "notes": "TVK won the May 2026 Tamil Nadu assembly election. Vijay is the first non-Dravidian-party CM since 1967 (17th assembly).",
       "references": [
         {
           "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
@@ -3785,11 +3785,11 @@
       "office_id": "IN-S25-CM",
       "start_date": "2026-05-13",
       "end_date": null,
-      "regime": "interim",
-      "person_name": null,
-      "party_eci_code": null,
-      "alliance": null,
-      "notes": "Placeholder for the post-May-2026 government. Results ingested in datasets/elections/AcGenMay2026/S25/. Backfill once the new ministry is sworn in.",
+      "regime": "elected",
+      "person_name": "Suvendu Adhikari",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP won the May 2026 West Bengal assembly election, ending the 15-year TMC tenure. Adhikari is the first BJP CM of West Bengal (18th assembly).",
       "references": [
         {
           "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
@@ -4460,12 +4460,22 @@
     {
       "office_id": "IN-U07-CM",
       "start_date": "2021-05-07",
+      "end_date": "2026-05-12",
+      "regime": "elected",
+      "person_name": "N. Rangaswamy",
+      "party_eci_code": "126",
+      "alliance": "NDA",
+      "notes": "AINRC in alliance with BJP. 15th Puducherry assembly term, closed when the 2026 election delivered a fresh AINRC-led NDA mandate."
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "2026-05-13",
       "end_date": null,
       "regime": "elected",
       "person_name": "N. Rangaswamy",
-      "party_eci_code": null,
+      "party_eci_code": "126",
       "alliance": "NDA",
-      "notes": "AINRC in alliance with BJP. Continuing through May 2026 election cycle. Ongoing.",
+      "notes": "AINRC re-elected with BJP alliance in May 2026 Puducherry assembly election. Rangaswamy continues as CM (16th assembly).",
       "references": [
         {
           "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-U07.htm",

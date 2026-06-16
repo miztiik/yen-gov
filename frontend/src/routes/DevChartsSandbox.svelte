@@ -46,6 +46,7 @@
   import CirclePack from "../lib/charts/CirclePack.svelte";
   import type { CirclePackRow, CirclePackMode } from "../lib/charts/circle-pack-helpers";
   import PartyPill from "../lib/party-pill/PartyPill.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import MapHighlightLegend, {
     DEFAULT_HIGHLIGHT_STATE,
     type HighlightState,
@@ -495,7 +496,7 @@
   );
 </script>
 
-<section class="mx-auto max-w-5xl space-y-10 p-6 text-slate-800">
+<PageContainer width="wide" class="space-y-10 text-slate-800">
   <header class="space-y-2">
     <p class="text-xs uppercase tracking-wider text-slate-500">Dev-only sandbox</p>
     <h1 class="text-2xl font-semibold">Charts sandbox</h1>
@@ -1056,4 +1057,4 @@
       </div>
     </div>
   </section>
-</section>
+</PageContainer>

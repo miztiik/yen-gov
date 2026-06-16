@@ -1,0 +1,59 @@
+entity_id,eci_no,ac_name,reservation,mint_date,source_xlsx,gap_reason
+IN-AC-2008-maharashtra-eci7,7,DHULE CITY,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci13,13,JALGAON CITY,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci25,25,MEHKAR,SC,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci107,107,AURANGABAD CENTRAL,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci159,159,DINDOSHI,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci168,168,CHANDIVALI,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci169,169,GHATKOPAR WEST,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci171,171,MANKHURD SHIVAJI NAGAR,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci176,176,VANDRE EAST,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci178,178,DHARAVI,SC,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci179,179,SION KOLIWADA,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci180,180,WADALA,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci181,181,MAHIM,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci182,182,WORLI,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci183,183,SHIVADI,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci184,184,BYCULLA,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci185,185,MALABAR HILL,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci186,186,MUMBADEVI,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci187,187,COLABA,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci212,212,PARVATI,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci215,215,KASBA PETH,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-maharashtra-eci249,249,SOLAPUR CITY CENTRAL,GEN,2026-06-15,2024_MH_10-Detailed_Results_1744893339.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci18,18,GANDERBAL,GEN,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci19,19,HAZRATBAL,GEN,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci21,21,HABBAKADAL,GEN,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci23,23,CHANNAPORA,GEN,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci47,47,PAHALGAM,GEN,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci48,48,INDERWAL,GEN,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci49,49,KISHTWAR,GEN,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci50,50,PADDER - NAGSENI,GEN,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci72,72,BISHNAH(SC),SC,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci73,73,SUCHETGARH(SC),SC,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci88,88,SURANKOTE(ST),ST,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci89,89,POONCH HAVELI,GEN,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-jammu-and-kashmir-eci90,90,MENDHAR(ST),ST,2026-06-15,2024_jk_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-odisha-eci12,12,Rourkela,GEN,2026-06-15,2024_odisha_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-sikkim-eci25,25,UPPER TADONG,GEN,2026-06-15,2024_sikkim_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-sikkim-eci27,27,GANGTOK (BL),GEN,2026-06-15,2024_sikkim_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-sikkim-eci32,32,SANGHA,GEN,2026-06-15,2024_sikkim_10-Detailed-Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-telangana-eci17,17,Nizamabad (Urban),GEN,2026-06-15,2023_telengana_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-telangana-eci22,22,Dharmapuri,SC,2026-06-15,2023_telengana_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-telangana-eci56,56,Tandur,GEN,2026-06-15,2023_telengana_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-telangana-eci65,65,Goshamahal,GEN,2026-06-15,2023_telengana_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-telangana-eci66,66,Charminar,GEN,2026-06-15,2023_telengana_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-telangana-eci68,68,Yakutpura,GEN,2026-06-15,2023_telengana_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-telangana-eci71,71,Secunderabad Cantt.,SC,2026-06-15,2023_telengana_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-telangana-eci82,82,Achampet,SC,2026-06-15,2023_telengana_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-telangana-eci105,105,Warangal West,GEN,2026-06-15,2023_telengana_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-telangana-eci106,106,Warangal East,GEN,2026-06-15,2023_telengana_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-madhya-pradesh-eci62,62,Raigaon,SC,2026-06-15,2023_MadhyaPrashesh_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-mizoram-eci10,10,Aizawl North-I,ST,2026-06-15,2023_mizoram_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-mizoram-eci11,11,Aizawl North-II,ST,2026-06-15,2023_mizoram_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-mizoram-eci12,12,Aizawl North-III,ST,2026-06-15,2023_mizoram_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-mizoram-eci14,14,Aizawl East-II,ST,2026-06-15,2023_mizoram_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-mizoram-eci16,16,Aizawl West-II,ST,2026-06-15,2023_mizoram_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-mizoram-eci17,17,Aizawl West-III,ST,2026-06-15,2023_mizoram_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-mizoram-eci18,18,Aizawl South-I,ST,2026-06-15,2023_mizoram_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync
+IN-AC-2008-mizoram-eci19,19,Aizawl South-II,ST,2026-06-15,2023_mizoram_Detailed_Results.xlsx,LGD master directory lacks this AC for the 2008 delim; pending upstream sync

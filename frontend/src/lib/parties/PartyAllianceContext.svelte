@@ -18,7 +18,18 @@
    *           - Maharashtra (2024): led Mahayuti with SHS (+1 other).
    *           - Bihar (2020): junior in NDA with BJP.
    *           - Kerala (2021): contested alone.
-   *   <slate-400 italic caveat>
+   *
+   * Recency window (PR-11): the rendered rows are capped to events
+   * in the last 10 years (cutoff = current year - 10). Older alliance
+   * ledger rows survive in `datasets/data/entities/party_alliances.csv`
+   * but are dropped at the view-model layer for citizen clarity -
+   * the political alignment of a >10y-old alliance rarely answers
+   * the "who do they ride with NOW?" question the strip is asking.
+   * See `RECENCY_CAP_YEARS` in the view-model module. The methodology
+   * surface for this (and for the alliance-row-without-candidacies
+   * degraded state below) lives on the citizen-facing concept page
+   * `docs/concepts/party-page-coverage.md`, linked from the Party
+   * page footer "About this page" line.
    *
    * Suppression contracts:
    *   - `is_sentinel`: defence-in-depth short-circuit. NOTA / UNK
@@ -99,6 +110,8 @@
 </script>
 
 <script lang="ts">
+  import TopicIcon from "../TopicIcon.svelte";
+
   interface Props {
     alliance_context: PartyAllianceContext | null;
     /** Sentinel short-circuit: NOTA / UNK suppress the strip even
@@ -135,13 +148,9 @@
         data-testid="party-alliance-context-parliament"
         class="flex items-start text-base text-slate-800"
       >
-        <img
-          src="/icons/landmark.svg"
-          alt=""
-          aria-hidden="true"
-          width="16"
-          height="16"
-          class="mr-2 mt-1 inline-block flex-none"
+        <TopicIcon
+          name="landmark"
+          cls="mr-2 mt-1 inline-block flex-none w-4 h-4 text-slate-500"
         />
         <span>
           {parliament.event_label}:
@@ -161,13 +170,9 @@
         data-testid="party-alliance-context-assemblies"
         class="mt-2 flex items-start text-sm text-slate-700"
       >
-        <img
-          src="/icons/flag.svg"
-          alt=""
-          aria-hidden="true"
-          width="16"
-          height="16"
-          class="mr-2 mt-0.5 inline-block flex-none"
+        <TopicIcon
+          name="flag"
+          cls="mr-2 mt-0.5 inline-block flex-none w-4 h-4 text-slate-500"
         />
         <div>
           <p class="mb-1">State Assembly alliances:</p>
@@ -189,12 +194,5 @@
         </div>
       </div>
     {/if}
-    <p
-      data-testid="party-alliance-context-caveat"
-      class="mt-3 text-xs italic text-slate-400"
-    >
-      Alliance ties recorded only for the cycles already ingested;
-      older arrangements may exist in publisher records not yet on file.
-    </p>
   </section>
 {/if}

@@ -730,6 +730,38 @@ def derive_party_pages(
     )
 
 
+@app.command("derive-event-summary")
+def derive_event_summary(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Compute the per-event aggregate mart from canonical summary.csv files.
+
+    Emits `datasets/data/marts/elections/event_summary.csv` (one row per
+    (event_id, state_code) tuple). Reader for the redesigned `/t/elections`
+    (General elections) and `/t/elections/assemblies` (Assembly elections)
+    routes in PR-E4. Per TODO/20260615-elections-redesign-plan.md row E2.
+    """
+    from yen_gov.canonical.derived.event_summary import refresh_event_summary_mart
+
+    root_resolved = root.resolve()
+    result = refresh_event_summary_mart(root_resolved)
+    typer.echo(
+        "derive-event-summary: wrote "
+        f"{result.out_path.relative_to(root_resolved).as_posix()} "
+        f"({result.row_count} rows = {result.national_row_count} national "
+        f"+ {result.state_row_count} state; skipped {result.skipped_files} "
+        f"unmatched files; source_id={result.source_id})"
+    )
+
+
 def _read_long_csv(path: Path) -> list[dict[str, object]]:
     """Read a 4-column long-format CSV (entity_id, time, value, source_id).
 
@@ -1864,43 +1896,6 @@ def parity_pc(
 
 
 
-@app.command("ingest-mh-ae2024-thecont1")
-def ingest_mh_ae2024_cmd(
-    root: Path = typer.Option(
-        Path.cwd(),
-        "--root",
-        "-r",
-        help="Repo root (defaults to current directory).",
-        file_okay=False,
-        dir_okay=True,
-        exists=True,
-    ),
-) -> None:
-    """Ingest Maharashtra Assembly Election 2024 from the thecont1 snapshot.
-
-    Reads ``datasets/ephemeral/thecont1-india-votes-data/2024/Assembly-Maharashtra.csv``
-    and emits canonical per-event CSVs:
-
-      - ``datasets/elections/assembly/state=maharashtra/election=2024/candidacies.csv``
-      - ``datasets/elections/assembly/state=maharashtra/election=2024/summary.csv``
-
-    Also:
-      - Appends the thecont1 citation row to ``datasets/data/entities/source.csv``
-        if missing.
-      - Flips ``datasets/taxonomy/election_events.json`` S13 ``assembly-2024``
-        ``data_status`` from ``pending_upstream`` to ``complete``.
-    """
-    from yen_gov.canonical.adapters.thecont1_mh_ae2024 import ingest_mh_ae2024
-
-    cand_n, sum_n, unk_winners, missing_acs = ingest_mh_ae2024(root)
-    typer.echo("ingest-mh-ae2024-thecont1: OK")
-    typer.echo(f"  candidacies.csv:        {cand_n} rows")
-    typer.echo(f"  summary.csv:            {sum_n} rows")
-    typer.echo(f"  unresolved winners:     {unk_winners} ACs with parties.IN.UNK")
-    typer.echo(f"  missing ACs (gap):      {missing_acs} eci_nos not in electoral.csv")
-    typer.echo("  election_events.json:   S13 assembly-2024 -> complete")
-
-
 @app.command("ingest-eci-ae-form10")
 def ingest_eci_ae_form10_cmd(
     root: Path = typer.Option(
@@ -2021,6 +2016,65 @@ def ingest_eci_mcc_seizures_2019(
     typer.echo(f"  unique dates:    {result.unique_dates}")
 
 
+@app.command("ingest-tn-electors-by-sex-2021")
+def ingest_tn_electors_by_sex_2021(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    input_csv: Path = typer.Option(
+        ...,
+        "--input",
+        "-i",
+        help=(
+            "Publisher ephemeral CSV "
+            "(typically datasets/ephemeral/tn_acwise_gendercount.csv)."
+        ),
+        exists=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Ingest Tamil Nadu CEO AC-wise electors-by-sex (2021 electoral roll).
+
+    Reads the publisher's 273-row CSV (234 atomic AC rows + 38 per-district
+    TOTAL subtotal rows + 1 Grand Total, all interleaved) and emits the
+    canonical long-format faceted CSV:
+
+      ``datasets/data/datapoints/electoral_geo/electors-persons-by-sex.csv``
+
+    with 234 x 3 = 702 rows (one per (AC, sex) pair). The file-class
+    ``datasets/data/datapoints/electoral_geo/*.csv`` was established by
+    Row C of TODO/20260614-three-ephemeral-ingests-plan.md - the
+    sibling-at-the-datapoints-tier of ``datapoints/geo/*.csv``, with
+    FK target ``entities/electoral.csv`` so the LGD-vs-ECI
+    issuing-authority split is mirrored from the entities tier through
+    to the datapoints tier (Hans + Max + Fowler unanimous Path B).
+
+    The publisher's ``AC No.`` column maps 1:1 against ``electoral.csv``'s
+    ``eci_no`` column for the TN-2008 cohort (234 ACs); the resolver
+    raises if the corpus drifts from this universe size BEFORE any
+    write happens.
+
+    Spec: Row C of TODO/20260614-three-ephemeral-ingests-plan.md +
+    handover TODO/20260615-row-c-tn-electors-by-sex-handover.md.
+    """
+    from yen_gov.canonical.adapters.tn_ceo.electors_by_sex import ingest
+
+    result = ingest(
+        input_csv=input_csv,
+        repo_root=root,
+    )
+    typer.echo("ingest-tn-electors-by-sex-2021: OK")
+    typer.echo(f"  output:               {result.output_path.relative_to(root).as_posix()}")
+    typer.echo(f"  rows written:         {result.row_count}")
+    typer.echo(f"  unique entity_ids:    {result.unique_entity_ids}")
+    typer.echo(f"  unique sex facets:    {result.unique_sex_facets}")
+    typer.echo(f"  grand-total skipped:  {result.grand_total_observed}")
 
 
 @app.command("enrich-2014-ls-candidacies-with-affidavits")
