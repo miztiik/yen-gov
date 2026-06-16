@@ -1,6 +1,6 @@
 {
   "$schema": "./columns.schema.json",
-  "$schema_version": "2.2",
+  "$schema_version": "2.6",
   "file_classes": {
     "datasets/data/variables.csv": {
       "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
@@ -97,7 +97,7 @@
       ]
     },
     "datasets/data/entities/parties.csv": {
-      "notes": "Sole party key is party_id (plan section 20.3); eci_code is NOT a PK. aliases is a pipe-delimited list of UPPERCASE alternate shortcodes (e.g. TCPD's dialect: CPM, ADMK, AAAP for the canonical CPI(M), AIADMK, AAP) consumed by the elections writer's party_lookup expansion (G1, 2026-06-08). v1.1 (PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md, 2026-06-10): 10 nullable identity-metadata columns appended (recognition_scope, home_state_codes, founded_year, dissolved_year, predecessor_party_ids, successor_party_ids, name_history, claims_to_parent_name, name_native_script, is_sentinel) per Hans + Gregor Wave 0 verdict; the 3 hardcoded resolver sentinels (parties.IN.UNK, parties.IN.IND, parties.IN.NOTA) are lifted into rows here so FK closure now includes them. is_sentinel marks the 3 resolver-fallback rows; recognition_scope=sentinel is reserved for them. name_history JSON-blob shape: [{\"from\": \"YYYY\", \"to\": \"YYYY\", \"short\": \"...\", \"full\": \"...\", \"source_id\": \"...\"}]. predecessor_party_ids / successor_party_ids are pipe-delimited lists of parties.IN.<X> slugs (lineage; not enforced as FK at v1.1 because the writer does not yet validate pipe-delimited FK refs). claims_to_parent_name = true for the ECI-favoured side of a contested split. Spec: csv-column-contract.md section 3.2.",
+      "notes": "Sole party key is party_id (plan section 20.3); eci_code is NOT a PK. aliases is a pipe-delimited list of UPPERCASE alternate shortcodes (e.g. TCPD's dialect: CPM, ADMK, AAAP for the canonical CPI(M), AIADMK, AAP) consumed by the elections writer's party_lookup expansion (G1, 2026-06-08). v1.1 (PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md, 2026-06-10): 10 nullable identity-metadata columns appended (recognition_scope, home_state_codes, founded_year, dissolved_year, predecessor_party_ids, successor_party_ids, name_history, claims_to_parent_name, name_native_script, is_sentinel) per Hans + Gregor Wave 0 verdict; the 3 hardcoded resolver sentinels (parties.IN.UNK, parties.IN.IND, parties.IN.NOTA) are lifted into rows here so FK closure now includes them. is_sentinel marks the 3 resolver-fallback rows; recognition_scope=sentinel is reserved for them. name_history JSON-blob shape: [{\"from\": \"YYYY\", \"to\": \"YYYY\", \"short\": \"...\", \"full\": \"...\", \"source_id\": \"...\"}]. predecessor_party_ids / successor_party_ids are pipe-delimited lists of parties.IN.<X> slugs (lineage; not enforced as FK at v1.1 because the writer does not yet validate pipe-delimited FK refs). claims_to_parent_name = true for the ECI-favoured side of a contested split. v1.2 (PR-1 of TODO/20260615-party-page-citizen-fixes-plan.md, 2026-06-15): 3 nullable provenance columns appended (source_id FK into source.csv, processing_level enum minor|major, processing_note free-text) per user-ratified Path A (Scope-change ledger L-4) and the L-1 per-row processing-level doctrine at docs/concepts/data-quality.md. All pre-v1.2 rows ship the 3 trailing fields empty (no semantic change); PR-1 backfills founded_year + the 3 provenance fields on the 14 priority parties (3 national + 11 state-recognised) that previously had a null founded_year. source_id cites the issuing-authority row in source.csv (Election Commission of India, src-a0225819954c) per Holy Law #9; processing_level + processing_note are derived through backend.yen_gov.canonical.processing_quality.derive_processing_for_party_founded_year_backfill() (NO hand-authored literals per CLAUDE.md section 10 anti-pattern). Spec: csv-column-contract.md section 3.2.",
       "columns": [
         { "name": "party_id", "dtype": "string", "nullable": false, "pk": true },
         { "name": "short", "dtype": "string", "nullable": false },
@@ -116,7 +116,10 @@
         { "name": "name_history", "dtype": "string", "nullable": true },
         { "name": "claims_to_parent_name", "dtype": "boolean", "nullable": true },
         { "name": "name_native_script", "dtype": "string", "nullable": true },
-        { "name": "is_sentinel", "dtype": "boolean", "nullable": true }
+        { "name": "is_sentinel", "dtype": "boolean", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/source.csv.source_id" },
+        { "name": "processing_level", "dtype": "string", "nullable": true, "enum": ["minor", "major"] },
+        { "name": "processing_note", "dtype": "string", "nullable": true }
       ]
     },
     "datasets/data/entities/parties_leadership.csv": {
@@ -132,13 +135,14 @@
       ]
     },
     "datasets/data/entities/party_alliances.csv": {
-      "notes": "Per-event party alliance memberships (composite PK: party_id + event_id + state). One row per (party, election event, state) triple where an alliance was declared; alliance null = party contested unallied. v2.0 (2026-06-12, plan TODO/20260612-alliance-phase-1-structural-fix-plan.md): MAJOR breaking - renamed period_label -> event_id so the column joins citizen-route canonical event_id values (`general-2024`, `assembly-2024`); added state (LGD state slug like `tamil-nadu` for state-scoped events, literal `IN` for national events) to disambiguate per-state cohorts that share an event_id (e.g. 5-state May 2026 simultaneous cohort); dropped short_name (Holy Law #6 - readers join through party_id FK to parties.csv.short_name). Frontend JOIN: state-overview view-model reads via inline read_csv(...) keyed on (party_id, event_id, state).",
+      "notes": "Per-event party alliance memberships (composite PK: party_id + event_id + state). One row per (party, election event, state) triple where an alliance was declared; alliance null = party contested unallied. v2.0 (2026-06-12, plan TODO/20260612-alliance-phase-1-structural-fix-plan.md): MAJOR breaking - renamed period_label -> event_id so the column joins citizen-route canonical event_id values (`general-2024`, `assembly-2024`); added state (LGD state slug like `tamil-nadu` for state-scoped events, literal `IN` for national events) to disambiguate per-state cohorts that share an event_id (e.g. 5-state May 2026 simultaneous cohort); dropped short_name (Holy Law #6 - readers join through party_id FK to parties.csv.short_name). Frontend JOIN: state-overview view-model reads via inline read_csv(...) keyed on (party_id, event_id, state). v2.5 (2026-06-15, R6 of TODO/20260615-state-election-event-page-redesign-plan.md): pure-additive minor - NEW nullable trailing column `formation` (enum [pre_poll, post_poll, hybrid]). The AllianceTotals caption picks its wording from this value so the citizen can distinguish pre-poll seat-sharing (NDA / INDIA / MVA / Mahayuti) from post-poll government formation (JD(U) joining NDA after the 2024 LS result). null defaults to pre_poll wording for back-compat with the 61 pre-v2.5 rows.",
       "columns": [
         { "name": "party_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/parties.csv.party_id" },
         { "name": "event_id", "dtype": "string", "nullable": false, "pk": true },
         { "name": "state", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
         { "name": "alliance", "dtype": "string", "nullable": true },
-        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" },
+        { "name": "formation", "dtype": "string", "nullable": true, "enum": ["pre_poll", "post_poll", "hybrid"] }
       ]
     },
     "datasets/data/entities/source.csv": {
@@ -257,6 +261,7 @@
         { "name": "state", "dtype": "string", "nullable": true },
         { "name": "wins", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "contested", "dtype": "integer", "nullable": false, "derived": true },
+        { "name": "last_won_year", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "results", "dtype": "string", "nullable": false, "derived": true },
         { "name": "source_ids", "dtype": "string", "nullable": true },
         { "name": "derivation", "dtype": "string", "nullable": false }
@@ -282,6 +287,17 @@
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]
     },
+    "datasets/data/datapoints/electoral_geo/*.csv": {
+      "notes": "Long-format datapoints keyed to ECI electoral entities (AC + PC grain). Sibling to datasets/data/datapoints/geo/*.csv at the datapoints tier - the two file-classes mirror the LGD-vs-ECI issuing-authority split already cemented at the entities tier (entities/geo.csv carries country/state/district; entities/electoral.csv carries AC + PC keyed by ECI codes). One file per variable_id; filename is exactly <variable_id>.csv. Composite PK (entity_id, time, sex) so faceted electors-by-sex rows are uniquely identified; sex is a closed enum [male, female, third_gender] mirroring the publisher's facet vocabulary (yen-gov English-vocabulary No-Hindi policy). processing_level (minor | major) is required on every row per the L-1 per-row processing-level doctrine (docs/concepts/data-quality.md) - same shape as the mcc_seizures file-class. source_id FKs into source.csv per CLAUDE.md section 12. The sex column being declared at the file-class layer (rather than via the §21.6 per-indicator facet dispatch the geo file-class notes anticipate) is a deliberate scoping choice: this seed file-class is sex-faceted; a future PR adding an AC-grain non-sex indicator will EITHER extend §21.6's dispatch OR earn a sibling file-class, per Fowler's smallest-correct-change verdict. Established by Row C of TODO/20260614-three-ephemeral-ingests-plan.md (Hans + Max + Fowler unanimous on Path B; see Scope-change ledger entry 'C resolution').",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/electoral.csv.entity_id" },
+        { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "value", "dtype": "number", "nullable": true },
+        { "name": "sex", "dtype": "string", "nullable": false, "pk": true, "enum": ["male", "female", "third_gender"] },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" },
+        { "name": "processing_level", "dtype": "string", "nullable": false, "enum": ["minor", "major"] }
+      ]
+    },
     "datasets/data/datapoints/electoral/*.csv": {
       "notes": "Per-state election-results long-format CSV. One file per state (filename <state_slug>_election_results.csv). 9-column mechanical transcode of the X1a-fu2-D-retired election_results.parquet (2026-06-07). entity_id is a synthetic state-event-party row id (e.g. IN-S22-AcGenMay2026-PARTY-DMK), NOT an electoral.csv FK; therefore no entity_id FK is declared. value_numeric / value_text carry the observation. period_label is the canonical event id (AcGenMay2026, AcByeOct1971, etc.). derivation describes the methodology (count, share, etc.). For indicator_id rows ending in -winner-party-id / -leading-party-id / -runnerup-party-id, value_text carries an embedded parties.IN.<X> reference; the Tier-B FK validator special-cases this embedded-FK shape via per-indicator dispatch, so no column-level fk declaration is needed on value_text here (PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md).",
       "columns": [
@@ -294,6 +310,23 @@
         { "name": "value_text", "dtype": "string", "nullable": true },
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" },
         { "name": "derivation", "dtype": "string", "nullable": true }
+      ]
+    },
+    "datasets/data/marts/elections/event_summary.csv": {
+      "notes": "Per-event aggregate mart: one row per (event_id, state_code) tuple. scope=national row collapses Parliament (general) election rows across states (state_code=null); scope=state rows are per-Assembly. Built by `python -m yen_gov derive-event-summary` from per-state election_results.csv + per-event summary.csv. leading_party_id is the canonical party with most seats; alliance attribution may be added later through the same column (writer-side, not reader-side). turnout_pct is event-scope (SUM(votes_polled) / SUM(electors) * 100). Composite PK (event_id, state_code) - state_code IS NULL for scope=national rows (one row per event_id); state_code IS NOT NULL for scope=state rows (many rows per event_id, one per state). Lives under marts/ alongside the party_pages mart (history.csv / strongholds.csv / manifest.csv) - the established home for derived aggregate CSVs, distinct from the per-indicator long-format datapoints/electoral/*.csv files. Spec: TODO/20260615-elections-redesign-plan.md row E1.",
+      "columns": [
+        { "name": "event_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "state_code", "dtype": "string", "nullable": true, "pk": true },
+        { "name": "scope", "dtype": "string", "nullable": false, "enum": ["national", "state"] },
+        { "name": "kind", "dtype": "string", "nullable": false, "enum": ["parliament", "assembly", "assembly_bye", "general_bye", "by_election"] },
+        { "name": "polled_on", "dtype": "string", "nullable": false },
+        { "name": "leading_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "seats_won", "dtype": "integer", "nullable": false },
+        { "name": "seats_contested", "dtype": "integer", "nullable": false },
+        { "name": "turnout_pct", "dtype": "number", "nullable": true, "derived": true },
+        { "name": "runner_up_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "runner_up_seats", "dtype": "integer", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]
     },
     "datasets/elections/assembly/state=*/election=*/candidacies.csv": {

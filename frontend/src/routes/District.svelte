@@ -32,6 +32,7 @@
   import { states } from "../lib/states.svelte";
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
 
   interface Props {
@@ -74,7 +75,7 @@
 
 <Breadcrumb {crumbs} />
 
-<main class="max-w-3xl mx-auto p-4 sm:p-6 space-y-6">
+<PageContainer width="wide">
   {#if load_error}
     <div class="rounded border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900">
       Could not load districts: <code>{load_error}</code>
@@ -123,4 +124,4 @@
       </p>
     </section>
   {/if}
-</main>
+</PageContainer>

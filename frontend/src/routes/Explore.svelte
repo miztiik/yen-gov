@@ -3,6 +3,7 @@
   import { buildExploreViews } from "../lib/explore/duckdb-views";
   import { states } from "../lib/states.svelte";
   import { link } from "../lib/links";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import {
     ALL_PRESETS,
@@ -126,7 +127,7 @@
   const selectedPreset = $derived(findPreset(selectedId) ?? null);
 </script>
 
-<main class="max-w-screen-2xl mx-auto p-6 space-y-6">
+<PageContainer width="wide">
   <header class="space-y-1">
     <p class="text-xs">
       <a class="text-slate-500 hover:underline"
@@ -252,7 +253,7 @@
       Only <code>SELECT</code> / <code>WITH</code> queries are supported.
     </p>
   {/if}
-</main>
+</PageContainer>
 
 <style>
   /*

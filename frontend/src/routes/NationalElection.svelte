@@ -73,6 +73,7 @@
   import { slugify } from "../lib/slug";
   import PartyBar from "../lib/PartyBar.svelte";
   import type { PartyTotals } from "../lib/data";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import {
     buildPartyKeyToPid,
     hiddenPidSet,
@@ -550,7 +551,7 @@
     );
   }
 </script>
-<main class="mx-auto max-w-6xl space-y-6 p-4">
+<PageContainer width="wide">
   <header class="space-y-2">
     <h1 class="text-2xl font-semibold text-slate-900">
       India &middot; {event_pretty}
@@ -837,4 +838,4 @@
       />
     </section>
   {/if}
-</main>
+</PageContainer>

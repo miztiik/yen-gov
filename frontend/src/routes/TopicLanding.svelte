@@ -38,6 +38,9 @@
     type StateTiersFile,
   } from "../lib/state-tiers";
   import { link } from "../lib/links";
+  import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
+  import { route } from "../lib/router.svelte";
   import { parseTopicQuery, serializeTopicQuery } from "../lib/topic-query";
 
   interface Props {
@@ -136,9 +139,18 @@
       history.replaceState(null, "", target);
     }
   }
+
+  // PR-12 (D12 of TODO/20260615-party-page-citizen-fixes-plan.md):
+  // replace the bespoke 2-crumb chain (`Topics -> <topic>`) with the
+  // canonical shared <Breadcrumb> primitive driven by
+  // `topicLandingCrumbs` (wired in main.ts). Single-source-of-truth
+  // sticky chrome positioning + Home-prefix chain.
+  const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
 </script>
 
-<section class="p-4 sm:p-6 space-y-6 max-w-6xl">
+<Breadcrumb {crumbs} />
+
+<PageContainer width="wide">
   {#if load_error}
     <div class="rounded border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900">
       Failed to load topic catalogue: <code>{load_error}</code>
@@ -159,13 +171,6 @@
     </div>
   {:else}
     <header class="space-y-2">
-      <nav aria-label="Breadcrumb" class="text-xs text-slate-500">
-        <ol class="flex items-center gap-1 list-none p-0 m-0">
-          <li><a href={link.topics()} class="hover:text-sky-700 hover:underline">Topics</a></li>
-          <li aria-hidden="true" class="text-slate-400">›</li>
-          <li class="text-slate-700" aria-current="page">{topic.title}</li>
-        </ol>
-      </nav>
       <div class="flex items-baseline gap-3 flex-wrap">
         <h1 class="text-2xl font-semibold flex items-center gap-2">
           <TopicIcon name={topic.icon} cls="w-6 h-6 text-slate-500 shrink-0" />
@@ -265,4 +270,4 @@
       </div>
     {/if}
   {/if}
-</section>
+</PageContainer>

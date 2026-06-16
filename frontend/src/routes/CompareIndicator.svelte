@@ -26,6 +26,9 @@
 
   import { onMount } from "svelte";
   import { link } from "../lib/links";
+  import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
+  import { route } from "../lib/router.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import {
     fetchTopicCatalogue,
@@ -188,17 +191,19 @@
       ...state_tiers.tiers.map(t => ({ value: t.id, label: t.label })),
     ];
   });
+
+  // PR-12 (D12 of TODO/20260615-party-page-citizen-fixes-plan.md):
+  // replace the bespoke 2-crumb chain (`Topics -> Compare states`) with
+  // the canonical shared <Breadcrumb> primitive driven by
+  // `compareIndicatorCrumbs` (wired in main.ts). Single-source-of-truth
+  // sticky chrome positioning + Home-prefix chain.
+  const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
 </script>
 
-<section class="p-4 sm:p-6 space-y-6 max-w-6xl">
+<Breadcrumb {crumbs} />
+
+<PageContainer width="wide">
   <header class="space-y-2">
-    <nav aria-label="Breadcrumb" class="text-xs text-slate-500">
-      <ol class="flex items-center gap-1 list-none p-0 m-0">
-        <li><a href={link.topics()} class="hover:text-sky-700 hover:underline">Topics</a></li>
-        <li aria-hidden="true" class="text-slate-400">›</li>
-        <li class="text-slate-700" aria-current="page">Compare states</li>
-      </ol>
-    </nav>
     <div class="flex items-baseline justify-between gap-3 flex-wrap">
       <h1 class="text-2xl font-bold flex items-center gap-2">
         <TopicIcon name="bar-chart" cls="w-6 h-6 text-slate-500 shrink-0" />
@@ -319,4 +324,4 @@
       initial_rows={pinned_codes.length > 0 ? Math.max(10, pinned_codes.length) : 10}
     />
   {/if}
-</section>
+</PageContainer>

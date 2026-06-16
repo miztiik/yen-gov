@@ -37,6 +37,7 @@
   import type {
     PartyDetailViewModel,
     PartyHistoryPoint,
+    PartyStronghold,
   } from "../lib/view-models/party-detail";
   import {
     getPartyColor,
@@ -232,6 +233,47 @@
     return party_id === "parties.IN.NOTA";
   }
 
+  /** Pure: format a single stronghold row as a citizen-readable
+   *  one-line tally - e.g.
+   *     "Punjab - Sangrur: won 3 of 4 times, last 2024"
+   *  PR-7 of TODO/20260615-party-page-citizen-fixes-plan.md (Jony +
+   *  Citizen, section 0.5 RIP doctrine). Replaces the prior 2-cell
+   *  layout (name on the left + SVG dot strip on the right) which
+   *  carried glyph chrome the citizen cannot parse without a legend.
+   *
+   *  Inputs:
+   *    - `stronghold`: a single row from the strongholds mart.
+   *    - `state_name`: citizen-readable state display name resolved
+   *      from `entity_id` via `stateNameFromEntityId` + `states.name`
+   *      at the call site. Empty string when the entity_id is not
+   *      state-coded (e.g. national / sentinel) - we then drop the
+   *      "State - " prefix entirely.
+   *
+   *  Recency suffix:
+   *    - When `last_won_year` is present (production loader path) we
+   *      append ", last YYYY". Citizen-honest: a stronghold that the
+   *      party last won in 1980 is materially different from one
+   *      last won in 2024 even when the W/L count is identical.
+   *    - When null (the legacy in-memory fold path, test-only) we
+   *      drop the suffix - the bare "won X of Y times" stands alone.
+   *
+   *  Constituency fallback: when the mart row's `constituency_name`
+   *  is empty (taxonomy-misses) we surface the raw entity_id rather
+   *  than rendering an empty string - matches the prior 2-cell
+   *  template's fallback. */
+  export function formatStrongholdTally(
+    stronghold: PartyStronghold,
+    state_name: string,
+  ): string {
+    const constituency = stronghold.constituency_name || stronghold.entity_id;
+    const prefix = state_name ? `${state_name} - ` : "";
+    const recency =
+      stronghold.last_won_year != null
+        ? `, last ${stronghold.last_won_year}`
+        : "";
+    return `${prefix}${constituency}: won ${stronghold.wins} of ${stronghold.contested} times${recency}`;
+  }
+
 </script>
 
 <script lang="ts">
@@ -239,18 +281,18 @@
   import { partyIdFromSlug } from "../lib/slug";
   import { link } from "../lib/links";
   import { states } from "../lib/states.svelte";
+  import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
+  import { route } from "../lib/router.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import DualAxisBarLine from "../lib/charts/DualAxisBarLine/DualAxisBarLine.svelte";
   import RecognitionStrip from "../lib/parties/RecognitionStrip.svelte";
-  import PartyStrongholdMap from "../lib/parties/PartyStrongholdMap.svelte";
-  import StrongholdDotStrip from "../lib/parties/StrongholdDotStrip.svelte";
-  // PR-6: recognitionLabel + PartyAboutCard share the same Hans H7
-  // vocabulary; importing keeps the in-header subline and the
-  // side-rail card on a single source of truth (future copy tweaks
-  // happen in one place; the AboutCard vitest pin covers both paths).
-  import PartyAboutCard, {
-    recognitionLabel,
-  } from "../lib/parties/PartyAboutCard.svelte";
+  // Wave-F F6: PartyAboutCard.svelte was RIP'd per CLAUDE.md section 0.5
+  // (RIP doctrine) - the metadata it carried (founding range, recognition,
+  // Wikipedia link) collapses into the per-party header meta-strip below
+  // the "Led by" line. recognitionLabel migrated to its own pure module
+  // so it survives the AboutCard delete.
+  import { recognitionLabel } from "../lib/parties/recognition-label";
   // PR-7: "Where this party sits today" strip sits directly under the
   // header card and above the latest-of one-liners on /parties/<slug>.
   // The view-model is built upstream by `loadPartyCurrentStrength`
@@ -265,19 +307,20 @@
   // sentinels (defence in depth) and for parties with no alliance
   // rows on file (Independent + new entrants).
   import PartyAllianceContext from "../lib/parties/PartyAllianceContext.svelte";
-  // PR-9: per-card coverage badges + bottom-of-page source-pill
-  // strip. Both consume the `view_model.provenance` envelope built
-  // by `buildPartyProvenance` (Holy Law #9). Each badge
-  // self-suppresses when its `text` prop is empty; the strip
-  // self-suppresses when `total_count === 0`.
-  import PartyCoverageBadge from "../lib/parties/PartyCoverageBadge.svelte";
-  import PartySourcesStrip from "../lib/parties/PartySourcesStrip.svelte";
-  import {
-    homeStateEciCodes,
-    mapPcStrongholdsToChoroplethRows,
-  } from "../lib/parties/stronghold-choropleth-rows";
+  // PR-9: per-card publisher-pill footers replace the retired
+  // free-text coverage badges + bottom-of-page strip. Each `SourceList`
+  // self-suppresses on an empty `pills` array, so cards without
+  // resolved sources render nothing (no row, no whitespace).
+  import { SourceList } from "../lib/sources";
   import { stateNameFromEntityId } from "../lib/parties/party-detail-utils";
   import { formatLeaderSince } from "../lib/view-models/parties";
+  // PR-13 D13: quiet footer link to the page-coverage docs concept.
+  // No in-app `/docs/concepts/:slug` route exists; the canonical
+  // pattern is `docsUrl()` building a GitHub blob URL (same as
+  // `CountingMethodDoc.svelte` + `Psephlab.svelte`). The page itself
+  // lives at `docs/concepts/party-page-coverage.md` and consolidates
+  // the meta-disclaimers the page previously rendered inline.
+  import { docsUrl } from "../lib/repo";
 
   interface Props {
     params: { slug: string };
@@ -421,30 +464,34 @@
     return getPartyColor(meta.party_id, partyRowFromMeta(meta)).hex;
   });
 
-  // PR-12 stronghold choropleth: derive the PC-side choropleth rows
-  // from the LS stronghold mart and the home-state ECI code set from
-  // parties.csv. The mapper silently drops rows whose entity_id does
-  // not match the PC pattern; the home_states set drives state-
-  // cropping for parties with <= 3 home states. National parties
-  // (home_states empty or >3) render full-India. See
-  // [stronghold-choropleth-rows.ts](../lib/parties/stronghold-choropleth-rows.ts).
-  const pcStrongholdRows = $derived(
-    view_model
-      ? mapPcStrongholdsToChoroplethRows(view_model.ls_strongholds)
-      : [],
-  );
-  const homeStates = $derived(
-    meta ? homeStateEciCodes(meta.home_state_codes) : new Set<string>(),
-  );
+  // PR-8a (D8c of TODO/20260615-party-page-citizen-fixes-plan.md):
+  // the 320x360 stronghold-thumbnail component + its
+  // pc-row / home-state derivations + the sibling helper module
+  // were RIP'd per section 0.5 (RIP doctrine). The PR-7
+  // state-prefixed one-line stronghold tally below carries the
+  // geographic signal textually; git is the backup if a richer
+  // interactive map is needed later.
 
-  // Recognition badge label is sourced from PartyAboutCard's exported
-  // helper (Hans H7 vocabulary, PR-6). Single source of truth - the
-  // in-header subline (line 483) and the side-rail card render the
-  // same string for the same scope.
+  // Recognition badge label is sourced from the extracted
+  // `recognition-label` helper module (Hans H7 vocabulary, originally
+  // PR-6, lifted out in Wave-F F6 so the helper outlives the deleted
+  // PartyAboutCard). Single source of truth - the in-header subline
+  // and the meta-strip render the same string for the same scope.
+
+  // PR-12 (D12 of TODO/20260615-party-page-citizen-fixes-plan.md): per-
+  // route crumb chain mounted via the shared `<Breadcrumb>` primitive.
+  // Reactive on route navigation AND on async catalogue load (the
+  // `partyCrumbs` builder reads `states` reactively for the home-state
+  // fallback in future widenings). The shared component self-suppresses
+  // single-leaf chains; the partyCrumbs builder always returns 3 crumbs
+  // (Home -> Parties -> <slug>) so the bar renders on every party page.
+  const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
 </script>
 
-<main
-  class="max-w-5xl mx-auto p-4 sm:p-6 space-y-6"
+<Breadcrumb {crumbs} />
+
+<PageContainer
+  width="wide"
   data-testid="party-detail"
   data-party-id={party_id}
 >
@@ -539,6 +586,59 @@
             >
           </p>
         {/if}
+        <!-- Wave-F F6: compact meta-strip replacing the deleted
+             PartyAboutCard side-rail. Inlined into the header so the
+             page no longer needs an `lg:` grid wrapper. Renders the
+             three citizen-facing facts that survived the AboutCard
+             RIP:
+               1) Active range (founded - dissolved) when at least one
+                  endpoint is known.
+               2) Recognition vocabulary (Hans H7 - "Nationally
+                  recognised party" / "State-recognised party" / etc.).
+                  The same string already renders in the subline above
+                  for live parties; the meta-strip surfaces it again as
+                  a separator-prefixed item for visual symmetry.
+               3) Wikipedia link, rendered with the real CC BY-SA 4.0
+                  puzzle-globe asset at `/icons/wikipedia.svg` (Wave-F
+                  F1) instead of the prior hand-minted W glyph behind
+                  TopicIcon.
+             HQ + ideology + official website (named in the brief) are
+             not on `PartyMeta` and intentionally omitted; restoring
+             them is a separate Hans+Max data-shape PR. -->
+        {#if !meta.is_sentinel && (meta.founded_year || meta.dissolved_year || meta.wikipedia)}
+          <p
+            class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500"
+            data-testid="party-meta-strip"
+          >
+            {#if meta.founded_year !== null && meta.dissolved_year !== null}
+              <span data-testid="party-meta-active">Active {meta.founded_year}-{meta.dissolved_year}</span>
+            {:else if meta.founded_year !== null}
+              <span data-testid="party-meta-active">Active since {meta.founded_year}</span>
+            {:else if meta.dissolved_year !== null}
+              <span data-testid="party-meta-active">Dissolved {meta.dissolved_year}</span>
+            {/if}
+            {#if meta.recognition_scope}
+              <span aria-hidden="true" class="text-slate-300">.</span>
+              <span data-testid="party-meta-recognition">{recognitionLabel(meta.recognition_scope)}</span>
+            {/if}
+            {#if meta.wikipedia}
+              <span aria-hidden="true" class="text-slate-300">.</span>
+              <a
+                href={meta.wikipedia}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-sky-700 hover:underline"
+                data-testid="party-meta-wikipedia"
+              ><img
+                  src="/brands/wikipedia.svg"
+                  alt=""
+                  width="16"
+                  height="16"
+                  class="h-4 w-4 inline-block"
+                /><span>Wikipedia</span></a>
+            {/if}
+          </p>
+        {/if}
         {#if sentinel_line}
           <p
             class="text-xs text-slate-500 italic max-w-prose"
@@ -559,7 +659,7 @@
       current_strength={view_model.current_strength}
       is_sentinel={meta.is_sentinel}
     />
-    <PartyCoverageBadge text={view_model.provenance.badges.current_strength} />
+    <SourceList pills={view_model.provenance.pills_per_card.current_strength} />
 
     <!-- PR-8: "Who they ride with" Alliance Context strip. Sits
          directly under the Current Strength strip and above the
@@ -571,21 +671,17 @@
       alliance_context={view_model.alliance_context}
       is_sentinel={meta.is_sentinel}
     />
-    <PartyCoverageBadge text={view_model.provenance.badges.alliance_context} />
+    <SourceList pills={view_model.provenance.pills_per_card.alliance_context} />
 
     <!--
-      PR-6 layout: header sits full-width above. Sections (2)-(6) live
-      in the LEFT column of a 1fr+240px grid at `lg`+; the right column
-      hosts the "About this party" side-rail (PartyAboutCard). On
-      narrow viewports the grid collapses to a single column and the
-      mobile-mode AboutCard renders below strongholds (`lg:hidden`
-      slot at the bottom of the left column). PUCL attribution survives
-      as a full-width block AFTER the grid for NOTA.
+      PR-6 layout: header sits full-width above. Wave-F F6 RIP'd
+      the right-column AboutCard, so the prior `1fr+240px` lg-grid
+      collapses to a single full-width column at every breakpoint.
+      The wrapper survives as a `space-y-6` container so the inter-
+      section vertical rhythm is unchanged. PUCL attribution lives
+      as a full-width block AFTER this container for NOTA.
     -->
-    <div
-      class="lg:grid lg:grid-cols-[1fr_240px] lg:gap-6 lg:items-start space-y-6 lg:space-y-0"
-    >
-      <div class="space-y-6 min-w-0">
+    <div class="space-y-6 min-w-0">
 
     <!-- (2) Latest-of one-liner per body. Hidden for sentinels until
          a meaningful value lands. -->
@@ -656,7 +752,10 @@
     <!-- (4) LS DualAxisBarLine -->
     {#if !meta.is_sentinel && ls_bars.length > 0}
       <section class="space-y-2" data-testid="party-ls-chart">
-        <RecognitionStrip party_id={meta.party_id} />
+        <RecognitionStrip
+          party_id={meta.party_id}
+          symbol_url={avatar.symbol_url}
+        />
         <div class="flex items-end justify-between">
           <h2 class="text-lg font-semibold text-slate-800 inline-flex items-center gap-2">
             <TopicIcon name="landmark" cls="w-5 h-5 text-slate-500 shrink-0" />
@@ -686,7 +785,7 @@
             hover to see what changed.
           </p>
         {/if}
-        <PartyCoverageBadge text={view_model.provenance.badges.parliament} />
+        <SourceList pills={view_model.provenance.pills_per_card.parliament} />
       </section>
     {/if}
 
@@ -712,7 +811,7 @@
           bar_y_label="Vote share %"
           bar_format={(n) => `${n.toFixed(1)}%`}
         />
-        <PartyCoverageBadge text={view_model.provenance.badges.state_assembly} />
+        <SourceList pills={view_model.provenance.pills_per_card.state_assembly} />
       </section>
     {/if}
 
@@ -729,30 +828,6 @@
           ingested.
         </p>
 
-        <!-- PR-12 stronghold choropleth (PC body only this PR; AC
-             deferred per the delim mismatch documented in
-             stronghold-choropleth-rows.ts). Hidden under 640px per
-             Jony 2g + Citizen 3a (the existing top-10 text list
-             below remains visible across all viewports). -->
-        {#if pcStrongholdRows.length > 0}
-          <div class="hidden sm:block" data-testid="party-pc-stronghold-map-wrap">
-            <PartyStrongholdMap
-              topojson_path="/boundaries/electoral/delim=2024/pc/all.topojson"
-              feature_key="unique_id"
-              state_property="state_ut_code"
-              rows={pcStrongholdRows}
-              brand_colour={meta.brand_colour}
-              home_states={homeStates}
-              title="Parliament strongholds map"
-              caption="Stronghold map shows this party's top-10 constituencies by lifetime wins. For per-cycle winners see the respective election pages."
-              data_testid="party-pc-stronghold-map"
-              polygon_testid="pc-stronghold"
-              width={320}
-              height={360}
-            />
-          </div>
-        {/if}
-
         {#if view_model.ls_strongholds.length > 0}
           <div class="space-y-1" data-testid="party-ls-strongholds">
             <h3 class="text-sm font-semibold text-slate-700 inline-flex items-center gap-2">
@@ -765,26 +840,19 @@
               {#each view_model.ls_strongholds as s (s.entity_id)}
                 {@const parsed = stateNameFromEntityId(s.entity_id, (c) => states.name(c))}
                 <li
-                  class="flex items-center gap-3 px-3 py-2 text-sm"
+                  class="px-3 py-2 text-sm text-slate-700"
                   data-testid="party-stronghold-ls"
                   data-state={parsed.state_code}
                 >
-                  <span class="flex-1 min-w-0 flex items-baseline gap-1.5 truncate">
-                    {#if parsed.state_name}
-                      <span class="text-slate-500">{parsed.state_name}</span>
-                      <span class="text-slate-400" aria-hidden="true">·</span>
-                    {/if}
-                    <span class="font-medium text-slate-800 truncate"
-                      >{s.constituency_name || s.entity_id}</span
-                    >
-                  </span>
-                  <span
-                    class="shrink-0 text-xs text-slate-500 tabular-nums"
-                    title={s.results.join("")}
-                  >
-                    won {s.wins} of {s.contested}
-                  </span>
-                  <StrongholdDotStrip results={s.results} brand_colour={bar_color} />
+                  {#if s.href}
+                    <a
+                      href={s.href}
+                      class="text-sky-700 hover:text-sky-900 hover:underline"
+                      data-testid="party-stronghold-ls-link"
+                    >{formatStrongholdTally(s, parsed.state_name)}</a>
+                  {:else}
+                    <span>{formatStrongholdTally(s, parsed.state_name)}</span>
+                  {/if}
                 </li>
               {/each}
             </ul>
@@ -803,57 +871,38 @@
               {#each view_model.vs_strongholds as s (s.entity_id)}
                 {@const parsed = stateNameFromEntityId(s.entity_id, (c) => states.name(c))}
                 <li
-                  class="flex items-center gap-3 px-3 py-2 text-sm"
+                  class="px-3 py-2 text-sm text-slate-700"
                   data-testid="party-stronghold-vs"
                   data-state={parsed.state_code}
                 >
-                  <span class="flex-1 min-w-0 flex items-baseline gap-1.5 truncate">
-                    {#if parsed.state_name}
-                      <span class="text-slate-500">{parsed.state_name}</span>
-                      <span class="text-slate-400" aria-hidden="true">·</span>
-                    {/if}
-                    <span class="font-medium text-slate-800 truncate"
-                      >{s.constituency_name || s.entity_id}</span
-                    >
-                  </span>
-                  <span
-                    class="shrink-0 text-xs text-slate-500 tabular-nums"
-                    title={s.results.join("")}
-                  >
-                    won {s.wins} of {s.contested}
-                  </span>
-                  <StrongholdDotStrip results={s.results} brand_colour={bar_color} />
+                  {#if s.href}
+                    <a
+                      href={s.href}
+                      class="text-sky-700 hover:text-sky-900 hover:underline"
+                      data-testid="party-stronghold-vs-link"
+                    >{formatStrongholdTally(s, parsed.state_name)}</a>
+                  {:else}
+                    <span>{formatStrongholdTally(s, parsed.state_name)}</span>
+                  {/if}
                 </li>
               {/each}
             </ul>
           </div>
         {/if}
-        <PartyCoverageBadge text={view_model.provenance.badges.strongholds} />
+        <SourceList pills={view_model.provenance.pills_per_card.strongholds} />
       </section>
     {/if}
 
-    <!-- (7) About this party (PR-6).
-         Renders TWICE: once below strongholds as a mobile <dl>
-         (`lg:hidden`), once in the right column of the grid as a
-         desktop bordered side-rail (`hidden lg:block`). Both mounts
-         render IDENTICAL content; the mobile flag toggles the wrapper
-         styling. The PUCL attribution for NOTA is NOT part of the
-         card - it survives as a full-width block below the grid. -->
-        <div class="lg:hidden">
-          <PartyAboutCard
-            {meta}
-            statesNameFn={(c) => states.name(c)}
-            mobile
-          />
-        </div>
-      </div>
-      <aside class="hidden lg:block">
-        <PartyAboutCard
-          {meta}
-          statesNameFn={(c) => states.name(c)}
-        />
-      </aside>
-    </div>
+    <!-- (7) About this party (PR-6, Wave-F F6).
+         Card RIP'd: the side-rail mount + mobile mount + lg-grid
+         wrapper were ALL removed in Wave-F F6 per CLAUDE.md §0.5
+         (RIP doctrine). The metadata the card carried (founding
+         range / recognition / Wikipedia) now lives inline in the
+         per-party header meta-strip below the "Led by" line.
+         The PUCL attribution for NOTA survives as the full-width
+         block below; the "About this page →" link survives as the
+         footer below it. -->
+    </div><!-- /.space-y-6 min-w-0 (full-width body container) -->
 
     {#if showPuclAttribution(meta.party_id)}
       <p
@@ -864,10 +913,22 @@
       </p>
     {/if}
 
-    <!-- (8) PR-9: bottom-of-page source-pill strip (Holy Law #9).
-         Collapsed by default; renders the page-level citation
-         ledger as a 4-column table when expanded. Hidden when the
-         page has zero sources (sentinel + no-data view). -->
-    <PartySourcesStrip strip={view_model.provenance.strip} />
+    <!-- PR-13 D13: one quiet "About this page" link. Slate-400, no
+         italic, no chrome. Points at the GitHub-rendered concept doc
+         (no in-app `/docs/concepts/:slug` route exists - canonical
+         pattern is `docsUrl()` -> GitHub blob URL, mirroring
+         `CountingMethodDoc.svelte` + `Psephlab.svelte`). The doc
+         consolidates the meta-disclaimers the page previously
+         rendered inline (PR-9 retired 2 of 4; PR-11 retires the
+         remaining 2). -->
+    <p class="mt-8 text-sm text-slate-400">
+      <a
+        href={docsUrl("docs/concepts/party-page-coverage.md")}
+        target="_blank"
+        rel="noreferrer"
+        class="hover:underline"
+        data-testid="party-page-coverage-link"
+      >About this page -&gt;</a>
+    </p>
   {/if}
-</main>
+</PageContainer>

@@ -174,3 +174,4 @@ under-construction-capacity-gw,Under-construction capacity (pipeline),under-cons
 votes-polled,State votes,state-votes,votes,,elections,,365,,,
 winning-party-id,Winning party,winning-party-state,entity_id,,elections,,365,,,
 winning-party-seats,Winning seats,winning-seats,ACs,,elections,,365,,,
+electors-persons-by-sex,Electors by sex,electors,persons,facet(sex),elections,src-99455a24d3c4,1825,2021,2021,ac

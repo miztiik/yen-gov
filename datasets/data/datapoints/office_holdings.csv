@@ -49,7 +49,7 @@ IN-S03-CM,2006-05-14,tarun-gogoi,2011-05-17,src-2c57781325fd
 IN-S03-CM,2011-05-18,tarun-gogoi,2016-05-23,src-2c57781325fd
 IN-S03-CM,2016-05-24,sarbananda-sonowal,2021-05-09,src-2c57781325fd
 IN-S03-CM,2021-05-10,himanta-biswa-sarma,2026-05-12,src-2c57781325fd
-IN-S03-CM,2026-05-13,,,src-2c57781325fd
+IN-S03-CM,2026-05-13,himanta-biswa-sarma,,src-2c57781325fd
 IN-S04-CM,1990-03-10,lalu-prasad-yadav,1995-03-28,src-b01dae08d922
 IN-S04-CM,1995-04-04,lalu-prasad-yadav,1997-07-25,src-b01dae08d922
 IN-S04-CM,1997-07-25,rabri-devi,1999-02-11,src-b01dae08d922
@@ -147,7 +147,7 @@ IN-S11-CM,2006-05-18,v-s-achuthanandan,2011-05-14,src-3784c1ebd2b2
 IN-S11-CM,2011-05-18,oommen-chandy,2016-05-20,src-3784c1ebd2b2
 IN-S11-CM,2016-05-25,pinarayi-vijayan,2021-05-19,src-3784c1ebd2b2
 IN-S11-CM,2021-05-20,pinarayi-vijayan,2026-05-12,src-3784c1ebd2b2
-IN-S11-CM,2026-05-13,,,src-3784c1ebd2b2
+IN-S11-CM,2026-05-13,v-d-satheesan,,src-3784c1ebd2b2
 IN-S12-CM,1990-03-05,sunderlal-patwa,1992-12-15,src-3f43c6f26da5
 IN-S12-CM,1992-12-15,,1993-12-07,src-3f43c6f26da5
 IN-S12-CM,1993-12-07,digvijaya-singh,2003-12-08,src-3f43c6f26da5
@@ -262,7 +262,7 @@ IN-S22-CM,2016-05-23,j-jayalalithaa,2016-12-05,src-a99bd0998bba
 IN-S22-CM,2016-12-06,o-panneerselvam,2017-02-15,src-a99bd0998bba
 IN-S22-CM,2017-02-16,edappadi-k-palaniswami,2021-05-06,src-a99bd0998bba
 IN-S22-CM,2021-05-07,m-k-stalin,2026-05-12,src-a99bd0998bba
-IN-S22-CM,2026-05-13,,,src-a99bd0998bba
+IN-S22-CM,2026-05-13,c-joseph-vijay,,src-a99bd0998bba
 IN-S23-CM,1988-02-05,sudhir-ranjan-majumdar,1993-04-10,src-e48294bfc770
 IN-S23-CM,1993-04-10,manik-sarkar,2018-03-09,src-e48294bfc770
 IN-S23-CM,2018-03-09,biplab-kumar-deb,2022-05-15,src-e48294bfc770
@@ -296,7 +296,7 @@ IN-S25-CM,2006-05-18,buddhadeb-bhattacharjee,2011-05-13,src-276836eeb2c1
 IN-S25-CM,2011-05-20,mamata-banerjee,2016-05-26,src-276836eeb2c1
 IN-S25-CM,2016-05-27,mamata-banerjee,2021-05-04,src-276836eeb2c1
 IN-S25-CM,2021-05-05,mamata-banerjee,2026-05-12,src-276836eeb2c1
-IN-S25-CM,2026-05-13,,,src-276836eeb2c1
+IN-S25-CM,2026-05-13,suvendu-adhikari,,src-276836eeb2c1
 IN-S26-CM,2000-11-01,ajit-jogi,2003-12-07,src-e0626b62fc74
 IN-S26-CM,2003-12-07,raman-singh,2018-12-17,src-e0626b62fc74
 IN-S26-CM,2018-12-17,bhupesh-baghel,2023-12-13,src-e0626b62fc74
@@ -360,7 +360,8 @@ IN-U07-CM,2008-09-04,v-vaithilingam,2011-05-16,src-ac976494bf5e
 IN-U07-CM,2011-05-16,n-rangaswamy,2016-06-06,src-ac976494bf5e
 IN-U07-CM,2016-06-06,v-narayanasamy,2021-02-22,src-ac976494bf5e
 IN-U07-CM,2021-02-25,,2021-05-07,src-ac976494bf5e
-IN-U07-CM,2021-05-07,n-rangaswamy,,src-ac976494bf5e
+IN-U07-CM,2021-05-07,n-rangaswamy,2026-05-12,src-ac976494bf5e
+IN-U07-CM,2026-05-13,n-rangaswamy,,src-ac976494bf5e
 IN-U08-CM,1990-01-19,,1996-10-09,src-cb5a1a546e33
 IN-U08-CM,1996-10-09,farooq-abdullah,2002-10-18,src-cb5a1a546e33
 IN-U08-CM,2002-10-18,,2002-11-02,src-cb5a1a546e33

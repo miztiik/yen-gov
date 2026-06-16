@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/election-events.schema.json",
   "title": "Per-state election event inventory",
   "description": "The frontend-readable catalogue of which election events exist for each state. The backend's events.py registry is the source of truth at backend-build time; this JSON is the static-app view, hand-authored and kept consistent via CI test (backend/tests/test_election_events_consistency.py). Per-state arrays let route components resolve `defaultEventForState(stateCode)` without bundling Python. National events (e.g. LsGenApr2024) appear in every relevant state's array as a 'slice' — same event_id, same artifact directory, the per-state read just selects the right row. Per ADR-0023.",
-  "x-version": "1.3",
+  "x-version": "1.4",
   "x-changelog": [
     {
       "version": "1.0",
@@ -24,6 +24,11 @@
       "version": "1.3",
       "date": "2026-06-10",
       "description": "Additive: extend kind enum with `general_bye` + `assembly_bye` per the PR-0 bye-slug doctrine locked in docs/architecture/frontend/url-grammar.md (event-slug grammar `assembly-bye-<YYYY>-<seat-slug>` and `general-bye-<YYYY>-<state-slug>-<seat-slug>`); add optional `event_id_aliases: string[]` field carrying legacy event_id values for one-release readability of pre-W2a bookmarks and stored data (rows in datasets/data/datapoints/electoral/*.csv still carry the cohort-format period_label values, resolved back to the renamed event_id via this alias array). Widen the event_id pattern from `^[A-Za-z0-9]+$` to `^[A-Za-z0-9_-]+$` so the new citizen-readable slugs (`general-2024`, `assembly-2024`, `assembly-bye-2024-channapatna`) validate; the old cohort-format ids (`LsGenJun2024`, `AcGenMay2026`) still match the widened pattern. After W3+ surfaces flip to the new slug, event_id_aliases becomes a curiosity and eventual deletion is a Phase 5+ concern. See PR-W2a row in TODO/20260609-election-experience-overhaul-plan.md."
+    },
+    {
+      "version": "1.4",
+      "date": "2026-06-16",
+      "description": "Documentation-only: codify the same-year same-state same-kind collision-disambiguation convention `<kind>-<YYYY>-<month-slug>` (month-slug one of `jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec`). Anchor case: Bihar 2005 February (hung Assembly) + November (Nitish Kumar government formation) -- previously both keyed `assembly-2005` with first-match-wins corruption in the mart. R1.6 Path A' (see TODO/20260615-R1.6-bihar-2005-path-a-prime-receipt.md) splits these into `assembly-2005-feb` + `assembly-2005-nov`. The legacy `assembly-2005` slug is preserved in event_id_aliases on the November row (frozen-URL inbound rule: the constitutionally consequential election keeps the legacy slug). The event_id pattern from v1.3 (`^[A-Za-z0-9_-]+$`) already accepts month-slug forms; no JSON-pattern change. The Tier-B contract test at backend/tests/test_election_events_consistency.py freezes the PK invariant (no duplicate (eci_code, kind, event_id) tuples). Future same-year same-state same-kind collisions (bye-election in the same year as the regular poll on the same body) follow the same convention. See Section 2.6.1 of the archived state-event-page redesign plan-doc for the 3-persona panel verdict (Hans + Max + Gregor)."
     }
   ],
   "type": "object",

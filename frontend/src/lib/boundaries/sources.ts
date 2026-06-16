@@ -1174,8 +1174,8 @@ export const INDIA_PC: BoundaryEntry = {
   join_property: "unique_id",
 };
 
-// PC boundaries under the 2008 Delimitation Commission Order — operative for
-// the 17th / 16th / 15th Lok Sabha elections (LS 2019, 2014, 2009). 543
+// PC boundaries under the 2008 Delimitation Commission Order - operative for
+// the 17th / 16th / 15th Parliament general elections (2019, 2014, 2009). 543
 // features. Upstream: datameet/maps `india_pc_2019_simplified.geojson` (CC0
 // 1.0, authored by Arun Ganesh as a simplified derivative of the DataMeet
 // Trust raw shapefile under CC-BY-SA 2.5). Staged via

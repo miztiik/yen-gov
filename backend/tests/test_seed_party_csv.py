@@ -39,20 +39,24 @@ def test_emit_minimal_row(tmp_path):
     out = tmp_path / "datasets" / "data" / "entities" / "parties.csv"
     emit(parties_json=src, out_path=out)
     lines = out.read_text(encoding="utf-8").splitlines()
-    # v1.1 (PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md):
-    # the parties.csv file class now declares 18 columns (8 original + 10 nullable
-    # identity-metadata appended). The seed emitter only populates the original 8;
-    # the 10 new cells trail empty per the column contract.
+    # v1.2 (PR-1 of TODO/20260615-party-page-citizen-fixes-plan.md):
+    # the parties.csv file class now declares 21 columns (8 original + 10 v1.1
+    # nullable identity-metadata + 3 v1.2 nullable provenance triple
+    # source_id/processing_level/processing_note). The seed emitter only
+    # populates the original 8; the 13 new cells trail empty per the column
+    # contract. Backfill of source_id+processing_level+processing_note for
+    # priority parties is the canonical-helper code-path, not the seed emit.
     assert lines[0] == (
         "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia,aliases,"
         "recognition_scope,home_state_codes,founded_year,dissolved_year,"
         "predecessor_party_ids,successor_party_ids,name_history,"
-        "claims_to_parent_name,name_native_script,is_sentinel"
+        "claims_to_parent_name,name_native_script,is_sentinel,"
+        "source_id,processing_level,processing_note"
     )
     assert len(lines) == 2
     assert (
         lines[1]
-        == "parties.IN.AGP,AGP,Asom Gana Parishad,83,#99CCFF,party-symbols/elephant-agp.png,https://en.wikipedia.org/wiki/Asom_Gana_Parishad,,,,,,,,,,,"
+        == "parties.IN.AGP,AGP,Asom Gana Parishad,83,#99CCFF,party-symbols/elephant-agp.png,https://en.wikipedia.org/wiki/Asom_Gana_Parishad,,,,,,,,,,,,,,"
     )
 
 
@@ -72,9 +76,12 @@ def test_emit_nullable_fields_blank_when_absent(tmp_path):
     emit(parties_json=src, out_path=out)
     body = out.read_text(encoding="utf-8").splitlines()[1]
     # eci_codes, brand_colour, symbol_asset, wikipedia, aliases all blank, plus
-    # the 10 new v1.1 nullable identity-metadata columns also blank for a seed
-    # emit that does not populate them. 15 trailing commas (cells 4-18 empty).
-    assert body == "parties.IN.X,X,Party X,,,,,,,,,,,,,,,"
+    # the 10 v1.1 nullable identity-metadata columns also blank, plus the 3 v1.2
+    # nullable provenance trailing columns (source_id/processing_level/
+    # processing_note) also blank for a seed emit that does not populate them.
+    # 18 trailing commas (cells 4-21 empty) per the v1.2 column contract.
+    assert body == "parties.IN.X,X,Party X,,,,,,,,,,,,,,,,,,"
+
 
 
 def test_emit_pipe_joins_multiple_eci_codes(tmp_path):

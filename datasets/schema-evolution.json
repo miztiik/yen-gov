@@ -115,6 +115,46 @@
       "pr": null,
       "commit": null,
       "notes": "Phase 1 of TODO/20260612-alliance-phase-1-structural-fix-plan.md (Hans + Max joint verdict 2026-06-12, V3 corrected via Resolution A after first dispatch STOP-AND-SURFACE). Resolves three structural defects (D1 loader/route key mismatch, D2 state-scoping defect, D3 stale TN-2026 provenance FK) that kept the 4 already-curated events INVISIBLE to every citizen surface. After this PR the 4 events light up correctly with zero new curation work. Composite PK changed from (party_id, period_label) to (party_id, event_id, state). v1.1 rows do NOT validate under v2.0; reader contract is current_only (no compatibility shim). Companion frontend loader rewrite (loadAlliances filters on event_id + optional state arg) + state-overview JOIN clause rewrite + backend alliance_membership_csv writer column-reference update ship atomically in the same PR."
+    },
+    {
+      "release_id": "columns-2-2-to-2-3-parties-source-id-processing-quality",
+      "released_on": "2026-06-15",
+      "schema_file": "columns.schema.json",
+      "schema_id": "./columns.schema.json",
+      "from_version": "2.2",
+      "to_version": "2.3",
+      "change_class": "minor_additive",
+      "compatibility_status": "reader_compatible",
+      "validation_strategy": "current_schema",
+      "retained_schema": null,
+      "values_changed": true,
+      "value_change_summary": "All 2779 rows of datasets/data/entities/parties.csv extended with 3 nullable trailing columns (source_id, processing_level, processing_note) carrying empty defaults; 12 of the 14 priority parties (3 of 3 national: BSP / CPI(M) / NPP; 9 of 11 state-recognised: AJSU / BOPF / MGP / NPF / RSP / TMP / ZPM / AC / KNA) additionally populated with founded_year + source_id=src-a0225819954c (ECI party-registration master notification 2024, existing row in source.csv reused) + processing_level=major + the L-1 verbatim processing_note. NPEP + TEC deferred from this PR (founding year could not be confirmed with sufficient confidence against publisher records cross-check); the 938 unrecognised-registered long-tail deferred to a later wave. Pre-v1.2 row semantics unchanged.",
+      "provenance_changed": true,
+      "methodology_changed": false,
+      "methodology_break_refs": [],
+      "affected_artifacts": [
+        {
+          "path_pattern": "datasets/data/_schema/columns.schema.json",
+          "table_id": null,
+          "artifact_count": 1,
+          "action": "metadata_rewritten"
+        },
+        {
+          "path_pattern": "datasets/data/_schema/columns.json",
+          "table_id": null,
+          "artifact_count": 1,
+          "action": "metadata_rewritten"
+        },
+        {
+          "path_pattern": "datasets/data/entities/parties.csv",
+          "table_id": null,
+          "artifact_count": 1,
+          "action": "values_rewritten"
+        }
+      ],
+      "pr": null,
+      "commit": null,
+      "notes": "PR-1 of TODO/20260615-party-page-citizen-fixes-plan.md (user-ratified Path A 2026-06-15, Scope-change ledger row L-4). Doctrine cites: Holy Law #9 (every observation row carries source_id FK to source.csv), CLAUDE.md section 12 (citation-ledger identity = (producer, title, vintage) triple - reused the existing ECI row instead of minting a new one), L-1 (per-row processing_level vocabulary at docs/concepts/data-quality.md - named divergence #6 from OWID per-variable scope), L-2 extension (third-party acquisition site name does NOT appear on the row, in commit messages, in the plan-doc, or in any docs page). pure-additive minor on the data file; reader contract is reader_compatible (legacy 18-col readers continue to work since the 3 new cols are trailing + nullable; new 21-col readers see the additional provenance metadata). Companion processing_quality.py helper (derive_processing_for_party_founded_year_backfill) ships in the same PR with 4 vitest-pattern unit tests in test_processing_level_enum.py; the existing derive_processing UNK-only helper for candidacy / summary rows is unchanged. Backfill executed via one-shot operator scripts tools/_pr1_extend_parties_cols.py + tools/_pr1_backfill_priority_parties.py (gitignored; diff is the artifact)."
     }
   ]
 }

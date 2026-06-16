@@ -22,6 +22,7 @@
     type PartyRowForResolver,
   } from "../lib/colors/resolver";
   import { chipFor } from "../lib/colors/chip";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import PartyPill from "../lib/party-pill/PartyPill.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
 
@@ -69,7 +70,7 @@
   );
 </script>
 
-<main class="max-w-3xl mx-auto p-6 space-y-6">
+<PageContainer width="narrow">
   <header class="space-y-1">
     <h1 class="text-2xl font-bold flex items-center gap-2">
       <TopicIcon name="settings" cls="w-6 h-6 text-slate-500 shrink-0" />
@@ -132,4 +133,4 @@
       would muddy the provenance signal the chip is meant to carry.
     </p>
   </section>
-</main>
+</PageContainer>

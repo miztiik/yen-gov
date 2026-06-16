@@ -6,7 +6,7 @@ The publisher-pill view-model + render component for the citizen-facing
 sources footer on every chart card.
 
 Doctrine: [docs/concepts/data-provenance.md](../../../../docs/concepts/data-provenance.md)
-(see inline `ADR-NNNN citation-ledger-5col`, 2026-06-11). Plan: [TODO/20260611-sources-simplification-plan.md](../../../../TODO/20260611-sources-simplification-plan.md).
+(see inline `ADR-NNNN citation-ledger-5col`, 2026-06-11). Plan: [docs/archive/plans/20260611-sources-simplification-plan.md](../../../../docs/archive/plans/20260611-sources-simplification-plan.md).
 
 ## The contract
 

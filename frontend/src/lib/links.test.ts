@@ -152,6 +152,61 @@ describe("Grammar A — links.ts builder shapes (ADR-0037)", () => {
     );
   });
 
+  // PR-8b D8a: link.pc() mirrors link.ac() for parliamentary
+  // constituencies but routes to the bare-slug W3b shape at
+  // main.ts:321 (`/:state/elections/:event/:constituency`), where
+  // PC vs AC is dispatched by the event prefix (`general-` -> PC,
+  // `assembly-` -> AC). Unlike link.ac() there is no `/pc/` literal
+  // segment - the constituency is positional.
+  it("pc is /<state>/elections/<event>/<pc-slug> (bare-slug, no /pc/ marker)", () => {
+    const u = link.pc("S22", "general-2024", "chennai-central");
+    expect(u).toMatch(
+      /^\/[a-z0-9-]+\/elections\/general-2024\/chennai-central$/,
+    );
+    expect(u).not.toMatch(/\/pc\//);
+    expect(u).not.toMatch(/^\/s\//);
+  });
+
+  it("pc URL-encodes the event segment", () => {
+    // event ids are kebab-case in W2a doctrinal form so encoding is
+    // a no-op in practice, but the contract still holds for any caller
+    // that hands in an exotic id.
+    const u = link.pc("S22", "general 2024", "chennai-central");
+    expect(u).toMatch(
+      /^\/[a-z0-9-]+\/elections\/general%202024\/chennai-central$/,
+    );
+  });
+
+  it("pc accepts both ECI state code and LGD slug (fallback path)", () => {
+    // `stateSlug` does a `states.slug(...)` lookup against the
+    // catalogue then falls back to `toLowerCase()` if unresolved.
+    // In vitest the catalogue is not loaded so both surfaces emit
+    // through the lowercase-fallback path - the contract here is
+    // simply that neither input throws + both produce a 4-segment
+    // URL of the right shape. The runtime catalogue-resolved
+    // canonical slug is asserted by the §13 browser smoke.
+    const fromCode = link.pc("S22", "general-2024", "chennai-central");
+    const fromSlug = link.pc(
+      "tamil-nadu",
+      "general-2024",
+      "chennai-central",
+    );
+    expect(fromCode).toMatch(
+      /^\/[a-z0-9-]+\/elections\/general-2024\/chennai-central$/,
+    );
+    expect(fromSlug).toMatch(
+      /^\/[a-z0-9-]+\/elections\/general-2024\/chennai-central$/,
+    );
+  });
+
+  it("pc is prefixed with the deploy BASE_URL", () => {
+    // BASE_URL is `/` in vitest (vite.config defaults); production
+    // ships with `/yen-gov/`. The `withBase` invariant is shared
+    // with link.ac() and the other builders.
+    const u = link.pc("S22", "general-2024", "chennai-central");
+    expect(u.startsWith("/")).toBe(true);
+  });
+
   it("district is /<state>/<slug> (positional, no `/d/` marker)", () => {
     // Deferral 1 of TODO/20260609-url-prefix-drop-phase0-plan.md
     // (Jony's verdict) dropped the `/d/` literal marker. The router

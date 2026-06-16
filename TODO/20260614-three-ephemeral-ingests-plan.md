@@ -74,7 +74,7 @@ The user dropped three citizen-relevant data files into `datasets/ephemeral/` an
 |---|---|---|---|---|
 | **A** | ECI MCC seizures 2019 — per-event CSV + schema + source | `[ ] PENDING` | — | M |
 | **B** | 2014 LS winner affidavits — extend candidacies.csv (4 cols) | `[ ] PENDING` | — | M |
-| **C** | TN electors-by-sex 2021 — long-format facet on `electors` concept | `[ ] BLOCKED-NEEDS-SIGNOFF (2026-06-15; section 0.7)` | — | S |
+| **C** | TN electors-by-sex 2021 — long-format facet on `electors` concept | `[x] DONE` (Hans+Max+Fowler unanimous Path B; receipt: [TODO/20260615-row-c-tn-electors-by-sex-handover.md](20260615-row-c-tn-electors-by-sex-handover.md)) | — | S |
 | **D** | UX — seizures national+state card + 2014 affidavit MP panel | `[ ] PENDING` | — | M |
 | **FB-1** | Fold-back: aggregate-rollup indicator rows from affidavit cols | `[ ] DEFERRED` | — | — |
 | **FB-2** | Fold-back: backfill LS-2009/2019/2024 affidavits, 2014/2024 seizures, 35 other states' electors-by-sex | `[ ] DEFERRED` | — | — |
@@ -269,11 +269,39 @@ Same 5-gate DoD as Row A. G5 §13 SKIP. PR body must carry the citizen-correctne
 
 ## 4. Row C — TN electors-by-sex 2021 (long-format facet on `electors` concept)
 
+> **RESOLUTION (2026-06-15)**: This section was `BLOCKED-NEEDS-SIGNOFF`
+> at the file-class shape boundary (§4.C.2 originally placed the new
+> CSV under `datapoints/geo/*.csv` whose FK target is
+> `entities/geo.csv`, but ACs are NOT geo entities — they are
+> ECI-issued electoral units already keyed at `entities/electoral.csv`).
+> Resolved via §10 STOP-AND-SURFACE persona debate (Hans + Max + Fowler
+> via `runSubagent`); all three personas converged UNANIMOUSLY on
+> **Path B** — introduce a new sibling file-class
+> `datasets/data/datapoints/electoral_geo/*.csv` with FK target
+> `entities/electoral.csv`, mirroring the LGD-vs-ECI issuing-authority
+> split already present at the entities tier through to the datapoints
+> tier. The shipped file path is
+> `datasets/data/datapoints/electoral_geo/electors-persons-by-sex.csv`
+> (NOT `datapoints/geo/...` as originally framed). Full convergence
+> transcript + ship receipts in
+> [TODO/20260615-row-c-tn-electors-by-sex-handover.md](20260615-row-c-tn-electors-by-sex-handover.md).
+> The PR ships data-only per §5.D + D4 Jony verdict (no frontend
+> allowlist or card change in this PR; deferred until ≥3 states ship
+> the indicator).
+
 ### 4.C.1 Scope
 
 Land a new long-format CSV at `datasets/data/datapoints/geo/electors-persons-by-sex.csv` carrying 702 rows (234 TN ACs × 3 sex values). Filter out the 39 publisher subtotal + grand-total rows on ingest via `Sl No.isdigit()` predicate. This is a FACET extension on the existing `electors` concept (NOT a new concept_id) per Max + ADR-0044 identity test. Wire the frontend indicator-allowlist entry as data-only (no card). Vintage: 2021 per D1.
 
 ### 4.C.2 Files touched
+
+> **PATH-B UPDATE (2026-06-15)**: The shipped file path is
+> `datasets/data/datapoints/electoral_geo/electors-persons-by-sex.csv`,
+> NOT `datapoints/geo/...`. The frontend allowlist row was DEFERRED
+> per D4 Jony verdict (data-only PR until ≥3 states ship). The schema
+> WAS bumped `2.3 → 2.4` (MINOR additive) to register the new
+> `datapoints/electoral_geo/*.csv` file-class. See the resolution
+> banner above and the handover-doc for the as-shipped file list.
 
 | File | Op | Notes |
 |---|---|---|

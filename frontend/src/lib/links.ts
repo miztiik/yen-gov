@@ -228,6 +228,26 @@ export const link = {
     );
   },
 
+  /** PC drill via the bare-slug election-event route
+   * (`/<state>/elections/<event>/<pc-slug>`). Mirror of `link.ac()`
+   * for parliamentary constituencies, but routed to the W3b bare-slug
+   * pattern at `main.ts:321` (`/:state/elections/:event/:constituency`)
+   * which is dispatched to `Constituency.svelte` and resolved to PC vs
+   * AC by the event prefix (`general-` -> PC, `assembly-` -> AC).
+   *
+   * The pc slug is passed through verbatim - PR-8b D8a callers already
+   * `slugify(constituency_name)` upstream because the delim-existence
+   * gate against `entities/electoral.csv` runs on the same slug.
+   *
+   * Note: no `pc/` literal segment, unlike `link.ac()` which still
+   * carries `/ac/` for compatibility with the ADR-0052 AC route. The
+   * bare-slug PC shape is the W3b doctrine. */
+  pc(stateCodeOrSlug: string, eventId: string, pcSlug: string): string {
+    return withBase(
+      `/${stateSlug(stateCodeOrSlug)}/elections/${encodeURIComponent(eventId)}/${pcSlug}`,
+    );
+  },
+
   /** Per-state district landing (`/<state>/<district-slug>`). Positional
    * (no `/d/` literal marker) per Deferral 1 of
    * TODO/20260609-url-prefix-drop-phase0-plan.md + Jony's verdict
@@ -253,6 +273,16 @@ export const link = {
     return withBase(
       `/${stateSlug(stateCodeOrSlug)}/elections/${encodeURIComponent(eventId)}`,
     );
+  },
+
+  /** Per-state elections landing (`/<state>/elections`). Lists every
+   * assembly + parliament event the state has on record with year-as-link
+   * to the per-event detail page. Added in R2 of the state-event-page
+   * redesign plan (2026-06-15). No trailing slash so the route pattern
+   * `/:state/elections` matches exactly (the router's compiled regex
+   * does not normalise trailing slashes). */
+  stateElectionsLanding(stateCodeOrSlug: string): string {
+    return withBase(`/${stateSlug(stateCodeOrSlug)}/elections`);
   },
 
   /** National per-event view (`/t/elections/<event>`). Sibling of

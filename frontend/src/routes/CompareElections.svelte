@@ -64,6 +64,7 @@
     type ElectionEventsCatalogue,
   } from "../lib/election-events";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import { slugify } from "../lib/slug";
 
@@ -354,8 +355,8 @@
   }
 </script>
 
-<main
-  class="mx-auto max-w-6xl space-y-6 p-4"
+<PageContainer
+  width="wide"
   data-testid="compare-elections"
 >
   <Breadcrumb {crumbs} />
@@ -583,4 +584,4 @@
       </section>
     {/if}
   {/if}
-</main>
+</PageContainer>

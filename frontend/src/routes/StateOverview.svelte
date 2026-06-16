@@ -30,7 +30,7 @@
     maximumFractionDigits: 2,
   });
 
-  /** Slugs of Indian UTs that do NOT have a Vidhan Sabha (state
+  /** Slugs of Indian UTs that do NOT have a state Assembly (state
    *  legislature). Administered by the Centre via a Lt. Governor; no
    *  elected MLAs, no constituencies.json SOT, no "Assembly Map" surface.
    *  Excludes Delhi (U05), Puducherry (U07), Jammu & Kashmir (U08) which
@@ -200,6 +200,7 @@
   import { getPartyColor } from "../lib/colors/resolver";
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import {
     fetchElectionEvents,
@@ -715,7 +716,7 @@
     </nav>
   </main>
 {:else}
-<main class="max-w-screen-2xl mx-auto p-6 space-y-6">
+<PageContainer width="wide">
   <header class="space-y-1">
     <div class="border-l-4 border-red-500 pl-3 py-0.5">
       {#if is_no_assembly_ut}
@@ -1294,5 +1295,5 @@
     </section>
     {/if}
   {/if}
-</main>
+</PageContainer>
 {/if}

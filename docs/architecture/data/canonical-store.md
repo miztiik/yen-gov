@@ -513,6 +513,25 @@ Post-Independence state-formation events (Madhya Pradesh -> MP + Chhattisgarh 20
 
 ---
 
+## 3c. Bridges and identity (R1.5 doctrine, 2026-06-15)
+
+When a writer needs to map between two identity spaces (e.g. `eci_st_code -> on-disk slug`, or `slug -> eci_st_code`), **the bridge lives in exactly one canonical helper, not in ad-hoc per-writer parsing**. Per Hohpe (Enterprise Integration Patterns, ch. 8): a canonical data model is the contract; recovering structural identity from display strings is a violation of that contract.
+
+**The canonical bridges**:
+
+| Direction | Helper | Source-of-truth |
+|---|---|---|
+| `eci_st_code` → on-disk LGD slug | [`backend/yen_gov/canonical/adapters/eci/state_slug.py`](../../../backend/yen_gov/canonical/adapters/eci/state_slug.py) `eci_to_lgd_slug()` | [`datasets/taxonomy/lgd_states.json`](../../../datasets/taxonomy/lgd_states.json) |
+| Publisher-name → slug (open-vocabulary) | `state_codes.csv` `aliases` column | [`datasets/data/entities/state_codes.csv`](../../../datasets/data/entities/state_codes.csv) |
+
+**The R1.5 anchor case**: `datasets/data/marts/elections/event_summary.csv`'s writer previously recovered `state_code` by parsing the leading token of each catalogue event's `display` string (e.g. `"Jammu & Kashmir Assembly · September-October 2024"` → `"Jammu & Kashmir"`) and matching it against `state_codes.csv.lgd_name` with a 6-variant hard-coded fallback set. That was wrong by construction: the catalogue's OUTER DICT KEY is the `eci_st_code` itself (`states["U08"] -> [...]`). When the lgd_name was `"Jammu And Kashmir"` (with `And` not `&`) the bridge silently dropped U08 from the mart and the AssemblyElections page rendered J&K as `"No election in the catalogue yet."` even though the per-event data shipped on disk.
+
+**The R1.5 fix** ([commit deleting `_build_slug_to_eci_via_catalogue`](../../../backend/yen_gov/canonical/derived/event_summary.py)): the writer now iterates `catalogue["states"].items()` directly so `state_code` is given by the contract, never parsed. The disk slug derives from the single canonical helper `eci_to_lgd_slug()` (already used by [`backend/yen_gov/canonical/adapters/eci_ls.py`](../../../backend/yen_gov/canonical/adapters/eci_ls.py) and [`backend/yen_gov/canonical/adapters/eci_ae_panel.py`](../../../backend/yen_gov/canonical/adapters/eci_ae_panel.py) — precedents). Note: [`backend/yen_gov/canonical/derived/party_pages.py`](../../../backend/yen_gov/canonical/derived/party_pages.py) carries an inline `_load_eci_to_slug()` predating the shared helper; folding that into `eci_to_lgd_slug()` is the Rule-of-Three trigger, deferred to a future PR.
+
+**Forward rule**: writers MUST NOT recover `state_code` from display-string parsing when the contract already exposes it as a structural key or column. If a Rule-of-Three case ever needs a `eci_st_code` ⇄ `slug` bridge in a third location, extract a shared module (R1.5 alone does not yet meet Rule of Three; that work happens when the third caller appears).
+
+---
+
 ## 4. Identity vs provenance
 
 The **logical key** is `(entity_id, year, period_label, indicator_id)`. `source_id` is NOT in the key.
@@ -547,7 +566,7 @@ Anywhere in the codebase the same triple yields the same `source_id` — across 
 | Column | Required | Meaning |
 | --- | :---: | --- |
 | `source_id` (PK) | ✓ | Deterministic 12-char hash of `(producer, title, vintage)`. yen-gov-specific; OWID has no PK because OWID is editorially curated. |
-| `producer` | ✓ | Publisher organisation, verbatim from the source — "Election Commission of India", "Reserve Bank of India", "Ministry of Statistics and Programme Implementation", "yen-gov" for editorial rows. OWID `origin.producer`. _MIGRATING (PR-1 of the [sources simplification plan](../../../TODO/20260611-sources-simplification-plan.md))_ — the on-disk CSV header is still `owner`; the rename ships in PR-1. |
+| `producer` | ✓ | Publisher organisation, verbatim from the source -- "Election Commission of India", "Reserve Bank of India", "Ministry of Statistics and Programme Implementation", "yen-gov" for editorial rows. OWID `origin.producer`. |
 | `title` | ✓ | Citizen-readable report name, verbatim — "Statistical Report Section 10 (Detailed Results) — Tamil Nadu AcGenMay2026", "Handbook of Statistics on the Indian Economy 2024-25". OWID `origin.title`. |
 | `vintage` | ✓ | Strongest period anchor available. Publisher edition tag when one exists (RBI Handbook "2024-25", NFHS "NFHS-5", CEA Monthly Executive "2026-03"); operator snapshot window otherwise (NITI ICED `2024-25`). Non-empty (v3.0 sharpened from v2.0's permitted empty string; see [ADR-0042](../../concepts/data-provenance.md#adr-0042-sources-schema-v3-vintage-as-period-anchor)). OWID `origin.vintage`. |
 | `url` | — | Landing / publisher page URL the citizen can open. May 404 (publishers rename paths); not a citation requirement. Empty when hand-imported / transcribed / editorial. Named `url` (not OWID's `url_main`) because yen-gov ships one URL field — no `url_download` distinction to disambiguate. Per The One Rule "deviations documented": this is a yen-gov divergence from OWID `origin.url_main`. |

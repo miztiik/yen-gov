@@ -289,6 +289,46 @@ test.describe("golden path", () => {
     await page.waitForLoadState("networkidle", { timeout: 30_000 });
   });
 
+  test("state elections landing page (/:state/elections) renders breadcrumb + both body tables with year-as-link", async ({ page }) => {
+    // R2 of TODO/20260615-state-election-event-page-redesign-plan.md
+    // (PR #1066 + R2.1 gap-close): the bare `/<state>/elections` URL
+    // mounts `StateElectionsLanding.svelte`, which lists every assembly
+    // + parliament event the state has on record. Maharashtra has both
+    // bodies represented in the catalogue so it exercises the
+    // two-table arm. The router compiles `/:state/elections` to a
+    // strict `^/([^/]+)/elections$` regex (no trailing slash) per the
+    // pattern compiler in `lib/router.svelte.ts`, mirroring every
+    // other case in this file.
+    await page.goto("/maharashtra/elections");
+
+    // Breadcrumb landmark + the state link by href shape (display name
+    // comes from states.json so we assert structure, not copy).
+    const breadcrumb = page.getByRole("navigation", { name: "Breadcrumb" });
+    await expect(breadcrumb).toBeVisible({ timeout: 15_000 });
+    await expect(breadcrumb.locator('a[href$="/maharashtra"]')).toBeVisible();
+
+    // Page header renders the "{State} elections" heading.
+    await expect(page.getByTestId("state-elections-landing-header"))
+      .toBeVisible({ timeout: 15_000 });
+
+    // Both body tables present (Maharashtra has both assembly +
+    // parliament events on record). If either is missing the citizen
+    // sees only half the per-state archive.
+    await expect(page.getByTestId("state-elections-landing-assembly-table"))
+      .toBeVisible({ timeout: 15_000 });
+    await expect(page.getByTestId("state-elections-landing-parliament-table"))
+      .toBeVisible({ timeout: 15_000 });
+
+    // At least one year-link points back to the per-event detail page
+    // under `/maharashtra/elections/<event_id>` (the canonical W3b URL
+    // shape — see ADR-0052 + url-grammar.md). This is the partner the
+    // `Last viewed` badge eventually annotates.
+    const eventLinks = page.locator(
+      'a[href*="/maharashtra/elections/"]',
+    );
+    expect(await eventLinks.count()).toBeGreaterThanOrEqual(1);
+  });
+
   test("per-state topic page (/:state/t/:topic) renders cards + breadcrumb", async ({ page }) => {
     // IA-reset Step #2: pick a state → click a topic in the rail → land
     // here. Asserts the route shell (breadcrumb + heading), at least one

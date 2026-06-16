@@ -10,7 +10,7 @@
 //   State Assemblies (latest cycles in 31 of 31 states): 1,776 of 4,035 seats.
 //   Last contested: West Bengal State Assembly, May 2026.
 //
-// Each line is conditional - parties with no Lok Sabha history skip
+// Each line is conditional - parties with no Parliament history skip
 // line 1; parties with no state assembly history skip line 2. Line 3
 // renders whenever at least one of the other two is present.
 //
@@ -33,7 +33,7 @@ import { DATA_BASE } from "../paths";
 const PARTY_HISTORY_REL = "datasets/data/marts/party_pages/history.csv";
 const PARTY_HISTORY_URL = `${DATA_BASE}/data/marts/party_pages/history.csv`;
 
-/** Lok Sabha total seats - constant per the Constitution of India
+/** Parliament total seats - constant per the Constitution of India
  *  (Article 81; 543 elected + 2 nominated, citizen-facing denominator
  *  is 543). Hardcoded here because the canonical store does not yet
  *  carry a per-chamber-size lookup for Parliament; M5 of the plan-doc
@@ -76,7 +76,7 @@ const MONTH_NAMES = [
   "Dec",
 ];
 
-/** Latest Lok Sabha cycle the party contested. Null when no LS history. */
+/** Latest Parliament general-election the party contested. Null when no LS history. */
 export interface ParliamentLatest {
   /** Polling year (e.g. 2024). */
   year: number;
@@ -188,7 +188,7 @@ export function parseMonthFromPeriodLabel(
   return `${m[1]} ${m[2]}`;
 }
 
-/** Pure: derive the event_id slug from a Lok Sabha period_label
+/** Pure: derive the event_id slug from a Parliament period_label
  *  (e.g. `LsGenJun2024` -> `"general-2024"`). The slug mirrors the
  *  `/t/elections/<event_id>` topic URL grammar so the caller can
  *  cheaply link back. Returns null for non-LS or malformed labels.
@@ -459,7 +459,7 @@ const strengthCache = new Map<
  * Load the per-party Current Strength view-model. Returns `null` for
  * sentinel parties (caller should also short-circuit at the meta
  * level - this is a defensive second line) or for parties with no
- * Lok Sabha AND no state assembly history at all.
+ * Parliament AND no state assembly history at all.
  *
  * The state-name resolver is injected (callers from Svelte plumb
  * the `states` reactive store; tests pass a synthetic resolver).

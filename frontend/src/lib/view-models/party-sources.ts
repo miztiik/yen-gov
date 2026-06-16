@@ -1,12 +1,16 @@
-// PR-9 of TODO/20260614-party-page-reimagination-plan.md - section 11.
+// PR-9 of TODO/20260615-party-page-citizen-fixes-plan.md (D9 + D12).
 //
-// Per-card coverage badges + bottom-of-page source-pill strip for
-// /parties/<slug>. Satisfies Holy Law #9 (provenance is mandatory):
-// every section that surfaces data MUST cite its source_ids back to
-// `datasets/data/entities/source.csv`.
+// Per-card publisher-pill citation footers for /parties/<slug>.
+// Satisfies Holy Law #9 (provenance is mandatory): every section
+// that surfaces data MUST cite its source_ids back to
+// `datasets/data/entities/source.csv`. PR-9 collapses the prior
+// envelope (5 free-text coverage badges + 1 bottom-of-page strip)
+// into ONE post-v3.1 `PublisherPill[]` per card, rendered inline
+// by `SourceList` from `frontend/src/lib/sources/`. The bottom
+// strip retires; the deleted free-text badges retired with it.
 //
 // This module owns:
-//   - the `PartyProvenance` shape (5 per-card badges + 1 strip)
+//   - the `PartyProvenance` shape (one `PublisherPill[]` per card)
 //   - the `loadSourceLookup()` cache-once accessor for source.csv
 //   - `buildPartyProvenance(detail, lookup)` - the pure projector
 //     called from `party-detail.ts` after every VM section is
@@ -21,6 +25,8 @@
 import { query, registerCsvFile } from "../duckdb";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { DATA_BASE } from "../paths";
+import { dedupeToPills } from "../sources";
+import type { PublisherPill, SourceRow } from "../sources";
 import type {
   PartyDetailViewModel,
   PartyHistoryPoint,
@@ -31,54 +37,25 @@ import type {
 const SOURCE_REL = "datasets/data/entities/source.csv";
 const SOURCE_URL = `${DATA_BASE}/data/entities/source.csv`;
 
-/** One row of the page-level source strip. Mirrors `source.csv` plus
- *  a derived `used_in` array tying it back to the cards that consumed
- *  it. The strip renderer groups these as a 4-column table. */
+/** One row of the source.csv lookup. Mirrors `source.csv` columns
+ *  (5-col post v3.1; see `datasets/data/_schema/columns.json`). */
 export interface PartyPageSource {
   source_id: string;
   producer: string;
   title: string;
   vintage: string;
   /** May be empty string when the source.csv row has no landing
-   *  page; the strip renderer suppresses the column linkout in
-   *  that case. */
+   *  page; the pill renderer renders the pill as plain text
+   *  (not a link) in that case. */
   url: string;
-  /** Citizen-facing card labels (e.g. "Parliament chart",
-   *  "Current Strength", "Strongholds"); see `CARD_LABELS` below. */
-  used_in: string[];
 }
 
-/** Per-card coverage-badge text. Each value is the one-liner the
- *  badge component renders below the matching card; empty string
- *  means "no badge" (the matching card was not rendered, e.g.
- *  sentinel party with no LS history). */
-export interface PartyCoverageBadgeText {
-  parliament: string;
-  state_assembly: string;
-  strongholds: string;
-  current_strength: string;
-  alliance_context: string;
-}
-
-/** Bottom-of-page source-pill strip. The summary line shows
- *  `total_count` collapsed; expanded shows `all` as a 4-column
- *  table. */
-export interface PartySourcesStrip {
-  /** Number of distinct source_ids consumed across every card on
-   *  the page. */
-  total_count: number;
-  /** Dedupe-sorted full list - producer ASC, then vintage DESC. */
-  all: PartyPageSource[];
-  /** Citizen-readable summary of distinct producers (cap 3 then
-   *  "+ N more"). The strip renders this verbatim in the collapsed
-   *  `<summary>`. */
-  producer_summary: string;
-}
-
-/** Per-page Holy-Law-#9 envelope: 5 badges + 1 strip. */
+/** Per-page Holy-Law-#9 envelope: one `PublisherPill[]` per card.
+ *  An empty array means the matching card is not rendered (sentinel
+ *  party, or the card has no data). The `SourceList` renderer
+ *  suppresses itself when handed an empty array. */
 export interface PartyProvenance {
-  badges: PartyCoverageBadgeText;
-  strip: PartySourcesStrip;
+  pills_per_card: Record<CardKey, PublisherPill[]>;
 }
 
 /** Card-label constants used in `used_in[]` and the per-card
@@ -142,7 +119,6 @@ export function loadSourceLookup(): Promise<Map<string, PartyPageSource>> {
         title: (r.title ?? "").trim(),
         vintage: (r.vintage ?? "").trim(),
         url: (r.url ?? "").trim(),
-        used_in: [],
       });
     }
     return out;
@@ -255,20 +231,6 @@ function cardHasData(
   }
 }
 
-/** Pure: derive the year span "YYYY-YYYY" from a list of history
- *  points. Returns "YYYY" when first === last and an empty string
- *  when the list is empty. */
-function spanOf(rows: readonly PartyHistoryPoint[]): string {
-  if (rows.length === 0) return "";
-  let first = rows[0]!.year;
-  let last = rows[0]!.year;
-  for (const r of rows) {
-    if (r.year < first) first = r.year;
-    if (r.year > last) last = r.year;
-  }
-  return first === last ? `${first}` : `${first}-${last}`;
-}
-
 /** Pure: dedupe + compress a producer list. Caps at 3 names then
  *  appends "+ N more"; preserves first-seen order. */
 export function compressProducers(producers: readonly string[]): string {
@@ -288,94 +250,78 @@ export function compressProducers(producers: readonly string[]): string {
   return `${head} + ${more} more`;
 }
 
-/** Pure: pick the most recent vintage across a list of sources.
- *  Vintage is a free-text date-like string ("2024-06-04", "2024",
- *  "2024-Q3"); lexicographic max is good enough for ISO-shape
- *  dates which is the dominant convention on source.csv. Empty
- *  string returned when the list is empty or every vintage is "". */
-function latestVintage(sources: readonly PartyPageSource[]): string {
-  let max = "";
-  for (const s of sources) {
-    if (s.vintage && s.vintage > max) max = s.vintage;
-  }
-  return max;
+/** Pure: project a `PartyPageSource` lookup entry into a `SourceRow`
+ *  for `dedupeToPills`. Maps the local `url: string` (empty when
+ *  absent) to `SourceRow.url: string | null` (`null` when absent). */
+function toSourceRow(s: PartyPageSource): SourceRow {
+  return {
+    source_id: s.source_id,
+    producer: s.producer,
+    title: s.title,
+    vintage: s.vintage,
+    url: s.url.length > 0 ? s.url : null,
+  };
 }
 
-/** Pure: build the citizen-readable badge text for one card. The
- *  shape is per-card; missing knobs gracefully drop their fragments
- *  (e.g. no methodology breaks -> shorter sentence). */
-function buildBadgeText(
-  card: CardKey,
-  vm: Pick<
-    PartyDetailViewModel,
-    | "ls_history"
-    | "vs_history"
-    | "ls_strongholds"
-    | "vs_strongholds"
-    | "current_strength"
-    | "alliance_context"
-  >,
-  sources: readonly PartyPageSource[],
-): string {
-  if (!cardHasData(vm, card)) return "";
-  const producers = compressProducers(sources.map((s) => s.producer));
-  const vintage = latestVintage(sources);
-  switch (card) {
-    case "parliament": {
-      const span = spanOf(vm.ls_history);
-      const cycles = vm.ls_history.length;
-      const tail = vintage ? ` - last refresh ${vintage}` : "";
-      return `Parliament ${span} - ${cycles} ${cycles === 1 ? "cycle" : "cycles"} - ${producers}${tail}`;
-    }
-    case "state_assembly": {
-      const span = spanOf(vm.vs_history);
-      const cycles = vm.vs_history.length;
-      const tail = vintage ? ` - last refresh ${vintage}` : "";
-      return `State Assembly ${span} - ${cycles} ${cycles === 1 ? "cycle" : "cycles"} - ${producers}${tail}`;
-    }
-    case "strongholds": {
-      const fragments: string[] = [];
-      if (vm.ls_history.length > 0) {
-        fragments.push(`Parliament ${spanOf(vm.ls_history)}`);
-      }
-      if (vm.vs_history.length > 0) {
-        fragments.push(`State Assembly ${spanOf(vm.vs_history)}`);
-      }
-      const head = fragments.length > 0
-        ? `Computed from ${fragments.join(" and ")}`
-        : "Computed from contested-history cycles";
-      const tail = producers ? ` - ${producers}` : "";
-      return `${head}${tail}`;
-    }
-    case "current_strength": {
-      const cs = vm.current_strength!;
-      const parts: string[] = [];
-      if (cs.parliament_latest) {
-        parts.push(`Parliament ${cs.parliament_latest.year}`);
-      }
-      if (cs.state_assemblies_latest) {
-        const span = spanOf(vm.vs_history);
-        const count = cs.state_assemblies_latest.state_count;
-        parts.push(
-          `State Assemblies ${span} across ${count} ${count === 1 ? "state" : "states"}`,
-        );
-      }
-      const head = parts.length > 0
-        ? `Latest cycle per body - ${parts.join(" - ")}`
-        : "Latest cycle per body";
-      const tail = vintage ? ` - data current as of ${vintage}` : "";
-      return `${head}${tail}`;
-    }
-    case "alliance_context": {
-      const ac = vm.alliance_context!;
-      const cycles =
-        (ac.parliament !== null ? 1 : 0) + ac.state_assemblies.length;
-      const jurisdictions =
-        (ac.parliament !== null ? 1 : 0) + ac.state_assemblies.length;
-      const tail = producers ? ` - ${producers}` : "";
-      return `Recorded for ${cycles} ${cycles === 1 ? "cycle" : "cycles"} across ${jurisdictions} ${jurisdictions === 1 ? "jurisdiction" : "jurisdictions"}${tail}`;
-    }
+/** Pure: merge `PublisherPill[]` entries that share the same `label`.
+ *  `dedupeToPills` groups upstream by `(producer, series_family)`,
+ *  but its budget-overflow / family-equals-pub branches can collapse
+ *  multiple groups into the SAME visible label - e.g. when a party
+ *  cites many ECI titles whose `series_family` slices ALL overflow
+ *  the 30-char pill-label budget, every contributing group falls
+ *  back to label = "ECI" while the underlying groups remain distinct.
+ *
+ *  `SourceList.svelte` keys its `{#each}` over pills by
+ *  `(pill.label + pill.vintage_summary)`; same-label pills with the
+ *  same vintage summary therefore trip Svelte's `each_key_duplicate`
+ *  runtime crash. This 2nd-pass merge collapses any same-label group
+ *  to ONE pill with summed `count`, first-non-empty `url`, and a
+ *  vintage_summary derived via the same rule `dedupeToPills` itself
+ *  uses (single -> verbatim; pair -> "<a> to <b>"; 3+ -> "various").
+ *
+ *  Citizens see one pill per visible publisher; their click target
+ *  is the first non-empty url among contributing groups; the vintage
+ *  range spans every contributing group. Holy Law #9 is unchanged -
+ *  every source_id resolved upstream still attributes a pill. */
+export function mergeLabelDuplicates(
+  pills: readonly PublisherPill[],
+): PublisherPill[] {
+  if (pills.length <= 1) return [...pills];
+  const groups = new Map<string, PublisherPill[]>();
+  for (const p of pills) {
+    const existing = groups.get(p.label);
+    if (existing) existing.push(p);
+    else groups.set(p.label, [p]);
   }
+  const out: PublisherPill[] = [];
+  for (const [label, group] of groups) {
+    if (group.length === 1) {
+      out.push(group[0]!);
+      continue;
+    }
+    const distinct = Array.from(
+      new Set(
+        group
+          .map((p) => p.vintage_summary.trim())
+          .filter((v) => v.length > 0),
+      ),
+    ).sort();
+    let vintage_summary: string;
+    if (distinct.length === 0) vintage_summary = "";
+    else if (distinct.length === 1) vintage_summary = distinct[0]!;
+    else if (distinct.length === 2)
+      vintage_summary = `${distinct[0]} to ${distinct[1]}`;
+    else vintage_summary = "various";
+    const count = group.reduce((sum, p) => sum + p.count, 0);
+    const url =
+      group.map((p) => p.url ?? "").find((u) => u.length > 0) ?? null;
+    out.push({ label, vintage_summary, url, count });
+  }
+  out.sort((a, b) => {
+    if (b.count !== a.count) return b.count - a.count;
+    return a.label.localeCompare(b.label);
+  });
+  return out;
 }
 
 /** Pure: assemble the page-level provenance envelope from a
@@ -386,9 +332,8 @@ function buildBadgeText(
  *  citation-ledger drift).
  *
  *  The function is deterministic - same inputs always produce the
- *  same output. The strip rows are sorted by producer ASC, then
- *  vintage DESC, then source_id ASC for stable ordering across
- *  navigations. */
+ *  same output. Per-card pill ordering is the stable order produced
+ *  by `dedupeToPills` (count DESC, then label ASC). */
 export function buildPartyProvenance(
   vm: Pick<
     PartyDetailViewModel,
@@ -405,9 +350,10 @@ export function buildPartyProvenance(
   source_lookup: ReadonlyMap<string, PartyPageSource>,
 ): PartyProvenance {
   const card_ids = buildPartyCardSourceIds(vm);
-  // Build the per-card resolved-source lookup. Each resolved source
-  // is a FRESH PartyPageSource (so we can mutate `used_in` without
-  // poisoning the shared module-level lookup).
+  // Resolve each card's source_ids against the lookup. FK violation
+  // (source_id cited by a card but absent from source.csv) THROWS
+  // immediately so the citizen sees the page-level error state
+  // rather than a silently-dropped citation.
   const per_card: Record<CardKey, PartyPageSource[]> = {
     parliament: [],
     state_assembly: [],
@@ -421,21 +367,18 @@ export function buildPartyProvenance(
     for (const sid of ids) {
       const row = source_lookup.get(sid);
       if (!row) {
-        // FK violation - the marts cite a source_id that is not in
-        // source.csv. This is a writer-side data bug; fail loud so
-        // it surfaces in the page error state rather than silently
-        // dropping the citation.
         throw new Error(
           `party-sources: source_id "${sid}" cited by card "${card}" on /parties/${vm.metadata.party_id} is not present in datasets/data/entities/source.csv`,
         );
       }
-      per_card[card]!.push({ ...row, used_in: [] });
+      per_card[card]!.push(row);
     }
   }
   // Holy Law #9 STOP-AND-SURFACE: every RENDERED card must cite at
-  // least one source. A card with no data is fine (badge stays "");
-  // a card WITH data but zero sources is a writer-side gap that
-  // would render an unattributed citizen-facing surface.
+  // least one source. A card with no data is fine (pills array stays
+  // empty -> SourceList renders nothing); a card WITH data but zero
+  // sources is a writer-side gap that would render an unattributed
+  // citizen-facing surface.
   for (const card of Object.keys(CARD_LABELS) as CardKey[]) {
     if (!cardHasData(vm, card)) continue;
     if (per_card[card]!.length === 0) {
@@ -444,57 +387,29 @@ export function buildPartyProvenance(
       );
     }
   }
-  // Build the per-card badge text.
-  const badges: PartyCoverageBadgeText = {
-    parliament: buildBadgeText("parliament", vm, per_card.parliament),
-    state_assembly: buildBadgeText(
-      "state_assembly",
-      vm,
-      per_card.state_assembly,
+  // Project each card's resolved sources into the deduped
+  // PublisherPill[] the SourceList renderer consumes. An empty card
+  // (no data, no sources) collapses to an empty array; the renderer
+  // suppresses itself in that case. The `mergeLabelDuplicates`
+  // 2nd-pass collapses any pills that share a visible label (see
+  // helper docstring) so `SourceList.svelte`'s `(label + vintage)`
+  // Svelte key stays unique.
+  const pills_per_card: Record<CardKey, PublisherPill[]> = {
+    parliament: mergeLabelDuplicates(
+      dedupeToPills(per_card.parliament.map(toSourceRow)),
     ),
-    strongholds: buildBadgeText("strongholds", vm, per_card.strongholds),
-    current_strength: buildBadgeText(
-      "current_strength",
-      vm,
-      per_card.current_strength,
+    state_assembly: mergeLabelDuplicates(
+      dedupeToPills(per_card.state_assembly.map(toSourceRow)),
     ),
-    alliance_context: buildBadgeText(
-      "alliance_context",
-      vm,
-      per_card.alliance_context,
+    strongholds: mergeLabelDuplicates(
+      dedupeToPills(per_card.strongholds.map(toSourceRow)),
+    ),
+    current_strength: mergeLabelDuplicates(
+      dedupeToPills(per_card.current_strength.map(toSourceRow)),
+    ),
+    alliance_context: mergeLabelDuplicates(
+      dedupeToPills(per_card.alliance_context.map(toSourceRow)),
     ),
   };
-  // Build the page-level strip: dedupe-by-source_id, attach
-  // `used_in` from the cards that resolved each id, sort stably.
-  const strip_by_id = new Map<string, PartyPageSource>();
-  for (const card of Object.keys(CARD_LABELS) as CardKey[]) {
-    for (const src of per_card[card]!) {
-      const existing = strip_by_id.get(src.source_id);
-      if (existing) {
-        if (!existing.used_in.includes(CARD_LABELS[card])) {
-          existing.used_in.push(CARD_LABELS[card]);
-        }
-      } else {
-        strip_by_id.set(src.source_id, {
-          ...src,
-          used_in: [CARD_LABELS[card]],
-        });
-      }
-    }
-  }
-  const all = [...strip_by_id.values()];
-  all.sort((a, b) => {
-    if (a.producer !== b.producer) return a.producer.localeCompare(b.producer);
-    if (a.vintage !== b.vintage) return b.vintage.localeCompare(a.vintage);
-    return a.source_id.localeCompare(b.source_id);
-  });
-  const producer_summary = compressProducers(all.map((s) => s.producer));
-  return {
-    badges,
-    strip: {
-      total_count: all.length,
-      all,
-      producer_summary,
-    },
-  };
+  return { pills_per_card };
 }

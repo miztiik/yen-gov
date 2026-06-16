@@ -27,6 +27,11 @@ _UNK_NOTE_TEMPLATE = (
     "awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv."
 )
 
+_PARTY_FOUNDED_YEAR_BACKFILL_NOTE = (
+    "founded_year transcribed from third-party party-catalogue website "
+    "on 2026-06-15; cross-checked against publisher records where available"
+)
+
 
 def derive_processing(party_id: str, party_short_raw: str | None) -> tuple[str, str]:
     """Return ``(processing_level, processing_note)`` for one candidacy/summary row.
@@ -48,3 +53,31 @@ def derive_processing(party_id: str, party_short_raw: str | None) -> tuple[str, 
         label = (party_short_raw or "").strip()
         return "major", _UNK_NOTE_TEMPLATE.format(label=label)
     return "minor", ""
+
+
+def derive_processing_for_party_founded_year_backfill(
+    party_id: str,  # noqa: ARG001 - reserved for future per-party divergence
+) -> tuple[str, str]:
+    """Return ``(processing_level, processing_note)`` for the parties.csv
+    ``founded_year`` backfill (PR-1 of TODO/20260615-party-page-citizen-fixes-plan.md).
+
+    Sibling to :func:`derive_processing` (not a replacement): the candidacy /
+    summary writer keeps its UNK-only major trigger; this helper carries the
+    L-1 doctrine for the parties.csv catalogue surface, where every row that
+    is backfilled with a third-party-transcribed ``founded_year`` carries
+    ``processing_level="major"`` plus the L-1 note verbatim.
+
+    The ``party_id`` argument is accepted (and intentionally unused today)
+    so future per-party divergence (e.g. one party where the year IS taken
+    direct from the ECI public register, warranting ``minor`` + empty note)
+    can be wired in without changing the call-site signature.
+
+    The note text is the verbatim L-1 string ratified by user signoff in
+    the plan-doc Scope-change ledger (row L-1, 2026-06-15). It MUST NOT
+    name the third-party acquisition site (L-2 doctrine extension); the
+    citizen sees only the operational receipt ("third-party party-catalogue
+    website on 2026-06-15; cross-checked against publisher records where
+    available"). The acquisition site is operator knowledge in the
+    curator's notebook, never on the row.
+    """
+    return "major", _PARTY_FOUNDED_YEAR_BACKFILL_NOTE

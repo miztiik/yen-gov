@@ -39,6 +39,7 @@ export function electoralEntitiesUrl(): string {
 /** Reset module-scope caches. Test-only — production never calls. */
 export function _resetConstituencyLookupCachesForTesting(): void {
   raw_csv_promise = null;
+  parsed_rows_promise = null;
 }
 
 async function fetchRawCsv(): Promise<string> {
@@ -134,12 +135,31 @@ export async function findConstituencyBySlug(
   kind: "ac" | "pc",
   name_slug: string,
 ): Promise<ConstituencyEntity | null> {
-  const text = await fetchRawCsv();
-  if (text === "") return null;
-  const rows = parseElectoralCsv(text);
+  const rows = await loadConstituencyRows();
+  if (rows.length === 0) return null;
   return resolveConstituencyFromRows(rows, {
     state: state_slug,
     kind,
     name_slug,
   });
+}
+
+/** Memoized parsed-rows accessor. Single fetch + single parse per
+ *  browser tab; subsequent callers get the same `readonly` array.
+ *  Exposed for view-model callers (e.g. PR-8b D8a's stronghold
+ *  href-derivation loop) that need to walk the table N times
+ *  synchronously after one upfront await. */
+let parsed_rows_promise: Promise<readonly ConstituencyEntity[]> | null = null;
+
+export function loadConstituencyRows(): Promise<readonly ConstituencyEntity[]> {
+  if (parsed_rows_promise) return parsed_rows_promise;
+  parsed_rows_promise = (async () => {
+    const text = await fetchRawCsv();
+    if (text === "") return [];
+    return parseElectoralCsv(text);
+  })();
+  parsed_rows_promise.catch(() => {
+    parsed_rows_promise = null;
+  });
+  return parsed_rows_promise;
 }

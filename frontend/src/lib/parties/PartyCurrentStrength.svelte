@@ -13,7 +13,6 @@
    *   <landmark> Parliament (Jun 2024): 211 of 543 seats - 36.7% vote share.
    *   <flag> State Assemblies (latest cycles in 31 of 31 states): 1,776 of 4,035 seats.
    *   Last contested: West Bengal State Assembly, May 2026.
-   *   <slate-400 italic caveat>
    *
    * The view-model (`PartyCurrentStrength`) is built upstream by
    * `loadPartyCurrentStrength` in `../view-models/party-current-strength.ts`;
@@ -35,16 +34,18 @@
    * Tailwind tokens follow Jony J1's "warm density" convention used on
    * the rest of `/parties/<slug>`: slate-800 16px for the primary
    * Parliament line, slate-700 14px for the State Assemblies line,
-   * slate-500 12px italic for the "Last contested" footer, and a
-   * REQUIRED slate-400 12px italic caveat per Max M2d:
+   * and slate-500 12px italic for the per-entity "Last contested"
+   * footer when present.
    *
-   *   "Election-night results - does not track post-election
-   *    defections, resignations, or bye-elections later than the
-   *    latest cycle."
-   *
-   * The caveat is non-optional because the strip header reads as
-   * "live snapshot" copy and citizen-facing legibility requires the
-   * limitation be stated in-context, not buried in methodology.
+   * PR-11 (TODO/20260615-party-page-citizen-fixes-plan.md, Jony +
+   * Citizen): the slate-400 12px italic disclaimer that previously
+   * followed the "Last contested" footer ("Election-night results -
+   * does not track post-election defections, resignations, or bye-
+   * elections later than the latest cycle.") has been DELETED. The
+   * methodology body it carried now lives on the citizen-facing
+   * concept page `docs/concepts/party-page-coverage.md` (linked from
+   * the Party page footer "About this page" line). Same body, one
+   * authoritative home, less per-card chrome on every party page.
    *
    * Numeric tokens use `tabular-nums` + Indian-style comma grouping
    * via `Intl.NumberFormat("en-IN")` so seats values like `1,776`
@@ -78,6 +79,8 @@
 </script>
 
 <script lang="ts">
+  import TopicIcon from "../TopicIcon.svelte";
+
   interface Props {
     current_strength: PartyCurrentStrength | null;
     /** Sentinel short-circuit: NOTA / UNK suppress the strip even if
@@ -107,13 +110,9 @@
         data-testid="party-current-strength-parliament"
         class="flex items-start text-base text-slate-800"
       >
-        <img
-          src="/icons/landmark.svg"
-          alt=""
-          aria-hidden="true"
-          width="16"
-          height="16"
-          class="mr-2 mt-1 inline-block flex-none"
+        <TopicIcon
+          name="landmark"
+          cls="mr-2 mt-1 inline-block flex-none w-4 h-4 text-slate-500"
         />
         <span>
           Parliament ({parliament.month_label}):
@@ -129,13 +128,9 @@
         data-testid="party-current-strength-assemblies"
         class="mt-2 flex items-start text-sm text-slate-700"
       >
-        <img
-          src="/icons/flag.svg"
-          alt=""
-          aria-hidden="true"
-          width="16"
-          height="16"
-          class="mr-2 mt-0.5 inline-block flex-none"
+        <TopicIcon
+          name="flag"
+          cls="mr-2 mt-0.5 inline-block flex-none w-4 h-4 text-slate-500"
         />
         <span>
           State Assemblies (latest cycles in
@@ -155,12 +150,5 @@
         Last contested: {lastContested}.
       </p>
     {/if}
-    <p
-      data-testid="party-current-strength-caveat"
-      class="mt-1 text-xs italic text-slate-400"
-    >
-      Election-night results - does not track post-election defections,
-      resignations, or bye-elections later than the latest cycle.
-    </p>
   </section>
 {/if}

@@ -6,8 +6,10 @@
   // because polled_on is ISO YYYY-MM-DD) and emits one anchor row per
   // event, click-through to `link.stateElection(state, event_id)`.
   //
-  // Body-kind chip colours match the elections-firehose convention
-  // (PR-W3d, frontend/src/routes/ElectionsFirehose.svelte:427-431):
+  // Body-kind chip colours match the elections-route convention
+  // (PR-E4 of TODO/20260615-elections-redesign-plan.md; the prior
+  // firehose route was ripped + replaced by GeneralElections.svelte +
+  // AssemblyElections.svelte):
   // emerald = parliament, amber = assembly, slate = by-elections. The
   // chip is the secondary signal; the row's plain-text display field is
   // always visible so colour-blind citizens never lose the body label.

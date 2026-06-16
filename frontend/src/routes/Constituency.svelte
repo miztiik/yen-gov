@@ -32,6 +32,7 @@
   import TopicIcon from "../lib/TopicIcon.svelte";
   import PartySymbolGlyph from "../lib/PartySymbolGlyph.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import { findConstituencyBySlug } from "../lib/elections/constituency-lookup";
   import YearPillStrip from "../lib/elections/YearPillStrip.svelte";
@@ -378,7 +379,7 @@
 
 <Breadcrumb {crumbs} />
 
-<main class="max-w-4xl mx-auto p-6 space-y-6">
+<PageContainer width="wide">
   <header class="space-y-1">
     <h1 class="text-2xl font-bold flex items-center gap-2">
       <TopicIcon name="vote" cls="w-6 h-6 text-slate-500 shrink-0" />
@@ -686,4 +687,4 @@
       </div>
     </section>
   {/if}
-</main>
+</PageContainer>

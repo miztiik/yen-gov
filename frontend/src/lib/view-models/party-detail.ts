@@ -19,6 +19,19 @@ import { query, registerCsvFile } from "../duckdb";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { DATA_BASE } from "../paths";
 import { cleanNote } from "../methodology/clean-note";
+import { slugify } from "../slug";
+import { link } from "../links";
+import { states } from "../states.svelte";
+import {
+  fetchElectionEvents,
+  defaultEventForState,
+  type ElectionEventsCatalogue,
+} from "../election-events";
+import {
+  loadConstituencyRows,
+  resolveConstituencyFromRows,
+  type ConstituencyEntity,
+} from "../elections/constituency-lookup";
 import { loadPartyMeta, type PartyMeta } from "./parties";
 import {
   loadPartyCurrentStrength,
@@ -57,7 +70,7 @@ const PARTY_ALLIANCES_URL = `${DATA_BASE}/data/entities/party_alliances.csv`;
 const METHODOLOGY_BREAKS_URL = `${DATA_BASE}/taxonomy/methodology_breaks.json`;
 
 /** Subset of `lspc-delim-*` methodology_versions PR-10 renders as
- *  vertical markers on the Lok Sabha DualAxisBarLine chart. Per the
+ *  vertical markers on the Parliament DualAxisBarLine chart. Per the
  *  PR-10 brief (Jony 1d): the 2 pre-1999 frame_change rows surfaced
  *  by PR-8 #1003's new LS coverage (1962/1989/1991/1996/1998 cycles).
  *  The 2008 delim break is NOT in this list - it lives in the
@@ -144,18 +157,39 @@ export interface PartyStronghold {
   /** Per-event outcome chronologically (oldest first). `"W"` when
    *  this party won that event, `"L"` otherwise (loss OR no-contest). */
   results: ("W" | "L")[];
+  /** PR-7 (TODO/20260615-party-page-citizen-fixes-plan.md): year
+   *  of the MOST RECENT win by this party in this constituency.
+   *  Renders as the "last YYYY" suffix on the one-line stronghold
+   *  tally. Null when the legacy in-memory fold path (test-only)
+   *  emits a stronghold; the production loader always populates
+   *  from the mart's `last_won_year` column. */
+  last_won_year: number | null;
   /** PR-9: distinct source_ids backing this stronghold (union
    *  across the per-event winner rows that contributed to the W/L
    *  sparkline). Pipe-delimited on the mart; split + deduped at
    *  the loader boundary. */
   source_ids: string[];
+  /** PR-8b D8a: name-slug of `constituency_name` for callers that
+   *  need to build the constituency leaf URL. Non-null only when the
+   *  `(state, kind, slug)` triple resolves against the canonical
+   *  electoral.csv entity tier AT THE LATEST DELIM cohort. Null
+   *  when no current-delim entity matches (e.g. retired ACs from
+   *  pre-2008 cohorts) - the row is then unclickable on the page. */
+  pc_slug: string | null;
+  /** PR-8b D8a: full in-app URL to the constituency leaf when a
+   *  current-delim entity exists AND a target event_id is available
+   *  for this body (LS uses `current_strength.parliament_latest`,
+   *  VS uses the per-state default assembly event). Null otherwise.
+   *  When null the stronghold row renders as a plain `<span>`; when
+   *  non-null it renders as `<a href={href}>`. */
+  href: string | null;
 }
 
 /** Aggregate KPI totals for the header strip. */
 export interface PartyTotals {
-  /** Sum of party-seats-won across every Lok Sabha cycle. */
+  /** Sum of party-seats-won across every Parliament general-election cycle. */
   ls_seats: number;
-  /** Sum of party-seats-won across every Vidhan Sabha cycle. */
+  /** Sum of party-seats-won across every state Assembly cycle. */
   vs_seats: number;
   /** Number of cycles (LS + VS) where this party contested >0 or
    *  won >0. */
@@ -165,11 +199,12 @@ export interface PartyTotals {
   first_year: number;
   /** Latest polling year on file. 0 when no cycles. */
   last_year: number;
-  /** Peak Lok Sabha seats won in any single cycle. 0 when no LS. */
+  /** Peak Parliament seats won in any single general-election cycle.
+   *  0 when the party has no Parliament history. */
   peak_ls_seats: number;
   /** Year of the peak LS cycle. 0 when no LS. */
   peak_ls_year: number;
-  /** Peak Vidhan Sabha seats won in any single cycle. 0 when no VS. */
+  /** Peak state-Assembly seats won in any single cycle. 0 when no VS. */
   peak_vs_seats: number;
   /** Year of the peak VS cycle. 0 when no VS. */
   peak_vs_year: number;
@@ -178,10 +213,10 @@ export interface PartyTotals {
 /** Per-party detail page view-model. */
 export interface PartyDetailViewModel {
   metadata: PartyMeta;
-  /** Lok Sabha history (chronological ascending). Empty for parties
+  /** Parliament general-election history (chronological ascending). Empty for parties
    *  with no parliamentary contests. */
   ls_history: PartyHistoryPoint[];
-  /** Vidhan Sabha history (chronological ascending). Empty for
+  /** State-Assembly history (chronological ascending). Empty for
    *  parties that only contest parliament (rare). */
   vs_history: PartyHistoryPoint[];
   /** Top-10 LS strongholds by wins descending. Empty when no LS
@@ -272,6 +307,12 @@ interface RawPartyStrongholdMartRow {
   state: string | null;
   wins: number | bigint | null;
   contested: number | bigint | null;
+  /** PR-7: year of the most recent W per (party, entity_id);
+   *  surfaced as the "last YYYY" suffix on the one-line stronghold
+   *  tally. The writer always emits a non-null integer (computed
+   *  via `max(year for event in events if winner == party_id)`
+   *  with `wins > 0` guaranteed at the same row scope). */
+  last_won_year: number | bigint | null;
   results: string | null;
   /** PR-9: pipe-delimited source_ids per stronghold (the writer
    *  emits the union of every winner-cycle's source_ids; see
@@ -459,9 +500,17 @@ export function foldStrongholdRows(
       state: entity_state_lookup.get(entity_id) ?? "",
       wins,
       contested: events.length,
+      // Legacy fold path: `RawStrongholdRow` does not carry year;
+      // the helper is test-only and its callers are not
+      // recency-bearing. Production loader populates from the mart.
+      last_won_year: null,
       results,
       // Legacy fold path (test-only); see `foldHistoryRows` note.
       source_ids: [],
+      // PR-8b D8a: legacy fold path does not derive clickability;
+      // production loader sets these via `attachStrongholdLink`.
+      pc_slug: null,
+      href: null,
     });
   }
   // Top-10 by wins desc, then by win-rate desc (so a 5-of-5 sweeper
@@ -646,6 +695,18 @@ async function fetchPartyDetail(
   // shared across every party page; the loader caches it on first
   // call. Run in parallel with the marts.
   const source_lookup_promise = loadSourceLookup();
+  // PR-8b D8a: the electoral entities tier + the election-events
+  // catalogue power the stronghold-row href derivation. Both are
+  // small (~500 KB CSV / ~3 KB JSON), cached at the module level
+  // by their respective loaders, and run fully in parallel with
+  // the mart fetches. A failure surfaces an empty rows array / a
+  // null catalogue so strongholds render as unlinked text rather
+  // than breaking the page.
+  const electoral_rows_promise = loadConstituencyRows().catch(
+    () => [] as readonly ConstituencyEntity[],
+  );
+  const election_events_promise: Promise<ElectionEventsCatalogue | null> =
+    fetchElectionEvents().catch(() => null);
   await Promise.all([
     registerCsvFile(PARTY_HISTORY_URL),
     registerCsvFile(PARTY_STRONGHOLDS_URL),
@@ -704,6 +765,7 @@ async function fetchPartyDetail(
       state,
       wins,
       contested,
+      last_won_year,
       results,
       source_ids
     FROM read_csv('${PARTY_STRONGHOLDS_URL}', ${strongholdsClause}, header=true)
@@ -723,11 +785,34 @@ async function fetchPartyDetail(
 
   const ls_strongholds: PartyStronghold[] = [];
   const vs_strongholds: PartyStronghold[] = [];
+  // PR-8b D8a: resolve the link-context once before the loop so
+  // each row gets a synchronous lookup + URL derivation.
+  const electoral_rows = await electoral_rows_promise;
+  const election_catalogue = await election_events_promise;
+  const current_strength = await current_strength_promise;
+  const alliance_context = await alliance_context_promise;
+  const ls_event_id =
+    current_strength?.parliament_latest?.event_id ?? null;
   for (const row of strongholdRows) {
     const stronghold = strongholdFromMart(row);
     if (!stronghold) continue;
-    if (row.body === "parliament") ls_strongholds.push(stronghold);
-    else if (row.body === "assembly") vs_strongholds.push(stronghold);
+    if (row.body === "parliament") {
+      ls_strongholds.push(
+        attachStrongholdLink(stronghold, "parliament", {
+          electoral_rows,
+          catalogue: election_catalogue,
+          ls_event_id,
+        }),
+      );
+    } else if (row.body === "assembly") {
+      vs_strongholds.push(
+        attachStrongholdLink(stronghold, "assembly", {
+          electoral_rows,
+          catalogue: election_catalogue,
+          ls_event_id,
+        }),
+      );
+    }
   }
 
   const totals = computeTotals(ls_history, vs_history);
@@ -736,8 +821,6 @@ async function fetchPartyDetail(
     all_ls_methodology_breaks,
     ls_history,
   );
-  const current_strength = await current_strength_promise;
-  const alliance_context = await alliance_context_promise;
 
   // PR-9: derive source_ids for the two cards that don't surface
   // them on per-row VM data today.
@@ -867,9 +950,79 @@ function strongholdFromMart(
     state: row.state ?? "",
     wins: intOrNull(row.wins) ?? 0,
     contested: intOrNull(row.contested) ?? 0,
+    last_won_year: intOrNull(row.last_won_year),
     results,
     source_ids: splitSourceIds(row.source_ids),
+    // pc_slug + href are derived in a second pass against the
+    // canonical electoral.csv entity tier + the election-events
+    // catalogue (see `attachStrongholdLink`). Strongholds carry
+    // the base shape here so this projection stays pure +
+    // synchronously testable.
+    pc_slug: null,
+    href: null,
   };
+}
+
+/** PR-8b D8a: derive `pc_slug` + `href` for a stronghold row.
+ *
+ *  - `pc_slug` is non-null iff `slugify(constituency_name)` matches
+ *    a row in the canonical electoral entity tier at the LATEST
+ *    delim cohort for that (state, kind). This is the delim-existence
+ *    gate per the brief's E2 cap (the brief explicitly permits an
+ *    `entities/electoral.csv` lookup; nothing heavier is used).
+ *  - `href` is non-null iff `pc_slug` is non-null AND a target
+ *    `event_id` is available for this stronghold's body:
+ *      LS -> `current_strength.parliament_latest.event_id` (e.g.
+ *            `general-2024`) - applies nationally to every LS row.
+ *      VS -> `defaultEventForState(catalogue, state_code)` per the
+ *            stronghold's state (e.g. `assembly-2026` for Kerala).
+ *
+ *  Routes:
+ *    - LS -> `link.pc(state, event_id, pc_slug)` (W3b bare-slug
+ *      route at main.ts:321; `Constituency.svelte` dispatches PC
+ *      vs AC via event prefix).
+ *    - VS -> `link.ac(state, constituency_name, event_id)` (legacy
+ *      ADR-0052 nested route with `/ac/` literal segment).
+ *
+ *  Pure; takes everything it needs as parameters so it stays
+ *  synchronously testable.
+ */
+function attachStrongholdLink(
+  base: PartyStronghold,
+  body: "parliament" | "assembly",
+  ctx: {
+    electoral_rows: readonly ConstituencyEntity[];
+    catalogue: ElectionEventsCatalogue | null;
+    ls_event_id: string | null;
+  },
+): PartyStronghold {
+  if (!base.state || !base.constituency_name) return base;
+  const kind: "ac" | "pc" = body === "parliament" ? "pc" : "ac";
+  const name_slug = slugify(base.constituency_name);
+  const hit = resolveConstituencyFromRows(ctx.electoral_rows, {
+    state: base.state,
+    kind,
+    name_slug,
+  });
+  if (!hit) return base;
+  let event_id: string | null = null;
+  if (body === "parliament") {
+    event_id = ctx.ls_event_id;
+  } else {
+    // base.state is the LGD slug; election-events keys by ECI
+    // state code (S22 etc), so go via `states.codeFromSlug`.
+    const state_code = states.codeFromSlug(base.state);
+    if (state_code) {
+      const evt = defaultEventForState(ctx.catalogue, state_code);
+      event_id = evt?.event_id ?? null;
+    }
+  }
+  if (!event_id) return { ...base, pc_slug: name_slug };
+  const href =
+    body === "parliament"
+      ? link.pc(base.state, event_id, name_slug)
+      : link.ac(base.state, base.constituency_name, event_id);
+  return { ...base, pc_slug: name_slug, href };
 }
 
 /** Module-level Promise cache, keyed by party_id. Repeated calls

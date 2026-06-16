@@ -25,6 +25,7 @@
   // per turn".
 
   import { onMount, tick } from "svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { CANNED_INTENTS } from "../lib/yenask/fixtures/canned-intents";
   import type { InsightIntent } from "../lib/yenask/contracts/insight-intent";
   import type { AnswerViewModel } from "../lib/yenask/contracts/answer-viewmodel";
@@ -579,7 +580,7 @@
   <title>Yen-Ask — dev preview</title>
 </svelte:head>
 
-<section class="mx-auto flex max-w-5xl flex-col gap-4 p-6" data-route="yenask">
+<PageContainer width="wide" class="flex flex-col gap-4" data-route="yenask">
   <header class="space-y-1">
     <h1 class="text-2xl font-bold tracking-tight">Yen-Ask</h1>
     <p class="text-sm text-neutral-600">
@@ -1234,4 +1235,4 @@
       </div>
     {/if}
   </section>
-</section>
+</PageContainer>

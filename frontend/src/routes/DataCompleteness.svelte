@@ -22,6 +22,7 @@
   import { onMount } from "svelte";
   import { DATA_BASE } from "../lib/paths";
   import TopicIcon from "../lib/TopicIcon.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
 
   interface IndicatorRow {
     id: string;
@@ -113,7 +114,7 @@
   }
 </script>
 
-<div class="max-w-5xl mx-auto px-4 py-6">
+<PageContainer width="wide">
   <h1 class="text-2xl font-semibold text-slate-900 flex items-center gap-2">
     <TopicIcon name="check" cls="w-6 h-6 text-slate-500 shrink-0" />
     <span>Data completeness</span>
@@ -200,4 +201,4 @@
       </table>
     </div>
   {/if}
-</div>
+</PageContainer>

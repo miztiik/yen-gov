@@ -13,11 +13,12 @@
 -->
 <script lang="ts">
   import { link } from "../lib/links";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   interface Props { params: { path: string } }
   let { params }: Props = $props();
 </script>
 
-<main class="max-w-md mx-auto p-12 text-center space-y-4">
+<PageContainer width="narrow" class="text-center">
   <h1 class="text-3xl font-bold">404</h1>
   <p class="text-slate-600">
     This page has moved. We recently reorganised yen-gov's URL structure.
@@ -29,4 +30,4 @@
     <a class="text-blue-600 hover:underline" href={link.home()}>← Home</a>
     <a class="text-blue-600 hover:underline" href={link.topics()}>Browse topics</a>
   </nav>
-</main>
+</PageContainer>

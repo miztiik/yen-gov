@@ -61,7 +61,6 @@ function loadSourceCsvLookup(): Map<string, PartyPageSource> {
       title: (cells[idxTitle] ?? "").trim(),
       vintage: (cells[idxVintage] ?? "").trim(),
       url: (cells[idxUrl] ?? "").trim(),
-      used_in: [],
     });
   }
   return out;
@@ -111,8 +110,17 @@ function stronghold(source_ids: string[]): PartyStronghold {
     state: "tamil-nadu",
     wins: 1,
     contested: 1,
+    // PR-7: `last_won_year` widening - fixture pins null since
+    // this contract test covers the provenance envelope (recency
+    // is not in scope).
+    last_won_year: null,
     results: ["W"],
     source_ids,
+    // PR-8b D8a: `pc_slug` + `href` widening - fixture pins null
+    // since this contract test covers the provenance envelope
+    // (clickability is not in scope).
+    pc_slug: null,
+    href: null,
   };
 }
 
@@ -142,14 +150,13 @@ function vmFixture(
     alliance_source_ids: [],
     current_strength_source_ids: [],
     provenance: {
-      badges: {
-        parliament: "",
-        state_assembly: "",
-        strongholds: "",
-        current_strength: "",
-        alliance_context: "",
+      pills_per_card: {
+        parliament: [],
+        state_assembly: [],
+        strongholds: [],
+        current_strength: [],
+        alliance_context: [],
       },
-      strip: { total_count: 0, all: [], producer_summary: "" },
     },
     ...overrides,
   };
@@ -168,7 +175,7 @@ describe("party-page provenance contract (Holy Law #9)", () => {
     expect(new Set(labels).size).toBe(labels.length);
   });
 
-  it("sentinel-party shape (no data) emits zero badges and empty strip without throwing", () => {
+  it("sentinel-party shape (no data) emits empty pills_per_card without throwing", () => {
     const vm = vmFixture({
       metadata: metaFixture({
         party_id: "parties.IN.NOTA",
@@ -177,13 +184,11 @@ describe("party-page provenance contract (Holy Law #9)", () => {
       }),
     });
     const out = buildPartyProvenance(vm, corpusLookup);
-    expect(out.badges.parliament).toBe("");
-    expect(out.badges.state_assembly).toBe("");
-    expect(out.badges.strongholds).toBe("");
-    expect(out.badges.current_strength).toBe("");
-    expect(out.badges.alliance_context).toBe("");
-    expect(out.strip.total_count).toBe(0);
-    expect(out.strip.all).toEqual([]);
+    expect(out.pills_per_card.parliament).toEqual([]);
+    expect(out.pills_per_card.state_assembly).toEqual([]);
+    expect(out.pills_per_card.strongholds).toEqual([]);
+    expect(out.pills_per_card.current_strength).toEqual([]);
+    expect(out.pills_per_card.alliance_context).toEqual([]);
   });
 
   it("THROWS when a rendered card carries data but resolves zero source_ids (STOP-AND-SURFACE)", () => {
@@ -205,7 +210,7 @@ describe("party-page provenance contract (Holy Law #9)", () => {
     );
   });
 
-  it("populates badges + strip when every rendered card cites a real source_id from the on-disk ledger", () => {
+  it("populates non-empty pills_per_card for the 3 cards with data when every cited source_id resolves", () => {
     // Pick any real source_id from the corpus to use as a citation.
     const realSourceId = [...corpusLookup.keys()][0]!;
     const vm = vmFixture({
@@ -214,54 +219,48 @@ describe("party-page provenance contract (Holy Law #9)", () => {
       ls_strongholds: [stronghold([realSourceId])],
     });
     const out = buildPartyProvenance(vm, corpusLookup);
-    expect(out.badges.parliament).not.toBe("");
-    expect(out.badges.state_assembly).not.toBe("");
-    expect(out.badges.strongholds).not.toBe("");
-    expect(out.strip.total_count).toBe(1);
-    expect(out.strip.all[0]!.source_id).toBe(realSourceId);
-    // used_in[] picks up every card that cited this source
-    expect(out.strip.all[0]!.used_in.sort()).toEqual(
-      [
-        CARD_LABELS.parliament,
-        CARD_LABELS.state_assembly,
-        CARD_LABELS.strongholds,
-      ].sort(),
-    );
+    // The 3 cards with data emit at least one pill each; the 2 cards
+    // without data stay empty.
+    expect(out.pills_per_card.parliament.length).toBeGreaterThan(0);
+    expect(out.pills_per_card.state_assembly.length).toBeGreaterThan(0);
+    expect(out.pills_per_card.strongholds.length).toBeGreaterThan(0);
+    expect(out.pills_per_card.current_strength).toEqual([]);
+    expect(out.pills_per_card.alliance_context).toEqual([]);
   });
 
-  it("strip ordering is producer ASC, vintage DESC, source_id ASC (stable across navigations)", () => {
-    // Use 3 real source_ids from the corpus.
+  it("per-card pill ordering is count DESC then label ASC (stable across navigations)", () => {
+    // Use 3 real source_ids from the corpus; cite all 3 on the
+    // parliament card so dedupeToPills sees a >1 pill output.
     const ids = [...corpusLookup.keys()].slice(0, 3);
     expect(ids).toHaveLength(3);
     const vm = vmFixture({
-      ls_history: [
-        historyPoint(2024, "LsGenMay2024", ids),
-      ],
+      ls_history: [historyPoint(2024, "LsGenMay2024", ids)],
     });
     const out = buildPartyProvenance(vm, corpusLookup);
-    // Verify the sort is internally consistent (we don't pin specific
-    // producers because the corpus may grow; the invariant is the
-    // comparator yielding a monotonic-non-decreasing producer sequence).
-    const producers = out.strip.all.map((s) => s.producer);
-    const sorted = [...producers].sort((a, b) => a.localeCompare(b));
-    expect(producers).toEqual(sorted);
+    const pills = out.pills_per_card.parliament;
+    // Verify each adjacent pair satisfies the dedupeToPills sort
+    // contract: count DESC, then label ASC for equal counts.
+    for (let i = 1; i < pills.length; i++) {
+      const prev = pills[i - 1]!;
+      const curr = pills[i]!;
+      if (prev.count === curr.count) {
+        expect(prev.label.localeCompare(curr.label)).toBeLessThanOrEqual(0);
+      } else {
+        expect(prev.count).toBeGreaterThan(curr.count);
+      }
+    }
   });
 
-  it("provenance envelope shape is exactly { badges: {5 keys}, strip: {3 keys} } - no field creep", () => {
+  it("provenance envelope shape is exactly { pills_per_card: {5 keys} } - no field creep", () => {
     const vm = vmFixture();
     const out = buildPartyProvenance(vm, corpusLookup);
-    expect(Object.keys(out).sort()).toEqual(["badges", "strip"]);
-    expect(Object.keys(out.badges).sort()).toEqual([
+    expect(Object.keys(out).sort()).toEqual(["pills_per_card"]);
+    expect(Object.keys(out.pills_per_card).sort()).toEqual([
       "alliance_context",
       "current_strength",
       "parliament",
       "state_assembly",
       "strongholds",
-    ]);
-    expect(Object.keys(out.strip).sort()).toEqual([
-      "all",
-      "producer_summary",
-      "total_count",
     ]);
   });
 });
