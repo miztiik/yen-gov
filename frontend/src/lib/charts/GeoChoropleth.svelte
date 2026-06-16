@@ -444,12 +444,13 @@
                idiom is self-explanatory without being obtrusive. -->
           <pattern
             id="geo-choropleth-nodata"
-            width="7"
-            height="7"
+            width="8"
+            height="8"
             patternUnits="userSpaceOnUse"
+            patternTransform="rotate(45)"
           >
-            <rect width="7" height="7" fill="#f8fafc" />
-            <circle cx="3.5" cy="3.5" r="1" fill="#cbd5e1" />
+            <rect width="8" height="8" fill="#f8fafc" />
+            <circle cx="4" cy="4" r="0.9" fill="#cbd5e1" fill-opacity="0.5" />
           </pattern>
         </defs>
         {#if mode === "fill"}
@@ -630,7 +631,7 @@
     border-radius: 3px;
     border: 1px solid var(--line);
     background-color: #f8fafc;
-    background-image: radial-gradient(#cbd5e1 1px, transparent 1.2px);
-    background-size: 5px 5px;
+    background-image: radial-gradient(rgba(203, 213, 225, 0.5) 0.9px, transparent 1.1px);
+    background-size: 4px 4px;
   }
 </style>

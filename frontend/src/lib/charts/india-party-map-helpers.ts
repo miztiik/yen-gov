@@ -11,7 +11,14 @@
 //     the component can paint a small clickable SQUARE at its centroid.
 
 import { geoCentroid, type GeoPath, type GeoProjection } from "d3-geo";
-import type { Feature, Geometry, GeoJsonProperties } from "geojson";
+import type {
+  Feature,
+  Geometry,
+  GeoJsonProperties,
+  MultiPolygon,
+  Polygon,
+  Position,
+} from "geojson";
 
 // -----------------------------------------------------------------
 // Click-action resolver (PR-4c)
@@ -109,6 +116,56 @@ export interface IslandMarker {
 }
 
 /**
+ * Largest projected span (px) of any SINGLE island polygon in `f`.
+ *
+ * For a scattered archipelago (Lakshadweep is a MultiPolygon of 4 islands
+ * spread over ~280 km of sea) the whole-feature bounding box is dominated
+ * by the empty water between islands - ~82 px tall at national fit - while
+ * each island is ~1 px. Measuring the bbox makes `computeIslandMarker`
+ * wrongly read the feature as "big enough to click directly" and suppress
+ * the marker. Measuring the largest individual island (each `Polygon` of a
+ * `MultiPolygon`, or the single `Polygon`) gives the size the citizen can
+ * actually see and tap.
+ *
+ * For a single-polygon island this equals the whole-feature bbox span (no
+ * behaviour change). On the island's own zoomed page every island is large,
+ * so the marker is still correctly suppressed. Non-polygon geometries fall
+ * back to the whole-feature bbox span.
+ */
+function largestIslandSpanPx(
+  f: Feature<Geometry, GeoJsonProperties>,
+  path: GeoPath,
+): number {
+  const geom = f.geometry;
+  if (geom.type !== "Polygon" && geom.type !== "MultiPolygon") {
+    const b = path.bounds(f);
+    const span = Math.max(b[1][0] - b[0][0], b[1][1] - b[0][1]);
+    return Number.isFinite(span) ? span : 0;
+  }
+  const polygons: Position[][][] =
+    geom.type === "MultiPolygon"
+      ? (geom as MultiPolygon).coordinates
+      : [(geom as Polygon).coordinates];
+  let max_span = 0;
+  for (const rings of polygons) {
+    const single: Feature<Polygon, GeoJsonProperties> = {
+      type: "Feature",
+      properties: {},
+      geometry: { type: "Polygon", coordinates: rings },
+    };
+    let b: ReturnType<GeoPath["bounds"]>;
+    try {
+      b = path.bounds(single);
+    } catch {
+      continue;
+    }
+    const span = Math.max(b[1][0] - b[0][0], b[1][1] - b[0][1]);
+    if (Number.isFinite(span) && span > max_span) max_span = span;
+  }
+  return max_span;
+}
+
+/**
  * Locate the single named far-flung island (Lakshadweep) and return a
  * square-marker descriptor for it, or null when it is absent, already
  * large enough to click directly (map zoomed onto it), or not
@@ -121,8 +178,9 @@ export interface IslandMarker {
  * @param feature_name  Extractor for the human name matched against
  *                      `name_pattern` (e.g. `STNAME` / `ls_seat_name`).
  * @param name_pattern  Case-insensitive matcher selecting the island.
- * @param threshold_px  Suppress the marker when the projected span is at
- *                      or above this (the island fills the viewport).
+ * @param threshold_px  Suppress the marker when the largest single island's
+ *                      projected span is at or above this (the island fills
+ *                      the viewport).
  */
 export function computeIslandMarker<P extends GeoJsonProperties>(
   features: readonly Feature<Geometry, P>[],
@@ -152,8 +210,11 @@ export function computeIslandMarker<P extends GeoJsonProperties>(
     ) {
       continue;
     }
-    const span = Math.max(b[1][0] - b[0][0], b[1][1] - b[0][1]);
-    if (span >= threshold_px) continue; // big enough to click directly
+    const span = largestIslandSpanPx(
+      f as Feature<Geometry, GeoJsonProperties>,
+      path,
+    );
+    if (span >= threshold_px) continue; // largest island big enough to click directly
     const [lng, lat] = geoCentroid(f as Feature<Geometry, GeoJsonProperties>);
     if (!Number.isFinite(lng) || !Number.isFinite(lat)) continue;
     const projected = projection([lng, lat]);

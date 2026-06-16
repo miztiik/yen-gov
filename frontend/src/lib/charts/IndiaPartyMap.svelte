@@ -522,12 +522,13 @@
              way across both home themes. -->
         <pattern
           id="india-party-map-nodata"
-          width="7"
-          height="7"
+          width="8"
+          height="8"
           patternUnits="userSpaceOnUse"
+          patternTransform="rotate(45)"
         >
-          <rect width="7" height="7" fill="#f8fafc" />
-          <circle cx="3.5" cy="3.5" r="1" fill="#cbd5e1" />
+          <rect width="8" height="8" fill="#f8fafc" />
+          <circle cx="4" cy="4" r="0.9" fill="#cbd5e1" fill-opacity="0.5" />
         </pattern>
       </defs>
       <g bind:this={zoom_group_el}>
@@ -623,7 +624,7 @@
   >
     <span
       class="inline-block h-3.5 w-3.5 rounded-[3px] border border-slate-200"
-      style="background-color:#f8fafc;background-image:radial-gradient(#cbd5e1 1px, transparent 1.2px);background-size:5px 5px;"
+      style="background-color:#f8fafc;background-image:radial-gradient(rgba(203,213,225,0.5) 0.9px, transparent 1.1px);background-size:4px 4px;"
       aria-hidden="true"
     ></span>
     No data

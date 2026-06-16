@@ -15,6 +15,7 @@ import type {
   FeatureCollection,
   GeoJsonProperties,
   Geometry,
+  MultiPolygon,
   Polygon,
 } from "geojson";
 
@@ -196,6 +197,59 @@ describe("IndiaPartyMap helpers - computeIslandMarker (Lakshadweep)", () => {
       0.0001,
     );
     expect(marker).toBeNull();
+  });
+
+  test("marks a scattered archipelago whose bbox is large but islands are sub-pixel", () => {
+    // Regression for the Lakshadweep marker. Row 2 (combined country
+    // topojson, PR #1089) made Lakshadweep a MultiPolygon of 4 islands
+    // spread across ~2.5 degrees of sea; its whole-feature bbox is ~82 px
+    // at national fit, so the prior whole-bbox span metric read it as "big
+    // enough to click directly" and suppressed the marker even though the
+    // largest island is ~1 px. computeIslandMarker now measures the largest
+    // INDIVIDUAL island, so the marker renders.
+    const sq = (lng0: number, lat0: number, lng1: number, lat1: number) => [
+      [
+        [lng0, lat0],
+        [lng0, lat1],
+        [lng1, lat1],
+        [lng1, lat0],
+        [lng0, lat0],
+      ],
+    ];
+    const archipelago: Feature<MultiPolygon> = {
+      type: "Feature",
+      properties: { STNAME: "Lakshadweep", key: "U04" },
+      geometry: {
+        type: "MultiPolygon",
+        // Two 0.05-degree islands ~2 degrees apart in latitude: a large
+        // sea-dominated bbox, sub-pixel individual islands.
+        coordinates: [
+          sq(72.6, 10.5, 72.65, 10.55),
+          sq(72.7, 12.5, 72.75, 12.55),
+        ],
+      },
+    };
+    const coll: FeatureCollection<Geometry> = {
+      type: "FeatureCollection",
+      features: [mainland, archipelago],
+    };
+    const projection = geoMercator().fitWidth(800, coll);
+    const pre = geoPath(projection).bounds(coll);
+    const [tx, ty] = projection.translate();
+    projection.translate([tx - pre[0][0], ty - pre[0][1]]);
+    const path = geoPath(projection);
+    const marker = computeIslandMarker(
+      coll.features,
+      projection,
+      path,
+      (f) => f.properties?.key as string,
+      (f) => String(f.properties?.STNAME ?? ""),
+      /laksh/i,
+    );
+    expect(marker).not.toBeNull();
+    expect(marker?.key).toBe("U04");
+    expect(Number.isFinite(marker?.cx)).toBe(true);
+    expect(Number.isFinite(marker?.cy)).toBe(true);
   });
 });
 
