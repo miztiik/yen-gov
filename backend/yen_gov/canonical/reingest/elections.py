@@ -73,7 +73,11 @@ PARLIAMENT_SUMMARY_FC: Final[str] = (
 
 
 def assembly_candidacies_path(
-    *, out_root: Path, state_slug: str, election_year: int
+    *,
+    out_root: Path,
+    state_slug: str,
+    election_year: int,
+    event_id: str | None = None,
 ) -> Path:
     """Return the assembly ``candidacies.csv`` path for one (state, year).
 
@@ -83,35 +87,53 @@ def assembly_candidacies_path(
         state_slug: LGD state slug (e.g. ``"tamil-nadu"``; matches
             ``datasets/data/entities/geo.csv.entity_id`` for state-grain rows).
         election_year: four-digit year (e.g. ``2021``).
+        event_id: OPTIONAL citizen-readable event identifier (e.g.
+            ``"assembly-2005-feb"``). When supplied, the dir segment becomes
+            ``election=<event_id>`` instead of ``election=<election_year>``;
+            this is the disambiguation surface for same-year same-state
+            same-kind collisions (R1.6 Path A' anchor: Bihar 2005 February
+            vs October-November). Adapters writing to a known-colliding
+            ``(state_code, year)`` tuple MUST pass ``event_id`` to avoid the
+            two-writes-collapse-into-one-dir corruption documented in
+            ``TODO/20260615-R1.6-bihar-2005-path-a-prime-receipt.md``;
+            adapters writing to non-colliding tuples may omit and the
+            year-keyed legacy layout persists.
 
     Returns:
-        ``<out_root>/datasets/elections/assembly/state=<slug>/election=<yr>/candidacies.csv``.
+        ``<out_root>/datasets/elections/assembly/state=<slug>/election=<yr|event_id>/candidacies.csv``.
     """
+    segment = f"election={event_id}" if event_id is not None else f"election={election_year}"
     return (
         out_root
         / "datasets"
         / "elections"
         / "assembly"
         / f"state={state_slug}"
-        / f"election={election_year}"
+        / segment
         / "candidacies.csv"
     )
 
 
 def assembly_summary_path(
-    *, out_root: Path, state_slug: str, election_year: int
+    *,
+    out_root: Path,
+    state_slug: str,
+    election_year: int,
+    event_id: str | None = None,
 ) -> Path:
     """Return the assembly ``summary.csv`` path for one (state, year).
 
-    See :func:`assembly_candidacies_path` for argument semantics.
+    See :func:`assembly_candidacies_path` for argument semantics including
+    the optional ``event_id`` collision-disambiguation kwarg.
     """
+    segment = f"election={event_id}" if event_id is not None else f"election={election_year}"
     return (
         out_root
         / "datasets"
         / "elections"
         / "assembly"
         / f"state={state_slug}"
-        / f"election={election_year}"
+        / segment
         / "summary.csv"
     )
 
