@@ -21,9 +21,6 @@
    *     the legacy map used (no per-renderer drift).
    *   - Click an AC polygon -> `navigate(link.ac(state_code, ac_name,
    *     event))`. AC name lookup mirrors the legacy `name_by_eci`.
-   *   - Optional outline silhouette of the active state painted ABOVE
-   *     the AC fills (loaded via `loadStateSilhouette` from the shared
-   *     `boundaries/in/states/all.geojson` corpus - no new fetch).
    *   - The PR-B8 `fillsOverride` / `opacitiesOverride` precedence path
    *     stays intact so the filter rail keeps working without code
    *     changes on its side.
@@ -31,7 +28,7 @@
    *     `selected_party_id` / `min_margin` props still route through
    *     `cellTreatment` so the shared legend axis is preserved.
    *
-   * Adds the three UX gaps PR-4 named for the national map (now
+   * Adds the two UX gaps PR-4 named for the national map (now
    * extended to the per-state surface):
    *
    *   - Pan / zoom / pinch via d3-zoom on the SVG (scroll-wheel zooms
@@ -41,15 +38,9 @@
    *   - Absolute-positioned `+` / `-` / `home` button trio over the SVG
    *     (same Tailwind classes as PR-1 + PR-4 for one visual language
    *     across both renderer paths during the transition).
-   *   - Sub-threshold dot-marker overlay for any AC whose path bbox
-   *     max-dim < SUB_THRESHOLD_PX (14 px at 640x480) at the per-state
-   *     fitSize. Dense urban states (Delhi, Chennai, Mumbai) have tiny
-   *     city ACs that this catches; each marker carries the SAME fill
-   *     + tooltip + click handler as the underlying polygon.
    *
    * Pure helpers (per-row paint formula, focus-dim multiplier, stroke
-   * style) live in `state-ac-map-helpers.ts`; the sub-threshold marker
-   * pipeline is reused as-is from `india-party-map-helpers.ts`.
+   * style) live in `state-ac-map-helpers.ts`.
    *
    * MapLibre `lib/maplibre/StateAcMap.svelte` is deliberately NOT
    * deleted here - PR-6 deletes the entire `lib/maplibre/` directory
@@ -87,20 +78,11 @@
   import type { AcWinner } from "../view-models/state-overview";
   import { loadAcLgdLookup } from "../view-models/ac-crosswalk";
   import {
-    loadStateSilhouette,
-    type StateSilhouetteFeature,
-  } from "../state-silhouette";
-  import {
     DEFAULT_HIGHLIGHT_STATE,
     NEUTRAL_HEX_FALLBACK,
     type HighlightMode,
     type MinMargin,
   } from "./map-highlight-utils";
-  import {
-    SUB_THRESHOLD_PX,
-    computeSubThresholdMarkers,
-    type MarkerOverlay,
-  } from "./india-party-map-helpers";
   import {
     acFillForRow,
     acOpacityForRow,
@@ -122,7 +104,8 @@
      * with the focused constituency emphasised.
      */
     highlight_eci_no?: number;
-    /** Override map CSS height; width fills the parent. */
+    /** Deprecated: no longer drives sizing (the map is responsive). Kept
+     *  for backward compatibility with existing call sites. */
     height?: string;
     event?: string | null;
     /**
@@ -149,7 +132,6 @@
     state: state_code,
     rows: input_rows,
     highlight_eci_no,
-    height = "520px",
     event = null,
     fillsOverride,
     opacitiesOverride,
@@ -158,14 +140,12 @@
     min_margin = DEFAULT_HIGHLIGHT_STATE.min_margin,
   }: Props = $props();
 
-  // viewBox dimensions - match the PR-4 IndiaPartyMap calibration so the
-  // 14-px sub-threshold marker rule reads consistently across both
-  // renderer paths. The svg's CSS height comes from the `height` prop;
-  // `preserveAspectRatio="xMidYMid meet"` keeps the projection square.
-  const WIDTH = 640;
-  const HEIGHT = 480;
+  // Responsive fit: project to the measured container width (clamped to
+  // MAX_MAP_W so a 4K viewport does not produce a giant hero); the SVG
+  // height derives from the projected content bounds (no letterboxing).
+  const MAX_MAP_W = 1200;
+  let container_w = $state(0);
   const DEFAULT_FILL = "#e2e8f0"; // slate-200; matches MapChoropleth default
-  const SILHOUETTE_STROKE = NEUTRAL_HEX_FALLBACK; // E3 outline stroke
 
   interface Row {
     eci_no: number;
@@ -244,7 +224,7 @@
     return out;
   });
 
-  // --- Crosswalk + silhouette + neutral hex ---------------------------
+  // --- Crosswalk + neutral hex ----------------------------------------
 
   // ADR-0049 Row B2: lgd_ac_id <-> eci_no crosswalk. Covered states get a
   // non-empty map and the polygon's `lgd_ac_id` join is reverse-mapped to
@@ -270,23 +250,6 @@
     const out = new Map<number, number>();
     for (const [eci, lgd] of lgd_lookup) out.set(lgd, eci);
     return out;
-  });
-
-  // E3 (parent plan section 25.4): per-state silhouette painted ABOVE the
-  // AC fills so the citizen instantly recognises which state the per-state
-  // map shows. Uses the shared `boundaries/in/states/all.topojson` corpus
-  // via `loadStateSilhouette` (no new fetch; see that module's receipt).
-  let silhouette_feature = $state<StateSilhouetteFeature | null>(null);
-  $effect(() => {
-    const sc = state_code;
-    silhouette_feature = null;
-    loadStateSilhouette(sc)
-      .then((f) => {
-        if (state_code === sc) silhouette_feature = f;
-      })
-      .catch(() => {
-        if (state_code === sc) silhouette_feature = null;
-      });
   });
 
   // E4: the live `--party-neutral` token value, used as the recede fill in
@@ -404,14 +367,14 @@
 
   const projection_path = $derived.by(() => {
     if (!collection) return null;
-    // `fitSize` streams every feature through the projection to compute
+    // `fitWidth` streams every feature through the projection to compute
     // bounds; on a malformed geometry ring (some TN / Maharashtra / WB AC
     // features have an empty `ring[0]`) it throws synchronously with
     // "Cannot read properties of undefined (reading '0')". Filter those
-    // features OUT for fitSize, then build the path over the SAME
-    // filtered collection so the broken features never reach `path()`
-    // either. The underlying topology bug is upstream (ramSeraph LGD
-    // release) and out of PR-5 scope.
+    // features OUT first, then build the path over the SAME filtered
+    // collection so the broken features never reach `path()` either. The
+    // underlying topology bug is upstream (ramSeraph LGD release) and out
+    // of PR-5 scope.
     const safe_features = collection.features.filter((f) =>
       isFeatureProjectable(f),
     );
@@ -420,12 +383,16 @@
       type: "FeatureCollection",
       features: safe_features,
     };
+    const obj = safe_collection as GeoPermissibleObjects;
+    const eff_w = Math.min(container_w || 640, MAX_MAP_W);
     let projection: GeoProjection;
     try {
-      projection = geoMercator().fitSize(
-        [WIDTH, HEIGHT],
-        safe_collection as GeoPermissibleObjects,
-      );
+      projection = geoMercator().fitWidth(eff_w, obj);
+      // Re-translate so the projected extent starts at (0,0); fitWidth
+      // anchors x near 0 but can leave a top offset.
+      const pre = geoPath(projection).bounds(obj);
+      const [tx, ty] = projection.translate();
+      projection.translate([tx - pre[0][0], ty - pre[0][1]]);
     } catch {
       // Defensive belt-and-braces: even after filtering, an unknown
       // failure mode should not blank the whole map. Use a default
@@ -434,10 +401,19 @@
       projection = geoMercator()
         .center([82.5, 22.5])
         .scale(700)
-        .translate([WIDTH / 2, HEIGHT / 2]);
+        .translate([eff_w / 2, eff_w / 2]);
     }
     const path = geoPath(projection);
-    return { projection, path };
+    let w = eff_w;
+    let h = eff_w;
+    try {
+      const b = path.bounds(obj);
+      w = Math.max(1, Math.ceil(b[1][0]));
+      h = Math.max(1, Math.ceil(b[1][1]));
+    } catch {
+      // keep the eff_w x eff_w fallback box on a bounds failure
+    }
+    return { projection, path, w, h };
   });
 
   /** Quick projectability probe: try to compute the bounds of a feature
@@ -479,36 +455,12 @@
     return Number.isFinite(eci) ? eci : null;
   }
 
-  // eci_no -> Feature index. Lets the sub-threshold marker overlay
-  // resolve its underlying feature in O(1) for the per-marker
-  // fill/opacity/tooltip/click resolution.
-  const feature_by_eci = $derived.by(() => {
-    const m = new Map<number, Feature<Geometry, GeoJsonProperties>>();
-    if (!collection || !entry) return m;
-    const rl = reverse_lookup;
-    const join = entry.join_property;
-    for (const f of collection.features) {
-      const eci = featureEci(f.properties ?? undefined, join, rl);
-      if (eci != null) m.set(eci, f);
-    }
-    return m;
-  });
-
-  // Sub-threshold marker overlays - second-pass <circle> targets for
-  // any AC whose polygon collapses below SUB_THRESHOLD_PX at the
-  // per-state fitSize. Each marker carries the SAME eci-keyed fill /
-  // opacity / tooltip / click as the underlying polygon.
-  const marker_overlays = $derived.by<MarkerOverlay[]>(() => {
-    if (!collection || !projection_path || !entry) return [];
-    const rl = reverse_lookup;
-    const join = entry.join_property;
-    return computeSubThresholdMarkers(
-      collection.features,
-      projection_path.projection,
-      projection_path.path,
-      (f) => featureEci(f.properties ?? undefined, join, rl),
-    );
-  });
+  // Wrapper aspect-ratio: the projected content w/h once the collection
+  // loads, a neutral 640/480 default during the loading / error window so
+  // the placeholder reserves space (no layout shift when the map paints).
+  const wrapper_aspect = $derived(
+    projection_path ? `${projection_path.w}/${projection_path.h}` : "640/480",
+  );
 
   // Pre-compute per-AC fill + opacity from rows. Keyed by eci_no; the
   // per-feature paint resolution looks it up via the feature's
@@ -673,6 +625,15 @@
     };
   });
 
+  // Reset the zoom transform whenever the responsive width changes so a
+  // stale transform from the previous width does not cause a visual jump.
+  $effect(() => {
+    void container_w;
+    if (svg_el && zoom_behavior) {
+      select(svg_el).call(zoom_behavior.transform, zoomIdentity);
+    }
+  });
+
   function zoomInButton(): void {
     if (!svg_el || !zoom_behavior) return;
     select(svg_el).call(zoom_behavior.scaleBy, 1.5);
@@ -693,11 +654,11 @@
   </div>
 {:else}
   <div
+    bind:clientWidth={container_w}
     class="relative w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50"
-    style="height: {height};"
+    style="aspect-ratio:{wrapper_aspect};"
     data-component="state-ac-map-d3"
     data-state={state_code}
-    data-threshold-px={SUB_THRESHOLD_PX}
   >
     {#if load_error}
       <div
@@ -715,9 +676,10 @@
       {@const rl = reverse_lookup}
       <svg
         bind:this={svg_el}
-        class="block w-full h-full cursor-grab active:cursor-grabbing"
-        viewBox="0 0 {WIDTH} {HEIGHT}"
-        preserveAspectRatio="xMidYMid meet"
+        class="block w-full cursor-grab active:cursor-grabbing"
+        viewBox="0 0 {pp.w} {pp.h}"
+        width="100%"
+        style="height:auto; aspect-ratio:{pp.w}/{pp.h};"
       >
         <g bind:this={zoom_group_el}>
           {#each collection.features as f, i (i)}
@@ -738,41 +700,6 @@
               onclick={() => onSelect(eci)}
             />
           {/each}
-
-          {#each marker_overlays as m, mi (mi)}
-            {@const eci = Number(m.key)}
-            {@const matching = feature_by_eci.get(eci)}
-            {@const p = paintForEci(eci)}
-            <circle
-              cx={m.cx}
-              cy={m.cy}
-              r={7}
-              fill={p.fill}
-              fill-opacity={p.opacity}
-              stroke="#0f172a"
-              stroke-width="1"
-              class="state-ac-map-d3__marker"
-              data-ac-eci-no={m.key}
-              data-marker="sub-threshold"
-              onmouseenter={(e) =>
-                onFeatureEnter(e, matching?.properties ?? undefined, eci)}
-              onmousemove={onFeatureMove}
-              onmouseleave={onFeatureLeave}
-              onclick={() => onSelect(eci)}
-            />
-          {/each}
-
-          {#if silhouette_feature}
-            <path
-              d={safePath(silhouette_feature, pp.path)}
-              fill="none"
-              stroke={SILHOUETTE_STROKE}
-              stroke-width="1.5"
-              pointer-events="none"
-              class="state-ac-map-d3__silhouette"
-              data-component="state-ac-map-d3-silhouette"
-            />
-          {/if}
         </g>
       </svg>
 

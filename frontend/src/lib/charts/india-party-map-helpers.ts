@@ -1,132 +1,17 @@
-// Pure helpers for IndiaPartyMap.svelte's sub-threshold marker
-// overlay (PR-4 of TODO/20260611-elections-off-maplibre-and-map-ux-
-// plan.md). Extracted so vitest can exercise them against the real
-// states/all.topojson without mounting the Svelte component (repo
-// vitest doctrine: node-env, no jsdom canvas, no @testing-library/
-// svelte mounts).
+// Pure helpers for IndiaPartyMap.svelte and the sibling d3-geo
+// choropleths. Extracted so vitest can exercise them in node-env
+// without mounting the Svelte component (repo vitest doctrine:
+// node-env, no jsdom canvas, no @testing-library/svelte mounts).
 //
-// The svelte component (sibling) reads `SUB_THRESHOLD_PX` +
-// `computeSubThresholdMarkers` to drive the second-pass <circle> render
-// that gives the citizen a clickable target for states whose polygon
-// collapses to sub-pixel at the national-fit Mercator projection.
-//
-// Lakshadweep is the named priority (4 atolls totalling ~32 km^2 of
-// land on a 3300 km tall country); at the chosen 640x480 viewBox its
-// path bounds are ~0.14 x 0.15 px. The 14 px threshold is calibrated
-// to catch Lakshadweep + Chandigarh + Delhi + Goa from
-// `datasets/boundaries/in/states/all.topojson` without flagging any
-// mainland state. See PR-4 plan-doc row for the full rationale.
+// Two concerns live here:
+//   * `resolveStateClickAction` - decides WHICH path a polygon click
+//     takes (the component owns the side effect).
+//   * `computeIslandMarker` - locates the single far-flung island
+//     (Lakshadweep) that collapses to sub-pixel at the national fit so
+//     the component can paint a small clickable SQUARE at its centroid.
 
 import { geoCentroid, type GeoPath, type GeoProjection } from "d3-geo";
 import type { Feature, Geometry, GeoJsonProperties } from "geojson";
-
-/**
- * Max-dimension threshold (in projected px) below which a state's
- * polygon needs a `<circle>` marker to remain citizen-clickable.
- * Calibrated against the 640x480 national-fit Mercator projection.
- */
-export const SUB_THRESHOLD_PX = 14;
-
-/** One sub-threshold marker descriptor (key + projected centroid). */
-export interface MarkerOverlay {
-  /** Join-key value (string-coerced) used by fills/tooltips/click handler. */
-  key: string;
-  /** Projected x in the same viewBox the polygon paths render into. */
-  cx: number;
-  /** Projected y in the same viewBox the polygon paths render into. */
-  cy: number;
-}
-
-/** Width + height in projected px of a feature's path bounds. Null
- *  when bounds are non-finite (collapsed projection, empty geometry)
- *  OR when d3-geo's `path.bounds(...)` throws synchronously on a
- *  malformed ring (PR-5 hit this on per-state AC GeoJSONs for TN /
- *  Maharashtra / WB / Puducherry where a small subset of features
- *  have an empty `ring[0]`; the safer surface is to skip the marker
- *  rather than crash the whole reactive flush). */
-export function pathSpan(
-  feature: Feature<Geometry, GeoJsonProperties>,
-  path: GeoPath,
-): { width: number; height: number } | null {
-  let b: ReturnType<GeoPath["bounds"]>;
-  try {
-    b = path.bounds(feature);
-  } catch {
-    return null;
-  }
-  if (
-    !Number.isFinite(b[0][0]) ||
-    !Number.isFinite(b[0][1]) ||
-    !Number.isFinite(b[1][0]) ||
-    !Number.isFinite(b[1][1])
-  ) {
-    return null;
-  }
-  return { width: b[1][0] - b[0][0], height: b[1][1] - b[0][1] };
-}
-
-/** True when the longer side of `span` is shorter than `threshold_px`. */
-export function isSubThreshold(
-  span: { width: number; height: number },
-  threshold_px: number = SUB_THRESHOLD_PX,
-): boolean {
-  return Math.max(span.width, span.height) < threshold_px;
-}
-
-/** Project a feature's geographic centroid through `projection`. Null
- *  when the centroid or its projection is non-finite. */
-export function projectedCentroid(
-  feature: Feature<Geometry, GeoJsonProperties>,
-  projection: GeoProjection,
-): [number, number] | null {
-  const [lng, lat] = geoCentroid(feature);
-  if (!Number.isFinite(lng) || !Number.isFinite(lat)) return null;
-  const projected = projection([lng, lat]);
-  if (!projected) return null;
-  if (!Number.isFinite(projected[0]) || !Number.isFinite(projected[1])) {
-    return null;
-  }
-  return [projected[0], projected[1]];
-}
-
-/**
- * Compute the list of sub-threshold marker overlays for a feature
- * collection. Iterates every feature, runs the path-bounds + centroid
- * pipeline, and emits one MarkerOverlay per sub-threshold feature that
- * has a non-null join key and a projectable centroid. Skips features
- * the projection cannot represent (no error, no marker).
- *
- * @param features        Feature list (typically `collection.features`).
- * @param projection      The projection that drives `path`.
- * @param path            The geoPath built on `projection`.
- * @param feature_key     Extractor for the join-key value used by fills /
- *                        tooltips / click handler. Return null/undefined
- *                        to skip the feature.
- * @param threshold_px    Override the default 14 px threshold for tests.
- */
-export function computeSubThresholdMarkers<P extends GeoJsonProperties>(
-  features: readonly Feature<Geometry, P>[],
-  projection: GeoProjection,
-  path: GeoPath,
-  feature_key: (f: Feature<Geometry, P>) => string | number | null | undefined,
-  threshold_px: number = SUB_THRESHOLD_PX,
-): MarkerOverlay[] {
-  const out: MarkerOverlay[] = [];
-  for (const f of features) {
-    const key = feature_key(f);
-    if (key == null) continue;
-    const span = pathSpan(f as Feature<Geometry, GeoJsonProperties>, path);
-    if (!span) continue;
-    if (!isSubThreshold(span, threshold_px)) continue;
-    const c = projectedCentroid(
-      f as Feature<Geometry, GeoJsonProperties>,
-      projection,
-    );
-    if (!c) continue;
-    out.push({ key: String(key), cx: c[0], cy: c[1] });
-  }
-  return out;
-}
 
 // -----------------------------------------------------------------
 // Click-action resolver (PR-4c)
@@ -159,16 +44,15 @@ export function computeSubThresholdMarkers<P extends GeoJsonProperties>(
 // node-env style as the rest of this module (no @testing-library/
 // svelte mount, no jsdom canvas).
 
-/** Discriminated result of resolving a click on a state polygon /
- *  sub-threshold marker. */
+/** Discriminated result of resolving a click on a state polygon. */
 export type StateClickAction =
   | { kind: "callback"; eciCode: string }
   | { kind: "navigate-default"; eciCode: string }
   | { kind: "noop" };
 
 /**
- * Decide what should happen when the citizen clicks the polygon /
- * marker with boundary-join key `key`.
+ * Decide what should happen when the citizen clicks the polygon
+ * with boundary-join key `key`.
  *
  * @param key                 The string-coerced join-key value the
  *                            click handler received (e.g. `"33"` for
@@ -190,4 +74,97 @@ export function resolveStateClickAction(
   if (!code) return { kind: "noop" };
   if (hasCustomCallback) return { kind: "callback", eciCode: code };
   return { kind: "navigate-default", eciCode: code };
+}
+
+// -----------------------------------------------------------------
+// Island marker (Lakshadweep visibility)
+// -----------------------------------------------------------------
+//
+// Lakshadweep is ~32 km^2 of land in the Arabian Sea, ~300 km off the
+// mainland. At any honest national Mercator fit it projects to a ~2-3 px
+// dot - below the threshold a citizen can see or tap. fitWidth alone
+// cannot fix this (the island stays sub-pixel at every viewport width),
+// so the national maps paint a small SQUARE at its centroid carrying the
+// SAME fill + click + hover as the polygon. The marker is scoped BY NAME
+// to the one far-flung island so mainland small areas (Delhi, Chandigarh)
+// are never marked - they stay reachable by the zoom affordance.
+
+/** Max projected dimension (px, national fit) below which the named
+ *  island needs a square marker. Lakshadweep sits ~2-3 px; mainland
+ *  states sit well above this, so the name scope is the real guard and
+ *  this only suppresses the marker when the map is already zoomed onto
+ *  the island (e.g. its own state page). */
+export const ISLAND_MARKER_THRESHOLD_PX = 12;
+
+/** One island-marker descriptor: the join-key value + projected centroid
+ *  in the SAME viewBox units the polygons render into (painted inside the
+ *  zoom group so it tracks the island on pan / zoom). */
+export interface IslandMarker {
+  /** Join-key value (string-coerced) the fill / click / hover read. */
+  key: string;
+  /** Projected centroid x in the map's viewBox. */
+  cx: number;
+  /** Projected centroid y in the map's viewBox. */
+  cy: number;
+}
+
+/**
+ * Locate the single named far-flung island (Lakshadweep) and return a
+ * square-marker descriptor for it, or null when it is absent, already
+ * large enough to click directly (map zoomed onto it), or not
+ * projectable. Scoped by `name_pattern` so ONLY that island is marked.
+ *
+ * @param features      Feature list (typically `collection.features`).
+ * @param projection    The projection driving `path`.
+ * @param path          The geoPath built on `projection`.
+ * @param feature_key   Extractor for the join-key value (fill / click).
+ * @param feature_name  Extractor for the human name matched against
+ *                      `name_pattern` (e.g. `STNAME` / `ls_seat_name`).
+ * @param name_pattern  Case-insensitive matcher selecting the island.
+ * @param threshold_px  Suppress the marker when the projected span is at
+ *                      or above this (the island fills the viewport).
+ */
+export function computeIslandMarker<P extends GeoJsonProperties>(
+  features: readonly Feature<Geometry, P>[],
+  projection: GeoProjection,
+  path: GeoPath,
+  feature_key: (f: Feature<Geometry, P>) => string | number | null | undefined,
+  feature_name: (f: Feature<Geometry, P>) => string | null | undefined,
+  name_pattern: RegExp,
+  threshold_px: number = ISLAND_MARKER_THRESHOLD_PX,
+): IslandMarker | null {
+  for (const f of features) {
+    const name = feature_name(f);
+    if (!name || !name_pattern.test(name)) continue;
+    const key = feature_key(f);
+    if (key == null) continue;
+    let b: ReturnType<GeoPath["bounds"]>;
+    try {
+      b = path.bounds(f as Feature<Geometry, GeoJsonProperties>);
+    } catch {
+      continue;
+    }
+    if (
+      !Number.isFinite(b[0][0]) ||
+      !Number.isFinite(b[0][1]) ||
+      !Number.isFinite(b[1][0]) ||
+      !Number.isFinite(b[1][1])
+    ) {
+      continue;
+    }
+    const span = Math.max(b[1][0] - b[0][0], b[1][1] - b[0][1]);
+    if (span >= threshold_px) continue; // big enough to click directly
+    const [lng, lat] = geoCentroid(f as Feature<Geometry, GeoJsonProperties>);
+    if (!Number.isFinite(lng) || !Number.isFinite(lat)) continue;
+    const projected = projection([lng, lat]);
+    if (
+      !projected ||
+      !Number.isFinite(projected[0]) ||
+      !Number.isFinite(projected[1])
+    ) {
+      continue;
+    }
+    return { key: String(key), cx: projected[0], cy: projected[1] };
+  }
+  return null;
 }

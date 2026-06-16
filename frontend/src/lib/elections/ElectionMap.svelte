@@ -124,14 +124,18 @@
   });
 
   // Parent plan section 25.4 (E3): single-state hex cartogram silhouette.
-  // Loaded the same way `StateAcMap` does (shared canonical state-boundary
-  // corpus via `loadStateSilhouette`), so both arms render off the same
-  // FeatureCollection without two separate fetches - the in-memory cache
-  // inside `state-silhouette.ts` collapses both into one decode. Stays
-  // null on the brief load window and on any state not represented in
-  // the boundary corpus; TileCartogram skips the layer in that case.
+  // Loaded via the shared canonical state-boundary corpus
+  // (`loadStateSilhouette`). As of Row 1 ONLY the hex (TileCartogram) arm
+  // draws the silhouette - the geo (StateAcMapD3) arm dropped its
+  // silhouette layer - so the fetch is gated on `view === "hex"` below.
+  // Stays null on the load window and on any state not represented in the
+  // boundary corpus; TileCartogram skips the layer in that case.
   let silhouette_feature = $state<StateSilhouetteFeature | null>(null);
   $effect(() => {
+    if (view !== "hex") {
+      silhouette_feature = null;
+      return;
+    }
     const sc = state_code;
     silhouette_feature = null;
     loadStateSilhouette(sc)

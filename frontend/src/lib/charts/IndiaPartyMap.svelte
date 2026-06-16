@@ -33,7 +33,7 @@
    *     to the state hub's default-event resolver. Default behaviour
    *     (Home) is unchanged because Home does not pass the prop.
    *
-   * Adds three citizen-named UX gaps (verified in PR-alpha against
+   * Adds two citizen-named UX gaps (verified in PR-alpha against
    * IndiaVotes + Bharat Pashudhan + data-analytics; see
    * `docs/architecture/frontend/map.md` "Comparable Indian civic
    * sites"):
@@ -43,18 +43,10 @@
    *   - Absolute-positioned `+` / `-` / `home` button trio over the
    *     SVG (same Tailwind classes the PR-1 MapChoropleth buttons
    *     use, for visual consistency).
-   *   - Sub-threshold marker overlay: any state whose path bbox is
-   *     below SUB_THRESHOLD_PX (14 px at 640x480 viewBox) gets a
-   *     `<circle r=7>` at the projected centroid carrying the SAME
-   *     fill / tooltip / click handler as the polygon. Closes the
-   *     citizen-named "users can't see Lakshadweep" pain (live
-   *     MapLibre map returns 0 hover hits in a bottom-left ocean
-   *     sweep; PR-4 oracle is >= 1 hit).
    *
-   * The pure marker-computation helpers + the PR-4c click-action
-   * resolver live in `india-party-map-helpers.ts` (sibling module)
-   * so vitest can cover them against the real `states/all.topojson`
-   * without mounting the Svelte component (repo vitest doctrine).
+   * The PR-4c click-action resolver lives in
+   * `india-party-map-helpers.ts` (sibling module) so vitest can cover
+   * it without mounting the Svelte component (repo vitest doctrine).
    *
    * MapLibre `IndiaMap.svelte` is deliberately NOT deleted here -
    * PR-6 deletes the entire `lib/maplibre/` directory after PR-5
@@ -96,10 +88,9 @@
   import { navigate } from "../url";
   import { link } from "../links";
   import {
-    SUB_THRESHOLD_PX,
-    computeSubThresholdMarkers,
     resolveStateClickAction,
-    type MarkerOverlay,
+    computeIslandMarker,
+    type IslandMarker,
   } from "./india-party-map-helpers";
 
   interface Props {
@@ -116,17 +107,21 @@
   let { event, onSelect: onSelectProp }: Props = $props();
 
   // Hand-pinned constants - the same join property + topojson the
-  // legacy MapChoropleth + INDIA_STATES entry consumed. The viewBox is
-  // matched against `india-party-map-helpers`'s SUB_THRESHOLD_PX
-  // calibration; changing one without the other re-tunes which UTs
-  // get a marker.
+  // legacy MapChoropleth + INDIA_STATES entry consumed.
   const TOPOJSON_PATH = "/boundaries/in/states/all.topojson";
-  const WIDTH = 640;
-  const HEIGHT = 480;
+  // Responsive fit: project to the measured container width (clamped to
+  // MAX_MAP_W so a 4K viewport does not produce a giant hero); the SVG
+  // height derives from the projected content bounds (no letterboxing).
+  const MAX_MAP_W = 1200;
   const JOIN_PROPERTY = "State_LGD";
   // slate-200; same default fill the MapChoropleth used for unmapped
   // features - visible but unobtrusive against the page background.
   const DEFAULT_FILL = "#e2e8f0";
+
+  // Measured wrapper width (px) driving the responsive projection. Starts
+  // 0 before first layout; the projection falls back to 640 until the
+  // wrapper's bind:clientWidth reports a real width.
+  let container_w = $state(0);
 
   // -----------------------------------------------------------------
   // Loader plumbing (lifted verbatim from the legacy IndiaMap.svelte
@@ -309,25 +304,43 @@
 
   const projection_path = $derived.by(() => {
     if (!collection) return null;
-    const projection: GeoProjection = geoMercator().fitSize(
-      [WIDTH, HEIGHT],
-      collection as GeoPermissibleObjects,
-    );
+    const obj = collection as GeoPermissibleObjects;
+    const eff_w = Math.min(container_w || 640, MAX_MAP_W);
+    const projection: GeoProjection = geoMercator().fitWidth(eff_w, obj);
+    // fitWidth anchors the content near x=0 but can leave a top offset;
+    // re-translate so the projected extent starts at (0,0) and the SVG
+    // height can equal the content height (no letterboxing).
+    const pre = geoPath(projection).bounds(obj);
+    const [tx, ty] = projection.translate();
+    projection.translate([tx - pre[0][0], ty - pre[0][1]]);
     const path = geoPath(projection);
-    return { projection, path };
+    const b = path.bounds(obj);
+    const w = Math.max(1, Math.ceil(b[1][0]));
+    const h = Math.max(1, Math.ceil(b[1][1]));
+    return { projection, path, w, h };
   });
 
-  // Sub-threshold marker overlays - second-pass <circle> targets for
-  // states whose polygon collapses below SUB_THRESHOLD_PX.
-  const marker_overlays = $derived<MarkerOverlay[]>(
+  // Wrapper aspect-ratio: the projected content w/h once the collection
+  // loads, a neutral 640/480 default during the loading / error window so
+  // the placeholder reserves space (no layout shift when the map paints).
+  const wrapper_aspect = $derived(
+    projection_path ? `${projection_path.w}/${projection_path.h}` : "640/480",
+  );
+
+  // Lakshadweep collapses to a ~2-3 px dot at the national fit; paint a
+  // small clickable square at its centroid so it stays citizen-visible.
+  // Scoped by name to the one far-flung island - no mainland state is
+  // ever marked.
+  const lakshadweep_marker = $derived<IslandMarker | null>(
     !collection || !projection_path
-      ? []
-      : computeSubThresholdMarkers(
+      ? null
+      : computeIslandMarker(
           collection.features,
           projection_path.projection,
           projection_path.path,
-          (f) =>
-            (f.properties?.[JOIN_PROPERTY] as string | number | null) ?? null,
+          (f) => f.properties?.[JOIN_PROPERTY],
+          (f) => String(f.properties?.STNAME ?? ""),
+          /laksh/i,
         ),
   );
 
@@ -419,6 +432,15 @@
     };
   });
 
+  // Reset the zoom transform whenever the responsive width changes so a
+  // stale transform from the previous width does not cause a visual jump.
+  $effect(() => {
+    void container_w;
+    if (svg_el && zoom_behavior) {
+      select(svg_el).call(zoom_behavior.transform, zoomIdentity);
+    }
+  });
+
   function zoomInButton(): void {
     if (!svg_el || !zoom_behavior) return;
     select(svg_el).call(zoom_behavior.scaleBy, 1.5);
@@ -445,10 +467,10 @@
 {/if}
 
 <div
+  bind:clientWidth={container_w}
   class="relative w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50"
-  style="height: 520px;"
+  style="aspect-ratio:{wrapper_aspect};"
   data-component="india-party-map"
-  data-threshold-px={SUB_THRESHOLD_PX}
 >
   {#if load_error}
     <div class="absolute inset-x-2 bottom-2 p-2 text-xs bg-rose-50 border border-rose-200 rounded text-rose-900">
@@ -461,9 +483,10 @@
   {:else}
     <svg
       bind:this={svg_el}
-      class="block w-full h-full cursor-grab active:cursor-grabbing"
-      viewBox="0 0 {WIDTH} {HEIGHT}"
-      preserveAspectRatio="xMidYMid meet"
+      class="block w-full cursor-grab active:cursor-grabbing"
+      viewBox="0 0 {projection_path.w} {projection_path.h}"
+      width="100%"
+      style="height:auto; aspect-ratio:{projection_path.w}/{projection_path.h};"
     >
       <g bind:this={zoom_group_el}>
         {#each collection.features as f, i (f.properties?.[JOIN_PROPERTY] ?? i)}
@@ -484,23 +507,25 @@
           />
         {/each}
 
-        {#each marker_overlays as m (m.key)}
-          <circle
-            cx={m.cx}
-            cy={m.cy}
-            r={7}
+        {#if lakshadweep_marker}
+          {@const m = lakshadweep_marker}
+          <rect
+            x={m.cx - 6}
+            y={m.cy - 6}
+            width={12}
+            height={12}
             fill={fillForKey(m.key)}
             stroke="#0f172a"
-            stroke-width="1"
-            class="india-party-map__marker"
+            stroke-width="1.25"
+            class="india-party-map__island-marker"
             data-state-code={m.key}
-            data-marker="sub-threshold"
+            data-marker="island"
             onmouseenter={(e) => onFeatureEnter(e, m.key)}
             onmousemove={onFeatureMove}
             onmouseleave={onFeatureLeave}
             onclick={() => handleStateClick(m.key)}
           />
-        {/each}
+        {/if}
       </g>
     </svg>
 

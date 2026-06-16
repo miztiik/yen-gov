@@ -24,10 +24,6 @@
    *     `link.stateElection(state_code, event)` so the citizen lands
    *     on the per-state event page (drill via that page's
    *     constituency table to the per-PC leaf).
-   *   - Sub-threshold marker overlay for PCs whose path bbox is below
-   *     `SUB_THRESHOLD_PX` at the 640x480 national fit (dense urban
-   *     metros - Mumbai, Delhi, Chennai - have small PCs that this
-   *     catches). Reuses `computeSubThresholdMarkers` verbatim.
    *   - PR-B8-style `fillsOverride` / `opacitiesOverride` precedence
    *     path keyed by `unique_id` so the party-filter rail (Row F) can
    *     recede muted-party cells without bespoke logic inside the
@@ -82,15 +78,14 @@
     type MinMargin,
   } from "./map-highlight-utils";
   import {
-    SUB_THRESHOLD_PX,
-    computeSubThresholdMarkers,
-    type MarkerOverlay,
-  } from "./india-party-map-helpers";
-  import {
     buildPcCellPaint,
     type PcCellRow,
     type PcCellPaint,
   } from "./india-pc-map-helpers";
+  import {
+    computeIslandMarker,
+    type IslandMarker,
+  } from "./india-party-map-helpers";
 
   /**
    * One PC winner row, pre-shaped by the route for the join. The
@@ -118,7 +113,8 @@
     rows: PcWinnerRow[] | null;
     /** Canonical event id, threaded onto state-page links. */
     event?: string | null;
-    /** Override map CSS height; width fills the parent. */
+    /** Deprecated: no longer drives sizing (the map is responsive). Kept
+     *  for backward compatibility with existing call sites. */
     height?: string;
     /**
      * Row F (party filter): per-unique_id fill override. When set, the
@@ -143,7 +139,6 @@
   let {
     rows: input_rows,
     event = null,
-    height = "520px",
     fillsOverride,
     opacitiesOverride,
     highlight_mode = DEFAULT_HIGHLIGHT_STATE.mode,
@@ -152,11 +147,11 @@
     boundary = INDIA_PC,
   }: Props = $props();
 
-  // 640x480 matches the IndiaPartyMap calibration so SUB_THRESHOLD_PX
-  // catches Mumbai / Delhi / Chennai PCs at the same density we catch
-  // Lakshadweep on the state map.
-  const WIDTH = 640;
-  const HEIGHT = 480;
+  // Responsive fit: project to the measured container width (clamped to
+  // MAX_MAP_W so a 4K viewport does not produce a giant hero); the SVG
+  // height derives from the projected content bounds (no letterboxing).
+  const MAX_MAP_W = 1200;
+  let container_w = $state(0);
   const DEFAULT_FILL = "#e2e8f0"; // slate-200; J&K placeholders + unmapped
   const JOIN_PROPERTY = boundary.join_property; // "unique_id"
   // `boundary` ships `.geojson` as the canonical snapshot path; the
@@ -264,12 +259,19 @@
 
   const projection_path = $derived.by(() => {
     if (!collection) return null;
-    const projection: GeoProjection = geoMercator().fitSize(
-      [WIDTH, HEIGHT],
-      collection as GeoPermissibleObjects,
-    );
+    const obj = collection as GeoPermissibleObjects;
+    const eff_w = Math.min(container_w || 640, MAX_MAP_W);
+    const projection: GeoProjection = geoMercator().fitWidth(eff_w, obj);
+    // Re-translate so the projected extent starts at (0,0); fitWidth
+    // anchors x near 0 but can leave a top offset.
+    const pre = geoPath(projection).bounds(obj);
+    const [tx, ty] = projection.translate();
+    projection.translate([tx - pre[0][0], ty - pre[0][1]]);
     const path = geoPath(projection);
-    return { projection, path };
+    const b = path.bounds(obj);
+    const w = Math.max(1, Math.ceil(b[1][0]));
+    const h = Math.max(1, Math.ceil(b[1][1]));
+    return { projection, path, w, h };
   });
 
   // ---- Per-PC paint pipeline ---------------------------------------
@@ -282,31 +284,37 @@
     return String(raw);
   }
 
-  // Sub-threshold marker overlays - second-pass <circle> targets for
-  // any PC whose polygon collapses below SUB_THRESHOLD_PX at the
-  // national fitSize. Each marker carries the SAME uid-keyed fill /
-  // opacity / tooltip / click as the underlying polygon.
-  const marker_overlays = $derived<MarkerOverlay[]>(
+  // Wrapper aspect-ratio: the projected content w/h once the topojson
+  // loads, a neutral 640/480 default during the loading / error window so
+  // the placeholder reserves space (no layout shift when the map paints).
+  const wrapper_aspect = $derived(
+    projection_path ? `${projection_path.w}/${projection_path.h}` : "640/480",
+  );
+
+  // Lakshadweep collapses to a ~2-3 px dot at the national fit; paint a
+  // small clickable square at its centroid so the island PC stays citizen-
+  // visible. Scoped by name to the one far-flung seat - no mainland PC is
+  // ever marked.
+  const lakshadweep_marker = $derived<IslandMarker | null>(
     !collection || !projection_path
-      ? []
-      : computeSubThresholdMarkers(
+      ? null
+      : computeIslandMarker(
           collection.features,
           projection_path.projection,
           projection_path.path,
           (f) => featureUid(f.properties ?? undefined),
+          (f) => String(f.properties?.ls_seat_name ?? ""),
+          /laksh/i,
         ),
   );
 
-  // uid -> Feature index for marker overlay tooltip / click resolution.
-  const feature_by_uid = $derived.by(() => {
-    const m = new Map<string, Feature<Geometry, GeoJsonProperties>>();
-    if (!collection) return m;
-    for (const f of collection.features) {
-      const uid = featureUid(f.properties ?? undefined);
-      if (uid != null) m.set(uid, f);
-    }
-    return m;
-  });
+  // The Lakshadweep feature's props drive the marker hover tooltip (the
+  // same card the polygon shows). Resolved once; cheap for one feature.
+  const lakshadweep_props = $derived(
+    collection?.features.find((f) =>
+      /laksh/i.test(String(f.properties?.ls_seat_name ?? "")),
+    )?.properties ?? undefined,
+  );
 
   // Pre-compute per-PC fill + opacity from rows. Keyed by unique_id;
   // the per-feature paint resolution looks it up via the feature's uid.
@@ -447,6 +455,14 @@
       zoom_behavior = null;
     };
   });
+  // Reset the zoom transform when the responsive width changes so a stale
+  // transform from the previous width does not cause a visual jump.
+  $effect(() => {
+    void container_w;
+    if (svg_el && zoom_behavior) {
+      select(svg_el).call(zoom_behavior.transform, zoomIdentity);
+    }
+  });
   function zoomInButton(): void {
     if (!svg_el || !zoom_behavior) return;
     select(svg_el).call(zoom_behavior.scaleBy, 1.5);
@@ -462,11 +478,11 @@
 </script>
 
 <div
+  bind:clientWidth={container_w}
   class="relative w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50"
-  style="height: {height};"
+  style="aspect-ratio:{wrapper_aspect};"
   data-component="india-pc-map-d3"
   data-testid="india-pc-map-d3"
-  data-threshold-px={SUB_THRESHOLD_PX}
 >
   {#if load_error}
     <div
@@ -484,9 +500,10 @@
     {@const pp = projection_path}
     <svg
       bind:this={svg_el}
-      class="block w-full h-full cursor-grab active:cursor-grabbing"
-      viewBox="0 0 {WIDTH} {HEIGHT}"
-      preserveAspectRatio="xMidYMid meet"
+      class="block w-full cursor-grab active:cursor-grabbing"
+      viewBox="0 0 {pp.w} {pp.h}"
+      width="100%"
+      style="height:auto; aspect-ratio:{pp.w}/{pp.h};"
     >
       <g bind:this={zoom_group_el}>
         {#each collection.features as f, i (i)}
@@ -508,27 +525,25 @@
           />
         {/each}
 
-        {#each marker_overlays as m, mi (mi)}
-          {@const matching = feature_by_uid.get(m.key)}
-          {@const p = paintForUid(m.key)}
-          <circle
-            cx={m.cx}
-            cy={m.cy}
-            r={5}
-            fill={p.fill}
-            fill-opacity={p.opacity}
+        {#if lakshadweep_marker}
+          {@const m = lakshadweep_marker}
+          <rect
+            x={m.cx - 6}
+            y={m.cy - 6}
+            width={12}
+            height={12}
+            fill={paintForUid(m.key).fill}
             stroke="#0f172a"
-            stroke-width="0.8"
-            class="india-pc-map-d3__marker"
+            stroke-width="1.25"
+            class="india-pc-map-d3__island-marker"
             data-pc-unique-id={m.key}
-            data-marker="sub-threshold"
-            onmouseenter={(e) =>
-              onFeatureEnter(e, matching?.properties ?? undefined, m.key)}
+            data-marker="island"
+            onmouseenter={(e) => onFeatureEnter(e, lakshadweep_props, m.key)}
             onmousemove={onFeatureMove}
             onmouseleave={onFeatureLeave}
             onclick={() => onSelectUid(m.key)}
           />
-        {/each}
+        {/if}
       </g>
     </svg>
 

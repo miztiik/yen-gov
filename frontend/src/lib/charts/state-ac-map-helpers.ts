@@ -7,10 +7,7 @@
 // (repo vitest doctrine: node-env, no jsdom canvas, no @testing-library
 // /svelte mounts).
 //
-// The sub-threshold marker pipeline (path bbox -> projected centroid
-// -> overlay descriptor) is owned by `./india-party-map-helpers.ts` and
-// reused as-is here - PR-5 imports `SUB_THRESHOLD_PX` +
-// `computeSubThresholdMarkers` directly. This module covers ONLY the
+// This module covers ONLY the
 // per-row paint formula that's specific to the per-state AC choropleth
 // (winner-party fill, margin-ramp opacity, highlight-mode focus dim,
 // override precedence). The cellTreatment fork between margin /
