@@ -1,41 +1,25 @@
 // Parent plan section 25.4 (E3) state silhouette browser smoke.
 //
-// CLAUDE.md section 13 gate for the StateAcMap (maplibre) outline layer
-// + TileCartogram (SVG) silhouette layer. The vitest contract
+// CLAUDE.md section 13 gate for the TileCartogram (SVG) hex-arm
+// silhouette layer. As of Row 1 of
+// TODO/20260616-map-geometry-rip-and-palette-plan.md the geo arm
+// (StateAcMapD3) no longer draws a silhouette - only the equal-seats
+// (`?view=hex`) TileCartogram arm does. The vitest contract
 // (frontend/src/contracts/state-silhouette-smoke.test.ts) byte-confirms
-// the geometry decodes + projects; this spec byte-confirms the
-// rendered citizen surface actually fetches the shared
-// `boundaries/in/states/all.{topojson,geojson}` corpus and (for the
-// hex arm) draws the silhouette `<path>` BELOW the hex grid.
-//
-// Three representative states cover the same risk axes as the
-// vitest contract:
-//   - S22 Tamil Nadu - large peninsular polygon.
-//   - S04 Bihar      - medium inland polygon.
-//   - U04 Lakshadweep - tiny island archipelago.
+// the geometry decodes + projects; this spec byte-confirms the rendered
+// hex arm actually fetches the shared `boundaries/in/states/all.*`
+// corpus and draws the silhouette `<path>` BELOW the hex grid.
 //
 // "No new fetch" guardrail: we listen for `/data/boundaries/in/states/all.*`
 // being requested. The expected behaviour is one GET per page-load that
 // returns 200; the in-memory cache inside `loadStateSilhouette`
-// collapses StateAcMap + ElectionMap into a single decoded
-// FeatureCollection per state.
+// collapses repeat reads into a single decoded FeatureCollection.
 //
 // Mobile project skip: same justification as state-ac-coverage.spec.ts -
 // the silhouette layer has no breakpoint-specific code path.
 
 import { test, expect, type Response } from "@playwright/test";
 import { attachPageErrorTrap } from "./_helpers";
-
-const STATE_TARGETS: ReadonlyArray<{ code: string; slug: string; label: string }> = [
-  { code: "S22", slug: "tamil-nadu", label: "Tamil Nadu" },
-  { code: "S04", slug: "bihar", label: "Bihar" },
-  // Lakshadweep is a UT without an Assembly election - the AC drilldown
-  // page would 404. Skip the per-AC smoke for U04 and rely on the
-  // vitest contract for the projection assertion; the citizen-facing
-  // silhouette surface for U04 is the same loader code path TN + Bihar
-  // exercise. (The state-ac-coverage spec also skips U04 for the same
-  // reason - no AC shard exists.)
-];
 
 const STATES_BOUNDARY_RE =
   /\/data\/boundaries\/in\/states\/all\.(topojson|geojson)(\?|$)/;
@@ -55,48 +39,6 @@ test.afterEach(() => {
   const errors = trap?.getErrors() ?? [];
   trap = null;
   expect(errors, `Page emitted runtime errors:\n${errors.join("\n")}`).toEqual([]);
-});
-
-test.describe("E3 state silhouette - StateAcMap fetches shared state corpus", () => {
-  for (const { code, slug, label } of STATE_TARGETS) {
-    test(`${code} (${label}) /${slug}/ac/1 fetches boundaries/in/states/all.*`, async ({
-      page,
-    }) => {
-      const seen: string[] = [];
-      const onResp = (resp: Response): void => {
-        if (
-          resp.request().method() === "GET" &&
-          resp.status() === 200 &&
-          STATES_BOUNDARY_RE.test(resp.url())
-        ) {
-          seen.push(resp.url());
-        }
-      };
-      page.on("response", onResp);
-
-      // Don't wait for `networkidle` - large maplibre fills + DuckDB
-      // worker spin keep the network bus busy enough on first cold
-      // load that the page can exceed the 30s timeout. The shared
-      // silhouette load runs alongside the rest of StateAcMap's
-      // mount; the response listener captures it as soon as it
-      // returns, well within the poll timeout below.
-      await page.goto(`/${slug}/ac/1`, { waitUntil: "domcontentloaded" });
-
-      // The state silhouette load is fired by StateAcMap on mount.
-      // Poll until at least one shared-corpus GET returns 200.
-      await expect
-        .poll(() => seen.length, { timeout: 30_000 })
-        .toBeGreaterThan(0);
-      expect(seen.length, `${code}: at least one states/all.* GET`).toBeGreaterThan(0);
-
-      // Map canvas must still render alongside the silhouette load.
-      await expect(page.locator("canvas.maplibregl-canvas").first()).toBeVisible({
-        timeout: 30_000,
-      });
-
-      page.off("response", onResp);
-    });
-  }
 });
 
 test.describe("E3 state silhouette - TileCartogram hex arm draws SVG silhouette", () => {

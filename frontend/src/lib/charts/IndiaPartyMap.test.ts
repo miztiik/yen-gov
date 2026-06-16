@@ -1,288 +1,27 @@
 // PR-4 of TODO/20260611-elections-off-maplibre-and-map-ux-plan.md
-// (IndiaMap d3-geo replacement + Lakshadweep dot marker).
-//
-// Pure-helper + topojson-pipeline contract for IndiaPartyMap.svelte's
-// sub-threshold marker overlay. Per repo vitest doctrine (node-env, no
-// jsdom canvas, no @testing-library/svelte mounts), this file does NOT
-// mount the Svelte component; it covers:
-//
-//   1. The pure helper module (pathSpan / isSubThreshold /
-//      projectedCentroid / computeSubThresholdMarkers / SUB_THRESHOLD_PX).
-//   2. The end-to-end topojson -> projection -> path -> marker pipeline
-//      against the real `datasets/boundaries/in/states/all.topojson`
-//      (the same input the live component fetches). This proves the
-//      36 states render, that Lakshadweep IS detected as sub-threshold,
-//      that the citizen-clickable marker carries a sensible centroid
-//      and the correct State_LGD join key, and that mainland states
-//      are NOT flagged for marker rendering.
-//
-// The rendered SVG shape (button trio, hover tooltip, click navigate,
-// d3-zoom transform) is covered by the CLAUDE.md section 13 browser
-// smoke captured in the PR body. Same split as
-// frontend/src/lib/maplibre/MapChoropleth.zoom-controls.test.ts +
-// frontend/src/contracts/topojson-island-render.test.ts.
+// (IndiaMap d3-geo replacement). The sub-threshold circle-marker
+// overlay was retired in the map-geometry render sweep (Row 1 of
+// TODO/20260616-map-geometry-rip-and-palette-plan.md) and replaced by
+// a single name-scoped SQUARE marker for Lakshadweep (the one far-flung
+// island that collapses to sub-pixel at the national fit). Both the
+// click-action resolver and the island-marker locator are covered here
+// in node-env (repo vitest doctrine: no jsdom canvas, no
+// @testing-library/svelte mounts).
 
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
 import { describe, expect, test } from "vitest";
-import { feature as topojsonFeature } from "topojson-client";
-import type { Topology, GeometryCollection } from "topojson-specification";
-import { geoMercator, geoPath, type GeoPermissibleObjects } from "d3-geo";
+import { geoMercator, geoPath } from "d3-geo";
 import type {
   Feature,
   FeatureCollection,
+  GeoJsonProperties,
   Geometry,
+  Polygon,
 } from "geojson";
 
 import {
-  SUB_THRESHOLD_PX,
-  computeSubThresholdMarkers,
-  isSubThreshold,
-  pathSpan,
-  projectedCentroid,
   resolveStateClickAction,
+  computeIslandMarker,
 } from "./india-party-map-helpers";
-
-// Same path resolution pattern as
-// frontend/src/contracts/topojson-island-render.test.ts.
-const TOPO_PATH = resolve(
-  __dirname,
-  "..",
-  "..",
-  "..",
-  "..",
-  "datasets",
-  "boundaries",
-  "in",
-  "states",
-  "all.topojson",
-);
-
-// Mirror the live component's projection size + join property so the
-// test exercises the same inputs the citizen sees in the browser.
-const WIDTH = 640;
-const HEIGHT = 480;
-const JOIN_PROPERTY = "State_LGD";
-const LAKSHADWEEP_LGD = 31;
-const TAMIL_NADU_LGD = 33;
-
-interface StateProps {
-  State_LGD: number;
-  STNAME?: string;
-  Remarks?: string;
-}
-
-type StateFeature = Feature<Geometry, StateProps>;
-type StateCollection = FeatureCollection<Geometry, StateProps>;
-
-function loadStateCollection(): StateCollection {
-  const raw = readFileSync(TOPO_PATH, "utf8");
-  const topology = JSON.parse(raw) as Topology;
-  const objectKeys = Object.keys(topology.objects);
-  const collection = topojsonFeature(
-    topology,
-    topology.objects[objectKeys[0]] as GeometryCollection,
-  ) as unknown as StateCollection;
-  return collection;
-}
-
-function buildProjectionAndPath(collection: StateCollection): {
-  projection: ReturnType<typeof geoMercator>;
-  path: ReturnType<typeof geoPath>;
-} {
-  const projection = geoMercator().fitSize(
-    [WIDTH, HEIGHT],
-    collection as unknown as GeoPermissibleObjects,
-  );
-  const path = geoPath(projection);
-  return { projection, path };
-}
-
-describe("IndiaPartyMap helpers - SUB_THRESHOLD_PX constant", () => {
-  test("is the calibrated 14 px value", () => {
-    // Locked: a future tuning bump that changes this needs a
-    // matching plan-doc note. Lakshadweep's 0.14 px max-dim at the
-    // 640x480 viewBox is comfortably below 14; the threshold needs
-    // to ALSO catch Chandigarh / Delhi / Goa per the PR-4 row.
-    expect(SUB_THRESHOLD_PX).toBe(14);
-  });
-});
-
-describe("IndiaPartyMap helpers - isSubThreshold", () => {
-  test("returns true when max(width, height) < threshold", () => {
-    expect(isSubThreshold({ width: 5, height: 10 }, 14)).toBe(true);
-    expect(isSubThreshold({ width: 0.14, height: 0.15 }, 14)).toBe(true);
-  });
-  test("returns false when either dimension >= threshold", () => {
-    expect(isSubThreshold({ width: 14, height: 5 }, 14)).toBe(false);
-    expect(isSubThreshold({ width: 5, height: 14 }, 14)).toBe(false);
-    expect(isSubThreshold({ width: 100, height: 100 }, 14)).toBe(false);
-  });
-  test("defaults to SUB_THRESHOLD_PX when threshold omitted", () => {
-    expect(isSubThreshold({ width: 13, height: 13 })).toBe(true);
-    expect(isSubThreshold({ width: 15, height: 15 })).toBe(false);
-  });
-});
-
-describe("IndiaPartyMap helpers - pathSpan + projectedCentroid", () => {
-  test("pathSpan returns finite width + height for a mainland state", () => {
-    const collection = loadStateCollection();
-    const { path } = buildProjectionAndPath(collection);
-    const tn = collection.features.find(
-      (f) => f.properties.State_LGD === TAMIL_NADU_LGD,
-    );
-    expect(tn).toBeTruthy();
-    const span = pathSpan(tn as StateFeature, path);
-    expect(span).not.toBeNull();
-    expect(span!.width).toBeGreaterThan(20);
-    expect(span!.height).toBeGreaterThan(20);
-  });
-
-  test("projectedCentroid returns finite x + y inside the viewBox for a mainland state", () => {
-    const collection = loadStateCollection();
-    const { projection } = buildProjectionAndPath(collection);
-    const tn = collection.features.find(
-      (f) => f.properties.State_LGD === TAMIL_NADU_LGD,
-    );
-    const c = projectedCentroid(tn as StateFeature, projection);
-    expect(c).not.toBeNull();
-    expect(c![0]).toBeGreaterThan(0);
-    expect(c![0]).toBeLessThan(WIDTH);
-    expect(c![1]).toBeGreaterThan(0);
-    expect(c![1]).toBeLessThan(HEIGHT);
-  });
-
-  test("projectedCentroid returns finite x + y inside the viewBox for Lakshadweep (sub-threshold)", () => {
-    const collection = loadStateCollection();
-    const { projection } = buildProjectionAndPath(collection);
-    const lak = collection.features.find(
-      (f) => f.properties.State_LGD === LAKSHADWEEP_LGD,
-    );
-    const c = projectedCentroid(lak as StateFeature, projection);
-    expect(c).not.toBeNull();
-    // Lakshadweep sits in the Arabian Sea off Kerala's coast - its
-    // projected centroid must land inside the bottom-left of the
-    // viewBox (left third, lower half).
-    expect(c![0]).toBeGreaterThan(0);
-    expect(c![0]).toBeLessThan(WIDTH / 2);
-    expect(c![1]).toBeGreaterThan(HEIGHT / 3);
-    expect(c![1]).toBeLessThan(HEIGHT);
-  });
-});
-
-describe("IndiaPartyMap topojson pipeline against datasets/boundaries/in/states/all.topojson", () => {
-  test("topojson decodes into 36 state features", () => {
-    const collection = loadStateCollection();
-    expect(collection.type).toBe("FeatureCollection");
-    expect(collection.features.length).toBe(36);
-  });
-
-  test("every state carries a non-null State_LGD join property", () => {
-    const collection = loadStateCollection();
-    for (const f of collection.features) {
-      expect(typeof f.properties.State_LGD).toBe("number");
-      expect(Number.isFinite(f.properties.State_LGD)).toBe(true);
-    }
-  });
-
-  test("computeSubThresholdMarkers detects Lakshadweep (the citizen-visibility oracle)", () => {
-    const collection = loadStateCollection();
-    const { projection, path } = buildProjectionAndPath(collection);
-    const markers = computeSubThresholdMarkers(
-      collection.features,
-      projection,
-      path,
-      (f) => f.properties.State_LGD,
-    );
-    // The whole point of PR-4. Lakshadweep MUST be in the marker
-    // overlay - otherwise the citizen still can't see it.
-    const lak = markers.find((m) => m.key === String(LAKSHADWEEP_LGD));
-    expect(lak, "Lakshadweep marker missing from sub-threshold overlay").toBeDefined();
-    expect(lak!.cx).toBeGreaterThan(0);
-    expect(lak!.cx).toBeLessThan(WIDTH / 2);
-    expect(lak!.cy).toBeGreaterThan(0);
-    expect(lak!.cy).toBeLessThan(HEIGHT);
-  });
-
-  test("Tamil Nadu (a large mainland state) is NOT flagged for marker rendering", () => {
-    const collection = loadStateCollection();
-    const { projection, path } = buildProjectionAndPath(collection);
-    const markers = computeSubThresholdMarkers(
-      collection.features,
-      projection,
-      path,
-      (f) => f.properties.State_LGD,
-    );
-    expect(markers.find((m) => m.key === String(TAMIL_NADU_LGD))).toBeUndefined();
-  });
-
-  test("marker overlay size is bounded - more than 0, fewer than half the states", () => {
-    // Loose contract so future viewBox / quantization drift can be
-    // accommodated without test churn. The specific membership of
-    // the overlay is tested for Lakshadweep + Tamil Nadu above; this
-    // sanity-checks the helper does not flag every state (a bug
-    // shape that would obscure the entire map under circles).
-    const collection = loadStateCollection();
-    const { projection, path } = buildProjectionAndPath(collection);
-    const markers = computeSubThresholdMarkers(
-      collection.features,
-      projection,
-      path,
-      (f) => f.properties.State_LGD,
-    );
-    expect(markers.length).toBeGreaterThan(0);
-    expect(markers.length).toBeLessThan(collection.features.length / 2);
-  });
-
-  test("computeSubThresholdMarkers skips features whose feature_key extractor returns null", () => {
-    const collection = loadStateCollection();
-    const { projection, path } = buildProjectionAndPath(collection);
-    const markers = computeSubThresholdMarkers(
-      collection.features,
-      projection,
-      path,
-      () => null,
-    );
-    expect(markers.length).toBe(0);
-  });
-
-  test("computeSubThresholdMarkers respects an override threshold", () => {
-    // A 0 px threshold flags nothing (no max(width, height) is
-    // strictly less than 0). A huge threshold (1000 px) flags every
-    // state. Both branches must hold; the constant test above
-    // covers the production threshold value.
-    const collection = loadStateCollection();
-    const { projection, path } = buildProjectionAndPath(collection);
-
-    const none = computeSubThresholdMarkers(
-      collection.features,
-      projection,
-      path,
-      (f) => f.properties.State_LGD,
-      0,
-    );
-    expect(none.length).toBe(0);
-
-    const all = computeSubThresholdMarkers(
-      collection.features,
-      projection,
-      path,
-      (f) => f.properties.State_LGD,
-      1000,
-    );
-    expect(all.length).toBe(collection.features.length);
-  });
-
-  test("every projected path string for every state is non-empty + starts with M (sanity)", () => {
-    const collection = loadStateCollection();
-    const { path } = buildProjectionAndPath(collection);
-    for (const f of collection.features) {
-      const d = path(f);
-      expect(d, `state ${f.properties.STNAME ?? f.properties.State_LGD} projected to a null path`).toBeTruthy();
-      expect(d!.startsWith("M")).toBe(true);
-    }
-  });
-});
 
 describe("IndiaPartyMap helpers - resolveStateClickAction (PR-4c)", () => {
   // The PR-4c structural fix: IndiaPartyMap's click handler used to
@@ -340,5 +79,121 @@ describe("IndiaPartyMap helpers - resolveStateClickAction (PR-4c)", () => {
   test("returns noop on an empty lookup table (no taxonomy loaded)", () => {
     expect(resolveStateClickAction("33", {}, false)).toEqual({ kind: "noop" });
     expect(resolveStateClickAction("33", {}, true)).toEqual({ kind: "noop" });
+  });
+});
+
+describe("IndiaPartyMap helpers - computeIslandMarker (Lakshadweep)", () => {
+  // Synthetic two-feature collection: a big mainland polygon and a tiny
+  // far-flung island. Projected with the same geoMercator().fitWidth the
+  // national maps use so the test exercises the real projection maths.
+  function sqFeature(
+    name: string,
+    key: string,
+    lng0: number,
+    lat0: number,
+    lng1: number,
+    lat1: number,
+  ): Feature<Polygon> {
+    return {
+      type: "Feature",
+      properties: { STNAME: name, key },
+      geometry: {
+        type: "Polygon",
+        // Clockwise exterior ring - d3-geo's spherical convention treats
+        // the interior as the SMALL side wound this way (a CCW ring is
+        // read as the globe-minus-square complement).
+        coordinates: [
+          [
+            [lng0, lat0],
+            [lng0, lat1],
+            [lng1, lat1],
+            [lng1, lat0],
+            [lng0, lat0],
+          ],
+        ],
+      },
+    };
+  }
+
+  const mainland = sqFeature("MAINLAND", "01", 70, 8, 90, 35);
+  // Lakshadweep: a ~0.1-degree island in the Arabian Sea.
+  const island = sqFeature("Lakshadweep", "U04", 72.6, 10.5, 72.7, 10.6);
+  const collection: FeatureCollection<Polygon> = {
+    type: "FeatureCollection",
+    features: [mainland, island],
+  };
+
+  function projectionAndPath() {
+    const projection = geoMercator().fitWidth(800, collection);
+    const pre = geoPath(projection).bounds(collection);
+    const [tx, ty] = projection.translate();
+    projection.translate([tx - pre[0][0], ty - pre[0][1]]);
+    return { projection, path: geoPath(projection) };
+  }
+
+  const keyOf = (f: Feature<Geometry, GeoJsonProperties>) =>
+    f.properties?.key as string;
+  const nameOf = (f: Feature<Geometry, GeoJsonProperties>) =>
+    String(f.properties?.STNAME ?? "");
+
+  test("returns a marker for the sub-threshold named island", () => {
+    const { projection, path } = projectionAndPath();
+    const marker = computeIslandMarker(
+      collection.features,
+      projection,
+      path,
+      keyOf,
+      nameOf,
+      /laksh/i,
+    );
+    expect(marker).not.toBeNull();
+    expect(marker?.key).toBe("U04");
+    expect(Number.isFinite(marker?.cx)).toBe(true);
+    expect(Number.isFinite(marker?.cy)).toBe(true);
+  });
+
+  test("never marks the large mainland feature", () => {
+    const { projection, path } = projectionAndPath();
+    // A name pattern that ONLY matches the big mainland feature: it is
+    // above threshold, so no marker is produced (it is clickable as-is).
+    const marker = computeIslandMarker(
+      collection.features,
+      projection,
+      path,
+      keyOf,
+      nameOf,
+      /mainland/i,
+    );
+    expect(marker).toBeNull();
+  });
+
+  test("returns null when the name pattern matches nothing", () => {
+    const { projection, path } = projectionAndPath();
+    const marker = computeIslandMarker(
+      collection.features,
+      projection,
+      path,
+      keyOf,
+      nameOf,
+      /antarctica/i,
+    );
+    expect(marker).toBeNull();
+  });
+
+  test("suppresses the marker when the island fills the viewport", () => {
+    const { projection, path } = projectionAndPath();
+    // A tiny threshold simulates the island's own state page, where the
+    // projection is fit to just the island so its span is large: no
+    // marker (the polygon itself is directly clickable).
+    const marker = computeIslandMarker(
+      collection.features,
+      projection,
+      path,
+      keyOf,
+      nameOf,
+      /laksh/i,
+      0.0001,
+    );
+    expect(marker).toBeNull();
   });
 });

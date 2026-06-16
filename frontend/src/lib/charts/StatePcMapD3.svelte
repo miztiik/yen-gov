@@ -21,14 +21,8 @@
    *     navigates to the per-PC leaf:
    *     `/<state>/elections/<event>/<pc-name-slug>` (matches the
    *     bare-slug grammar of the constituency table in StateElection).
-   *   - Per-state silhouette under the PC fills (loaded via the
-   *     shared `loadStateSilhouette` corpus) so the citizen instantly
-   *     reads which state's PCs are shown.
-   *   - `fitSize` projects to the FILTERED feature set so each state's
-   *     PCs fill the viewBox cleanly.
-   *   - Sub-threshold marker overlay for the rare per-state PC that
-   *     collapses below SUB_THRESHOLD_PX (urban Mumbai / Chennai PCs
-   *     can hit this at the per-state fit).
+   *   - `fitWidth` projects to the FILTERED feature set so each state's
+   *     PCs fill the responsive width cleanly.
    *
    * No "Equal-seats" arm: per-state PC tile layouts have NOT been
    * authored. The plan-doc surfaces this as an inline note inside
@@ -67,20 +61,11 @@
   import { navigate } from "../url";
   import { slugify } from "../slug";
   import {
-    loadStateSilhouette,
-    type StateSilhouetteFeature,
-  } from "../state-silhouette";
-  import {
     DEFAULT_HIGHLIGHT_STATE,
     NEUTRAL_HEX_FALLBACK,
     type HighlightMode,
     type MinMargin,
   } from "./map-highlight-utils";
-  import {
-    SUB_THRESHOLD_PX,
-    computeSubThresholdMarkers,
-    type MarkerOverlay,
-  } from "./india-party-map-helpers";
   import {
     buildPcCellPaint,
     type PcCellRow,
@@ -117,7 +102,8 @@
     rows: PcWinnerRow[] | null;
     /** Canonical event id, threaded onto per-PC leaf links. */
     event?: string | null;
-    /** Override map CSS height; width fills the parent. */
+    /** Deprecated: no longer drives sizing (the map is responsive). Kept
+     *  for backward compatibility with existing call sites. */
     height?: string;
     /** Row F party-filter overrides keyed by unique_id. */
     fillsOverride?: Record<string, string>;
@@ -139,7 +125,6 @@
     state_slug,
     rows: input_rows,
     event = null,
-    height = "420px",
     fillsOverride,
     opacitiesOverride,
     highlight_mode = DEFAULT_HIGHLIGHT_STATE.mode,
@@ -148,10 +133,12 @@
     boundary = INDIA_PC,
   }: Props = $props();
 
-  const WIDTH = 640;
-  const HEIGHT = 480;
+  // Responsive fit: project to the measured container width (clamped to
+  // MAX_MAP_W so a 4K viewport does not produce a giant hero); the SVG
+  // height derives from the projected content bounds (no letterboxing).
+  const MAX_MAP_W = 1200;
+  let container_w = $state(0);
   const DEFAULT_FILL = "#e2e8f0"; // slate-200
-  const SILHOUETTE_STROKE = NEUTRAL_HEX_FALLBACK;
   const JOIN_PROPERTY = boundary.join_property; // "unique_id"
   const STATE_FILTER_PROPERTY = "state_ut_code";
   // `boundary` ships `.geojson` as the canonical snapshot path; the
@@ -208,20 +195,6 @@
     } catch {
       neutral_hex = NEUTRAL_HEX_FALLBACK;
     }
-  });
-
-  // ---- Silhouette --------------------------------------------------
-  let silhouette_feature = $state<StateSilhouetteFeature | null>(null);
-  $effect(() => {
-    const sc = state_code;
-    silhouette_feature = null;
-    loadStateSilhouette(sc)
-      .then((f) => {
-        if (state_code === sc) silhouette_feature = f;
-      })
-      .catch(() => {
-        if (state_code === sc) silhouette_feature = null;
-      });
   });
 
   // ---- Topojson load + per-state filter -----------------------------
@@ -287,20 +260,33 @@
       type: "FeatureCollection",
       features: state_features as Feature<Geometry, GeoJsonProperties>[],
     };
+    const obj = safe_fc as GeoPermissibleObjects;
+    const eff_w = Math.min(container_w || 640, MAX_MAP_W);
     let projection: GeoProjection;
     try {
-      projection = geoMercator().fitSize(
-        [WIDTH, HEIGHT],
-        safe_fc as GeoPermissibleObjects,
-      );
+      projection = geoMercator().fitWidth(eff_w, obj);
+      // Re-translate so the projected extent starts at (0,0); fitWidth
+      // anchors x near 0 but can leave a top offset.
+      const pre = geoPath(projection).bounds(obj);
+      const [tx, ty] = projection.translate();
+      projection.translate([tx - pre[0][0], ty - pre[0][1]]);
     } catch {
       projection = geoMercator()
         .center([82.5, 22.5])
         .scale(700)
-        .translate([WIDTH / 2, HEIGHT / 2]);
+        .translate([eff_w / 2, eff_w / 2]);
     }
     const path = geoPath(projection);
-    return { projection, path };
+    let w = eff_w;
+    let h = eff_w;
+    try {
+      const b = path.bounds(obj);
+      w = Math.max(1, Math.ceil(b[1][0]));
+      h = Math.max(1, Math.ceil(b[1][1]));
+    } catch {
+      // keep the eff_w x eff_w fallback box on a bounds failure
+    }
+    return { projection, path, w, h };
   });
 
   // ---- Per-PC paint ------------------------------------------------
@@ -313,25 +299,12 @@
     return String(raw);
   }
 
-  const marker_overlays = $derived<MarkerOverlay[]>(
-    state_features.length === 0 || !projection_path
-      ? []
-      : computeSubThresholdMarkers(
-          state_features as Feature<Geometry, GeoJsonProperties>[],
-          projection_path.projection,
-          projection_path.path,
-          (f) => featureUid(f.properties ?? undefined),
-        ),
+  // Wrapper aspect-ratio: the projected content w/h once the topojson
+  // loads + filters, a neutral 640/480 default during the loading / empty
+  // window so the placeholder reserves space (no layout shift on paint).
+  const wrapper_aspect = $derived(
+    projection_path ? `${projection_path.w}/${projection_path.h}` : "640/480",
   );
-
-  const feature_by_uid = $derived.by(() => {
-    const m = new Map<string, Feature<Geometry, GeoJsonProperties>>();
-    for (const f of state_features) {
-      const uid = featureUid(f.properties ?? undefined);
-      if (uid != null) m.set(uid, f);
-    }
-    return m;
-  });
 
   const cell_paint = $derived.by<Map<string, PcCellPaint>>(() => {
     const cell_rows: PcCellRow[] = [];
@@ -455,6 +428,14 @@
       zoom_behavior = null;
     };
   });
+  // Reset the zoom transform when the responsive width changes so a stale
+  // transform from the previous width does not cause a visual jump.
+  $effect(() => {
+    void container_w;
+    if (svg_el && zoom_behavior) {
+      select(svg_el).call(zoom_behavior.transform, zoomIdentity);
+    }
+  });
   function zoomInButton(): void {
     if (!svg_el || !zoom_behavior) return;
     select(svg_el).call(zoom_behavior.scaleBy, 1.5);
@@ -470,12 +451,12 @@
 </script>
 
 <div
+  bind:clientWidth={container_w}
   class="relative w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50"
-  style="height: {height};"
+  style="aspect-ratio:{wrapper_aspect};"
   data-component="state-pc-map-d3"
   data-testid="state-pc-map-d3"
   data-state={state_code}
-  data-threshold-px={SUB_THRESHOLD_PX}
 >
   {#if load_error}
     <div
@@ -500,22 +481,12 @@
     {@const pp = projection_path}
     <svg
       bind:this={svg_el}
-      class="block w-full h-full cursor-grab active:cursor-grabbing"
-      viewBox="0 0 {WIDTH} {HEIGHT}"
-      preserveAspectRatio="xMidYMid meet"
+      class="block w-full cursor-grab active:cursor-grabbing"
+      viewBox="0 0 {pp.w} {pp.h}"
+      width="100%"
+      style="height:auto; aspect-ratio:{pp.w}/{pp.h};"
     >
       <g bind:this={zoom_group_el}>
-        {#if silhouette_feature}
-          <path
-            d={safePath(silhouette_feature, pp.path)}
-            fill="none"
-            stroke={SILHOUETTE_STROKE}
-            stroke-width="1.5"
-            pointer-events="none"
-            class="state-pc-map-d3__silhouette"
-            data-component="state-pc-map-d3-silhouette"
-          />
-        {/if}
         {#each state_features as f, i (i)}
           {@const uid = featureUid(f.properties ?? undefined)}
           {@const p = paintForUid(uid)}
@@ -532,28 +503,6 @@
             onmousemove={onFeatureMove}
             onmouseleave={onFeatureLeave}
             onclick={() => onSelectUid(uid)}
-          />
-        {/each}
-
-        {#each marker_overlays as m, mi (mi)}
-          {@const matching = feature_by_uid.get(m.key)}
-          {@const p = paintForUid(m.key)}
-          <circle
-            cx={m.cx}
-            cy={m.cy}
-            r={6}
-            fill={p.fill}
-            fill-opacity={p.opacity}
-            stroke="#0f172a"
-            stroke-width="0.8"
-            class="state-pc-map-d3__marker"
-            data-pc-unique-id={m.key}
-            data-marker="sub-threshold"
-            onmouseenter={(e) =>
-              onFeatureEnter(e, matching?.properties ?? undefined, m.key)}
-            onmousemove={onFeatureMove}
-            onmouseleave={onFeatureLeave}
-            onclick={() => onSelectUid(m.key)}
           />
         {/each}
       </g>

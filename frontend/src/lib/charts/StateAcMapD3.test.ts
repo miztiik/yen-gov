@@ -34,7 +34,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, test } from "vitest";
 import { geoMercator, geoPath, type GeoPermissibleObjects } from "d3-geo";
-import type { Feature, FeatureCollection, Geometry } from "geojson";
+import type { FeatureCollection, Geometry } from "geojson";
 
 import {
   acFillForRow,
@@ -47,11 +47,6 @@ import {
   HIGHLIGHT_STROKE_WIDTH_PX,
   type AcCellInput,
 } from "./state-ac-map-helpers";
-import {
-  SUB_THRESHOLD_PX,
-  computeSubThresholdMarkers,
-  pathSpan,
-} from "./india-party-map-helpers";
 
 // Same path resolution pattern as IndiaPartyMap.test.ts (4 ".." to
 // climb from `frontend/src/lib/charts/` to the repo root).
@@ -69,20 +64,6 @@ const GOA_GEOJSON_PATH = resolve(
   "state=goa",
   "all.geojson",
 );
-const UP_GEOJSON_PATH = resolve(
-  __dirname,
-  "..",
-  "..",
-  "..",
-  "..",
-  "datasets",
-  "boundaries",
-  "electoral",
-  "delim=2008",
-  "ac",
-  "state=uttar-pradesh",
-  "all.geojson",
-);
 
 // Mirror the live component's projection size + join property so the
 // test exercises the same inputs the citizen sees in the browser.
@@ -97,7 +78,6 @@ interface AcProps {
   reservation?: string;
 }
 
-type AcFeature = Feature<Geometry, AcProps>;
 type AcCollection = FeatureCollection<Geometry, AcProps>;
 
 function loadAcCollection(path: string): AcCollection {
@@ -353,97 +333,5 @@ describe("StateAcMapD3 - Goa AC pipeline (41 features, lgd_ac_id covered)", () =
       ).toBeTruthy();
       expect(d!.startsWith("M")).toBe(true);
     }
-  });
-
-  test("computeSubThresholdMarkers returns at most a small fraction of Goa's ACs", () => {
-    // Goa's largest AC is a few px wide at the 640x480 fit; some may
-    // be sub-threshold, most are not. Loose contract: marker count is
-    // strictly less than feature count (overlay must not paint every
-    // AC) and never negative.
-    const collection = loadAcCollection(GOA_GEOJSON_PATH);
-    const { projection, path } = buildProjectionAndPath(collection);
-    const markers = computeSubThresholdMarkers(
-      collection.features,
-      projection,
-      path,
-      (f) => f.properties.ac_no,
-    );
-    expect(markers.length).toBeGreaterThanOrEqual(0);
-    expect(markers.length).toBeLessThan(collection.features.length);
-  });
-});
-
-describe("StateAcMapD3 - Uttar Pradesh AC pipeline (sub-threshold marker contract)", () => {
-  test("collection decodes into 404 features (UP AE)", () => {
-    const collection = loadAcCollection(UP_GEOJSON_PATH);
-    expect(collection.features.length).toBe(404);
-  });
-
-  test("at least one UP AC is sub-threshold at the 640x480 fitSize (citizen-visibility oracle)", () => {
-    // UP is large but contains numerous tiny urban ACs (the dense
-    // Varanasi / Lucknow / Kanpur cores) which collapse to sub-px at
-    // the per-state fitSize. Empirically ~50 of 404 features hit the
-    // 14-px sub-threshold rule at this projection. The whole point
-    // of the overlay is to give these a citizen-clickable target. If
-    // this oracle fails, EITHER the projection is broken OR
-    // SUB_THRESHOLD_PX has been retuned and the calibration comment
-    // in PR-4's helper needs a refresh.
-    const collection = loadAcCollection(UP_GEOJSON_PATH);
-    const { projection, path } = buildProjectionAndPath(collection);
-    const markers = computeSubThresholdMarkers(
-      collection.features,
-      projection,
-      path,
-      (f) => f.properties.ac_no,
-    );
-    expect(
-      markers.length,
-      "no sub-threshold UP AC detected at the 640x480 fitSize",
-    ).toBeGreaterThanOrEqual(1);
-    // Loose upper bound: most UP ACs are large enough not to need a
-    // marker; the overlay must not paint every single one.
-    expect(markers.length).toBeLessThan(collection.features.length);
-  });
-
-  test("sub-threshold marker carries a finite cx/cy inside the viewBox", () => {
-    const collection = loadAcCollection(UP_GEOJSON_PATH);
-    const { projection, path } = buildProjectionAndPath(collection);
-    const markers = computeSubThresholdMarkers(
-      collection.features,
-      projection,
-      path,
-      (f) => f.properties.ac_no,
-    );
-    for (const m of markers) {
-      expect(Number.isFinite(m.cx)).toBe(true);
-      expect(Number.isFinite(m.cy)).toBe(true);
-      expect(m.cx).toBeGreaterThan(0);
-      expect(m.cx).toBeLessThan(WIDTH);
-      expect(m.cy).toBeGreaterThan(0);
-      expect(m.cy).toBeLessThan(HEIGHT);
-    }
-  });
-
-  test("pathSpan is bounded below SUB_THRESHOLD_PX for at least one detected sub-threshold AC", () => {
-    // Defends against a regression where computeSubThresholdMarkers
-    // returns markers for OVER-threshold features. The marker's
-    // matching feature must genuinely have a sub-threshold span.
-    const collection = loadAcCollection(UP_GEOJSON_PATH);
-    const { projection, path } = buildProjectionAndPath(collection);
-    const markers = computeSubThresholdMarkers(
-      collection.features,
-      projection,
-      path,
-      (f) => f.properties.ac_no,
-    );
-    if (markers.length === 0) return; // covered by the prior test
-    const first_eci = Number(markers[0].key);
-    const matching = collection.features.find(
-      (f) => f.properties.ac_no === first_eci,
-    );
-    expect(matching).toBeTruthy();
-    const span = pathSpan(matching as AcFeature, path);
-    expect(span).not.toBeNull();
-    expect(Math.max(span!.width, span!.height)).toBeLessThan(SUB_THRESHOLD_PX);
   });
 });
