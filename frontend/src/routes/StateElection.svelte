@@ -86,8 +86,10 @@
   import StateEventPartyComposite from "../lib/elections/StateEventPartyComposite.svelte";
   import SiblingEventsRail from "../lib/elections/SiblingEventsRail.svelte";
   import StateEventCrossEventSankey from "../lib/elections/StateEventCrossEventSankey.svelte";
+  import RacesBoard from "../lib/RacesBoard.svelte";
+  import StateEventAllParties from "../lib/elections/StateEventAllParties.svelte";
   import { buildSiblingEventsRail } from "../lib/elections/sibling-events-rail-model";
-  import type { PrevWinnersState } from "../lib/elections/cross-event-sankey-model";
+  import type { PrevWinnersState } from "../lib/elections/seat-flow-model";
   import {
     loadEventSummary,
     type EventSummaryRow,
@@ -347,6 +349,7 @@
     party_eci_code: string | null;
     brand_colour_hex: string | null;
     brand_colour_confidence: "high" | "medium" | "low" | null;
+    symbol_asset_path: string | null;
   }
 
   const top_parties = $derived.by<PartyTotals[]>(() => {
@@ -364,10 +367,13 @@
           party_eci_code: w.party_eci_code,
           brand_colour_hex: w.brand_colour_hex,
           brand_colour_confidence: w.brand_colour_confidence,
+          symbol_asset_path: w.symbol_asset_path ?? null,
         };
         by.set(pid, bucket);
       }
       bucket.seats += 1;
+      if (bucket.symbol_asset_path == null && w.symbol_asset_path)
+        bucket.symbol_asset_path = w.symbol_asset_path;
       // The W2b loader leaves `w.votes` null at winner-only scopes
       // (only the CONSTITUENCY arm projects per-candidate votes). So
       // recover the winner's vote count from the (votes_polled,
@@ -399,8 +405,89 @@
       brand_colour_hex: b.brand_colour_hex,
       brand_colour_confidence: b.brand_colour_confidence,
       alliance_short: alliance_lookup?.(b.pid) ?? null,
+      symbol_asset_path: b.symbol_asset_path,
     }));
   });
+
+  // ---- All parties (gap-closure G3) -----------------------------------
+  // Full per-party totals (NOT sliced to TOP_N) for the "All parties -
+  // directory" section. Same aggregation as top_parties; this is the
+  // unbounded list the searchable directory + the symbol-bearing
+  // composite consume. Spec: TODO/20260616-state-event-page-gap-closure-
+  // plan.md rows G3 + G4.
+  const all_parties = $derived.by<PartyTotals[]>(() => {
+    const by = new Map<string, AggBucket>();
+    for (const w of winners) {
+      const pid = partyIdFor(w);
+      let bucket = by.get(pid);
+      if (!bucket) {
+        bucket = {
+          pid,
+          party_short: w.party_short ?? "UNK",
+          seats: 0,
+          votes: 0,
+          has_any_vote: false,
+          party_eci_code: w.party_eci_code,
+          brand_colour_hex: w.brand_colour_hex,
+          brand_colour_confidence: w.brand_colour_confidence,
+          symbol_asset_path: w.symbol_asset_path ?? null,
+        };
+        by.set(pid, bucket);
+      }
+      bucket.seats += 1;
+      if (bucket.symbol_asset_path == null && w.symbol_asset_path)
+        bucket.symbol_asset_path = w.symbol_asset_path;
+      if (w.votes_polled != null && w.vote_share_pct != null) {
+        bucket.votes += (w.votes_polled * w.vote_share_pct) / 100;
+        bucket.has_any_vote = true;
+      }
+    }
+    return [...by.values()]
+      .sort((a, b) => b.seats - a.seats || b.votes - a.votes)
+      .map<PartyTotals>((b) => ({
+        party_eci_code: b.party_eci_code,
+        party_short: b.party_short,
+        party_full: null,
+        seats_contested: null,
+        seats_won: b.seats,
+        votes: Math.round(b.votes),
+        vote_share_pct:
+          b.has_any_vote && event_total_votes > 0
+            ? (b.votes / event_total_votes) * 100
+            : 0,
+        party_id: b.pid,
+        brand_colour_hex: b.brand_colour_hex,
+        brand_colour_confidence: b.brand_colour_confidence,
+        alliance_short: alliance_lookup?.(b.pid) ?? null,
+        symbol_asset_path: b.symbol_asset_path,
+      }));
+  });
+
+  // ---- Races-by-competitiveness rows (gap-closure G2) -----------------
+  // Distinct from ac_winners_shim (which recolours for the Winner|Margin
+  // MAP toggle): RacesBoard does its own party-colour resolution off
+  // party_id + brand_colour_hex, so we pass the TRUE brand colour (never
+  // the margin-grey) plus the election symbol asset for the per-row
+  // glyph. AC events only (RacesBoard is AC-shaped, same as the state
+  // page). Spec: TODO/20260616-state-event-page-gap-closure-plan.md G2.
+  const races_rows = $derived<AcWinner[]>(
+    body !== "ac"
+      ? []
+      : winners.map<AcWinner>((w) => ({
+          ac_eci_no: w.eci_no,
+          ac_name: w.entity_name,
+          party_id: partyIdFor(w),
+          party_eci_code: w.party_eci_code,
+          party_short: w.party_short ?? "UNK",
+          margin_pct: w.margin_pct ?? 0,
+          turnout_pct: w.turnout_pct,
+          winner_age: w.winner_age,
+          winner_candidate_name: w.winner_candidate_name,
+          symbol_asset_path: w.symbol_asset_path,
+          brand_colour_hex: w.brand_colour_hex,
+          brand_colour_confidence: w.brand_colour_confidence,
+        })),
+  );
 
   // ---- StateAcMap shim ------------------------------------------------
   // Reuse the existing AC choropleth for assembly events. AcWinner is the
@@ -1174,6 +1261,30 @@
         resolved_event_id={event_row?.event_id}
       />
 
+      <!-- Races by competitiveness. Gap-closure G2
+           (TODO/20260616-state-event-page-gap-closure-plan.md): the
+           RacesBoard surface existed on /<state> but was never mounted
+           on the election route. Sits directly ABOVE the constituency
+           list so the citizen reads the competitiveness story (who won
+           easily / nail-biters) before the per-AC rows. AC events only;
+           races_rows carries TRUE winner colours + the symbol asset
+           (NOT the margin-grey the map shim uses). -->
+      {#if body === "ac" && races_rows.length > 0}
+        <section
+          class="rounded border border-slate-200 bg-white p-4"
+          data-testid="state-event-races-board"
+        >
+          <h2 class="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">
+            Races by competitiveness
+          </h2>
+          <RacesBoard
+            state={state_code ?? ""}
+            rows={races_rows}
+            event={event_row?.event_id ?? null}
+          />
+        </section>
+      {/if}
+
       <!-- Constituency table + Compare CTA. R3 of
            TODO/20260615-state-election-event-page-redesign-plan.md
            (2026-06-15): extracted to StateEventConstituencyList as a
@@ -1191,12 +1302,14 @@
         {fmtPct}
       />
 
-      <!-- Cross-event vote-flow comparison. R5 of
-           TODO/20260615-state-election-event-page-redesign-plan.md
-           (2026-06-15): always-on diverging bar above a collapsed
-           Sankey behind a 'Show vote-flow' pill. Max + Jony verdict
-           in plan Section 6. When no prior same-body event exists
-           the section renders the no-prior copy with no button. -->
+      <!-- Cross-event SEAT-FLOW comparison. Gap-closure G5
+           (TODO/20260616-state-event-page-gap-closure-plan.md): the
+           prior vote-flow APPROXIMATION is replaced by the FACTUAL
+           hold/loss seat-transition Sankey - join current + prior
+           winners on entity_id, ribbon width = number of seats. Always-on
+           holds/flips headline; the diagram is collapsed behind a 'Show
+           seat flow' pill. When no prior same-body event exists the
+           section renders the no-prior copy with no button. -->
       <StateEventCrossEventSankey
         current_winners={winners}
         prev_winners={prev_winners_state}
@@ -1205,6 +1318,14 @@
         {body_pretty}
         {state_name}
       />
+
+      <!-- All parties - directory. Gap-closure G3
+           (TODO/20260616-state-event-page-gap-closure-plan.md): the
+           searchable all-parties directory existed on /<state> but was
+           never mounted on the election route. Final content section;
+           lists every party that contested (not just the top-N from the
+           composite), each linking to its party page. -->
+      <StateEventAllParties parties={all_parties} {loading} />
     {/if}
   {/if}
 </PageContainer>

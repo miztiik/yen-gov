@@ -1,55 +1,47 @@
 <!--
-  StateEventCrossEventSankey - R5 of
-  TODO/20260615-state-election-event-page-redesign-plan.md (2026-06-15).
+  StateEventCrossEventSankey - FACTUAL seat-flow (gap-closure G5,
+  TODO/20260616-state-event-page-gap-closure-plan.md).
 
-  Mounts at section 11 of the state-event page (between the constituency
-  list and the all-parties directory if/when that lands). Default-off
-  Sankey behind a "Show vote-flow" pill; always-on diverging bar above
-  it carries the load-bearing per-party signed seat-delta.
+  REPLACES the prior vote-flow APPROXIMATION. The user asked for the exact
+  hold/loss matrix: "for a given constituency a party either holds or
+  loses to another, so we can sum up across parties". This component joins
+  the current + prior winners on entity_id (one seat = one prior winner +
+  one current winner), aggregates the (prev -> curr) transitions, and
+  draws a true bipartite Sankey: left column = prior winners, right column
+  = current winners, ribbon width = NUMBER OF SEATS (not votes, not an
+  estimate). A party that held its seat is a self-loop drawn straight
+  across; a flip is a cross-ribbon coloured by the party it came from.
 
-  Wraps the existing SwingSankey primitive (frontend/src/lib/SwingSankey.svelte)
-  by passing the prev event's per-party totals as `actuals` and the
-  current event's per-party totals as `scenario`. SwingSankey already
-  ships the diff-arithmetic + ribbon rendering; this wrapper just
-  threads the per-event input + adds the section chrome (caption +
-  toggle).
+  Always-on headline (holds / flips / new) so the citizen gets the story
+  even without expanding the diagram. The Sankey is collapsed by default
+  behind a "Show seat flow" pill. Caption is FACTUAL - no "approximate" /
+  "estimate" language.
 
-  No-prior case: when previous_winners is null OR empty, the section
-  renders the no-prior copy with no button and no diverging bar (Max +
-  Jony verdict baked into the plan-doc Section 6 R5 spec).
-
-  Loading case: when prev_winners is `loading`, render a small
-  skeleton so the citizen sees the section is alive rather than
-  flickering blank then suddenly populated.
-
-  Caption (always visible below the Sankey when expanded):
-    "Approximate flow: each party's net seat loss is redistributed to
-     gainers in proportion to each gainer's net seat gain. We do not
-     track constituency-level flips; this is a state-total estimate."
+  No-prior: the first event of a body for a state has nothing to flow
+  from; the section renders the no-prior copy with no button.
 -->
 <script lang="ts">
-  import SwingSankey from "../SwingSankey.svelte";
   import {
-    buildCrossEventSankeyModel,
-    type PartyDelta,
+    buildSeatFlowModel,
+    type SeatFlowNode,
     type PrevWinnersState,
-  } from "./cross-event-sankey-model";
+  } from "./seat-flow-model";
   import type { ElectionResultRow } from "../view-models/election-results";
+  import {
+    getPartyColor,
+    type PartyRowForResolver,
+  } from "../colors/resolver";
 
   interface Props {
     /** Current event's winners (already loaded by the parent). */
     current_winners: readonly ElectionResultRow[];
     /** Prev same-body event's winners as a loader state. */
     prev_winners: PrevWinnersState;
-    /** Human-readable label of the prior event for the caption (e.g.
-     *  "Assembly 2019"). Required when prev_winners.status === "ok". */
+    /** Human-readable label of the prior event (e.g. "Assembly 2019"). */
     prev_event_label: string | null;
-    /** Human-readable label of the current event for the caption
-     *  (e.g. "Assembly 2024"). */
+    /** Human-readable label of the current event (e.g. "Assembly 2024"). */
     current_event_label: string;
-    /** Body discriminator ("Assembly" / "Parliament") - used for the
-     *  no-prior copy ("Vote-flow comparison needs a prior
-     *  {body} election"). */
+    /** Body discriminator ("Assembly" / "Parliament") for no-prior copy. */
     body_pretty: string;
     /** State name for the no-prior copy. */
     state_name: string;
@@ -64,152 +56,309 @@
     state_name,
   }: Props = $props();
 
-  // Sankey is collapsed by default; the "Show vote-flow" pill flips
-  // this on. Stays on across event navigation - the citizen who
-  // expanded it on /maharashtra/elections/assembly-2024 sees it
-  // expanded when they pop over to assembly-2019.
-  let sankey_expanded = $state(false);
+  let expanded = $state(false);
 
   const model = $derived.by(() => {
     if (prev_winners.status === "ok") {
-      return buildCrossEventSankeyModel({
+      return buildSeatFlowModel({
         current: current_winners,
         previous: prev_winners.rows,
       });
     }
     if (prev_winners.status === "no_prior") {
-      return buildCrossEventSankeyModel({
-        current: current_winners,
-        previous: null,
-      });
+      return buildSeatFlowModel({ current: current_winners, previous: null });
     }
     return null; // loading / failed
   });
 
-  function fmtSignedInt(n: number): string {
-    if (n > 0) return `+${n}`;
-    return String(n);
-  }
-
-  // Bar layout: max abs(delta) sets the half-width; each row's bar
-  // width = |delta| / max * 50 (so half the row width fits the
-  // largest signed mover). Zero-delta rows show a 1px tick at the
-  // axis so the citizen reads "no change" not "missing".
-  const max_abs_delta = $derived.by<number>(() => {
-    if (!model || model.no_prior) return 1;
-    let m = 0;
-    for (const r of model.diverging) {
-      const a = Math.abs(r.delta);
-      if (a > m) m = a;
+  // ---- Colour resolution -------------------------------------------------
+  // The model stays pure (no colour). Resolve each party's brand colour
+  // here off the winner rows we already hold, keyed by canonical party_id.
+  const colour_by_pid = $derived.by(() => {
+    const map = new Map<string, string>();
+    const rows: readonly ElectionResultRow[] =
+      prev_winners.status === "ok"
+        ? [...current_winners, ...prev_winners.rows]
+        : current_winners;
+    for (const w of rows) {
+      const pid =
+        w.party_id ?? `parties.IN.${(w.party_short ?? "UNK").toUpperCase()}`;
+      if (map.has(pid)) continue;
+      const row: PartyRowForResolver | null = w.brand_colour_hex
+        ? {
+            party_id: pid,
+            eci_code: w.party_eci_code,
+            brand_colour: {
+              hex: w.brand_colour_hex,
+              confidence: w.brand_colour_confidence ?? "medium",
+            },
+          }
+        : null;
+      map.set(pid, getPartyColor(pid, row).hex);
     }
-    return m > 0 ? m : 1;
+    return map;
   });
 
-  function barWidthPct(d: PartyDelta): number {
-    return (Math.abs(d.delta) / max_abs_delta) * 50;
+  function nodeColour(n: SeatFlowNode): string {
+    if (n.is_bucket) return n.key === "__new__" ? "#cbd5e1" : "#94a3b8";
+    return colour_by_pid.get(n.party_id ?? "") ?? "#94a3b8";
   }
+
+  // ---- Layout ------------------------------------------------------------
+  const W = 620;
+  const H = 380;
+  const PAD_Y = 10;
+  const COL_W = 14;
+  const LEFT_X = 92;
+  const RIGHT_X = W - 92 - COL_W;
+
+  interface Band {
+    key: string;
+    label: string;
+    seats: number;
+    colour: string;
+    y: number;
+    h: number;
+    used: number;
+  }
+
+  interface Ribbon {
+    path: string;
+    colour: string;
+    from_label: string;
+    to_label: string;
+    seats: number;
+    is_hold: boolean;
+  }
+
+  function stack(nodes: SeatFlowNode[], total: number): Band[] {
+    const usable = H - 2 * PAD_Y;
+    const out: Band[] = [];
+    let y = PAD_Y;
+    for (const n of nodes) {
+      const h = total > 0 ? (n.seats / total) * usable : 0;
+      out.push({
+        key: n.key,
+        label: n.label,
+        seats: n.seats,
+        colour: nodeColour(n),
+        y,
+        h,
+        used: 0,
+      });
+      y += h + 2;
+    }
+    return out;
+  }
+
+  function ribbonPath(
+    y_l_top: number,
+    y_l_bot: number,
+    y_r_top: number,
+    y_r_bot: number,
+  ): string {
+    const x1 = LEFT_X + COL_W;
+    const x2 = RIGHT_X;
+    const cx = x1 + (x2 - x1) * 0.5;
+    return [
+      `M ${x1} ${y_l_top}`,
+      `C ${cx} ${y_l_top}, ${cx} ${y_r_top}, ${x2} ${y_r_top}`,
+      `L ${x2} ${y_r_bot}`,
+      `C ${cx} ${y_r_bot}, ${cx} ${y_l_bot}, ${x1} ${y_l_bot}`,
+      "Z",
+    ].join(" ");
+  }
+
+  const layout = $derived.by(() => {
+    if (!model || model.no_prior || model.total_seats === 0) {
+      return { left: [] as Band[], right: [] as Band[], ribbons: [] as Ribbon[] };
+    }
+    const total = model.total_seats;
+    const left = stack(model.left, total);
+    const right = stack(model.right, total);
+    const leftBy = new Map(left.map((b) => [b.key, b]));
+    const rightBy = new Map(right.map((b) => [b.key, b]));
+    const leftIdx = new Map(left.map((b, i) => [b.key, i]));
+    const rightIdx = new Map(right.map((b, i) => [b.key, i]));
+    const usable = H - 2 * PAD_Y;
+
+    // Order ribbons by (left band position, right band position) so they
+    // stack within each band without crossing more than necessary.
+    const ordered = [...model.flows].sort((a, b) => {
+      const la = leftIdx.get(a.from_key) ?? 99;
+      const lb = leftIdx.get(b.from_key) ?? 99;
+      if (la !== lb) return la - lb;
+      const ra = rightIdx.get(a.to_key) ?? 99;
+      const rb = rightIdx.get(b.to_key) ?? 99;
+      return ra - rb;
+    });
+
+    const ribbons: Ribbon[] = [];
+    for (const f of ordered) {
+      const lb = leftBy.get(f.from_key);
+      const rb = rightBy.get(f.to_key);
+      if (!lb || !rb) continue;
+      const h = (f.seats / total) * usable;
+      const y_l_top = lb.y + lb.used;
+      const y_r_top = rb.y + rb.used;
+      lb.used += h;
+      rb.used += h;
+      ribbons.push({
+        path: ribbonPath(y_l_top, y_l_top + h, y_r_top, y_r_top + h),
+        colour: lb.colour,
+        from_label: lb.label,
+        to_label: rb.label,
+        seats: f.seats,
+        is_hold: f.is_hold,
+      });
+    }
+    return { left, right, ribbons };
+  });
+
+  let hover_idx = $state<number | null>(null);
 </script>
 
-<section class="space-y-3" data-testid="state-event-cross-event-sankey">
+<section class="space-y-2" data-testid="state-event-seat-flow">
   <h2 class="text-sm font-medium text-slate-700">
-    Vote-flow comparison
+    Seat flow: where each seat moved
   </h2>
 
   {#if prev_winners.status === "loading"}
-    <p
-      class="text-xs text-slate-500"
-      data-testid="state-event-cross-event-sankey-loading"
-    >Loading prior event data...</p>
+    <div
+      class="h-24 animate-pulse rounded bg-slate-50 ring-1 ring-slate-200/70"
+      data-testid="state-event-seat-flow-loading"
+    ></div>
   {:else if prev_winners.status === "failed"}
-    <p class="text-xs text-rose-600">
-      Vote-flow comparison data could not load: {prev_winners.reason}
+    <p class="text-xs text-slate-500">
+      Seat-flow comparison data could not load: {prev_winners.reason}
     </p>
   {:else if !model || model.no_prior}
     <p
       class="text-xs text-slate-500"
-      data-testid="state-event-cross-event-sankey-no-prior"
+      data-testid="state-event-seat-flow-no-prior"
     >
-      Vote-flow comparison needs a prior election; this is the first
-      {body_pretty} event on record for {state_name}.
+      Seat-flow needs a prior election; this is the first {body_pretty}
+      event on record for {state_name}.
     </p>
   {:else}
-    <!-- Always-on diverging bar - the load-bearing visual. -->
-    <div
-      class="rounded border border-slate-200 bg-white p-3"
-      data-testid="state-event-cross-event-diverging-bar"
+    <!-- Always-on factual headline. -->
+    <p
+      class="text-sm text-slate-700"
+      data-testid="state-event-seat-flow-headline"
     >
-      <p class="mb-2 text-xs italic text-slate-600">
-        Net seat change vs the previous {body_pretty} event ({prev_event_label}).
-      </p>
-      <ul class="space-y-1.5">
-        {#each model.diverging as r (r.party_id)}
-          {@const positive = r.delta >= 0}
-          {@const w = barWidthPct(r)}
-          <li
-            class="flex items-center gap-2 text-xs"
-            data-testid="state-event-cross-event-diverging-row"
-          >
-            <span
-              aria-hidden="true"
-              class="inline-block h-2 w-2 shrink-0 rounded-full"
-              style="background-color: {r.color_hex};"
-            ></span>
-            <span class="w-16 shrink-0 truncate font-medium text-slate-700">
-              {r.party_short}
-            </span>
-            <!-- Bar track: two halves; axis at 50% -->
-            <span class="relative flex h-2.5 flex-1 items-center">
-              <span class="absolute inset-y-0 left-1/2 w-px bg-slate-300"></span>
-              {#if positive}
-                <span
-                  class="absolute inset-y-0 left-1/2 rounded-r bg-emerald-500"
-                  style="width: {w}%;"
-                ></span>
-              {:else}
-                <span
-                  class="absolute inset-y-0 rounded-l bg-rose-500"
-                  style="right: 50%; width: {w}%;"
-                ></span>
-              {/if}
-            </span>
-            <span
-              class="w-12 shrink-0 text-right font-mono tabular-nums {positive
-                ? 'text-emerald-700'
-                : 'text-rose-700'}"
-            >{fmtSignedInt(r.delta)}</span>
-          </li>
-        {/each}
-      </ul>
-    </div>
+      <span class="font-semibold tabular-nums">{model.holds}</span> held &middot;
+      <span class="font-semibold tabular-nums">{model.flips}</span> flipped
+      {#if model.unmatched > 0}
+        &middot;
+        <span class="font-semibold tabular-nums">{model.unmatched}</span>
+        new / redrawn
+      {/if}
+      <span class="text-slate-400">of {model.total_seats} seats</span>
+    </p>
 
-    <!-- Sankey opt-in toggle + caption. -->
     <button
       type="button"
-      class="inline-flex items-center rounded-yen-pill border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
-      data-testid="state-event-cross-event-sankey-toggle"
-      aria-expanded={sankey_expanded}
-      onclick={() => (sankey_expanded = !sankey_expanded)}
-    >{sankey_expanded ? "Hide vote-flow" : "Show vote-flow"}</button>
+      class="inline-flex items-center gap-1 rounded-yen-pill border border-slate-300 px-3 py-1 text-xs font-medium text-slate-700 hover:bg-slate-100"
+      data-testid="state-event-seat-flow-toggle"
+      aria-expanded={expanded}
+      onclick={() => (expanded = !expanded)}
+    >{expanded ? "Hide seat flow" : "Show seat flow"}</button>
 
-    {#if sankey_expanded}
-      <div
-        class="rounded border border-slate-200 bg-white p-3"
-        data-testid="state-event-cross-event-sankey-panel"
-      >
-        <p class="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500">
-          {prev_event_label} -> {current_event_label}
-        </p>
-        <SwingSankey
-          actuals={model.sankey_actuals}
-          scenario={model.sankey_scenario}
-        />
-        <p
-          class="mt-2 text-xs italic text-slate-600"
-          data-testid="state-event-cross-event-sankey-caption"
+    {#if expanded}
+      <div class="mt-2" data-testid="state-event-seat-flow-diagram">
+        <div
+          class="flex items-center justify-between text-[11px] font-medium uppercase tracking-wide text-slate-500"
         >
-          Approximate flow: each party's net seat loss is redistributed to
-          gainers in proportion to each gainer's net seat gain. We do not
-          track constituency-level flips; this is a state-total estimate.
+          <span>{prev_event_label ?? "Previous"}</span>
+          <span>{current_event_label}</span>
+        </div>
+        <svg
+          viewBox="0 0 {W} {H}"
+          class="h-auto w-full"
+          role="img"
+          aria-label="Seat flow from the previous election to this one"
+        >
+          {#each layout.ribbons as r, i (i)}
+            <path
+              d={r.path}
+              fill={r.colour}
+              opacity={hover_idx === null
+                ? r.is_hold
+                  ? 0.45
+                  : 0.3
+                : hover_idx === i
+                  ? 0.8
+                  : 0.12}
+              onmouseenter={() => (hover_idx = i)}
+              onmouseleave={() => (hover_idx = null)}
+            >
+              <title
+                >{r.from_label} &rarr; {r.to_label}: {r.seats} seat{r.seats === 1
+                  ? ""
+                  : "s"}{r.is_hold ? " (held)" : ""}</title
+              >
+            </path>
+          {/each}
+
+          {#each layout.left as b (b.key)}
+            <rect
+              x={LEFT_X}
+              y={b.y}
+              width={COL_W}
+              height={Math.max(1, b.h)}
+              fill={b.colour}
+            />
+            <text
+              x={LEFT_X - 6}
+              y={b.y + b.h / 2}
+              text-anchor="end"
+              dominant-baseline="middle"
+              font-size="11"
+              fill="#0f172a">{b.label}</text
+            >
+            <text
+              x={LEFT_X - 6}
+              y={b.y + b.h / 2 + 12}
+              text-anchor="end"
+              dominant-baseline="middle"
+              font-size="9"
+              fill="#64748b">{b.seats}</text
+            >
+          {/each}
+
+          {#each layout.right as b (b.key)}
+            <rect
+              x={RIGHT_X}
+              y={b.y}
+              width={COL_W}
+              height={Math.max(1, b.h)}
+              fill={b.colour}
+            />
+            <text
+              x={RIGHT_X + COL_W + 6}
+              y={b.y + b.h / 2}
+              text-anchor="start"
+              dominant-baseline="middle"
+              font-size="11"
+              fill="#0f172a">{b.label}</text
+            >
+            <text
+              x={RIGHT_X + COL_W + 6}
+              y={b.y + b.h / 2 + 12}
+              text-anchor="start"
+              dominant-baseline="middle"
+              font-size="9"
+              fill="#64748b">{b.seats}</text
+            >
+          {/each}
+        </svg>
+        <p
+          class="mt-1 text-[11px] italic text-slate-500"
+          data-testid="state-event-seat-flow-caption"
+        >
+          Each constituency's seat moved from its {prev_event_label ?? "prior"}
+          winner to its {current_event_label} winner. Ribbon width = number of
+          seats; a ribbon that returns to the same party is a hold.
         </p>
       </div>
     {/if}

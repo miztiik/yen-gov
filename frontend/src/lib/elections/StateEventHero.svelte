@@ -131,42 +131,50 @@
     class="grid grid-cols-2 gap-3 sm:grid-cols-4"
     data-testid="state-event-kpis"
   >
-    <div class="rounded border border-slate-200 bg-white p-3">
-      <div class="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
-        <TopicIcon name="landmark" cls="h-3.5 w-3.5 text-slate-500 shrink-0" />
+    <div class="rounded-lg border border-slate-200 bg-white p-3">
+      <div class="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-slate-500">
+        <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700">
+          <TopicIcon name="landmark" cls="h-4 w-4" />
+        </span>
         <span>Seats</span>
       </div>
       <div
-        class="mt-1 text-2xl font-semibold tabular-nums text-slate-900"
+        class="mt-1.5 text-2xl font-semibold tabular-nums text-slate-900"
         data-testid="state-event-kpi-seats"
       >
         {loading ? "-" : fmtInt(kpis.total_seats)}
       </div>
     </div>
-    <div class="rounded border border-slate-200 bg-white p-3">
-      <div class="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
-        <TopicIcon name="users" cls="h-3.5 w-3.5 text-slate-500 shrink-0" />
+    <div class="rounded-lg border border-slate-200 bg-white p-3">
+      <div class="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-slate-500">
+        <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-700">
+          <TopicIcon name="users" cls="h-4 w-4" />
+        </span>
         <span>Total voters</span>
       </div>
-      <div class="mt-1 text-2xl font-semibold tabular-nums text-slate-900">
+      <div class="mt-1.5 text-2xl font-semibold tabular-nums text-slate-900">
         {fmtCompact(kpis.total_electors)}
       </div>
     </div>
-    <div class="rounded border border-slate-200 bg-white p-3">
-      <div class="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
-        <TopicIcon name="vote" cls="h-3.5 w-3.5 text-slate-500 shrink-0" />
+    <div class="rounded-lg border border-slate-200 bg-white p-3">
+      <div class="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-slate-500">
+        <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-700">
+          <TopicIcon name="vote" cls="h-4 w-4" />
+        </span>
         <span>Total polled</span>
       </div>
-      <div class="mt-1 text-2xl font-semibold tabular-nums text-slate-900">
+      <div class="mt-1.5 text-2xl font-semibold tabular-nums text-slate-900">
         {fmtCompact(kpis.total_polled)}
       </div>
     </div>
-    <div class="rounded border border-slate-200 bg-white p-3">
-      <div class="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
-        <TopicIcon name="activity" cls="h-3.5 w-3.5 text-slate-500 shrink-0" />
+    <div class="rounded-lg border border-slate-200 bg-white p-3">
+      <div class="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-slate-500">
+        <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700">
+          <TopicIcon name="activity" cls="h-4 w-4" />
+        </span>
         <span>Turnout</span>
       </div>
-      <div class="mt-1 text-2xl font-semibold tabular-nums text-slate-900">
+      <div class="mt-1.5 text-2xl font-semibold tabular-nums text-slate-900">
         {fmtPct(kpis.turnout_pct)}
       </div>
       {#if turnout_delta_present}

@@ -131,6 +131,14 @@
     /** Optional muted state (visually receded, ~0.4 opacity). Used by
      *  the 25.5 PARTY-WON mode "non-matching cells recede" rule. */
     muted?: boolean;
+    /** When true, the pill's own hover/click popover is silenced. Used
+     *  when the pill is nested inside a host that already owns a richer
+     *  tooltip (e.g. PartyBar's ChartTooltip) - prevents the
+     *  double-tooltip overlap (gap-closure G1,
+     *  TODO/20260616-state-event-page-gap-closure-plan.md). The colour
+     *  treatment, label, and click-to-mute affordance all still work;
+     *  only the popover is suppressed. */
+    suppress_tooltip?: boolean;
   }
 
   const {
@@ -140,6 +148,7 @@
     size = "md",
     onclick,
     muted = false,
+    suppress_tooltip = false,
   }: Props = $props();
 
   const resolved = $derived(resolvePartyPill({ party_id, party_short, row }));
@@ -186,18 +195,21 @@
   }
 
   function handlePointerEnter(): void {
+    if (suppress_tooltip) return;
     captureAnchor();
     tooltip = tooltipReducer(tooltip, "hover", party_id);
   }
   function handlePointerLeave(): void {
+    if (suppress_tooltip) return;
     tooltip = tooltipReducer(tooltip, "leave", party_id);
   }
   function handleClick(): void {
     // Compose: run the caller's onclick first (existing semantics -
     // e.g. PartyBar's mute toggle), then toggle pin state. The pin
     // toggle is suppressed for UNK / null via tooltipReducer's own
-    // guard.
+    // guard, and entirely when the host owns the tooltip (G1).
     onclick?.();
+    if (suppress_tooltip) return;
     captureAnchor();
     tooltip = tooltipReducer(tooltip, "click", party_id);
   }
@@ -276,7 +288,7 @@
   </span>
 {/if}
 
-{#if tooltip.open && party_id && shouldOpenTooltipFor(party_id)}
+{#if !suppress_tooltip && tooltip.open && party_id && shouldOpenTooltipFor(party_id)}
   <PartyTooltip
     party_id={party_id}
     anchor={anchorRect}

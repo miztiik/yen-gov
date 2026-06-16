@@ -35,6 +35,14 @@ export interface PartyTotals {
    *  that leave this field undefined render unchanged (additive
    *  contract). */
   alliance_short?: string | null;
+  /** Gap-closure G4 (TODO/20260616-state-event-page-gap-closure-plan.md):
+   *  root-relative election-symbol asset path mirror from
+   *  `dim_parties.election_symbol_asset_path` (e.g. "party-symbols/
+   *  bicycle.svg"). The party-row composite renders the glyph via
+   *  `symbolAssetUrl(...)` when populated; degrades to the placeholder
+   *  asset when null. Additive/optional so existing producers that
+   *  leave it undefined render unchanged. */
+  symbol_asset_path?: string | null;
 }
 
 export interface CandidateBio {

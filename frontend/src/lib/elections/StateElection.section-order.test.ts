@@ -166,3 +166,64 @@ describe("StateElection.svelte - R4 IA + chrome contract", () => {
     ).toEqual([]);
   });
 });
+
+// ---------------------------------------------------------------------------
+// Gap-closure G2 / G3 / G5 invariants
+// (TODO/20260616-state-event-page-gap-closure-plan.md). These sections were
+// specced by the parent plan but never mounted / mis-built; freeze them at
+// the vitest gate so the next worktree-staleness merge can't silently drop
+// them again.
+// ---------------------------------------------------------------------------
+describe("StateElection.svelte - gap-closure G2/G3/G5 contract", () => {
+  it("mounts RacesBoard BEFORE the constituency list (G2)", () => {
+    const races_at = TEMPLATE.indexOf("<RacesBoard");
+    const list_at = TEMPLATE.indexOf("<StateEventConstituencyList");
+    expect(
+      races_at,
+      "RacesBoard mount not found - gap-closure G2 requires the " +
+        "Races-by-competitiveness board on the election route.",
+    ).toBeGreaterThanOrEqual(0);
+    expect(
+      races_at < list_at,
+      `RacesBoard MUST mount BEFORE StateEventConstituencyList per gap-` +
+        `closure G2 (the citizen reads the competitiveness story before the ` +
+        `per-AC rows). Found: races at ${races_at}, list at ${list_at}.`,
+    ).toBe(true);
+  });
+
+  it("mounts StateEventAllParties as the final content section (G3)", () => {
+    const all_at = TEMPLATE.indexOf("<StateEventAllParties");
+    const sankey_at = TEMPLATE.indexOf("<StateEventCrossEventSankey");
+    expect(
+      all_at,
+      "StateEventAllParties mount not found - gap-closure G3 requires the " +
+        "all-parties directory on the election route.",
+    ).toBeGreaterThanOrEqual(0);
+    expect(
+      all_at > sankey_at,
+      `StateEventAllParties MUST mount AFTER the seat-flow Sankey (it is the ` +
+        `final content section) per gap-closure G3. Found: all-parties at ` +
+        `${all_at}, sankey at ${sankey_at}.`,
+    ).toBe(true);
+  });
+
+  it("seat-flow is FACTUAL: no 'approximate'/'estimate' language in the Sankey (G5)", () => {
+    // The prior vote-flow surface carried an "Approximate flow ... state-
+    // total estimate" caption. The factual seat-flow MUST NOT reintroduce
+    // that language - every ribbon is an exact seat count.
+    const sankey_src = readFileSync(
+      resolve(__dirname, "./StateEventCrossEventSankey.svelte"),
+      "utf8",
+    );
+    const FORBIDDEN = ["Approximate flow", "state-total estimate", "we do not\n     track"];
+    const hits = FORBIDDEN.filter((p) => sankey_src.includes(p));
+    expect(
+      hits,
+      `StateEventCrossEventSankey.svelte contains forbidden approximation ` +
+        `language: ${hits.join(", ")}. Per gap-closure G5 the seat-flow is ` +
+        `FACTUAL (hold/loss join on entity_id); the vote-flow estimate copy ` +
+        `must not return.`,
+    ).toEqual([]);
+  });
+});
+
