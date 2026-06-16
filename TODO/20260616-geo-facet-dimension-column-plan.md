@@ -43,18 +43,32 @@ time but split because the writer rejects undeclared columns.
 
 ## Scope (user-ratified 2026-06-16)
 
-IN: the contract (`geo_by_fuel/*.csv`) + migrate all 4 installed-capacity families (~24 files -> 4)
-+ net-transfers Accounts-only (L1) + doctrine docs + tests.
+IN: the contract (`geo_by_fuel/*.csv`) + migrate the 3 fuel-faceted installed-capacity families
+(geographical-mw, snapshot-mw, mw; 16 files -> 3 - see L2) + net-transfers Accounts-only (L1) +
+catalogue collapse (15 child indicators/concepts) + frontend faceted read + doctrine docs + tests.
+allocated-mw STAYS single-value (no fuel children on disk -> fails the four-gate test).
 
 FAST-FOLLOW (own PR): rest of energy (generation, demand-supply, distribution, fuel-consumption,
 capacity-pipeline), livestock species (`pashu-aadhaar` -> `geo_by_species`), any future faceted
 measure - all reuse this contract.
+
+ENERGY ADAPTER RECONCILIATION (own PR - discovered during C6/C7): four source adapters still emit
+the now-collapsed per-fuel `variable_id`s and are DISCONNECTED from the on-disk canonical store
+(their output names / grains never matched the committed files; none is the live producer):
+`sources/cea_installed_capacity` + `sources/iced_power` + `sources/power_plants` (all emit
+`installed-capacity-mw-<fuel>`), and `sources/rbi_xlsx` (`_FACET_SUFFIX` emits net-transfers
+`-revised-estimate`/`-budget-estimate`, never the on-disk `-re`/`-be`). They are tmp_path-tested
+(never read the committed corpus), so deleting the on-disk files is safe, but they should be
+reconciled to emit the faceted `geo_by_fuel` shape (and Accounts-only for net-transfers per F1) so
+a future re-ingest does not re-fragment. Touching them entails updating their `*_csv_repoint`
+tests; out of scope here.
 
 ## Scope-change ledger
 
 | Row | Date | Intent (what changed, why, what it overrode) | signoff |
 | --- | --- | --- | --- |
 | L1 | 2026-06-16 | net-transfers / `estimate_stage` will NOT be modelled as a facet. `estimate_stage` fails the user-ratified four-gate facet test (plan F2: different estimates, members do not sum to a whole) and plan F1 bans "BE/RE as a facet toggle". The data is degenerate (one year per stage: accounts=2023, re=2024, be=2025). Per F1, net-transfers collapses to an Accounts-only single series; BE/RE dropped. This HONORS existing ratified doctrine rather than the conversational "estimate_stage facet" framing. Overrode: nothing in code; reconciles the user's net-transfers example with their own F1/F2 freeze. | User, 2026-06-16 (clarifying question Q1 -> "Honor F1/F2") |
+| L2 | 2026-06-16 | The "all 4 installed-capacity families ~24->4" framing was inaccurate (my error, surfaced before building per CLAUDE.md section 10). On-disk reality: only 3 families are fuel-faceted (geographical-mw: states + parent total; snapshot-mw: 35 states x 1 year; mw: 1-row all-India), 16 files total. allocated-mw has NO fuel children (single-value, 770 rows) -> correctly STAYS unfaceted (the four-gate test excludes it). Net: 16 files -> 3 faceted + allocated unchanged. The 3 energy SOURCE adapters' taxonomy mismatch (see ENERGY ADAPTER RECONCILIATION) is a separate pre-existing concern. | User, 2026-06-16 (clarifying question Q2 -> "All 3 faceted families") |
 
 ## Answers folded into doctrine (user questions 2026-06-16)
 
