@@ -14,6 +14,9 @@
 //      matching state (or any state for scope=national).
 //   3. Turnout sanity: `0 <= turnout_pct <= 100` when not null.
 //   4. Seat sanity: `seats_won + (runner_up_seats or 0) <= seats_contested`.
+//   5. Bounded stale-mart canary: the modern full-coverage Parliament
+//      rows match their raw `summary.csv` row counts + top-two winner
+//      counts.
 //
 // This file is intentionally small — the per-row coverage matrix
 // belongs in the writer's pytest (PR-E2); this contract enforces only
@@ -41,6 +44,7 @@ const CATALOGUE_PATH = resolve(
   REPO_ROOT,
   "datasets/taxonomy/election_events.json",
 );
+const FULL_COVERAGE_PARLIAMENT_YEARS = [2009, 2014, 2019] as const;
 
 interface MartRow {
   event_id: string;
@@ -58,40 +62,86 @@ interface MartRow {
 }
 
 function parseRows(): MartRow[] {
-  const text = readFileSync(MART_PATH, "utf-8");
+  const rows = parseCsv(MART_PATH);
+  return rows.map((row) => ({
+    event_id: row.event_id ?? "",
+    state_code: row.state_code ?? "",
+    scope: row.scope ?? "",
+    kind: row.kind ?? "",
+    polled_on: row.polled_on ?? "",
+    leading_party_id: row.leading_party_id ?? "",
+    seats_won: num(row.seats_won),
+    seats_contested: num(row.seats_contested),
+    turnout_pct: numOrNull(row.turnout_pct),
+    runner_up_party_id: row.runner_up_party_id ?? "",
+    runner_up_seats: numOrNull(row.runner_up_seats),
+    source_id: row.source_id ?? "",
+  }));
+}
+
+function splitCsvLine(line: string): string[] {
+  const out: string[] = [];
+  let cur = "";
+  let quoted = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (ch === '"') {
+      if (quoted && line[i + 1] === '"') {
+        cur += '"';
+        i++;
+      } else {
+        quoted = !quoted;
+      }
+      continue;
+    }
+    if (ch === "," && !quoted) {
+      out.push(cur);
+      cur = "";
+      continue;
+    }
+    cur += ch;
+  }
+  out.push(cur);
+  return out;
+}
+
+function parseCsv(path: string): Record<string, string>[] {
+  const text = readFileSync(path, "utf-8");
   const lines = text.split("\n").filter((l) => l.length > 0);
-  const header = lines[0].split(",");
-  const out: MartRow[] = [];
+  const header = splitCsvLine(lines[0]);
+  const out: Record<string, string>[] = [];
   for (let i = 1; i < lines.length; i++) {
-    const cols = lines[i].split(",");
-    const get = (n: string): string => {
-      const idx = header.indexOf(n);
-      return idx >= 0 ? cols[idx] ?? "" : "";
-    };
-    const num = (n: string): number => {
-      const v = get(n);
-      return v === "" ? 0 : Number(v);
-    };
-    const numOrNull = (n: string): number | null => {
-      const v = get(n);
-      return v === "" ? null : Number(v);
-    };
-    out.push({
-      event_id: get("event_id"),
-      state_code: get("state_code"),
-      scope: get("scope"),
-      kind: get("kind"),
-      polled_on: get("polled_on"),
-      leading_party_id: get("leading_party_id"),
-      seats_won: num("seats_won"),
-      seats_contested: num("seats_contested"),
-      turnout_pct: numOrNull("turnout_pct"),
-      runner_up_party_id: get("runner_up_party_id"),
-      runner_up_seats: numOrNull("runner_up_seats"),
-      source_id: get("source_id"),
-    });
+    const cols = splitCsvLine(lines[i]);
+    out.push(Object.fromEntries(header.map((h, idx) => [h, cols[idx] ?? ""])));
   }
   return out;
+}
+
+function num(v: string | undefined): number {
+  return v === undefined || v === "" ? 0 : Number(v);
+}
+
+function numOrNull(v: string | undefined): number | null {
+  return v === undefined || v === "" ? null : Number(v);
+}
+
+function parliamentSummaryRows(year: number): Record<string, string>[] {
+  return parseCsv(
+    resolve(
+      REPO_ROOT,
+      `datasets/elections/parliament/election=${year}/summary.csv`,
+    ),
+  );
+}
+
+function topPartiesFromSummary(rows: Record<string, string>[]): [string, number][] {
+  const counts = new Map<string, number>();
+  for (const row of rows) {
+    const partyId = (row.winner_party_id ?? "").trim();
+    if (!partyId) continue;
+    counts.set(partyId, (counts.get(partyId) ?? 0) + 1);
+  }
+  return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 }
 
 interface CatalogueEvent {
@@ -192,5 +242,36 @@ describe("event_summary.csv contract", () => {
       return true;
     });
     expect(inconsistent).toEqual([]);
+  });
+
+  it("modern full-coverage Parliament mart rows match source summaries", () => {
+    const rows = parseRows();
+    const mismatches: string[] = [];
+    for (const year of FULL_COVERAGE_PARLIAMENT_YEARS) {
+      const eventId = `general-${year}`;
+      const mart = rows.find((r) => r.event_id === eventId && r.scope === "national");
+      const sourceRows = parliamentSummaryRows(year);
+      const topParties = topPartiesFromSummary(sourceRows);
+      const expected = {
+        leading_party_id: topParties[0]?.[0] ?? "",
+        seats_won: topParties[0]?.[1] ?? 0,
+        seats_contested: sourceRows.length,
+        runner_up_party_id: topParties[1]?.[0] ?? "",
+        runner_up_seats: topParties[1]?.[1] ?? null,
+      };
+      const actual = mart
+        ? {
+            leading_party_id: mart.leading_party_id,
+            seats_won: mart.seats_won,
+            seats_contested: mart.seats_contested,
+            runner_up_party_id: mart.runner_up_party_id,
+            runner_up_seats: mart.runner_up_seats,
+          }
+        : null;
+      if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+        mismatches.push(`${eventId}: ${JSON.stringify({ actual, expected })}`);
+      }
+    }
+    expect(mismatches).toEqual([]);
   });
 });
