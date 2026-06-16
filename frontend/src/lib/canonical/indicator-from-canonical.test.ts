@@ -416,19 +416,30 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   // AT&C-decomposition story collapses to the surviving state_atc_losses_pct
   // single-card view above.
 
-  it("PR-G state_installed_capacity_by_source_mw descriptor routes to installed-capacity-geographical-mw with 5 fuel children", () => {
+  it("PR-G state_installed_capacity_by_source_mw descriptor routes to installed-capacity-geographical-mw as a faceted single file (geo-facet PR)", () => {
     const d = getCanonicalDescriptor("energy/state_installed_capacity_by_source_mw");
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("facet-multiplexed");
     if (d!.kind === "facet-multiplexed") {
       expect(d!.canonical_parent_indicator_id).toBe("installed-capacity-geographical-mw");
       expect(d!.facet_axis_id).toBe("fuel_type");
-      expect(d!.facet_values).toHaveLength(5);
-      const fuels = d!.facet_values.map((fv) => fv.legacy_facet_label);
-      expect(fuels).toEqual(["coal", "gas", "hydro", "nuclear", "renewable"]);
-      // Spot-check one child mapping (coal): canonical_child_id encodes
-      // the parent + fuel suffix per indicator-naming.md D30.
-      const coal = d!.facet_values.find((fv) => fv.legacy_facet_label === "coal");
+      // geo-facet PR (TODO/20260616): the 5 per-fuel files collapsed into ONE
+      // faceted file; fuel_type is a dimension column. The parent total folds
+      // in as the `all` member, so there are now 6 facet members.
+      expect(d!.faceted_csv_path).toBe(
+        "data/datapoints/geo_by_fuel/installed-capacity-geographical-mw.csv",
+      );
+      expect(d!.facet_column).toBe("fuel_type");
+      expect(d!.facet_values).toHaveLength(6);
+      const fuels = d!.facet_values.map((fv) => fv.facet_value);
+      expect(fuels).toEqual(["all", "coal", "gas", "hydro", "nuclear", "renewable"]);
+      // Children read the single faceted file, so they carry facet_value (the
+      // enum value) instead of a per-child csv_path.
+      for (const fv of d!.facet_values) {
+        expect(fv.csv_path).toBeUndefined();
+        expect(fv.facet_value).toBeDefined();
+      }
+      const coal = d!.facet_values.find((fv) => fv.facet_value === "coal");
       expect(coal?.canonical_child_id).toBe("installed-capacity-geographical-mw-coal");
     }
     expect(d!.table_id).toBe("energy.energy_installed_capacity");
@@ -2032,18 +2043,34 @@ describe("R2 — every energy + livestock descriptor carries csv_path", () => {
       .toEqual([]);
   });
 
-  it("every kind:facet-multiplexed energy/livestock child declares csv_path", () => {
+  it("every kind:facet-multiplexed energy/livestock child declares csv_path (or facet_value in faceted_csv_path mode)", () => {
     const violators: string[] = [];
     for (const d of CANONICAL_BACKED_INDICATORS) {
       if (d.kind !== "facet-multiplexed") continue;
       if (!d.table_id.startsWith("energy.") && !d.table_id.startsWith("livestock.")) continue;
+      if (d.faceted_csv_path !== undefined) {
+        // geo-facet PR (TODO/20260616): single faceted-file mode - children
+        // carry facet_value (the enum value) instead of a per-child csv_path,
+        // and the descriptor declares the dimension column it reads.
+        if (d.facet_column === undefined) {
+          violators.push(`${d.legacy_artifact_id} sets faceted_csv_path but no facet_column`);
+        }
+        for (const fv of d.facet_values) {
+          if (fv.facet_value === undefined) {
+            violators.push(
+              `${d.legacy_artifact_id} -> ${fv.canonical_child_id} (faceted mode, no facet_value)`,
+            );
+          }
+        }
+        continue;
+      }
       for (const fv of d.facet_values) {
         if (fv.csv_path === undefined) {
           violators.push(`${d.legacy_artifact_id} -> ${fv.canonical_child_id}`);
         }
       }
     }
-    expect(violators, `${violators.length} facet children missing csv_path`).toEqual([]);
+    expect(violators, `${violators.length} facet children missing csv_path/facet_value`).toEqual([]);
   });
 
   it("every csv_path points to data/datapoints/geo/<id>.csv (csv-column-contract.md §3.3)", () => {

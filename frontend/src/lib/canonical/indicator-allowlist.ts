@@ -178,6 +178,13 @@ export interface CanonicalFacetMapping {
    *  reads UNION-ed under a synth `indicator_id` literal column so
    *  the existing per-row facet dispatch keeps working unchanged. */
   csv_path?: string;
+  /** geo-facet PR (TODO/20260616-geo-facet-dimension-column-plan.md): the
+   *  canonical facet enum VALUE for this member (e.g. `"coal"`, `"all"`)
+   *  when the parent reads ONE faceted file via `faceted_csv_path` instead of
+   *  N per-child `csv_path` files. The loader maps `facet_value` -> child_id
+   *  so the per-row facet-label dispatch (`facetLabelByChildId`) is unchanged.
+   *  Mutually exclusive in practice with `csv_path`. */
+  facet_value?: string;
 }
 
 export interface CanonicalFacetMultiplexedDescriptor
@@ -193,6 +200,16 @@ export interface CanonicalFacetMultiplexedDescriptor
   facet_axis_id: string;
   /** Ordered list of child indicator_ids and their legacy facet labels. */
   facet_values: ReadonlyArray<CanonicalFacetMapping>;
+  /** geo-facet PR (TODO/20260616): when set, the parent reads ONE faceted
+   *  long file (e.g. `data/datapoints/geo_by_fuel/<parent>.csv`) carrying a
+   *  `facet_column` dimension, instead of UNION-ing N per-child `csv_path`
+   *  files. Each `facet_values[]` member then declares `facet_value` (the
+   *  enum value in the column) + `legacy_facet_label` (the display label).
+   *  This is the section-21.6 dimension-column read path. */
+  faceted_csv_path?: string;
+  /** geo-facet PR: the dimension column name inside `faceted_csv_path`
+   *  (e.g. `"fuel_type"`). Required when `faceted_csv_path` is set. */
+  facet_column?: string;
 }
 
 export type CanonicalIndicatorDescriptor =
@@ -378,30 +395,42 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "fuel_type",
+    // geo-facet PR (TODO/20260616-geo-facet-dimension-column-plan.md): the 5
+    // per-fuel files collapsed into ONE faceted file where fuel_type is a
+    // dimension column. The parent's state total folds in as the `all` member
+    // (the published total, NOT a render-time sum of the parts).
+    faceted_csv_path:
+      "data/datapoints/geo_by_fuel/installed-capacity-geographical-mw.csv",
+    facet_column: "fuel_type",
     facet_values: [
       {
+        canonical_child_id: "installed-capacity-geographical-mw-all",
+        facet_value: "all",
+        legacy_facet_label: "All fuels",
+      },
+      {
         canonical_child_id: "installed-capacity-geographical-mw-coal",
-        csv_path: "data/datapoints/geo/installed-capacity-geographical-mw-coal.csv",
+        facet_value: "coal",
         legacy_facet_label: "coal",
       },
       {
         canonical_child_id: "installed-capacity-geographical-mw-gas",
-        csv_path: "data/datapoints/geo/installed-capacity-geographical-mw-gas.csv",
+        facet_value: "gas",
         legacy_facet_label: "gas",
       },
       {
         canonical_child_id: "installed-capacity-geographical-mw-hydro",
-        csv_path: "data/datapoints/geo/installed-capacity-geographical-mw-hydro.csv",
+        facet_value: "hydro",
         legacy_facet_label: "hydro",
       },
       {
         canonical_child_id: "installed-capacity-geographical-mw-nuclear",
-        csv_path: "data/datapoints/geo/installed-capacity-geographical-mw-nuclear.csv",
+        facet_value: "nuclear",
         legacy_facet_label: "nuclear",
       },
       {
         canonical_child_id: "installed-capacity-geographical-mw-renewable",
-        csv_path: "data/datapoints/geo/installed-capacity-geographical-mw-renewable.csv",
+        facet_value: "renewable",
         legacy_facet_label: "renewable",
       },
     ],
@@ -591,7 +620,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // parquet stem. Adapter:
   //   * installed_capacity.py block 6 emits rooftop-solar-capacity-mw
   // Rooftop is a sub-fuel measurement of installed MW; complements utility-scale
-  // solar tracked under installed-capacity-snapshot-mw-renewable. The
+  // solar tracked under installed-capacity-snapshot-mw (renewable facet). The
   // total state solar fleet = utility-scale + rooftop. No facets; one row per
   // (state, fiscal_year). Hans + Max signed off non-faceted lift (the rooftop
   // category itself IS the facet — no further breakdown by residential /
@@ -608,7 +637,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       id: "rooftop-solar-capacity-mw",
       title: "State rooftop solar installed capacity (MW)",
       description:
-        "Cumulative installed rooftop solar PV in megawatts — residential + commercial + industrial + public buildings. Owned by the building owner, NOT by a utility. Complements (does not replace) utility-scale solar, which lives under installed-capacity-snapshot-mw-renewable.",
+        "Cumulative installed rooftop solar PV in megawatts — residential + commercial + industrial + public buildings. Owned by the building owner, NOT by a utility. Complements (does not replace) utility-scale solar, which lives under installed-capacity-snapshot-mw (renewable facet).",
       entity_kind: "state",
       time_grain: "fiscal_year",
       value_kind: "count",
