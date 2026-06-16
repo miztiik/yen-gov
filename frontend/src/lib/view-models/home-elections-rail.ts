@@ -160,7 +160,7 @@ export function composeRail(
   void catalogue;
   const door: DoorCard = {
     title: "All elections",
-    href: "/t/elections",
+    href: link.generalElections(),
   };
   return { anchor, hook, door };
 }

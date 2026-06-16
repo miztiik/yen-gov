@@ -295,6 +295,21 @@ export const link = {
     return withBase(`/t/elections/${encodeURIComponent(eventId)}`);
   },
 
+  /** General-elections firehose landing (`/t/elections`). Sibling of
+   * `assemblyElections`; both back the ElectionsRouteTabs nav strip and
+   * the Home elections-rail door. Same target as `topic("elections")`
+   * but named for the election surface so call-sites read intent. */
+  generalElections(): string {
+    return withBase("/t/elections");
+  },
+
+  /** Assembly-elections index (`/t/elections/assemblies`). The bare
+   * `assemblies` leaf is a fixed route (main.ts), not an event slug, so
+   * this is a no-arg builder. */
+  assemblyElections(): string {
+    return withBase("/t/elections/assemblies");
+  },
+
   /** Election lab (`/lab/<state>/<event>`). Existing surface; retained
    * verbatim from `url.ts`. */
   electionLab(stateCodeOrSlug: string, event: string): string {

@@ -448,6 +448,7 @@
       "title": "Farming & livestock",
       "list": "state",
       "summary": "Crop production, livestock holdings, dairy, breeding programmes and animal vaccination. India's agrarian base, captured through the Bharat Pashudhan portal and DAHD programme dashboards.",
+      "icon": "wheat",
       "featured": true,
       "artifacts": [
         {

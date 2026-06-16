@@ -27,6 +27,7 @@ import type {
   EventKind,
 } from "../election-events";
 import { listEventsForState } from "../election-events";
+import { link } from "../links";
 
 /** One year-chip in the rail. */
 export interface SiblingEventChip {
@@ -146,7 +147,7 @@ export function buildSiblingEventsRail({
       year_label: deriveYearLabel(e.event_id),
       display: e.display,
       polled_on: e.polled_on,
-      href: `/${state_slug}/elections/${encodeURIComponent(e.event_id)}`,
+      href: link.stateElection(state_slug, e.event_id),
       winner_color_hex,
       is_current: e.event_id === current_event_id,
     };
@@ -161,7 +162,7 @@ export function buildSiblingEventsRail({
   const prior = has_prior ? events[current_idx - 1] : null;
   const prior_year = prior ? deriveYearNumber(prior.event_id) : null;
   const compare_href = prior
-    ? `/compare/elections/${state_slug}/${encodeURIComponent(prior.event_id)}/${encodeURIComponent(current_event_id)}`
+    ? link.compareElections(state_slug, prior.event_id, current_event_id)
     : null;
 
   return { events, prior_year, compare_href };

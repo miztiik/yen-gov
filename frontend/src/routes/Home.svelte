@@ -7,6 +7,7 @@
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import TopicIcon from "../lib/TopicIcon.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import HomeElectionsRail from "../lib/elections/HomeElectionsRail.svelte";
@@ -144,17 +145,19 @@
     title: string;
     summary: string;
     href: string;
+    icon?: string;
   }
   const topic_cards = $derived.by<TopicCard[]>(() => {
     const cards: TopicCard[] = [];
     const featured = (catalogue?.topics ?? []).filter(t => t.featured === true);
     for (const t of featured.slice(0, 5)) {
-      cards.push({ title: t.title, summary: t.summary, href: link.topic(t.id) });
+      cards.push({ title: t.title, summary: t.summary, href: link.topic(t.id), icon: t.icon });
     }
     cards.push({
       title: "Elections",
       summary: "Assembly + parliament results, party by party",
       href: link.topic("elections"),
+      icon: "vote",
     });
     return cards;
   });
@@ -196,35 +199,50 @@
 <Breadcrumb {crumbs} />
 
 <PageContainer width="wide">
-  <header class="space-y-1">
-    <h1 class="text-2xl font-bold">yen-gov</h1>
-    <p class="text-sm text-slate-500">
-      Open data on India's socio-economic and electoral landscape, organised
-      by topic and compared across states. Pick a topic below, or open the
-      map for state-by-state comparison.
-      <a href={link.about()} class="text-sky-700 hover:underline">What is this?</a>
+  <header class="space-y-4">
+    <span
+      class="inline-flex items-center gap-1.5 rounded-full bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 ring-1 ring-inset ring-sky-100"
+    >
+      <TopicIcon name="compass" cls="w-3.5 h-3.5" />
+      For an informed India
+    </span>
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">yen-gov</h1>
+    <p class="max-w-2xl text-base leading-relaxed text-slate-600">
+      Open data on India's socio-economic and electoral landscape, organised by
+      topic and compared across states. Pick a topic below, or open the map for
+      state-by-state comparison.
+      <a href={link.about()} class="font-medium text-sky-700 hover:underline">What is this?</a>
     </p>
   </header>
 
-  <section class="bg-white rounded-lg shadow-sm p-5 space-y-3" data-testid="home-topic-grid">
-    <h2 class="text-sm font-semibold uppercase text-slate-500">Pick a topic</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+  <section class="space-y-3" data-testid="home-topic-grid">
+    <h2 class="text-xs font-semibold uppercase tracking-wide text-slate-500">Pick a topic</h2>
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
       {#each topic_cards as card}
         <a
           href={card.href}
-          class="block p-4 bg-slate-50 hover:bg-slate-100 rounded border border-slate-200 transition-colors"
+          class="group flex items-start gap-3 rounded-lg bg-white p-4 shadow-sm ring-1 ring-slate-200/70 transition-all hover:shadow-md hover:ring-slate-300"
           data-testid="home-topic-card"
         >
-          <div class="text-base font-semibold text-slate-900">{card.title}</div>
-          {#if card.summary}
-            <div class="text-xs text-slate-600 mt-1 line-clamp-2">{card.summary}</div>
-          {/if}
+          <span
+            class="grid h-10 w-10 flex-shrink-0 place-items-center rounded-lg bg-slate-100 text-slate-600 transition-colors group-hover:bg-sky-50 group-hover:text-sky-700"
+          >
+            <TopicIcon name={card.icon} cls="w-5 h-5" />
+          </span>
+          <span class="min-w-0">
+            <span class="block text-base font-semibold text-slate-900">{card.title}</span>
+            {#if card.summary}
+              <span class="mt-0.5 block text-xs leading-relaxed text-slate-600 line-clamp-2"
+                >{card.summary}</span
+              >
+            {/if}
+          </span>
         </a>
       {/each}
     </div>
   </section>
 
-  <section class="bg-white rounded-lg shadow-sm p-4 space-y-3 md:-mx-6 lg:-mx-12">
+  <section class="space-y-3 rounded-lg bg-white p-4 shadow-sm sm:p-5">
     {#if theme}
       <div class="flex items-center justify-between gap-3 flex-wrap">
         <h2 class="text-sm font-semibold uppercase text-slate-500">

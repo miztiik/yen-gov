@@ -331,17 +331,31 @@
   });
 
   // Resolve fill for a feature: lookup the row by feature_key, then
-  // colorForValue. Null/missing rows fall through to the hatch (via
-  // a special return value). The hatch is rendered as a fill
+  // colorForValue. Null/missing rows fall through to the no-data
+  // dot-grid (via a special return value), rendered as a fill
   // referencing the SVG <pattern> defined inside this component.
-  const HATCH_FILL = "url(#geo-choropleth-hatch)";
+  const NO_DATA_FILL = "url(#geo-choropleth-nodata)";
   function fillForFeature(f: Feature<Geometry, GeoJsonProperties>): string {
     const key = f.properties?.[feature_key];
-    if (key == null) return HATCH_FILL;
+    if (key == null) return NO_DATA_FILL;
     const value = value_by_key.get(String(key));
-    if (value == null) return HATCH_FILL;
+    if (value == null) return NO_DATA_FILL;
     return scale.colorForValue(value);
   }
+
+  // True when at least one rendered feature has no value. Drives the
+  // "No data" legend chip so a fully-covered indicator stays chip-free
+  // and the chip only appears when the dot-grid fill is actually on
+  // screen.
+  const has_no_data = $derived.by<boolean>(() => {
+    if (!collection) return false;
+    for (const f of collection.features) {
+      const key = f.properties?.[feature_key];
+      if (key == null) return true;
+      if (value_by_key.get(String(key)) == null) return true;
+    }
+    return false;
+  });
 
   // Tooltip payload for the hovered feature. Null when no hover or
   // when the hovered feature has no value (we still show the tooltip
@@ -422,21 +436,20 @@
         preserveAspectRatio="xMidYMid meet"
       >
         <defs>
-          <!-- C4 diagonal-stripe hatch for no-data regions. Same
-               visual language as the existing CategoryBar bodies
-               (carried over from the retired
-               OrderedCategoryBar.ocb__hatch / HorizontalGroupedBar.hgb__cell-hatch
-               post-F2a) so the citizen sees one no-data idiom across
-               the whole chart family. -->
+          <!-- No-data fill: a subtle gray dot-grid (Jony 2026-06-16).
+               Replaces the prior diagonal-stripe hatch, which read as
+               "broken / hazard". A faint dot-grid reads as
+               "intentionally empty" and does not compete with the data
+               fills. Paired with the "No data" legend chip below so the
+               idiom is self-explanatory without being obtrusive. -->
           <pattern
-            id="geo-choropleth-hatch"
-            width="6"
-            height="6"
+            id="geo-choropleth-nodata"
+            width="7"
+            height="7"
             patternUnits="userSpaceOnUse"
-            patternTransform="rotate(45)"
           >
-            <rect width="6" height="6" fill="#ffffff" />
-            <rect width="2" height="6" fill="#d8d8d8" />
+            <rect width="7" height="7" fill="#f8fafc" />
+            <circle cx="3.5" cy="3.5" r="1" fill="#cbd5e1" />
           </pattern>
         </defs>
         {#if mode === "fill"}
@@ -519,11 +532,14 @@
       domain={resolved_domain}
       {title}
       value_tick={hover_payload?.value ?? null}
-      value_tick_label={hover_payload
-        ? `${hover_payload.region_label}: ${hover_payload.formatted_value}`
-        : null}
       width={Math.min(width, 320)}
     />
+    {#if mode === "fill" && has_no_data}
+      <div class="geo-choropleth__nodata-key" data-slot="nodata-key">
+        <span class="geo-choropleth__nodata-swatch" aria-hidden="true"></span>
+        No data
+      </div>
+    {/if}
   </div>
 
   <div class="geo-choropleth__source">
@@ -599,5 +615,22 @@
   }
   .geo-choropleth__legend {
     margin-top: 4px;
+  }
+  .geo-choropleth__nodata-key {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+  .geo-choropleth__nodata-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid var(--line);
+    background-color: #f8fafc;
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1.2px);
+    background-size: 5px 5px;
   }
 </style>
