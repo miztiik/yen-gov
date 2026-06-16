@@ -48,16 +48,19 @@ def test_retired_thermal_concepts_exist():
     assert "gas-mw-retired" in cids
 
 
-def test_country_installed_capacity_concepts_no_longer_have_retired_siblings():
-    """The 2 country-grain installed-capacity concepts must not have any
-    other indicator at entity_kinds=['country'] FK'd to them."""
-    for stock_cid in ("coal-mw-absolute", "gas-absolute"):
-        siblings = [
-            r["indicator_id"]
-            for r in _rows()
-            if r.get("concept_id") == stock_cid and r.get("entity_kinds") == ["country"]
-        ]
-        assert len(siblings) == 1, (
-            f"concept {stock_cid} at country-grain should have exactly 1 FK "
-            f"after PR-Z3bconcept-resolve cluster 1; got: {siblings}"
+def test_country_installed_capacity_stock_concepts_removed_by_facet_collapse():
+    """geo-facet PR (TODO/20260616-geo-facet-dimension-column-plan.md): the
+    per-fuel country-grain stock concepts (coal-mw-absolute, gas-absolute, ...)
+    collapse into the faceted installed-capacity-mw measure (fuel_type is now a
+    dimension column on geo_by_fuel/*.csv). The retired-FLOW concepts stay
+    separate (distinct measure per the Hans identity rule #13)."""
+    cids = _concept_ids()
+    for removed in ("coal-mw-absolute", "gas-absolute"):
+        assert removed not in cids, (
+            f"{removed} should be removed by the facet collapse (fuel is now a "
+            f"dimension on geo_by_fuel, not a per-fuel concept)"
         )
+    for kept in ("coal-mw-retired", "gas-mw-retired"):
+        assert kept in cids
+    parent = next(r for r in _rows() if r["indicator_id"] == "installed-capacity-mw")
+    assert parent["concept_id"] == "all-india-installed-capacity"

@@ -236,17 +236,6 @@
       "sources": []
     },
     {
-      "concept_id": "coal-mw-absolute",
-      "noun": "Coal",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "country"
-      ],
-      "description_short": "Coal-fired thermal capacity (country-grain CEA snapshot). India's largest fuel category nationally (~42%). State-grain attribution variants live under coal-mw-{geographical,allocated,snapshot}.",
-      "sources": []
-    },
-    {
       "concept_id": "coal-mw-allocated",
       "noun": "Coal (allocated to state)",
       "unit_canonical": "MW",
@@ -255,28 +244,6 @@
         "state"
       ],
       "description_short": "State-grain BENEFICIARY share of coal-fired capacity (ISGS/PSU contractual allocation). A Mundra plant sited in Gujarat is allocated to multiple states by quota. Distinct measure from geographical siting.",
-      "sources": []
-    },
-    {
-      "concept_id": "coal-mw-geographical",
-      "noun": "Coal (geographically sited)",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State-grain coal-fired capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.",
-      "sources": []
-    },
-    {
-      "concept_id": "coal-mw-snapshot",
-      "noun": "Coal (state CEA snapshot)",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State-grain CEA Monthly Executive Summary end-of-month snapshot of coal capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.",
       "sources": []
     },
     {
@@ -479,28 +446,6 @@
       "sources": []
     },
     {
-      "concept_id": "gas-absolute",
-      "noun": "Gas",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "country"
-      ],
-      "description_short": "Natural-gas and liquid-fuel thermal capacity (country-grain CEA snapshot). Stranded-fuel risk; small share nationally. State-grain attribution variants live under gas-mw-{geographical,allocated,snapshot}.",
-      "sources": []
-    },
-    {
-      "concept_id": "gas-mw-geographical",
-      "noun": "Gas (geographically sited)",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State-grain gas-fired capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.",
-      "sources": []
-    },
-    {
       "concept_id": "gas-mw-allocated",
       "noun": "Gas (allocated to state)",
       "unit_canonical": "MW",
@@ -509,17 +454,6 @@
         "state"
       ],
       "description_short": "State-grain BENEFICIARY share of gas-fired capacity (ISGS/PSU contractual allocation). A Hazira plant sited in Gujarat may be allocated to multiple states by quota. Distinct measure from geographical siting.",
-      "sources": []
-    },
-    {
-      "concept_id": "gas-mw-snapshot",
-      "noun": "Gas (state CEA snapshot)",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State-grain CEA Monthly Executive Summary end-of-month snapshot of gas capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.",
       "sources": []
     },
     {
@@ -613,28 +547,6 @@
       "sources": []
     },
     {
-      "concept_id": "hydro-mw-absolute",
-      "noun": "Hydro",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "country"
-      ],
-      "description_short": "Conventional (>25 MW) plus small-hydro capacity (country-grain CEA snapshot). Site-bound; multi-decade lifetime. State-grain attribution variants live under hydro-mw-{geographical,allocated,snapshot}.",
-      "sources": []
-    },
-    {
-      "concept_id": "hydro-mw-geographical",
-      "noun": "Hydro (geographically sited)",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State-grain hydro capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.",
-      "sources": []
-    },
-    {
       "concept_id": "hydro-mw-allocated",
       "noun": "Hydro (allocated to state)",
       "unit_canonical": "MW",
@@ -643,17 +555,6 @@
         "state"
       ],
       "description_short": "State-grain BENEFICIARY share of hydro capacity (ISGS/PSU contractual allocation). A large hydro station sited in one hill state may be allocated to multiple consumer states by quota. Distinct measure from geographical siting.",
-      "sources": []
-    },
-    {
-      "concept_id": "hydro-mw-snapshot",
-      "noun": "Hydro (state CEA snapshot)",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State-grain CEA Monthly Executive Summary end-of-month snapshot of hydro capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.",
       "sources": []
     },
     {
@@ -961,28 +862,6 @@
       "sources": []
     },
     {
-      "concept_id": "nuclear-mw-absolute",
-      "noun": "Nuclear",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "country"
-      ],
-      "description_short": "Nuclear capacity (country-grain CEA national snapshot). Central-sector PSU plants (NPCIL). State-grain attribution variants live under nuclear-mw-{geographical,allocated,snapshot}.",
-      "sources": []
-    },
-    {
-      "concept_id": "nuclear-mw-geographical",
-      "noun": "Nuclear (geographically sited)",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State-grain nuclear capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.",
-      "sources": []
-    },
-    {
       "concept_id": "nuclear-mw-allocated",
       "noun": "Nuclear (allocated to state)",
       "unit_canonical": "MW",
@@ -991,17 +870,6 @@
         "state"
       ],
       "description_short": "State-grain BENEFICIARY share of nuclear capacity (NPCIL central-sector PPA allocation). A reactor sited in one state is allocated to multiple consumer states by quota. Distinct measure from geographical siting.",
-      "sources": []
-    },
-    {
-      "concept_id": "nuclear-mw-snapshot",
-      "noun": "Nuclear (state CEA snapshot)",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State-grain CEA Monthly Executive Summary end-of-month snapshot of nuclear capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.",
       "sources": []
     },
     {
@@ -1315,28 +1183,6 @@
       "sources": []
     },
     {
-      "concept_id": "renewable-absolute",
-      "noun": "Renewable",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "country"
-      ],
-      "description_short": "Renewable capacity (country-grain CEA national snapshot). Wind, solar, biomass and waste-to-energy aggregate; ~30% national capacity by FY26. State-grain attribution variants live under renewable-mw-{geographical,allocated,snapshot}.",
-      "sources": []
-    },
-    {
-      "concept_id": "renewable-mw-geographical",
-      "noun": "Renewable (geographically sited)",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State-grain renewable capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share and from CEA monthly snapshot.",
-      "sources": []
-    },
-    {
       "concept_id": "renewable-mw-allocated",
       "noun": "Renewable (allocated to state)",
       "unit_canonical": "MW",
@@ -1345,17 +1191,6 @@
         "state"
       ],
       "description_short": "State-grain BENEFICIARY share of renewable capacity (ISGS/PSU contractual allocation; a plant sited in one state is allocated to multiple consumer states). Distinct measure from geographical siting.",
-      "sources": []
-    },
-    {
-      "concept_id": "renewable-mw-snapshot",
-      "noun": "Renewable (state CEA snapshot)",
-      "unit_canonical": "MW",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State-grain CEA Monthly Executive Summary end-of-month snapshot of renewable capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.",
       "sources": []
     },
     {
@@ -1410,7 +1245,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Cumulative installed rooftop solar PV capacity in megawatts. Building-mounted (residential + commercial + industrial + public) only; utility-scale solar is separate and lives under installed-capacity-snapshot-mw-renewable.",
+      "description_short": "Cumulative installed rooftop solar PV capacity in megawatts. Building-mounted (residential + commercial + industrial + public) only; utility-scale solar is separate and lives under installed-capacity-snapshot-mw (renewable facet).",
       "sources": []
     },
     {
