@@ -559,6 +559,43 @@ def _compare_dryrun_file(tmp_file: Path, real_file: Path) -> None:
     )
 
 
+@app.command("consolidate-fuel-facets")
+def consolidate_fuel_facets(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Collapse per-fuel geo datapoint files into faceted geo_by_fuel files.
+
+    One-shot structural migration for the section-21.6 dimension-column
+    branch (TODO/20260616-geo-facet-dimension-column-plan.md): reads the
+    per-fuel single-value files under datasets/data/datapoints/geo/ and
+    writes one faceted file per measure under
+    datasets/data/datapoints/geo_by_fuel/ with a fuel_type dimension column.
+    The per-fuel inputs are deleted in the same PR's final commit.
+    """
+    from yen_gov.canonical.fuel_facet_consolidation import (
+        INSTALLED_CAPACITY_FAMILIES,
+        write_faceted_family,
+    )
+
+    for spec in INSTALLED_CAPACITY_FAMILIES:
+        out_path = write_faceted_family(root, spec)
+        n_rows = sum(1 for _ in out_path.read_text(encoding="utf-8").splitlines()) - 1
+        typer.echo(
+            f"consolidate-fuel-facets: wrote "
+            f"{out_path.relative_to(root).as_posix()} "
+            f"({n_rows} rows; all_member={spec.has_all_member}; "
+            f"{len(spec.children)} fuels)"
+        )
+
+
 @app.command("derive-national-reference")
 def derive_national_reference(
     indicator: str = typer.Option(
