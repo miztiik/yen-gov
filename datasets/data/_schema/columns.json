@@ -1,6 +1,6 @@
 {
   "$schema": "./columns.schema.json",
-  "$schema_version": "2.5",
+  "$schema_version": "2.6",
   "file_classes": {
     "datasets/data/variables.csv": {
       "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
@@ -351,7 +351,11 @@
         { "name": "candidate_type", "dtype": "string", "nullable": true, "enum": ["incumbent", "challenger", "crossover"] },
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" },
         { "name": "processing_level", "dtype": "string", "nullable": false, "enum": ["minor", "major"] },
-        { "name": "processing_note", "dtype": "string", "nullable": true }
+        { "name": "processing_note", "dtype": "string", "nullable": true },
+        { "name": "criminal_cases_declared", "dtype": "integer", "nullable": true },
+        { "name": "total_assets_inr", "dtype": "integer", "nullable": true },
+        { "name": "total_liabilities_inr", "dtype": "integer", "nullable": true },
+        { "name": "declared_election_expense_inr", "dtype": "integer", "nullable": true }
       ]
     },
     "datasets/elections/assembly/state=*/election=*/summary.csv": {
@@ -402,7 +406,11 @@
         { "name": "candidate_type", "dtype": "string", "nullable": true, "enum": ["incumbent", "challenger", "crossover"] },
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" },
         { "name": "processing_level", "dtype": "string", "nullable": false, "enum": ["minor", "major"] },
-        { "name": "processing_note", "dtype": "string", "nullable": true }
+        { "name": "processing_note", "dtype": "string", "nullable": true },
+        { "name": "criminal_cases_declared", "dtype": "integer", "nullable": true },
+        { "name": "total_assets_inr", "dtype": "integer", "nullable": true },
+        { "name": "total_liabilities_inr", "dtype": "integer", "nullable": true },
+        { "name": "declared_election_expense_inr", "dtype": "integer", "nullable": true }
       ]
     },
     "datasets/elections/parliament/election=*/summary.csv": {

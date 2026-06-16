@@ -1,0 +1,47 @@
+# MyNeta affidavit -> TCPD/ECI constituency-name aliases
+#
+# Author: yen-gov Row B (2026-06-14) — PR companion to
+# `backend/yen_gov/canonical/adapters/myneta/lok_sabha_2014_winners.py`.
+#
+# Why this file exists
+# --------------------
+# The 2014 ADR/MyNeta affidavit-disclosure CSV
+# (`datasets/ephemeral/2014_lok_sabha_affidavits.csv`) uses MyNeta's own
+# constituency spellings, which drift from the TCPD/ECI canonical
+# spellings now sitting in
+# `datasets/elections/parliament/election=2014/candidacies.csv`.
+#
+# The drift is a pure source-spelling difference (e.g. MyNeta "Araku" vs
+# TCPD "ARUKU" for the same Andhra Pradesh PC) — NOT a fuzzy/probabilistic
+# match. Each row below was verified by oracle candidate-name match
+# (the candidate is the same person; only the PC label differs).
+#
+# This overlay preserves Row B's strict, deterministic, exact-match join
+# (plan D2: no fuzzy fallback) while still landing 542/542 enrichments.
+# Future MyNeta ingests (2019, 2024) can append to this file as drift
+# is observed.
+#
+# Schema
+# ------
+# normalised_affidavit_pc — output of normalise_constituency_name() on the
+#                           affidavit's `Constituency` OR `AltSpelling`
+#                           cell (the adapter consults both).
+# normalised_canonical_pc — output of normalise_constituency_name() on the
+#                           winning candidacy's `constituency_name` cell.
+# state                   — the canonical `state` slug (e.g. "telangana")
+#                           used as a join discriminator; safe-guards
+#                           against any future cross-state collision.
+# note                    — human-readable justification.
+normalised_affidavit_pc,normalised_canonical_pc,state,note
+araku,aruku,andhra-pradesh,Affidavit "Araku" vs TCPD "ARUKU" — same AP PC; cand=Kothapalli Geetha (YSRCP)
+arambag,arambagh,west-bengal,Affidavit "Arambag" vs TCPD "ARAMBAGH" — same WB PC; cand=Aparupa Poddar (AITC)
+barddhaman-durgapur,burdwan-durgapur,west-bengal,Affidavit "Barddhaman-Durgapur" vs TCPD "BURDWAN - DURGAPUR" — same WB PC; cand=Dr. Mamtaz Sanghamita (AITC)
+barakpur,barrackpore,west-bengal,Affidavit "Barakpur" vs TCPD "BARRACKPORE" — same WB PC; cand=Dinesh Trivedi (AITC)
+chevella,chelvella,telangana,Affidavit "Chevella" vs TCPD "CHELVELLA" — same TS PC; cand=Konda Vishweshwar Reddy (TRS)
+koch bihar,cooch behar,west-bengal,Affidavit "Koch Bihar" vs TCPD "COOCH BEHAR" — same WB PC; cand=Renuka Sinha (AITC)
+dadra & nagar haveli,dadar & nagar haveli,dadra-and-nagar-haveli-and-daman-and-diu,Affidavit "Dadra & Nagar Haveli" vs TCPD "DADAR & NAGAR HAVELI" — same DNH PC; cand=Natubhai G. Patel (BJP)
+jaynagar,joynagar,west-bengal,Affidavit "Jaynagar" vs TCPD "JOYNAGAR" — same WB PC; cand=Pratima Mondal (AITC)
+secunderabad,secundrabad,telangana,Affidavit "Secunderabad" vs TCPD "SECUNDRABAD" — same TS PC; cand=Bandaru Dattatreya (BJP)
+shrirampur,srerampur,west-bengal,Affidavit "Shrirampur" vs TCPD "SRERAMPUR" — same WB PC; cand=Kalyan Banerjee (AITC)
+surguja,sarguja,chhattisgarh,Affidavit "Surguja" vs TCPD "SARGUJA" — same CG PC; cand=Kamalbhan Singh Marabi (BJP)
+tiruvallur,thiruvallur,tamil-nadu,Affidavit "Tiruvallur" vs TCPD "THIRUVALLUR" — same TN PC; cand=Venugopal P (ADMK)

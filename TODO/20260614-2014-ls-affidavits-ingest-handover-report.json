@@ -1,0 +1,62 @@
+{
+  "checks": [
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "no existing concept scores >= 0.70; mint_new acceptable",
+      "name": "concept_overlap",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/owid-alignment.md",
+      "evidence": "proposal has no concept_id; mint_new requires a new row in datasets/taxonomy/concepts.json in the same PR",
+      "name": "concept_fk",
+      "status": "warn"
+    },
+    {
+      "doc_link": "docs/architecture/decisions/0044-grain-over-entity.md",
+      "evidence": "proposed_id='elections/criminal-cases-declared-cases-affidavit' carries no grain prefix",
+      "name": "grain_prefix",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "update_period_days=1825 (positive int)",
+      "name": "update_period_days",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "justification length=846",
+      "name": "justification",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/architecture/decisions/0032-sources-citation-ledger.md",
+      "evidence": "source_id (or absence) matches derive_source_id output",
+      "name": "source_id_derivation",
+      "status": "pass"
+    }
+  ],
+  "generated_at": "preflight:sha256:aba7bb499cb7e6a6",
+  "input_echo": {
+    "concept": "Criminal cases declared (candidate affidavit)",
+    "entity_kind": "candidate",
+    "family": "elections",
+    "justification": "Count of criminal cases pending against a candidate, self-declared on the ECI Form 26 affidavit at nomination. Distinct from any other 'criminal' or 'cases' concept because the sampling frame is candidate-affidavit-declaration, NOT adjudicated conviction; 'cases' unit reflects publisher granularity (count, not severity-weighted). This is the FB-1 fold-back proposal sketched at Row B time per plan-doc TODO/20260614-three-ephemeral-ingests-plan.md \u00a73.B.4; Row B itself does NOT mint a catalogue row, but the pre-flight RUN is discharged here per CLAUDE.md \u00a710 anti-pattern. The three siblings (total_assets_inr, total_liabilities_inr, declared_election_expense_inr) get their own proposals in FB-1; only the first is sketched here because the pre-flight contract is per-concept and the discharge requirement is satisfied by one well-formed run.",
+    "normalisation": "absolute",
+    "proposed_id": "elections/criminal-cases-declared-cases-affidavit",
+    "source_producer": "Association for Democratic Reforms (ADR / MyNeta)",
+    "source_title": "Lok Sabha 2014 Winners - Affidavit Analysis (MyNeta)",
+    "source_vintage": "2014",
+    "unit": "cases",
+    "update_period_days": 1825
+  },
+  "recommended_action": {
+    "kind": "mint_new",
+    "rationale": "no concept overlap >= 0.70; proceed with mint_new",
+    "target_indicator_id": null,
+    "target_parquet_path": "datasets/elections/elections_<role>.parquet"
+  },
+  "schema_version": "1.0",
+  "verdict": "mint_new"
+}

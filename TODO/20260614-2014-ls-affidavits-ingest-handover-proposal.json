@@ -1,0 +1,13 @@
+{
+  "proposed_id": "elections/criminal-cases-declared-cases-affidavit",
+  "family": "elections",
+  "concept": "Criminal cases declared (candidate affidavit)",
+  "unit": "cases",
+  "normalisation": "absolute",
+  "entity_kind": "candidate",
+  "source_producer": "Association for Democratic Reforms (ADR / MyNeta)",
+  "source_title": "Lok Sabha 2014 Winners - Affidavit Analysis (MyNeta)",
+  "source_vintage": "2014",
+  "update_period_days": 1825,
+  "justification": "Count of criminal cases pending against a candidate, self-declared on the ECI Form 26 affidavit at nomination. Distinct from any other 'criminal' or 'cases' concept because the sampling frame is candidate-affidavit-declaration, NOT adjudicated conviction; 'cases' unit reflects publisher granularity (count, not severity-weighted). This is the FB-1 fold-back proposal sketched at Row B time per plan-doc TODO/20260614-three-ephemeral-ingests-plan.md §3.B.4; Row B itself does NOT mint a catalogue row, but the pre-flight RUN is discharged here per CLAUDE.md §10 anti-pattern. The three siblings (total_assets_inr, total_liabilities_inr, declared_election_expense_inr) get their own proposals in FB-1; only the first is sketched here because the pre-flight contract is per-concept and the discharge requirement is satisfied by one well-formed run."
+}
