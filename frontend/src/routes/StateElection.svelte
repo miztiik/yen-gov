@@ -60,7 +60,7 @@
     resolvePartyPalette,
     type PartyRowForResolver,
   } from "../lib/colors/resolver";
-  import { INDIA_PC, INDIA_PC_2008 } from "../lib/boundaries/sources";
+  import { INDIA_PC, INDIA_PC_BY_NAME } from "../lib/boundaries/sources";
   import type { PcWinnerRow } from "../lib/charts/StatePcMapD3.svelte";
   import {
     fetchElectionTileLayouts,
@@ -540,15 +540,19 @@
   );
 
   // ---- TODO/20260612 Rows D + F: PC winner projection for StatePcMapD3
-  // + per-PC mute overrides. unique_id matches the PC topojson's join
+  // + per-PC mute overrides. unique_id matches the PC geometry's join
   // shape, which depends on the event's delim_year:
-  //   - delim=2024 (LS 2024) -> `<state_code>_<eci_no>` (numeric)
-  //   - delim=2008 (LS 2019 / 2014 / 2009) -> `<state_code>_<pc_name_slug>`
-  // The 2008 layer uses a name-slug join because canonical electoral.csv
-  // carries unreliable eci_no values for delim=2008 PCs (22 of 544 are 0;
-  // many populated values are misaligned with ECI's actual numbering).
-  // See INDIA_PC_2008 jsdoc + plan TODO/20260612-pc-delim-2008-boundary-
-  // ingest-plan.md V6 pre-flight for the alignment evidence.
+  //   - LS 2024 -> numeric `<state_code>_<eci_no>` (joins INDIA_PC's
+  //     `unique_id`).
+  //   - LS 2019 / 2014 / 2009 -> name-slug `<state_code>_<pc_name_slug>`
+  //     (joins INDIA_PC_BY_NAME's `pc_slug_uid`).
+  // After the 2026-06-16 map-geometry rip (Row 3) there is ONE PC
+  // geometry file (delim=2024); pre-2024 events join it by name-slug
+  // because canonical electoral.csv carries unreliable eci_no values for
+  // the old delimitation (22 of 544 are 0; many populated values are
+  // misaligned with ECI's actual numbering). Unmatched seats render grey
+  // (safe-by-construction). See INDIA_PC_BY_NAME jsdoc for the alignment
+  // evidence.
   //
   // Derives delim year from `ev.event_id`:
   //   - general-2024 -> 2024
@@ -566,7 +570,9 @@
     return null;
   }
   const pc_delim_year = $derived(pcDelimYearForLsEvent(event_row?.event_id));
-  const pc_boundary = $derived(pc_delim_year === 2008 ? INDIA_PC_2008 : INDIA_PC);
+  const pc_boundary = $derived(
+    pc_delim_year === 2008 ? INDIA_PC_BY_NAME : INDIA_PC,
+  );
 
   const pc_winners = $derived.by<PcWinnerRow[]>(() => {
     if (body !== "pc") return [];
