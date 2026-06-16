@@ -180,11 +180,23 @@ def refresh_event_summary_mart(repo_root: Path) -> EventSummaryMartResult:
         if not state_dir.is_dir():
             continue
         for path in sorted(state_dir.glob("election=*/summary.csv")):
-            year = _year_from_election_dir(path.parent.name)
-            if year is None:
-                skipped += 1
-                continue
-            canonical = _find_assembly_event(catalogue, state_code, year)
+            dir_name = path.parent.name
+            year = _year_from_election_dir(dir_name)
+            if year is not None:
+                canonical = _find_assembly_event(catalogue, state_code, year)
+            else:
+                # R1.6 Path A' (TODO/20260615-R1.6-bihar-2005-path-a-prime-receipt.md):
+                # `election=<event_id>/` dir form for same-year same-state
+                # same-kind collisions (anchor: Bihar 2005 Feb vs Nov).
+                # Resolve by event_id directly so the first-match-wins
+                # year-bucket bug cannot reappear for split events.
+                event_id_from_dir = _event_id_from_election_dir(dir_name)
+                if event_id_from_dir is None:
+                    skipped += 1
+                    continue
+                canonical = _find_assembly_event_by_id(
+                    catalogue, state_code, event_id_from_dir
+                )
             if canonical is None:
                 skipped += 1
                 continue
@@ -260,7 +272,16 @@ def _find_parliament_event(
 def _find_assembly_event(
     catalogue: dict[str, object], state_code: str, year: int
 ) -> dict[str, object] | None:
-    """Catalogue event for (state_code, year, kind in {assembly, assembly_bye, by_election})."""
+    """Catalogue event for (state_code, year, kind in {assembly, assembly_bye, by_election}).
+
+    Year-bucket resolver: first-match-wins. CORRECT for the 35 states
+    where exactly one assembly-kind catalogue row carries a `polled_on`
+    in any given year. WRONG for the rare same-state same-year same-kind
+    collision (anchor: Bihar 2005 February + October-November - the ONLY
+    such tuple in the catalogue today). For collision cases use the
+    R1.6 Path A' event-id-keyed dir form `election=<event_id>/` which
+    routes through ``_find_assembly_event_by_id`` instead.
+    """
     states_payload = catalogue["states"]
     assert isinstance(states_payload, dict)
     evts = states_payload.get(state_code, [])
@@ -271,6 +292,34 @@ def _find_assembly_event(
             continue
         polled_on = str(e.get("polled_on", ""))
         if polled_on.startswith(f"{year}-"):
+            return e
+    return None
+
+
+def _find_assembly_event_by_id(
+    catalogue: dict[str, object], state_code: str, event_id: str
+) -> dict[str, object] | None:
+    """Catalogue event for (state_code, event_id) - exact match including aliases.
+
+    R1.6 Path A' (TODO/20260615-R1.6-bihar-2005-path-a-prime-receipt.md):
+    resolver for the `election=<event_id>/` dir form. Matches BOTH the
+    canonical event_id AND any entry in event_id_aliases so the legacy
+    `assembly-2005` dir (if still on disk during the migration window)
+    still resolves while the new `assembly-2005-feb` + `assembly-2005-nov`
+    dirs land.
+    """
+    states_payload = catalogue["states"]
+    assert isinstance(states_payload, dict)
+    evts = states_payload.get(state_code, [])
+    if not isinstance(evts, list):
+        return None
+    for e in evts:
+        if e.get("kind") not in ("assembly", "assembly_bye", "by_election"):
+            continue
+        if str(e.get("event_id", "")) == event_id:
+            return e
+        aliases = e.get("event_id_aliases", []) or []
+        if isinstance(aliases, list) and event_id in aliases:
             return e
     return None
 
@@ -379,11 +428,33 @@ def _ensure_mart_source(source_csv_path: Path) -> str:
 
 
 _ELECTION_DIR_RE = re.compile(r"^election=(\d{4})$")
+_ELECTION_DIR_EVENT_RE = re.compile(r"^election=([A-Za-z0-9_-]+)$")
 
 
 def _year_from_election_dir(name: str) -> int | None:
+    """Return the 4-digit year keyed by the legacy `election=<YYYY>/` dir.
+
+    Returns None for the R1.6 Path A' event-id-keyed dir form
+    (`election=<event_id>/`); call ``_event_id_from_election_dir`` to
+    recover the event_id in that case.
+    """
     m = _ELECTION_DIR_RE.match(name)
     return int(m.group(1)) if m else None
+
+
+def _event_id_from_election_dir(name: str) -> str | None:
+    """Return the event_id keyed by the R1.6 Path A' `election=<event_id>/` dir.
+
+    The legacy `election=<YYYY>/` form ALSO matches the broader pattern, so
+    callers should try ``_year_from_election_dir`` first and only fall
+    through to this function when the year pattern did not match. The
+    pattern mirrors the catalogue's v1.3 `event_id` JSON-schema pattern
+    (``^[A-Za-z0-9_-]+$``).
+    """
+    if _ELECTION_DIR_RE.match(name):
+        return None  # year-keyed legacy dir; caller handled
+    m = _ELECTION_DIR_EVENT_RE.match(name)
+    return m.group(1) if m else None
 
 
 def _int_or_none(value: str | None) -> int | None:

@@ -80,6 +80,32 @@ def _reservation_from_result_name(name: str) -> str:
     return "GEN"
 
 
+def test_election_events_catalogue_primary_key_unique():
+    """Each (state_code, kind, event_id) tuple appears at most once.
+
+    R1.6 Path A' introduced same-state same-year split events (Bihar 2005
+    February + November) where year alone is no longer a safe identifier.
+    The file-level PK is now explicitly (state_code, kind, event_id).
+    """
+    catalogue = _load_json(ELECTION_EVENTS_PATH)
+    seen: set[tuple[str, str, str]] = set()
+    duplicates: list[tuple[str, str, str]] = []
+
+    for state_code, entries in catalogue["states"].items():
+        for entry in entries:
+            key = (state_code, str(entry.get("kind", "")), str(entry.get("event_id", "")))
+            if key in seen:
+                duplicates.append(key)
+            else:
+                seen.add(key)
+
+    assert not duplicates, (
+        "duplicate (state_code, kind, event_id) tuples in "
+        "datasets/taxonomy/election_events.json: "
+        f"{duplicates}"
+    )
+
+
 def test_emitted_states_are_declared_in_event_metadata():
     # Retired 2026-05-19 (PR-Q, TODO row 1.8d). This walked both
     # ``ELECTIONS_ROOT`` and ``EVENTS_IN_ECI / <event> / election.json`` to

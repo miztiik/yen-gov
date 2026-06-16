@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/election-events.schema.json",
-  "$schema_version": "1.3",
+  "$schema_version": "1.4",
   "sources": [],
   "states": {
     "S01": [
@@ -830,27 +830,28 @@
         ]
       },
       {
-        "event_id": "assembly-2005",
+        "event_id": "assembly-2005-feb",
         "kind": "assembly",
         "display": "Bihar Assembly · February 2005",
         "polled_on": "2005-02-23",
         "term_end_estimated": null,
         "data_status": "complete",
-        "notes": "243 ACs. Three-phase poll on 3, 15, and 23 February 2005. The result was fractured and no government was formed; Bihar returned to polls in October-November 2005. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
+        "notes": "243 ACs. Three-phase poll on 3, 15, and 23 February 2005. The result was fractured and no government was formed; Bihar returned to polls in October-November 2005. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). R1.6 Path A' (TODO/20260615-R1.6-bihar-2005-path-a-prime-receipt.md): split from the previously-shared event_id `assembly-2005` to honour the constitutional fact that February + November 2005 are distinct Bihar Assembly elections. The legacy `assembly-2005` slug is preserved in event_id_aliases on the November row (the constitutionally consequential Nitish Kumar government formation; frozen-URL inbound resolution rule).",
         "event_id_aliases": [
           "AcGenFeb2005"
         ]
       },
       {
-        "event_id": "assembly-2005",
+        "event_id": "assembly-2005-nov",
         "kind": "assembly",
         "display": "Bihar Assembly · October-November 2005",
         "polled_on": "2005-11-19",
         "term_end_estimated": "2010-11-18",
         "data_status": "complete",
-        "notes": "243 ACs. Fresh election after the February 2005 fractured verdict; four-phase poll on 18 and 26 October, 13 and 19 November 2005. Event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
+        "notes": "243 ACs. Fresh election after the February 2005 fractured verdict; four-phase poll on 18 and 26 October, 13 and 19 November 2005. Event date uses the final polling day. Nitish Kumar formed the NDA government, ending ~15 years of Lalu/Rabri rule. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). R1.6 Path A' (TODO/20260615-R1.6-bihar-2005-path-a-prime-receipt.md): split from the previously-shared event_id `assembly-2005`. The legacy slug is preserved here as an alias because this is the constitutionally consequential election; `/bihar/elections/assembly-2005` inbound URLs resolve here.",
         "event_id_aliases": [
-          "AcGenNov2005"
+          "AcGenNov2005",
+          "assembly-2005"
         ]
       },
       {
