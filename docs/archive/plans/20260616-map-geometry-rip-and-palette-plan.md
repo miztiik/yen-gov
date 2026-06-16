@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-06-16
 **Level**: Level-4 (structural; boundary-geometry contract change + electoral single-vintage consolidation + renderer-config change). User-ratified direction (2026-06-16): rip-and-replace, no strangler-fig, keep the LATEST delimitation (2024) only, delete the oldest (2008).
-**Status**: IN PROGRESS (2026-06-16) - Rows 1, 2, 4 MERGED (PRs #1085, #1089, #1086). Row 3 (electoral slice) handed off ready-to-execute: see [20260616-row3-electoral-handover.md](20260616-row3-electoral-handover.md) (data de-risked, ESCALATE 0.5.3 cleared at 100% AC overlap). Rows 5 + 5b pending after Row 3.
+**Status**: COMPLETE (2026-06-16) - ALL rows merged: Row 1 (#1085), Row 2 (#1089), Row 4 (#1086), Row 3 (#1094), Row 5 (#1095), Row 5b (#1096). See [Plan complete](#plan-complete) at the foot of this doc for the row -> destination distillation map.
 **Strategy**: RIP-AND-REPLACE, NO STRANGLER-FIG. Each PR is a complete vertical slice (data + readers + tests change together) so no intermediate state ships a broken map, and there is NO old/new coexistence phase. GitHub history is the backup.
 
 ## 0. Operating contract
@@ -169,9 +169,24 @@ When this plan is in context and the instruction is "implement it", execute as t
 
 ## 4. Cross-references
 
-- [CLAUDE.md](../CLAUDE.md) - Holy Laws #1/#3/#5/#8/#9/#10; sections 6, 0a, 10.
-- [docs/architecture/frontend/map.md](../docs/architecture/frontend/map.md) - rewritten by Row 5.
-- [datasets/boundaries/electoral/README.md](../datasets/boundaries/electoral/README.md) - rewritten by Row 3 / Row 5.
-- [TODO/20260612-pc-delim-2008-boundary-ingest-plan.md](20260612-pc-delim-2008-boundary-ingest-plan.md) - the prior PC ingest; its name-slug machinery is reused, its delim=2008 geometry retired by Row 3.
-- [tools/topojson/convert_layer.py](../tools/topojson/convert_layer.py) + [config/topojson.json](../config/topojson.json) - the converter + the `5% weighted` knob Row 2 supersedes.
-- [docs/how-to/ship-a-pr.md](../docs/how-to/ship-a-pr.md) + [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md).
+- [CLAUDE.md](../../../CLAUDE.md) - Holy Laws #1/#3/#5/#8/#9/#10; sections 6, 0a, 10.
+- [docs/architecture/frontend/map.md](../../../docs/architecture/frontend/map.md) - rewritten by Row 5.
+- [datasets/boundaries/electoral/README.md](../../../datasets/boundaries/electoral/README.md) - rewritten by Row 3 / Row 5.
+- [TODO/20260612-pc-delim-2008-boundary-ingest-plan.md](../../../TODO/20260612-pc-delim-2008-boundary-ingest-plan.md) - the prior PC ingest; its name-slug machinery is reused, its delim=2008 geometry retired by Row 3.
+- [tools/topojson/convert_layer.py](../../../tools/topojson/convert_layer.py) + [config/topojson.json](../../../config/topojson.json) - the converter + the `5% weighted` knob Row 2 supersedes.
+- [docs/how-to/ship-a-pr.md](../../../docs/how-to/ship-a-pr.md) + [docs/how-to/distill-a-plan.md](../../../docs/how-to/distill-a-plan.md).
+
+## Plan complete
+
+Closed 2026-06-16. All rows merged. Distillation complete (durable knowledge lives in the destinations below; this plan-doc remains as the audit ledger - do not edit further; new work starts a new plan-doc):
+
+| Row | PR | Merge SHA | Durable knowledge distilled to |
+| --- | --- | --- | --- |
+| Row 1 - responsive fit + Lakshadweep square marker + strip circles/silhouettes | #1085 | `c258bd2dc` | [docs/architecture/frontend/map.md](../../../docs/architecture/frontend/map.md) (d3-geo renderer + `fitWidth`); `computeIslandMarker` JSDoc. |
+| Row 2 - country TopoJSON (objects states+districts) + object-by-name loader + receipt | #1089 | (squash) | [map.md](../../../docs/architecture/frontend/map.md) (encoding rule) + [docs/architecture/data/boundaries.md](../../../docs/architecture/data/boundaries.md) + the `boundary_encoding.csv` receipt contract in `tools/topojson/emit_receipt.py` + `backend/yen_gov/validate.py`. |
+| Row 4 - configurable palette token registry | #1086 | (squash) | `frontend/src/lib/colors/palettes.ts` + `colors/topic-palette.ts` + `app-tokens.css` (`--ramp-*`); contract in `palette-contract.test.ts`. |
+| Row 3 - electoral rip to single 2024 vintage (national AC TopoJSON + dual-key PC) | #1094 | `54b33898c` | [datasets/boundaries/electoral/README.md](../../../datasets/boundaries/electoral/README.md) (single-vintage + dual-key grammar) + [map.md](../../../docs/architecture/frontend/map.md); the `boundary-layers.schema.json` v1.6 `format` enum (topojson) is self-documenting; tools `consolidate_ac_2024.py` + `dual_key_pc_2024.py` + `reseed_electoral_2024.py`. |
+| Row 5 - docs reconciliation | #1095 | `4fcd7ca6f` | [map.md](../../../docs/architecture/frontend/map.md) + [boundaries.md](../../../docs/architecture/data/boundaries.md) + [boundary-coverage-matrix.md](../../../docs/architecture/data/boundary-coverage-matrix.md) + [canonical-store.md](../../../docs/architecture/data/canonical-store.md) + [boundary-data-philosophy.md](../../../docs/concepts/boundary-data-philosophy.md) + [convert-geojson-to-topojson.md](../../../docs/how-to/convert-geojson-to-topojson.md) (this row WAS the distillation of Rows 1-3 into the architecture docs). |
+| Row 5b - PC name-slug alias table (96.0% -> 99.1%) | #1096 | (squash) | `frontend/src/lib/elections/pc-slug-alias.ts` (self-documenting curated table + per-entry rationale) + its contract test; the genuine-change-stays-grey doctrine is captured in the module header + the test's `does NOT alias any genuine-change seat` case. |
+
+Agent-only execution lessons (orchestration topology, the worktree/CI/merge gotchas, the `delim_year`-vs-`delim=2008` distinction, the receipt-scoping finding) are in `/memories/` per CLAUDE.md §5, not in `docs/`.
