@@ -6,6 +6,7 @@
   import { majorityFor } from "./electoral";
   import ChartTooltip, { type TooltipState } from "./ChartTooltip.svelte";
   import PartyPill from "./party-pill/PartyPill.svelte";
+  import PartySymbolGlyph from "./PartySymbolGlyph.svelte";
   import { link } from "./links";
 
   interface Props {
@@ -157,7 +158,7 @@
        with a thin white halo so it stays readable against red, green,
        and blue party fills alike. -->
   <div class="pointer-events-none absolute inset-0 flex items-stretch gap-3 z-20" aria-hidden="true">
-    <div class="w-24 shrink-0"></div>
+    <div class="w-28 shrink-0"></div>
     <div class="relative flex-1">
       {#if majority_pct < 100}
         <!-- White halo (drawn first, slightly wider) so the gold line
@@ -233,13 +234,22 @@
         onfocus={(e) => showTip(e as unknown as MouseEvent, p)}
         onblur={hideTip}
       >
-        <div class="w-24 flex items-center justify-end gap-1" title={p.party_full ?? p.party_short}>
+        <div class="w-28 flex items-center justify-end gap-1" title={p.party_full ?? p.party_short}>
+          {#if p.symbol_asset_path}
+            <span
+              class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-50 ring-1 ring-slate-200"
+              data-testid="party-bar-symbol"
+            >
+              <PartySymbolGlyph assetPath={p.symbol_asset_path} size={13} />
+            </span>
+          {/if}
           <PartyPill
             size="sm"
             party_id={pid}
             party_short={p.party_short}
             row={rowFor(p)}
             muted={hidden}
+            suppress_tooltip
             onclick={clickable ? () => onToggleHidden?.(k) : undefined}
           />
           {#if detail_href}
