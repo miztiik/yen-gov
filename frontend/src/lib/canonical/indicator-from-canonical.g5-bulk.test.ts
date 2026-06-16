@@ -118,7 +118,10 @@ const G5_MAPPINGS: ReadonlyArray<readonly [string, string, "single" | "facet-mul
   ["environment/state_so2_annual_mean_ug_m3", "so2-annual-mean-ug-m3", "single"],
   ["environment/state_thermal_fgd_installed_share_pct", "thermal-fgd-installed-share-pct", "single"],
   // fiscal (5)
-  ["fiscal/net_transfers_from_centre", "net-transfers-from-centre-inr-crore", "facet-multiplexed"],
+  // geo-facet PR (TODO/20260616, ledger L1): net_transfers collapsed from
+  // facet-multiplexed (Accounts/RE/BE budget_phase) to an Accounts-only single
+  // series, honouring plan F1 (BE/RE never a facet toggle) + F2 (four-gate).
+  ["fiscal/net_transfers_from_centre", "net-transfers-from-centre-inr-crore", "single"],
   ["fiscal/state_external_debt_inr_crore", "state-external-debt-inr-crore", "single"],
   ["fiscal/state_non_tax_revenue_inr_crore", "non-tax-revenue-inr-crore", "single"],
   ["fiscal/states_combined_gross_fiscal_deficit", "states-combined-gross-fiscal-deficit-inr-crore", "single"],
@@ -248,7 +251,6 @@ describe("G5 bulk-rip cohort -- allowlist invariants (25 indicators)", () => {
       "environment/india_ghg_emissions_by_subsector_ggco2e": 26,
       "environment/india_ghg_emissions_mtco2e_by_sector": 4,
       "environment/state_power_sector_co2_emissions_mtco2": 2,
-      "fiscal/net_transfers_from_centre": 3,
       "prices/cpi_inflation_pct": 4,
     };
     for (const [legacy, expected] of Object.entries(EXPECTED)) {
@@ -274,18 +276,21 @@ describe("G5 bulk-rip cohort -- allowlist invariants (25 indicators)", () => {
     expect(childIds.has("india-ghg-emissions-ggco2e-by-subsector-land-use-land-use-change-and-forestry-forest-land")).toBe(true);
   });
 
-  it("net-transfers-from-centre has 3 facets (Accounts + RE + BE) preserving legacy semantics", () => {
-    // The legacy shard has 3 implicit facets: rows with no facet column
-    // are 'Accounts' (settled past year); rows with facet='BE' are Budget
-    // Estimate; rows with facet='RE' are Revised Estimate. The G5 migration
-    // pulls the implicit 'Accounts' bucket out as an explicit facet so
-    // every row in the CSV has an explicit facet label.
-    const d = getCanonicalDescriptor(
-      "fiscal/net_transfers_from_centre",
-    ) as CanonicalFacetMultiplexedDescriptor;
-    expect(d.facet_values.length).toBe(3);
-    const labels = d.facet_values.map((fv) => fv.legacy_facet_label).sort();
-    expect(labels).toEqual(["Accounts", "BE", "RE"]);
+  it("net-transfers-from-centre is an Accounts-only single series (geo-facet PR, F1/F2)", () => {
+    // geo-facet PR (TODO/20260616, ledger L1): the legacy 3-facet
+    // (Accounts/RE/BE) budget_phase toggle is collapsed to an Accounts-only
+    // single series, honouring plan F1 (BE/RE never a facet toggle) and the
+    // four-gate facet test F2 (estimate-stage members are competing estimates,
+    // not a partition of a whole).
+    const d = getCanonicalDescriptor("fiscal/net_transfers_from_centre");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("single");
+    if (d!.kind === "single") {
+      expect(d!.canonical_indicator_id).toBe("net-transfers-from-centre-inr-crore");
+      expect(d!.csv_path).toBe(
+        "data/datapoints/geo/net-transfers-from-centre-inr-crore.csv",
+      );
+    }
   });
 
   it("net-transfers-from-centre marks comparability as directional_only (thin time series)", () => {

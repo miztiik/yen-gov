@@ -2982,17 +2982,23 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   },
 
   {
-    kind: "facet-multiplexed",
+    kind: "single",
     legacy_artifact_id: "fiscal/net_transfers_from_centre",
-    canonical_parent_indicator_id: "net-transfers-from-centre-inr-crore",
+    canonical_indicator_id: "net-transfers-from-centre-inr-crore",
+    csv_path: "data/datapoints/geo/net-transfers-from-centre-inr-crore.csv",
     table_id: "fiscal.fiscal_canonical",
     // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
-    facet_axis_id: "budget_phase",
+    // geo-facet PR (TODO/20260616-geo-facet-dimension-column-plan.md, ledger
+    // L1): collapsed from a 3-facet (Accounts/RE/BE) budget_phase toggle to an
+    // Accounts-only single series, honouring plan F1 ("BE/RE never a facet
+    // toggle") + the four-gate facet test F2 (estimate-stage is not a facet:
+    // the members are competing estimates, not a partition of a whole).
     meta: {
       id: "net-transfers-from-centre-inr-crore",
       title: "Net transfers from Centre (INR crore)",
-      description: "Total devolution + grants from Central Government to each state in a fiscal year, net of returns and adjustments. 3 facets: 'Accounts' (settled past years), 'RE' (Revised Estimate for current year), 'BE' (Budget Estimate for forthcoming year).",
+      description:
+        "Total devolution + grants from Central Government to each state in a fiscal year, net of returns and adjustments. Carries the settled Accounts (actuals) only; forward-looking Budget / Revised Estimates are excluded per the fiscal-estimate-stage doctrine.",
       entity_kind: "state",
       time_grain: "fiscal_year",
       value_kind: "currency",
@@ -3004,31 +3010,16 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       attribution_geography: "where_administered",
       comparability: "directional_only",
       implementing_authority: "centre",
-      methodology_vintage: "RBI State Finances: A Study of Budgets, Statement 17 (Devolution and Transfer of Resources from the Centre - Net column), 2025-26 edition. Earlier years require scraping prior editions.",
-      notes: "Devolution = state's share in central taxes (Finance Commission formula). Grants = Finance Commission grants + centrally-sponsored scheme grants + special-purpose transfers. This is the federal-transfer side of state fiscal capacity. Coverage is THIN (3 fiscal years 2023-24 Accounts + 2024-25 RE + 2025-26 BE).",
+      methodology_vintage:
+        "RBI State Finances: A Study of Budgets, Statement 17 (Devolution and Transfer of Resources from the Centre - Net column), 2025-26 edition, Accounts column. Earlier years require scraping prior editions.",
+      notes:
+        "Devolution = state's share in central taxes (Finance Commission formula). Grants = Finance Commission grants + centrally-sponsored scheme grants + special-purpose transfers. Accounts (settled actuals) only; per plan F1 the Budget / Revised Estimates are NOT carried as a facet toggle - a year with no settled Accounts is a labelled gap, never a BE/RE fill. Coverage is THIN (Accounts for FY2023-24).",
     },
     caveats: [
-      "Coverage is THIN: only 3 fiscal years (1 Accounts + 1 RE + 1 BE) in the upstream snapshot. Earlier years require scraping prior RBI State Finances editions.",
-      "BE (Budget Estimate) and RE (Revised Estimate) facets are upstream projections, NOT settled Accounts; treat as forward-looking guidance.",
+      "Coverage is THIN: the settled Accounts series currently holds a single fiscal year (2023-24). Earlier years require scraping prior RBI State Finances editions.",
+      "Accounts (settled actuals) only. Budget / Revised Estimates are upstream projections and are deliberately NOT shown here (plan F1: BE/RE never a facet toggle); a promise-vs-delivery view would be a separately-named indicator.",
       "Raw INR-crore not directly cross-state comparable; per-capita and %-of-state-revenue normalisations are sibling indicators that need ingestion.",
-      "Comparability marked directional-only due to thin time series and mixed Accounts/RE/BE rows.",
-    ],
-    facet_values: [
-      {
-        canonical_child_id: "net-transfers-from-centre-inr-crore-accounts",
-        legacy_facet_label: "Accounts",
-        csv_path: "data/datapoints/geo/net-transfers-from-centre-inr-crore-accounts.csv",
-      },
-      {
-        canonical_child_id: "net-transfers-from-centre-inr-crore-re",
-        legacy_facet_label: "RE",
-        csv_path: "data/datapoints/geo/net-transfers-from-centre-inr-crore-re.csv",
-      },
-      {
-        canonical_child_id: "net-transfers-from-centre-inr-crore-be",
-        legacy_facet_label: "BE",
-        csv_path: "data/datapoints/geo/net-transfers-from-centre-inr-crore-be.csv",
-      },
+      "Comparability marked directional-only due to the thin (single-year) Accounts series.",
     ],
   },
 
