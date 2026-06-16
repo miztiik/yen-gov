@@ -184,3 +184,30 @@ export function hiddenPidSet(
   }
   return out;
 }
+
+/**
+ * Map a national Parliament event slug to the PC-boundary delimitation
+ * year that drives the Constituencies + Equal-seats choropleth arms:
+ *   - LS 2024 and later  -> 2024 delim (numeric `<state>_<eci_no>` join).
+ *   - LS 2009 / 2014 / 2019 -> 2008 delim (`<state>_<pc_name_slug>` join;
+ *     canonical electoral.csv carries unreliable eci_no for delim=2008).
+ *   - Pre-2009 LS events (1962 ... 2004), and any non-`general-YYYY`
+ *     slug, -> null: yen-gov has no PC-level boundary layer for those
+ *     delimitations, so a PC choropleth would draw an all-grey map keyed
+ *     to boundaries that did not exist then.
+ *
+ * Returning null is the single source of truth for "this event has no
+ * PC-level map arm"; the route gates the Constituencies + Equal-seats
+ * toggles on `pcDelimYearForLsEvent(event) != null`.
+ */
+export function pcDelimYearForLsEvent(
+  event_id: string | null | undefined,
+): number | null {
+  if (!event_id) return null;
+  const m = /^general-(\d{4})$/.exec(event_id);
+  if (!m) return null;
+  const year = parseInt(m[1], 10);
+  if (year >= 2024) return 2024;
+  if (year >= 2009) return 2008;
+  return null;
+}

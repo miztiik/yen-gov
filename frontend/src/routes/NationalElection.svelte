@@ -77,6 +77,7 @@
   import {
     buildPartyKeyToPid,
     hiddenPidSet,
+    pcDelimYearForLsEvent,
   } from "../lib/charts/india-pc-map-helpers";
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
   import ElectionSeizuresCard from "../lib/elections/ElectionSeizuresCard.svelte";
@@ -326,17 +327,30 @@
   // boundary-join shape (it uses `IN-PC-<delim_year>-<state>-<eci_no>`
   // which the on-disk election_tile_layouts.json was authored against),
   // so the tile arm still consumes pc_eci_no verbatim from PcWinnerRow.
-  function pcDelimYearForLsEvent(eventId: string | null | undefined): number | null {
-    if (!eventId) return null;
-    const m = /^general-(\d{4})$/.exec(eventId);
-    if (!m) return null;
-    const year = parseInt(m[1], 10);
-    if (year >= 2024) return 2024;
-    if (year >= 2009) return 2008;
-    return null;
-  }
+  // `pcDelimYearForLsEvent` is a pure helper (india-pc-map-helpers.ts) so
+  // the era-gating rule is unit-tested independently of this component.
   const pc_delim_year = $derived(pcDelimYearForLsEvent(event));
   const pc_boundary = $derived(pc_delim_year === 2008 ? INDIA_PC_2008 : INDIA_PC);
+
+  // Pre-2009 LS events (1962 / 1989 / 1991 / ... / 2004) have NO PC-level
+  // boundary layer (pcDelimYearForLsEvent -> null), so pc_winners is empty
+  // and the Constituencies + Equal-seats arms would draw an all-grey map
+  // keyed to 2024 boundaries that never existed for that election. This
+  // flag gates BOTH per-PC toggles; the States arm (IndiaPartyMap) covers
+  // every year by greying only the states with no rows (e.g. Assam, which
+  // genuinely did not poll in 1989 - that nuance belongs in a sourced
+  // coverage note, not an empty grey national choropleth).
+  const has_pc_choropleth = $derived(pc_delim_year != null);
+
+  // Normalise the map arm when the citizen carries a per-PC selection from
+  // a modern event onto a pre-2009 one. The toggles are hidden there, so a
+  // stale carry is the only route onto an empty arm. Converges: once
+  // map_view is "states" the guard no longer fires.
+  $effect(() => {
+    if (!has_pc_choropleth && map_view !== "states") {
+      map_view = "states";
+    }
+  });
 
   const pc_winners = $derived.by<PcWinnerRow[]>(() => {
     if (pc_delim_year == null) return [];
@@ -689,15 +703,17 @@
               data-view="states"
               onclick={() => (map_view = "states")}
             >States</button>
-            <button
-              type="button"
-              class="rounded-md px-3 py-1 transition-colors {map_view === 'constituencies'
-                ? 'bg-white font-medium text-slate-900 shadow-sm'
-                : 'text-slate-500 hover:text-slate-700'}"
-              data-view="constituencies"
-              onclick={() => (map_view = "constituencies")}
-            >Constituencies</button>
-            {#if has_equal_seats === true}
+            {#if has_pc_choropleth}
+              <button
+                type="button"
+                class="rounded-md px-3 py-1 transition-colors {map_view === 'constituencies'
+                  ? 'bg-white font-medium text-slate-900 shadow-sm'
+                  : 'text-slate-500 hover:text-slate-700'}"
+                data-view="constituencies"
+                onclick={() => (map_view = "constituencies")}
+              >Constituencies</button>
+            {/if}
+            {#if has_equal_seats === true && has_pc_choropleth}
               <button
                 type="button"
                 class="rounded-md px-3 py-1 transition-colors {map_view === 'hex'
