@@ -168,3 +168,45 @@ export function computeIslandMarker<P extends GeoJsonProperties>(
   }
   return null;
 }
+
+// -----------------------------------------------------------------
+// No-data detection (no-data dot-grid + "No data" chip)
+// -----------------------------------------------------------------
+//
+// The national party map paints every state that has a loaded winner
+// with its leading-party colour; states with no loaded winner (e.g.
+// Jammu & Kashmir, Ladakh) fall through to the no-data dot-grid fill -
+// the same idiom the welfare choropleth (GeoChoropleth) uses, so the
+// two home themes (Winning party / welfare indicator) show "no data"
+// the same way. The "No data" legend chip is gated on this predicate so
+// a fully-covered cohort stays chip-free.
+
+/**
+ * True when at least one rendered feature has no entry in `fills` - i.e.
+ * the map paints at least one state with the no-data dot-grid. A feature
+ * whose join-key value is null/undefined also counts (no key -> no
+ * possible fill match), mirroring the component's
+ * `key ? fillForKey(key) : NO_DATA_FILL` branch.
+ *
+ * Pure so vitest can exercise it in node-env without mounting the Svelte
+ * component (same doctrine as the other helpers in this module).
+ *
+ * @param features      Feature list (typically `collection.features`).
+ * @param fills         Join-key -> colour map the component derived from
+ *                      the loader; a key absent from this map paints the
+ *                      no-data dot-grid.
+ * @param feature_key   Extractor for the join-key value (the same one the
+ *                      fill / click / hover handlers use).
+ */
+export function hasNoDataFeature<P extends GeoJsonProperties>(
+  features: readonly Feature<Geometry, P>[],
+  fills: Record<string, string>,
+  feature_key: (f: Feature<Geometry, P>) => string | number | null | undefined,
+): boolean {
+  for (const f of features) {
+    const raw = feature_key(f);
+    const key = raw == null ? null : String(raw);
+    if (key == null || fills[key] == null) return true;
+  }
+  return false;
+}

@@ -21,6 +21,7 @@ import type {
 import {
   resolveStateClickAction,
   computeIslandMarker,
+  hasNoDataFeature,
 } from "./india-party-map-helpers";
 
 describe("IndiaPartyMap helpers - resolveStateClickAction (PR-4c)", () => {
@@ -195,5 +196,49 @@ describe("IndiaPartyMap helpers - computeIslandMarker (Lakshadweep)", () => {
       0.0001,
     );
     expect(marker).toBeNull();
+  });
+});
+
+describe("IndiaPartyMap helpers - hasNoDataFeature (no-data dot-grid chip)", () => {
+  // The national party map paints states with a loaded winner in the
+  // leading-party colour; states absent from the `fills` map fall through
+  // to the no-data dot-grid. This predicate drives the "No data" chip.
+  function feat(key: string | null): Feature<Geometry, GeoJsonProperties> {
+    return {
+      type: "Feature",
+      properties: key == null ? {} : { State_LGD: key },
+      geometry: { type: "Polygon", coordinates: [] },
+    };
+  }
+  const keyOf = (f: Feature<Geometry, GeoJsonProperties>) =>
+    f.properties?.State_LGD as string | undefined;
+
+  test("false when every rendered feature has a fill entry", () => {
+    const features = [feat("33"), feat("27")];
+    const fills = { "33": "#abc", "27": "#def" };
+    expect(hasNoDataFeature(features, fills, keyOf)).toBe(false);
+  });
+
+  test("true when at least one feature is absent from the fills map", () => {
+    // J&K ("01") has no loaded winner -> no fill entry -> dot-grid.
+    const features = [feat("33"), feat("01")];
+    const fills = { "33": "#abc" };
+    expect(hasNoDataFeature(features, fills, keyOf)).toBe(true);
+  });
+
+  test("true when a feature has a null/absent join key", () => {
+    // A geometry missing its State_LGD property cannot match any fill.
+    const features = [feat("33"), feat(null)];
+    const fills = { "33": "#abc" };
+    expect(hasNoDataFeature(features, fills, keyOf)).toBe(true);
+  });
+
+  test("true on an empty fills map (loader not settled / no winners)", () => {
+    const features = [feat("33"), feat("27")];
+    expect(hasNoDataFeature(features, {}, keyOf)).toBe(true);
+  });
+
+  test("false on an empty feature list", () => {
+    expect(hasNoDataFeature([], {}, keyOf)).toBe(false);
   });
 });
