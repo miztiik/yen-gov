@@ -71,6 +71,7 @@
     ScatterFilters,
   } from "../lib/charts/scatter-model";
   import { slugify } from "../lib/slug";
+  import { aliasPcSlugUid } from "../lib/elections/pc-slug-alias";
   import PartyBar from "../lib/PartyBar.svelte";
   import type { PartyTotals } from "../lib/data";
   import PageContainer from "../lib/layout/PageContainer.svelte";
@@ -372,7 +373,7 @@
       // in StateElection).
       const tail = useNameSlug ? slugify(w.entity_name) : String(w.eci_no);
       out.push({
-        unique_id: `${w.state_code}_${tail}`,
+        unique_id: aliasPcSlugUid(`${w.state_code}_${tail}`),
         state_code: w.state_code,
         pc_eci_no: w.eci_no,
         pc_name: w.entity_name,

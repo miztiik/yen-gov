@@ -47,6 +47,7 @@
   } from "../lib/election-events";
   import { states } from "../lib/states.svelte";
   import { slugify } from "../lib/slug";
+  import { aliasPcSlugUid } from "../lib/elections/pc-slug-alias";
   import { link } from "../lib/links";
   import { navigate } from "../lib/url";
   import {
@@ -583,7 +584,7 @@
       if (w.margin_pct == null) continue;
       const tail = useNameSlug ? slugify(w.entity_name) : String(w.eci_no);
       out.push({
-        unique_id: `${w.state_code}_${tail}`,
+        unique_id: aliasPcSlugUid(`${w.state_code}_${tail}`),
         state_code: w.state_code,
         pc_eci_no: w.eci_no,
         pc_name: w.entity_name,
