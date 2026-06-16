@@ -52,8 +52,6 @@
   } from "d3-geo";
   import { zoom, zoomIdentity, type ZoomBehavior } from "d3-zoom";
   import { select } from "d3-selection";
-  import { feature as topojsonFeature } from "topojson-client";
-  import type { Topology, GeometryCollection } from "topojson-specification";
   import type {
     Feature,
     FeatureCollection,
@@ -154,15 +152,15 @@
   let container_w = $state(0);
   const DEFAULT_FILL = "#e2e8f0"; // slate-200; J&K placeholders + unmapped
   const JOIN_PROPERTY = boundary.join_property; // "unique_id"
-  // `boundary` ships `.geojson` as the canonical snapshot path; the
-  // `.topojson` sibling is the on-disk transcoded form (smaller wire
-  // payload). Fallback to the typed default catches the rare config
-  // where `geojson_local_path` is omitted (BoundaryEntry treats it as
-  // optional; INDIA_PC and INDIA_PC_2008 both populate it).
-  const TOPOJSON_PATH = (
+  // `boundary` ships `.geojson` as the canonical snapshot path. Post the
+  // 2026-06-16 map-geometry rip the electoral PC layer ships geojson ONLY
+  // (the `.topojson` sibling was deleted), so fetch the geojson directly.
+  // Fallback to the typed default catches the rare config where
+  // `geojson_local_path` is omitted (BoundaryEntry treats it as optional;
+  // INDIA_PC and INDIA_PC_2008 both populate it).
+  const GEOMETRY_PATH =
     boundary.geojson_local_path ??
-    "boundaries/electoral/delim=2024/pc/all.geojson"
-  ).replace(/\.geojson$/, ".topojson");
+    "boundaries/electoral/delim=2024/pc/all.geojson";
 
   // ---- ECI-keyed lookups -------------------------------------------
   const row_by_uid = $derived.by(() => {
@@ -226,25 +224,22 @@
 
   onMount(() => {
     let cancelled = false;
-    const url = `${DATA_BASE}/${TOPOJSON_PATH}`;
+    const url = `${DATA_BASE}/${GEOMETRY_PATH}`;
     (async () => {
       try {
         const r = await fetch(url);
         if (cancelled) return;
         if (!r.ok) {
-          load_error = `topojson fetch failed: ${r.status} ${url}`;
+          load_error = `geojson fetch failed: ${r.status} ${url}`;
           return;
         }
-        const topo = (await r.json()) as Topology;
-        const objectKeys = Object.keys(topo.objects ?? {});
-        if (objectKeys.length === 0) {
-          load_error = `topojson has no objects: ${url}`;
+        // Post map-geometry rip the PC layer ships a plain GeoJSON
+        // FeatureCollection (no topojson decode step). Use it directly.
+        const fc = (await r.json()) as Collection;
+        if (fc?.type !== "FeatureCollection" || !Array.isArray(fc.features)) {
+          load_error = `geojson is not a FeatureCollection: ${url}`;
           return;
         }
-        const fc = topojsonFeature(
-          topo,
-          topo.objects[objectKeys[0]] as GeometryCollection,
-        ) as unknown as Collection;
         if (cancelled) return;
         collection = fc;
       } catch (err) {

@@ -290,10 +290,11 @@ describe("frontend corpus-cardinality guard", () => {
   it("accepts bounded explicit canary lists", () => {
     const good = String.raw`
       const BOUNDARY_CANARIES = [
-        // Canary: root singleton path shape.
-        "states/all.geojson",
-        // Canary: nested partition path shape.
-        "panchayats/state=tamil-nadu/district=568/all.topojson",
+        // Canary: the one surviving topojson (combined country layer).
+        "country/all.topojson",
+        // Canary: nested partition path shape (geojson-only post-rip;
+        // country/all.topojson is the sole surviving topojson).
+        "panchayats/state=tamil-nadu/district=568/all.geojson",
       ] as const;
 
       it.each(BOUNDARY_CANARIES)("%s is readable", (relPath) => {

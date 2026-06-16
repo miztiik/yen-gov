@@ -231,17 +231,40 @@ export function centroidOf(
 export const STATE_LGD_TO_ECI_PUBLIC: Record<string, string> = STATE_LGD_TO_ECI;
 
 /**
- * Fetch one boundary partition by its base relative path, trying the
- * `.topojson` sibling first and falling back to `.geojson` on any
- * failure (404, JSON parse error, topojson decode error). Returns the
- * parsed FeatureCollection plus a `format` marker indicating which
- * sibling won.
+ * Predicate: does `baseGeoRelPath` have a real `.topojson` sibling on
+ * disk worth probing? After the 2026-06-16 map-geometry rip (decision
+ * D4) the ONLY `.topojson` the repo ships is the combined country file
+ * `country/all.topojson` (two named objects: `states` + `districts`).
+ * Every other layer ships `.geojson` only, so the loader fetches geojson
+ * DIRECTLY for them instead of wasting an HTTP round-trip on a
+ * `.topojson` that no longer exists. Pure: no I/O.
+ */
+export function pathHasTopojson(baseGeoRelPath: string): boolean {
+  return baseGeoRelPath === "country/all.geojson";
+}
+
+/**
+ * Fetch one boundary partition by its base relative path.
  *
- * Per docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md P2.3 and the
- * fallback contract in section 5: graceful failover, no user toggle,
- * `[fallback]` console.warn logs the reason whenever the topo branch
- * loses. Perf-marks (VITE_BENCH=1) wrap the winning fetch+parse so the
- * bench harness can attribute the cost per-layer.
+ * Format-aware contract (post 2026-06-16 map-geometry rip): only the
+ * country layer (`country/all.geojson`, per `pathHasTopojson`) has a
+ * `.topojson` sibling, so only it is probed `.topojson`-first and falls
+ * back to `.geojson` on any failure (404, JSON parse error, topojson
+ * decode error). Every other base path fetches `.geojson` DIRECTLY (no
+ * wasted topojson probe). Returns the parsed FeatureCollection plus a
+ * `format` marker indicating which sibling won, or `{ fc: null, format:
+ * null }` when the file is absent (the 404-as-null contract).
+ *
+ * Object-by-name: the country topojson carries MULTIPLE named objects,
+ * so `objectName` selects which one to decode (e.g. `"states"` or
+ * `"districts"`). When `objectName` is omitted or absent from the
+ * topology, the first object name is decoded (the single-object case for
+ * any other future topojson). Ignored on the geojson path.
+ *
+ * `[fallback]` console.warn logs the reason whenever the country topo
+ * branch loses for a non-404 reason. Perf-marks (VITE_BENCH=1) wrap the
+ * winning fetch+parse so the bench harness can attribute the cost
+ * per-layer.
  *
  * `baseGeoRelPath` is the `.geojson` sibling path relative to the
  * `boundaries/in/` root (matches what `boundaryRelPath` returns, e.g.
@@ -252,9 +275,8 @@ export const STATE_LGD_TO_ECI_PUBLIC: Record<string, string> = STATE_LGD_TO_ECI;
 export async function loadBoundaryFromPath(
   baseGeoRelPath: string,
   label: string,
+  objectName?: string,
 ): Promise<{ fc: BoundaryFeatureCollection | null; format: "topojson" | "geojson" | null }> {
-  const topoRel = baseGeoRelPath.replace(/\.geojson$/, ".topojson");
-  const topoUrl = `${DATA_BASE}/boundaries/in/${topoRel}`;
   const geoUrl = `${DATA_BASE}/boundaries/in/${baseGeoRelPath}`;
   const benchEnabled = import.meta.env.VITE_BENCH === "1";
   const markStart = benchEnabled ? `boundary-fetch-start:${label}` : "";
@@ -283,45 +305,53 @@ export async function loadBoundaryFromPath(
     }
   };
 
-  // 1. Try topojson first.
-  try {
-    const r = await fetch(topoUrl);
-    if (r.ok) {
-      const topo = (await r.json()) as Topology;
-      const objectKeys = Object.keys(topo.objects ?? {});
-      if (objectKeys.length === 0) {
-        throw new Error("topojson has no objects");
+  // 1. Try topojson first - ONLY for the country layer, the sole
+  //    `.topojson` on disk post-rip. Non-country base paths skip
+  //    straight to geojson (no wasted HTTP probe).
+  if (pathHasTopojson(baseGeoRelPath)) {
+    const topoRel = baseGeoRelPath.replace(/\.geojson$/, ".topojson");
+    const topoUrl = `${DATA_BASE}/boundaries/in/${topoRel}`;
+    try {
+      const r = await fetch(topoUrl);
+      if (r.ok) {
+        const topo = (await r.json()) as Topology;
+        const objectKeys = Object.keys(topo.objects ?? {});
+        if (objectKeys.length === 0) {
+          throw new Error("topojson has no objects");
+        }
+        // Decode the caller-named object when present (the country file
+        // carries TWO objects - `states` + `districts` - so objectKeys[0]
+        // is ambiguous); otherwise decode the first (single-object case).
+        const objectKey =
+          objectName && topo.objects[objectName] ? objectName : objectKeys[0];
+        const decoded = topojsonFeature(
+          topo,
+          topo.objects[objectKey] as GeometryCollection,
+        );
+        const fc =
+          decoded.type === "FeatureCollection"
+            ? (decoded as unknown as BoundaryFeatureCollection)
+            : ({
+                type: "FeatureCollection",
+                features: [decoded as unknown as BoundaryFeature],
+              } as BoundaryFeatureCollection);
+        finish("topojson");
+        return { fc, format: "topojson" };
       }
-      // Convention: each shipped topojson wraps exactly one named object.
-      // Pick the first (and typically only) object name.
-      const decoded = topojsonFeature(
-        topo,
-        topo.objects[objectKeys[0]] as GeometryCollection,
-      );
-      const fc =
-        decoded.type === "FeatureCollection"
-          ? (decoded as unknown as BoundaryFeatureCollection)
-          : ({
-              type: "FeatureCollection",
-              features: [decoded as unknown as BoundaryFeature],
-            } as BoundaryFeatureCollection);
-      finish("topojson");
-      return { fc, format: "topojson" };
-    }
-    // Non-OK is the common 404 case (no topojson sibling for this
-    // partition yet). Fall through to geojson.
-    if (r.status !== 404) {
+      // Non-OK is the common 404 case. Fall through to geojson.
+      if (r.status !== 404) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `[fallback] topojson:${label} HTTP ${r.status}; falling back to geojson`,
+        );
+      }
+    } catch (err) {
       // eslint-disable-next-line no-console
-      console.warn(
-        `[fallback] topojson:${label} HTTP ${r.status}; falling back to geojson`,
-      );
+      console.warn(`[fallback] topojson:${label} ${String(err)}; falling back to geojson`);
     }
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.warn(`[fallback] topojson:${label} ${String(err)}; falling back to geojson`);
   }
 
-  // 2. Fall back to geojson.
+  // 2. Fall back to (or, for non-country layers, go straight to) geojson.
   try {
     const r = await fetch(geoUrl);
     if (!r.ok) {

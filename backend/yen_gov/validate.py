@@ -952,21 +952,89 @@ def tier_b_boundary_encoding_receipt(root: Path) -> list[Failure]:
     if config_path.exists():
         config_hash = _sha256_file(config_path)
 
-    receipt_topo_counts: dict[str, int] = {}
+    # The receipt is the COMPLETE boundary inventory (2026-06-16 map-geometry
+    # rip): one row per geometry layer. Rows with a non-empty topojson_path are
+    # TopoJSON provenance rows (the country atlas - one per object, each proven
+    # against its SOURCE geojson master); rows with an EMPTY topojson_path are
+    # geojson-only inventory rows. Each geojson_path appears in exactly ONE row;
+    # every on-disk topojson AND geojson must be covered.
+    geojson_rels = {
+        _posix(path, root)
+        for path in _iter_boundary_geometry_files(root)
+        if path.suffix == ".geojson"
+    }
+    receipt_geojson_counts: dict[str, int] = {}
+    receipt_topo_paths: set[str] = set()
+    receipt_geojson_paths: set[str] = set()
     for row_number, row in enumerate(rows, start=2):
-        topo_rel_path, topo_failure = _receipt_row_path(row, "topojson_path", receipt_rel, row_number)
-        if topo_failure is not None:
-            failures.append(topo_failure)
-            continue
         geo_rel_path, geo_failure = _receipt_row_path(row, "geojson_path", receipt_rel, row_number)
         if geo_failure is not None:
             failures.append(geo_failure)
             continue
-        assert topo_rel_path is not None
         assert geo_rel_path is not None
-        topo_rel = topo_rel_path.as_posix()
         geo_rel = geo_rel_path.as_posix()
-        receipt_topo_counts[topo_rel] = receipt_topo_counts.get(topo_rel, 0) + 1
+        receipt_geojson_counts[geo_rel] = receipt_geojson_counts.get(geo_rel, 0) + 1
+        receipt_geojson_paths.add(geo_rel)
+        raw_topo = (row.get("topojson_path") or "").strip()
+
+        # ---- GeoJSON-only inventory row (no topojson) --------------------
+        if raw_topo == "":
+            for empty_col in ("topojson_object", "topojson_feature_count", "topojson_sha256"):
+                if (row.get(empty_col) or "").strip():
+                    failures.append(
+                        Failure(
+                            receipt_rel,
+                            "B",
+                            f"row {row_number}: {empty_col} must be empty for a geojson-only "
+                            f"row (empty topojson_path) {geo_rel!r}",
+                        )
+                    )
+            if geo_rel not in geojson_rels:
+                failures.append(
+                    Failure(receipt_rel, "B", f"row {row_number}: orphan geojson_path {geo_rel!r}")
+                )
+                continue
+            if not (root / geo_rel_path).exists():
+                failures.append(Failure(receipt_rel, "B", f"row {row_number}: missing {geo_rel!r}"))
+                continue
+            geo_count, geo_count_failure = _receipt_int(
+                row, "geojson_feature_count", receipt_rel, row_number
+            )
+            if geo_count_failure is not None:
+                failures.append(geo_count_failure)
+                continue
+            if (row.get("geojson_sha256") or "").strip() != _sha256_file(root / geo_rel_path):
+                failures.append(
+                    Failure(receipt_rel, "B", f"row {row_number}: geojson_sha256 mismatch for {geo_rel!r}")
+                )
+            try:
+                geo_payload = _load_json(root / geo_rel_path)
+            except json.JSONDecodeError as e:
+                failures.append(Failure(geo_rel, "B", f"invalid JSON: {e.msg} (line {e.lineno})"))
+                continue
+            actual_geo_count, geo_error = _geojson_feature_count(geo_payload)
+            if geo_error is not None:
+                failures.append(Failure(geo_rel, "B", geo_error))
+                continue
+            if geo_count != actual_geo_count:
+                failures.append(
+                    Failure(
+                        receipt_rel,
+                        "B",
+                        f"row {row_number}: recorded geojson_feature_count {geo_count} != "
+                        f"disk feature count {actual_geo_count} for {geo_rel!r}",
+                    )
+                )
+            continue
+
+        # ---- TopoJSON provenance row ------------------------------------
+        topo_rel_path, topo_failure = _receipt_row_path(row, "topojson_path", receipt_rel, row_number)
+        if topo_failure is not None:
+            failures.append(topo_failure)
+            continue
+        assert topo_rel_path is not None
+        topo_rel = topo_rel_path.as_posix()
+        receipt_topo_paths.add(topo_rel)
 
         if topo_rel not in topojson_rels:
             failures.append(
@@ -979,15 +1047,12 @@ def tier_b_boundary_encoding_receipt(root: Path) -> list[Failure]:
             failures.append(Failure(receipt_rel, "B", f"row {row_number}: missing {geo_rel!r}"))
             continue
 
-        expected_geo_rel = topo_rel.removesuffix(".topojson") + ".geojson"
-        if geo_rel != expected_geo_rel:
-            failures.append(
-                Failure(
-                    receipt_rel,
-                    "B",
-                    f"row {row_number}: geojson_path {geo_rel!r} is not sibling {expected_geo_rel!r}",
-                )
-            )
+        # The geojson_path is the documented SOURCE master for this object. For
+        # a single-object shard it is the topojson's own `.geojson` sibling; for
+        # the combined country atlas it is the per-object source (states ->
+        # states/all.geojson, districts -> districts/all.geojson) and is NOT the
+        # sibling. Provenance is enforced by the existence + feature-count +
+        # sha256 checks below, so no sibling-path equality is required.
 
         geo_count, geo_count_failure = _receipt_int(
             row, "geojson_feature_count", receipt_rel, row_number
@@ -1087,18 +1152,22 @@ def tier_b_boundary_encoding_receipt(root: Path) -> list[Failure]:
                 )
             )
 
-    for topo_rel, count in sorted(receipt_topo_counts.items()):
+    for geo_rel, count in sorted(receipt_geojson_counts.items()):
         if count != 1:
             failures.append(
                 Failure(
                     receipt_rel,
                     "B",
-                    f"topojson_path {topo_rel!r} has {count} receipt rows; expected exactly one",
+                    f"geojson_path {geo_rel!r} has {count} receipt rows; expected exactly one",
                 )
             )
-    for missing in sorted(topojson_rels - set(receipt_topo_counts)):
+    for missing in sorted(topojson_rels - receipt_topo_paths):
         failures.append(
             Failure(receipt_rel, "B", f"missing receipt row for topojson shard {missing!r}")
+        )
+    for missing in sorted(geojson_rels - receipt_geojson_paths):
+        failures.append(
+            Failure(receipt_rel, "B", f"missing receipt row for geojson layer {missing!r}")
         )
 
     return failures

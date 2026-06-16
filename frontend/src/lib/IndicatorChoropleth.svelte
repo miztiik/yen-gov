@@ -225,7 +225,8 @@
     </div>
   {:else}
     <GeoChoropleth
-      topojson_path="/boundaries/in/states/all.topojson"
+      topojson_path="/boundaries/in/country/all.topojson"
+      object_name="states"
       feature_key="State_LGD"
       rows={geo_rows}
       selected_time={selected_time}

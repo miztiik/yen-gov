@@ -172,8 +172,15 @@ def _shard_argv(
     ]
     if settings["clean"]:
         argv.append("-clean")
-    argv.append("-simplify")
-    argv.extend(shlex.split(settings["simplification"]))
+    # A simplification value of "none" (case-insensitive) or empty is the
+    # documented no-op sentinel: emit NO `-simplify` so coastline + island
+    # vertices survive verbatim (decision D3, Row 2 of the 2026-06-16
+    # map-geometry rip-and-replace plan). Any other value flows to mapshaper
+    # `-simplify` exactly as before.
+    simplification = settings["simplification"].strip()
+    if simplification and simplification.lower() != "none":
+        argv.append("-simplify")
+        argv.extend(shlex.split(simplification))
     argv.extend(
         [
             "-o",
