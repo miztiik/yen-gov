@@ -111,11 +111,12 @@
     selected_party_id?: string | null;
     min_margin?: MinMargin;
     /** PC boundary layer to load + join against. Defaults to `INDIA_PC`
-     *  (delim=2024). The route passes `INDIA_PC_2008` for LS 2019/2014/
-     *  2009 events, which uses a different `unique_id` shape (name-slug
-     *  instead of numeric ls_seat_code). Component stays grain-agnostic
-     *  — it reads `boundary.join_property` + `feature.properties[that]`
-     *  and matches against `row.unique_id` regardless of the shape. */
+     *  (numeric `unique_id`). The route passes `INDIA_PC_BY_NAME` for LS
+     *  2019/2014/2009 events, which joins the SAME 2024 PC geometry by
+     *  name-slug (`pc_slug_uid`) instead of numeric ls_seat_code.
+     *  Component stays grain-agnostic - it reads `boundary.join_property`
+     *  + `feature.properties[that]` and matches against `row.unique_id`
+     *  regardless of the shape. */
     boundary?: BoundaryEntry;
   }
   let {

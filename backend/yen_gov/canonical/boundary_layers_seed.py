@@ -117,7 +117,7 @@ Level = Literal[
     "postal",
 ]
 
-Format = Literal["geojson", "pmtiles"]
+Format = Literal["geojson", "pmtiles", "topojson"]
 
 SimplificationAlgorithm = Literal[
     "douglas-peucker",

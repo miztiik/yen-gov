@@ -46,7 +46,7 @@
   import IndiaPcMapD3, {
     type PcWinnerRow,
   } from "../lib/charts/IndiaPcMapD3.svelte";
-  import { INDIA_PC, INDIA_PC_2008 } from "../lib/boundaries/sources";
+  import { INDIA_PC, INDIA_PC_BY_NAME } from "../lib/boundaries/sources";
   import TileCartogram from "../lib/charts/TileCartogram.svelte";
   import {
     fetchElectionTileLayouts,
@@ -314,14 +314,18 @@
 
   // ---- TODO/20260612 Rows A + C: PcWinnerRow projection --------------
   // Build the unique_id-keyed PC winners array that drives IndiaPcMapD3
-  // + the national TileCartogram. unique_id matches the PC topojson's
+  // + the national TileCartogram. unique_id matches the PC geometry's
   // join shape, which depends on the event's delim_year:
-  //   - delim=2024 (LS 2024) -> `<state_code>_<eci_no>` (numeric)
-  //   - delim=2008 (LS 2019 / 2014 / 2009) -> `<state_code>_<pc_name_slug>`
-  // The 2008 layer uses a name-slug join because canonical electoral.csv
-  // carries unreliable eci_no values for delim=2008 PCs. See
-  // INDIA_PC_2008 jsdoc + plan TODO/20260612-pc-delim-2008-boundary-
-  // ingest-plan.md V6 pre-flight for the alignment evidence.
+  //   - LS 2024 -> numeric `<state_code>_<eci_no>` (joins INDIA_PC's
+  //     `unique_id`, e.g. "S07_5").
+  //   - LS 2019 / 2014 / 2009 -> name-slug `<state_code>_<pc_name_slug>`
+  //     (joins INDIA_PC_BY_NAME's `pc_slug_uid`, e.g. "S07_karnal").
+  // After the 2026-06-16 map-geometry rip (Row 3) there is ONE PC
+  // geometry file (delim=2024); pre-2024 events join it by name-slug
+  // because canonical electoral.csv carries unreliable eci_no values for
+  // the old delimitation. Unmatched seats render grey (safe-by-
+  // construction). See INDIA_PC_BY_NAME jsdoc for the alignment
+  // evidence.
   //
   // The TileCartogram tile-layout's unit_id is INDEPENDENT of this
   // boundary-join shape (it uses `IN-PC-<delim_year>-<state>-<eci_no>`
@@ -330,7 +334,9 @@
   // `pcDelimYearForLsEvent` is a pure helper (india-pc-map-helpers.ts) so
   // the era-gating rule is unit-tested independently of this component.
   const pc_delim_year = $derived(pcDelimYearForLsEvent(event));
-  const pc_boundary = $derived(pc_delim_year === 2008 ? INDIA_PC_2008 : INDIA_PC);
+  const pc_boundary = $derived(
+    pc_delim_year === 2008 ? INDIA_PC_BY_NAME : INDIA_PC,
+  );
 
   // Pre-2009 LS events (1962 / 1989 / 1991 / ... / 2004) have NO PC-level
   // boundary layer (pcDelimYearForLsEvent -> null), so pc_winners is empty

@@ -37,7 +37,16 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 LAYOUT_PATH = REPO / "datasets" / "grapher" / "election_tile_layouts.json"
 SCOPES_PATH = REPO / "datasets" / "grapher" / "election_tile_scopes.json"
-AC_DIR = REPO / "datasets" / "boundaries" / "electoral" / "delim=2008" / "ac"
+# 2026-06-16 map-geometry rip (Row 3): the 31 per-state 2008-delimitation AC
+# geojson shards were consolidated into ONE national TopoJSON (object "ac",
+# each feature stamped with `state_ut_code`) and the shards deleted. The
+# generator now decodes that file + filters per state by `state_ut_code`
+# instead of reading a per-state geojson. The PC corpus is unchanged (geojson).
+AC_TOPOJSON_PATH = (
+    REPO / "datasets" / "boundaries" / "electoral" / "delim=2024" / "ac" / "all.topojson"
+)
+AC_TOPOJSON_OBJECT = "ac"
+AC_SOURCE_ID = "boundaries/electoral/delim=2024/ac/all.topojson"
 PC_PATH = REPO / "datasets" / "boundaries" / "electoral" / "delim=2024" / "pc" / "all.geojson"
 
 # Bridge to the canonical schema-version helper so the two stamped envelopes
@@ -244,14 +253,89 @@ def _normalise_coords(units: list[dict]) -> None:
 
 
 # ---------------------------------------------------------------------------
+# TopoJSON decode (stdlib only; the national AC layer ships as TopoJSON since
+# the 2026-06-16 map-geometry rip). Decodes the quantized, delta-encoded arcs
+# back to GeoJSON Polygon / MultiPolygon coordinate rings so the existing
+# `feature_centroid` path works unchanged.
+# ---------------------------------------------------------------------------
+def _decode_topojson_features(topo: dict, object_name: str) -> list[dict]:
+    transform = topo.get("transform")
+    raw_arcs = topo["arcs"]
+
+    def _dequantize(arc: list[list[float]]) -> list[list[float]]:
+        if not transform:
+            return [list(pt) for pt in arc]
+        sx, sy = transform["scale"]
+        tx, ty = transform["translate"]
+        out: list[list[float]] = []
+        x = 0.0
+        y = 0.0
+        for dx, dy in arc:
+            x += dx
+            y += dy
+            out.append([x * sx + tx, y * sy + ty])
+        return out
+
+    dec_arcs = [_dequantize(a) for a in raw_arcs]
+
+    def _arc(i: int) -> list[list[float]]:
+        # Negative index encodes a reversed arc (TopoJSON spec): ~i = -i-1.
+        return dec_arcs[i] if i >= 0 else dec_arcs[~i][::-1]
+
+    def _ring(arc_indices: list[int]) -> list[list[float]]:
+        line: list[list[float]] = []
+        for k, idx in enumerate(arc_indices):
+            pts = _arc(idx)
+            line.extend(pts if k == 0 else pts[1:])
+        return line
+
+    def _geometry(geom: dict) -> dict | None:
+        gtype = geom.get("type")
+        if gtype == "Polygon":
+            return {"type": "Polygon", "coordinates": [_ring(r) for r in geom["arcs"]]}
+        if gtype == "MultiPolygon":
+            return {
+                "type": "MultiPolygon",
+                "coordinates": [[_ring(r) for r in poly] for poly in geom["arcs"]],
+            }
+        # Points / lines are not expected for AC polygons; skip gracefully.
+        return None
+
+    obj = topo["objects"][object_name]
+    features: list[dict] = []
+    for geom in obj["geometries"]:
+        decoded = _geometry(geom)
+        if decoded is None:
+            continue
+        features.append({"type": "Feature", "properties": geom.get("properties", {}), "geometry": decoded})
+    return features
+
+
+_AC_FEATURES_BY_STATE_CACHE: dict[str, list[dict]] | None = None
+
+
+def _ac_features_by_state() -> dict[str, list[dict]]:
+    """Decode the national AC TopoJSON ONCE and group features by the stamped
+    `state_ut_code` (ECI code). Cached for the whole `--all-states` run."""
+    global _AC_FEATURES_BY_STATE_CACHE
+    if _AC_FEATURES_BY_STATE_CACHE is None:
+        topo = json.loads(AC_TOPOJSON_PATH.read_text(encoding="utf-8"))
+        grouped: dict[str, list[dict]] = {}
+        for feat in _decode_topojson_features(topo, AC_TOPOJSON_OBJECT):
+            code = str(feat["properties"].get("state_ut_code") or "")
+            if code:
+                grouped.setdefault(code, []).append(feat)
+        _AC_FEATURES_BY_STATE_CACHE = grouped
+    return _AC_FEATURES_BY_STATE_CACHE
+
+
+# ---------------------------------------------------------------------------
 # Scope builders
 # ---------------------------------------------------------------------------
 def build_ac_scope(slug: str) -> list[dict]:
     """Build the AC tile list for one state partition slug. Empty list -> skip."""
     code = SLUG_TO_CODE[slug]
-    path = AC_DIR / f"state={slug}" / "all.geojson"
-    gj = json.loads(path.read_text(encoding="utf-8"))
-    features = gj["features"]
+    features = _ac_features_by_state().get(code, [])
 
     # Aggregate features by ac_no: multi-part constituencies and border slivers
     # share an ac_no; the area-weighted centroid favours the dominant geometry.
@@ -277,7 +361,7 @@ def build_ac_scope(slug: str) -> list[dict]:
                 props.get("ac_name") or props.get("seat_name_en") or f"AC {ac_no}"
             )
 
-    source_id = f"boundaries/electoral/delim=2008/ac/state={slug}/all.geojson"
+    source_id = AC_SOURCE_ID
     units: list[dict] = []
     for ac_no, b in by_ac.items():
         units.append(

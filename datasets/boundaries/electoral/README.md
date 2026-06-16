@@ -1,63 +1,77 @@
 # Electoral boundary geometry
 
-Last Updated: 2026-06-09
+Last Updated: 2026-06-16
 
-Geometry shards for ECI Assembly Constituencies (AC) and Parliamentary
-Constituencies (PC), keyed by the Delimitation Commission Order vintage they
-reflect.
+Geometry for ECI Assembly Constituencies (AC) and Parliamentary
+Constituencies (PC). After the 2026-06-16 map-geometry rip (Row 3 of
+`TODO/20260616-map-geometry-rip-and-palette-plan.md`) there is exactly
+ONE delimitation vintage on disk -- `delim=2024` -- and it carries every
+delimitation era via a dual-key join (see "Map-engine contract" below).
 
 ## Layout
 
 ```
 datasets/boundaries/electoral/
-  delim=<year>/
+  delim=2024/
     ac/
-      state=<slug>/
-        all.geojson
-        all.topojson
+      all.topojson      # ONE national TopoJSON, object "ac"
     pc/
-      all.geojson
-      all.topojson
+      all.geojson       # ONE national GeoJSON
 ```
 
-The grammar is asymmetric on purpose:
-
-- **AC** uses `delim=<year>/ac/state=<slug>/all.{geojson,topojson}` -- a
-  per-state shard tree because Assembly Constituencies are defined within
-  state legislatures and the per-state shards keep the citizen-facing page
-  load bounded.
-- **PC** uses `delim=<year>/pc/all.{geojson,topojson}` -- a single
-  country-wide file because Parliamentary Constituencies span the whole
-  Union and are not state-partitioned in the canonical store.
+- **AC** ships as ONE national TopoJSON `delim=2024/ac/all.topojson`
+  (object `ac`; each feature stamped `state_ut_code`). The 31 per-state
+  `delim=2008/ac/state=<slug>/all.geojson` shards that pre-dated the rip
+  were consolidated into this one file and deleted. TopoJSON (not GeoJSON)
+  because a national AC GeoJSON costs ~24 MB gzip vs the ~3.7 MB gzip the
+  quantized + arc-shared TopoJSON costs -- D6 of the plan (correctness +
+  static-first both satisfied; the geometry is lossless, only the encoding
+  is denser). The frontend decodes it via `topojson-client` and filters per
+  state by `state_ut_code`.
+- **PC** ships as ONE national GeoJSON `delim=2024/pc/all.geojson`. It
+  carries both a numeric `unique_id` (e.g. `S07_5`, for LS 2024) and a
+  dual-key `pc_slug_uid` (e.g. `S07_karnal`, the name-slug join used by
+  LS 2009-2019 events).
 
 ## Current contents on disk
 
 | Vintage | AC | PC | Notes |
 | --- | --- | --- | --- |
-| `delim=2008` | 31 state subtrees (62 files) | -- | The 2008 Delimitation Commission Order. PC for this vintage is the symmetric inverse upstream gap; not in scope for the G10 introduction. |
-| `delim=2024` | -- | 1 country file (2 files) | The 2024 LS map (incorporating the J&K 2022 + Assam 2023 reorganisations). AC for this vintage is the symmetric inverse upstream gap. |
-| `delim=2026` | `.gitkeep` only | `.gitkeep` only | Reserved for the next ECI Delimitation Commission Order. |
+| `delim=2024` | 1 national TopoJSON (`ac/all.topojson`, ~4149 ACs) | 1 national GeoJSON (`pc/all.geojson`, 545 PCs) | The single map-geometry snapshot. AC is the consolidated national TopoJSON; PC carries the dual-key (numeric + name-slug) join. |
 
-The two `delim=<year>` rows above are the FIRST two electoral vintages on
-disk. As new ECI Delimitation Commission Orders are gazetted, each gets
-its own `delim=<year>/` peer at this level; no overwrite of any prior
-vintage.
+The pre-rip `delim=2008` (per-state AC shards + a PC file) and the reserved
+`delim=2026/` placeholders were DELETED in Row 3. A future ECI Delimitation
+Commission Order would re-introduce a new `delim=<year>/` peer at this level;
+until then the single 2024 snapshot is authoritative for every era.
 
 ## Map-engine contract
 
-The map engine picks the boundary set from the active election event's
-`delim_year` (per `TODO/20260603-data-and-charting-platform-reset-plan.md`
-section 4 EL2). Old + new delimitation coexist as distinct rows; the
-engine MUST NOT overlay mismatched polygons (a pre-2008 result joined
-against a 2008-Delim AC layer is a citizen-trust bug).
+The map engine joins every Lok Sabha / Assembly event against this single
+2024 geometry:
+
+- **LS 2024**: numeric join on the PC `unique_id` (`<state_ut_code>_<eci_no>`).
+- **LS 2009 / 2014 / 2019**: name-slug join on the PC `pc_slug_uid`
+  (`<state_ut_code>_<pc_name_slug>`) -- canonical `electoral.csv` carries
+  unreliable `eci_no` values for the older delimitation, so the kebab-case
+  PC name slug is the stable key. An unmatched seat renders grey (never a
+  wrong-seat colour -- safe-by-construction).
+- **AC events**: the national AC TopoJSON is filtered per state by
+  `state_ut_code`, then painted via the per-state `join_property` crosswalk
+  (lgd_ac_id / ac_no / seat_id) unchanged.
+
+The `delim_year` baked into each tile-cartogram `unit_id`
+(`IN-<code>-AC-2008-<n>`, `IN-PC-2008-<sc>-<ls>`) records the delimitation
+ERA independently of the single geometry vintage on disk.
 
 ## Cross-references
 
-- Plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md)
-  section 4 EL2 (the layout grammar) and the G10 ledger row (the rip).
+- Plan: [TODO/20260616-map-geometry-rip-and-palette-plan.md](../../../TODO/20260616-map-geometry-rip-and-palette-plan.md)
+  Row 3 (the rip) and [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md)
+  section 4 EL2 (the original `boundaries/electoral/` introduction).
 - Schema: [../../schemas/boundary-layers.schema.json](../../schemas/boundary-layers.schema.json)
-  v1.5 (partition_path + layer_id patterns widened to accept the
-  `boundaries/electoral/` subtree).
+  v1.6 (format enum widened to accept `topojson` for the national AC layer).
+- Consolidation tool: `tools/boundaries/consolidate_ac_2024.py` (AC) +
+  `tools/boundaries/dual_key_pc_2024.py` (PC dual-key stamp).
 - Frontend reader: [`frontend/src/lib/maplibre/sources.ts`](../../../frontend/src/lib/maplibre/sources.ts)
   (`STATE_AC` + `INDIA_PC` registries).
 - Backend gate: [`backend/tests/test_electoral_boundaries_layout.py`](../../../backend/tests/test_electoral_boundaries_layout.py)
