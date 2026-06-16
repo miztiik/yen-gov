@@ -206,3 +206,209 @@ def test_distinct_cycles_emit_distinct_directories(tmp_path):
     emitted = _emit(tmp_path, rows, [("tamil-nadu", 1)])
     assert set(emitted) == {2014, 2019}
     assert emitted[2014]["candidacies"].parent.name == "election=2014"
+
+
+# --- crosswalk-aware state-split binding (Row A.5, 2026-06-14) --------------
+
+
+def _stage_crosswalk_catalogue(
+    root: Path,
+    pcs: list[tuple[str, int]],
+    crosswalk_rows: list[dict[str, str]],
+) -> Path:
+    """Stage the legacy catalogue plus a minimal entities.json + crosswalk.
+
+    Produces the same shape as :func:`_stage_catalogue` then writes
+    ``datasets/taxonomy/entities.json`` with the entity_codes needed by the
+    PC crosswalk's ``state_lookup``, and a hand-rolled
+    ``datasets/data/entities/pc_historical_crosswalk.csv`` carrying
+    ``crosswalk_rows``. The pcs argument feeds electoral.csv; the crosswalk
+    rows feed the override path.
+    """
+    import json
+
+    electoral_path = _stage_catalogue(root, pcs)
+    # Minimal entities.json: every state_code referenced by pcs OR crosswalk
+    # must be present; use the canonical display name so the resolver's
+    # state_lookup picks up the TCPD form via the parenthetical strip.
+    referenced_codes = {row["state_code"] for row in crosswalk_rows}
+    # Map slug -> (state_code, display_name) for the test fixtures we need.
+    SLUG_TO_ENTITY = {
+        "tamil-nadu": ("S22", "Tamil Nadu"),
+        "kerala": ("S11", "Kerala"),
+        "andhra-pradesh": ("S01", "Andhra Pradesh"),
+        "telangana": ("S29", "Telangana"),
+        "delhi": ("U05", "NCT of Delhi"),
+        "jammu-and-kashmir": ("U08", "Jammu and Kashmir (UT)"),
+    }
+    entities = []
+    seen_codes: set[str] = set()
+    for slug, _ in pcs:
+        code, display = SLUG_TO_ENTITY[slug]
+        if code in seen_codes:
+            continue
+        seen_codes.add(code)
+        body: dict = {
+            "entity_code": code,
+            "entity_id": f"IN-{code}",
+            "entity_type": "state" if code.startswith("S") else "ut",
+            "entity_level": "state",
+            "parent_entity_id": "IN",
+            "display_name": display,
+        }
+        if slug == "delhi":
+            body["legacy_id"] = "Delhi"
+        entities.append(body)
+    # Add any code referenced only by crosswalk (e.g. Telangana when union-AP
+    # is fed in as the source).
+    for code in referenced_codes - seen_codes:
+        # Reverse SLUG_TO_ENTITY lookup.
+        for slug, (c, display) in SLUG_TO_ENTITY.items():
+            if c == code:
+                body = {
+                    "entity_code": code,
+                    "entity_id": f"IN-{code}",
+                    "entity_type": "state" if code.startswith("S") else "ut",
+                    "entity_level": "state",
+                    "parent_entity_id": "IN",
+                    "display_name": display,
+                }
+                if slug == "delhi":
+                    body["legacy_id"] = "Delhi"
+                entities.append(body)
+                break
+    taxonomy = root / "datasets" / "taxonomy"
+    taxonomy.mkdir(parents=True, exist_ok=True)
+    (taxonomy / "entities.json").write_text(
+        json.dumps({"entities": entities}), encoding="utf-8"
+    )
+    crosswalk_path = root / "datasets" / "data" / "entities" / "pc_historical_crosswalk.csv"
+    crosswalk_path.parent.mkdir(parents=True, exist_ok=True)
+    header = [
+        "ge_year",
+        "tcpd_state",
+        "tcpd_constituency_no",
+        "state_code",
+        "pc_no",
+        "match_method",
+        "note",
+    ]
+    buf = io.StringIO(newline="")
+    writer = csv.DictWriter(buf, fieldnames=header, lineterminator="\n")
+    writer.writeheader()
+    for row in crosswalk_rows:
+        writer.writerow({k: row.get(k, "") for k in header})
+    crosswalk_path.write_text(buf.getvalue(), encoding="utf-8", newline="")
+    return electoral_path
+
+
+def test_crosswalk_routes_union_ap_2014_to_telangana(tmp_path):
+    """Wire fixtures so the union-AP 2014 ADILABAD constituency_no=1 binds to
+    the canonical S29 Telangana PC entity, not the modern S01 AP entity.
+
+    Regression guard for Row A.5 (2026-06-14): naive
+    ``(slugify(State_Name), pc_no) -> entity_id`` mis-binds because TCPD's
+    2014 dataset carries 42 ADILABAD..VIZIANAGARAM rows under
+    ``State_Name=Andhra_Pradesh`` (the union-AP that bifurcated 2 Jun 2014);
+    the crosswalk-aware bind path routes constituency_no 1-17 to S29
+    Telangana and constituency_no 18-42 (offset -17) to S01 AP.
+    """
+    # Stage two PC entities: one in modern AP, one in Telangana. TCPD source
+    # row says State_Name=Andhra_Pradesh constituency_no=1 in 2014, which
+    # MUST route to the Telangana entity per pc_historical_crosswalk.csv.
+    pcs = [("andhra-pradesh", 1), ("telangana", 1)]
+    crosswalk_rows = [
+        {
+            "ge_year": "2014",
+            "tcpd_state": "Andhra_Pradesh",
+            "tcpd_constituency_no": "1",
+            "state_code": "S29",
+            "pc_no": "1",
+            "match_method": "boundary",
+            "note": "ADILABAD: union-AP cno=1 -> S29 Telangana post-bifurcation",
+        },
+    ]
+    _stage_crosswalk_catalogue(tmp_path, pcs, crosswalk_rows)
+    rows = _contest("Andhra_Pradesh", 1, year=2014)
+    ge = _write_ge(tmp_path / "datasets" / "ephemeral" / "All_States_GE.csv", rows)
+    electoral = tmp_path / "datasets" / "data" / "entities" / "electoral.csv"
+    emitted = parliament_results.emit_parliament(
+        ge_csv=ge, electoral_csv=electoral, out_root=tmp_path, source_id=SOURCE_ID
+    )
+    cand = _read(emitted[2014]["candidacies"])
+    # ALL candidacy rows for this TCPD ADILABAD source must bind to Telangana.
+    states_seen = {r["state"] for r in cand}
+    assert states_seen == {"telangana"}, (
+        f"crosswalk override ignored; got states {states_seen!r}"
+    )
+    assert {r["entity_id"] for r in cand} == {"IN-PC-2008-telangana-2001"}, (
+        f"expected the Telangana PC entity (pc_no=1, eci_no=1); got {cand[0]['entity_id']!r}"
+    )
+
+
+def test_crosswalk_falls_through_when_no_override(tmp_path):
+    """When no crosswalk override exists, automatic bind via state_lookup
+    routes by display_name -> state_code -> electoral.csv slug.
+
+    Tamil Nadu cno=1 in 2019 has no crosswalk row; resolver should return
+    PcResolution(S22, 1, 2008, "automatic") and the bind should land on the
+    tamil-nadu PC entity.
+    """
+    pcs = [("tamil-nadu", 1)]
+    _stage_crosswalk_catalogue(tmp_path, pcs, crosswalk_rows=[])
+    rows = _contest("Tamil_Nadu", 1, year=2019)
+    ge = _write_ge(tmp_path / "datasets" / "ephemeral" / "All_States_GE.csv", rows)
+    electoral = tmp_path / "datasets" / "data" / "entities" / "electoral.csv"
+    emitted = parliament_results.emit_parliament(
+        ge_csv=ge, electoral_csv=electoral, out_root=tmp_path, source_id=SOURCE_ID
+    )
+    cand = _read(emitted[2019]["candidacies"])
+    assert {r["state"] for r in cand} == {"tamil-nadu"}
+    assert all(r["entity_id"] == "IN-PC-2008-tamil-nadu-2001" for r in cand)
+
+
+def test_state_code_to_slug_handles_drift_cases():
+    """Direct unit-test of ``_build_state_code_to_slug`` for the two known
+    display-vs-electoral drift cases (U05 NCT of Delhi -> "delhi" via legacy_id;
+    U08 Jammu and Kashmir (UT) -> "jammu-and-kashmir" via parenthetical-strip).
+    """
+    import json
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        root = Path(tmpdir)
+        taxonomy = root / "taxonomy"
+        taxonomy.mkdir()
+        (taxonomy / "entities.json").write_text(
+            json.dumps(
+                {
+                    "entities": [
+                        {
+                            "entity_code": "S01",
+                            "display_name": "Andhra Pradesh",
+                        },
+                        {
+                            "entity_code": "U05",
+                            "display_name": "NCT of Delhi",
+                            "legacy_id": "Delhi",
+                        },
+                        {
+                            "entity_code": "U08",
+                            "display_name": "Jammu and Kashmir (UT)",
+                        },
+                    ]
+                }
+            ),
+            encoding="utf-8",
+        )
+        out = parliament_results._build_state_code_to_slug(
+            root,
+            {"andhra-pradesh", "delhi", "jammu-and-kashmir"},
+        )
+        assert out["S01"] == "andhra-pradesh"
+        assert out["U05"] == "delhi", (
+            "U05 must resolve via legacy_id since display slugifies to nct-of-delhi"
+        )
+        assert out["U08"] == "jammu-and-kashmir", (
+            "U08 must resolve via parenthetical-strip"
+        )

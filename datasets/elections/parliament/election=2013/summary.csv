@@ -1,5 +1,8 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-PC-2008-gujarat-344,gujarat,2013,PORBANDAR,1495066,452560,30.27,R.V. Hansrajbhai,parties.IN.BJP,BJP,289893,64.06,A.V. Gordhanbhai,parties.IN.INC,INC,144370,145523,32.16,src-d4b15132ad0e,minor,
-IN-PC-2008-gujarat-357,gujarat,2013,BANASKANTHA,1466767,568174,38.74,C.H. Parthibhai,parties.IN.BJP,BJP,307988,54.21,G.K. Mukesh Kumar,parties.IN.INC,INC,236011,71977,12.67,src-d4b15132ad0e,minor,
+IN-PC-2008-bihar-172,bihar,2013,MAHARAJGANJ,1498991,700788,46.75,Prabhu Nath Singh,parties.IN.RJD,RJD,381452,54.43,Prashant Kumar Shahi,parties.IN.JDU,JD(U),244326,137126,19.57,src-d4b15132ad0e,minor,
+IN-PC-2008-gujarat-338,gujarat,2013,BANASKANTHA,1466767,568174,38.74,C.H. Parthibhai,parties.IN.BJP,BJP,307988,54.21,G.K. Mukesh Kumar,parties.IN.INC,INC,236011,71977,12.67,src-d4b15132ad0e,minor,
+IN-PC-2008-gujarat-353,gujarat,2013,PORBANDAR,1495066,452560,30.27,R.V. Hansrajbhai,parties.IN.BJP,BJP,289893,64.06,A.V. Gordhanbhai,parties.IN.INC,INC,144370,145523,32.16,src-d4b15132ad0e,minor,
 IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2013,MANDI,1124066,582246,51.8,Pratibha Singh,parties.IN.INC,INC,353492,60.71,Jai Ram Thakur,parties.IN.BJP,BJP,216765,136727,23.48,src-d4b15132ad0e,minor,
-IN-PC-2008-west-bengal-258,west-bengal,2013,HOWRAH,1447174,954381,65.95,Prasun Banerjee,parties.IN.AITC,AITC,426387,44.68,Sridip Bhattacharya,parties.IN.CPIM,CPM,399422,26965,2.83,src-d4b15132ad0e,minor,
+IN-PC-2008-karnataka-455,karnataka,2013,BANGALORE RURAL,2024717,1053358,52.02,D.K. Suresh,parties.IN.INC,INC,578608,54.93,Anitha Kumaraswamy,parties.IN.JDS,JD(S),441601,137007,13.01,src-d4b15132ad0e,minor,
+IN-PC-2008-karnataka-473,karnataka,2013,MANDYA,1618142,942451,58.24,Ramya,parties.IN.INC,INC,484085,51.36,C.S. Puttaraju,parties.IN.JDS,JD(S),416474,67611,7.17,src-d4b15132ad0e,minor,
+IN-PC-2008-west-bengal-238,west-bengal,2013,HOWRAH,1447174,954381,65.95,Prasun Banerjee,parties.IN.AITC,AITC,426387,44.68,Sridip Bhattacharya,parties.IN.CPIM,CPM,399422,26965,2.83,src-d4b15132ad0e,minor,

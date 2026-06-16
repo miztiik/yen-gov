@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-PC-2008-karnataka-461,karnataka,2012,UDUPI-CHIKMAGALUR,1224335,852824,69.66,K.J. Hegde,parties.IN.INC,INC,398723,46.75,S. Kumar V.,parties.IN.BJP,BJP,352999,45724,5.36,src-d4b15132ad0e,minor,
-IN-PC-2008-uttar-pradesh-123,uttar-pradesh,2012,KANNAUJ,1694614,0,0,Dimple Yadav,parties.IN.SP,SP,0,,,,,,,,src-d4b15132ad0e,minor,
+IN-PC-2008-karnataka-478,karnataka,2012,UDUPI-CHIKMAGALUR,1224335,852824,69.66,K.J. Hegde,parties.IN.INC,INC,398723,46.75,S. Kumar V.,parties.IN.BJP,BJP,352999,45724,5.36,src-d4b15132ad0e,minor,
+IN-PC-2008-uttar-pradesh-118,uttar-pradesh,2012,KANNAUJ,1694614,0,0,Dimple Yadav,parties.IN.SP,SP,0,,,,,,,,src-d4b15132ad0e,minor,
 IN-PC-2008-uttarakhand-29,uttarakhand,2012,TEHRI GARHWAL,1159691,510951,44.06,Mala Rajya Laxmi Shah,parties.IN.BJP,BJP,245835,48.11,Saket Bahuguna,parties.IN.INC,INC,223141,22694,4.44,src-d4b15132ad0e,minor,
-IN-PC-2008-west-bengal-252,west-bengal,2012,JANGIPUR,1087054,853392,78.51,Abhijit Mukherjee,parties.IN.INC,INC,332919,39.01,Muzaffar Hossain,parties.IN.CPIM,CPM,330383,2536,0.3,src-d4b15132ad0e,minor,
+IN-PC-2008-west-bengal-241,west-bengal,2012,JANGIPUR,1087054,853392,78.51,Abhijit Mukherjee,parties.IN.INC,INC,332919,39.01,Muzaffar Hossain,parties.IN.CPIM,CPM,330383,2536,0.3,src-d4b15132ad0e,minor,
