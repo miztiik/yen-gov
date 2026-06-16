@@ -191,7 +191,8 @@ datasets/
     delimitation_lineage.parquet
 
   boundaries/                         # SIBLING family (ADR-0031, D25) — geometry
-    in/geojson/...  in/pmtiles/...
+    in/country/all.topojson  in/states/all.geojson  in/districts/all.geojson  ...   # admin spine
+    electoral/delim=2024/ac/all.topojson  electoral/delim=2024/pc/all.geojson        # single 2024 vintage
 
   elections/                          # CANONICAL family — politics
     election_results.parquet                  # fact: candidate × AC × event
@@ -1335,7 +1336,7 @@ Status: accepted 2026-06-01. Authority: User (locked 2026-06-01, supersedes per 
 
 **Decision.** Adopt `state=<lgd-name-slug>` as the canonical partition-key shape across every dataset partition that today uses `state=in_sXX` / `state=in_uXX`. `<lgd-name-slug>` is the kebab-case ASCII slug of the canonical LGD `state_name` (English): `haryana`, `himachal-pradesh`, `tamil-nadu`, `jammu-and-kashmir`, `andaman-and-nicobar-islands`. Disambiguator: there are no collisions among the 36 current state/UT names; if a future split produces a name collision, the slug carries the disambiguating suffix. Authority list: `datasets/taxonomy/lgd_states.json` is the single source for the canonical slug.
 
-**What changes** (boundary partitions `datasets/boundaries/in/ac/state=in_s07/...` -> `state=haryana/...`; election partitions `datasets/elections/state=in_s07/...` -> `state=haryana/...`; indicator partitions `datasets/indicators/in/<topic>/state=in_s07/...` -> `state=haryana/...`). The AC + PC subtrees now live under the electoral peer of the admin spine: `boundaries/electoral/delim=2008/ac/state=<slug>/...` and `boundaries/electoral/delim=2024/pc/all.geojson`. **What does NOT change** (URL slugs `/<state-slug>` already name-slug, unaffected; in-row columns `state_code = "S07"` for display + `lgd_state_id = 7` for join, unchanged - this ADR addresses partition KEYS, not column values; `entity_id` shape `IN-<state>-AC-<delim>-<eci_no>` per [ADR-0044](../../reference/decision-index.md#) unchanged).
+**What changes** (boundary partitions `datasets/boundaries/in/ac/state=in_s07/...` -> `state=haryana/...`; election partitions `datasets/elections/state=in_s07/...` -> `state=haryana/...`; indicator partitions `datasets/indicators/in/<topic>/state=in_s07/...` -> `state=haryana/...`). When this ADR was written (2026-06-01) the AC + PC subtrees lived under the electoral peer of the admin spine as `boundaries/electoral/delim=2008/ac/state=<slug>/...` and `boundaries/electoral/delim=2024/pc/all.geojson`. (UPDATE 2026-06-16, Row 3 of the map-geometry rip: the per-state AC `state=<slug>` dirs were consolidated into ONE national `boundaries/electoral/delim=2024/ac/all.topojson` stamped with `state_ut_code`; the slug-rename doctrine below still governs the admin spine + election + indicator partitions.) **What does NOT change** (URL slugs `/<state-slug>` already name-slug, unaffected; in-row columns `state_code = "S07"` for display + `lgd_state_id = 7` for join, unchanged - this ADR addresses partition KEYS, not column values; `entity_id` shape `IN-<state>-AC-<delim>-<eci_no>` per [ADR-0044](../../reference/decision-index.md#) unchanged).
 
 **Rationale - why name-slug rather than `lgd_state_id` numeric.** User's verbatim load-bearing argument (2026-06-01): "State names rarely change; LGD numbers historically do." A partition key written into thousands of files is the most expensive thing in the repo to rewrite. Picking the slug-stable axis over the id-stable axis is the OWID precedent (their dataset partition keys use ISO country names + slug variants, not ISO numeric).
 

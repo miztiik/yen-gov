@@ -75,7 +75,7 @@ After the partition rename (waves M2-M4 per execution handover), every dataset r
 
 ```python
 slug = next(s["slug"] for s in states if s["lgd_state_id"] == lgd_state_id)
-path = REPO / f"datasets/boundaries/electoral/delim=2008/ac/state={slug}/all.geojson"
+path = REPO / f"datasets/boundaries/in/subdistricts/state={slug}/all.geojson"
 ```
 
 Frontend Vite middleware `serveDatasets()` exposes the same partition shape under `/data/` (per [docs/architecture/frontend/data-loading.md](../frontend/data-loading.md)).

@@ -21,7 +21,7 @@ A separate app makes the boundary physical. The public Pages deploy never sees a
 | --- | --- | --- |
 | Where it runs | GitHub Pages | Operator's localhost |
 | Backend | None | FastAPI on `localhost:8000` |
-| Read scope | `datasets/` (committed JSON/SQLite/PMTiles) | `datasets/`, `.runtime/`, schemas, git status |
+| Read scope | `datasets/` (committed JSON/SQLite/TopoJSON/GeoJSON) | `datasets/`, `.runtime/`, schemas, git status |
 | Write scope | None | Patch files under `datasets/patches/`, optionally trigger pipeline runs |
 | Bundle | `frontend/dist/` → Pages | `admin/dist/` → never deployed |
 | Authentication | None | Localhost-bound; no auth (single-user developer tool) |
