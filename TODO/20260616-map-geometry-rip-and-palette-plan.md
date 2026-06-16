@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-06-16
 **Level**: Level-4 (structural; boundary-geometry contract change + electoral single-vintage consolidation + renderer-config change). User-ratified direction (2026-06-16): rip-and-replace, no strangler-fig, keep the LATEST delimitation (2024) only, delete the oldest (2008).
-**Status**: PLANNING - authored + persona-reviewed (Gregor / Fowler / Jony / Hans). Pending "implement it".
+**Status**: IN PROGRESS (2026-06-16) - Rows 1, 2, 4 MERGED (PRs #1085, #1089, #1086). Row 3 (electoral slice) handed off ready-to-execute: see [20260616-row3-electoral-handover.md](20260616-row3-electoral-handover.md) (data de-risked, ESCALATE 0.5.3 cleared at 100% AC overlap). Rows 5 + 5b pending after Row 3.
 **Strategy**: RIP-AND-REPLACE, NO STRANGLER-FIG. Each PR is a complete vertical slice (data + readers + tests change together) so no intermediate state ships a broken map, and there is NO old/new coexistence phase. GitHub history is the backup.
 
 ## 0. Operating contract
@@ -69,12 +69,12 @@ Gregor (BLOCK -> resolved by 0.3 dual-key + key-preservation), Fowler (test-ledg
 
 | Row | Title | Status | PR | Effort |
 | --- | --- | --- | --- | --- |
-| **1** | Frontend component sweep: Lakshadweep fitWidth fix + strip circles + strip silhouettes (render-only, old geometry, ships first) | [ ] PENDING | _pending_ | ~half-day |
-| **2** | Admin geometry slice: rebuild country topojson + loader object-by-name + strip non-country topojson + tests | [ ] PENDING | _pending_ | ~half-day |
-| **3** | Electoral slice: ingest 2024 AC + dual-key PC/AC + delete delim=2008/2026 + repoint routes + table-fallback tail + tests | [ ] PENDING | _pending_ | ~1 day |
-| **4** | Configurable + detached palette token system | [ ] PENDING | _pending_ | ~half-day |
-| **5** | Docs reconciliation (map.md + electoral README + canonical-store note) | [ ] PENDING | _pending_ | ~1h |
-| **5b** | OPTIONAL join polish: PC + AC spelling-variant alias table; 94% -> ~99% | [ ] PENDING | _pending_ | ~half-day |
+| **1** | Frontend component sweep: Lakshadweep fitWidth fix + strip circles + strip silhouettes (render-only, old geometry, ships first) | [x] DONE - shipped a Lakshadweep SQUARE marker (user-ratified reversal of D8/D9; the resting island was ~2px even after fitWidth) | #1085 | ~half-day |
+| **2** | Admin geometry slice: rebuild country topojson + loader object-by-name + strip non-country topojson + tests | [x] DONE - + receipt re-architected to full boundary inventory (a coupling the spec missed; user-approved) | #1089 | ~1 day |
+| **3** | Electoral slice: ingest 2024 AC + dual-key PC/AC + delete delim=2008/2026 + repoint routes + table-fallback tail + tests | [ ] READY - handed off: [20260616-row3-electoral-handover.md](20260616-row3-electoral-handover.md) | _pending_ | ~1 day |
+| **4** | Configurable + detached palette token system | [x] DONE | #1086 | ~half-day |
+| **5** | Docs reconciliation (map.md + electoral README + canonical-store note) | [ ] PENDING (after Row 3) | _pending_ | ~1h |
+| **5b** | OPTIONAL join polish: PC + AC spelling-variant alias table; 94% -> ~99% | [ ] PENDING (after Row 3) | _pending_ | ~half-day |
 
 Rows 1, 2, 4 are independent and parallelizable. Row 3 depends on Row 2 (the new geometry + loader). Row 5 depends on 1-3. Row 5b depends on 3.
 
