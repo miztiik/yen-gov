@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-06-11 (revision: PR-6 of elections-off-MapLibre plan - MapLibre GL JS + PMTiles removed; d3-geo SVG is the sole choropleth renderer)
+**Last Updated**: 2026-06-16 (revision: Row 5 of the map-geometry rip plan — boundary pipeline reconciled to d3-geo + TopoJSON/GeoJSON reality; single 2024 electoral vintage + dual-key historical join documented; MapLibre/PMTiles content marked historical)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -12,7 +12,7 @@ The renderer for ALL choropleths - welfare AND election (national state-leading-
 
 ### Why d3-geo (one paragraph)
 
-Plain SVG over our existing TopoJSON corpus (`datasets/boundaries/in/{states,districts}/all.topojson`, plus per-state AC GeoJSON), backed by `d3-geo` for projection / path generation and `d3-zoom` for pan / zoom / pinch. No GPU canvas, no WebGL context, no scroll-wheel capture (so no `cooperativeGestures` UX trap - scroll-wheel zooms without Ctrl), trivial to add a `+ / - / home` button trio by driving `svg.transition().call(zoom.scaleBy, ...)` / `svg.transition().call(zoom.transform, d3.zoomIdentity)` on a single shared `d3.zoom()` behaviour, and ~10 KB bundle cost (`d3-geo` + `d3-zoom`) versus ~230 KB gzipped for the maplibre-gl + pmtiles pair. The shape mirrors comparable Indian civic sites: IndiaVotes hand-rolls inline SVG choropleths, and Bharat Pashudhan's `keyStatistics` route also serves an SVG choropleth over a topojson - the d3-geo migration aligns yen-gov with the surface citizens already know.
+Plain SVG over our committed geometry corpus (`datasets/boundaries/in/country/all.topojson` for the admin spine, `datasets/boundaries/electoral/delim=2024/ac/all.topojson` for the national AC layer, plain GeoJSON for everything else), backed by `d3-geo` for projection / path generation and `d3-zoom` for pan / zoom / pinch. No GPU canvas, no WebGL context, no scroll-wheel capture (so no `cooperativeGestures` UX trap - scroll-wheel zooms without Ctrl), trivial to add a `+ / - / home` button trio by driving `svg.transition().call(zoom.scaleBy, ...)` / `svg.transition().call(zoom.transform, d3.zoomIdentity)` on a single shared `d3.zoom()` behaviour, and ~10 KB bundle cost (`d3-geo` + `d3-zoom`) versus ~230 KB gzipped for the maplibre-gl + pmtiles pair. The shape mirrors comparable Indian civic sites: IndiaVotes hand-rolls inline SVG choropleths, and Bharat Pashudhan's `keyStatistics` route also serves an SVG choropleth over a topojson - the d3-geo migration aligns yen-gov with the surface citizens already know.
 
 ### Comparable Indian civic sites - what they actually use (2026-06-11 investigation)
 
@@ -39,63 +39,68 @@ After PR-4 + PR-5 land, the same UX is built into the SVG renderer via a single 
 
 ## Boundary data pipeline
 
-Indian administrative boundaries are not packaged as one clean source. The pipeline:
+Indian administrative + electoral boundaries are committed as plain geometry files under `datasets/boundaries/`, read directly at runtime by the d3-geo renderers. There is **no** build-time tiling step — no `tippecanoe`, no PMTiles, no per-`{z}/{x}/{y}` tile tree. The 2026-05-31 → 2026-06-16 map-geometry work (`docs/architecture/data/topojson-benchmark.md` + `TODO/20260616-map-geometry-rip-and-palette-plan.md`) settled the encoding:
 
 ```
-datameet/maps + HTL/shapefiles  ← upstream (CC-BY 4.0 / MIT)
-   │
-   ▼ (one-time per delimitation cycle, run locally on Linux/macOS/WSL2 — see tools/boundaries/README.md)
-tools/boundaries/build.py    ← download → mapshaper simplify → tippecanoe → PMTiles
-   │
-   ▼
-datasets/boundaries/in/      ← committed PMTiles + manifest.json (populated only after CI run; absent on a fresh clone)
-   ├── india-states.pmtiles
-   └── ac/
-       ├── S22-ac.pmtiles    (Tamil Nadu 234 ACs)
-       ├── S25-ac.pmtiles    (West Bengal 294 ACs)
-       ├── S11-ac.pmtiles    (Kerala 140 ACs)
-       └── S03-ac.pmtiles    (Assam 126 ACs — see delimitation_warning in pipeline.json)
-   └── manifest.json         (populated by CI; resolver falls back to GeoJSON snapshot or upstream when missing)
+datasets/boundaries/
+  in/                                  ← administrative spine
+    country/all.topojson               ← THE one admin TopoJSON: objects `states` (36) + `districts` (785)
+    states/all.geojson                 ← source masters (the country TopoJSON derives from these)
+    districts/all.geojson
+    subdistricts/state=<slug>/all.geojson
+    villages/state=<slug>/district=<lgd>/all.geojson
+    blocks/ panchayats/ wards/ ...     ← all GeoJSON
+  electoral/                           ← ECI constituency geometry (single 2024 vintage)
+    delim=2024/
+      ac/all.topojson                  ← THE one electoral TopoJSON: object `ac` (~4149 ACs, stamped state_ut_code)
+      pc/all.geojson                   ← national PC GeoJSON (dual-key: numeric unique_id + name-slug pc_slug_uid)
+    README.md
 ```
+
+**Encoding rule (Gregor's bright-line):** a layer ships as **TopoJSON** if and only if it is *both* (a) a national composite we derive ourselves *and* (b) fetched whole on a citizen hot path. Exactly two layers qualify — `in/country/all.topojson` (Row 2) and `electoral/delim=2024/ac/all.topojson` (Row 3). Everything else ships as plain **GeoJSON**. TopoJSON here means quantization + arc-sharing only (a national AC GeoJSON is ~24 MB gzip; the quantized, arc-shared TopoJSON is ~3.7 MB gzip) — it is **lossless**: no `-simplify`, no vertex deletion (the "chunky coastline" defect the plan exists to avoid). The loader (`boundaries.ts`) is format-aware: only the country level probes TopoJSON; `StateAcMapD3` fetches the AC TopoJSON + decodes it inline via `topojson-client`. See [topojson-loader.md](topojson-loader.md) for the loader seam and [../data/boundaries.md](../data/boundaries.md) for the geometry-store contract.
 
 Sources:
 
-- **States outline:** [datameet/maps](https://github.com/datameet/maps) `States/Admin2.shp` (CC-BY 4.0). Includes the post-2014 Telangana split, the post-2019 Ladakh split (PR #73), and the merged Dadra-and-Nagar-Haveli-and-Daman-and-Diu UT. Replaces the geohacker/india GADM v2 (~2012) layer that pre-dated all three reorganizations.
-- **AC outlines:** [HindustanTimesLabs/shapefiles](https://github.com/HindustanTimesLabs/shapefiles) `state_ut/<state>/assembly/*.json` (MIT). One file per state, joined on `AC_NO`.
+- **States + districts:** [datameet/maps](https://github.com/datameet/maps) + ramSeraph LGD releases. Join keys `State_LGD` (states) / `dist_lgd` (districts) preserved verbatim through the TopoJSON build (renaming would blank every map).
+- **AC outlines:** ramSeraph `LGD_Assembly_Constituencies` (the 31 former per-state shards, consolidated into one national TopoJSON in Row 3). Per-state paint join unchanged (`lgd_ac_id` / `ac_no` / `seat_id` per state); `state_ut_code` stamped on every feature as the client-side filter key.
+- **PC outlines:** the 2024 ECI Parliamentary Constituency map. One national GeoJSON carrying **two** indexed keys — numeric `unique_id` (e.g. `S07_5`, for LS 2024) and name-slug `pc_slug_uid` (e.g. `S07_karnal`, the join used by LS 2009–2019 events).
 
-Each PMTiles file is ~200–500 KB (simplified to ~10 m precision for choropleths — election maps don't need 1 m).
+### Single 2024 electoral vintage + dual-key historical join
 
-The pipeline is **build-time only**, not runtime. Boundaries change infrequently (delimitation cycles); fetching them at user load is wasted bandwidth. They live under `datasets/boundaries/in/` once the workflow has produced them; until then, the resolver below transparently fetches GeoJSON from upstream so the map still renders. Per CLAUDE.md §12 every PMTiles file is paired with a `manifest.json` entry recording `{ url, fetched_at }` for the upstream commit.
+After the Row 3 rip there is exactly **one** electoral delimitation vintage on disk (`delim=2024`). It serves every Lok Sabha / Assembly event regardless of era:
 
-### Why PMTiles
+- **LS 2024** → numeric join on the PC `unique_id`.
+- **LS 2009 / 2014 / 2019** → name-slug join on `pc_slug_uid`. Canonical `electoral.csv` carries unreliable `eci_no` values for the older delimitation, so the kebab-case PC name slug is the stable key. ~94% of pre-2024 PC name-slugs match a 2024 PC exactly; an unmatched seat renders **grey** (never a wrong-seat colour — safe-by-construction). The optional alias table for spelling variants (`anantapuramu→anantapur`, …) lifts this toward ~99%.
+- **AC events** → the national AC TopoJSON is filtered per state by `state_ut_code`, then painted via the per-state crosswalk.
 
-[PMTiles](https://github.com/protomaps/PMTiles) is a single-file vector-tile container that MapLibre reads via a [protocol handler](https://github.com/protomaps/PMTiles/tree/main/js#maplibre-gl-js). One file per layer = one HTTP request, range-requested for the visible viewport. The alternative (a directory of `{z}/{x}/{y}.pbf` tiles) would mean shipping thousands of tiny files, which GitHub Pages handles poorly and which inflates the deploy artifact.
+The `delim_year` baked into each tile-cartogram `unit_id` (`IN-<code>-AC-2008-<n>`, `IN-PC-2008-<sc>-<ls>`) records the delimitation **era** independently of the single geometry vintage on disk; it is NOT a geometry path.
+
+The pipeline is **build-time only**, not runtime — the consolidation tools (`tools/boundaries/consolidate_ac_2024.py`, `tools/topojson/build_country.py`) run locally and commit their output. Per CLAUDE.md §9 the geometry's provenance lives in `datasets/data/entities/boundary_layer.csv` (the registered layer rows) + the `boundary_encoding.csv` receipt for the `in/` admin spine.
 
 ### Boundary pipeline — alternatives considered
 
-- **Runtime fetch from a public CDN (e.g. data.gov.in).** Rejected: introduces an external availability dependency the static bundle would otherwise not need. CLAUDE.md ADR-0003 already established a no-runtime-fetch posture for raw artifacts.
-- **GeoJSON files committed directly.** Workable for state-level (~50 KB India) but blows up at AC level (TN AC GeoJSON is ~2.5 MB unsimplified). PMTiles is ~5× smaller and supports per-zoom precision.
+- **PMTiles + tippecanoe vector tiles (the v1 design).** Ruled out with MapLibre in PR-6 of the elections-off-MapLibre plan: PMTiles only pays off behind a tile-reading map engine (MapLibre), and the d3-geo renderer reads geometry directly. Retained here only as the historical predecessor.
+- **National AC GeoJSON committed directly.** Rejected in Row 3: ~24 MB gzip fetched whole on a citizen hot path = a 24× wire regression vs the per-state shards, violating static-first (Holy Law #1). The quantized + arc-shared TopoJSON (~3.7 MB gzip, lossless) is the chosen middle path.
+- **Runtime fetch from a public CDN (e.g. data.gov.in).** Rejected: introduces an external availability dependency (CLAUDE.md ADR-0003 no-runtime-fetch posture).
 - **Self-host vector tiles on a tile server.** Requires infrastructure (Holy Law #1 violation).
 
 ## Layer composition
 
-A typical state-level Explore view stacks:
+A d3-geo SVG choropleth is a single `<svg>` with one `<path>` per feature, projected through `geoMercator().fitWidth(container_w, collection)`. There is no layer stack, no GPU source, no basemap tile — the polygons ARE the map. A typical per-state AC view composes, top to bottom in DOM order inside one zoomable `<g>`:
 
 ```
-[base]      OSM raster (CARTO Voyager style, low-saturation)  — context
-[admin]    state-boundary line layer from india-states.pmtiles — orientation
-[ac-fill]  AC choropleth from S22-ac.pmtiles + result.summary  — primary signal
-[ac-line]  AC boundary thin line                              — separator
-[labels]   district labels from MapLibre default              — wayfinding
+<path> per AC      fill = winner party colour, opacity ∝ margin   — primary signal
+<path> stroke      thin hairline between ACs                       — separator
+(hover) <div>      HTML tooltip card (name + winner + margin)      — wayfinding
 ```
 
-Each layer is added to the same `Map` instance. The `ac-fill` layer's `paint['fill-color']` is a data-driven expression keyed on the joined `result.summary` row's `winner_party_eci_code`, mapped through the user's color overrides. Margin opacity is `paint['fill-opacity']` driven by margin percentage.
+The fill is computed per-feature in the component's `$derived` paint map (keyed on the joined result row's `winner_party_eci_code`, mapped through the user's colour overrides); margin opacity is the SVG `fill-opacity` attribute. No data-driven paint expressions, no `setPaintProperty` — Svelte 5 reactivity recomputes the `$derived` map and the template re-renders the affected `<path>` attributes directly.
 
-When Psephlab is active, the `ac-fill` layer's data source is swapped from `result.summary` to `engine.run(actuals, scenario).perAcWinners`. The transition is a `setPaintProperty` call wrapped in a `flyTo`-style animation; the GPU interpolates the colors. No DOM thrash, no per-frame React/Svelte reactivity.
+When Psephlab is active, the per-AC fill map is recomputed from `engine.run(actuals, scenario).perAcWinners`; the `$derived` dependency graph repaints only the changed polygons.
 
 ## Color & overrides
 
-Party color comes from [`overview.md` > color scheme](overview.md#color-scheme): a default canonical palette in `frontend/src/lib/colors/parties.default.ts`, with per-party user overrides from `localStorage` and (in shared scenarios) from the URL fragment. The map reads this map of overrides and rebuilds the `fill-color` expression when it changes.
+Party color comes from the 3-tier resolver ([`colors/resolver.ts`](../../../frontend/src/lib/colors/resolver.ts)): a canonical brand colour per party, with per-party user overrides from `localStorage` and (in shared scenarios) from the URL fragment. The map's `$derived` paint map rebuilds when overrides change.
 
 Margin shading uses opacity, not hue: a 51%–49% AC paints the winning party at ~30% opacity; a 70%+ landslide paints at ~95%. This keeps the map honest — the eye reads a tied AC as "barely won" rather than as a confident block of color.
 
@@ -137,43 +142,20 @@ The user explicitly called out non-election overlays. The following are designed
 | Caste / community composition | Census | `bubble` (custom symbol layer) |
 | Voter turnout history | ECI past elections | `fill` choropleth, time-slider |
 
-Each lives under `datasets/overlays/in/<topic>.pmtiles` with the same provenance contract. The map UI exposes them as a togglable layer panel in the sidebar; only one socio-economic layer is rendered at a time (cognitive load), but it can stack on top of the election choropleth via the `fill-opacity` slider.
+Each future overlay lives under `datasets/overlays/in/<topic>.geojson` (or, if it is a national composite on a hot path, a derived `.topojson` per the encoding rule above) with the same provenance contract. The map UI exposes them as a togglable layer panel in the sidebar; only one socio-economic layer is rendered at a time (cognitive load), but it can stack on top of the election choropleth via the opacity slider.
 
-## Implementation notes (Phase 1d)
+## Implementation notes — d3-geo renderers
 
-The first cut of the map components landed under `frontend/src/lib/maplibre/`:
+The live map components are d3-geo SVG, under `frontend/src/lib/charts/`:
 
-- `sources.ts` — declarative table of boundary sources (one per India-states + per-state AC layers), each with the upstream URL, the property name to join on (`ST_NM` for datameet states, `AC_NO` for HTL AC files), and license attribution. State-name → ECI-code resolution is **not** hand-coded here any more — it derives from the canonical `datasets/taxonomy/entities.parquet` corpus via the [`view-models/states.ts`](../../../frontend/src/lib/view-models/states.ts) loader (T.0e, May 2026). `sources.ts` re-exports `eciFromStateName(name)` as a thin async shim for callers that want the old single-function API; new code should call `loadStates()` directly to get the full `StateRow` shape (which includes `boundary_join_name` — the DataMeet `ST_NM` join key, which diverges from `display_name` for Delhi / Andaman & Nicobar / Jammu & Kashmir).
-- `MapChoropleth.svelte` — generic, library-agnostic to its parents. Takes a `BoundaryEntry`, a `fills` map keyed by the join-property value, optional `opacities` and `tooltips`, and `onSelect`/`onHover` callbacks. Owns map lifecycle and rebuilds `fill-color` / `fill-opacity` paint expressions whenever its props change (Svelte 5 `$effect`).
-- `IndiaMap.svelte` and `StateAcMap.svelte` — thin domain wrappers. `IndiaMap` called `loadStates()` (see above), then fetched `result.summary.json` for every currently-valid state/UT and coloured each by winning party (most seats won, votes as tiebreak). This election theme is no longer the Home default - it survives as the explicit `?theme=election` choice and as one of 21 options in the picker; the Home rotation lives in [Home default theme (day-of-year rotation)](#home-default-theme-day-of-year-rotation) above. `StateAcMap` queried `results.sqlite` via the cached `getDb` for `(ac_eci_no → winner_party_eci_code, party_short, margin_pct)` and coloured AC fills by winning party with opacity proportional to margin (clamped to 30 % to keep the legend readable; ties dropped to the floor so razor-thin wins visually screamed "close"). **REMOVED in PR-6.** `IndiaMap.svelte` was replaced by `frontend/src/lib/charts/IndiaPartyMap.svelte` (PR-4 of [TODO/20260611-elections-off-maplibre-and-map-ux-plan.md](../../../TODO/20260611-elections-off-maplibre-and-map-ux-plan.md)); `StateAcMap.svelte` was replaced by `frontend/src/lib/charts/StateAcMapD3.svelte` (PR-5 of the same plan). Both files were deleted in PR-6 with the rest of `frontend/src/lib/maplibre/`.
+- `IndiaPartyMap.svelte` — national state-leading-party choropleth (fetches the country TopoJSON's `states` object; joins on `State_LGD`). Carries the Lakshadweep square-marker fix (`computeIslandMarker`, national maps only).
+- `IndiaPcMapD3.svelte` / `StatePcMapD3.svelte` — national + per-state PC atlas (fetch `electoral/delim=2024/pc/all.geojson`; join on `unique_id` for LS 2024, `pc_slug_uid` for LS 2009–2019).
+- `StateAcMapD3.svelte` — per-state AC choropleth. Fetches the ONE national `electoral/delim=2024/ac/all.topojson`, decodes object `ac` via `topojson-client`, filters features by `state_ut_code === state_code`, and paints via the per-state crosswalk (`lgd_ac_id` / `ac_no` / `seat_id`). Accepts an optional `highlight_eci_no?: number` for the per-AC drilldown "Location in {state}" mini-map: the matched AC paints at full opacity, every other AC drops to `base × 0.18`, and the focused feature gets a slate-900 2.5 px outline.
+- `GeoChoropleth.svelte` — the generic welfare-indicator choropleth (state / district grain), object-by-name aware so it can decode the country TopoJSON's `states` or `districts` object.
 
-### Source resolution: manifest → local snapshot → upstream fallback
+Shared pure helpers live beside each component (`india-party-map-helpers.ts`, `state-ac-map-helpers.ts`, `india-pc-map-helpers.ts`) and carry the unit-tested paint formulas. The party-colour fill is a Svelte 5 `$derived` map keyed on `winner_party_eci_code` (no MapLibre `["match"]` paint expression), so the historical `AC_NO` string-vs-integer coercion bug is gone — the join is a plain JS map lookup over the decoded features.
 
-`resolveSource(entry)` is **three-tier**, tried in order, first hit wins:
-
-1. **PMTiles via manifest** — when the boundary CI workflow has run and committed PMTiles, the resolver returns `{ kind: "pmtiles", url: "pmtiles:///data/boundaries/in/<id>.pmtiles" }` and registers the `pmtiles` protocol shim once per page.
-2. **Local GeoJSON snapshot** — the second tier (added in the May 2026 UX audit). When `BoundaryEntry.geojson_local_path` is set, the resolver returns `{ kind: "geojson", url: "/data/<path>" }` pointing at a snapshotted file under `datasets/boundaries/in/geojson/`. Snapshots are produced by `tools/boundaries/snapshot.py` (see below).
-3. **Upstream raw GeoJSON** — last-resort live fetch of the original `geojson_url` declared on the entry. Slow (TN AC ~1 MB, India states ~22 MB) and depends on raw.githubusercontent.com being reachable; only kicks in when no snapshot exists for that layer.
-
-Why the middle tier exists. Before the snapshot tier, the manifest probe missing → straight to a 1–22 MB fetch from GitHub on every cold load, and TN often appeared "blank" because the polygons hadn't streamed in yet. The snapshot tier is local, instant, and version-pinned. PMTiles is still the long-term winner (smaller payload, range requests, zoom-aware precision); the snapshot tier is the gap-filler until `tools/boundaries/build.py` is run and its PMTiles output committed.
-
-### `tools/boundaries/snapshot.py`
-
-Standalone, dependency-free Python script (urllib only, per `tools/` self-contained rule). Reads `tools/boundaries/pipeline.json`, downloads each entry, writes the GeoJSON to `datasets/boundaries/in/geojson/<name>.geojson` and a sidecar `<name>.geojson.sources.json` carrying the CLAUDE.md §12 `sources: [{url, fetched_at}]` array.
-
-The sidecar exists because GeoJSON's `FeatureCollection` schema doesn't accept arbitrary top-level keys cleanly; an out-of-band sidecar is the lowest-friction way to carry provenance without bending the spec.
-
-A 16 MB per-file budget covers all current layers, including the converted datameet states layer (~11 MB at coord_precision=3, gzips to ~3 MB). Per-state AC layers at coord_precision=4 (~11 m vertices, set 2026-06-12 to eliminate the staircase appearance previously visible at coord_precision=2) range from ~150 KB (Puducherry) to ~13 MB (Uttar Pradesh, 404 ACs); all fit comfortably and are committed. The budget was raised 12 MB → 16 MB on 2026-06-12 in the same change — at p=4 UP was being SKIPPED (deleted from disk, no row in the boundary_layer ledger, citizen loading `/uttar-pradesh/elections/*` saw an empty map). 16 MB gives ~3 MB headroom for future state-AC-count growth.
-
-### `AC_NO` type-coercion
-
-The HTL shapefiles (the upstream for state-level AC choropleths) export `AC_NO` as a **string** (`"2"`), while the parent results data keys ACs by integer `eci_no`. MapLibre's `["match"]` paint expression does strict equality, so a numeric key never matches a string property — leaving every polygon at the layer's default fill (the long-standing "TN constituency map renders blank slate-50" bug).
-
-`MapChoropleth.svelte`'s `fill_expression()` / `opacity_expression()` / `highlight_filter()` now wrap the property accessor in `["to-number", ["get", entry.join_property]]` whenever the lookup keys are all integer-shaped. State-name layers (`ST_NM`) keep the plain `["get", …]` form. The numeric-vs-string detection is a per-call regex check on the keys — cheap and correct without introducing a per-entry "key type" config field.
-
-### Constituency drilldown — highlighted-AC mini-map
-
-`StateAcMap.svelte` accepts an optional `highlight_eci_no?: number`. When set, the matched AC paints at full opacity and every other AC drops to `base × 0.18`, and a third line layer (slate-900, 2.5 px) outlines just the focused feature. This drives the per-AC drilldown page's "Location in {state}" section, giving users a "you are here" sense without a separate map component. The highlight filter goes through the same numeric-coercion path as fills/opacities.
+> **History.** The first cut (Phase 1d) mounted MapLibre GL JS through `frontend/src/lib/maplibre/MapChoropleth.svelte` + `IndiaMap.svelte` / `StateAcMap.svelte`, resolved geometry through a three-tier `resolveSource()` (committed PMTiles → local GeoJSON snapshot → upstream raw GeoJSON), and coerced the HTL `AC_NO` string key inside a `["to-number", ["get", …]]` paint expression. All of that — the entire `frontend/src/lib/maplibre/` directory, the PMTiles snapshot pipeline, and `tools/boundaries/snapshot.py`'s build-the-tiles role — was removed in PR-6 of [TODO/20260611-elections-off-maplibre-and-map-ux-plan.md](../../../TODO/20260611-elections-off-maplibre-and-map-ux-plan.md). The d3-geo renderers above replaced every consumer.
 
 ## Boundary loader (`frontend/src/lib/boundaries.ts`) — Phase 2 of TN-GRANULAR-GEO-PLAN
 
@@ -223,6 +205,8 @@ The browser HTTP cache + Pages' `Cache-Control` handle GeoJSON shard caching. Th
 ## Drill-down UX (Phase 3 of TN-GRANULAR-GEO-PLAN)
 
 `IndicatorChoropleth.svelte` ships a state→district→subdistrict→village drill on TN-scoped indicators (`highlight_state === "S22"`). Sign-off: Jony APPROVED-WITH-EDITS 2026-05-15; the five edits are baked into the implementation as called out below.
+
+> **Implementation note (post-PR-6).** The drill-down **UX intent** below — zoom-and-replace, breadcrumb, lazy `loadBoundary`, `min_grain` gating, empty-state tooltip, 250 ms reduced-motion transition — is current and renderer-agnostic. The **mechanics** in the sub-sections that follow (the diagonal-hatch `fill-pattern`, the `recentre_signal` prop, the polygon-positioned overlay via `map.project`, the mobile pinch-to-drill) were authored against the now-deleted `MapChoropleth.svelte` (MapLibre). PR-6 of [TODO/20260611-elections-off-maplibre-and-map-ux-plan.md](../../../TODO/20260611-elections-off-maplibre-and-map-ux-plan.md) moved welfare choropleths to `GeoChoropleth.svelte` (d3-geo SVG), where the equivalent affordances are SVG/`d3-zoom` operations rather than MapLibre paint expressions / `map.project`. Read the sub-sections below as the design rationale, not as a description of the live d3-geo code.
 
 ### Zoom-and-replace (not stacked)
 
@@ -406,6 +390,6 @@ Chip-based unmapped-region label (per archived [ADR-0029](../../archive/decision
 
 - [Frontend overview](overview.md) — visualization catalog, personas.
 - [Psephlab](psephlab.md) — how the map's `ac-fill` swaps data when a scenario is active.
-- [Data provenance](../../concepts/data-provenance.md) — applies to boundary PMTiles too.
+- [Data provenance](../../concepts/data-provenance.md) — applies to boundary geometry too.
 - [Boundary-data philosophy](../../concepts/boundary-data-philosophy.md) -- the "why" behind every boundary-data choice (polygons vs topographic raster, GADM rejection, TopoJSON adoption status, DIGIPIN deferral, HTL kept on purpose).
 - CLAUDE.md §3 (datasets contract surface), §12 (sources).

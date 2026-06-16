@@ -60,18 +60,13 @@ Net: 3-5x smaller wire bytes for the same polygons. Lossless when
 decoded by `topojson-client.feature()` -- the consumer gets a standard
 GeoJSON `FeatureCollection` back.
 
-**Status**: planned, not yet shipped. Phases: P0 prove -> P1 write `quantize.py` alongside GeoJSON -> P2 read
-branch in `boundaries.ts` -> P3 swap states + districts shards + retire
-the matching GeoJSON via `git rm` -> P4 measure 4G-slow paint on
-`/t/fiscal` before merge -> P5 hold (per-state subdistrict and
-per-(state, district) village shards stay on GeoJSON; PMTiles is still
-the long-term wire). Frontend renderers (MapLibre) and join keys
-(`State_LGD`, `dist_lgd`) are unchanged by this swap -- the conversion
-happens upstream of `addSource()`.
+**Status**: SHIPPED (2026-05-31 → 2026-06-16). The country admin layer (`in/country/all.topojson`, objects `states` + `districts`) and the national electoral AC layer (`electoral/delim=2024/ac/all.topojson`) now ship as quantized + arc-shared TopoJSON; the read branch lives in `boundaries.ts` (country) and inline in `StateAcMapD3.svelte` (AC, via `topojson-client`). Per-state subdistrict and per-(state, district) village shards stay on GeoJSON (they are fetched per-shard, not whole, so the TopoJSON win doesn't apply). The frontend renderer is **d3-geo SVG** (MapLibre was removed in PR-6 of the elections-off-MapLibre plan); join keys (`State_LGD`, `dist_lgd`) are unchanged — the conversion happens upstream of the renderer. See [topojson-benchmark.md](../architecture/data/topojson-benchmark.md) for the candidate benchmark and [map.md](../architecture/frontend/map.md) for the renderer.
 
 When a future agent asks "why are we shipping multi-MB GeoJSON when
 NDLM ships 926 KB TopoJSON for the same district set?", the answer is:
-we know; the swap is queued.
+the national composites (country admin + national AC) already ship as
+TopoJSON; the per-shard layers stay GeoJSON because they are fetched
+per-district, never whole.
 
 ## GADM rejection rationale
 
@@ -212,7 +207,7 @@ status is "kept on HTL on purpose", not "pending TODO".
   -- subsystem doc (disk topology, identifier discipline, methodology
   breaks).
 - [docs/architecture/frontend/map.md](../architecture/frontend/map.md)
-  -- how the frontend consumes the boundary layers via MapLibre.
+  -- how the frontend consumes the boundary layers via d3-geo SVG.
 - [docs/architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy](../architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy)
   -- the ADR establishing boundary geometry as a sibling family
   (GeoJSON + PMTiles) outside the canonical store.
