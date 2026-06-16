@@ -5,6 +5,7 @@
 
 import { DATA_BASE } from "./paths";
 import { oklchToHex } from "./colors/oklch";
+import { rampHue } from "./colors/palettes";
 
 // -- Schema-shaped types ------------------------------------------------------
 
@@ -409,12 +410,18 @@ export function facetsByEntity(
 /** Pick a base hue (degrees) for the sequential ramp from the indicator's
  *  direction. `higher_is_better` -> teal/green; `lower_is_better` -> red;
  *  `neutral` -> blue. Dark always means "high value" regardless of direction
- *  (the citizen reading colour intensity reads "more of the thing"). */
+ *  (the citizen reading colour intensity reads "more of the thing").
+ *
+ *  Hues source from the themeable RAMP_HUES registry (frontend/src/lib/colors/
+ *  palettes.ts) via `rampHue`, so the ramp is re-skinnable through the
+ *  `--ramp-*` CSS vars. With no DOM / CSS var set (vitest node env, SSR) the
+ *  registry returns its constants, so this still emits 160/25/250 unchanged.
+ *  DIRECTION - not topic - always picks the ramp hue (plan section 0.4). */
 export function hueForDirection(d: Direction): number {
   switch (d) {
-    case "higher_is_better": return 160;
-    case "lower_is_better":  return 25;
-    case "neutral":          return 250;
+    case "higher_is_better": return rampHue("positive");
+    case "lower_is_better":  return rampHue("negative");
+    case "neutral":          return rampHue("neutral");
   }
 }
 

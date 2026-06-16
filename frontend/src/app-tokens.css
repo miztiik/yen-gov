@@ -63,6 +63,18 @@
   --party-neutral-text: #475569;    /* slate-600 */
 
   /*
+   * Directional choropleth ramp hues (bare hue degrees, 0-360), consumed at
+   * runtime by `rampHue()` in frontend/src/lib/colors/palettes.ts. Themeable:
+   * override here to re-skin every directional ramp without a recompile.
+   * positive=teal (higher_is_better), negative=red (lower_is_better),
+   * neutral=blue. JS-consumed numbers, NOT Tailwind-mirrored (exempt in
+   * app-tokens.test.ts, same as --font-feature-tabular / --dur).
+   */
+  --ramp-positive: 160;
+  --ramp-negative: 25;
+  --ramp-neutral: 250;
+
+  /*
    * Brand tones (LeftRail wordmark + flag-derived motifs; U2c of
    * TODO/20260605-u2-breadcrumb-drawer-district-subplan.md).
    *

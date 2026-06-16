@@ -11,6 +11,15 @@
 // §"Why these power-source hexes (UI-UX-validated)".
 
 import type { PartyColor } from "./resolver";
+import { CATEGORICAL_PALETTES } from "./palettes";
+
+// Two colour systems, deliberately kept apart (plan section 0.4):
+//   - Directional choropleth ramps get their hue from
+//     `indicators.ts::hueForDirection` (DIRECTION picks the hue, so dark always
+//     means high value). Topic / family hues NEVER feed a directional ramp.
+//   - Categorical breakdowns (this file) get curated anchor maps
+//     (POWER_SOURCE_ANCHORS) first, then may fall back to a named
+//     CATEGORICAL_PALETTES set assigned by index via `paletteAnchors`.
 
 /** Coal grey, gas cyan, hydro deep blue, nuclear purple, renewable indigo,
  * other_thermal burnt amber. Reconciled to the actual CEA per-fuel files
@@ -45,4 +54,28 @@ export function registerDimensionAnchors(
   anchors: Record<string, PartyColor>,
 ): void {
   REGISTRY[dimension] = anchors;
+}
+
+/**
+ * Build an anchor map for `codes` from a named CATEGORICAL_PALETTES palette,
+ * assigning palette colours by the codes' sorted index (deterministic, and
+ * wrapping when there are more codes than swatches). For dimensions that have
+ * NO curated anchor map but still want stable, well-spaced categorical
+ * colours; pair with `registerDimensionAnchors` to wire it into the resolver.
+ * Returns {} when the palette name is unknown. Curated maps (e.g.
+ * POWER_SOURCE_ANCHORS) always win - call this only as a categorical fallback,
+ * never for a directional ramp (see the split comment at the top of file).
+ */
+export function paletteAnchors(
+  codes: readonly string[],
+  paletteName: string,
+): Record<string, PartyColor> {
+  const palette = CATEGORICAL_PALETTES[paletteName];
+  if (!palette || palette.length === 0) return {};
+  const out: Record<string, PartyColor> = {};
+  const sorted = [...codes].sort();
+  sorted.forEach((code, i) => {
+    out[code] = { fill: palette[i % palette.length] };
+  });
+  return out;
 }
