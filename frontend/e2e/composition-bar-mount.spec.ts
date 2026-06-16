@@ -59,7 +59,6 @@ test.afterEach(() => {
 test.describe("composition-bar A/B mount (Phase 3.6 c, CategoryBar mode=diverging)", () => {
   test("treatment bucket on Karnataka renders SeatDonut + CategoryBar mode=diverging", async ({ page }) => {
     await page.goto("/karnataka?yg_variant=treatment");
-    await page.waitForLoadState("networkidle", { timeout: 20_000 });
 
     // SeatDonut - the existing production chart. Selected by its
     // aria-label (stable; survives Tailwind refactors).
@@ -122,7 +121,6 @@ test.describe("composition-bar A/B mount (Phase 3.6 c, CategoryBar mode=divergin
 
   test("control bucket on Karnataka renders SeatDonut only - no diverging bar", async ({ page }) => {
     await page.goto("/karnataka?yg_variant=control");
-    await page.waitForLoadState("networkidle", { timeout: 20_000 });
 
     // SeatDonut still renders.
     await expect(
@@ -144,7 +142,6 @@ test.describe("composition-bar A/B mount (Phase 3.6 c, CategoryBar mode=divergin
     // the citizen-visible contract cannot be bypassed by a malformed
     // URL.
     await page.goto("/tamil-nadu?yg_variant=treatment");
-    await page.waitForLoadState("networkidle", { timeout: 20_000 });
 
     // TN MUST still render SeatDonut - the rest of the elections card
     // is unchanged for control-state citizens.

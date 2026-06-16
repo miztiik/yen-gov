@@ -281,12 +281,14 @@ test.describe("golden path", () => {
 
   test("explore page lazy-loads DuckDB-WASM without error", async ({ page }) => {
     // The /explore route mounts DuckDB-WASM (Phase 1.6b — migrated off
-    // sql.js / results.sqlite). If the wasm chunk fails to load, the route
-    // shows an error banner rather than crashing. The beforeEach pageerror
-    // trap covers the failure mode; here we just wait for network idle to
-    // confirm the wasm + Parquet HTTP-range reads both succeeded.
-    await page.goto("/tamil-nadu/explore");
-    await page.waitForLoadState("networkidle", { timeout: 30_000 });
+    // sql.js). If the wasm chunk fails to load, the route shows an error
+    // banner rather than crashing. The beforeEach pageerror trap covers
+    // the failure mode; the waitForTimeout gives DuckDB-WASM time to boot
+    // so any runtime error fires before afterEach checks the trap.
+    // Note: networkidle never resolves on DuckDB-WASM apps (persistent
+    // worker connections); use load + explicit timeout instead.
+    await page.goto("/tamil-nadu/explore", { waitUntil: "load" });
+    await page.waitForTimeout(7_000);
   });
 
   test("state elections landing page (/:state/elections) renders breadcrumb + both body tables with year-as-link", async ({ page }) => {

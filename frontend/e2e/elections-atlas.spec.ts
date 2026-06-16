@@ -47,7 +47,7 @@ test("@elections selecting a seat on the cartogram navigates to that constituenc
 
   // Clicking a tile drills into the constituency, nested under the election
   // event (ADR-0052: event is path identity).
-  await expect(page).toHaveURL(/\/s\/maharashtra\/elections\/[^/]+\/ac\/\d+/);
+  await expect(page).toHaveURL(/\/maharashtra\/elections\/[^/]+\/ac\/\d+/);
 });
 
 // National Parliament PC atlas (PR-B4). LsGenJun2024 PC results were ingested
@@ -124,7 +124,7 @@ test("@elections election time-slider snaps the map to another election year", a
   // Scrub to the most-recent election — the slider SNAPS to a real event and
   // the route's :event segment changes; no interpolation between years.
   await input.fill("13");
-  await expect(page).toHaveURL(/\/s\/maharashtra\/elections\/AcGenNov2024/);
+  await expect(page).toHaveURL(/\/maharashtra\/elections\/AcGenNov2024/);
 
   // The slider re-derives its index from the new URL event.
   await expect(input).toHaveValue("13");

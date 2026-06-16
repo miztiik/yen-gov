@@ -89,24 +89,22 @@ test.describe("extended routes", () => {
   test("party page renders for DMK in Tamil Nadu", async ({ page }) => {
     // Slug shape: <short-slug>-<eci-code-lower>. DMK is short=DMK, eci=DMK.
     await page.goto("/tamil-nadu/party/dmk-DMK");
-    await page.waitForLoadState("networkidle", { timeout: 15_000 });
     // PR-H (Phase 1.3d): per-event alliance now rides on PartyTotals via
     // the dim_party_alliances LEFT JOIN. DMK for AcGenMay2026 surfaces
-    // with alliance=SPA — the citizen-visible coverage improvement (this
+    // with alliance=SPA -- the citizen-visible coverage improvement (this
     // line never rendered before PR-H). Recognition is NOT asserted: the
     // taxonomy/parties.json seed currently leaves `recognition` unset on
     // every entry, so `dim_parties.recognition` is uniformly NULL today;
     // populating it is a content-only follow-up.
     const meta = page.locator("header p.text-sm");
-    await expect(meta).toContainText(/alliance: SPA/);
+    await expect(meta).toContainText(/alliance: SPA/, { timeout: 15_000 });
   });
 
   test("psephlab loads actuals for tamil-nadu / AcGenMay2026", async ({ page }) => {
     await page.goto("/lab/tamil-nadu/AcGenMay2026");
-    await page.waitForLoadState("networkidle", { timeout: 30_000 });
     // Engine produces some seat-count text; we just confirm the route is
     // alive enough to have rendered something other than a blank shell.
-    await expect(page.locator("main").first()).toBeVisible();
+    await expect(page.locator("main").first()).toBeVisible({ timeout: 30_000 });
   });
 
   test("compare surface (PR-W4b path-form) loads for tamil-nadu / AcGenJun2021 vs AcGenMay2026", async ({ page }) => {
@@ -115,8 +113,7 @@ test.describe("extended routes", () => {
     // retired alongside the W2b loader collapse. The new path-form
     // 4-segment route is the event-vs-event compare cascade.
     await page.goto("/compare/elections/tamil-nadu/AcGenJun2021/AcGenMay2026");
-    await page.waitForLoadState("networkidle", { timeout: 30_000 });
-    await expect(page.locator("main").first()).toBeVisible();
+    await expect(page.locator("main").first()).toBeVisible({ timeout: 30_000 });
   });
 
   // Phase 1.3b — icon rollout sub-1 (topic cards).
