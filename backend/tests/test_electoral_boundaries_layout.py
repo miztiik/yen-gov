@@ -35,6 +35,16 @@ The symmetric inverse upstream gaps (delim=2008 PC, delim=2024 AC) are
 out of G10 scope; new electoral ingests land alongside the existing
 subtrees by appending fresh ``delim=<year>/{ac,pc}/`` rows under the same
 grammar.
+
+RIP UPDATE (Row 3, TODO/20260616-map-geometry-rip-and-palette-plan.md,
+2026-06-16): the multi-vintage layout above was RIPPED to a SINGLE 2024
+vintage. AC is now ONE national TopoJSON ``delim=2024/ac/all.topojson``
+(object ``ac``, each feature stamped ``state_ut_code``; the 31 per-state
+delim=2008 shards were consolidated + deleted). PC stays ONE national
+GeoJSON ``delim=2024/pc/all.geojson``. The ``delim=2008`` + ``delim=2026``
+trees were DELETED - the single 2024 snapshot carries every delimitation
+era via the dual-key join + the ``delim_year`` baked into each unit_id.
+The tests below assert the post-rip single-vintage grammar.
 """
 
 from __future__ import annotations
@@ -52,111 +62,90 @@ _DATASETS = _REPO_ROOT / "datasets"
 _ELECTORAL = _DATASETS / "boundaries" / "electoral"
 
 
-# Snapshot of the 31 AC state slugs captured BEFORE the G10 git mv
-# (via ``git ls-files datasets/boundaries/in/ac/`` on origin/main
-# ``c3c9639d``). Frozen as a tuple constant so the gate fails closed if
-# any slug silently disappears post-mv; adding a new state slug is a
-# deliberate edit to this tuple plus the matching on-disk fixture.
-_EXPECTED_AC_STATE_SLUGS: tuple[str, ...] = (
-    "state=andhra-pradesh",
-    "state=arunachal-pradesh",
-    "state=assam",
-    "state=bihar",
-    "state=chhattisgarh",
-    "state=delhi",
-    "state=goa",
-    "state=gujarat",
-    "state=haryana",
-    "state=himachal-pradesh",
-    "state=jammu-and-kashmir",
-    "state=jharkhand",
-    "state=karnataka",
-    "state=kerala",
-    "state=madhya-pradesh",
-    "state=maharashtra",
-    "state=manipur",
-    "state=meghalaya",
-    "state=mizoram",
-    "state=nagaland",
-    "state=odisha",
-    "state=puducherry",
-    "state=punjab",
-    "state=rajasthan",
-    "state=sikkim",
-    "state=tamil-nadu",
-    "state=telangana",
-    "state=tripura",
-    "state=uttar-pradesh",
-    "state=uttarakhand",
-    "state=west-bengal",
-)
+def test_delim_2024_ac_national_topojson_present() -> None:
+    """The consolidated national AC layer ships as ONE TopoJSON."""
+    ac_topojson = _ELECTORAL / "delim=2024" / "ac" / "all.topojson"
+    assert ac_topojson.is_file(), (
+        f"missing national AC TopoJSON: {ac_topojson}. Row 3 consolidated the "
+        "31 per-state shards into this one file; produce it via "
+        "tools/boundaries/consolidate_ac_2024.py."
+    )
 
 
-def test_delim_2008_ac_state_geojsons_present() -> None:
-    """Every expected delim=2008 AC state slug ships a geojson shard."""
-    ac_root = _ELECTORAL / "delim=2008" / "ac"
-    assert ac_root.is_dir(), f"missing electoral AC root: {ac_root}"
-    missing: list[str] = []
-    for slug in _EXPECTED_AC_STATE_SLUGS:
-        shard = ac_root / slug / "all.geojson"
-        if not shard.is_file():
-            missing.append(slug)
+def test_delim_2024_ac_is_topojson_object_ac() -> None:
+    """The national AC TopoJSON is a Topology whose object is named ``ac``."""
+    import json
+
+    ac_topojson = _ELECTORAL / "delim=2024" / "ac" / "all.topojson"
+    topo = json.loads(ac_topojson.read_text(encoding="utf-8"))
+    assert topo.get("type") == "Topology", "AC file must be a TopoJSON Topology"
+    objects = topo.get("objects") or {}
+    assert "ac" in objects, (
+        f"national AC TopoJSON must expose object 'ac'; got {sorted(objects)}"
+    )
+    geoms = objects["ac"].get("geometries")
+    assert isinstance(geoms, list) and len(geoms) > 3000, (
+        "AC object must be a non-trivial GeometryCollection (~4149 ACs)"
+    )
+
+
+def test_delim_2024_ac_features_carry_state_ut_code() -> None:
+    """Every AC feature is stamped with ``state_ut_code`` (the per-state filter
+    key the frontend + tile generator slice on)."""
+    import json
+
+    ac_topojson = _ELECTORAL / "delim=2024" / "ac" / "all.topojson"
+    topo = json.loads(ac_topojson.read_text(encoding="utf-8"))
+    geoms = topo["objects"]["ac"]["geometries"]
+    missing = [
+        i
+        for i, g in enumerate(geoms)
+        if not str((g.get("properties") or {}).get("state_ut_code") or "")
+    ]
     assert not missing, (
-        "delim=2008 AC state geojson shards missing: "
-        f"{missing} (expected {len(_EXPECTED_AC_STATE_SLUGS)} slugs)"
-    )
-    on_disk = sorted(
-        d.name
-        for d in ac_root.iterdir()
-        if d.is_dir() and d.name.startswith("state=")
-    )
-    assert on_disk == list(_EXPECTED_AC_STATE_SLUGS), (
-        f"delim=2008 AC state slug set drifted from frozen snapshot; "
-        f"on disk: {on_disk}; expected: {list(_EXPECTED_AC_STATE_SLUGS)}"
+        f"{len(missing)} AC features missing state_ut_code (first few: {missing[:5]})"
     )
 
 
-def test_delim_2008_ac_state_dirs_carry_both_extensions() -> None:
-    """Every delim=2008 AC state dir ships BOTH geojson AND topojson."""
-    ac_root = _ELECTORAL / "delim=2008" / "ac"
-    missing: list[str] = []
-    for slug in _EXPECTED_AC_STATE_SLUGS:
-        state_dir = ac_root / slug
-        for ext in ("geojson", "topojson"):
-            shard = state_dir / f"all.{ext}"
-            if not shard.is_file():
-                missing.append(f"{slug}/all.{ext}")
-    assert not missing, (
-        "delim=2008 AC state dirs missing extension companions: "
-        f"{missing}"
-    )
+def test_delim_2024_pc_country_geojson_present() -> None:
+    """The national delim=2024 PC layer ships as ONE GeoJSON."""
+    pc_geojson = _ELECTORAL / "delim=2024" / "pc" / "all.geojson"
+    assert pc_geojson.is_file(), f"missing national PC GeoJSON: {pc_geojson}"
 
 
-def test_delim_2024_pc_country_files_present() -> None:
-    """The national delim=2024 PC pair ships both extensions."""
-    pc_root = _ELECTORAL / "delim=2024" / "pc"
-    assert pc_root.is_dir(), f"missing electoral PC root: {pc_root}"
-    missing: list[str] = []
-    for ext in ("geojson", "topojson"):
-        shard = pc_root / f"all.{ext}"
-        if not shard.is_file():
-            missing.append(f"all.{ext}")
-    assert not missing, (
-        f"delim=2024 PC country files missing: {missing}"
-    )
+def test_no_legacy_delimitation_trees_survive() -> None:
+    """The pre-rip ``delim=2008`` + ``delim=2026`` trees are gone.
 
-
-def test_delim_2026_placeholders_present() -> None:
-    """Reserved delim=2026 ac+pc dirs carry .gitkeep placeholders.
-
-    Per plan section 4 EL2 the next ECI Delimitation Commission Order
-    lands as ``delim=2026/{ac,pc}/...``; reserving the dirs upfront
-    means the first ingest does not need to mint a new top-level
-    ``delim=`` peer in the same PR as its first data shard.
+    Row 3 deleted both: the single 2024 snapshot carries every delimitation
+    era via the dual-key join + the ``delim_year`` baked into each unit_id.
+    A regression that re-creates either tree would re-introduce the 24x wire
+    regression (national AC geojson) or a stale second vintage.
     """
-    for grain in ("ac", "pc"):
-        keep = _ELECTORAL / "delim=2026" / grain / ".gitkeep"
-        assert keep.is_file(), f"missing delim=2026 placeholder: {keep}"
+    survivors = [
+        str(p)
+        for p in (
+            _ELECTORAL / "delim=2008",
+            _ELECTORAL / "delim=2026",
+        )
+        if p.exists()
+    ]
+    assert not survivors, (
+        f"legacy electoral delimitation trees survive: {survivors}; Row 3 of "
+        "the map-geometry plan deleted delim=2008 + delim=2026."
+    )
+
+
+def test_electoral_subtree_holds_only_delim_2024() -> None:
+    """The only ``delim=`` tree under boundaries/electoral is ``delim=2024``."""
+    delim_dirs = sorted(
+        d.name
+        for d in _ELECTORAL.iterdir()
+        if d.is_dir() and d.name.startswith("delim=")
+    )
+    assert delim_dirs == ["delim=2024"], (
+        f"electoral subtree should hold only delim=2024 after the Row 3 rip; "
+        f"found {delim_dirs}"
+    )
 
 
 def test_legacy_in_ac_and_in_pc_subtrees_gone() -> None:
@@ -178,22 +167,21 @@ def test_legacy_in_ac_and_in_pc_subtrees_gone() -> None:
     )
 
 
-def test_electoral_readme_documents_asymmetric_grammar() -> None:
-    """The README must spell out both the AC and PC grammars verbatim.
+def test_electoral_readme_documents_single_vintage_grammar() -> None:
+    """The README must spell out the single-2024-vintage AC + PC grammar.
 
-    The asymmetry (per-state AC, country-wide PC) is the Gregor-locked
-    contract for the subtree; readers and future ingest tools must be
-    able to grep the README and find the grammar without re-reading
-    the plan-doc.
+    Readers and future ingest tools must be able to grep the README and
+    find the on-disk grammar (one national AC TopoJSON, one national PC
+    GeoJSON) without re-reading the plan-doc.
     """
     readme = _ELECTORAL / "README.md"
     assert readme.is_file(), f"missing electoral README: {readme}"
     text = readme.read_text(encoding="utf-8")
-    assert "delim=<year>/ac/state=<slug>" in text, (
-        "electoral README must document the AC grammar literally "
-        "(delim=<year>/ac/state=<slug>)"
+    assert "delim=2024/ac/all.topojson" in text, (
+        "electoral README must document the national AC TopoJSON path "
+        "(delim=2024/ac/all.topojson)"
     )
-    assert "delim=<year>/pc" in text, (
-        "electoral README must document the PC grammar literally "
-        "(delim=<year>/pc)"
+    assert "delim=2024/pc/all.geojson" in text, (
+        "electoral README must document the national PC GeoJSON path "
+        "(delim=2024/pc/all.geojson)"
     )

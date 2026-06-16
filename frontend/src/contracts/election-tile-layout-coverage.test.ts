@@ -18,18 +18,34 @@
 //     unconditionally.
 
 import { describe, it, expect } from "vitest";
-import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { feature as topojsonFeature } from "topojson-client";
+import type { Topology, GeometryCollection } from "topojson-specification";
+import type { FeatureCollection } from "geojson";
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const layoutPath = resolve(repoRoot, "datasets", "grapher", "election_tile_layouts.json");
-// G10 (2026-06-07) moved electoral boundaries to a delim-partitioned subtree.
-// AC -> datasets/boundaries/electoral/delim=2008/ac/state=<slug>/all.{geojson,topojson}
-// PC -> datasets/boundaries/electoral/delim=2024/pc/all.{geojson,topojson}
-const acDir = resolve(repoRoot, "datasets", "boundaries", "electoral", "delim=2008", "ac");
+// Row 3 (2026-06-16 map-geometry rip): the 31 per-state delim=2008 AC geojson
+// shards were consolidated into ONE national TopoJSON (object `ac`, each
+// feature stamped `state_ut_code`); AC coverage is now checked by decoding it
+// + grouping by `state_ut_code` instead of reading per-state shards. PC is
+// unchanged (the single delim=2024 geojson corpus).
+const acTopojsonPath = resolve(
+  repoRoot,
+  "datasets",
+  "boundaries",
+  "electoral",
+  "delim=2024",
+  "ac",
+  "all.topojson",
+);
 const pcBndPath = resolve(repoRoot, "datasets", "boundaries", "electoral", "delim=2024", "pc", "all.geojson");
 
+// The delimitation ERA baked into every unit_id (IN-<code>-AC-2008-<n>,
+// IN-PC-2008-<sc>-<ls>). It is NOT the geometry vintage - the 2024 snapshot
+// carries the 2008-delimitation seats for LS 2009-2019 + AE contests.
 const DELIM_YEAR = 2008;
 
 // Boundary partition slug -> ECI state/UT code (mirrors the generator's
@@ -90,16 +106,36 @@ function loadGeojson(p: string): { features: { properties: Record<string, unknow
   return JSON.parse(readFileSync(p, "utf-8"));
 }
 
+// Decode the national AC TopoJSON ONCE and group features by the stamped
+// `state_ut_code` (ECI code). Mirrors the runtime StateAcMapD3 decode +
+// per-state filter so the coverage check runs over the SAME geometry the
+// map renders.
+function loadAcFeaturesByState(): Map<string, { properties: Record<string, unknown> }[]> {
+  const topo = JSON.parse(readFileSync(acTopojsonPath, "utf-8")) as Topology;
+  const fc = topojsonFeature(topo, topo.objects.ac as GeometryCollection) as FeatureCollection;
+  const byState = new Map<string, { properties: Record<string, unknown> }[]>();
+  for (const f of fc.features) {
+    const code = String(
+      (f.properties as Record<string, unknown> | null)?.state_ut_code ?? "",
+    );
+    if (!code) continue;
+    const bucket = byState.get(code);
+    if (bucket) bucket.push(f as { properties: Record<string, unknown> });
+    else byState.set(code, [f as { properties: Record<string, unknown> }]);
+  }
+  return byState;
+}
+const AC_BY_STATE = loadAcFeaturesByState();
+
 function tilesFor(tiles: Tile[], kind: "ac" | "pc", scope: string, delim: number): Tile[] {
   return tiles.filter((t) => t.layout_kind === kind && t.scope === scope && t.delim_year === delim);
 }
 
-// Expected canonical AC unit_ids for one boundary slug.
-function expectedAcUnitIds(slug: string): Set<string> {
-  const code = SLUG_TO_CODE[slug];
-  const gj = loadGeojson(resolve(acDir, `state=${slug}`, "all.geojson"));
+// Expected canonical AC unit_ids for one ECI state code.
+function expectedAcUnitIds(code: string): Set<string> {
+  const feats = AC_BY_STATE.get(code) ?? [];
   const acNos = new Set<number>();
-  for (const f of gj.features) {
+  for (const f of feats) {
     const acNo = Number(f.properties.ac_no);
     if (Number.isFinite(acNo) && acNo > 0) acNos.add(acNo);
   }
@@ -117,13 +153,19 @@ function expectedPcUnitIds(): Set<string> {
   return ids;
 }
 
-// Every boundary slug that ships a standard `ac_no` corpus = the elected-assembly
-// AC scopes the cartogram is REQUIRED to cover.
-const REQUIRED_AC_SCOPES: { slug: string; code: string }[] = readdirSync(acDir)
-  .filter((d) => d.startsWith("state="))
-  .map((d) => d.slice("state=".length))
-  .filter((slug) => slug in SLUG_TO_CODE && !NON_STANDARD_AC_SLUGS.has(slug))
-  .map((slug) => ({ slug, code: SLUG_TO_CODE[slug] }))
+// Every state with a standard `ac_no` corpus in the national AC topojson =
+// the elected-assembly AC scopes the cartogram is REQUIRED to cover. J&K
+// (non-standard seat_id schema) is excluded via NON_STANDARD_AC_SLUGS; any
+// other state lacking ac_no is auto-excluded by the ac_no>0 probe.
+const REQUIRED_AC_SCOPES: { slug: string; code: string }[] = Object.entries(SLUG_TO_CODE)
+  .filter(([slug]) => !NON_STANDARD_AC_SLUGS.has(slug))
+  .filter(([, code]) =>
+    (AC_BY_STATE.get(code) ?? []).some((f) => {
+      const n = Number(f.properties.ac_no);
+      return Number.isFinite(n) && n > 0;
+    }),
+  )
+  .map(([slug, code]) => ({ slug, code }))
   .sort((a, b) => a.code.localeCompare(b.code));
 
 // Ship-dark ledger: scopes whose layout has landed. Every standard-schema AC
@@ -162,7 +204,7 @@ describe("election tile-layout coverage", () => {
       it(label, () => {
         if (!covered) return; // ledger holdout — skip until its layout lands
         const got = new Set(tilesFor(tiles, "ac", code, DELIM_YEAR).map((t) => t.unit_id));
-        const expected = expectedAcUnitIds(slug);
+        const expected = expectedAcUnitIds(code);
         expect(got.size).toBeGreaterThan(0);
         const missing = [...expected].filter((id) => !got.has(id));
         const extra = [...got].filter((id) => !expected.has(id));

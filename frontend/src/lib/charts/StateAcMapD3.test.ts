@@ -34,6 +34,8 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, test } from "vitest";
 import { geoMercator, geoPath, type GeoPermissibleObjects } from "d3-geo";
+import { feature as topojsonFeature } from "topojson-client";
+import type { Topology, GeometryCollection } from "topojson-specification";
 import type { FeatureCollection, Geometry } from "geojson";
 
 import {
@@ -49,8 +51,11 @@ import {
 } from "./state-ac-map-helpers";
 
 // Same path resolution pattern as IndiaPartyMap.test.ts (4 ".." to
-// climb from `frontend/src/lib/charts/` to the repo root).
-const GOA_GEOJSON_PATH = resolve(
+// climb from `frontend/src/lib/charts/` to the repo root). Since the
+// 2026-06-16 map-geometry rip (Row 3) Goa's ACs live in the ONE national
+// AC topojson; we decode it + filter Goa (state_ut_code = "S05") exactly
+// as the runtime `fetchStateAcCollection` does.
+const NATIONAL_AC_TOPOJSON_PATH = resolve(
   __dirname,
   "..",
   "..",
@@ -59,11 +64,11 @@ const GOA_GEOJSON_PATH = resolve(
   "datasets",
   "boundaries",
   "electoral",
-  "delim=2008",
+  "delim=2024",
   "ac",
-  "state=goa",
-  "all.geojson",
+  "all.topojson",
 );
+const GOA_STATE_UT_CODE = "S05";
 
 // Mirror the live component's projection size + join property so the
 // test exercises the same inputs the citizen sees in the browser.
@@ -73,6 +78,7 @@ const HEIGHT = 480;
 interface AcProps {
   ac_no: number;
   ac_name: string;
+  state_ut_code?: string;
   lgd_ac_id?: number;
   State_LGD?: number;
   reservation?: string;
@@ -80,9 +86,23 @@ interface AcProps {
 
 type AcCollection = FeatureCollection<Geometry, AcProps>;
 
-function loadAcCollection(path: string): AcCollection {
-  const raw = readFileSync(path, "utf8");
-  return JSON.parse(raw) as AcCollection;
+// Decode the national AC topojson + filter to one state by state_ut_code,
+// mirroring the runtime `fetchStateAcCollection` in StateAcMapD3.svelte.
+function loadStateAcCollection(
+  topojsonPath: string,
+  stateUtCode: string,
+): AcCollection {
+  const topo = JSON.parse(readFileSync(topojsonPath, "utf8")) as Topology;
+  const fc = topojsonFeature(
+    topo,
+    topo.objects.ac as GeometryCollection,
+  ) as unknown as AcCollection;
+  return {
+    type: "FeatureCollection",
+    features: fc.features.filter(
+      (f) => String(f.properties?.state_ut_code ?? "") === stateUtCode,
+    ),
+  };
 }
 
 function buildProjectionAndPath(collection: AcCollection): {
@@ -301,13 +321,19 @@ describe("state-ac-map-helpers - acStrokeForHighlight", () => {
   });
 });
 
-// --- end-to-end topojson pipeline against real per-state AC GeoJSONs --
+// --- end-to-end topojson pipeline against the real national AC topojson -
 
-describe("StateAcMapD3 - Goa AC pipeline (41 features, lgd_ac_id covered)", () => {
-  test("collection decodes into 41 AC features", () => {
-    const collection = loadAcCollection(GOA_GEOJSON_PATH);
+describe("StateAcMapD3 - Goa AC pipeline (national topojson, lgd_ac_id covered)", () => {
+  test("collection decodes + filters into Goa's AC features", () => {
+    const collection = loadStateAcCollection(
+      NATIONAL_AC_TOPOJSON_PATH,
+      GOA_STATE_UT_CODE,
+    );
     expect(collection.type).toBe("FeatureCollection");
-    expect(collection.features.length).toBe(41);
+    // Goa AE has 40 constituencies; the national source carries 40-41
+    // features (a state-border overlay sliver may ride along).
+    expect(collection.features.length).toBeGreaterThanOrEqual(40);
+    expect(collection.features.length).toBeLessThanOrEqual(41);
   });
 
   test("every feature carries an integer ac_no in [1, 40]", () => {
@@ -315,7 +341,10 @@ describe("StateAcMapD3 - Goa AC pipeline (41 features, lgd_ac_id covered)", () =
     // overlay (one of the post-D.7 LGD release additions). Either way,
     // each feature's ac_no must be a finite integer that can be used as
     // the eci_no for uncovered fallback.
-    const collection = loadAcCollection(GOA_GEOJSON_PATH);
+    const collection = loadStateAcCollection(
+      NATIONAL_AC_TOPOJSON_PATH,
+      GOA_STATE_UT_CODE,
+    );
     for (const f of collection.features) {
       expect(typeof f.properties.ac_no).toBe("number");
       expect(Number.isFinite(f.properties.ac_no)).toBe(true);
@@ -323,7 +352,10 @@ describe("StateAcMapD3 - Goa AC pipeline (41 features, lgd_ac_id covered)", () =
   });
 
   test("every feature projects to a non-empty SVG path starting with M", () => {
-    const collection = loadAcCollection(GOA_GEOJSON_PATH);
+    const collection = loadStateAcCollection(
+      NATIONAL_AC_TOPOJSON_PATH,
+      GOA_STATE_UT_CODE,
+    );
     const { path } = buildProjectionAndPath(collection);
     for (const f of collection.features) {
       const d = path(f);
