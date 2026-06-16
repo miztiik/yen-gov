@@ -17,7 +17,7 @@ The split mirrors the deployment reality: anything in `frontend/` ships; anythin
 
 The site build IS the verification, and on green main the same artifact is the deploy artifact. There is exactly one `bun run build` per workflow run - no throwaway build separate from the deploy build. Rapid-fire commits to main are batched naturally by `concurrency.cancel-in-progress: true` keyed on the ref: a 5-commit burst queues 5 runs, the in-progress ones get cancelled, only the latest completes and publishes. No cron, no preflight that has to dedupe-by-SHA, no second build at deploy time.
 
-The deploy step itself is one job (`deploy-pages`) gated by `if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'` and `needs: [frontend-vitest, frontend-build, citizen-site-e2e]`. PR runs evaluate that `if` to false and skip the deploy entirely; the gating jobs still run and report status on the PR.
+The deploy step itself is one job (`deploy-pages`) gated by `if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'` and `needs: [frontend-vitest, frontend-build]`. PR runs evaluate that `if` to false and skip the deploy entirely; the gating jobs still run and report status on the PR.
 
 ### Why backend pytest is not in the publish gate
 
@@ -27,7 +27,7 @@ The deployed bundle is pure static (Svelte build + datasets/ staged under `_site
 - never executes again until the next local ingest,
 - has no presence in the deployed artifact.
 
-Gating publish on it would conflate "my dev tooling is healthy" with "the public site is healthy". They are different concerns. The publish-relevant defences are: (a) does the bundle build (`frontend-build`), (b) does the built app actually render (`citizen-site-e2e`), (c) does the deployed origin respond correctly (the smoke step in `deploy-pages`). That is what `deploy-site.yml` checks; everything else lives in `backend.yml`.
+Gating publish on it would conflate "my dev tooling is healthy" with "the public site is healthy". They are different concerns. The publish-relevant defences are: (a) does the bundle build (`frontend-build`), (b) does the deployed origin respond correctly (the smoke step in `deploy-pages`). That is what `deploy-site.yml` checks; everything else lives in `backend.yml`.
 
 ### Why admin lives under backend.yml, not its own workflow
 
@@ -43,14 +43,13 @@ Workflow job names read top-to-bottom and say what the job actually does, so PR 
 | -------- | ------ | ------------ |
 | `deploy-site.yml` | `frontend-vitest` | vitest (frontend unit + contract + integration) |
 | `deploy-site.yml` | `frontend-build` | build citizen site (Pages artifact) |
-| `deploy-site.yml` | `citizen-site-e2e` | Playwright e2e (public citizen site) |
 | `deploy-site.yml` | `deploy-pages` | deploy to GitHub Pages |
 | `backend.yml` | `pipeline-pytest` | pytest (ingest pipeline, non-admin) |
 | `backend.yml` | `admin-api-pytest` | pytest (admin FastAPI routes) |
 | `backend.yml` | `admin-console-vitest` | vitest (admin console unit + contract) |
 | `backend.yml` | `admin-console-e2e` | Playwright e2e (admin operator console) |
 
-The two Playwright suites are distinct apps: `citizen-site-e2e` covers the public site that ships to https://miztiik.github.io/yen-gov/; `admin-console-e2e` covers the dev-only operator console on port 5174.
+`admin-console-e2e` (in `backend.yml`) covers the dev-only operator console on port 5174. Playwright e2e for the public citizen site is run locally by developers via `bun run test:e2e` in `frontend/`; it is not part of the CI gating chain.
 
 ## Branch protection
 
@@ -60,7 +59,6 @@ If branch protection is ever enabled (multi-author repo, for example), the requi
 
 - `frontend-vitest`
 - `frontend-build`
-- `citizen-site-e2e`
 
 `deploy-pages` MUST NOT be a required check - it never runs on PRs (its `if` requires push or workflow_dispatch on main), so requiring it would block every merge. Jobs from `backend.yml` MUST NOT be required either - they are path-filtered and would not run on pure-frontend PRs, blocking every such merge.
 
@@ -77,15 +75,13 @@ _site/
 ├── index.html               (from frontend/dist/)
 ├── assets/...               (from frontend/dist/)
 └── data/                    (from datasets/, copied at deploy time)
-    ├── elections/election_results.parquet
-    ├── elections/dim_acs.parquet
-    ├── elections/dim_candidates.parquet
-    ├── elections/dim_parties.parquet
-    ├── data/entities/boundaries_sot/<state>/...
+    ├── data/datapoints/electoral/<slug>_election_results.csv
+    ├── data/datapoints/geo/<canonical_id>.csv
+    ├── data/entities/...
     └── schemas/...
 ```
 
-`fetch('/data/<rel>')` resolves the same way in dev (Vite middleware) and prod (this static layout) — see [frontend/data-loading](frontend/data-loading.md). The smoke step in `deploy-site.yml` (the `deploy-pages` job) enforces that contract by fetching `data/elections/election_results.parquet` from the deployed origin and asserting it carries the Parquet magic header (`PAR1` at offsets 0 and -4). The legacy per-state `result.summary.json` smoke target retired in PR-O.4 (TODO row `1.8b-ii`).
+`fetch('/data/<rel>')` resolves the same way in dev (Vite middleware) and prod (this static layout) — see [frontend/data-loading](frontend/data-loading.md). The smoke step in `deploy-site.yml` (the `deploy-pages` job) enforces that contract by fetching `data/data/datapoints/electoral/tamil-nadu_election_results.csv` from the deployed origin and asserting it is non-empty and carries the expected long-format header (`entity_id,year,period_label,...`). Post-X1a-fu2 (2026-06-07) all canonical Parquet has been retired in favour of long-format CSV; TN (S22) is the canonical first-slice state.
 
 ## Pages URL base
 

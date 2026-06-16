@@ -210,7 +210,6 @@ test.describe("STATE_AC per-state coverage", () => {
         .catch(() => null);
 
       await page.goto(`/${slug}/elections/${encodeURIComponent(event.event_id)}`);
-      await page.waitForLoadState("networkidle", { timeout: 30_000 });
 
       // State-election page must resolve to real event chrome.
       const h1 = page.locator("h1").first();
