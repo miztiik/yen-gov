@@ -1,6 +1,6 @@
 {
   "$schema": "./columns.schema.json",
-  "$schema_version": "2.6",
+  "$schema_version": "2.7",
   "file_classes": {
     "datasets/data/variables.csv": {
       "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
@@ -279,10 +279,20 @@
       ]
     },
     "datasets/data/datapoints/geo/*.csv": {
-      "notes": "Long-format datapoints keyed to LGD geo entities. One file per variable_id; filename is exactly <variable_id>.csv. Sorted by (entity_id, time). Per-indicator facet columns (e.g. sex, fuel_type) extend the core list dynamically and join the PK when present (plan section 21.6); facet metadata lives on the indicator's variables.csv row, not in this file class. Spec: csv-column-contract.md section 3.3.",
+      "notes": "Long-format datapoints keyed to LGD geo entities. One file per variable_id; filename is exactly <variable_id>.csv. Sorted by (entity_id, time). This 4-column class is for SINGLE-VALUE measures only; analytical facets (e.g. fuel_type, species, sex) are NEVER carried as a dynamic extension of this class - they live as a dimension column on a per-axis sibling file-class datasets/data/datapoints/geo_by_<axis>/*.csv (see geo_by_fuel below + the electoral_geo precedent), gated by the four-gate facet test (docs/concepts/indicator-naming.md section 6 / plan F2). Supersedes the pre-2.7 'facet metadata lives on the indicator's variables.csv row' language (ARCH-A rejected by the Gregor contract ruling; the reader stays columns.json-only). Spec: csv-column-contract.md section 3.3.",
       "columns": [
         { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
         { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "value", "dtype": "number", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
+    "datasets/data/datapoints/geo_by_fuel/*.csv": {
+      "notes": "Long-format datapoints faceted by fuel_type (the electricity capacity/generation dimension). Sibling to datasets/data/datapoints/geo/*.csv: same LGD entity_id FK target + the same (entity_id, time) spine, PLUS a fuel_type dimension column that joins the PK. Generalises the electoral_geo sex-facet precedent (v2.4) to the plan section 21.6 dimension-column branch: ONE file per measure (filename exactly <variable_id>.csv) carries all fuel members in long format instead of fanning out into per-fuel variable_ids. Composite PK (entity_id, time, fuel_type). fuel_type is a closed enum [coal, gas, hydro, nuclear, renewable, all]; `all` is the PUBLISHED aggregate member (the CEA/ICED state total), NOT a render-time sum of the parts - it may diverge from sum(parts) where captive/other-RES capacity is unreconciled, so readers MUST exclude `all` from any sum-the-facets view (the non-summable marker is a grapher render hint per ADR-0045, never a column flag here). A measure is admissible in this class ONLY when fuel_type passes the four-gate facet test (docs/concepts/indicator-naming.md section 6 / plan F2): same concept/unit/normalisation, same publisher-fact, members partition a recognisable whole, real citizen question. The facet axis + enum live HERE in columns.json so the frontend reader stays columns.json-only (no variables.csv dimension dispatch) per the Gregor contract ruling (TODO/20260616-geo-facet-dimension-column-plan.md). Spec: csv-column-contract.md section 3.3.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "fuel_type", "dtype": "string", "nullable": false, "pk": true, "enum": ["coal", "gas", "hydro", "nuclear", "renewable", "all"] },
         { "name": "value", "dtype": "number", "nullable": true },
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]

@@ -146,10 +146,19 @@ def validate_csv(
         prev_key: tuple[Any, ...] | None = None
         for index, row in enumerate(parsed_rows):
             key = tuple(_sort_key(row[n]) for n in pk_names)
-            if prev_key is not None and key < prev_key:
+            # Strict-ascending: composite-PK duplicates are rejected too, not
+            # just out-of-order rows. With a facet column in the PK
+            # (entity_id, time, fuel_type) a plain (entity_id, time) is no
+            # longer unique, so the old non-decreasing check would have let a
+            # duplicate (entity_id, time, fuel_type) row through.
+            if prev_key is not None and key <= prev_key:
+                reason = (
+                    f"duplicate PK {list(pk_names)}"
+                    if key == prev_key
+                    else f"rows not sorted by PK {list(pk_names)}"
+                )
                 raise CsvValidationError(
-                    f"{path.name}: rows not sorted by PK {list(pk_names)} "
-                    f"at row {index + 2}"
+                    f"{path.name}: {reason} at row {index + 2}"
                 )
             prev_key = key
 
