@@ -487,7 +487,7 @@ const CSV_AS_TABLE_SPECS: Readonly<Record<CsvAsTableId, CsvAsTableSpec>> = Objec
         wikipedia                    AS wikipedia_url,
         symbol_asset                 AS election_symbol_asset_path,
         NULL::VARCHAR                AS election_symbol_render_mode
-      FROM read_csv('${url}', ${columnsClause}, header=true)
+      FROM read_csv('${url}', ${columnsClause}, header=true, auto_detect=false)
     `,
   },
   "taxonomy.sources": {
@@ -500,7 +500,7 @@ const CSV_AS_TABLE_SPECS: Readonly<Record<CsvAsTableId, CsvAsTableSpec>> = Objec
         title                        AS title,
         vintage                      AS vintage,
         url                          AS url
-      FROM read_csv('${url}', ${columnsClause}, header=true)
+      FROM read_csv('${url}', ${columnsClause}, header=true, auto_detect=false)
     `,
   },
 });

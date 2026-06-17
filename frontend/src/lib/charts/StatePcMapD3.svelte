@@ -69,6 +69,7 @@
     type PcCellRow,
     type PcCellPaint,
   } from "./india-pc-map-helpers";
+  import { rewindCollectionForD3 } from "./geo-rewind";
 
   /** Per-PC winner row, pre-shaped by the route for the join. Mirrors
    *  the IndiaPcMapD3 shape verbatim so the route can reuse the same
@@ -216,14 +217,17 @@
           return;
         }
         // Post map-geometry rip the PC layer ships a plain GeoJSON
-        // FeatureCollection (no topojson decode step). Use it directly.
+        // FeatureCollection (no topojson decode step). It carries RFC 7946
+        // (counter-clockwise-exterior) winding; d3-geo wants clockwise
+        // exteriors, so rewind before projecting or every polygon paints
+        // the whole viewBox (the map renders as one solid block).
         const fc = (await r.json()) as Collection;
         if (fc?.type !== "FeatureCollection" || !Array.isArray(fc.features)) {
           load_error = `geojson is not a FeatureCollection: ${url}`;
           return;
         }
         if (cancelled) return;
-        all_features = fc.features;
+        all_features = rewindCollectionForD3(fc).features;
       } catch (err) {
         if (cancelled) return;
         load_error = String(err);
