@@ -63,6 +63,26 @@ reconciled to emit the faceted `geo_by_fuel` shape (and Accounts-only for net-tr
 a future re-ingest does not re-fragment. Touching them entails updating their `*_csv_repoint`
 tests; out of scope here.
 
+**RESOLVED 2026-06-17 (PR follow-on `fix/energy-adapter-facet-reconcile`).** The literal
+"reconcile the adapters to emit the faceted shape" turned out to be IMPOSSIBLE as a mechanical
+follow-on: the C4 sub-fuel collapse mapping the adapters would need
+(`backend/yen_gov/canonical/adapters/energy/_shared.py:SUB_FUEL_TO_CANONICAL`) was DELETED in X1b,
+and the adapters emit raw upstream sub-fuels (`small-hydro`, `natural-gas`, `pumped-storage-hydro`,
+`diesel`, `thermal`, `total`) that do not fit the closed `[coal, gas, hydro, nuclear, renewable,
+all]` enum - mapping them (e.g. small-hydro -> renewable per MNRE) is a Hans+Max data-shape call,
+not a mechanical reconcile. Verified ALL FOUR adapters are ORPHAN (no `@app.command` invokes them;
+zero external importers except `rbi_xlsx.normalise_state_label`, reused by `datagovin_ogd`).
+Delivery: a SOURCE-AGNOSTIC contract fence `tier_b_no_refragmented_fuel_facet_csv`
+(`backend/yen_gov/validate.py`), the CSV-era sibling of the established `tier_b_no_new_sub_fuel_shards`
+precedent. It rejects any re-fragmented per-fuel / parent-single-file installed-capacity CSV and any
+net-transfers estimate-stage variant under `datasets/data/datapoints/geo/`, pointing them at
+`geo_by_fuel/`. This makes "a re-ingest cannot re-fragment" computationally enforced regardless of
+producer - the orphan adapters are thereby neutralised (their output cannot pass Tier-B). DEFERRED:
+full deletion of the ~2000 LOC orphan parsers (cea / iced_power / power_plants + the rbi_xlsx
+net-transfers emit) is a separate, irreversible "retire orphan source adapters" decision - the
+fence already removes the re-fragmentation risk, so the parsers can stay fenced as a dormant
+re-acquisition path until the project decides those sources are abandoned.
+
 ## Scope-change ledger
 
 | Row | Date | Intent (what changed, why, what it overrode) | signoff |
