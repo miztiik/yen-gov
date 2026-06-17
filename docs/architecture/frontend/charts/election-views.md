@@ -1,6 +1,6 @@
 # Election views - drill IA, TileCartogram, AC/PC grain, filter grammar
 
-**Last Updated**: 2026-06-05
+**Last Updated**: 2026-06-18
 
 This page is the keep-receipts home for the elections-renderer fence + the generic TileCartogram primitive per [decision-index.md](../../../reference/decision-index.md). It carries the condensed Context + Decision + Consequences for the one live ADR that pinned the elections-drill IA (0048) and the verbatim rejected-alternatives trace. The operational `TileCartogram.svelte` primitive + layout-dataset shape + filter-state plumbing live in the sibling component docs ([chart-shell.md](chart-shell.md), [generic-renderers.md](generic-renderers.md)) and `frontend/src/lib/charts/`; this page carries only the architectural-decision receipts.
 
@@ -77,6 +77,38 @@ Architectural alternatives also rejected, embedded in section 3 (TileCartogram f
 ## Per-state elections landing (`/<state>/elections`)
 
 R2 of [TODO/20260615-state-election-event-page-redesign-plan.md](../../../../TODO/20260615-state-election-event-page-redesign-plan.md) (shipped 2026-06-15 as PR #1066 + R2.1 gap-close PR) extended the place spine with a per-state elections landing route. The grammar from ADR-0048 section 1 grows by ONE node, sandwiched between the place page and the per-event surface: `/<state>` -> overview, **`/<state>/elections` -> per-state landing (NEW)**, `/<state>/elections/<event_id>` -> per-event detail. The bare `/<state>/elections` URL (no trailing slash) was previously a 404; now it renders a breadcrumb, the page header `"{State} elections"`, optional hero cards for the latest assembly + latest parliament event, and two parallel tables (Vidhan Sabha + Lok Sabha) with year-as-link to the per-event page. Component: [frontend/src/routes/StateElectionsLanding.svelte](../../../../frontend/src/routes/StateElectionsLanding.svelte). View-model: re-uses `fetchElectionEvents()` + `listEventsForState(catalogue, state_code, kind)` — no new loader. Route registration in [frontend/src/main.ts](../../../../frontend/src/main.ts) places `/:state/elections` AFTER the 3-segment `/:state/elections/:event` so segment-count ordering preserves the more-specific route's first-match guarantee. Per-event detail pages (`StateElection.svelte`) write a `{event_id, viewed_at_iso, body}` tuple to `localStorage` under the per-state key `"yen-gov:last-event:<state_slug>"` on mount; the landing reads that memory (30-day freshness window) and renders an inline `Last viewed` badge next to the matching year-link. All localStorage I/O is funnelled through one helper module, [frontend/src/lib/elections/last-event-memory.ts](../../../../frontend/src/lib/elections/last-event-memory.ts), so the key contract and the expiry rule live in exactly one place. No telemetry, no server round-trip (Holy Law #1).
+
+## Compare-elections surface + sibling-rail controls
+
+The `/compare/elections/<state>/<from>/<to>` surface ([CompareElections.svelte](../../../../frontend/src/routes/CompareElections.svelte)) and the per-event sibling rail ([SiblingEventsRail.svelte](../../../../frontend/src/lib/elections/SiblingEventsRail.svelte)) carry the citizen-facing controls shipped by the 2026-06-17 compare-UX overhaul ([TODO/20260617-election-compare-ux-overhaul-plan.md](../../../../TODO/20260617-election-compare-ux-overhaul-plan.md); PRs #1120 / #1121 / #1123 / #1124 / #1125). Durable contracts:
+
+### Compare any two elections - one picker primitive
+
+`YearComparePicker.svelte` (a year-GRID popover, never a native `<select>` - the "2027-ready not 1990-ready" rail doctrine) + the pure `year-compare-picker-model.ts` is the single way a comparison year is chosen. It is mounted in two places and the consumer owns navigation:
+
+- **Sibling rail "Compare" chip** - replaces the old hardwired "Compare with {prior_year}" pill. Offers EVERY earlier same-body election as the "from" (current event is the "to"); the rail renders no Compare control when the current event is the first on record. The rail model (`sibling-events-rail-model.ts`) supplies `compare_options` (earlier events only) + `state_slug` + `current_event_id`.
+- **Compare-page From / To badges** - each badge is a picker that re-navigates `link.compareElections(state, from, to)` on selection, so the citizen swaps either axis without leaving the page. The year pinned on the OTHER axis is shown disabled ("current"), never dropped from the list. Before the events catalogue resolves, the header falls back to plain text badges (`compare-elections-from-badge` / `-to-badge` testids preserved on the picker buttons).
+
+The model decides ordering (oldest-first) + the disabled flag; the component owns open/close (Escape + click-outside) and fires `onSelect(event_id)`.
+
+### Sibling-rail overflow affordance
+
+The rail shows left/right gradient fades ONLY when it overflows (recomputed on scroll / model change / resize), so 10-15+ elections read as "more this way" rather than a hard cut. The Compare picker sits OUTSIDE the `overflow-x-auto` scroll container so its popover is not clipped vertically.
+
+### Winner-change table
+
+- **Search** - one box filters by constituency name AND winner party short code (both From and To), composing with the All / Flips / Holds / New-parties chips and column sort.
+- **Sort affordance** - every sortable header shows a faint neutral up-down glyph at rest (smaller than the active arrow); the active column shows a solid up/down arrow + bold label. The affordance must be visible before interaction.
+- **Result summary** - the "N of M rows" count is paired with a To-winner party-dot cluster (mirrors the state-event list's winner dot-strip): the distinct To-winner parties in the CURRENT filtered+searched rows, ordered by frequency, capped at 6 with "+k" overflow, coloured via `getPartyColor`. Because it tracks the filtered set it self-adapts - with Holds active it reads as "parties holding", with Flips as "parties flipped-to". Orphan rows (boundary-changed / new-seat) are excluded.
+- **New-party entries** - the KPI counts constituencies whose To-winner party won ZERO seats in From; a "New parties" filter chip + an indigo "New entry" badge on those rows make the count explorable.
+
+### Hero KPIs + flip-trend
+
+The four cards (Total seats / Flips / Holds / New-party entries) carry icon glyphs mirroring `StateEventHero`. Flips and Holds show a composition line ("X% of seats" = share of comparable seats). The Flips card additionally carries a flip-TREND delta pill ("+/-N flips vs YYYY-YYYY") when an event before `from` exists: it counts flips for the prior transition (N-2 -> N-1) versus the current one (N-1 -> N) on COMPARABLE seats only (the intersection - delimitation shifts the seat set, so the pill tooltip carries the caveat). The pill is OMITTED on the earliest available transition (never rendered as zero). The trend is a client-side projection over already-loaded winner data - NOT a new persisted metric; a standalone multi-election volatility series would be a separate Hans-territory proposal.
+
+### Thin template, pure models
+
+`CompareElections.svelte` stays a thin template; the logic lives in vitest-tested pure models so the contract is exercised without mounting Svelte (node-env, no jsdom): `compare-table-filter.ts` (filter + search + sort), `compare-dot-summary.ts` (dot tally), `compare-kpis.ts` (counts + composition % + new-party set), `flip-trend-model.ts` (flip delta on comparable seats), `year-compare-picker-model.ts` (picker options), `sibling-events-rail-model.ts` (rail chips + compare options).
 
 ## See also
 

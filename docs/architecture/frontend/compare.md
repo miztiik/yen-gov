@@ -1,6 +1,15 @@
 # Compare
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-06-18
+
+> **SCOPE / STATUS.** This page documents the Phase-3 Psephlab **scenario** split-screen
+> (`Compare.svelte`), which has since been **retired** (the component + its
+> `#/compare/:state/:event` route were deleted). For the live **election-vs-election**
+> compare surface (`/compare/elections/<state>/<from>/<to>`, `CompareElections.svelte`) and
+> its controls (search, party-dot summary, hero glyphs, composition %, new-party filter,
+> flip-trend, year picker), see
+> [charts/election-views.md](charts/election-views.md#compare-elections-surface--sibling-rail-controls).
+> The content below is kept as the design receipt for the scenario-compare idea.
 
 Compare is the Phase 3 split-screen surface for asking "what changes if…?" by putting two outputs of the same engine side by side.
 
