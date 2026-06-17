@@ -26,14 +26,15 @@ function row(
   to_party: string | null,
   is_flip: boolean,
   is_orphan = false,
+  is_new_party = false,
 ): CompareTableRow {
-  return { entity_name, from_party, to_party, is_flip, is_orphan };
+  return { entity_name, from_party, to_party, is_flip, is_orphan, is_new_party };
 }
 
 const ROWS: CompareTableRow[] = [
   row("Chennai South", "DMK", "DMK", false), // hold
   row("Madurai", "ADMK", "DMK", true), // flip
-  row("Coimbatore", "DMK", "BJP", true), // flip
+  row("Coimbatore", "DMK", "BJP", true, false, true), // flip (to a NEW party)
   row("Salem", "ADMK", "ADMK", false), // hold
   row("Theni (new)", null, "DMK", false, true), // orphan (new seat)
   row("Vellore (gone)", "INC", null, false, true), // orphan (boundary)
@@ -160,6 +161,39 @@ describe("filterAndSortCompareRows: search composes with chip", () => {
       "asc",
     );
     expect(out).toHaveLength(0);
+  });
+});
+
+describe("filterAndSortCompareRows: new-party filter", () => {
+  it("new returns only is_new_party rows", () => {
+    const out = filterAndSortCompareRows(ROWS, "", "new", "entity_name", "asc");
+    expect(out.map((r) => r.entity_name)).toEqual(["Coimbatore"]);
+  });
+
+  it("excludes flips/holds that are not new-party entries", () => {
+    // Madurai is a flip (ADMK -> DMK) but DMK is not a new party, so the
+    // "new" chip must drop it.
+    const out = filterAndSortCompareRows(ROWS, "", "new", "entity_name", "asc");
+    expect(out.map((r) => r.entity_name)).not.toContain("Madurai");
+  });
+
+  it("composes with search (new chip + name query)", () => {
+    const hit = filterAndSortCompareRows(
+      ROWS,
+      "coim",
+      "new",
+      "entity_name",
+      "asc",
+    );
+    expect(hit.map((r) => r.entity_name)).toEqual(["Coimbatore"]);
+    const miss = filterAndSortCompareRows(
+      ROWS,
+      "madurai",
+      "new",
+      "entity_name",
+      "asc",
+    );
+    expect(miss).toHaveLength(0);
   });
 });
 

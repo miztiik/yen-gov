@@ -57,6 +57,7 @@
   import { link } from "../lib/links";
   import { navigate } from "../lib/url";
   import PartyPill from "../lib/party-pill/PartyPill.svelte";
+  import TopicIcon from "../lib/TopicIcon.svelte";
   import { states } from "../lib/states.svelte";
   import {
     fetchElectionEvents,
@@ -70,6 +71,7 @@
   import { getPartyColor } from "../lib/colors/resolver";
   import { filterAndSortCompareRows } from "../lib/elections/compare-table-filter";
   import { buildCompareDotSummary } from "../lib/elections/compare-dot-summary";
+  import { buildCompareKpis, isNewPartyRow } from "../lib/elections/compare-kpis";
 
   interface Props {
     params: { state: string; fromEvent: string; toEvent: string };
@@ -168,10 +170,20 @@
      *  (boundary delimitation change between the two events). Renders
      *  as "Boundary changed" in the change column. */
     is_orphan: boolean;
+    /** True when this comparable seat was won by a To-winner party that
+     *  won zero seats in `from` (PR4 new-party-entry flag; powers the
+     *  "New parties" filter chip + the per-row "New entry" badge). Set
+     *  from the compare-kpis model AFTER the raw union is built below. */
+    is_new_party: boolean;
     eci_no: number;
   }
 
-  const compare_rows = $derived.by<CompareRow[]>(() => {
+  // The raw union carries every field EXCEPT is_new_party (which needs the
+  // whole-table new-party set from buildCompareKpis); the flag is layered
+  // on in `compare_rows` once the KPIs are derived.
+  type RawCompareRow = Omit<CompareRow, "is_new_party">;
+
+  const raw_compare_rows = $derived.by<RawCompareRow[]>(() => {
     if (from_result.status !== "ok" && from_result.status !== "partial") {
       return [];
     }
@@ -181,7 +193,7 @@
     const from_winners = projectAsWinnersByEntity(from_result.data);
     const to_winners = projectAsWinnersByEntity(to_result.data);
     const to_map = new Map(to_winners.map((w) => [w.entity_id, w]));
-    const out: CompareRow[] = [];
+    const out: RawCompareRow[] = [];
     const seen = new Set<string>();
     for (const fw of from_winners) {
       seen.add(fw.entity_id);
@@ -239,44 +251,25 @@
     return out;
   });
 
-  // ---- KPIs strip ----------------------------------------------------
-  interface CompareKpis {
-    total_seats: number;
-    flips: number;
-    holds: number;
-    new_party_entries: number;
-  }
-  const kpis = $derived.by<CompareKpis>(() => {
-    if (compare_rows.length === 0) {
-      return { total_seats: 0, flips: 0, holds: 0, new_party_entries: 0 };
-    }
-    // Set of party_ids that won at least one seat in <from>. Anything
-    // a <to>-winner party not in that set counts as a "new party entry".
-    const from_winning_parties = new Set<string>();
-    for (const r of compare_rows) {
-      if (r.from_party_id) from_winning_parties.add(r.from_party_id);
-    }
-    let flips = 0;
-    let holds = 0;
-    let new_entries = 0;
-    for (const r of compare_rows) {
-      if (r.is_orphan) continue;
-      if (r.is_flip) flips++;
-      else holds++;
-      if (r.to_party_id && !from_winning_parties.has(r.to_party_id)) {
-        new_entries++;
-      }
-    }
-    return {
-      total_seats: compare_rows.filter((r) => !r.is_orphan).length,
-      flips,
-      holds,
-      new_party_entries: new_entries,
-    };
-  });
+  // ---- KPIs strip + per-row new-party flag (pure model) --------------
+  // buildCompareKpis preserves the exact pre-extraction predicate (flips /
+  // holds / total_seats / new-party-entry seat count) AND adds flips_pct /
+  // holds_pct (composition %) + the distinct new-party id set. The math
+  // lives in compare-kpis.ts so vitest exercises it without mounting Svelte.
+  const kpis = $derived(buildCompareKpis(raw_compare_rows));
+
+  // Layer is_new_party onto each row from the model's new-party set so the
+  // "New parties" filter chip + the per-row "New entry" badge read it
+  // without re-deriving the predicate in the template.
+  const compare_rows = $derived<CompareRow[]>(
+    raw_compare_rows.map((r) => ({
+      ...r,
+      is_new_party: isNewPartyRow(r, kpis.new_party_ids),
+    })),
+  );
 
   // ---- Filter chip + search + sorting --------------------------------
-  type Filter = "all" | "flips" | "holds";
+  type Filter = "all" | "flips" | "holds" | "new";
   let filter = $state<Filter>("all");
 
   // Live case-insensitive substring search over the constituency name and
@@ -369,6 +362,13 @@
   function fmtInt(n: number): string {
     return INT_FMT.format(n);
   }
+
+  // Composition % for the Flips / Holds cards (PR4 reading 4a). The model
+  // returns a 0-100 float (or null); the card rounds to a whole percent for
+  // the citizen-facing "70% of seats" line.
+  function fmtSharePct(pct: number): string {
+    return `${Math.round(pct)}%`;
+  }
 </script>
 
 <PageContainer
@@ -423,40 +423,67 @@
       >Try again</button>
     </div>
   {:else}
-    <!-- KPIs strip -->
+    <!-- KPIs strip. PR4 mirrors the StateEventHero icon-chip pattern: a
+         TopicIcon in a tinted rounded square next to each label, plus a
+         composition-% line under Flips / Holds. Card data-testids are kept
+         verbatim so prior assertions still pass. -->
     <section
       class="grid grid-cols-2 gap-3 sm:grid-cols-4"
       data-testid="compare-elections-kpis"
     >
       <div class="rounded border border-slate-200 bg-white p-3">
-        <div class="text-xs uppercase tracking-wide text-slate-500">
-          Total seats
+        <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
+          <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700">
+            <TopicIcon name="landmark" cls="h-4 w-4" />
+          </span>
+          <span>Total seats</span>
         </div>
         <div class="mt-1 text-2xl font-semibold text-slate-900">
           {fmtInt(kpis.total_seats)}
         </div>
       </div>
       <div class="rounded border border-slate-200 bg-white p-3">
-        <div class="text-xs uppercase tracking-wide text-slate-500">
-          Flips
+        <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
+          <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700">
+            <TopicIcon name="arrow-left-right" cls="h-4 w-4" />
+          </span>
+          <span>Flips</span>
         </div>
         <div
           class="mt-1 text-2xl font-semibold text-emerald-700"
           data-testid="compare-elections-kpi-flips"
         >{fmtInt(kpis.flips)}</div>
+        {#if kpis.flips_pct !== null}
+          <div
+            class="mt-0.5 text-xs text-slate-500"
+            data-testid="compare-elections-kpi-flips-pct"
+          >{fmtSharePct(kpis.flips_pct)} of seats</div>
+        {/if}
       </div>
       <div class="rounded border border-slate-200 bg-white p-3">
-        <div class="text-xs uppercase tracking-wide text-slate-500">
-          Holds
+        <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
+          <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700">
+            <TopicIcon name="shield" cls="h-4 w-4" />
+          </span>
+          <span>Holds</span>
         </div>
         <div
           class="mt-1 text-2xl font-semibold text-slate-700"
           data-testid="compare-elections-kpi-holds"
         >{fmtInt(kpis.holds)}</div>
+        {#if kpis.holds_pct !== null}
+          <div
+            class="mt-0.5 text-xs text-slate-500"
+            data-testid="compare-elections-kpi-holds-pct"
+          >{fmtSharePct(kpis.holds_pct)} of seats</div>
+        {/if}
       </div>
       <div class="rounded border border-slate-200 bg-white p-3">
-        <div class="text-xs uppercase tracking-wide text-slate-500">
-          New-party entries
+        <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
+          <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-700">
+            <TopicIcon name="flag" cls="h-4 w-4" />
+          </span>
+          <span>New-party entries</span>
         </div>
         <div class="mt-1 text-2xl font-semibold text-slate-900">
           {fmtInt(kpis.new_party_entries)}
@@ -466,7 +493,7 @@
 
     <!-- Filter chips + search + result summary -->
     <section class="flex flex-wrap items-center gap-2">
-      {#each [{ k: "all", label: "All" }, { k: "flips", label: "Flips" }, { k: "holds", label: "Holds" }] as opt (opt.k)}
+      {#each [{ k: "all", label: "All" }, { k: "flips", label: "Flips" }, { k: "holds", label: "Holds" }, { k: "new", label: "New parties" }] as opt (opt.k)}
         <button
           type="button"
           class="rounded-full border px-3 py-1 text-xs"
@@ -637,11 +664,18 @@
                     <span class="text-slate-400">{r.to_party ?? "\u2014"}</span>
                   {/if}
                 </td>
-                <td
-                  class="px-3 py-2 text-xs"
-                  class:text-emerald-700={r.is_flip}
-                  class:text-slate-500={!r.is_flip}
-                >{r.change_label}</td>
+                <td class="px-3 py-2 text-xs">
+                  <span
+                    class:text-emerald-700={r.is_flip}
+                    class:text-slate-500={!r.is_flip}
+                  >{r.change_label}</span>
+                  {#if r.is_new_party}
+                    <span
+                      class="ml-1.5 inline-block rounded-full bg-indigo-50 px-1.5 py-0.5 text-[10px] font-medium text-indigo-700"
+                      data-testid="compare-row-new-badge"
+                    >New entry</span>
+                  {/if}
+                </td>
               </tr>
             {/each}
           </tbody>

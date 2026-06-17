@@ -104,6 +104,19 @@ describe("allowlist self-consistency", () => {
     }
   });
 
+  test("arrow-left-right.svg is registered for the compare hero card (PR4)", () => {
+    // PR4 of TODO/20260617-election-compare-ux-overhaul-plan.md adds the
+    // Flips KPI glyph. Assert the SVG exists in the registry directory and
+    // parses to the 4 Lucide stroke paths the icon ships with.
+    const here = resolve(fileURLToPath(new URL(".", import.meta.url)));
+    const file = resolve(here, "..", "..", "..", "public", "icons", "arrow-left-right.svg");
+    const icon = parseIcon(readFileSync(file, "utf8"), "arrow-left-right.svg", "arrow-left-right");
+    expect(icon.name).toBe("arrow-left-right");
+    expect(icon.viewBox).toBe("0 0 24 24");
+    expect(icon.children).toHaveLength(4);
+    expect(icon.children.every((c) => c.name === "path")).toBe(true);
+  });
+
   test("ALLOWED_ELEMENTS and ALLOWED_ATTRS are non-empty (contract surfaces)", () => {
     expect(ALLOWED_ELEMENTS.size).toBeGreaterThan(0);
     expect(ALLOWED_ATTRS.size).toBeGreaterThan(0);
