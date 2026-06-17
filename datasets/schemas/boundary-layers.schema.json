@@ -3,7 +3,7 @@
   "$id": "./boundary-layers.schema.json",
   "title": "Boundary layers control table",
   "description": "Canonical control table for every boundary geometry shard on disk under datasets/boundaries/. One row per (level, partition) — e.g. one row for the national states outline, one row per state's AC layer, one row per (state, district) village shard. Replaces the per-file .sources.json + .metadata.json + .unkeyed.json + per-state -index.json sidecars that pre-dated T.0d (115 files retired in the T.0d fused atomic commit). FK source_id resolves to taxonomy/sources.parquet (citation triple per ADR-0032 §12 v2.0). Authored shape JSON (D18 — this schema documents the parquet column contract; the parquet itself is COMPILED by tools/boundaries/snapshot.py which calls boundary_layers_seed.compile_to_parquet, not hand-authored). Hive-partitioned discovery path matches elections/state=in_<S>/... grammar (T.0d §1). Amends ADR-0031 (Status: Accepted → Amended 2026-05-22).",
-  "x-version": "1.5",
+  "x-version": "1.6",
   "x-changelog": [
     {
       "version": "1.0",
@@ -34,6 +34,11 @@
       "version": "1.5",
       "date": "2026-06-09",
       "description": "Widen partition_path + layer_id patterns to accept the new electoral subtree at datasets/boundaries/electoral/delim=<year>/<grain>/... (G10 of TODO/20260603-data-and-charting-platform-reset-plan.md section 4 EL2). The admin spine stays under boundaries/in/<level>/...; electoral constituency layers (ac/pc) move to boundaries/electoral/delim=<year>/... so each ECI Delimitation Commission Order publishes its own coexisting boundary set. Old + new delimitation can therefore live as distinct boundary_layer.csv rows without overlay risk; the map engine picks the boundary set from the event's delim_year. The Hive-value charclass in the layer_id regex is widened to include '-' so hyphenated slugs (state=andhra-pradesh) validate alongside the legacy state=in_s01 form. The layer_id grammar is restructured from '^boundaries\\.in\\.[a-z]+(\\.[a-z]+=[a-z0-9_]+)*$' to '^boundaries\\.(in|electoral)(\\.[a-z]+(=[a-z0-9_-]+)?)+$' to allow the delim=<year> Hive segment to appear immediately after the section name (e.g. boundaries.electoral.delim=2008.ac.state=andhra-pradesh). Additive at the row-shape level: every legacy boundaries/in/... row still validates; new electoral rows additionally validate."
+    },
+    {
+      "version": "1.6",
+      "date": "2026-06-16",
+      "description": "Add 'topojson' to the format enum. Row 3 of TODO/20260616-map-geometry-rip-and-palette-plan.md consolidates the 31 per-state delim=2008 AC geojson shards into ONE national derived TopoJSON at boundaries/electoral/delim=2024/ac/all.topojson (object 'ac', quantized + arc-shared, ~3.7 MB gzip vs the ~24 MB gzip a national geojson would cost; the per-state shards are deleted). Because the source geojson shards are deleted, this derived TopoJSON is itself the registered boundary layer - unlike country/all.topojson, a derived render artifact whose SOURCE states/all.geojson + districts/all.geojson survive under boundaries/in and carry provenance via the boundary_encoding.csv receipt; the electoral subtree is outside that in/-scoped receipt, so boundary_layer.csv is the provenance home. The frontend decodes it via topojson-client + filters by state_ut_code. Additive: every legacy geojson/pmtiles row still validates; the new national AC row validates with format='topojson'. The delim=2008 electoral rows are dropped in the same reseed (their geometry is deleted)."
     }
   ],
   "type": "object",
@@ -89,8 +94,8 @@
             "description": "Relative path under datasets/ to the geometry file. Hive-partitioned per T.0d §1: 'boundaries/in/states/all.geojson', 'boundaries/in/villages/state=in_s22/district=603/all.geojson' for the admin spine; 'boundaries/electoral/delim=2008/ac/state=andhra-pradesh/all.geojson', 'boundaries/electoral/delim=2024/pc/all.geojson' for ECI constituency layers (G10, TODO/20260603-data-and-charting-platform-reset-plan.md section 4 EL2). Always POSIX separators (CLAUDE.md §2). The format column says whether the file is .geojson or .pmtiles."
           },
           "format": {
-            "enum": ["geojson", "pmtiles"],
-            "description": "Container format for the geometry. geojson = RFC 7946 FeatureCollection (today's default — frontend loads via maplibre-gl GeoJSON source). pmtiles = ADR-0031 PMTiles archive (range-requestable; used when a layer trips the 10 MB cutover threshold). The loader switches read paths off this column — no separate pmtiles/ subtree."
+            "enum": ["geojson", "pmtiles", "topojson"],
+            "description": "Container format for the geometry. geojson = RFC 7946 FeatureCollection (today's default - frontend loads via a GeoJSON source). pmtiles = ADR-0031 PMTiles archive (range-requestable; used when a layer trips the 10 MB cutover threshold). topojson = TopoJSON (objects + quantized arc-shared arcs; the frontend decodes via topojson-client). The loader switches read paths off this column - no separate per-format subtree."
           },
           "crs": {
             "type": "string",

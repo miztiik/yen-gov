@@ -44,7 +44,7 @@
 //      the existing map-triggered GET avoids both problems and verifies
 //      the EXACT same fetch the citizen-facing render makes. TopoJSON
 //      siblings now exist for AC shards (ADR-0047), so the accepted
-//      request is either `.topojson` or the GeoJSON fallback.
+//      request is the single national `delim=2024/ac/all.topojson`.
 //
 // Mobile project skip: the AC drilldown's map behaviour is the same
 // across viewports (no breakpoint-specific code path); running the
@@ -111,9 +111,10 @@ function defaultAssemblyEvent(code: string): ElectionEventRow | null {
   );
 }
 
-// State / UT codes for which `boundaries/electoral/delim=2008/ac/state=<lgd-slug>/all.geojson`
-// exists on disk after A.2 (31 entries; the boundaries/in/ac/... -> boundaries/electoral/delim=2008/ac/...
-// rename landed in G10 of TODO/20260603-data-and-charting-platform-reset-plan.md section 4 EL2).
+// State / UT codes whose ACs are present in the single national
+// `boundaries/electoral/delim=2024/ac/all.topojson` (stamped
+// `state_ut_code`; consolidated from the 31 per-state delim=2008 shards
+// in Row 3 of TODO/20260616-map-geometry-rip-and-palette-plan.md).
 // Sorted lexicographically.
 const FULL_CODES: readonly string[] = [
   "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08",
@@ -185,18 +186,14 @@ test.describe("STATE_AC per-state coverage", () => {
     }
 
     test(`${code} (${slug}) /${slug}/elections/${event.event_id} renders AC map cleanly`, async ({ page }) => {
-      // The AC boundary shard partition is keyed by the canonical LGD
-      // slug (ADR-0048 LGD-canonical rename, e.g. `state=delhi`,
-      // `state=uttar-pradesh`), which is NOT always the same as the
-      // URL slug used for navigation (e.g. `nct-of-delhi`,
-      // `jammu-and-kashmir-ut`). Rather than re-derive the partition
-      // slug here, match the map's own GET for ANY AC shard returning
-      // 200 — the state-election page only loads this state's shard, so the
-      // first 200 match IS this state's boundary, and we verify the
-      // EXACT fetch the citizen-facing render makes. TopoJSON siblings
-      // exist for AC shards (ADR-0047), so accept either extension.
+      // Post the 2026-06-16 map-geometry rip (Row 3) EVERY state's AC
+      // map fetches the ONE national AC TopoJSON
+      // `boundaries/electoral/delim=2024/ac/all.topojson` (object `ac`)
+      // and filters it client-side by `state_ut_code`. So we match the
+      // map's own GET for that single national file returning 200 - it
+      // is the EXACT fetch the citizen-facing render makes.
       const acShardRe =
-        /\/data\/boundaries\/electoral\/delim=2008\/ac\/state=[^/]+\/all\.(topojson|geojson)(\?|$)/;
+        /\/data\/boundaries\/electoral\/delim=2024\/ac\/all\.topojson(\?|$)/;
       // Set up the shard-response listener BEFORE navigation so the
       // map's own GET is captured by the same Promise we await later.
       const shardResponsePromise = page
@@ -236,7 +233,7 @@ test.describe("STATE_AC per-state coverage", () => {
       const shardResponse = await shardResponsePromise;
       expect(
         shardResponse,
-        `${code}: map did not request /data/boundaries/electoral/delim=2008/ac/state=<lgd-slug>/all.{topojson,geojson}`,
+        `${code}: map did not request /data/boundaries/electoral/delim=2024/ac/all.topojson`,
       ).not.toBeNull();
       expect(shardResponse?.status(), `${code}: shard load failed`).toBe(200);
     });

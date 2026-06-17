@@ -50,7 +50,7 @@ The frontend's `vite.config.ts` registers a small `serveDatasets()` middleware t
 | `datasets/schemas/`     | no (hand-authored) | yes (validation) | no |
 | `datasets/data/`        | yes             | yes            | yes (DuckDB-WASM `read_csv(columns=...)`) |
 | `datasets/elections/`   | yes             | yes            | yes (per-state/election CSV shards) |
-| `datasets/boundaries/`  | no (`tools/boundaries/` writes locally) | no | yes (TopoJSON/GeoJSON via boundaries.ts; PMTiles for future village tier) |
+| `datasets/boundaries/`  | no (`tools/boundaries/` writes locally) | no | yes (TopoJSON/GeoJSON via boundaries.ts) |
 | `datasets/taxonomy/`    | no (hand-authored JSON; parquets retired) | yes | no (consumers use `datasets/data/entities/*.csv` instead) |
 | `.runtime/raw/`         | yes (debug only, gitignored) | yes | no |
 

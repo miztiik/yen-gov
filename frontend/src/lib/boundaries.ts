@@ -233,11 +233,14 @@ export const STATE_LGD_TO_ECI_PUBLIC: Record<string, string> = STATE_LGD_TO_ECI;
 /**
  * Predicate: does `baseGeoRelPath` have a real `.topojson` sibling on
  * disk worth probing? After the 2026-06-16 map-geometry rip (decision
- * D4) the ONLY `.topojson` the repo ships is the combined country file
- * `country/all.topojson` (two named objects: `states` + `districts`).
- * Every other layer ships `.geojson` only, so the loader fetches geojson
- * DIRECTLY for them instead of wasting an HTTP round-trip on a
- * `.topojson` that no longer exists. Pure: no I/O.
+ * D4) the ONLY `.topojson` `loadBoundaryFromPath` serves is the combined
+ * country file `country/all.topojson` (two named objects: `states` +
+ * `districts`). The national AC topojson (`electoral/delim=2024/ac/
+ * all.topojson`, Row 3) is fetched + decoded inline by StateAcMapD3, NOT
+ * through this loader, so it is intentionally absent here. Every other
+ * layer ships `.geojson` only, so the loader fetches geojson DIRECTLY
+ * instead of wasting an HTTP round-trip on a `.topojson` that no longer
+ * exists. Pure: no I/O.
  */
 export function pathHasTopojson(baseGeoRelPath: string): boolean {
   return baseGeoRelPath === "country/all.geojson";

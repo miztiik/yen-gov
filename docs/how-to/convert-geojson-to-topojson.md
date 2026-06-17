@@ -43,14 +43,16 @@ For multi-shard layers (AC, PC, ULB-wards, panchayats, villages, postal), use th
 
    ```json
    [
-     { "input": "datasets/boundaries/electoral/delim=2008/ac/state=andhra-pradesh/all.geojson",
-       "output": "datasets/boundaries/electoral/delim=2008/ac/state=andhra-pradesh/all.topojson",
-       "layer": "ac" },
-     { "input": "datasets/boundaries/electoral/delim=2008/ac/state=arunachal-pradesh/all.geojson",
-       "output": "datasets/boundaries/electoral/delim=2008/ac/state=arunachal-pradesh/all.topojson",
-       "layer": "ac" }
+     { "input": "datasets/boundaries/in/villages/state=tamil-nadu/district=603/all.geojson",
+       "output": "datasets/boundaries/in/villages/state=tamil-nadu/district=603/all.topojson",
+       "layer": "village" },
+     { "input": "datasets/boundaries/in/villages/state=tamil-nadu/district=604/all.geojson",
+       "output": "datasets/boundaries/in/villages/state=tamil-nadu/district=604/all.topojson",
+       "layer": "village" }
    ]
    ```
+
+   NOTE (2026-06-16): the two shipping national TopoJSON layers — `in/country/all.topojson` and `electoral/delim=2024/ac/all.topojson` — are built by their own dedicated consolidation scripts (`tools/topojson/build_country.py`, `tools/boundaries/consolidate_ac_2024.py`), not this batch tool. This batch entry point remains the general path for any future per-shard layer that needs a TopoJSON sibling.
 
 2. Run:
 
@@ -60,14 +62,14 @@ For multi-shard layers (AC, PC, ULB-wards, panchayats, villages, postal), use th
      --batch-size 50
    ```
 
-`--batch-size` controls how many shards mapshaper chains into a single subprocess. 50 is the empirical sweet spot for shards of approximately 100-500 features each. Lower it for very large shards (PC `delim=2026` ~ 543 features per shard; ULB wards ~ 100 features per shard).
+`--batch-size` controls how many shards mapshaper chains into a single subprocess. 50 is the empirical sweet spot for shards of approximately 100-500 features each. Lower it for very large shards (a national PC layer is ~543 features; ULB wards ~ 100 features per shard).
 
 ## Config knobs
 
 [config/topojson.json](../../config/topojson.json) holds tunable knobs per CLAUDE.md Holy Law #6 (no hardcoding):
 
 - `default_quantization`: integer coordinate grid; OWID default `100000` (about 1m precision). Per-layer override goes in `per_layer.<name>.quantization`.
-- `simplification`: Mapshaper `-simplify` flag value; default `weighted 5%`. Per-layer override in `per_layer.<name>.simplification`.
+- `simplification`: Mapshaper `-simplify` flag value; current default `none` (the 2026-06-16 map-geometry rip removed simplification entirely — TopoJSON ships quantization + arc-sharing only, no vertex deletion, so coastlines stay crisp). Per-layer override in `per_layer.<name>.simplification`.
 - `clean`: opt-in `-clean` flag (silently mutates topology - gap-fill, sliver removal). Default `false`. Set per-layer only when the input is known dirty and a visual diff confirms the cleanup is desired.
 
 The schema lives at [datasets/schemas/topojson-config.schema.json](../../datasets/schemas/topojson-config.schema.json); validated by Tier-A on every `pytest -q`.

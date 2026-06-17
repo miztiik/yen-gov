@@ -64,7 +64,7 @@ If branch protection is ever enabled (multi-author repo, for example), the requi
 
 Corpus conformance is the engineer's local pre-emit responsibility (`python -m yen_gov validate --root .`), since this repo's CI has no build that consumes `datasets/**` to defend - see [backend/validator.md](backend/validator.md).
 
-Scraping ECI/Wikipedia and rebuilding boundary PMTiles are **local-only** operations (CLAUDE.md §1, §13): run `python -m yen_gov run <event> <state>` and `python tools/boundaries/build.py` on a maintainer machine, commit the regenerated `datasets/` through a normal PR. Both artifacts change rarely (results don't change post-declaration; boundaries change once per delimitation cycle), so a CI dispatch is unnecessary overhead. The contract between scraping and deploying is the `datasets/` directory committed to main.
+Scraping ECI/Wikipedia and rebuilding boundary geometry are **local-only** operations (CLAUDE.md §1, §13): run `python -m yen_gov run <event> <state>` and the boundary consolidation tools (`tools/topojson/build_country.py`, `tools/boundaries/consolidate_ac_2024.py`) on a maintainer machine, commit the regenerated `datasets/` through a normal PR. Both artifacts change rarely (results don't change post-declaration; boundaries change once per delimitation cycle), so a CI dispatch is unnecessary overhead. The contract between scraping and deploying is the `datasets/` directory committed to main.
 
 ## Pages artifact shape
 

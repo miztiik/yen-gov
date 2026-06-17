@@ -24,7 +24,7 @@ country (1)
 **Two parallel electoral hierarchies** sit alongside the LGD admin tree:
 
 - **PC (Parliament)** — 545 features in `datasets/boundaries/electoral/delim=2024/pc/all.geojson` (national file, post-2024 delim).
-- **AC (Assembly)** — 4149 features across 30 state partitions; per-state files in `datasets/boundaries/electoral/delim=2008/ac/state=<id>/all.geojson`.
+- **AC (Assembly)** — 4149 features in `datasets/boundaries/electoral/delim=2024/ac/all.topojson` (ONE national TopoJSON, object `ac`, each feature stamped `state_ut_code`; consolidated from the former 31 per-state shards in the 2026-06-16 map-geometry rip).
 
 PCs and ACs are NOT children of districts — they are independently delimited by ECI on population basis. A PC typically contains 5-10 ACs but is NOT bound to district borders.
 

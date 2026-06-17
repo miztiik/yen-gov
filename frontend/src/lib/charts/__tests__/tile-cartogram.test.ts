@@ -24,7 +24,7 @@ function tile(over: Partial<TileLayoutRow>): TileLayoutRow {
     q: 0,
     r: 0,
     label: "Akkalkuwa",
-    source_id: "boundaries/electoral/delim=2008/ac/state=maharashtra/all.geojson",
+    source_id: "boundaries/electoral/delim=2024/ac/all.topojson",
     derivation_method: "centroid-hexbin",
     ...over,
   };

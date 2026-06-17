@@ -62,6 +62,8 @@
     GeoJsonProperties,
     Geometry,
   } from "geojson";
+  import { feature as topojsonFeature } from "topojson-client";
+  import type { Topology, GeometryCollection } from "topojson-specification";
 
   import { DATA_BASE } from "../paths";
   import { STATE_AC } from "../boundaries/sources";
@@ -269,19 +271,68 @@
     }
   });
 
-  // --- Boundary GeoJSON fetch + projection ----------------------------
+  // --- Boundary geometry fetch + per-state filter + projection --------
   //
-  // The per-state AC layer lives at `<DATA_BASE>/<entry.geojson_local_path>`
-  // (e.g. `data/boundaries/electoral/delim=2008/ac/state=tamil-nadu/
-  // all.geojson`). Reload when `state_code` changes.
+  // Post the 2026-06-16 map-geometry rip (Row 3) EVERY AC state's
+  // geometry is served from the ONE national, DERIVED topojson
+  // `boundaries/electoral/delim=2024/ac/all.topojson` (object `ac`,
+  // each feature stamped with `state_ut_code`). We fetch + decode it,
+  // then filter to the features whose `state_ut_code === state_code`.
+  // The per-state PAINT join (`entry.join_property` + the lgd<->eci
+  // crosswalk) is unchanged - only the geometry SOURCE moved from 31
+  // per-state geojson shards to this single national composite.
 
   type Collection = FeatureCollection<Geometry, GeoJsonProperties>;
+
+  const STATE_FILTER_PROPERTY = "state_ut_code";
 
   let collection: Collection | null = $state(null);
   let load_error: string | null = $state(null);
   // Token bumped whenever a new fetch is issued; the in-flight callback
   // ignores its result if the token has moved on (state change mid-fetch).
   let fetch_token = $state(0);
+
+  // Fetch the national AC topojson, decode the named object, and return
+  // ONLY the features for `sc` (stamped `state_ut_code`). Return-only by
+  // design: the Svelte-5 quirk requires the `$state` write to originate
+  // inside the onMount / $effect IIFE, so this helper never touches
+  // `collection` - the caller assigns the value it returns.
+  async function fetchStateAcCollection(sc: string): Promise<Collection> {
+    const e = STATE_AC[sc];
+    if (!e?.geojson_local_path) {
+      throw new Error(`no AC geometry path for ${sc}`);
+    }
+    const url = `${DATA_BASE}/${e.geojson_local_path}`;
+    const r = await fetch(url);
+    if (!r.ok) {
+      throw new Error(`ac geometry fetch failed: ${r.status} ${url}`);
+    }
+    const raw = (await r.json()) as Topology | Collection;
+    let fc: Collection;
+    if (e.geojson_local_path.endsWith(".topojson")) {
+      const topo = raw as Topology;
+      const obj = e.topojson_object
+        ? topo.objects?.[e.topojson_object]
+        : undefined;
+      if (!obj) {
+        throw new Error(
+          `topojson object '${e.topojson_object ?? "?"}' missing in ${url}`,
+        );
+      }
+      fc = topojsonFeature(topo, obj as GeometryCollection) as Collection;
+    } else {
+      fc = raw as Collection;
+    }
+    const features = fc.features.filter(
+      (f) =>
+        String(
+          (f.properties as Record<string, unknown> | null)?.[
+            STATE_FILTER_PROPERTY
+          ] ?? "",
+        ) === sc,
+    );
+    return { type: "FeatureCollection", features };
+  }
 
   // First fetch via onMount (IndiaPartyMap-proven pattern: $state writes
   // from a `(async () => { ... })()` IIFE inside `onMount(...)` propagate
@@ -295,23 +346,12 @@
   // function do NOT (observed during PR-5 development, Svelte v5.x).
   onMount(() => {
     const sc = state_code;
-    const e = STATE_AC[sc];
-    if (!e?.geojson_local_path) return;
+    if (!STATE_AC[sc]?.geojson_local_path) return;
     const my_token = ++fetch_token;
-    const url = `${DATA_BASE}/${e.geojson_local_path}`;
     let cancelled = false;
     (async () => {
       try {
-        const r = await fetch(url);
-        if (cancelled || my_token !== fetch_token) return;
-        if (!r.ok) {
-          load_error = `geojson fetch failed: ${r.status} ${url}`;
-          return;
-        }
-        const fc = (await r.json()) as FeatureCollection<
-          Geometry,
-          GeoJsonProperties
-        >;
+        const fc = await fetchStateAcCollection(sc);
         if (cancelled || my_token !== fetch_token) return;
         collection = fc;
       } catch (err) {
@@ -334,25 +374,14 @@
       initial_load_done = true;
       return;
     }
-    const e = STATE_AC[sc];
     collection = null;
     load_error = null;
-    if (!e?.geojson_local_path) return;
+    if (!STATE_AC[sc]?.geojson_local_path) return;
     const my_token = ++fetch_token;
-    const url = `${DATA_BASE}/${e.geojson_local_path}`;
     let cancelled = false;
     (async () => {
       try {
-        const r = await fetch(url);
-        if (cancelled || my_token !== fetch_token) return;
-        if (!r.ok) {
-          load_error = `geojson fetch failed: ${r.status} ${url}`;
-          return;
-        }
-        const fc = (await r.json()) as FeatureCollection<
-          Geometry,
-          GeoJsonProperties
-        >;
+        const fc = await fetchStateAcCollection(sc);
         if (cancelled || my_token !== fetch_token) return;
         collection = fc;
       } catch (err) {
