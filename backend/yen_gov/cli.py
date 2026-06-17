@@ -2114,6 +2114,134 @@ def ingest_tn_electors_by_sex_2021(
     typer.echo(f"  grand-total skipped:  {result.grand_total_observed}")
 
 
+@app.command("ingest-rbi-hbs")
+def ingest_rbi_hbs(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    staging_dir: Path = typer.Option(
+        ...,
+        "--staging-dir",
+        "-s",
+        help=(
+            "Directory holding the operator-staged RBI Handbook XLSX "
+            "file(s). Download each table from the RBI Handbook of "
+            "Statistics on Indian States page and save it under this dir "
+            "using the spec's staging_filename (no network ingest)."
+        ),
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    indicators: list[str] = typer.Option(
+        None,
+        "--indicator",
+        "-i",
+        help=(
+            "Restrict to specific indicator_id(s); repeatable. Defaults to "
+            "every shipped Social-and-Demographic table."
+        ),
+    ),
+) -> None:
+    """Ingest RBI Handbook of Statistics tables into the canonical store.
+
+    Reusable across every ``state x period`` Handbook table: one
+    per-table spec in
+    ``backend/yen_gov/canonical/adapters/rbi_handbook/registry.py`` drives
+    the parse + entity-resolution + emit. The first shipped cohort is the
+    SRS vital rates (total fertility rate, birth/death rate, infant
+    mortality rate) plus life expectancy at birth.
+
+    For each selected table the command:
+
+      - reads the staged XLSX (local file; no network),
+      - melts the ``state x period`` matrix to long format,
+      - resolves each RBI state label to its LGD ``entity_id`` slug
+        (``entities/geo.csv``), all-India rows to ``IN``,
+      - emits ``datasets/data/datapoints/geo/<indicator_id>.csv``,
+      - upserts the ``variables.csv`` / ``concepts.csv`` /
+        ``entities/source.csv`` catalogue rows (source-of-origin
+        producer = SRS / ORGI, RBI Handbook as the access surface).
+
+    Idempotent: re-running with the same staged edition is a no-op.
+    """
+    from yen_gov.canonical.adapters.rbi_handbook import (
+        SHIPPED_SPECS,
+        ingest as ingest_rbi,
+    )
+
+    specs = SHIPPED_SPECS
+    if indicators:
+        wanted = set(indicators)
+        specs = tuple(s for s in SHIPPED_SPECS if s.indicator_id in wanted)
+        missing = wanted - {s.indicator_id for s in specs}
+        if missing:
+            typer.echo(
+                f"ingest-rbi-hbs: unknown indicator_id(s): {sorted(missing)}; "
+                f"known: {[s.indicator_id for s in SHIPPED_SPECS]}",
+                err=True,
+            )
+            raise typer.Exit(2)
+
+    result = ingest_rbi(repo_root=root, staging_dir=staging_dir, specs=specs)
+    typer.echo("ingest-rbi-hbs: OK")
+    for table in result.tables:
+        typer.echo(f"  {table.indicator_id}:")
+        typer.echo(f"    output:    {table.output_path.relative_to(root).as_posix()}")
+        typer.echo(f"    rows:      {table.row_count}")
+        typer.echo(f"    entities:  {table.entity_count}")
+        typer.echo(f"    years:     {table.time_min}-{table.time_max}")
+    typer.echo(f"  total rows written: {result.total_rows}")
+
+
+@app.command("seed-goals")
+def seed_goals_cmd(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Seed the goal-catalogue overlay (frameworks + goals + goal_indicators).
+
+    Writes the UN SDG framework + the SDG-3 (Good Health and Well-being)
+    goals subtree with the cited UN numbers (MMR <= 70, U5MR <= 25,
+    neonatal <= 12, all by 2030; A/RES/70/1) into:
+
+      - datasets/data/frameworks.csv
+      - datasets/data/goals.csv
+      - datasets/data/goal_indicators.csv
+
+    The overlay is metadata-only (no datapoints). goal_indicators mappings
+    are FK-guarded against variables.csv: a mapping is written only when its
+    indicator is already shipped, so the file is header-only until the SRS
+    health indicators land via `ingest-rbi-hbs`, then the mappings activate
+    on the next `seed-goals` run. Idempotent.
+    """
+    from yen_gov.canonical.goals_seed import seed_goals
+
+    result = seed_goals(repo_root=root)
+    typer.echo("seed-goals: OK")
+    typer.echo(f"  frameworks:        {result.framework_count}")
+    typer.echo(f"  goal nodes:        {result.goal_count}")
+    typer.echo(f"  active mappings:   {result.mapping_count}")
+    if result.skipped_mappings:
+        typer.echo(
+            "  mappings waiting on un-shipped indicators "
+            f"(FK-guarded): {list(result.skipped_mappings)}"
+        )
+
+
 @app.command("enrich-2014-ls-candidacies-with-affidavits")
 def enrich_2014_ls_candidacies_with_affidavits(
     root: Path = typer.Option(

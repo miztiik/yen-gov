@@ -134,9 +134,8 @@ _NA_SENTINELS: frozenset[str] = frozenset({"", "NA", "N/A", "na"})
 def _decode_csv(raw: bytes) -> str:
     """Decode CSV bytes, tolerating UTF-8-BOM and Latin-1 fallback.
 
-    Mirrors :func:`yen_gov.sources.datagovin_ogd.parsers._decode_csv` —
-    kept private here so this module stays self-contained (no
-    cross-module coupling on a 5-line helper).
+    A self-contained 5-line helper (no cross-module coupling); the
+    encoding ladder below is the only decode contract this module needs.
     """
     for encoding in ("utf-8-sig", "utf-8", "cp1252", "latin-1"):
         try:

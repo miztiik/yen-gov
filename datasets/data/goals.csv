@@ -1,0 +1,8 @@
+goal_id,framework_id,code,node_kind,name,statement,parent,target_value,target_bound,better_direction,target_year,target_scope,source_id,description
+sdg-3,sdg,3,goal,Good Health and Well-being,Ensure healthy lives and promote well-being for all at all ages,,,,higher,,national,,SDG 3 - the whole-of-population health goal.
+sdg-3.1,sdg,3.1,target,Reduce maternal mortality,"By 2030, reduce the global maternal mortality ratio to less than 70 per 100,000 live births",sdg-3,,,lower,2030,national,,
+sdg-3.1.1,sdg,3.1.1,indicator,Maternal mortality ratio,"Maternal mortality ratio (deaths per 100,000 live births)",sdg-3.1,70,at_most,lower,2030,global,src-9ae32d88e17c,
+sdg-3.2,sdg,3.2,target,End preventable deaths of newborns and under-5 children,"By 2030, end preventable deaths of newborns and children under 5 years of age, with all countries aiming to reduce neonatal mortality to at least as low as 12 per 1,000 live births and under-5 mortality to at least as low as 25 per 1,000 live births",sdg-3,,,lower,2030,national,,
+sdg-3.2.1,sdg,3.2.1,indicator,Under-5 mortality rate,"Under-5 mortality rate (deaths per 1,000 live births)",sdg-3.2,25,at_most,lower,2030,global,src-9ae32d88e17c,
+sdg-3.2.2,sdg,3.2.2,indicator,Neonatal mortality rate,"Neonatal mortality rate (deaths per 1,000 live births)",sdg-3.2,12,at_most,lower,2030,global,src-9ae32d88e17c,
+sdg-3.7,sdg,3.7,target,Universal access to reproductive health and family planning,"By 2030, ensure universal access to sexual and reproductive health-care services, including for family planning, information and education",sdg-3,,,neutral,2030,national,,

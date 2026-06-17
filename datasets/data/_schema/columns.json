@@ -1,6 +1,6 @@
 {
   "$schema": "./columns.schema.json",
-  "$schema_version": "2.7",
+  "$schema_version": "2.8",
   "file_classes": {
     "datasets/data/variables.csv": {
       "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
@@ -35,6 +35,50 @@
         { "name": "topic", "dtype": "string", "nullable": false, "pk": true },
         { "name": "name", "dtype": "string", "nullable": false },
         { "name": "parent", "dtype": "string", "nullable": true, "fk": "datasets/data/topics.csv.topic" }
+      ]
+    },
+    "datasets/data/frameworks.csv": {
+      "notes": "Goal-framework register (one row per framework: UN SDG, NITI SDG India Index, ICRIER index, CHIPS, ...). The goal-catalogue overlay maps curated indicators to framework targets for a 'goals summary' view across geographies; this table carries the framework's identity + authorship so the citizen can tell a UN agreement from a think-tank index. authority_class is the honesty discriminator (Hans verdict): intergovernmental_resolution = SDG (UN GA Resolution A/RES/70/1, NON-binding, NOT a treaty); national_programme = NITI SDG India Index; think_tank_index = ICRIER/CHIPS; yen_gov_editorial = a yen-gov-authored lens. disclaimer is the one-line citizen-facing 'what this framework is / is not'. source_id FKs the defining-document citation. Targets live on goals.csv nodes, NOT here. Hans + Max verdict 2026-06-17 (see plan-doc); shape mirrors topics.csv (catalogue entity).",
+      "columns": [
+        { "name": "framework_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "name", "dtype": "string", "nullable": false },
+        { "name": "publisher", "dtype": "string", "nullable": false },
+        { "name": "authority_class", "dtype": "string", "nullable": false, "enum": ["intergovernmental_resolution", "national_programme", "think_tank_index", "yen_gov_editorial"] },
+        { "name": "disclaimer", "dtype": "string", "nullable": true },
+        { "name": "homepage_url", "dtype": "string", "nullable": true },
+        { "name": "baseline_year", "dtype": "integer", "nullable": true },
+        { "name": "horizon_year", "dtype": "integer", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/source.csv.source_id" },
+        { "name": "description", "dtype": "string", "nullable": true }
+      ]
+    },
+    "datasets/data/goals.csv": {
+      "notes": "Goal-tree nodes (parent-pointer shape, mirrors topics.csv). One row per goal / target / official-indicator node of a framework (e.g. sdg-3 goal, sdg-3.2 target, sdg-3.2.1 official-indicator). TARGETS LIVE ON THE NODE, not on the goal_indicators join (Max verdict): one numeric threshold per leaf node, so a multi-threshold UN target (U5MR<=25 + neonatal<=12) is split into official-indicator children, each carrying one number. target_scope is the honesty field (Hans verdict): national / global targets are NOT per-state legal obligations, so the renderer draws a national reference line, never a per-district pass/fail; sub_national_statutory requires a statute citation. better_direction reuses the indicator direction vocabulary (lower good for mortality) and orients the chart even when target_value is null. source_id is REQUIRED (validator-checked at Tier-B) whenever target_value is non-null - no uncited number (Holy Law #9). framework_id FKs frameworks.csv; do NOT parse the goal_id prefix. Hans + Max verdict 2026-06-17.",
+      "columns": [
+        { "name": "goal_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "framework_id", "dtype": "string", "nullable": false, "fk": "datasets/data/frameworks.csv.framework_id" },
+        { "name": "code", "dtype": "string", "nullable": true },
+        { "name": "node_kind", "dtype": "string", "nullable": false, "enum": ["goal", "target", "indicator"] },
+        { "name": "name", "dtype": "string", "nullable": false },
+        { "name": "statement", "dtype": "string", "nullable": true },
+        { "name": "parent", "dtype": "string", "nullable": true, "fk": "datasets/data/goals.csv.goal_id" },
+        { "name": "target_value", "dtype": "number", "nullable": true },
+        { "name": "target_bound", "dtype": "string", "nullable": true, "enum": ["at_most", "at_least", "exact"] },
+        { "name": "better_direction", "dtype": "string", "nullable": true, "enum": ["lower", "higher", "neutral"] },
+        { "name": "target_year", "dtype": "integer", "nullable": true },
+        { "name": "target_scope", "dtype": "string", "nullable": true, "enum": ["global", "national", "sub_national_statutory", "none"] },
+        { "name": "source_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/source.csv.source_id" },
+        { "name": "description", "dtype": "string", "nullable": true }
+      ]
+    },
+    "datasets/data/goal_indicators.csv": {
+      "notes": "M:N join: which yen-gov indicator answers which goal node (mirrors indicator_topic_tags.csv). Composite PK (goal_id, indicator_id). The mapping is yen-gov's EDITORIAL judgement, distinct from the framework's own authorship (Hans two-provenance rule): mapping_method = official_crosswalk (the framework itself names this exact indicator) vs editorial_judgement (yen-gov chose the closest honest proxy). mapping_confidence = exact / proxy / context gates target-line inheritance: only exact|official lets the indicator inherit the node's number as its reference line; proxy shows it faintly with a caveat; context shows no line (e.g. life-expectancy under sdg-3 as a whole-goal outcome). indicator_id FKs variables.csv - so a mapping CANNOT exist for an unshipped indicator (FK closure makes the overlay self-protecting; the seed only maps indicators already in variables.csv). caveat is the per-mapping citizen-facing honesty note. No source_id here - a mapping carries no published observation, exactly like indicator_topic_tags. Hans + Max verdict 2026-06-17.",
+      "columns": [
+        { "name": "goal_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/goals.csv.goal_id" },
+        { "name": "indicator_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/variables.csv.indicator_id" },
+        { "name": "mapping_method", "dtype": "string", "nullable": false, "enum": ["official_crosswalk", "editorial_judgement"] },
+        { "name": "mapping_confidence", "dtype": "string", "nullable": false, "enum": ["exact", "proxy", "context"] },
+        { "name": "caveat", "dtype": "string", "nullable": true }
       ]
     },
     "datasets/data/entities/geo.csv": {

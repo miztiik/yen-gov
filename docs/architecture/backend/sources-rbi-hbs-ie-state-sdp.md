@@ -1,8 +1,11 @@
 # sources/rbi_hbs_ie_state_sdp - RBI HBS-IE State SDP Tables
 
-**Last Updated**: 2026-05-31
+**Last Updated**: 2026-06-17
+**Status**: RETIRED (module deleted 2026-06-17). `backend/yen_gov/sources/rbi_hbs_ie_state_sdp/` was an ECI-keyed, CLI-orphaned emitter (it resolved states to ECI codes via the deleted `rbi_hbs` name-map and the doc below still describes the retired folded-JSON path). It was deleted in the rip-and-replace. The forward path for RBI state-SDP tables is a future spec in the reusable, LGD-slug-keyed [`rbi_handbook` adapter](sources-rbi-handbook.md). The historical description below is kept as a receipt.
 
-## Purpose
+---
+
+## Purpose (historical receipt)
 
 `backend/yen_gov/sources/rbi_hbs_ie_state_sdp/` ingests cached Reserve Bank of India Handbook of Statistics on Indian Economy state SDP workbooks and writes the legacy folded economy indicator artifacts through the backend artifact writer.
 

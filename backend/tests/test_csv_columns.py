@@ -45,14 +45,15 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # the artifact's own self-declared $schema points at the sibling validator.
     raw = json.loads(COLUMNS_PATH.read_text(encoding="utf-8"))
     assert raw["$schema"] == "./columns.schema.json"
+    # 2.8 bump (goal-catalogue overlay; Hans + Max verdict 2026-06-17):
+    # ADDITIVE — 3 new catalogue file-classes (datasets/data/frameworks.csv,
+    # goals.csv, goal_indicators.csv) for the SDG/NITI/ICRIER/CHIPS goal
+    # overlay. Metadata-only; no existing file-class changed.
     # 2.7 bump (TODO/20260616-geo-facet-dimension-column-plan.md): ADDITIVE —
-    # new file-class datasets/data/datapoints/geo_by_fuel/*.csv (5 cols,
-    # composite PK entity_id+time+fuel_type, fuel_type closed enum
-    # [coal,gas,hydro,nuclear,renewable,all]) for the section-21.6
-    # dimension-column branch, generalising the electoral_geo sex-facet
-    # precedent. The geo/*.csv note is rewritten (ARCH-A superseded). This
-    # assertion had been stale at "2.3" across the 2.4/2.5/2.6 additive
-    # bumps; re-pinned to the shipped version here.
+    # new file-class datasets/data/datapoints/geo_by_fuel/*.csv (fuel_type
+    # dimension column) generalising the electoral_geo sex-facet precedent.
+    # (2.4/2.5/2.6 were intervening additive bumps: electoral_geo datapoints,
+    # the party_alliances `formation` column, the candidacy affidavit cols.)
     # 2.3 bump (PR-1 of TODO/20260615-party-page-citizen-fixes-plan.md):
     # ADDITIVE — parties.csv v1.1 -> v1.2 (+3 nullable trailing cols:
     # source_id, processing_level, processing_note) per the L-4 Path A
@@ -71,7 +72,7 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # (renamed period_label -> event_id, added state, dropped short_name).
     # 1.1 bump was the prior PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md
     # (10 nullable identity-metadata columns appended to parties.csv).
-    assert raw["$schema_version"] == "2.7"
+    assert raw["$schema_version"] == "2.8"
     assert len(contract.file_classes) >= 15
 
 

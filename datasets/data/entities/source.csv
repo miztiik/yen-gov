@@ -1,6 +1,5 @@
 source_id,producer,title,vintage,url
 src-008f07366555,Wikipedia,List of Chief Ministers of Tripura,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Tripura
-src-9be18d311190,Election Commission of India,General Election to Lok Sabha 2009,2009,
 src-00d07ff222d2,Wikipedia,List of Chief Ministers of Haryana,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Haryana
 src-018bb42f9519,NITI Aayog India Climate & Energy Dashboard,Rooftop Solar Capacity (MW) State-wise API (per-state cumulative rooftop solar installed capacity),2024-25,https://icedapi.niti.gov.in/energy/renewable/solar/rooftop/state
 src-01ee3a9101c8,Wikipedia,List of Chief Ministers of Punjab,,"https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Punjab,_India"
@@ -19,16 +18,19 @@ src-071f67ad16c1,Election Commission of India,"Statistical Report on General Ele
 src-074239c7b852,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S03 AcGenMay2026,AcGenMay2026,https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx
 src-074f7c65aaea,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Sikkim, 1985",1985,
 src-07dabe765f33,Wikipedia,List of Chief Ministers of Manipur,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Manipur
+src-08bc3454c387,Election Commission of India,Form 10 Detailed Results - Maharashtra Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
 src-09023fa4b84b,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S22 AcGenMay2016,AcGenMay2016,
 src-092a5dc7af3f,Central Electricity Authority,Monthly Executive Summary — Installed Capacity (IC) sheet,2026-03,https://cea.nic.in/monthly-installed-capacity-report/
 src-0a33b06781c2,ramSeraph (Bhuvan mirror),Bhuvan J&K Villages (Census-2011 cadastre),2011-census,https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/villages
 src-0a4cbc2df833,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S17 AcGenFeb2018,AcGenFeb2018,
 src-0c04cb845d7e,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S13 AcGenNov2024,AcGenNov2024,https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx
 src-0c15367b3cab,Wikipedia,United Progressive Alliance - coalition members at the 2019 Lok Sabha general election,2019-05,https://en.wikipedia.org/wiki/United_Progressive_Alliance
+src-0c1b8f274551,Election Commission of India,Indian Assembly Elections - Constituency-wise candidate results,2026-06-05,https://tcpd.ashoka.edu.in/lok-dhaba/
 src-0e8c48e664a9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of West Bengal, 2011",2011,
 src-0ea63ed47704,NITI Aayog India Climate & Energy Dashboard,"Distribution RPO Compliance API (state-wise Renewable Purchase Obligation compliance, by segment)",2024-25,https://icedapi.niti.gov.in/energy/electricity/distribution/rpo
 src-0ebe2677f04a,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Kerala, 1982",1982,
 src-0f333e5073e3,President's Secretariat,Former Presidents of India,Page Last Updated on: 2026-06-09,https://presidentofindia.nic.in/former-presidents.htm
+src-103ab49e8c93,Election Commission of India,Form 10 Detailed Results - Bihar Legislative Assembly Election 2025,2026-06-14,https://results.eci.gov.in/
 src-1048ce25cf5f,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Haryana, 1987",1987,
 src-111d478574b6,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Madhya Pradesh, 1985",1985,
 src-115a1d3b069c,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Nagaland, 2008",2008,
@@ -38,6 +40,7 @@ src-1236b90051ad,Election Commission of India,Statistical Report Section 10 (Det
 src-1240f07df0ac,NITI Aayog India Climate & Energy Dashboard,"Capacity Metatable API (state-wise installed capacity, by fuel)",2024-25,https://iced.niti.gov.in/energy/electricity/generation/capacity/state-wise
 src-12feeb60dda8,Wikipedia,2021 Kerala Legislative Assembly election,2021-04,https://en.wikipedia.org/wiki/2021_Kerala_Legislative_Assembly_election
 src-135c304564fd,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Puducherry, 1980",1980,
+src-13b150734773,Election Commission of India,"Bye-Elections, July to Dec, 2024 - Karnataka Channapatna Assembly Constituency",2024-11-23,https://old.eci.gov.in/files/file/15622-bye-elections-july-to-dec-2024/
 src-1401f8087b0d,NITI Aayog India Climate & Energy Dashboard,"State Power Purchase Quantum and Cost API (state-wise procurement-mix share by source, fiscal-year, 12 source buckets)",2024-25,https://icedapi.niti.gov.in/statelevel-power-purchase-quantum-and-cost
 src-14034d356246,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of NCT of Delhi, 2015",2015,
 src-1406dd37dd20,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S05 AcGenFeb2022,AcGenFeb2022,
@@ -55,12 +58,12 @@ src-1a8a6f710f23,NITI Aayog India Climate & Energy Dashboard,"Key Economic Indic
 src-1ab4290c6901,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Maharashtra, 1980",1980,
 src-1af4a6a43fd6,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Punjab, 2012",2012,
 src-1b31fb6cca29,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Punjab, 1997",1997,
-src-0c1b8f274551,Election Commission of India,Indian Assembly Elections - Constituency-wise candidate results,2026-06-05,https://tcpd.ashoka.edu.in/lok-dhaba/
 src-1bde6be308c3,Wikipedia,2021 Tamil Nadu Legislative Assembly election,2021-04,https://en.wikipedia.org/wiki/2021_Tamil_Nadu_Legislative_Assembly_election
 src-1c246730d3bf,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Odisha, 1990",1990,
 src-1c99e08d06f6,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Puducherry, 2011",2011,
 src-1d0c0fbf96e3,"Department of Animal Husbandry & Dairying, Ministry of Fisheries, Animal Husbandry & Dairying, Government of India",Bharat Pashudhan — NADCP Vaccination Coverage (district-wise),2024-25,https://bharatpashudhan.gov.in/
 src-1d2f2cd20bea,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Haryana, 1996",1996,
+src-1d351b242eac,Election Commission of India,Form 10 Detailed Results - Andhra Pradesh Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
 src-1f51c8d742bf,Reserve Bank of India,"Handbook of Statistics on Indian States, Table 143 (State-wise grid-connected renewable installed capacity, MW, end-March snapshot)",2024-25,https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=22833
 src-1ff7577f66bf,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Bihar, 1985",1985,
 src-2067d9d88f92,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Odisha, 1974",1974,
@@ -93,7 +96,6 @@ src-2fbfb9f483a0,Election Commission of India,"Statistical Report on General Ele
 src-2fc8ad08c280,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Rajasthan, 1985",1985,
 src-308d70821d95,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Goa, 1994",1994,
 src-3155ffeddf80,NITI Aayog India Climate & Energy Dashboard,"State-wise Deep Dive — Population (lakhs) by State, fiscal-year",2024-25,https://iced.niti.gov.in/analytics/state-wise-deep-dive
-src-d4b15132ad0e,Election Commission of India,Indian General Elections (Lok Sabha) - Constituency-wise candidate results,2026-06-05,https://tcpd.ashoka.edu.in/lok-dhaba/
 src-31d879923e61,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Arunachal Pradesh, 1980",1980,
 src-324392501ae9,Reserve Bank of India,"Handbook of Statistics on Indian States 2024-25, Tables 108-111 (State-wise Average CPI Inflation: General, Food and Beverages, Fuel and Light, Housing-Urban)",2024-25,https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+States
 src-33ba3556a8f4,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Kerala, 1980",1980,
@@ -197,6 +199,7 @@ src-6215471dcc6d,Election Commission of India,"Statistical Report on General Ele
 src-62ad755d363e,Wikipedia,List of political parties in India + per-party infoboxes (operator-committed 2026-06 snapshot),2026-06,https://en.wikipedia.org/wiki/List_of_political_parties_in_India
 src-62ae71639079,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Arunachal Pradesh, 2019",2019,
 src-62c198f8f7f2,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Manipur, 1980",1980,
+src-62cfd76b1e59,Election Commission of India,Form 10 Detailed Results - Chhattisgarh Legislative Assembly Election 2023,2026-06-14,https://results.eci.gov.in/
 src-6308bd3d63d5,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Kerala, 1996",1996,
 src-631faac30c7d,Wikimedia Foundation,Wikidata Query Service party leadership snapshot (P488 chairperson + P3975 secretary general + P39 role qualifier + P580 / P582 term bounds),continuous,https://query.wikidata.org/sparql
 src-64ddaa273372,Wikipedia,List of Chief Ministers of Uttarakhand,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Uttarakhand
@@ -212,6 +215,7 @@ src-6be1c4cb7a81,Wikipedia,2019 Maharashtra Legislative Assembly election,2019-1
 src-6c33137ae640,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of NCT of Delhi, 1998",1998,
 src-6d8e0cb444b5,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Jharkhand, 2009",2009,
 src-6e6cad8b2a5a,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Madhya Pradesh, 2003",2003,
+src-6e952de88bcd,Election Commission of India,General Election to Lok Sabha 2004,2004,
 src-6f664e14e065,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S07 AcGenOct2019,AcGenOct2019,
 src-6fd9fd4654a9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of West Bengal, 1991",1991,
 src-7011f3395a15,Election Commission of India,General Election to Lok Sabha 1989 — Constituency-wise candidate results (TCPD compilation of ECI returns),1989,
@@ -254,18 +258,23 @@ src-81f99a4321ae,Election Commission of India,Statistical Report Section 10 (Det
 src-8412f0292338,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of NCT of Delhi, 2008",2008,
 src-841460ac0eb1,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 1998",1998,
 src-8444a948b2a8,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of West Bengal, 2021",2021,
+src-84efcb6e2cc4,Election Commission of India,General Election to Lok Sabha 1999,1999,
 src-857e962f15f5,NITI Aayog India Climate & Energy Dashboard,Climate-Environment GHG Emissions API — India economy-wide GHG by sector (Gg CO2e),2024-25,https://icedapi.niti.gov.in/climate-environment/ghg-emissions/economy-wide-emission
+src-85c74b162cce,Election Commission of India,General Election to Lok Sabha 2014,2014,
 src-861d0a089c96,Wikipedia,2022 Uttar Pradesh Legislative Assembly election,2022-03,https://en.wikipedia.org/wiki/2022_Uttar_Pradesh_Legislative_Assembly_election
 src-86f97d85cdc9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Meghalaya, 1983",1983,
 src-876bf921c339,Election Commission of India,Statistical Report Section 10 (Detailed Results) — U05 AcGenFeb2025,AcGenFeb2025,
 src-878a615fb32b,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S06 AcGenDec2017,AcGenDec2017,
 src-8800ca7de63c,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Puducherry, 1985",1985,
 src-8856245451c1,Wikipedia,List of Chief Ministers of Meghalaya,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Meghalaya
+src-88592ed2f5c9,Election Commission of India,Form 10 Detailed Results - Madhya Pradesh Legislative Assembly Election 2023,2026-06-14,https://results.eci.gov.in/
 src-88c6bccce8b6,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Karnataka, 1983",1983,
 src-88c9b6d1f06e,Wikipedia,List of Chief Ministers of Assam,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Assam
 src-893fdee64357,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Goa, 2007",2007,
 src-89ccba42f243,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Manipur, 2007",2007,
+src-8a560c291430,Election Commission of India,Form 10 Detailed Results - Jammu and Kashmir (UT) Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
 src-8b743f01b7a6,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Madhya Pradesh, 1990",1990,
+src-8beec592f488,Election Commission of India,General Election to Lok Sabha 2019,2019,
 src-8bffee808ea8,Wikipedia,List of Chief Ministers of Andhra Pradesh,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Andhra_Pradesh
 src-8d139f840009,"Department of Posts, Government of India",All India Pincode Directory,2025,https://www.data.gov.in/resource/all-india-pincode-directory-till-last-month
 src-8dcd54ec3033,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Karnataka, 2008",2008,
@@ -287,20 +296,24 @@ src-953e9d223ef8,Election Commission of India,"Statistical Report on General Ele
 src-9550572f6944,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S07 AcGenOct2024,AcGenOct2024,https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx
 src-955b91b8705e,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Karnataka, 1994",1994,
 src-96c4dc2f932f,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Arunachal Pradesh, 1978",1978,
+src-96c590e2ccdc,Election Commission of India,Form 10 Detailed Results - Sikkim Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
 src-97a3c47d092f,Reserve Bank of India,Handbook of Statistics on Indian States — Table 139: State-wise Availability of Power,2024-25,https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512
 src-980ece2fb2f9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tamil Nadu, 2016",2016,
 src-98d6c0d9d447,"Vice President Office, Government of India",Former Vice Presidents,Last Updated: 20 May 2026,https://vicepresidentofindia.nic.in/former-vice-presidents/
 src-98ee4fb27493,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tamil Nadu, 1989",1989,
+src-99455a24d3c4,"Office of the Chief Electoral Officer, Tamil Nadu",Tamil Nadu Electoral Roll - AC-wise Electors by Sex,2021,https://www.elections.tn.gov.in/
 src-99ac1fee8a50,Reserve Bank of India,Handbook of Statistics on Indian States — Table 142: State-wise Actual Power Supply Position — Peak Demand,2024-25,https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512
 src-99bc11843e59,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Kerala, 2001",2001,
 src-9a38005d8713,Reserve Bank of India,Handbook of Statistics on Indian States — Table 138: State-wise Per Capita Availability of Power,2024-25,https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512
 src-9a7170afbd7e,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S22 AcGenApr2021,AcGenApr2021,
 src-9a7ab5d78c07,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Arunachal Pradesh, 1984",1984,
 src-9a9902894a2d,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Kerala, 2011",2011,
+src-9ae32d88e17c,United Nations,Transforming our world: the 2030 Agenda for Sustainable Development (A/RES/70/1),2015,https://sdgs.un.org/2030agenda
 src-9aed9d2769f8,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S02 AcGenJun2024,AcGenJun2024,https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/10-Detailed-Results.xlsx
 src-9b0bb5164d79,Election Commission of India,Statistical Report Section 10 (Detailed Results) — U07 AcGenMay2026,AcGenMay2026,https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseU0713.htm
 src-9b5e6000aa23,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Odisha, 1980",1980,
 src-9ba519679009,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Nagaland, 1993",1993,
+src-9be18d311190,Election Commission of India,General Election to Lok Sabha 2009,2009,
 src-9c02616a7166,Reserve Bank of India,Handbook of Statistics on Indian States — Table 142: State-wise Actual Power Supply Position — Peak Met,2024-25,https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512
 src-9c3af42cecda,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S11 AcGenMay2016,AcGenMay2016,
 src-9cb115100603,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Chhattisgarh, 2008",2008,
@@ -318,7 +331,9 @@ src-a03d4508323d,Wikipedia,List of Chief Ministers of Puducherry,,https://en.wik
 src-a0def80f7558,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Madhya Pradesh, 1977",1977,
 src-a1279a1e23c6,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Sikkim, 1999",1999,
 src-a1dd899f902d,ramSeraph,Indian Admin Boundaries (LGD-keyed),lgd-latest-extra1,https://github.com/ramSeraph/indian_admin_boundaries
+src-a1e4a02f2b5d,Election Commission of India,Form 10 Detailed Results - Mizoram Legislative Assembly Election 2023,2026-06-14,https://results.eci.gov.in/
 src-a1fd482c2f5b,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Karnataka, 1985",1985,
+src-a23a6eabcb11,Election Commission of India,Form 10 Detailed Results - Telangana Legislative Assembly Election 2023,2026-06-14,https://results.eci.gov.in/
 src-a2c894c590c3,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Telangana, 2014",2014,
 src-a3859a5a6fab,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Odisha, 1977",1977,
 src-a3ddaf4f0c9e,Wikipedia,National Democratic Alliance (India) - coalition members at the 2019 Lok Sabha general election,2019-05,https://en.wikipedia.org/wiki/National_Democratic_Alliance
@@ -355,7 +370,6 @@ src-b0e345f8906c,Rajya Sabha Secretariat (Government of India),"Rajya Sabha Sess
 src-b152d3829185,IndiaVotes,Rajasthan Vidhan Sabha 2023,2023-11,https://www.indiavotes.com/vidhan-sabha/rajasthan/2023
 src-b186201797e9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Telangana, 2018",2018,
 src-b222d76f33c1,NITI Aayog India Climate & Energy Dashboard,"State-wise Deep Dive API — Sectoral GVA (state, INR crore, current + constant prices)",2024-25,https://iced.niti.gov.in/analytics/state-wise-deep-dive
-src-8beec592f488,Election Commission of India,General Election to Lok Sabha 2019,2019,
 src-b2eeb28b5a24,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Manipur, 1990",1990,
 src-b34454befb7d,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 1967",1967,
 src-b353edd3cdf7,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S12 AcGenNov2023,AcGenNov2023,https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx
@@ -381,6 +395,7 @@ src-bbb00e489d24,Election Commission of India,"Statistical Report on General Ele
 src-bbb1962ef943,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Arunachal Pradesh, 1995",1995,
 src-bc1c6cb7e993,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Odisha, 2009",2009,
 src-bca3c60cdafb,Wikipedia,2026 Tamil Nadu Legislative Assembly election,2026-05,https://en.wikipedia.org/wiki/2026_Tamil_Nadu_Legislative_Assembly_election
+src-bd02525a61d2,Election Commission of India,Form 10 Detailed Results - Haryana Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
 src-bdc330ee39f2,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Punjab, 1980",1980,
 src-bdcfe935f24b,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Uttar Pradesh, 1985",1985,
 src-bdf8cace4996,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S20 AcGenNov2023,AcGenNov2023,
@@ -393,7 +408,7 @@ src-bfb4e7fb9785,Election Commission of India,General Election to Lok Sabha 2024
 src-c03df2072e66,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Odisha, 2000",2000,
 src-c222a8e2cd61,NITI Aayog India Climate & Energy Dashboard,"Coal Consumption (Domestic) State-wise API (per-state fiscal-year coal consumption, by grade)",2024-25,https://icedapi.niti.gov.in/energy/fuel-sources/coal/consumption-domestic-state
 src-c385c8c3345a,Wikipedia,List of Chief Ministers of Mizoram,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Mizoram
-src-84efcb6e2cc4,Election Commission of India,General Election to Lok Sabha 1999,1999,
+src-c63abce8f3ac,Election Commission of India,Form 10 Detailed Results - Arunachal Pradesh Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
 src-c8f80c7da161,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S17 AcGenFeb2023,AcGenFeb2023,
 src-c968d22ee290,Wikipedia,List of Chief Ministers of Himachal Pradesh,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Himachal_Pradesh
 src-ca6603af28eb,DataMeet India Maps Project,datameet/maps Admin2 boundary bundle,,https://github.com/datameet/maps
@@ -403,14 +418,16 @@ src-cba8334fedc5,NITI Aayog India Climate & Energy Dashboard,"Oil Product Consum
 src-cbafd828698c,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Karnataka, 2004",2004,
 src-cbd0cce08734,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Maharashtra, 1985",1985,
 src-cc4613f255cb,Wikipedia,List of Chief Ministers of Arunachal Pradesh,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Arunachal_Pradesh
-src-85c74b162cce,Election Commission of India,General Election to Lok Sabha 2014,2014,
 src-cfea7c9e8ffd,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Bihar, 2015",2015,
 src-d032a31fc06c,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 1995",1995,
+src-d0f07b935a17,Election Commission of India,Form 10 Detailed Results - NCT of Delhi Legislative Assembly Election 2025,2026-06-14,https://results.eci.gov.in/
 src-d3f934ea3334,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Meghalaya, 1988",1988,
 src-d46bfea67787,Wikipedia,List of Chief Ministers of Jharkhand,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Jharkhand
+src-d4b15132ad0e,Election Commission of India,Indian General Elections (Lok Sabha) - Constituency-wise candidate results,2026-06-05,https://tcpd.ashoka.edu.in/lok-dhaba/
 src-d5163ef3d822,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Bihar, 1977",1977,
 src-d58450b62404,DataMeet India Maps Project,datameet/maps Admin2 boundary bundle,operator-snapshot-2026-05,https://github.com/datameet/maps
 src-d5fb5fb008fc,Wikipedia,2020 Bihar Legislative Assembly election,2020-11,https://en.wikipedia.org/wiki/2020_Bihar_Legislative_Assembly_election
+src-d5fd53f4548f,Election Commission of India,Form 10 Detailed Results - Jharkhand Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
 src-d6182f5de7f8,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 1985",1985,
 src-d623fb55f089,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of NCT of Delhi, 1977",1977,
 src-d72503dc3f96,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Uttar Pradesh, 1993",1993,
@@ -439,6 +456,8 @@ src-e51be8a1d3fe,Election Commission of India,"Statistical Report on General Ele
 src-e54f471501ac,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Chhattisgarh, 2003",2003,
 src-e75a1bafaff0,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Sikkim, 2004",2004,
 src-e7e597f4e81b,Wikipedia,List of Chief Ministers of Odisha,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Odisha
+src-e8594bcba166,yen-gov,Per-event election summary aggregate (event_summary.csv),2026-06-15,https://github.com/miztiik/yen-gov/blob/main/datasets/data/marts/elections/event_summary.csv
+src-e9565084cbd1,Association for Democratic Reforms (ADR / MyNeta),Lok Sabha 2014 Winners — Affidavit Analysis (MyNeta),2014,https://myneta.info/ls2014/
 src-e9ddf700849d,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tripura, 1998",1998,
 src-ea20b374916b,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Meghalaya, 2013",2013,
 src-ebf510d59dea,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Punjab, 1977",1977,
@@ -461,7 +480,7 @@ src-f4d9506c4aec,Election Commission of India,"Statistical Report on General Ele
 src-f4e05ebbff66,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Puducherry, 2001",2001,
 src-f5fa33ba82de,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Chhattisgarh, 2013",2013,
 src-f7ce9960caba,Reserve Bank of India,Handbook of Statistics on Indian States — Table 141: State-wise Power Requirement,2024-25,https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512
-src-6e952de88bcd,Election Commission of India,General Election to Lok Sabha 2004,2004,
+src-f91235d7f46a,Election Commission of India,Form 10 Detailed Results - Odisha Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
 src-f93a139da605,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Manipur, 2002",2002,
 src-f9f6b95cf429,Election Commission of India,Press Note - Daily Enforcement Seizures during 17th Lok Sabha General Election (MCC),2019,
 src-fa1aba648c1e,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S25 AcGenMay2026,AcGenMay2026,https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx
@@ -479,21 +498,3 @@ src-feaa0f5df7fd,Wikipedia,List of Chief Ministers of Uttar Pradesh,,https://en.
 src-ff0e2853d3c7,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Rajasthan, 1993",1993,
 src-ff4d01017475,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S18 AcGenJun2024,AcGenJun2024,https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx
 src-ff8f98360b1b,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Assam, 2001",2001,
-src-103ab49e8c93,Election Commission of India,Form 10 Detailed Results - Bihar Legislative Assembly Election 2025,2026-06-14,https://results.eci.gov.in/
-src-d0f07b935a17,Election Commission of India,Form 10 Detailed Results - NCT of Delhi Legislative Assembly Election 2025,2026-06-14,https://results.eci.gov.in/
-src-d5fd53f4548f,Election Commission of India,Form 10 Detailed Results - Jharkhand Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
-src-bd02525a61d2,Election Commission of India,Form 10 Detailed Results - Haryana Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
-src-f91235d7f46a,Election Commission of India,Form 10 Detailed Results - Odisha Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
-src-1d351b242eac,Election Commission of India,Form 10 Detailed Results - Andhra Pradesh Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
-src-c63abce8f3ac,Election Commission of India,Form 10 Detailed Results - Arunachal Pradesh Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
-src-96c590e2ccdc,Election Commission of India,Form 10 Detailed Results - Sikkim Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
-src-a23a6eabcb11,Election Commission of India,Form 10 Detailed Results - Telangana Legislative Assembly Election 2023,2026-06-14,https://results.eci.gov.in/
-src-88592ed2f5c9,Election Commission of India,Form 10 Detailed Results - Madhya Pradesh Legislative Assembly Election 2023,2026-06-14,https://results.eci.gov.in/
-src-a1e4a02f2b5d,Election Commission of India,Form 10 Detailed Results - Mizoram Legislative Assembly Election 2023,2026-06-14,https://results.eci.gov.in/
-src-62cfd76b1e59,Election Commission of India,Form 10 Detailed Results - Chhattisgarh Legislative Assembly Election 2023,2026-06-14,https://results.eci.gov.in/
-src-8a560c291430,Election Commission of India,Form 10 Detailed Results - Jammu and Kashmir (UT) Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
-src-13b150734773,Election Commission of India,"Bye-Elections, July to Dec, 2024 - Karnataka Channapatna Assembly Constituency",2024-11-23,https://old.eci.gov.in/files/file/15622-bye-elections-july-to-dec-2024/
-src-e8594bcba166,yen-gov,Per-event election summary aggregate (event_summary.csv),2026-06-15,https://github.com/miztiik/yen-gov/blob/main/datasets/data/marts/elections/event_summary.csv
-src-08bc3454c387,Election Commission of India,Form 10 Detailed Results - Maharashtra Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/
-src-99455a24d3c4,"Office of the Chief Electoral Officer, Tamil Nadu",Tamil Nadu Electoral Roll - AC-wise Electors by Sex,2021,https://www.elections.tn.gov.in/
-src-e9565084cbd1,Association for Democratic Reforms (ADR / MyNeta),Lok Sabha 2014 Winners — Affidavit Analysis (MyNeta),2014,https://myneta.info/ls2014/
