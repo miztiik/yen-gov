@@ -87,6 +87,8 @@
   import StateEventPartyComposite from "../lib/elections/StateEventPartyComposite.svelte";
   import SiblingEventsRail from "../lib/elections/SiblingEventsRail.svelte";
   import StateEventCrossEventSankey from "../lib/elections/StateEventCrossEventSankey.svelte";
+  import ParliamentArc from "../lib/ParliamentArc.svelte";
+  import type { PartyResult } from "../lib/psephlab/types";
   import RacesBoard from "../lib/RacesBoard.svelte";
   import StateEventAllParties from "../lib/elections/StateEventAllParties.svelte";
   import { buildSiblingEventsRail } from "../lib/elections/sibling-events-rail-model";
@@ -255,6 +257,21 @@
       turnout_pct: turn_known > 0 ? turn_sum / turn_known : null,
     };
   });
+
+  /** Average per-seat turnout over a winners array - the same method the
+   *  KPI uses, so a fallback delta stays comparable to the displayed
+   *  hero turnout. Returns null when no seat carries a turnout figure. */
+  function avgTurnout(rows: readonly ElectionResultRow[]): number | null {
+    let sum = 0;
+    let n = 0;
+    for (const w of rows) {
+      if (w.turnout_pct != null) {
+        sum += w.turnout_pct;
+        n++;
+      }
+    }
+    return n > 0 ? sum / n : null;
+  }
 
   // ---- Palette ---------------------------------------------------------
   function partyIdFor(w: {
@@ -632,6 +649,33 @@
   );
   const hidden_pids = $derived(hiddenPidSet(hidden_parties, key_to_pid));
 
+  // Shared mute toggle for surfaces that aren't the bound PartyComposite
+  // (the seat semicircle). Same key space (`party_eci_code ?? party_short`)
+  // so muting in any surface recedes the party everywhere.
+  function toggleHidden(key: string): void {
+    const next = new Set(hidden_parties);
+    if (next.has(key)) next.delete(key);
+    else next.add(key);
+    hidden_parties = next;
+  }
+
+  // Seat-arc input: every party with seats, in the psephlab PartyResult
+  // shape ParliamentArc consumes. `party_eci_code` falls back to the short
+  // name so the arc's mute key matches the hidden_parties key space.
+  const arc_parties = $derived<PartyResult[]>(
+    all_parties.map((p) => ({
+      party_eci_code: p.party_eci_code ?? p.party_short,
+      party_short: p.party_short,
+      seats_won: p.seats_won,
+      votes: p.votes,
+      vote_share_pct: p.vote_share_pct,
+      party_id: p.party_id ?? `parties.IN.${p.party_short.toUpperCase()}`,
+      brand_colour_hex: p.brand_colour_hex,
+      brand_colour_confidence: p.brand_colour_confidence,
+      election_symbol_asset_path: p.symbol_asset_path,
+    })),
+  );
+
   // Per-AC override map (keyed by eci_no): muted-party cells recede.
   // The base Winner|Margin shim above already paints non-muted cells;
   // these overrides ONLY recede when a party is muted.
@@ -925,25 +969,49 @@
     const prev = previous_same_body;
     const ev = event_row;
     if (!ev || !prev) return { turnout_pp: null, prev_event_label: null };
-    const current_row = event_summary_by_id.get(ev.event_id);
-    const prev_row = event_summary_by_id.get(prev.event_id);
-    if (!current_row || !prev_row) {
-      return { turnout_pp: null, prev_event_label: null };
-    }
-    if (current_row.turnout_pct == null || prev_row.turnout_pct == null) {
-      return { turnout_pp: null, prev_event_label: null };
-    }
-    const pp = current_row.turnout_pct - prev_row.turnout_pct;
-    // Compact label: "Assembly 2019" rather than the full catalogue
-    // display string "Maharashtra Assembly 2019" since the citizen
-    // is already on the Maharashtra page.
     const kind_pretty = prev.kind === "parliament" ? "Parliament" : "Assembly";
     const year_match = /(\d{4})/.exec(prev.event_id);
     const year = year_match ? year_match[1] : prev.event_id;
-    return {
-      turnout_pp: pp,
-      prev_event_label: `${kind_pretty} ${year}`,
-    };
+    const prev_label = `${kind_pretty} ${year}`;
+
+    // Primary path: the event_summary mart (one row per event_id, plus a
+    // per-state row for Assembly events).
+    const current_row = event_summary_by_id.get(ev.event_id);
+    const prev_row = event_summary_by_id.get(prev.event_id);
+    if (
+      current_row &&
+      prev_row &&
+      current_row.turnout_pct != null &&
+      prev_row.turnout_pct != null
+    ) {
+      return {
+        turnout_pp: current_row.turnout_pct - prev_row.turnout_pct,
+        prev_event_label: prev_label,
+      };
+    }
+
+    // Fallback for state PARLIAMENT events: the mart carries national-scope
+    // parliament rows only (state_code=""), so the per-state row is absent
+    // and the primary path yields null. Derive the delta straight from the
+    // loaded winners - current = the hero turnout KPI, previous = the
+    // same average-of-per-seat-turnout over the already-loaded prior event
+    // winners (loaded for the seat-flow Sankey).
+    const prev_res = prev_winners_result;
+    if (
+      kpis.turnout_pct != null &&
+      prev_res &&
+      (prev_res.status === "ok" || prev_res.status === "partial")
+    ) {
+      const prev_turnout = avgTurnout(prev_res.data);
+      if (prev_turnout != null) {
+        return {
+          turnout_pp: kpis.turnout_pct - prev_turnout,
+          prev_event_label: prev_label,
+        };
+      }
+    }
+
+    return { turnout_pp: null, prev_event_label: null };
   });
 
   // ---- R5 (TODO/20260615-state-election-event-page-redesign-plan.md):
@@ -1217,6 +1285,21 @@
         total_seats={kpis.total_seats}
         bind:hidden_parties
       />
+
+      <!-- Seat semicircle (#10): one dot per seat, coloured by winning
+           party, majority midline + symbol-ring legend. Shares
+           hidden_parties so muting a party recedes its seats here too. -->
+      {#if arc_parties.length > 0 && kpis.total_seats > 0}
+        <section class="space-y-2" data-testid="state-event-seat-arc">
+          <h2 class="text-sm font-medium text-slate-700">Seats won</h2>
+          <ParliamentArc
+            parties={arc_parties}
+            total_seats={kpis.total_seats}
+            {hidden_parties}
+            onToggleHidden={toggleHidden}
+          />
+        </section>
+      {/if}
 
       <!-- Alliance totals -->
       <AllianceTotals
