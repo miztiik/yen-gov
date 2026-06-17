@@ -15,6 +15,7 @@ from yen_gov.canonical.fuel_facet_consolidation import (
     ALL_FUEL_FACETED_FAMILIES,
     GENERATION_FAMILIES,
     INSTALLED_CAPACITY_FAMILIES,
+    RETIRED_FAMILIES,
     FuelFamilySpec,
     consolidate_family_rows,
     write_faceted_family,
@@ -130,10 +131,9 @@ def test_generation_family_is_registered_with_all_member():
     assert [fuel for fuel, _ in gen.children] == [
         "coal", "gas", "hydro", "nuclear", "renewable",
     ]
-    # The combined registry the CLI iterates is capacity + generation.
-    assert set(ALL_FUEL_FACETED_FAMILIES) == set(
-        INSTALLED_CAPACITY_FAMILIES + GENERATION_FAMILIES
-    )
+    # Generation is one of the families the combined registry materialises.
+    assert set(GENERATION_FAMILIES) <= set(ALL_FUEL_FACETED_FAMILIES)
+    assert set(INSTALLED_CAPACITY_FAMILIES) <= set(ALL_FUEL_FACETED_FAMILIES)
 
 
 def test_generation_consolidation_folds_parent_into_all(tmp_path):
@@ -149,3 +149,26 @@ def test_generation_consolidation_folds_parent_into_all(tmp_path):
     rows = consolidate_family_rows(tmp_path, spec)
     by_fuel = {r["fuel_type"]: r["value"] for r in rows}
     assert by_fuel == {"all": "1500", "coal": "1000", "renewable": "500"}
+
+
+def test_retired_family_is_registered_without_all_member():
+    # D2: national thermal capacity retired by fuel; no parent total -> no `all`.
+    assert len(RETIRED_FAMILIES) == 1
+    ret = RETIRED_FAMILIES[0]
+    assert ret.parent_id == "india-thermal-capacity-retired-mw"
+    assert ret.has_all_member is False
+    assert [fuel for fuel, _ in ret.children] == ["coal", "gas"]
+    # The combined registry the CLI iterates is capacity + generation + retired.
+    assert set(ALL_FUEL_FACETED_FAMILIES) == set(
+        INSTALLED_CAPACITY_FAMILIES + GENERATION_FAMILIES + RETIRED_FAMILIES
+    )
+
+
+def test_retired_consolidation_has_no_all_member(tmp_path):
+    geo = _geo(tmp_path)
+    _write_geo(geo / "india-thermal-capacity-retired-mw-coal.csv", [("IN", "2020", "800", "src-r")])
+    _write_geo(geo / "india-thermal-capacity-retired-mw-gas.csv", [("IN", "2020", "120", "src-r")])
+    rows = consolidate_family_rows(tmp_path, RETIRED_FAMILIES[0])
+    by_fuel = {r["fuel_type"]: r["value"] for r in rows}
+    assert by_fuel == {"coal": "800", "gas": "120"}
+    assert "all" not in by_fuel
