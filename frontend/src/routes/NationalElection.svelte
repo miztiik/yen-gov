@@ -73,8 +73,12 @@
   import { slugify } from "../lib/slug";
   import { aliasPcSlugUid } from "../lib/elections/pc-slug-alias";
   import PartyBar from "../lib/PartyBar.svelte";
+  import ParliamentArc from "../lib/ParliamentArc.svelte";
+  import type { PartyResult } from "../lib/psephlab/types";
   import type { PartyTotals } from "../lib/data";
   import PageContainer from "../lib/layout/PageContainer.svelte";
+  import TopicIcon from "../lib/TopicIcon.svelte";
+  import { rampHue } from "../lib/colors/palettes";
   import {
     buildPartyKeyToPid,
     hiddenPidSet,
@@ -82,6 +86,12 @@
   } from "../lib/charts/india-pc-map-helpers";
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
   import ElectionSeizuresCard from "../lib/elections/ElectionSeizuresCard.svelte";
+  import StateEventCrossEventSankey from "../lib/elections/StateEventCrossEventSankey.svelte";
+  import type { PrevWinnersState } from "../lib/elections/seat-flow-model";
+  import {
+    loadEventSummary,
+    type EventSummaryRow,
+  } from "../lib/elections/event-summary-loader";
 
   // Events that have an MCC-period seizures CSV ingested under
   // `datasets/elections/parliament/election=<year>/mcc_seizures.csv`.
@@ -119,6 +129,112 @@
     result.status === "partial" ||
       (result.status === "ok" && winners.length === 0),
   );
+
+  // ---- Sibling parliament events (prev/next nav + turnout delta) ------
+  // One read of the event_summary mart powers the year-chip rail at the
+  // top of the page AND the turnout gain/loss pill in the KPI strip. The
+  // national-scope rows (scope='national', state_code=null) carry one row
+  // per Parliament event with its event-scope turnout_pct + polled_on.
+  let national_events = $state<EventSummaryRow[]>([]);
+  $effect(() => {
+    loadEventSummary()
+      .then((rows) => {
+        national_events = rows
+          .filter(
+            (r) =>
+              r.scope === "national" &&
+              r.kind === "parliament" &&
+              r.state_code == null,
+          )
+          .sort((a, b) => a.polled_on.localeCompare(b.polled_on));
+      })
+      .catch(() => (national_events = []));
+  });
+
+  function eventYearLabel(event_id: string): string {
+    const m = /(\d{4})/.exec(event_id);
+    return m ? m[1] : event_id;
+  }
+
+  // Prev/next year-chip rail rows (ascending, current highlighted).
+  interface SiblingChip {
+    event_id: string;
+    year_label: string;
+    href: string;
+    is_current: boolean;
+  }
+  const sibling_chips = $derived<SiblingChip[]>(
+    national_events.map((r) => ({
+      event_id: r.event_id,
+      year_label: eventYearLabel(r.event_id),
+      href: link.nationalElection(r.event_id),
+      is_current: r.event_id === event,
+    })),
+  );
+
+  // Turnout gain/loss vs the immediately-prior Parliament election.
+  interface TurnoutDelta {
+    turnout_pp: number | null;
+    prev_event_label: string | null;
+  }
+  const turnout_delta = $derived.by<TurnoutDelta | null>(() => {
+    const idx = national_events.findIndex((r) => r.event_id === event);
+    if (idx <= 0) return null;
+    const cur = national_events[idx];
+    const prev = national_events[idx - 1];
+    if (cur.turnout_pct == null || prev.turnout_pct == null) return null;
+    return {
+      turnout_pp: cur.turnout_pct - prev.turnout_pct,
+      prev_event_label: `Parliament ${eventYearLabel(prev.event_id)}`,
+    };
+  });
+
+  // ---- Previous-event winners for the seat-flow Sankey (#13) ----------
+  // Load the immediately-prior Parliament event's per-PC winners so the
+  // cross-event seat-flow diagram (holds / flips) renders on the national
+  // surface too, not just per-state. Joined on entity_id inside the
+  // shared StateEventCrossEventSankey component.
+  let prev_winners_state = $state<PrevWinnersState>({ status: "loading" });
+  const prev_event_label = $derived.by<string | null>(() => {
+    const idx = national_events.findIndex((r) => r.event_id === event);
+    if (idx <= 0) return null;
+    return `Parliament ${eventYearLabel(national_events[idx - 1].event_id)}`;
+  });
+  $effect(() => {
+    const ev = event;
+    const evts = national_events;
+    if (evts.length === 0) {
+      prev_winners_state = { status: "loading" };
+      return;
+    }
+    const idx = evts.findIndex((r) => r.event_id === ev);
+    if (idx < 0) {
+      prev_winners_state = { status: "loading" };
+      return;
+    }
+    if (idx === 0) {
+      prev_winners_state = { status: "no_prior" };
+      return;
+    }
+    const prevId = evts[idx - 1].event_id;
+    prev_winners_state = { status: "loading" };
+    loadElectionResults({ event: prevId })
+      .then((r) => {
+        if (ev !== event) return;
+        if (r.status === "ok" || r.status === "partial") {
+          prev_winners_state = { status: "ok", rows: r.data };
+        } else {
+          prev_winners_state = {
+            status: "failed",
+            reason: r.status === "failed" ? r.reason : "no data",
+          };
+        }
+      })
+      .catch((e) => {
+        if (ev === event)
+          prev_winners_state = { status: "failed", reason: String(e) };
+      });
+  });
 
   // ---- KPIs ------------------------------------------------------------
   interface Kpis {
@@ -202,6 +318,7 @@
     party_eci_code: string | null;
     brand_colour_hex: string | null;
     brand_colour_confidence: "high" | "medium" | "low" | null;
+    symbol_asset_path: string | null;
   }
   const top_parties = $derived.by<PartyTotals[]>(() => {
     const by = new Map<string, AggBucket>();
@@ -218,18 +335,19 @@
           party_eci_code: w.party_eci_code,
           brand_colour_hex: w.brand_colour_hex,
           brand_colour_confidence: w.brand_colour_confidence,
+          symbol_asset_path: w.symbol_asset_path ?? null,
         };
         by.set(pid, bucket);
       }
       bucket.seats += 1;
+      if (bucket.symbol_asset_path == null && w.symbol_asset_path)
+        bucket.symbol_asset_path = w.symbol_asset_path;
       if (w.votes_polled != null && w.vote_share_pct != null) {
         bucket.votes += (w.votes_polled * w.vote_share_pct) / 100;
         bucket.has_any_vote = true;
       }
     }
-    const sorted = [...by.values()]
-      .sort((a, b) => b.seats - a.seats)
-      .slice(0, TOP_N);
+    const sorted = [...by.values()].sort((a, b) => b.seats - a.seats);
     return sorted.map<PartyTotals>((b) => ({
       party_eci_code: b.party_eci_code,
       party_short: b.party_short,
@@ -244,6 +362,10 @@
       party_id: b.pid,
       brand_colour_hex: b.brand_colour_hex,
       brand_colour_confidence: b.brand_colour_confidence,
+      // Election symbol glyph (lotus / hand / ...). Threaded so the
+      // PartyBar pills standardise on the same symbol affordance the
+      // per-state surface already shows.
+      symbol_asset_path: b.symbol_asset_path,
       // NationalElection does not load alliance lookup today (alliance
       // backfill is a separate plan-doc per user verdict 2026-06-12);
       // PartyBar renders the tag only when populated, so leaving it
@@ -251,6 +373,29 @@
       alliance_short: null,
     }));
   });
+
+  // Top-N slice for the PartyBar (the bar would be unreadable with all
+  // ~40 parties); the seat-arc below consumes the FULL list so all 542
+  // seats are placed.
+  const top_parties_bar = $derived<PartyTotals[]>(top_parties.slice(0, TOP_N));
+
+  // Seat-arc input: every party with >=1 seat, in the psephlab PartyResult
+  // shape ParliamentArc consumes. `party_eci_code` falls back to the short
+  // name so the arc's mute key matches the PartyBar key space
+  // (`party_eci_code ?? party_short`) - muting one surface recedes both.
+  const arc_parties = $derived<PartyResult[]>(
+    top_parties.map((p) => ({
+      party_eci_code: p.party_eci_code ?? p.party_short,
+      party_short: p.party_short,
+      seats_won: p.seats_won,
+      votes: p.votes,
+      vote_share_pct: p.vote_share_pct,
+      party_id: p.party_id ?? `parties.IN.${p.party_short.toUpperCase()}`,
+      brand_colour_hex: p.brand_colour_hex,
+      brand_colour_confidence: p.brand_colour_confidence,
+      election_symbol_asset_path: p.symbol_asset_path,
+    })),
+  );
 
   // ---- TODO/20260612 Row C: 3-way map toggle ---------------------------
   // states (default) | constituencies | hex. Lives in component state
@@ -265,16 +410,19 @@
   type ColorMode = "winner" | "margin";
   let color_mode = $state<ColorMode>("winner");
 
-  function marginGrey(pct: number | null): string {
-    if (pct == null) return "#cbd5e1"; // slate-300 fallback
-    const v = Math.min(1, Math.max(0, Math.abs(pct) / 30));
-    const lerp = (a: number, b: number): number =>
-      Math.round(a + (b - a) * v);
-    const r = lerp(0xe2, 0x33);
-    const g = lerp(0xe8, 0x41);
-    const b2 = lerp(0xf0, 0x55);
-    const toHex = (n: number): string => n.toString(16).padStart(2, "0");
-    return `#${toHex(r)}${toHex(g)}${toHex(b2)}`;
+  // Winning-margin sequential ramp. Margin is a MAGNITUDE (0..~40 pp) so it
+  // gets the neutral directional ramp hue (indigo, themeable via the
+  // `--ramp-neutral` token) rather than a party or diverging palette:
+  // a pale tint = razor-thin margin, deep indigo = landslide. Replaces the
+  // earlier slate-grey lerp which read as "missing data" rather than
+  // "safe seat" and looked washed-out on the hex cartogram.
+  function marginRamp(pct: number | null): string {
+    if (pct == null) return "#e2e8f0"; // slate-200: genuinely unknown margin
+    const t = Math.min(1, Math.max(0, Math.abs(pct) / 30));
+    const hue = rampHue("neutral");
+    const sat = Math.round(40 + t * 42); // 40% -> 82%
+    const light = Math.round(90 - t * 52); // 90% -> 38%
+    return `hsl(${hue}, ${sat}%, ${light}%)`;
   }
 
   // ---- TODO/20260612 Row F: PartyBar click-to-mute -------------------
@@ -399,7 +547,7 @@
       if (hidden_pids.has(w.party_id)) {
         out[w.unique_id] = "#cbd5e1"; // slate-300 recede
       } else if (color_mode === "margin") {
-        out[w.unique_id] = marginGrey(w.margin_pct);
+        out[w.unique_id] = marginRamp(w.margin_pct);
       }
     }
     return out;
@@ -480,7 +628,7 @@
         return { ...t, fill: "#cbd5e1", opacity: 0.18 };
       }
       if (color_mode === "margin") {
-        return { ...t, fill: marginGrey(t.margin_pct ?? null) };
+        return { ...t, fill: marginRamp(t.margin_pct ?? null) };
       }
       // back-compat: also honour pc_fills_override if it was computed
       // for any reason (defensive belt-and-braces against future
@@ -585,6 +733,36 @@
     </div>
   </header>
 
+  <!-- Prev/next election navigation: a year-chip rail across every
+       Parliament election on record, current highlighted. Mirrors the
+       per-state SiblingEventsRail so the citizen can step between
+       elections from the top of the page. -->
+  {#if sibling_chips.length > 1}
+    <nav
+      class="-mx-1 flex flex-wrap items-center gap-1.5 overflow-x-auto px-1"
+      aria-label="Parliament elections"
+      data-testid="national-event-sibling-rail"
+    >
+      {#each sibling_chips as chip (chip.event_id)}
+        {#if chip.is_current}
+          <span
+            class="rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold text-white"
+            aria-current="page"
+          >{chip.year_label}</span>
+        {:else}
+          <a
+            href={chip.href}
+            class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900"
+            onclick={(e) => {
+              e.preventDefault();
+              navigate(chip.href);
+            }}
+          >{chip.year_label}</a>
+        {/if}
+      {/each}
+    </nav>
+  {/if}
+
   {#if result.status === "failed"}
     <!-- OWID precedent: chart frame still renders with a retry; no 404. -->
     <div
@@ -603,12 +781,19 @@
     </div>
   {:else}
     <!-- KPIs strip ------------------------------------------------------ -->
+    <!-- Glyph chips mirror the per-state StateEventHero treatment so the
+         national + state event surfaces read as one family (icon chip +
+         label row, value below). The turnout card carries an up/down
+         gain-loss pill vs the previous Parliament election when known. -->
     <section
       class="grid grid-cols-2 gap-3 sm:grid-cols-4"
       data-testid="national-event-kpis"
     >
       <div class="rounded border border-slate-200 bg-white p-3">
-        <div class="text-xs uppercase tracking-wide text-slate-500">
+        <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
+          <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700">
+            <TopicIcon name="landmark" cls="h-4 w-4" />
+          </span>
           Total seats
         </div>
         <div class="mt-1 text-2xl font-semibold text-slate-900">
@@ -616,7 +801,10 @@
         </div>
       </div>
       <div class="rounded border border-slate-200 bg-white p-3">
-        <div class="text-xs uppercase tracking-wide text-slate-500">
+        <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
+          <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-700">
+            <TopicIcon name="users" cls="h-4 w-4" />
+          </span>
           Total electors
         </div>
         <div class="mt-1 text-2xl font-semibold text-slate-900">
@@ -624,7 +812,10 @@
         </div>
       </div>
       <div class="rounded border border-slate-200 bg-white p-3">
-        <div class="text-xs uppercase tracking-wide text-slate-500">
+        <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
+          <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-700">
+            <TopicIcon name="vote" cls="h-4 w-4" />
+          </span>
           Total polled
         </div>
         <div class="mt-1 text-2xl font-semibold text-slate-900">
@@ -632,12 +823,28 @@
         </div>
       </div>
       <div class="rounded border border-slate-200 bg-white p-3">
-        <div class="text-xs uppercase tracking-wide text-slate-500">
+        <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
+          <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700">
+            <TopicIcon name="activity" cls="h-4 w-4" />
+          </span>
           Turnout
         </div>
         <div class="mt-1 text-2xl font-semibold text-slate-900">
           {fmtPct(kpis.turnout_pct)}
         </div>
+        {#if turnout_delta != null && turnout_delta.turnout_pp != null}
+          {@const pp = turnout_delta.turnout_pp}
+          {@const positive = pp >= 0}
+          <div
+            class="mt-1.5 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium tabular-nums {positive
+              ? 'bg-emerald-50 text-emerald-700'
+              : 'bg-rose-50 text-rose-700'}"
+            data-testid="national-event-turnout-delta"
+          >
+            <TopicIcon name={positive ? "trending-up" : "trending-down"} cls="h-3 w-3 shrink-0" />
+            <span>{`${pp >= 0 ? "+" : ""}${pp.toFixed(1)} pp`} vs {turnout_delta.prev_event_label}</span>
+          </div>
+        {/if}
       </div>
     </section>
 
@@ -807,17 +1014,34 @@
         </p>
       {:else}
         <PartyBar
-          parties={top_parties}
+          parties={top_parties_bar}
           total_seats={kpis.total_seats}
           {hidden_parties}
           onToggleHidden={toggleHidden}
         />
         <p class="text-[11px] text-slate-500">
           Click a party row to mute it; muted parties recede on the
-          constituency + hex map arms. Vote totals don't recompute.
+          constituency + hex map arms and the seat semicircle. Vote totals
+          don't recompute.
         </p>
       {/if}
     </section>
+
+    <!-- Seat semicircle (#10). One dot per Parliament seat, coloured by
+         winning party, with a majority midline + symbol-ring legend.
+         Shares the same `hidden_parties` set as the bar + maps, so muting
+         a party recedes its seats here too. -->
+    {#if arc_parties.length > 0 && kpis.total_seats > 0}
+      <section class="space-y-2" data-testid="national-event-seat-arc">
+        <h2 class="text-sm font-medium text-slate-700">Seats won</h2>
+        <ParliamentArc
+          parties={arc_parties}
+          total_seats={kpis.total_seats}
+          {hidden_parties}
+          onToggleHidden={toggleHidden}
+        />
+      </section>
+    {/if}
 
     <!-- Alliance totals (Phase 1 of TODO/20260612-alliance-phase-1-
          structural-fix-plan.md). state_slug="IN" scopes the alliance
@@ -843,6 +1067,23 @@
       <ElectionSeizuresCard event_id={event} />
     {/if}
 
+    <!-- Seat flow vs the previous Parliament election (#13). Always
+         visible (the shared component shows the diagram by default).
+         Holds / flips headline + bipartite Sankey, joined on entity_id. -->
+    {#if winners.length > 0}
+      <section class="space-y-2" data-testid="national-event-seat-flow">
+        <h2 class="text-sm font-medium text-slate-700">Seat flow</h2>
+        <StateEventCrossEventSankey
+          current_winners={winners}
+          prev_winners={prev_winners_state}
+          prev_event_label={prev_event_label}
+          current_event_label={event_pretty}
+          body_pretty="Parliament"
+          state_name="India"
+        />
+      </section>
+    {/if}
+
     <!-- Scatter chart (PR-W4c MUST-FEATURE).
          TODO/20260612 Row A.5 + E: lock_body=true hides the Body chip
          since the national-event surface is single-body fixed by the
@@ -852,6 +1093,11 @@
       <h2 class="text-sm font-medium text-slate-700">
         Turnout vs winning margin &middot; all constituencies
       </h2>
+      <p class="text-xs text-slate-500" data-testid="national-event-scatter-note">
+        Each circle is one constituency. Bigger circles mean a wider winning
+        margin - the vote gap between the winner and the runner-up. Click a
+        circle to open that seat.
+      </p>
       <Scatter
         data={scatter_data}
         filters={scatter_filters}

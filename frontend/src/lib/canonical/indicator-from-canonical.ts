@@ -481,7 +481,7 @@ async function loadSingleFromCsv(
 
   const obsSql = `
     SELECT entity_id, time, value, source_id
-    FROM read_csv('${url.replace(/'/g, "''")}', ${columnsClause}, header=true)
+    FROM read_csv('${url.replace(/'/g, "''")}', ${columnsClause}, header=true, auto_detect=false)
     ORDER BY entity_id, time
   `;
   const obsRows = await query<CanonicalCsvRow>(obsSql);
@@ -572,7 +572,7 @@ async function loadNationalReferenceRows(
     await registerCsvFile(siblingUrl);
     const sql = `
       SELECT entity_id, time, value, source_id
-      FROM read_csv('${siblingUrl.replace(/'/g, "''")}', ${siblingColumnsClause}, header=true)
+      FROM read_csv('${siblingUrl.replace(/'/g, "''")}', ${siblingColumnsClause}, header=true, auto_detect=false)
       WHERE entity_id = 'IN-pop-weighted'
       ORDER BY time
     `;
@@ -658,7 +658,7 @@ async function loadFacetMultiplexedFromCsv(
     return `
       SELECT ${sqlString(fv.canonical_child_id)} AS indicator_id,
              entity_id, time, value, source_id
-      FROM read_csv('${url}', ${columnsClause}, header=true)
+      FROM read_csv('${url}', ${columnsClause}, header=true, auto_detect=false)
     `;
   });
   const obsSql = `${branches.join(" UNION ALL ")} ORDER BY indicator_id, entity_id, time`;

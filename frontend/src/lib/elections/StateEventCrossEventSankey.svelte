@@ -13,9 +13,9 @@
   across; a flip is a cross-ribbon coloured by the party it came from.
 
   Always-on headline (holds / flips / new) so the citizen gets the story
-  even without expanding the diagram. The Sankey is collapsed by default
-  behind a "Show seat flow" pill. Caption is FACTUAL - no "approximate" /
-  "estimate" language.
+  even without expanding the diagram. The Sankey is shown by default; a
+  "Hide seat flow" pill lets the citizen collapse it back to the headline.
+  Caption is FACTUAL - no "approximate" / "estimate" language.
 
   No-prior: the first event of a body for a state has nothing to flow
   from; the section renders the no-prior copy with no button.
@@ -56,7 +56,9 @@
     state_name,
   }: Props = $props();
 
-  let expanded = $state(false);
+  // Seat flow is shown by default (the diagram IS the story); the toggle
+  // stays so a citizen can collapse it back to the headline if they want.
+  let expanded = $state(true);
 
   const model = $derived.by(() => {
     if (prev_winners.status === "ok") {

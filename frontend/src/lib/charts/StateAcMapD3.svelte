@@ -79,6 +79,7 @@
   import { link } from "../links";
   import type { AcWinner } from "../view-models/state-overview";
   import { loadAcLgdLookup } from "../view-models/ac-crosswalk";
+  import { rewindCollectionForD3 } from "./geo-rewind";
   import {
     DEFAULT_HIGHLIGHT_STATE,
     NEUTRAL_HEX_FALLBACK,
@@ -331,7 +332,11 @@
           ] ?? "",
         ) === sc,
     );
-    return { type: "FeatureCollection", features };
+    // A plain-GeoJSON AC layer (post map-geometry rip) carries RFC 7946
+    // counter-clockwise-exterior winding; d3-geo wants clockwise exteriors.
+    // Rewind so polygons don't paint the whole viewBox. Idempotent, so the
+    // topojson-decoded branch (already clockwise) is unaffected.
+    return rewindCollectionForD3({ type: "FeatureCollection", features });
   }
 
   // First fetch via onMount (IndiaPartyMap-proven pattern: $state writes
