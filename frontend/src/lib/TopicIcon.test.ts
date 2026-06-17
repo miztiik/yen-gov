@@ -100,6 +100,10 @@ describe("TopicIcon helpers", () => {
       // sole remaining consumer (`GallagherDisproportionality.svelte`).
       expect(names).toEqual([
         "activity",
+        // PR4 (2026-06-17): the Flips KPI card on the election compare
+        // page (CompareElections.svelte) uses this Lucide arrow-left-right
+        // glyph. See TODO/20260617-election-compare-ux-overhaul-plan.md.
+        "arrow-left-right",
         "bar-chart",
         "car",
         "check",
