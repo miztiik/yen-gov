@@ -2289,6 +2289,46 @@ def ingest_iced_capacity(
     typer.echo(f"  skipped (unmapped states): {result.skipped_unmapped}")
 
 
+@app.command("ingest-iced-peak-demand")
+def ingest_iced_peak_demand(
+    json_path: Path = typer.Argument(
+        ...,
+        help=(
+            "Path to the operator-staged ICED /energy/powerStatistics JSON "
+            "response (per-state snapshot). No network: stage the response "
+            "locally and pass it here."
+        ),
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Ingest the ICED peak-demand series into the single-value store.
+
+    Emits ``datasets/data/datapoints/geo/peak-electricity-demand-mw.csv`` with
+    LGD-slug ``entity_id`` rows. Peak demand stays single-value (no fuel
+    facet); the Row 4 fix re-points the entity output through the ECI -> LGD
+    slug translation so the rows FK-close against entities/geo.csv.
+    """
+    from yen_gov.sources.iced_power.ingest import ingest_peak
+
+    result = ingest_peak(repo_root=root, raw_json_path=json_path)
+    typer.echo("ingest-iced-peak-demand: OK")
+    typer.echo(f"  output:     {result.artifact_path.relative_to(root).as_posix()}")
+    typer.echo(f"  variable:   {result.variable_id}")
+    typer.echo(f"  rows:       {result.row_count}")
+    typer.echo(f"  skipped (unmapped states): {result.skipped_unmapped}")
+
+
 @app.command("seed-goals")
 def seed_goals_cmd(
     root: Path = typer.Option(
