@@ -1,6 +1,26 @@
 # Election Compare + Year-Navigation UX Overhaul (Jony)
 
-**Last Updated**: 2026-06-17
+**Last Updated**: 2026-06-18
+
+## Status - COMPLETE (2026-06-18)
+
+All five PRs merged to `main`; the durable behaviours are distilled into
+[docs/architecture/frontend/charts/election-views.md](../docs/architecture/frontend/charts/election-views.md)
+(section "Compare-elections surface + sibling-rail controls"). This plan-doc is now a
+thin audit ledger - the canonical home for the shipped behaviour is that subsystem doc.
+
+| PR | Merged | Scope |
+| --- | --- | --- |
+| PR3 | #1120 | Compare-table search (constituency + party short code) + result-count + To-winner party-dot summary + smaller at-rest sort glyph |
+| PR4 | #1121 | Hero-card glyphs + Flips/Holds composition % + "New parties" filter + per-row "New entry" badge |
+| PR5 | #1123 | Flip-trend delta pill on the Flips card (comparable-seats-only; first-transition pin) |
+| PR1 | #1124 | Reusable `YearComparePicker` - compare any two same-body elections (rail "Compare" + compare-page From/To) |
+| PR2 | #1125 | Sibling-rail edge-fade overflow affordance (+ lifted the Compare picker out of the scroll container) |
+
+Execution note (agent-only, not distilled to `docs/`): a new `public/icons/*.svg` must be
+registered in BOTH `icons/parse.test.ts` AND `TopicIcon.test.ts` (the hardcoded
+`registeredIconNames` array) or CI vitest fails - PR4 missed the second and was fixed in
+the merge. Captured in `/memories/repo/yen-gov-architecture.md`.
 
 **Authority**: Jony + Citizen (UX) per CLAUDE.md section 0a. Touches `frontend/` only.
 No data-shape, schema, or backend change. Correction Level 2-3 (frontend, behaviour
