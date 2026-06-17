@@ -84,6 +84,8 @@
   } from "../lib/charts/india-pc-map-helpers";
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
   import ElectionSeizuresCard from "../lib/elections/ElectionSeizuresCard.svelte";
+  import StateEventCrossEventSankey from "../lib/elections/StateEventCrossEventSankey.svelte";
+  import type { PrevWinnersState } from "../lib/elections/seat-flow-model";
   import {
     loadEventSummary,
     type EventSummaryRow,
@@ -183,6 +185,53 @@
       turnout_pp: cur.turnout_pct - prev.turnout_pct,
       prev_event_label: `Parliament ${eventYearLabel(prev.event_id)}`,
     };
+  });
+
+  // ---- Previous-event winners for the seat-flow Sankey (#13) ----------
+  // Load the immediately-prior Parliament event's per-PC winners so the
+  // cross-event seat-flow diagram (holds / flips) renders on the national
+  // surface too, not just per-state. Joined on entity_id inside the
+  // shared StateEventCrossEventSankey component.
+  let prev_winners_state = $state<PrevWinnersState>({ status: "loading" });
+  const prev_event_label = $derived.by<string | null>(() => {
+    const idx = national_events.findIndex((r) => r.event_id === event);
+    if (idx <= 0) return null;
+    return `Parliament ${eventYearLabel(national_events[idx - 1].event_id)}`;
+  });
+  $effect(() => {
+    const ev = event;
+    const evts = national_events;
+    if (evts.length === 0) {
+      prev_winners_state = { status: "loading" };
+      return;
+    }
+    const idx = evts.findIndex((r) => r.event_id === ev);
+    if (idx < 0) {
+      prev_winners_state = { status: "loading" };
+      return;
+    }
+    if (idx === 0) {
+      prev_winners_state = { status: "no_prior" };
+      return;
+    }
+    const prevId = evts[idx - 1].event_id;
+    prev_winners_state = { status: "loading" };
+    loadElectionResults({ event: prevId })
+      .then((r) => {
+        if (ev !== event) return;
+        if (r.status === "ok" || r.status === "partial") {
+          prev_winners_state = { status: "ok", rows: r.data };
+        } else {
+          prev_winners_state = {
+            status: "failed",
+            reason: r.status === "failed" ? r.reason : "no data",
+          };
+        }
+      })
+      .catch((e) => {
+        if (ev === event)
+          prev_winners_state = { status: "failed", reason: String(e) };
+      });
   });
 
   // ---- KPIs ------------------------------------------------------------
@@ -976,6 +1025,23 @@
            seizures press-note series. Gated on the event having
            a publisher-emitted CSV on disk; today only 2019. -->
       <ElectionSeizuresCard event_id={event} />
+    {/if}
+
+    <!-- Seat flow vs the previous Parliament election (#13). Always
+         visible (the shared component shows the diagram by default).
+         Holds / flips headline + bipartite Sankey, joined on entity_id. -->
+    {#if winners.length > 0}
+      <section class="space-y-2" data-testid="national-event-seat-flow">
+        <h2 class="text-sm font-medium text-slate-700">Seat flow</h2>
+        <StateEventCrossEventSankey
+          current_winners={winners}
+          prev_winners={prev_winners_state}
+          prev_event_label={prev_event_label}
+          current_event_label={event_pretty}
+          body_pretty="Parliament"
+          state_name="India"
+        />
+      </section>
     {/if}
 
     <!-- Scatter chart (PR-W4c MUST-FEATURE).
