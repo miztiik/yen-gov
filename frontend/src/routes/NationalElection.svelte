@@ -73,6 +73,8 @@
   import { slugify } from "../lib/slug";
   import { aliasPcSlugUid } from "../lib/elections/pc-slug-alias";
   import PartyBar from "../lib/PartyBar.svelte";
+  import ParliamentArc from "../lib/ParliamentArc.svelte";
+  import type { PartyResult } from "../lib/psephlab/types";
   import type { PartyTotals } from "../lib/data";
   import PageContainer from "../lib/layout/PageContainer.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
@@ -345,9 +347,7 @@
         bucket.has_any_vote = true;
       }
     }
-    const sorted = [...by.values()]
-      .sort((a, b) => b.seats - a.seats)
-      .slice(0, TOP_N);
+    const sorted = [...by.values()].sort((a, b) => b.seats - a.seats);
     return sorted.map<PartyTotals>((b) => ({
       party_eci_code: b.party_eci_code,
       party_short: b.party_short,
@@ -373,6 +373,29 @@
       alliance_short: null,
     }));
   });
+
+  // Top-N slice for the PartyBar (the bar would be unreadable with all
+  // ~40 parties); the seat-arc below consumes the FULL list so all 542
+  // seats are placed.
+  const top_parties_bar = $derived<PartyTotals[]>(top_parties.slice(0, TOP_N));
+
+  // Seat-arc input: every party with >=1 seat, in the psephlab PartyResult
+  // shape ParliamentArc consumes. `party_eci_code` falls back to the short
+  // name so the arc's mute key matches the PartyBar key space
+  // (`party_eci_code ?? party_short`) - muting one surface recedes both.
+  const arc_parties = $derived<PartyResult[]>(
+    top_parties.map((p) => ({
+      party_eci_code: p.party_eci_code ?? p.party_short,
+      party_short: p.party_short,
+      seats_won: p.seats_won,
+      votes: p.votes,
+      vote_share_pct: p.vote_share_pct,
+      party_id: p.party_id ?? `parties.IN.${p.party_short.toUpperCase()}`,
+      brand_colour_hex: p.brand_colour_hex,
+      brand_colour_confidence: p.brand_colour_confidence,
+      election_symbol_asset_path: p.symbol_asset_path,
+    })),
+  );
 
   // ---- TODO/20260612 Row C: 3-way map toggle ---------------------------
   // states (default) | constituencies | hex. Lives in component state
@@ -991,17 +1014,34 @@
         </p>
       {:else}
         <PartyBar
-          parties={top_parties}
+          parties={top_parties_bar}
           total_seats={kpis.total_seats}
           {hidden_parties}
           onToggleHidden={toggleHidden}
         />
         <p class="text-[11px] text-slate-500">
           Click a party row to mute it; muted parties recede on the
-          constituency + hex map arms. Vote totals don't recompute.
+          constituency + hex map arms and the seat semicircle. Vote totals
+          don't recompute.
         </p>
       {/if}
     </section>
+
+    <!-- Seat semicircle (#10). One dot per Lok Sabha seat, coloured by
+         winning party, with a majority midline + symbol-ring legend.
+         Shares the same `hidden_parties` set as the bar + maps, so muting
+         a party recedes its seats here too. -->
+    {#if arc_parties.length > 0 && kpis.total_seats > 0}
+      <section class="space-y-2" data-testid="national-event-seat-arc">
+        <h2 class="text-sm font-medium text-slate-700">Seats won</h2>
+        <ParliamentArc
+          parties={arc_parties}
+          total_seats={kpis.total_seats}
+          {hidden_parties}
+          onToggleHidden={toggleHidden}
+        />
+      </section>
+    {/if}
 
     <!-- Alliance totals (Phase 1 of TODO/20260612-alliance-phase-1-
          structural-fix-plan.md). state_slug="IN" scopes the alliance
