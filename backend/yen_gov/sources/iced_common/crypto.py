@@ -125,3 +125,31 @@ def decrypt_response(server_body: bytes | str) -> Any:
         )
     plain = decrypt_cryptojs_openssl(outer)
     return json.loads(plain)
+
+
+# The CryptoJS/OpenSSL "Salted__" envelope, base64-encoded and JSON-quoted,
+# always begins with this prefix. It is the marker that distinguishes an
+# AES-encrypted ICED response from a plain JSON one.
+_AES_ENVELOPE_PREFIX = '"U2FsdGVkX1'
+
+
+def load_iced_response(raw_body: bytes | str, *, decrypt: bool) -> Any:
+    """Load a staged ICED response, decrypting only if it is an AES envelope.
+
+    The staging tool (``tools/iced_stage.py``) saves the raw wire response.
+    Plain feeds (e.g. ``capacity-metatable-data``) are JSON; AES feeds (e.g.
+    ``powerStatistics``) are the CryptoJS envelope -- a JSON string literal
+    that base64-decodes to ``Salted__...`` and therefore begins with
+    ``"U2FsdGVkX1``. When ``decrypt`` is True and the body looks like that
+    envelope, decrypt it; otherwise parse as plain JSON. This lets one ingest
+    path consume both plain and encrypted staged files (and a plain feed that
+    is accidentally requested with ``decrypt=True`` still parses correctly).
+    """
+    text = (
+        raw_body.decode("utf-8")
+        if isinstance(raw_body, (bytes, bytearray))
+        else raw_body
+    )
+    if decrypt and text.lstrip().startswith(_AES_ENVELOPE_PREFIX):
+        return decrypt_response(text)
+    return json.loads(text)
