@@ -1,6 +1,6 @@
 # Energy coverage matrix (ICED + CEA + RBI)
 
-**Last Updated:** 2026-06-17
+**Last Updated:** 2026-06-17 (D1/D2 faceting + CEA UPSERT + decrypt wiring landed; sections 3, 6, 7 added)
 **Tracked by:** this doc is the receipt; the staging tool [tools/iced_stage.py](../../../tools/iced_stage.py) reads the same feed list and its run-log records each download.
 
 This document answers: **for the energy indicator category, what ICED / CEA / RBI data yen-gov already HAS (with year coverage), what we do NOT yet have (the agreed download targets), and -- crucially -- which of it can actually be (re)ingested today versus needs an adapter built first.**
@@ -21,10 +21,12 @@ The hard fact that shapes everything below: the legacy energy lift adapters (`ba
 | --- | --- | --- | --- |
 | CEA installed capacity (snapshot) | `ingest-cea-installed-capacity` | CEA monthly workbook (manual download) | LIVE |
 | ICED installed capacity (geographical) | `ingest-iced-capacity` | ICED `/v1/capacity-metatable-data` | LIVE |
-| ICED peak demand | `ingest-iced-peak-demand` | ICED `/energy/powerStatistics` | LIVE (but see note) |
+| ICED peak demand | `ingest-iced-peak-demand` | ICED `/energy/powerStatistics` | LIVE (decrypts staged ciphertext) |
 | RBI fiscal cohort (6 indicators) | `ingest-rbi-hbs` | RBI Handbook | LIVE (fiscal, not energy-electricity) |
 
-Note on peak demand: `/energy/powerStatistics` is **AES-encrypted** on the wire; the current `ingest-iced-peak-demand` does `json.loads` and expects an **already-decrypted** JSON. A real staged response must be decrypted first (the decrypt logic lives in `backend/yen_gov/sources/iced_common/crypto.py`). This is a known phase-2 fix.
+Note on CEA: `ingest-cea-installed-capacity` now **UPSERTs** each snapshot into the year axis (PK `(entity_id, time, fuel_type)`; new wins, absent rows preserved) so re-ingesting a month never drops prior years/entities -- a value the publisher later removes is kept (PR #1115).
+
+Note on peak demand: `/energy/powerStatistics` is AES-encrypted on the wire. `ingest-iced-peak-demand` now decrypts transparently via `load_iced_response` (the staged ciphertext is decrypted before parsing; the cipher stays solely in `backend/yen_gov/sources/iced_common/crypto.py`). DONE (PR #1116) -- the full-refresh path works on encrypted staged files.
 
 **Everything else below is ORPHAN: data is on disk, but the ingest code was deleted.** Re-collecting more years for an orphan feed = rebuilding its adapter (a per-feed PR), not running an existing command.
 
@@ -44,11 +46,11 @@ Year coverage is the min..max `time` actually present in each datapoint CSV. Gra
 | Group | Indicators | Years | Re-ingest |
 | --- | --- | --- | --- |
 | Installed capacity (geographical, faceted) | installed-capacity-geographical-mw | 2015-2025 | LIVE (`ingest-iced-capacity`) |
-| Generation by fuel | electricity-generation-gwh + 5 fuel children | 2015-2025 | ORPHAN (D1 faceting pending) |
+| Generation by fuel | electricity-generation-gwh (faceted: all + 5 fuels) | 2015-2025 | FACETED (D1 done, PR #1117) |
 | Electricity sales | electricity-sales-mu | 2015-2024 | ORPHAN |
 | Final energy consumption (national) | 17 sector x fuel children | 2005-2024 | ORPHAN |
 | Primary energy supply (national) | 6 fuel children | 2005-2024 | ORPHAN |
-| Thermal capacity retired (national) | coal, gas | 2005-2025 | ORPHAN (D2; parser survives) |
+| Thermal capacity retired (national) | india-thermal-capacity-retired-mw (faceted: coal, gas) | 2005-2025 | FACETED (D2 done, PR #1118) |
 | Plant load factor | 8 fuel children | 2015-2025 | ORPHAN |
 | Power purchase mix | 12 source children | 2015-2024 | ORPHAN |
 | Rooftop solar capacity | rooftop-solar-capacity-mw | 2017-2025 | ORPHAN |
@@ -68,12 +70,12 @@ Year coverage is the min..max `time` actually present in each datapoint CSV. Gra
 | installed-capacity-allocated-mw (ICED+RBI) | 2004-2025 | ORPHAN |
 | peak-electricity-demand-mw (ICED+RBI) | 2013-2025 | LIVE (`ingest-iced-peak-demand`, snapshot only) |
 
-Totals: 70 energy datapoint files -- ICED 60, RBI 5, CEA 2, ICED/RBI 2, derived 1. **4 LIVE, 66 ORPHAN.**
+Totals: 70 energy datapoint files at the survey (ICED 60, RBI 5, CEA 2, ICED/RBI 2, derived 1). **4 LIVE re-ingest CLIs, 66 ORPHAN.** After D1/D2 the per-fuel generation (6) + retired (2) `geo/` files folded into 2 faceted `geo_by_fuel/` files (net ~64 files); the LIVE/ORPHAN split (a re-ingest-CLI count, not a file count) is unchanged -- faceting changes shape, not the ability to add new years.
 
-## 3. Faceting debt (have the data, wrong shape)
+## 3. Faceting debt -- CLEARED
 
-- **D1 - generation faceting:** `electricity-generation-gwh-{coal,gas,hydro,nuclear,renewable}` (5 per-fuel `geo/` files) should fold into ONE faceted `geo_by_fuel/electricity-generation-gwh.csv` (the same move PR #1097 did for capacity). This is a shape change on data we already hold -- no new download needed. Frontend reader migration + consolidation; a #1097-style PR.
-- **D2 - retired-capacity disposition:** `india-thermal-capacity-retired-mw-{coal,gas}` (national-only, 2-fuel). Either fold to a faceted file or leave as-is; low priority (no current frontend consumer).
+- **D1 - generation faceting: DONE (PR #1117).** The 5 per-fuel `geo/` files + the parent total folded into ONE faceted `geo_by_fuel/electricity-generation-gwh.csv` (fuel_type dimension column; parent total = the `all` member). Frontend repointed; the 6 `geo/` inputs deleted; migration-ledger recorded. Mirrors the capacity migration (PR #1097).
+- **D2 - retired-capacity faceting: DONE (PR #1118).** The 2 per-fuel files folded into `geo_by_fuel/india-thermal-capacity-retired-mw.csv` (national-only; no `all` member -- no published total). Backend-only (no frontend consumer).
 
 ## 4. What we do NOT have -- the agreed download targets
 
@@ -97,3 +99,37 @@ Confirmed genuinely new (not in `variables.csv`; `check-overlap` < 0.70). Daily 
 2. **Phase 2 - ingest (per-feed adapter).** For the 4 LIVE feeds, run the existing CLI. For the orphan re-ingests and the 7 new feeds, build the adapter (decrypt where needed, parse, canonical emit, validate). Each is its own PR gated by `check-overlap` + `pre-flight-ingest` (ADR-0046).
 
 The staging tool's feed list is the machine-readable mirror of section 4 here; this doc is the human receipt.
+
+## 6. Future hydration roadmap (the 66 orphans)
+
+"Hydrate all 70 for more years" is **not** a single batch job. It splits cleanly:
+
+**Tier A -- LIVE now (4 feeds): one command each.** CEA capacity, ICED capacity, ICED peak, RBI fiscal. Stage the latest source, run the CLI. CEA UPSERTs (accumulates); ICED capacity/peak are full-refresh (one response = all years). No code needed.
+
+**Tier B -- orphan re-ingest (the ~62 ICED + RBI energy series): one adapter rebuild per family.** The lift adapters were deleted in X1b/B4, so the on-disk CSV is read-only. To add new years for a family you rebuild its adapter once, then it becomes Tier-A LIVE. The building blocks already exist -- the parsers in `backend/yen_gov/sources/iced_*`, the decrypt (`load_iced_response`), the ECI->LGD-slug bridge, the fuel-collapse helper, the faceted/single-value emit + `validate_csv`. Each rebuild is a small PR:
+
+| Family | Source feed | Shape | Effort |
+| --- | --- | --- | --- |
+| Generation (more years) | `/energy/powerStatistics` (gen) or gen-metatable | faceted (already migrated) | re-emit via the D1 spec |
+| Plant load factor (8 fuels) | `/v1/plf-metatable-data` | faceted by fuel | M (no sub-fuel collapse -- PLF is a percentage) |
+| Power purchase mix (12 sources) | `/statelevel-power-purchase-quantum-and-cost` | faceted by source | M |
+| Distribution efficiency / RPO | `/energy/electricity/distribution/{operationalPerformanceStates,rpo}` | single-value | S each |
+| Primary / final energy supply | `/analytics/state-wise-deep-dive` (TPES/FEC) | faceted national | M |
+| Coal / oil consumption | `/energy/fuel-sources/{coal,oil}/...` | faceted | M |
+| Retired / pipeline | `/v1/{retired-capacity-plants,plantPipelineInfo}` | faceted / single | parser survives -> S |
+| RBI electricity (availability, requirement, supplied, per-capita) | RBI Handbook tables 138-142 | single-value | wire into `ingest-rbi-hbs` -- S each |
+
+Sequencing rule: before rebuilding any family, run `check-overlap` + `pre-flight-ingest` (ADR-0046). Faceted families reuse the `FuelFamilySpec` registry in `fuel_facet_consolidation.py`.
+
+## 7. Full-refresh procedure (ready now)
+
+A "full refresh" of the LIVE feeds, end to end:
+
+1. **Stage** (operator, networked): `python tools/iced_stage.py --dry-run` then `python tools/iced_stage.py` -- downloads each ICED feed (raw; encrypted blobs saved as-is) to `.runtime/raw/iced/` with a tracking run-log. CEA workbook is a manual download to `.runtime/raw/cea/`.
+2. **Ingest** (no network): run the Tier-A CLIs --
+   - `python -m yen_gov ingest-cea-installed-capacity --xlsx <workbook>` (UPSERTs into the year axis)
+   - `python -m yen_gov ingest-iced-capacity .runtime/raw/iced/capacity_metatable_data.json` (full history in one file)
+   - `python -m yen_gov ingest-iced-peak-demand .runtime/raw/iced/power_statistics.json` (decrypts the AES envelope automatically)
+3. **Validate + receipt**: `python -m yen_gov validate --root .`; the staging run-log (`.runtime/raw/iced/_stage-log.json`) records what was fetched, when, sizes, and sha; this doc records the coverage state. Together they are the refresh receipt.
+
+For the orphan families (Tier B) and the 7 new feeds (section 4), staging works today but a full refresh waits on the per-family adapter rebuild.
