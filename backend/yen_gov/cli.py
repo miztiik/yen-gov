@@ -581,11 +581,11 @@ def consolidate_fuel_facets(
     The per-fuel inputs are deleted in the same PR's final commit.
     """
     from yen_gov.canonical.fuel_facet_consolidation import (
-        INSTALLED_CAPACITY_FAMILIES,
+        ALL_FUEL_FACETED_FAMILIES,
         write_faceted_family,
     )
 
-    for spec in INSTALLED_CAPACITY_FAMILIES:
+    for spec in ALL_FUEL_FACETED_FAMILIES:
         out_path = write_faceted_family(root, spec)
         n_rows = sum(1 for _ in out_path.read_text(encoding="utf-8").splitlines()) - 1
         typer.echo(

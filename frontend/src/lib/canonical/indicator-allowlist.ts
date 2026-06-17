@@ -480,30 +480,43 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "fuel_type",
+    // D1 (docs/architecture/data/energy-coverage.md): the 5 per-fuel files +
+    // the parent total collapsed into ONE faceted file where fuel_type is a
+    // dimension column. The parent's state total folds in as the `all` member
+    // (the published total, NOT a render-time sum of the parts). Mirrors the
+    // installed-capacity-geographical-mw migration in PR #1097.
+    faceted_csv_path:
+      "data/datapoints/geo_by_fuel/electricity-generation-gwh.csv",
+    facet_column: "fuel_type",
     facet_values: [
       {
+        canonical_child_id: "electricity-generation-gwh-all",
+        facet_value: "all",
+        legacy_facet_label: "All fuels",
+      },
+      {
         canonical_child_id: "electricity-generation-gwh-coal",
-        csv_path: "data/datapoints/geo/electricity-generation-gwh-coal.csv",
+        facet_value: "coal",
         legacy_facet_label: "coal",
       },
       {
         canonical_child_id: "electricity-generation-gwh-gas",
-        csv_path: "data/datapoints/geo/electricity-generation-gwh-gas.csv",
+        facet_value: "gas",
         legacy_facet_label: "gas",
       },
       {
         canonical_child_id: "electricity-generation-gwh-hydro",
-        csv_path: "data/datapoints/geo/electricity-generation-gwh-hydro.csv",
+        facet_value: "hydro",
         legacy_facet_label: "hydro",
       },
       {
         canonical_child_id: "electricity-generation-gwh-nuclear",
-        csv_path: "data/datapoints/geo/electricity-generation-gwh-nuclear.csv",
+        facet_value: "nuclear",
         legacy_facet_label: "nuclear",
       },
       {
         canonical_child_id: "electricity-generation-gwh-renewable",
-        csv_path: "data/datapoints/geo/electricity-generation-gwh-renewable.csv",
+        facet_value: "renewable",
         legacy_facet_label: "renewable",
       },
     ],

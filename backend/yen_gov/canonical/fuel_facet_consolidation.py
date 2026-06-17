@@ -38,6 +38,8 @@ from yen_gov.canonical.csv_writer import write_csv
 __all__ = [
     "FuelFamilySpec",
     "INSTALLED_CAPACITY_FAMILIES",
+    "GENERATION_FAMILIES",
+    "ALL_FUEL_FACETED_FAMILIES",
     "consolidate_family_rows",
     "write_faceted_family",
 ]
@@ -168,3 +170,31 @@ INSTALLED_CAPACITY_FAMILIES: tuple[FuelFamilySpec, ...] = (
 def consolidate_all(root: Path, specs: Iterable[FuelFamilySpec]) -> list[Path]:
     """Materialise every family; return the written paths."""
     return [write_faceted_family(root, spec) for spec in specs]
+
+
+# D1 (energy fast-follow): state electricity generation by fuel. Same move as
+# the capacity families above -- 5 per-fuel geo/*.csv children + a parent total
+# file fold into ONE faceted geo_by_fuel/electricity-generation-gwh.csv. The
+# parent electricity-generation-gwh.csv exists on disk (the published state
+# total) -> has_all_member=True (the `all` member). Fuel children are the 5
+# canonical buckets (no sub-fuel collapse: the per-fuel files are already
+# canonical-bucket keyed).
+GENERATION_FAMILIES: tuple[FuelFamilySpec, ...] = (
+    FuelFamilySpec(
+        parent_id="electricity-generation-gwh",
+        has_all_member=True,  # geo/electricity-generation-gwh.csv = the state total
+        children=(
+            ("coal", "electricity-generation-gwh-coal"),
+            ("gas", "electricity-generation-gwh-gas"),
+            ("hydro", "electricity-generation-gwh-hydro"),
+            ("nuclear", "electricity-generation-gwh-nuclear"),
+            ("renewable", "electricity-generation-gwh-renewable"),
+        ),
+    ),
+)
+
+
+# Every fuel-faceted energy family the consolidate-fuel-facets CLI materialises.
+ALL_FUEL_FACETED_FAMILIES: tuple[FuelFamilySpec, ...] = (
+    INSTALLED_CAPACITY_FAMILIES + GENERATION_FAMILIES
+)

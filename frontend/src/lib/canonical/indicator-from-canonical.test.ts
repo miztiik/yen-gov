@@ -447,17 +447,28 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.meta.unit).toBe("MW");
   });
 
-  it("PR-G state_electricity_generation_by_source_gwh descriptor routes to electricity-generation-gwh with 5 fuel children", () => {
+  it("PR-G state_electricity_generation_by_source_gwh descriptor routes to electricity-generation-gwh as a faceted single file (D1)", () => {
     const d = getCanonicalDescriptor("energy/state_electricity_generation_by_source_gwh");
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("facet-multiplexed");
     if (d!.kind === "facet-multiplexed") {
       expect(d!.canonical_parent_indicator_id).toBe("electricity-generation-gwh");
       expect(d!.facet_axis_id).toBe("fuel_type");
-      expect(d!.facet_values).toHaveLength(5);
-      const fuels = d!.facet_values.map((fv) => fv.legacy_facet_label);
-      expect(fuels).toEqual(["coal", "gas", "hydro", "nuclear", "renewable"]);
-      const renewable = d!.facet_values.find((fv) => fv.legacy_facet_label === "renewable");
+      // D1: the 5 per-fuel files + the parent total collapsed into ONE faceted
+      // file; fuel_type is a dimension column. The parent folds in as `all`,
+      // so there are now 6 facet members (mirrors the capacity migration).
+      expect(d!.faceted_csv_path).toBe(
+        "data/datapoints/geo_by_fuel/electricity-generation-gwh.csv",
+      );
+      expect(d!.facet_column).toBe("fuel_type");
+      expect(d!.facet_values).toHaveLength(6);
+      const fuels = d!.facet_values.map((fv) => fv.facet_value);
+      expect(fuels).toEqual(["all", "coal", "gas", "hydro", "nuclear", "renewable"]);
+      for (const fv of d!.facet_values) {
+        expect(fv.csv_path).toBeUndefined();
+        expect(fv.facet_value).toBeDefined();
+      }
+      const renewable = d!.facet_values.find((fv) => fv.facet_value === "renewable");
       expect(renewable?.canonical_child_id).toBe("electricity-generation-gwh-renewable");
     }
     expect(d!.table_id).toBe("energy.energy_generation");
