@@ -31,10 +31,12 @@ from yen_gov.sources.cea_installed_capacity.ingest import (
     _DROPPED_INDICATOR,
     _FACETED_VARIABLE_ID,
     _INDICATOR_TO_FUEL_TYPE,
+    _read_existing_faceted_rows,
     _snapshot_to_year,
     _to_slug,
     build_faceted_rows,
     emit_faceted,
+    merge_upsert,
 )
 from yen_gov.sources.cea_installed_capacity.parsers import (
     SHIPPED_COLUMNS,
@@ -179,3 +181,67 @@ def test_emit_one_faceted_file_that_validates(tmp_path: Path):
 
     # FK + enum + composite-PK closure.
     validate_csv(path=out, file_class=_CSV_FILE_CLASS, repo_root=tmp_path)
+
+
+# --- UPSERT (no-data-loss across snapshots) ---------------------------------
+
+
+def _row(entity_id: str, time: int, fuel: str, value: float, sid: str) -> dict:
+    return {
+        "entity_id": entity_id,
+        "time": time,
+        "fuel_type": fuel,
+        "value": value,
+        "source_id": sid,
+    }
+
+
+def test_merge_upsert_new_wins_and_absent_preserved():
+    sid = "src-x"
+    existing = [
+        {"entity_id": "tamil-nadu", "time": "2025", "fuel_type": "coal", "value": "100", "source_id": sid},
+        {"entity_id": "tamil-nadu", "time": "2026", "fuel_type": "coal", "value": "200", "source_id": sid},
+        {"entity_id": "tamil-nadu", "time": "2026", "fuel_type": "gas", "value": "50", "source_id": sid},
+    ]
+    # New 2026 snapshot: coal value revised, gas DROPPED by the publisher.
+    new_rows = [_row("tamil-nadu", 2026, "coal", 250.0, sid)]
+
+    merged = merge_upsert(existing, new_rows)
+    by_pk = {(r["entity_id"], int(r["time"]), r["fuel_type"]): r["value"] for r in merged}
+
+    # 2025 coal (different year, absent from new) is PRESERVED.
+    assert by_pk[("tamil-nadu", 2025, "coal")] == "100"
+    # 2026 coal: new wins.
+    assert by_pk[("tamil-nadu", 2026, "coal")] == 250.0
+    # 2026 gas: publisher dropped it, but our row is PRESERVED (no data loss).
+    assert by_pk[("tamil-nadu", 2026, "gas")] == "50"
+    assert len(merged) == 3
+
+
+def test_emit_faceted_upsert_accumulates_years(tmp_path: Path):
+    sid = _source_id()
+    _stage_fk_targets(tmp_path, sid)
+    # First snapshot: 2025.
+    emit_faceted(repo_root=tmp_path, rows=[_row("tamil-nadu", 2025, "coal", 100.0, sid)])
+    # Second snapshot: 2026 (different year) -> must accumulate, not overwrite.
+    emit_faceted(repo_root=tmp_path, rows=[_row("tamil-nadu", 2026, "coal", 200.0, sid)])
+
+    out = tmp_path / "datasets/data/datapoints/geo_by_fuel" / f"{_FACETED_VARIABLE_ID}.csv"
+    rows = _read_existing_faceted_rows(out)
+    years = {int(r["time"]) for r in rows}
+    assert years == {2025, 2026}  # both snapshots survive
+    validate_csv(path=out, file_class=_CSV_FILE_CLASS, repo_root=tmp_path)
+
+
+def test_emit_faceted_upsert_false_overwrites(tmp_path: Path):
+    sid = _source_id()
+    _stage_fk_targets(tmp_path, sid)
+    emit_faceted(repo_root=tmp_path, rows=[_row("tamil-nadu", 2025, "coal", 100.0, sid)])
+    emit_faceted(
+        repo_root=tmp_path,
+        rows=[_row("tamil-nadu", 2026, "coal", 200.0, sid)],
+        upsert=False,
+    )
+    out = tmp_path / "datasets/data/datapoints/geo_by_fuel" / f"{_FACETED_VARIABLE_ID}.csv"
+    years = {int(r["time"]) for r in _read_existing_faceted_rows(out)}
+    assert years == {2026}  # upsert=False replaces

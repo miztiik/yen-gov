@@ -25,6 +25,7 @@ environment.
 
 from __future__ import annotations
 
+import csv
 import os
 import re
 from dataclasses import dataclass
@@ -210,9 +211,60 @@ def build_faceted_rows(
     return rows
 
 
-def emit_faceted(*, repo_root: Path, rows: list[dict[str, object]]) -> Path:
-    """Write the single faceted ``geo_by_fuel/<variable_id>.csv`` file."""
+def _read_existing_faceted_rows(path: Path) -> list[dict[str, str]]:
+    """Read the existing faceted CSV back into raw string row dicts.
+
+    Returns ``[]`` when the file is absent or header-only. Mirrors the
+    read-back used by the wikidata leadership UPSERT writer.
+    """
+    if not path.exists():
+        return []
+    with path.open("r", encoding="utf-8", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def _pk(row: dict[str, object]) -> tuple[str, int, str]:
+    """Composite PK ``(entity_id, time, fuel_type)`` normalised for merge."""
+    return (str(row["entity_id"]), int(row["time"]), str(row["fuel_type"]))
+
+
+def merge_upsert(
+    existing: list[dict[str, str]], new_rows: list[dict[str, object]]
+) -> list[dict[str, object]]:
+    """UPSERT ``new_rows`` over ``existing`` on the composite PK.
+
+    Semantics (the data owner's choice): a new snapshot WINS for any
+    ``(entity_id, time, fuel_type)`` it carries, but any existing row whose
+    PK is absent from the new batch is PRESERVED -- a value the publisher
+    later removes is never silently dropped from our store. This makes the
+    CEA monthly snapshot accumulate into the year axis instead of
+    overwriting it.
+    """
+    new_by_pk = {_pk(r): r for r in new_rows}
+    merged: dict[tuple[str, int, str], dict[str, object]] = {}
+    for ex in existing:
+        key = _pk(ex)
+        if key in new_by_pk:
+            continue  # new snapshot supersedes this PK
+        merged[key] = ex
+    merged.update(new_by_pk)
+    return list(merged.values())
+
+
+def emit_faceted(
+    *, repo_root: Path, rows: list[dict[str, object]], upsert: bool = True
+) -> Path:
+    """Write the faceted ``geo_by_fuel/<variable_id>.csv`` file.
+
+    With ``upsert=True`` (default) the new snapshot is MERGED into the
+    existing file on the composite PK rather than overwriting it, so prior
+    years/entities survive (see ``merge_upsert``). ``write_csv`` re-sorts by
+    PK and re-normalises every value, so the output bytes stay canonical
+    regardless of merge order.
+    """
     out_path = repo_root / _CSV_OUT_REL_DIR / f"{_FACETED_VARIABLE_ID}.csv"
+    if upsert:
+        rows = merge_upsert(_read_existing_faceted_rows(out_path), rows)
     return write_csv(path=out_path, file_class=_CSV_FILE_CLASS, rows=rows)
 
 
@@ -238,7 +290,11 @@ def ingest(
     )
 
     rows = build_faceted_rows(parsed, source_id=source_id)
-    csv_path = emit_faceted(repo_root=repo_root, rows=rows)
+    # UPSERT: merge this snapshot into the existing file on the composite PK
+    # so prior years/entities survive (the data owner's no-data-loss rule).
+    out_path = repo_root / _CSV_OUT_REL_DIR / f"{_FACETED_VARIABLE_ID}.csv"
+    merged = merge_upsert(_read_existing_faceted_rows(out_path), rows)
+    csv_path = emit_faceted(repo_root=repo_root, rows=merged, upsert=False)
 
     return FacetedIngestResult(
         variable_id=_FACETED_VARIABLE_ID,
@@ -246,6 +302,6 @@ def ingest(
         workbook_fetched_at=mtime,
         snapshot_period=parsed.snapshot_period,
         time=_snapshot_to_year(parsed.snapshot_period),
-        row_count=len(rows),
-        fuel_types=tuple(sorted({str(r["fuel_type"]) for r in rows})),
+        row_count=len(merged),
+        fuel_types=tuple(sorted({str(r["fuel_type"]) for r in merged})),
     )
