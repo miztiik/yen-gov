@@ -19,6 +19,7 @@ from yen_gov.sources.iced_common import load_iced_response
 from yen_gov.sources.iced_common.fuel_collapse import collapse_fuel
 from yen_gov.sources.iced_power.parsers import (
     parse_capacity_metatable,
+    parse_plant_pipeline_info,
     parse_power_statistics,
 )
 
@@ -648,6 +649,81 @@ def ingest_peak(
         artifact_path=written[0],
         row_count=len(by_variable[_CSV_VARIABLE_PREFIX_PEAK]),
         skipped_unmapped=skipped,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Under-construction pipeline re-ingest (Tier-B: orphan -> LIVE re-ingest)
+# ---------------------------------------------------------------------------
+#
+# ICED plantPipelineInfo ships national under-construction capacity additions
+# by expected commission-year, split by status. The canonical single-value
+# series sums the statuses to one GW value per calendar year (entity_id=IN).
+# This graduates `under-construction-capacity-gw` from orphan (lift code
+# deleted) to LIVE re-ingest: stage the response, run the CLI, add new years.
+
+_PIPELINE_VARIABLE_ID = "under-construction-capacity-gw"
+# Triple reproduces the on-disk source_id src-e0b2a084d204 (idempotent re-emit).
+_PIPELINE_TITLE = (
+    "Plant Pipeline Info National API (national under-construction generation "
+    "capacity by expected commissioning calendar-year, by status, GW)"
+)
+_PIPELINE_VINTAGE = "2026-05-27"
+
+
+@dataclass(frozen=True)
+class PipelineIngestResult:
+    """Receipt for the single-value under-construction CSV emit."""
+
+    variable_id: str
+    artifact_path: Path
+    row_count: int
+
+
+def build_pipeline_rows(
+    parsed_rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Sum the per-status pipeline rows to one GW value per (entity, year).
+
+    ``parse_plant_pipeline_info`` emits one row per ``(year, status)`` with
+    ``entity_id="IN"``; the canonical series carries the YEARLY total, so the
+    statuses sum into a single value per calendar year. Entity stays the
+    national rollup ``IN`` (no slug translation needed).
+    """
+    agg: dict[tuple[str, int], float] = {}
+    for r in parsed_rows:
+        key = (str(r["entity_id"]), _period_to_year_int(str(r["time"])))
+        agg[key] = agg.get(key, 0.0) + float(r["value"])
+    rows = [
+        {"entity_id": entity, "time": year, "value": value, "source_id": source_id}
+        for (entity, year), value in agg.items()
+    ]
+    return {_PIPELINE_VARIABLE_ID: rows}
+
+
+def ingest_pipeline(
+    *, repo_root: Path, raw_json_path: Path, decrypt: bool = True
+) -> PipelineIngestResult:
+    """Read a staged plantPipelineInfo JSON, emit the under-construction CSV.
+
+    Operator-staged local file (no network). The feed is AES-encrypted, so
+    ``decrypt=True`` decrypts the envelope before parsing. Emits the
+    single-value file
+    ``datasets/data/datapoints/geo/under-construction-capacity-gw.csv``.
+    """
+    decoded = load_iced_response(raw_json_path.read_bytes(), decrypt=decrypt)
+    parsed_rows = parse_plant_pipeline_info(decoded)
+    source_id = derive_source_id(
+        _CSV_SOURCE_PRODUCER, _PIPELINE_TITLE, _PIPELINE_VINTAGE
+    )
+    by_variable = build_pipeline_rows(parsed_rows, source_id=source_id)
+    written = emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+    return PipelineIngestResult(
+        variable_id=_PIPELINE_VARIABLE_ID,
+        artifact_path=written[0],
+        row_count=len(by_variable[_PIPELINE_VARIABLE_ID]),
     )
 
 

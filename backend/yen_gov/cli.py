@@ -2329,6 +2329,47 @@ def ingest_iced_peak_demand(
     typer.echo(f"  skipped (unmapped states): {result.skipped_unmapped}")
 
 
+@app.command("ingest-iced-pipeline")
+def ingest_iced_pipeline(
+    json_path: Path = typer.Argument(
+        ...,
+        help=(
+            "Path to the operator-staged ICED /v1/plantPipelineInfo JSON "
+            "response (national under-construction capacity additions). "
+            "AES-encrypted; saved raw by tools/iced_stage.py and decrypted "
+            "here. No network."
+        ),
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Ingest the ICED plant-pipeline feed into the under-construction series.
+
+    Emits the single-value file
+    ``datasets/data/datapoints/geo/under-construction-capacity-gw.csv`` (one
+    national GW total per calendar year, summed across pipeline statuses).
+    Graduates this orphan series to LIVE re-ingest (Tier-B); re-running with a
+    fresher staged response adds new years.
+    """
+    from yen_gov.sources.iced_power.ingest import ingest_pipeline
+
+    result = ingest_pipeline(repo_root=root, raw_json_path=json_path)
+    typer.echo("ingest-iced-pipeline: OK")
+    typer.echo(f"  output:   {result.artifact_path.relative_to(root).as_posix()}")
+    typer.echo(f"  variable: {result.variable_id}")
+    typer.echo(f"  rows:     {result.row_count}")
+
+
 @app.command("seed-goals")
 def seed_goals_cmd(
     root: Path = typer.Option(
