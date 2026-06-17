@@ -596,6 +596,52 @@ def consolidate_fuel_facets(
         )
 
 
+@app.command("ingest-cea-installed-capacity")
+def ingest_cea_installed_capacity(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    xlsx: Path = typer.Option(
+        None,
+        "--xlsx",
+        "-x",
+        help=(
+            "Path to the operator-staged CEA Installed Capacity workbook "
+            "(Executive Summary on Power Sector, 'IC' sheet). Defaults to "
+            "the latest installed_capacity_YYYY_MM.xlsx under "
+            ".runtime/raw/cea/ or $CEA_INSTALLED_CAPACITY_PATH (no network)."
+        ),
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Ingest the CEA Installed Capacity workbook into the faceted store.
+
+    Emits ONE faceted file
+    ``datasets/data/datapoints/geo_by_fuel/installed-capacity-snapshot-mw.csv``
+    (entity_id, time, fuel_type, value, source_id). The workbook fuel
+    columns map to the canonical fuel_type enum (Grand Total -> all; Total
+    Thermal dropped per plan R-C); ECI state codes translate to LGD slugs.
+    Local file only -- no network.
+    """
+    from yen_gov.sources.cea_installed_capacity.ingest import ingest as ingest_cea
+
+    result = ingest_cea(repo_root=root, workbook_path=xlsx)
+    typer.echo("ingest-cea-installed-capacity: OK")
+    typer.echo(f"  output:     {result.csv_path.relative_to(root).as_posix()}")
+    typer.echo(f"  variable:   {result.variable_id}")
+    typer.echo(f"  snapshot:   {result.snapshot_period} (time={result.time})")
+    typer.echo(f"  rows:       {result.row_count}")
+    typer.echo(f"  fuel_types: {', '.join(result.fuel_types)}")
+
+
 @app.command("derive-national-reference")
 def derive_national_reference(
     indicator: str = typer.Option(
