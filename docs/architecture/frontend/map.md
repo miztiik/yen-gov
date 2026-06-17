@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-06-16 (revision: Row 5 of the map-geometry rip plan — boundary pipeline reconciled to d3-geo + TopoJSON/GeoJSON reality; single 2024 electoral vintage + dual-key historical join documented; MapLibre/PMTiles content marked historical)
+**Last Updated**: 2026-06-17 (revision: d3-geo winding-rewind note after the map-geometry rip; PR #1100)ip plan — boundary pipeline reconciled to d3-geo + TopoJSON/GeoJSON reality; single 2024 electoral vintage + dual-key historical join documented; MapLibre/PMTiles content marked historical)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -77,7 +77,15 @@ The `delim_year` baked into each tile-cartogram `unit_id` (`IN-<code>-AC-2008-<n
 
 The pipeline is **build-time only**, not runtime — the consolidation tools (`tools/boundaries/consolidate_ac_2024.py`, `tools/topojson/build_country.py`) run locally and commit their output. Per CLAUDE.md §9 the geometry's provenance lives in `datasets/data/entities/boundary_layer.csv` (the registered layer rows) + the `boundary_encoding.csv` receipt for the `in/` admin spine.
 
-### Boundary pipeline — alternatives considered
+### d3-geo winding (plain-GeoJSON layers must be rewound)
+
+d3-geo treats polygons as **spherical** and wants each polygon's EXTERIOR ring wound **clockwise** (holes counter-clockwise). The GeoJSON spec (RFC 7946, the right-hand rule) uses the OPPOSITE convention - exterior rings counter-clockwise. Hand a RFC-7946 feature straight to `geoPath` and d3 reads the exterior ring as the *small* interior of the complementary spherical polygon, so the projected path covers (almost) the whole sphere: **every polygon paints the entire viewBox and the map renders as one solid block.**
+
+`topojson-client`'s `feature()` emits d3-friendly (clockwise-exterior) winding, so the two TopoJSON-decoded layers (`in/country` states + `electoral/.../ac`) are correct by construction. The plain-GeoJSON layers are NOT - they carry RFC-7946 winding. Any d3-geo renderer that fetches plain GeoJSON directly (`IndiaPcMapD3`, `StatePcMapD3`, and the `StateAcMapD3` geojson branch) MUST pass the collection through [`rewindCollectionForD3`](../../../frontend/src/lib/charts/geo-rewind.ts) at load. The helper is idempotent (it only flips rings wound the wrong way), so it is a harmless no-op on an already-correct TopoJSON-decoded collection.
+
+Regression history: the 2026-06-16 map-geometry rip converted the electoral PC/AC layers from TopoJSON to plain GeoJSON, silently removing topojson-client's implicit rewind. Every PC constituency choropleth then rendered as a solid square (the States view kept working because it stayed TopoJSON) until the rewind helper was added in PR #1100. Forward rule: a new d3-geo component that reads plain GeoJSON must rewind - grep for `r.json()` near `geoPath` / `geoMercator` to find unprotected loaders.
+
+### Boundary pipeline - alternatives considered
 
 - **PMTiles + tippecanoe vector tiles (the v1 design).** Ruled out with MapLibre in PR-6 of the elections-off-MapLibre plan: PMTiles only pays off behind a tile-reading map engine (MapLibre), and the d3-geo renderer reads geometry directly. Retained here only as the historical predecessor.
 - **National AC GeoJSON committed directly.** Rejected in Row 3: ~24 MB gzip fetched whole on a citizen hot path = a 24× wire regression vs the per-state shards, violating static-first (Holy Law #1). The quantized + arc-shared TopoJSON (~3.7 MB gzip, lossless) is the chosen middle path.
