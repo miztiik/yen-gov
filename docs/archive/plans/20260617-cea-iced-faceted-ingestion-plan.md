@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-06-17
 **Level**: 5 (core ingestion pipeline + data-shape). Authority: Hans + Max (data shape) / Gregor (contract) / Fowler (craft) per CLAUDE.md section 0a.
-**Status**: AWAITING USER RATIFICATION. No adapter code is written until the recommended rulings in section 0.4 are ratified or amended.
+**Status**: COMPLETE - all in-scope rows merged 2026-06-17 (ratified via "implement it"; PRs #1106-#1111). See the "Plan complete" distillation map at the foot. Archived under `docs/archive/plans/`.
 **Branch (plan-doc only)**: `feat/cea-iced-faceted-ingest`. Scope is **CEA + ICED only** - RBI is owned by another agent and is OUT.
 
 ---
@@ -84,12 +84,12 @@ ratifies here.
 
 | Row | Title | Status | PR | Effort |
 | --- | --- | --- | --- | --- |
-| 0 | Verify + wire the EXISTING `eci_to_lgd_slug` helper (FK-close vs geo.csv) | [ ] PENDING | - | S |
-| 1 | Restore `SUB_FUEL_TO_CANONICAL` as a shared helper (from git) | [ ] PENDING | - | S |
-| 2 | PILOT: CEA installed-capacity -> faceted `geo_by_fuel/installed-capacity-snapshot-mw` + CLI + fixture tests | [ ] PENDING | - | M |
-| 3 | ICED capacity-metatable -> faceted `geo_by_fuel/installed-capacity-geographical-mw` + CLI + fixture tests | [ ] PENDING | - | M |
-| 4 | Peak-demand entity-key fix (single-value) | [ ] PENDING | - | S |
-| 5 | Re-add fuel-facet guardrail fence (folded #1099, now satisfiable) | [ ] PENDING | - | S |
+| 0 | Verify + wire the EXISTING `eci_to_lgd_slug` helper (FK-close vs geo.csv) | [x] DONE | #1106 | S |
+| 1 | Restore `SUB_FUEL_TO_CANONICAL` as a shared helper (from git) | [x] DONE | #1107 | S |
+| 2 | PILOT: CEA installed-capacity -> faceted `geo_by_fuel/installed-capacity-snapshot-mw` + CLI + fixture tests | [x] DONE | #1108 | M |
+| 3 | ICED capacity-metatable -> faceted `geo_by_fuel/installed-capacity-geographical-mw` + CLI + fixture tests | [x] DONE | #1109 | M |
+| 4 | Peak-demand entity-key fix (single-value) | [x] DONE | #1111 | S |
+| 5 | Re-add fuel-facet guardrail fence (folded #1099, now satisfiable) | [x] DONE | #1110 | S |
 | D1 | DEFERRED: ICED generation faceting (own FE-migration PR) | [ ] DEFERRED | - | - |
 | D2 | DEFERRED: retired-capacity orphan disposition | [ ] DEFERRED | - | - |
 
@@ -161,3 +161,25 @@ When this plan is in context and the instruction is "implement it", execute as t
 7. **Post-merge hygiene every time.** Delete the remote branch, prune `: gone` local branches, remove `.tmp_*`, distill durable lessons.
 8. **Stop only at a real boundary.** Stop and ask ONLY when: an ESCALATE trigger fires (Level-5), an explicit user-named source/instruction would be scope-narrowed (STOP-AND-SURFACE per CLAUDE.md section 10), or an audit chain exceeds depth 3 (the loop is lossy - escalate with Path A/B/C options, do not ship a 4th audit). Otherwise do not pause; the user is not watching.
 9. **Closure.** Done only when every in-scope row is DONE or COLLAPSED-with-cited-rationale. No-op rows carry a receipt (the command + its zero result). Archive the plan-doc with a per-row distillation map per `docs/how-to/distill-a-plan.md`.
+
+---
+
+## Plan complete
+
+Closed 2026-06-17. All in-scope rows merged (ratified by the user's "implement it"). The persona authorities' recommended rulings in section 0.4 (R-A..R-H) were applied as ratified; no ESCALATE trigger fired (Row 0 FK-closure verified clean: 37 ECI codes, 0 unmapped, 0 orphaned slugs).
+
+Distillation map (each row -> its merged PR + durable code home):
+
+- Row 0 (eci_to_lgd_slug FK-closure gate) -> PR #1106 -> `backend/tests/test_eci_slug_fk_closure.py`.
+- Row 1 (restore `SUB_FUEL_TO_CANONICAL`) -> PR #1107 -> `backend/yen_gov/sources/iced_common/fuel_collapse.py` (recovered verbatim from `8ea74f243^`).
+- Row 2 (CEA faceted emit, R-C: Total Thermal dropped, Grand Total -> `all`) -> PR #1108 -> `backend/yen_gov/sources/cea_installed_capacity/ingest.py` + CLI `ingest-cea-installed-capacity`.
+- Row 3 (ICED capacity faceted emit, R-D: sub-fuel collapse + published-total -> `all`) -> PR #1109 -> `backend/yen_gov/sources/iced_power/ingest.py` (`build_capacity_faceted_rows`) + CLI `ingest-iced-capacity`.
+- Row 4 (peak-demand entity-key fix, R-G) -> PR #1111 -> `backend/yen_gov/sources/iced_power/ingest.py` (`build_peak_rows` / `ingest_peak`) + CLI `ingest-iced-peak-demand`.
+- Row 5 (re-fragmentation fence, R-H: installed-capacity ONLY; net-transfers left to the RBI agent) -> PR #1110 -> `backend/yen_gov/validate.py::tier_b_no_refragmented_fuel_facet_csv` + 6 unit tests; 0 live-corpus violations.
+- D1 (ICED generation faceting) + D2 (retired-capacity orphan) -> remain DEFERRED per R-E / R-F (no FE consumer; own future PR).
+
+Deviation receipt: R-D's literal "total/sum -> all" was implemented as "published total -> all, NEVER a synthesised sum of parts" to honour the `geo_by_fuel` contract (`all` is the published aggregate, which may diverge from sum(parts)); documented in PR #1109. Within the ratified intent; not an escalation.
+
+Agent-craft lessons (validate_csv FK staging in tmp_path; the 35 chronic CWD-relative pytest baseline; deleted-code recovery via `git log -S` + `git show <sha>^:path`; multi-PR cli.py edits by region) distilled to `/memories/lessons-2026-06-12-*.md`.
+
+Plan-doc remains as the audit ledger; do not edit further. New work starts a new plan-doc.
