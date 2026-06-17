@@ -167,7 +167,7 @@
     national_events.map((r) => ({
       event_id: r.event_id,
       year_label: eventYearLabel(r.event_id),
-      href: `/t/elections/${r.event_id}`,
+      href: link.nationalElection(r.event_id),
       is_current: r.event_id === event,
     })),
   );
@@ -1027,7 +1027,7 @@
       {/if}
     </section>
 
-    <!-- Seat semicircle (#10). One dot per Lok Sabha seat, coloured by
+    <!-- Seat semicircle (#10). One dot per Parliament seat, coloured by
          winning party, with a majority midline + symbol-ring legend.
          Shares the same `hidden_parties` set as the bar + maps, so muting
          a party recedes its seats here too. -->
