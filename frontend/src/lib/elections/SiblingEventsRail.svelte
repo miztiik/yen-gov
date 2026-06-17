@@ -35,6 +35,9 @@
 -->
 <script lang="ts">
   import type { SiblingEventsRailModel } from "./sibling-events-rail-model";
+  import YearComparePicker from "./YearComparePicker.svelte";
+  import { link } from "../links";
+  import { navigate } from "../url";
 
   interface Props {
     model: SiblingEventsRailModel;
@@ -95,16 +98,23 @@
       </a>
     {/each}
 
-    {#if model.compare_href && model.prior_year !== null}
+    {#if model.compare_options.length > 0}
       <span aria-hidden="true" class="w-1 shrink-0"></span>
-      <a
-        href={model.compare_href}
-        class="inline-flex shrink-0 items-center rounded-yen-pill border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700 ring-1 ring-slate-200 transition-colors hover:bg-slate-100"
-        style="scroll-snap-align: center;"
-        data-testid="sibling-events-rail-compare"
-      >
-        Compare with {model.prior_year}
-      </a>
+      <span class="shrink-0" style="scroll-snap-align: center;">
+        <YearComparePicker
+          label="Compare"
+          align="right"
+          options={model.compare_options}
+          onSelect={(id) =>
+            navigate(
+              link.compareElections(
+                model.state_slug,
+                id,
+                model.current_event_id,
+              ),
+            )}
+        />
+      </span>
     {/if}
   </nav>
 {/if}
