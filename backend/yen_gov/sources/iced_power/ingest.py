@@ -16,7 +16,10 @@ from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.sources.iced_common.fuel_collapse import collapse_fuel
-from yen_gov.sources.iced_power.parsers import parse_capacity_metatable
+from yen_gov.sources.iced_power.parsers import (
+    parse_capacity_metatable,
+    parse_power_statistics,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -568,6 +571,76 @@ def ingest_capacity(
         artifact_path=out,
         row_count=len(rows),
         fuel_types=tuple(sorted({str(r["fuel_type"]) for r in rows})),
+        skipped_unmapped=skipped,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Peak-demand entity-key fix (Row 4: single-value geo CSV, ECI -> LGD slug)
+# ---------------------------------------------------------------------------
+#
+# Per plan ruling R-G the ICED peak-demand series stays a single-value
+# geo/peak-electricity-demand-mw.csv; the only fix is re-pointing its entity
+# output through the ECI -> LGD-slug translation so the rows FK-close against
+# entities/geo.csv (the parser emits ECI st_codes; geo.csv keys on slugs).
+
+
+@dataclass(frozen=True)
+class PeakIngestResult:
+    """Receipt for the single-value peak-demand CSV emit."""
+
+    variable_id: str
+    artifact_path: Path
+    row_count: int
+    skipped_unmapped: int
+
+
+def build_peak_rows(
+    parsed_rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Build the single-value peak-demand geo rows, ECI st_code -> LGD slug.
+
+    Each parser row ``{entity_id(ECI), time("YYYY-04"), value}`` keeps its
+    single-value shape (no facet) but its ECI st_code resolves to the LGD slug
+    (``IN`` country passthrough) and its fiscal-year period reduces to the
+    integer start year. Returns a one-key ``by_variable`` map keyed on the
+    peak variable_id, ready for ``emit_csv_variables``.
+    """
+    rows = [
+        {
+            "entity_id": _to_slug(str(r["entity_id"])),
+            "time": _period_to_year_int(str(r["time"])),
+            "value": r["value"],
+            "source_id": source_id,
+        }
+        for r in parsed_rows
+    ]
+    return {_CSV_VARIABLE_PREFIX_PEAK: rows}
+
+
+def ingest_peak(*, repo_root: Path, raw_json_path: Path) -> PeakIngestResult:
+    """Read a staged powerStatistics JSON, emit the slug-keyed peak-demand CSV.
+
+    Capability-only entry point (no network): the operator stages the raw
+    ``/energy/powerStatistics`` response locally and runs this. Emits the
+    single-value file ``datasets/data/datapoints/geo/peak-electricity-demand-mw.csv``
+    with LGD-slug ``entity_id`` rows (Row 4 entity-key fix).
+    """
+    import json
+
+    decoded = json.loads(raw_json_path.read_text(encoding="utf-8"))
+    _generation_rows, peak_rows, skipped = parse_power_statistics(decoded)
+    source_id = derive_source_id(
+        _CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE_PEAK, _CSV_SOURCE_VINTAGE
+    )
+    by_variable = build_peak_rows(peak_rows, source_id=source_id)
+    written = emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+    return PeakIngestResult(
+        variable_id=_CSV_VARIABLE_PREFIX_PEAK,
+        artifact_path=written[0],
+        row_count=len(by_variable[_CSV_VARIABLE_PREFIX_PEAK]),
         skipped_unmapped=skipped,
     )
 
