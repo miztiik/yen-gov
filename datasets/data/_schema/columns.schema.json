@@ -3,7 +3,7 @@
   "$id": "./columns.schema.json",
   "title": "CSV column contract (schema-of-schemas)",
   "description": "Validates datasets/data/_schema/columns.json - the one machine-readable home for the per-file-class CSV column contract. Spec: docs/architecture/data/csv-column-contract.md (D-DOC0). Consumed by the backend write-time validator (B1.3), the frontend typed-read codegen (F1), and the cross-format drift test.",
-  "x-version": "2.6",
+  "x-version": "2.7",
   "x-changelog": [
     {
       "version": "1.0",
@@ -49,6 +49,11 @@
       "version": "2.6",
       "date": "2026-06-16",
       "description": "Companion bump for columns.json $schema_version 2.5 -> 2.6 (PR-B of TODO/20260614-three-ephemeral-ingests-plan.md). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: 4 nullable affidavit-disclosure columns appended to BOTH candidacies file-classes (datasets/elections/parliament/election=*/candidacies.csv AND datasets/elections/assembly/state=*/election=*/candidacies.csv): criminal_cases_declared (integer, count of pending criminal cases declared on the ECI Form 26 nomination affidavit), total_assets_inr (integer, declared movable+immovable+investments, rupees), total_liabilities_inr (integer, declared liabilities, rupees), declared_election_expense_inr (integer, publisher-reported election-expense filing, rupees). PR-B populates these on 542 of 543 winner rows for election=2014 via the ADR/MyNeta corpus (1 winner is a publisher gap, NOT a join failure; D2: unmatched_count=0); NULL on losers and on every non-2014 event. Affidavit-source citation is registered in source.csv (src-e9565084cbd1, producer='Association for Democratic Reforms (ADR / MyNeta)'); the ECI src_id on the candidacy ROW stays pristine per the 'don't change published data' citizen-correctness binding (the 4 new cols' attribution is fixed at the file-class scope by THIS changelog entry). The mirror onto the AE candidacies file-class is forward-defensive: no AE writer populates these cells yet, but future AE-affidavit ingests can land without a further schema bump."
+    },
+    {
+      "version": "2.7",
+      "date": "2026-06-16",
+      "description": "Companion bump for columns.json $schema_version 2.6 -> 2.7 (TODO/20260616-geo-facet-dimension-column-plan.md; Level-5 data-model, Hans + Max + Gregor + Fowler debate). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: NEW file-class datasets/data/datapoints/geo_by_fuel/*.csv for long-format datapoints faceted by fuel_type, generalising the electoral_geo sex-facet precedent (v2.4) to the plan section 21.6 dimension-column branch. 5 columns: composite PK (entity_id, time, fuel_type); fuel_type closed enum [coal, gas, hydro, nuclear, renewable, all] where `all` is the published aggregate member (NOT a render-time sum of the parts); value nullable; source_id FK source.csv; entity_id FK geo.csv. Collapses the 4 installed-capacity families (each currently 1 total + 5 per-fuel variable_ids = ~24 geo/*.csv files) into 4 faceted geo_by_fuel files. The geo/*.csv note is rewritten to delete the superseded 'facet metadata lives on variables.csv row' language (ARCH-A rejected pre-commit by the Gregor contract ruling); the frontend reader stays columns.json-only. estimate_stage (net-transfers Accounts/RE/BE) is explicitly NOT modelled as a facet (fails the four-gate test F2; plan F1 'never a facet toggle'); net-transfers collapses to an Accounts-only single series in the same PR. Existing file-classes unchanged in shape."
     }
   ],
   "type": "object",

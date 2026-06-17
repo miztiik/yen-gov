@@ -30,6 +30,7 @@ from yen_gov.canonical.csv_validator import (
 
 
 _GEO_FC = "datasets/data/datapoints/geo/*.csv"
+_GEO_BY_FUEL_FC = "datasets/data/datapoints/geo_by_fuel/*.csv"
 
 
 @pytest.fixture(autouse=True)
@@ -201,6 +202,108 @@ def test_fk_target_missing_only_fails_when_referenced(tmp_path):
     # Header-only file has no FK values to verify; missing target files are
     # tolerated when no rows depend on them.
     validate_csv(path=path, file_class=_GEO_FC, repo_root=tmp_path)
+
+
+# --- geo_by_fuel faceted file-class (TODO/20260616 geo-facet plan, C1) -----
+#
+# The dimension-column branch (plan section 21.6): one file per measure with a
+# fuel_type column joining the composite PK (entity_id, time, fuel_type),
+# generalising the electoral_geo sex-facet precedent. The validator learns the
+# composite PK + closed enum purely from columns.json - zero per-indicator
+# machinery (Gregor ARCH-C ruling). tmp_path fixtures only.
+
+
+def test_faceted_happy_path(tmp_path):
+    _stage_geo_entities(tmp_path, ["IN-S01", "IN-S22"])
+    _stage_sources(tmp_path, ["src-a"])
+    path = (
+        tmp_path / "datasets" / "data" / "datapoints" / "geo_by_fuel"
+        / "installed-capacity-mw.csv"
+    )
+    # Sorted by (entity_id, time, fuel_type); 'all' sorts before 'coal'.
+    _write_csv(
+        path,
+        ["entity_id", "time", "fuel_type", "value", "source_id"],
+        [
+            ["IN-S01", "2020", "all", "1500", "src-a"],
+            ["IN-S01", "2020", "coal", "1000", "src-a"],
+            ["IN-S01", "2020", "renewable", "500", "src-a"],
+            ["IN-S22", "2020", "all", "800", "src-a"],
+        ],
+    )
+    validate_csv(path=path, file_class=_GEO_BY_FUEL_FC, repo_root=tmp_path)
+
+
+def test_faceted_enum_miss_rejected(tmp_path):
+    _stage_geo_entities(tmp_path, ["IN-S01"])
+    _stage_sources(tmp_path, ["src-a"])
+    path = (
+        tmp_path / "datasets" / "data" / "datapoints" / "geo_by_fuel"
+        / "installed-capacity-mw.csv"
+    )
+    _write_csv(
+        path,
+        ["entity_id", "time", "fuel_type", "value", "source_id"],
+        [["IN-S01", "2020", "solar", "1000", "src-a"]],  # not in enum
+    )
+    with pytest.raises(CsvValidationError, match="fuel_type"):
+        validate_csv(path=path, file_class=_GEO_BY_FUEL_FC, repo_root=tmp_path)
+
+
+def test_faceted_non_null_facet_required(tmp_path):
+    _stage_geo_entities(tmp_path, ["IN-S01"])
+    _stage_sources(tmp_path, ["src-a"])
+    path = (
+        tmp_path / "datasets" / "data" / "datapoints" / "geo_by_fuel"
+        / "installed-capacity-mw.csv"
+    )
+    _write_csv(
+        path,
+        ["entity_id", "time", "fuel_type", "value", "source_id"],
+        [["IN-S01", "2020", "", "1000", "src-a"]],  # empty facet
+    )
+    with pytest.raises(CsvValidationError, match="non-nullable"):
+        validate_csv(path=path, file_class=_GEO_BY_FUEL_FC, repo_root=tmp_path)
+
+
+def test_faceted_duplicate_composite_pk_rejected(tmp_path):
+    _stage_geo_entities(tmp_path, ["IN-S01"])
+    _stage_sources(tmp_path, ["src-a"])
+    path = (
+        tmp_path / "datasets" / "data" / "datapoints" / "geo_by_fuel"
+        / "installed-capacity-mw.csv"
+    )
+    _write_csv(
+        path,
+        ["entity_id", "time", "fuel_type", "value", "source_id"],
+        [
+            ["IN-S01", "2020", "coal", "1000", "src-a"],
+            ["IN-S01", "2020", "coal", "1001", "src-a"],  # dup composite PK
+        ],
+    )
+    with pytest.raises(CsvValidationError, match="duplicate PK"):
+        validate_csv(path=path, file_class=_GEO_BY_FUEL_FC, repo_root=tmp_path)
+
+
+def test_duplicate_pk_rejected_on_geo_class(tmp_path):
+    # The strict-ascending tightening applies to every PK'd class, not just
+    # faceted ones: two rows with the same (entity_id, time) are rejected.
+    _stage_geo_entities(tmp_path, ["IN-S01"])
+    _stage_sources(tmp_path, ["src-a"])
+    path = (
+        tmp_path / "datasets" / "data" / "datapoints" / "geo"
+        / "literacy-rate-pct-total.csv"
+    )
+    _write_csv(
+        path,
+        ["entity_id", "time", "value", "source_id"],
+        [
+            ["IN-S01", "2011", "73.2", "src-a"],
+            ["IN-S01", "2011", "74.0", "src-a"],  # dup (entity, time)
+        ],
+    )
+    with pytest.raises(CsvValidationError, match="duplicate PK"):
+        validate_csv(path=path, file_class=_GEO_FC, repo_root=tmp_path)
 
 
 # --- B2b.5.1 election file-class fk-validator passthrough ------------------

@@ -601,6 +601,12 @@ async function loadNationalReferenceRows(
 async function loadFacetMultiplexedFromCanonical(
   descriptor: CanonicalFacetMultiplexedDescriptor,
 ): Promise<IndicatorArtifact> {
+  // geo-facet PR (TODO/20260616-geo-facet-dimension-column-plan.md): when the
+  // parent declares a single faceted file (the section-21.6 dimension-column
+  // read path), read it directly instead of UNION-ing N per-child files.
+  if (descriptor.faceted_csv_path) {
+    return loadFacetMultiplexedFromFacetedCsv(descriptor);
+  }
   // Phase C/D (2026-06-07): every facet child in the energy + livestock
   // allowlist now carries `csv_path`; the parquet UNION-on-fact-table
   // back-compat branch retired in the same commit that deleted the
@@ -669,6 +675,62 @@ async function loadFacetMultiplexedFromCsv(
       value_numeric: r.value,
       source_id: r.source_id,
       indicator_id: r.indicator_id,
+    }));
+
+  return buildFacetMultiplexedArtifact(descriptor, adapted);
+}
+
+/** geo-facet PR (TODO/20260616-geo-facet-dimension-column-plan.md): read ONE
+ *  faceted long file (the section-21.6 dimension-column read path) carrying a
+ *  `facet_column` dimension, instead of UNION-ing N per-child files. Maps each
+ *  observed facet value back to its `canonical_child_id` so the shared
+ *  `buildFacetMultiplexedArtifact` label dispatch keeps working unchanged. */
+async function loadFacetMultiplexedFromFacetedCsv(
+  descriptor: CanonicalFacetMultiplexedDescriptor,
+): Promise<IndicatorArtifact> {
+  const facetedPath = descriptor.faceted_csv_path!;
+  const facetColumn = descriptor.facet_column;
+  if (!facetColumn) {
+    throw new Error(
+      `faceted descriptor ${descriptor.canonical_parent_indicator_id} sets ` +
+        `faceted_csv_path but is missing facet_column`,
+    );
+  }
+  const slugToLegacy = await loadCanonicalSlugToLegacyMap();
+  // facet enum value -> child_id (the key buildFacetMultiplexedArtifact maps
+  // to a citizen-facing label via facetLabelByChildId).
+  const childIdByFacetValue = new Map(
+    descriptor.facet_values
+      .filter((fv) => fv.facet_value !== undefined)
+      .map((fv) => [fv.facet_value as string, fv.canonical_child_id]),
+  );
+  const columnsClause = await csvColumnsClause(`datasets/${facetedPath}`);
+  const url = canonicalCsvUrl(facetedPath);
+  await Promise.all([
+    registerCsvAsTable("taxonomy.sources"),
+    registerCsvFile(url),
+  ]);
+  const sql = `
+    SELECT entity_id, time, ${facetColumn} AS facet_key, value, source_id
+    FROM read_csv('${url.replace(/'/g, "''")}', ${columnsClause}, header=true)
+    ORDER BY entity_id, time, facet_key
+  `;
+  const csvRows = await query<{
+    entity_id: string;
+    time: number;
+    facet_key: string;
+    value: number | null;
+    source_id: string;
+  }>(sql);
+
+  const adapted: CanonicalFacetObsRow[] = csvRows
+    .filter((r) => rowMatchesEntityKind(r.entity_id, descriptor.meta.entity_kind))
+    .map((r) => ({
+      entity_id: translateCanonicalSlugToLegacy(slugToLegacy, r.entity_id),
+      period_label: String(r.time),
+      value_numeric: r.value,
+      source_id: r.source_id,
+      indicator_id: childIdByFacetValue.get(r.facet_key) ?? r.facet_key,
     }));
 
   return buildFacetMultiplexedArtifact(descriptor, adapted);

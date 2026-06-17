@@ -174,11 +174,24 @@ One file per `variable_id`. Filename exactly `<variable_id>.csv`. No `__`. Sorte
 
 | column | dtype | nullable | note |
 | --- | --- | --- | --- |
-| `entity_id` | string | no (pk) | fk -> entities/geo.csv.entity_id; composite pk with `time` (+ any facet column) |
+| `entity_id` | string | no (pk) | fk -> entities/geo.csv.entity_id; composite pk with `time` |
 | `time` | integer | no (pk) | year (calendar or fiscal as declared by the concept); never a wall-clock |
 | `value` | number | yes | null = labelled gap (F1); never BE/RE-filled |
 | `source_id` | string | no | fk -> entities/source.csv.source_id; per-row stamp mandatory (Holy Law #9) |
-| `<facet>` | string | yes | OPTIONAL additional column(s) declared per indicator (e.g. `sex`, `fuel_type`); part of pk when present (plan section 21.6) |
+
+This class is for SINGLE-VALUE measures only. Analytical facets are NEVER carried as a dynamic extension of this 4-column class (the pre-2.7 "facet metadata lives on the indicator's variables.csv row" language is superseded - ARCH-A rejected by the Gregor contract ruling). They live on a per-axis sibling class below.
+
+#### `datasets/data/datapoints/geo_by_<axis>/<variable_id>.csv` (faceted - dimension-column branch)
+
+The plan section 21.6 dimension-column branch: a measure with a real analytical facet (fuel_type, species, sex, ...) is ONE long file carrying the facet as a dimension column that joins the composite PK, instead of fanning out into one `variable_id` + CSV per facet member. Generalises the `electoral_geo` sex-facet precedent. The facet axis name + its closed enum are declared HERE in `columns.json` per a homogeneous sibling file-class (one class per axis) so the frontend reader stays `columns.json`-only (no `variables.csv` dimension dispatch). A measure is admissible only when the axis passes the four-gate facet test ([indicator-naming.md section 6](../../concepts/indicator-naming.md#6-facet-and-dimension-labels) / plan F2): same concept/unit/normalisation, same publisher-fact, members partition a recognisable whole, a real citizen question. First class: `geo_by_fuel/` (TODO/20260616-geo-facet-dimension-column-plan.md).
+
+| column | dtype | nullable | note |
+| --- | --- | --- | --- |
+| `entity_id` | string | no (pk) | fk -> entities/geo.csv.entity_id |
+| `time` | integer | no (pk) | year |
+| `<axis>` | string | no (pk) | the dimension column, e.g. `fuel_type`; closed enum declared in columns.json. For `geo_by_fuel`: {`coal`, `gas`, `hydro`, `nuclear`, `renewable`, `all`}. `all` is the PUBLISHED aggregate member (NOT a render-time sum of the parts); readers MUST exclude it from any sum-the-facets view (non-summable marker is a grapher render hint per ADR-0045) |
+| `value` | number | yes | null = labelled gap (F1) |
+| `source_id` | string | no | fk -> entities/source.csv.source_id; per-row stamp mandatory |
 
 #### `datasets/data/datapoints/electoral/<variable_id>.csv`
 

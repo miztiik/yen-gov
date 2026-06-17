@@ -1,0 +1,6 @@
+entity_id,time,fuel_type,value,source_id
+IN,2026,coal,210479.375,src-092a5dc7af3f
+IN,2026,gas,19570.154308,src-092a5dc7af3f
+IN,2026,hydro,49984.542372,src-092a5dc7af3f
+IN,2026,nuclear,7549.972,src-092a5dc7af3f
+IN,2026,renewable,223273.43,src-092a5dc7af3f

@@ -162,6 +162,16 @@ Example (correct):
 }
 ```
 
+### 6.1 Facet storage - the dimension-column contract (2026-06-16)
+
+Facet LABELS (above) are render hints. Facet DATA storage is a contract, settled 2026-06-16 (Hans + Max + Gregor + Fowler; [geo-facet plan](../../TODO/20260616-geo-facet-dimension-column-plan.md)):
+
+- **One long file per measure - never N files per facet member, never wide columns.** A measure faceted by `fuel_type` is ONE file `installed-capacity-mw.csv` with a `fuel_type` dimension column (long format: `entity_id, time, fuel_type, value, source_id`) - NOT five files `...-coal.csv` / `...-gas.csv` / ..., and NOT one wide file with `coal_value, gas_value, ...` columns. Wide columns break the `(entity, time, facet, value)` contract, the FacetPicker, and cross-facet aggregation; per-member files re-create the over-fragmentation this contract removes.
+- **The facet is a PK column on a per-axis sibling file-class** `datasets/data/datapoints/geo_by_<axis>/*.csv`, declared with its closed enum in `datasets/data/_schema/columns.json` (e.g. `geo_by_fuel` with `fuel_type` enum `[coal, gas, hydro, nuclear, renewable, all]`). One file-class per axis keeps the frontend reader `columns.json`-only. Spec: [csv-column-contract.md section 3.3](../architecture/data/csv-column-contract.md).
+- **Admission is gated by the four-gate facet test** (plan F2): (1) same concept/unit/normalisation, (2) same publisher-fact - NOT different estimates/base-years, (3) members partition a recognisable whole, (4) a real citizen question needs the split. Fail one => NOT a facet => collapse to a single series or keep as a separately-named indicator. Worked rejection: fiscal estimate-stage (Accounts/RE/BE) fails gates 2 + 3 - it is a methodology/vintage axis, NOT a partition; plan F1 bans it as "a facet toggle". It stays a single Accounts series (best-available actual) with future years as labelled gaps, never an `estimate_stage` facet.
+- **Published aggregate members are stored, never summed at render.** Where the publisher prints a total (`fuel_type = all`), carry it as an explicit member; it may legitimately diverge from sum(parts) where captive / other capacity is unreconciled. Readers exclude `all` from any sum-the-facets view (the non-summable marker is a grapher render hint per [ADR-0045](../architecture/data/indicator-catalogue.md#adr-0045-grapher-catalogue-split)).
+- **No topic / grain prefix on the measure id** (ADR-0044 + ADR-0022). The file is `<measure-id>.csv` (e.g. `installed-capacity-mw.csv`), NOT `india-energy-installed-capacity-mw.csv`: the topic (`energy`) lives in the `topic` column of `variables.csv`, and entity grain rides on each row's `entity_kind` (one id serves state + district grain; the renderer dispatches from the row, never from a prefix).
+
 ## 7. Migration / rename policy
 
 Renaming an `indicator.id` after publish is a **CLAUDE.md §6 Level-3 minimum** change: the id flows into `topic-catalogue.json` artifact references, the frontend route generation, every consumer contract test, and any external citation. Treat it that way.
