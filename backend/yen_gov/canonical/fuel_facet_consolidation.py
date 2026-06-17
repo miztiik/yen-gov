@@ -39,6 +39,7 @@ __all__ = [
     "FuelFamilySpec",
     "INSTALLED_CAPACITY_FAMILIES",
     "GENERATION_FAMILIES",
+    "RETIRED_FAMILIES",
     "ALL_FUEL_FACETED_FAMILIES",
     "consolidate_family_rows",
     "write_faceted_family",
@@ -194,7 +195,23 @@ GENERATION_FAMILIES: tuple[FuelFamilySpec, ...] = (
 )
 
 
+# D2 (energy fast-follow): national thermal capacity retired by fuel. The two
+# per-fuel files (coal, gas) fold into ONE faceted file. National-only
+# (entity_id=IN); no parent total file on disk -> has_all_member=False (no
+# `all` member; the contract forbids synthesising a published total).
+RETIRED_FAMILIES: tuple[FuelFamilySpec, ...] = (
+    FuelFamilySpec(
+        parent_id="india-thermal-capacity-retired-mw",
+        has_all_member=False,
+        children=(
+            ("coal", "india-thermal-capacity-retired-mw-coal"),
+            ("gas", "india-thermal-capacity-retired-mw-gas"),
+        ),
+    ),
+)
+
+
 # Every fuel-faceted energy family the consolidate-fuel-facets CLI materialises.
 ALL_FUEL_FACETED_FAMILIES: tuple[FuelFamilySpec, ...] = (
-    INSTALLED_CAPACITY_FAMILIES + GENERATION_FAMILIES
+    INSTALLED_CAPACITY_FAMILIES + GENERATION_FAMILIES + RETIRED_FAMILIES
 )
