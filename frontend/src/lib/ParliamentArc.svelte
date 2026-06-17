@@ -12,6 +12,7 @@
   import { partyColourHex } from "./psephlab/colour-bridge";
   import PartySymbolGlyph from "./PartySymbolGlyph.svelte";
   import { majorityFor } from "./electoral";
+  import { orderArcParties } from "./parliament-arc-order";
 
   interface Props {
     parties: PartyResult[];           // pre-allocated; seats_won >= 0
@@ -24,8 +25,25 @@
      */
     hidden_parties?: Set<string>;
     onToggleHidden?: (party_eci_code: string) => void;
+    /**
+     * Optional alliance resolver. When provided, the chamber is ordered by
+     * ALLIANCE bloc rather than by raw party size: blocs are sorted by total
+     * seats descending (the winning bloc fills from chamber-left), parties
+     * within a bloc by seats descending, and unaligned parties trail last.
+     * Returns the alliance label for a party, or null when the party is
+     * unaligned for this event. Falls back to seats-only ordering when omitted.
+     */
+    alliance_of?: (party: PartyResult) => string | null;
   }
-  let { parties, total_seats, hidden_parties, onToggleHidden }: Props = $props();
+  let { parties, total_seats, hidden_parties, onToggleHidden, alliance_of }: Props = $props();
+
+  // Order the seat-bearing parties left -> right. Pure helper (see
+  // parliament-arc-order.ts): seats-descending without a resolver, alliance-
+  // grouped (blocs by total seats desc, parties within by seats desc,
+  // unaligned trailing) when `alliance_of` is supplied.
+  const orderActiveParties = (list: PartyResult[]): PartyResult[] =>
+    orderArcParties(list, alliance_of);
+
 
   // Canvas grown vs v1 (was 600×320) so dots have room to breathe at
   // TN scale (234 seats). Aspect ratio still ~16:9; SVG scales to width.
@@ -87,11 +105,9 @@
     }
     slots.sort((a, b) => b.angle - a.angle);
 
-    // Sort parties left→right: bigger seat counts first, ties broken by name.
-    // Convention: largest party left of centre, in chamber-left tradition.
-    const ordered = [...parties]
-      .filter(p => p.seats_won > 0)
-      .sort((a, b) => b.seats_won - a.seats_won || a.party_short.localeCompare(b.party_short));
+    // Order parties left->right: alliance-grouped when a resolver is given,
+    // else seats-descending (chamber-left tradition: largest first).
+    const ordered = orderActiveParties(parties);
 
     // Walk slots in order, painting dots party-by-party.
     const dots: Dot[] = [];
@@ -119,12 +135,8 @@
   // Hover tooltip.
   let hover = $state<{ x: number; y: number; label: string } | null>(null);
 
-  // Per-party legend (already sorted desc).
-  const legend = $derived(
-    [...parties]
-      .filter(p => p.seats_won > 0)
-      .sort((a, b) => b.seats_won - a.seats_won),
-  );
+  // Per-party legend, in the same (alliance-grouped or seats) order as the dots.
+  const legend = $derived(orderActiveParties(parties));
 </script>
 
 <div class="relative pt-4">

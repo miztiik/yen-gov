@@ -1297,6 +1297,7 @@
             total_seats={kpis.total_seats}
             {hidden_parties}
             onToggleHidden={toggleHidden}
+            alliance_of={(p) => alliance_lookup?.(p.party_id) ?? null}
           />
         </section>
       {/if}

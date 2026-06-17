@@ -88,6 +88,8 @@
   import ElectionSeizuresCard from "../lib/elections/ElectionSeizuresCard.svelte";
   import StateEventCrossEventSankey from "../lib/elections/StateEventCrossEventSankey.svelte";
   import type { PrevWinnersState } from "../lib/elections/seat-flow-model";
+  import { loadAlliances } from "../lib/psephlab/alliances";
+  import type { AllianceLookup } from "../lib/psephlab/types";
   import {
     loadEventSummary,
     type EventSummaryRow,
@@ -396,6 +398,24 @@
       election_symbol_asset_path: p.symbol_asset_path,
     })),
   );
+
+  // National alliance lookup (party_id -> alliance label) for the seat-arc
+  // grouping. `state_slug="IN"` scopes party_alliances.csv to the national
+  // Parliament-event rows (same scope AllianceTotals uses below). Null until
+  // loaded / when the event has no curated alliance rows; the arc then falls
+  // back to seats-only ordering.
+  let alliance_lookup = $state<AllianceLookup | null>(null);
+  $effect(() => {
+    const ev = event;
+    alliance_lookup = null;
+    loadAlliances(ev, "IN")
+      .then((l) => {
+        if (ev === event) alliance_lookup = l;
+      })
+      .catch(() => {
+        if (ev === event) alliance_lookup = null;
+      });
+  });
 
   // ---- TODO/20260612 Row C: 3-way map toggle ---------------------------
   // states (default) | constituencies | hex. Lives in component state
@@ -1039,6 +1059,7 @@
           total_seats={kpis.total_seats}
           {hidden_parties}
           onToggleHidden={toggleHidden}
+          alliance_of={(p) => alliance_lookup?.(p.party_id) ?? null}
         />
       </section>
     {/if}
