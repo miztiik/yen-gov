@@ -46,6 +46,26 @@
 
   let nav_el: HTMLElement | undefined = $state();
 
+  // PR2: edge-fade overflow affordance. The left/right fades signal
+  // "more years this way" ONLY when the rail actually overflows;
+  // recomputed on scroll, on model change, and on viewport resize.
+  let fade_left = $state(false);
+  let fade_right = $state(false);
+  function updateFades(): void {
+    const el = nav_el;
+    if (!el) {
+      fade_left = false;
+      fade_right = false;
+      return;
+    }
+    // Only fade when the rail actually overflows; otherwise both edges
+    // stay clean (a short rail that fits must not show a spurious fade).
+    const overflows = el.scrollWidth > el.clientWidth + 1;
+    fade_left = overflows && el.scrollLeft > 1;
+    fade_right =
+      overflows && el.scrollLeft + el.clientWidth < el.scrollWidth - 1;
+  }
+
   // Scroll the current chip to centre on mount and whenever the
   // rail's identity changes (event navigation reuses this same
   // component). `block: "nearest"` so the page doesn't shift
@@ -54,53 +74,85 @@
   // conditional targets - cleaner than carrying an array of refs.
   $effect(() => {
     void model.events.find((c) => c.is_current)?.event_id; // re-fire on event change
-    if (!nav_el) return;
-    const current = nav_el.querySelector<HTMLAnchorElement>(
-      '[data-testid="sibling-events-rail-current"]',
-    );
-    if (!current) return;
-    try {
-      current.scrollIntoView({ inline: "center", block: "nearest" });
-    } catch {
-      // older browsers without ScrollOptions support: silent no-op.
+    if (nav_el) {
+      const current = nav_el.querySelector<HTMLAnchorElement>(
+        '[data-testid="sibling-events-rail-current"]',
+      );
+      if (current) {
+        try {
+          current.scrollIntoView({ inline: "center", block: "nearest" });
+        } catch {
+          // older browsers without ScrollOptions support: silent no-op.
+        }
+      }
     }
+    updateFades();
+  });
+
+  // Recompute fades on viewport resize (overflow can flip when the
+  // surrounding column reflows). Initial compute runs here too.
+  $effect(() => {
+    const onResize = () => updateFades();
+    window.addEventListener("resize", onResize);
+    updateFades();
+    return () => window.removeEventListener("resize", onResize);
   });
 
   const single_event = $derived(model.events.length === 1);
 </script>
 
 {#if model.events.length > 0}
-  <nav
-    bind:this={nav_el}
-    class="-mx-2 flex gap-2 overflow-x-auto whitespace-nowrap px-2 py-2 {single_event
-      ? 'justify-center'
-      : ''}"
-    style="scroll-snap-type: x mandatory;"
-    aria-label="Sibling elections"
-    data-testid="sibling-events-rail"
-  >
-    {#each model.events as ev (ev.event_id)}
-      {@const underline_color = ev.winner_color_hex ?? "#e2e8f0"}
-      <a
-        href={ev.href}
-        aria-current={ev.is_current ? "page" : undefined}
-        data-active={ev.is_current}
-        data-testid={ev.is_current
-          ? "sibling-events-rail-current"
-          : "sibling-events-rail-chip"}
-        title={ev.display}
-        class="inline-flex shrink-0 items-center rounded-yen-pill border px-3 py-1.5 text-sm font-medium tabular-nums transition-colors {ev.is_current
-          ? 'border-slate-900 bg-slate-900 text-white'
-          : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-100'}"
-        style="scroll-snap-align: center; border-bottom: 2px solid {underline_color};"
+  <div class="relative -mx-2 flex items-center gap-2 px-2">
+    <div class="relative min-w-0 flex-1">
+      <nav
+        bind:this={nav_el}
+        onscroll={updateFades}
+        class="flex gap-2 overflow-x-auto whitespace-nowrap py-2 {single_event
+          ? 'justify-center'
+          : ''}"
+        style="scroll-snap-type: x mandatory;"
+        aria-label="Sibling elections"
+        data-testid="sibling-events-rail"
       >
-        {ev.year_label}
-      </a>
-    {/each}
+        {#each model.events as ev (ev.event_id)}
+          {@const underline_color = ev.winner_color_hex ?? "#e2e8f0"}
+          <a
+            href={ev.href}
+            aria-current={ev.is_current ? "page" : undefined}
+            data-active={ev.is_current}
+            data-testid={ev.is_current
+              ? "sibling-events-rail-current"
+              : "sibling-events-rail-chip"}
+            title={ev.display}
+            class="inline-flex shrink-0 items-center rounded-yen-pill border px-3 py-1.5 text-sm font-medium tabular-nums transition-colors {ev.is_current
+              ? 'border-slate-900 bg-slate-900 text-white'
+              : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-100'}"
+            style="scroll-snap-align: center; border-bottom: 2px solid {underline_color};"
+          >
+            {ev.year_label}
+          </a>
+        {/each}
+      </nav>
+
+      <!-- PR2 edge fades: shown only while the rail overflows that side. -->
+      {#if fade_left}
+        <div
+          aria-hidden="true"
+          data-testid="sibling-events-rail-fade-left"
+          class="pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-white to-transparent"
+        ></div>
+      {/if}
+      {#if fade_right}
+        <div
+          aria-hidden="true"
+          data-testid="sibling-events-rail-fade-right"
+          class="pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-white to-transparent"
+        ></div>
+      {/if}
+    </div>
 
     {#if model.compare_options.length > 0}
-      <span aria-hidden="true" class="w-1 shrink-0"></span>
-      <span class="shrink-0" style="scroll-snap-align: center;">
+      <span class="shrink-0">
         <YearComparePicker
           label="Compare"
           align="right"
@@ -116,5 +168,5 @@
         />
       </span>
     {/if}
-  </nav>
+  </div>
 {/if}
