@@ -15,12 +15,14 @@ import type {
   FeatureCollection,
   GeoJsonProperties,
   Geometry,
+  MultiPolygon,
   Polygon,
 } from "geojson";
 
 import {
   resolveStateClickAction,
   computeIslandMarker,
+  hasNoDataFeature,
 } from "./india-party-map-helpers";
 
 describe("IndiaPartyMap helpers - resolveStateClickAction (PR-4c)", () => {
@@ -195,5 +197,102 @@ describe("IndiaPartyMap helpers - computeIslandMarker (Lakshadweep)", () => {
       0.0001,
     );
     expect(marker).toBeNull();
+  });
+
+  test("marks a scattered archipelago whose bbox is large but islands are sub-pixel", () => {
+    // Regression for the Lakshadweep marker. Row 2 (combined country
+    // topojson, PR #1089) made Lakshadweep a MultiPolygon of 4 islands
+    // spread across ~2.5 degrees of sea; its whole-feature bbox is ~82 px
+    // at national fit, so the prior whole-bbox span metric read it as "big
+    // enough to click directly" and suppressed the marker even though the
+    // largest island is ~1 px. computeIslandMarker now measures the largest
+    // INDIVIDUAL island, so the marker renders.
+    const sq = (lng0: number, lat0: number, lng1: number, lat1: number) => [
+      [
+        [lng0, lat0],
+        [lng0, lat1],
+        [lng1, lat1],
+        [lng1, lat0],
+        [lng0, lat0],
+      ],
+    ];
+    const archipelago: Feature<MultiPolygon> = {
+      type: "Feature",
+      properties: { STNAME: "Lakshadweep", key: "U04" },
+      geometry: {
+        type: "MultiPolygon",
+        // Two 0.05-degree islands ~2 degrees apart in latitude: a large
+        // sea-dominated bbox, sub-pixel individual islands.
+        coordinates: [
+          sq(72.6, 10.5, 72.65, 10.55),
+          sq(72.7, 12.5, 72.75, 12.55),
+        ],
+      },
+    };
+    const coll: FeatureCollection<Geometry> = {
+      type: "FeatureCollection",
+      features: [mainland, archipelago],
+    };
+    const projection = geoMercator().fitWidth(800, coll);
+    const pre = geoPath(projection).bounds(coll);
+    const [tx, ty] = projection.translate();
+    projection.translate([tx - pre[0][0], ty - pre[0][1]]);
+    const path = geoPath(projection);
+    const marker = computeIslandMarker(
+      coll.features,
+      projection,
+      path,
+      (f) => f.properties?.key as string,
+      (f) => String(f.properties?.STNAME ?? ""),
+      /laksh/i,
+    );
+    expect(marker).not.toBeNull();
+    expect(marker?.key).toBe("U04");
+    expect(Number.isFinite(marker?.cx)).toBe(true);
+    expect(Number.isFinite(marker?.cy)).toBe(true);
+  });
+});
+
+describe("IndiaPartyMap helpers - hasNoDataFeature (no-data dot-grid chip)", () => {
+  // The national party map paints states with a loaded winner in the
+  // leading-party colour; states absent from the `fills` map fall through
+  // to the no-data dot-grid. This predicate drives the "No data" chip.
+  function feat(key: string | null): Feature<Geometry, GeoJsonProperties> {
+    return {
+      type: "Feature",
+      properties: key == null ? {} : { State_LGD: key },
+      geometry: { type: "Polygon", coordinates: [] },
+    };
+  }
+  const keyOf = (f: Feature<Geometry, GeoJsonProperties>) =>
+    f.properties?.State_LGD as string | undefined;
+
+  test("false when every rendered feature has a fill entry", () => {
+    const features = [feat("33"), feat("27")];
+    const fills = { "33": "#abc", "27": "#def" };
+    expect(hasNoDataFeature(features, fills, keyOf)).toBe(false);
+  });
+
+  test("true when at least one feature is absent from the fills map", () => {
+    // J&K ("01") has no loaded winner -> no fill entry -> dot-grid.
+    const features = [feat("33"), feat("01")];
+    const fills = { "33": "#abc" };
+    expect(hasNoDataFeature(features, fills, keyOf)).toBe(true);
+  });
+
+  test("true when a feature has a null/absent join key", () => {
+    // A geometry missing its State_LGD property cannot match any fill.
+    const features = [feat("33"), feat(null)];
+    const fills = { "33": "#abc" };
+    expect(hasNoDataFeature(features, fills, keyOf)).toBe(true);
+  });
+
+  test("true on an empty fills map (loader not settled / no winners)", () => {
+    const features = [feat("33"), feat("27")];
+    expect(hasNoDataFeature(features, {}, keyOf)).toBe(true);
+  });
+
+  test("false on an empty feature list", () => {
+    expect(hasNoDataFeature([], {}, keyOf)).toBe(false);
   });
 });

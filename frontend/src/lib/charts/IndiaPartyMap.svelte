@@ -90,6 +90,7 @@
   import {
     resolveStateClickAction,
     computeIslandMarker,
+    hasNoDataFeature,
     type IslandMarker,
   } from "./india-party-map-helpers";
 
@@ -116,9 +117,14 @@
   // height derives from the projected content bounds (no letterboxing).
   const MAX_MAP_W = 1200;
   const JOIN_PROPERTY = "State_LGD";
-  // slate-200; same default fill the MapChoropleth used for unmapped
-  // features - visible but unobtrusive against the page background.
-  const DEFAULT_FILL = "#e2e8f0";
+  // No-data fill: the same subtle gray dot-grid the welfare choropleth
+  // (GeoChoropleth) paints for no-data regions, so the two home themes
+  // (Winning party / welfare indicator) show "no data" the same way.
+  // Defined as an SVG <pattern> inside the <svg> below; states with no
+  // loaded winner (e.g. J&K, Ladakh) and any feature missing a join key
+  // fall through to it instead of the prior flat slate-200. Paired with
+  // the "No data" chip under the map so the idiom is self-explanatory.
+  const NO_DATA_FILL = "url(#india-party-map-nodata)";
 
   // Measured wrapper width (px) driving the responsive projection. Starts
   // 0 before first layout; the projection falls back to 640 until the
@@ -350,8 +356,23 @@
   );
 
   function fillForKey(key: string): string {
-    return fills[key] ?? DEFAULT_FILL;
+    return fills[key] ?? NO_DATA_FILL;
   }
+
+  // True once the loader has settled AND at least one rendered feature
+  // has no loaded winner (so it paints the no-data dot-grid). Drives the
+  // "No data" chip below the map. Gated on `result.status === "ok"` so
+  // the chip does not flash during the load window (when `fills` is
+  // still empty and every state would momentarily read as no-data).
+  const has_no_data = $derived.by<boolean>(() =>
+    collection != null &&
+    result.status === "ok" &&
+    hasNoDataFeature(
+      collection.features,
+      fills,
+      (f) => f.properties?.[JOIN_PROPERTY],
+    ),
+  );
 
   function tooltipForKey(key: string): string | null {
     return tooltips[key] ?? null;
@@ -493,13 +514,30 @@
       width="100%"
       style="height:auto; aspect-ratio:{projection_path.w}/{projection_path.h};"
     >
+      <defs>
+        <!-- No-data dot-grid (matches GeoChoropleth's
+             #geo-choropleth-nodata): a subtle gray dot tile painted
+             behind states with no loaded winner. Same visual language
+             as the welfare map so the citizen reads "no data" the same
+             way across both home themes. -->
+        <pattern
+          id="india-party-map-nodata"
+          width="8"
+          height="8"
+          patternUnits="userSpaceOnUse"
+          patternTransform="rotate(45)"
+        >
+          <rect width="8" height="8" fill="#f8fafc" />
+          <circle cx="4" cy="4" r="0.9" fill="#cbd5e1" fill-opacity="0.5" />
+        </pattern>
+      </defs>
       <g bind:this={zoom_group_el}>
         {#each collection.features as f, i (f.properties?.[JOIN_PROPERTY] ?? i)}
           {@const raw_key = f.properties?.[JOIN_PROPERTY]}
           {@const key = raw_key == null ? null : String(raw_key)}
           <path
             d={projection_path.path(f) ?? ""}
-            fill={key ? fillForKey(key) : DEFAULT_FILL}
+            fill={key ? fillForKey(key) : NO_DATA_FILL}
             stroke="#cbd5e1"
             stroke-width="0.5"
             class="india-party-map__feature"
@@ -571,3 +609,24 @@
     </div>
   {/if}
 </div>
+
+{#if has_no_data}
+  <!--
+    No-data chip - mirrors GeoChoropleth's `data-slot="nodata-key"` so
+    the election map and the welfare maps surface "no data" identically.
+    The swatch reuses the same dot-grid (#f8fafc base + #cbd5e1 dots) as
+    the in-map <pattern> above. Only shown once the loader settles and a
+    no-data state is actually painted.
+  -->
+  <div
+    class="mt-2 inline-flex items-center gap-1.5 text-[11px] text-slate-500"
+    data-slot="nodata-key"
+  >
+    <span
+      class="inline-block h-3.5 w-3.5 rounded-[3px] border border-slate-200"
+      style="background-color:#f8fafc;background-image:radial-gradient(rgba(203,213,225,0.5) 0.9px, transparent 1.1px);background-size:4px 4px;"
+      aria-hidden="true"
+    ></span>
+    No data
+  </div>
+{/if}
