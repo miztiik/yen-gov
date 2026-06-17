@@ -2246,6 +2246,49 @@ def ingest_rbi_hbs(
     typer.echo(f"  total rows written: {result.total_rows}")
 
 
+@app.command("ingest-iced-capacity")
+def ingest_iced_capacity(
+    json_path: Path = typer.Argument(
+        ...,
+        help=(
+            "Path to the operator-staged ICED /v1/capacity-metatable-data "
+            "JSON response (per-state per-fuel installed capacity). No "
+            "network: stage the response locally and pass it here."
+        ),
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Ingest the ICED capacity-metatable feed into the faceted store.
+
+    Emits ONE faceted file
+    ``datasets/data/datapoints/geo_by_fuel/installed-capacity-geographical-mw.csv``
+    (entity_id, time, fuel_type, value, source_id). Raw ICED sub-fuels
+    collapse onto the canonical 5-bucket fuel_type axis (small-hydro/solar/
+    wind -> renewable; oil-gas -> gas) per plan R-D; a publisher total maps
+    to the `all` aggregate; ECI state codes translate to LGD slugs.
+    """
+    from yen_gov.sources.iced_power.ingest import ingest_capacity
+
+    result = ingest_capacity(repo_root=root, raw_json_path=json_path)
+    typer.echo("ingest-iced-capacity: OK")
+    typer.echo(f"  output:     {result.artifact_path.relative_to(root).as_posix()}")
+    typer.echo(f"  variable:   {result.variable_id}")
+    typer.echo(f"  rows:       {result.row_count}")
+    typer.echo(f"  fuel_types: {', '.join(result.fuel_types)}")
+    typer.echo(f"  skipped (unmapped states): {result.skipped_unmapped}")
+
+
 @app.command("seed-goals")
 def seed_goals_cmd(
     root: Path = typer.Option(

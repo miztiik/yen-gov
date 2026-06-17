@@ -12,8 +12,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
+from yen_gov.sources.iced_common.fuel_collapse import collapse_fuel
+from yen_gov.sources.iced_power.parsers import parse_capacity_metatable
 
 
 # ---------------------------------------------------------------------------
@@ -437,6 +440,136 @@ def _emit_csv_for(
         parsed_rows, source_id=source_id, variable_prefix=variable_prefix
     )
     return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+
+
+# ---------------------------------------------------------------------------
+# Faceted capacity emit (Row 3: ICED capacity-metatable -> geo_by_fuel)
+# ---------------------------------------------------------------------------
+#
+# Per plan ruling R-D the ICED capacity-metatable state-grain feed lands as
+# ONE faceted file
+# datasets/data/datapoints/geo_by_fuel/installed-capacity-geographical-mw.csv
+# (entity_id, time, fuel_type, value, source_id) instead of N per-fuel
+# geo/*.csv files. The raw ICED sub-fuels collapse onto the closed 5-bucket
+# fuel_type axis via SUB_FUEL_TO_CANONICAL (Row 1); the ECI st_code resolves
+# to the LGD slug; the fiscal-year period reduces to its integer start year.
+
+_CAPACITY_FACETED_FILE_CLASS = "datasets/data/datapoints/geo_by_fuel/*.csv"
+_CAPACITY_FACETED_OUT_REL_DIR = "datasets/data/datapoints/geo_by_fuel"
+_CAPACITY_FACETED_VARIABLE_ID = "installed-capacity-geographical-mw"
+
+# Raw ICED facet labels (after kebab normalisation) that denote the
+# publisher's state TOTAL rather than a fuel -- mapped to the `all`
+# aggregate member. `all` is taken ONLY from such a published total, never
+# synthesised as sum(parts) (the geo_by_fuel contract: `all` is the
+# published aggregate, which may diverge from sum(parts)).
+_PUBLISHED_TOTAL_LABELS: frozenset[str] = frozenset({"total", "all", "grand-total"})
+
+
+@dataclass(frozen=True)
+class CapacityFacetedResult:
+    """Receipt for the single faceted capacity CSV emit."""
+
+    variable_id: str
+    artifact_path: Path
+    row_count: int
+    fuel_types: tuple[str, ...]
+    skipped_unmapped: int
+
+
+def _to_slug(eci_st_code: str) -> str:
+    """ECI st_code -> LGD slug, with the country rollup passed through."""
+    if eci_st_code == "IN":
+        return "IN"
+    return eci_to_lgd_slug(eci_st_code)
+
+
+def _capacity_fuel_bucket(raw_facet: str) -> str:
+    """Map a raw ICED capacity facet to its canonical fuel_type enum member."""
+    norm = _slug_segment(str(raw_facet))
+    if norm in _PUBLISHED_TOTAL_LABELS:
+        return "all"
+    return collapse_fuel(norm)
+
+
+def build_capacity_faceted_rows(
+    parsed_rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+) -> list[dict[str, Any]]:
+    """Collapse ICED capacity-metatable rows into the faceted geo_by_fuel shape.
+
+    Each parser row ``{entity_id(ECI), time("YYYY-04"), value, facet(raw fuel)}``
+    maps to a canonical ``(slug, year, fuel_type)`` bucket: raw sub-fuels
+    collapse via ``SUB_FUEL_TO_CANONICAL`` (``small-hydro``/``solar``/``wind``
+    -> ``renewable``; ``oil-gas`` -> ``gas``), a publisher total label maps to
+    ``all``, the ECI st_code resolves to the LGD slug, and the fiscal-year
+    period reduces to its integer start year. Values colliding on the same
+    ``(slug, year, fuel_type)`` bucket SUM (several renewable sub-fuels fold
+    into one ``renewable`` row). ``write_csv`` sorts by the composite PK.
+    """
+    agg: dict[tuple[str, int, str], float] = {}
+    for r in parsed_rows:
+        facet = r.get("facet")
+        if not isinstance(facet, str) or not facet:
+            continue
+        bucket = _capacity_fuel_bucket(facet)
+        slug = _to_slug(str(r["entity_id"]))
+        year = _period_to_year_int(str(r["time"]))
+        value = float(r["value"])
+        key = (slug, year, bucket)
+        agg[key] = agg.get(key, 0.0) + value
+
+    return [
+        {
+            "entity_id": slug,
+            "time": year,
+            "fuel_type": bucket,
+            "value": value,
+            "source_id": source_id,
+        }
+        for (slug, year, bucket), value in agg.items()
+    ]
+
+
+def emit_capacity_faceted(
+    *, repo_root: Path, rows: list[dict[str, Any]]
+) -> Path:
+    """Write the single faceted ``geo_by_fuel/<variable_id>.csv`` file."""
+    out_path = (
+        repo_root / _CAPACITY_FACETED_OUT_REL_DIR / f"{_CAPACITY_FACETED_VARIABLE_ID}.csv"
+    )
+    return write_csv(
+        path=out_path, file_class=_CAPACITY_FACETED_FILE_CLASS, rows=rows
+    )
+
+
+def ingest_capacity(
+    *, repo_root: Path, raw_json_path: Path
+) -> CapacityFacetedResult:
+    """Read a staged capacity-metatable JSON, emit the faceted capacity CSV.
+
+    Capability-only entry point (no network): the operator stages the raw
+    ``/v1/capacity-metatable-data`` JSON response locally and runs this. Emits
+    ONE faceted file
+    ``datasets/data/datapoints/geo_by_fuel/installed-capacity-geographical-mw.csv``.
+    """
+    import json
+
+    decoded = json.loads(raw_json_path.read_text(encoding="utf-8"))
+    parsed_rows, skipped = parse_capacity_metatable(decoded)
+    source_id = derive_source_id(
+        _CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE_CAPACITY, _CSV_SOURCE_VINTAGE
+    )
+    rows = build_capacity_faceted_rows(parsed_rows, source_id=source_id)
+    out = emit_capacity_faceted(repo_root=repo_root, rows=rows)
+    return CapacityFacetedResult(
+        variable_id=_CAPACITY_FACETED_VARIABLE_ID,
+        artifact_path=out,
+        row_count=len(rows),
+        fuel_types=tuple(sorted({str(r["fuel_type"]) for r in rows})),
+        skipped_unmapped=skipped,
+    )
 
 
 # ---------------------------------------------------------------------------
