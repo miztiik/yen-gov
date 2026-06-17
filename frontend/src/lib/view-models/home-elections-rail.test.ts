@@ -32,6 +32,7 @@ import {
   pickClosestRace,
   refineHookCard,
 } from "./home-elections-rail";
+import { link } from "../links";
 
 // ---------------- fixtures ----------------
 
@@ -246,10 +247,14 @@ describe("composeRail", () => {
     expect(payload.hook.subtitle).toBe("Mumbai North-West - margin < 0.01%");
   });
 
-  it("door card is a static link to /t/elections", () => {
+  it("door card links to the elections firehose via the base-aware builder", () => {
     const payload = composeRail(catalogue, anchor, []);
     expect(payload.door.title).toBe("All elections");
-    expect(payload.door.href).toBe("/t/elections");
+    // Built via link.generalElections() so the /yen-gov/ deploy base is
+    // applied in production (BASE_URL is "/" under vitest, so this string
+    // resolves to "/t/elections" here). The in-app-hrefs-use-base
+    // contract guards against reverting to a base-less literal.
+    expect(payload.door.href).toBe(link.generalElections());
   });
 });
 

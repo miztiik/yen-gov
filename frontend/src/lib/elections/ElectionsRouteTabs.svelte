@@ -22,21 +22,23 @@
   either route in one glance.
 -->
 <script lang="ts">
+  import { link } from "../links";
+
   let { current }: { current: "general" | "assembly" } = $props();
 
-  // The two routes; pinned literally because there are exactly two
-  // and the link builder for `/t/elections/assemblies` is a constant
-  // not a function (no params).
+  // The two routes. Both go through the `link.*` builders so the
+  // deploy base (`/yen-gov/`) is always applied - a hardcoded
+  // `/t/elections` literal would 404 on GitHub Pages reload/share.
   const TABS = [
     {
       id: "general" as const,
       label: "General elections",
-      href: "/t/elections",
+      href: link.generalElections(),
     },
     {
       id: "assembly" as const,
       label: "Assembly elections",
-      href: "/t/elections/assemblies",
+      href: link.assemblyElections(),
     },
   ];
 </script>

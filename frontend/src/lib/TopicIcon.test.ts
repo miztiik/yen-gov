@@ -121,6 +121,7 @@ describe("TopicIcon helpers", () => {
         "trending-up",
         "users",
         "vote",
+        "wheat",
         "wikipedia",
         "wind",
         "zap",

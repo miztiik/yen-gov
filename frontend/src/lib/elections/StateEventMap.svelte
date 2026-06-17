@@ -38,6 +38,7 @@
     type PcWinnerRow,
   } from "../charts/StatePcMapD3.svelte";
   import TileCartogram from "../charts/TileCartogram.svelte";
+  import { link } from "../links";
   import type {
     TileLayoutRow,
     TileRow,
@@ -301,7 +302,7 @@
         the
         <a
           class="text-sky-700 hover:underline"
-          href={`/t/elections/${encodeURIComponent(event_id)}`}
+          href={link.nationalElection(event_id)}
         >national {event_id} surface</a>.
       </p>
     </section>

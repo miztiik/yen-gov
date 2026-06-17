@@ -815,7 +815,7 @@
         winner_color: fillForParty(pid, w),
         winner_share_pct: w.vote_share_pct,
         margin_pct: w.margin_pct,
-        href: `/${slug_st}/elections/${encodeURIComponent(ev)}/${encodeURIComponent(name_slug)}`,
+        href: link.pc(slug_st, ev, name_slug),
       });
     }
     out.sort((a, b) =>
