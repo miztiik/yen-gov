@@ -116,6 +116,11 @@
   <h2 class="text-sm font-medium text-slate-700">
     Turnout vs winning margin &middot; {state_name} constituencies
   </h2>
+  <p class="text-xs text-slate-500" data-testid="state-event-scatter-note">
+    Each circle is one constituency. Bigger circles mean a wider winning
+    margin - the vote gap between the winner and the runner-up. Click a
+    circle to open that seat.
+  </p>
   <Scatter
     data={scatter_data}
     filters={scatter_filters}
