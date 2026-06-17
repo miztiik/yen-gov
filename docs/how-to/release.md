@@ -1,16 +1,16 @@
 # How to release
 
-**Last Updated**: 2026-05-19
+**Last Updated**: 2026-06-17
 
 A release is "the bundle on Pages reflects the latest validated `datasets/`". Two paths reach that state.
 
 ## Path A — code-only change (UI tweak, schema-compatible refactor)
 
 1. Branch, commit, push, open PR.
-2. `deploy-site.yml` runs (frontend vitest + build + Playwright on the citizen site). If the change touches `backend/**`, `admin/**`, or `datasets/**`, `backend.yml` also runs in parallel (pipeline pytest + admin pytest + admin vitest + admin e2e); it is independent of the publish gate. Wait for green. Note: Tier-B corpus validation is a LOCAL pre-emit check, not a CI gate - see [validator.md](../architecture/backend/validator.md).
+2. `deploy-site.yml` runs (frontend vitest + verification build). If the change touches `backend/**`, `admin/**`, or `datasets/**`, `backend.yml` also runs in parallel (pipeline pytest + admin pytest + admin vitest + admin e2e); it is independent of the publish gate. Wait for green. Note: Tier-B corpus validation is a LOCAL pre-emit check, not a CI gate - see [validator.md](../architecture/backend/validator.md).
 3. Merge to main. The same `deploy-site.yml` workflow re-runs on the merge commit; on green, its `deploy-pages` job publishes the bundle this run just built. Rapid-fire merges are batched naturally - `concurrency.cancel-in-progress: true` cancels in-flight runs when a newer commit lands, so only the latest green main publishes.
 4. For an urgent republish without a new commit, manually dispatch `deploy-site.yml` from `main` in the Actions tab.
-5. Confirm the smoke step in `deploy-pages` passes — it fetches the live `result.summary.json` and asserts `state == "S22"`. Failure here means the dev/prod URL contract (see [frontend/data-loading.md](../architecture/frontend/data-loading.md)) is broken.
+5. Confirm the smoke step in `deploy-pages` passes - it fetches the live `data/data/datapoints/electoral/tamil-nadu_election_results.csv` and asserts the long-format CSV header. Failure here means the dev/prod URL contract (see [frontend/data-loading.md](../architecture/frontend/data-loading.md)) is broken.
 
 That's the entire flow when no upstream data is changing.
 

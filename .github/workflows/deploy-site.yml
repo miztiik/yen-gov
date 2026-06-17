@@ -11,8 +11,9 @@ name: deploy site
 #     under _site/data/). No Python or admin code ever ships.
 #   - Backend pytest (ingest pipeline) and admin console / API tests live
 #     in backend.yml and MUST NOT gate the publish. Publish-relevant
-#     things are: "does the bundle build?" and "does the built app
-#     actually render in a browser?" -- nothing else.
+#     things are: "do the frontend contracts pass?", "does the bundle
+#     build?", and "does the live Pages origin serve the staged CSV?" --
+#     nothing else.
 #
 # Why one workflow instead of separate gate + deploy:
 #   - One build per run. The build IS the verification; on green main

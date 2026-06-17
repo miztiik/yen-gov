@@ -1,6 +1,6 @@
 # Frontend Data Loading
 
-**Last Updated**: 2026-06-06
+**Last Updated**: 2026-06-17
 
 How the frontend bundle reads `datasets/` artifacts. Covers the dev-time Vite middleware, the production CI staging step, and the `/explore` page's in-browser SQL via DuckDB-WASM.
 
@@ -8,7 +8,7 @@ The contract URL is the same in both environments: `fetch('/data/<rel>')` return
 
 ## Dev-time access — Vite middleware
 
-CLAUDE.md §4 forbids `frontend/` from committing data files, so `datasets/` cannot be vendored into `frontend/public/`. The dev server (`bun run dev`) needs to serve those JSON files to `fetch('/data/...')` calls so the UI matches what the deployed bundle will see.
+CLAUDE.md §4 forbids `frontend/` from committing data files, so `datasets/` cannot be vendored into `frontend/public/`. The dev server (`bun run dev`) needs to serve those dataset files to `fetch('/data/...')` calls so the UI matches what the deployed bundle will see.
 
 [`frontend/vite.config.ts`](../../../frontend/vite.config.ts) registers a custom plugin `serveDatasets()` that adds an Express-style middleware on `/data`:
 
@@ -24,7 +24,7 @@ There is no equivalent middleware in production. The deploy step (below) places 
 ### Dev middleware rationale
 
 - **Zero file duplication.** The frontend reads the *exact* artifacts the pipeline wrote, with no copy-step staleness window.
-- **Dev/prod URL parity.** `/data/elections/AcGenMay2026/S22/result.summary.json` works the same in both modes.
+- **Dev/prod URL parity.** `/data/data/datapoints/electoral/tamil-nadu_election_results.csv` works the same in both modes.
 - **~25 lines, no dependency.** No npm package to track.
 - **Path traversal:** `resolve()` collapses `..` segments, so a request like `/data/../../etc/passwd` resolves outside `<repoRoot>/datasets` and the read still returns ENOENT. Acceptable for a dev-only tool; we do not deploy this middleware.
 
@@ -39,17 +39,18 @@ The deploy artifact MUST physically include `datasets/` at the right place, or t
 
 ## Production placement
 
-GitHub Pages serves a static origin, so for `fetch('/data/elections/...')` to resolve in the deployed bundle, the bytes must physically exist at that path on the origin.
+GitHub Pages serves a static origin, so for `fetch('/data/<rel>')` to resolve in the deployed bundle, the bytes must physically exist at that path on the origin.
 
 The deploy workflow (the `deploy-pages` job in `deploy-site.yml`) is responsible for placing `datasets/` next to `dist/` in the Pages artifact. The shape:
 
-```
+```text
 <pages artifact root>/
 ├── index.html                  ← from frontend/dist/
 ├── assets/...                  ← from frontend/dist/
 └── data/                       ← rsynced from datasets/ at deploy time
-    ├── elections/...
-    ├── reference/...
+    ├── data/datapoints/electoral/<slug>_election_results.csv
+    ├── data/datapoints/geo/<canonical_id>.csv
+    ├── data/entities/...
     └── schemas/...
 ```
 
@@ -65,8 +66,8 @@ Vite config stays UI-only. The dev middleware (`serveDatasets()`) and the deploy
 ### Production-placement rationale
 
 - `bun run build` output is **pure UI bytes**. A developer running it locally cannot accidentally produce a "deployable" tree that bakes in a stale `datasets/`.
-- The contract is documented in two places (Vite plugin + workflow). A regression in either silently breaks one environment. CI's smoke step fetches `/data/elections/AcGenMay2026/S22/result.summary.json` from the deployed Pages URL and asserts a 200 + valid JSON.
-- Deploy artifact size is `dist/` (~90 kB) + the entirety of `datasets/`. Acceptable today (single state, ~250 small JSONs). If `datasets/` ever crosses ~50 MB we revisit (lazy-loading subsets, per-state subdomains, etc.).
+- The contract is documented in two places (Vite plugin + workflow). A regression in either silently breaks one environment. CI's live deploy smoke fetches `/data/data/datapoints/electoral/tamil-nadu_election_results.csv` from the deployed Pages URL and asserts non-empty bytes plus the expected long-format CSV header.
+- Deploy artifact size is `dist/` plus the entirety of `datasets/`. If `datasets/` ever makes Pages artifact publication impractical, revisit partitioning / hosting strategy explicitly; do not route data copying through `frontend/` as an implicit build side effect.
 - Scraping is local-only (CLAUDE.md §1, §13): a maintainer runs `python -m yen_gov run ...`, commits the regenerated `datasets/` through a normal PR, and the Pages deploy picks them up on merge to main. Scraping and deploying are decoupled.
 
 ### Production-placement — alternatives considered
@@ -145,7 +146,7 @@ Two presets used SQLite's scalar `MIN(a, b)` / `MAX(a, b)` overloads (head-to-he
 We used **`sql.js`**, not `@sqlite.org/sqlite-wasm`.
 
 | | `sql.js` | `@sqlite.org/sqlite-wasm` |
-|--|--|--|
+| -- | -- | -- |
 | Source | Emscripten port of SQLite, community-maintained | Official SQLite project |
 | Bundle (gzip) | ~370 KB | ~570 KB (+ a worker file) |
 | API | Synchronous, single-threaded | Async, worker-only by default (OPFS support) |
@@ -489,5 +490,3 @@ Renderers MUST handle all four arms. Per D17, the `failed` arm renders plain-lan
 ### The harness
 
 Retired in X1a-followup (2026-06-06). The `/dev/duckdb-harness` Svelte page + `frontend/e2e/duckdb-harness.spec.ts` Playwright spec previously drove the DuckDB-WASM loader through three paths (real query, forced manifest 404, forced unknown table) so the catalogue-unavailable + dataset-not-available copy could be asserted in a real browser. Removed because the route was a sandbox over the legacy `registerTable` / `registerSlice` Parquet seam that X1b is about to delete whole; the LoaderResult contract above is exercised end-to-end by the per-feature smoke specs (`frontend/e2e/x1a-reader-flip-smoke.spec.ts`, `frontend/e2e/yenask.spec.ts`, `frontend/e2e/golden-path.spec.ts`).
-
-
