@@ -110,7 +110,7 @@ async function runQueries(
       MAX(CASE WHEN o.indicator_id = 'party-seats-won'      THEN o.value_numeric END) AS seats_won,
       MAX(CASE WHEN o.indicator_id = 'party-votes-polled'   THEN o.value_numeric END) AS votes,
       MAX(CASE WHEN o.indicator_id = 'party-vote-share-pct' THEN o.value_numeric END) AS vote_share_pct
-    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true) o
+    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true, auto_detect=false) o
     LEFT JOIN dim_parties dp
       ON dp.short_name = regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)
     WHERE o.entity_id LIKE ${partyPrefix} || '%-PARTY-%'
@@ -132,7 +132,7 @@ async function runQueries(
       s.title              AS title,
       s.vintage            AS vintage,
       s.url                AS url
-    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true) o
+    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true, auto_detect=false) o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label IN (${eventList})
       AND o.entity_id LIKE ${partyPrefix} || '%'

@@ -171,7 +171,7 @@
             force_event ?? defaultEventForState(catalogue, code)?.event_id;
           if (ev) state_event_map[code] = ev;
         }
-        result = await loadIndiaLeadingParties(state_event_map);
+        result = await loadIndiaLeadingParties(state_event_map, catalogue);
       } catch (err) {
         result = {
           status: "failed",

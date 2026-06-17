@@ -195,7 +195,7 @@ async function runQueries(
       dp.brand_colour_hex                            AS brand_colour_hex,
       dp.brand_colour_confidence                     AS brand_colour_confidence,
       o.value_numeric                                AS seats_won
-    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true) o
+    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true, auto_detect=false) o
     LEFT JOIN dim_parties dp
       ON dp.short_name = regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)
     WHERE o.entity_id LIKE ${partyPrefix} || '%-PARTY-%'
@@ -225,7 +225,7 @@ async function runQueries(
       s.title              AS title,
       s.vintage            AS vintage,
       s.url                AS url
-    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true) o
+    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true, auto_detect=false) o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label = ${eventLit}
       AND o.indicator_id = 'party-seats-won'

@@ -36,6 +36,10 @@ import {
   electionResultsCsvUrl,
   electionResultsStateSlug,
 } from "../../canonical/election-results-csv";
+import {
+  resolveEventIdentity,
+  type ElectionEventsCatalogue,
+} from "../../election-events";
 import type { PartyTotals } from "../../data";
 
 export interface IndiaLeadingPartiesEntry {
@@ -74,13 +78,14 @@ const num = (v: unknown): number => (v == null ? 0 : Number(v));
 
 async function runQueries(
   state_event_map: Record<string, string>,
-): Promise<PartyRow[]> {
+  catalogue: ElectionEventsCatalogue | null,
+): Promise<{ rows: PartyRow[]; displayByState: Record<string, string> }> {
   // X1a-fu2-D (2026-06-07): the elections.election_results parquet was
   // retired; one CSV per state now lives under
   // data/datapoints/electoral/. Build one UNION ALL branch per queried
   // (state, event) pair and JOIN dim_parties once at the outer SELECT.
   const entries = Object.entries(state_event_map);
-  if (entries.length === 0) return [];
+  if (entries.length === 0) return { rows: [], displayByState: {} };
 
   // Register every per-state CSV the bulk query reads, plus dim_parties.
   const urls = entries.map(([state_code]) =>
@@ -91,12 +96,24 @@ async function runQueries(
     registerCsvAsTable("elections.dim_parties"),
   ]);
 
-  const branches = entries.map(([state_code, event_id]) => {
+  // Bridge the citizen event slug to the on-disk identity (W2a doctrine +
+  // canonical/election-results-csv preamble): the canonical store filed
+  // these rows under the ECI cohort token (period_label `AcGenNov2024`,
+  // entity_id `IN-<state>-AcGenNov2024-PARTY-*`), NOT the citizen slug
+  // `assembly-2024` that defaultEventForState returns. resolveEventIdentity
+  // turns each token into the full on-disk period_label set (filtered with
+  // IN, so it is phase-proof: matches today's cohort data via the alias and
+  // a future slug re-key via the slug) plus the citizen slug for display.
+  // catalogue == null (unit tests) resolves each token to itself.
+  const displayByState: Record<string, string> = {};
+  const branches = entries.map(([state_code, event_token]) => {
+    const identity = resolveEventIdentity(catalogue, state_code, event_token);
+    displayByState[state_code] = identity.event_id;
     const slug = electionResultsStateSlug(state_code);
     const csvLit = sqlString(electionResultsCsvUrl(slug));
     const stateLit = sqlString(state_code);
-    const eventLit = sqlString(event_id);
-    const partyPrefix = sqlString(`IN-${state_code}-${event_id}-PARTY-`);
+    const statePrefix = sqlString(`IN-${state_code}-`);
+    const periodList = identity.period_labels.map(sqlString).join(", ");
     return `
       SELECT
         ${stateLit}    AS state_code,
@@ -104,9 +121,9 @@ async function runQueries(
         entity_id      AS entity_id,
         indicator_id   AS indicator_id,
         value_numeric  AS value_numeric
-      FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true)
-      WHERE entity_id LIKE ${partyPrefix} || '%'
-        AND period_label = ${eventLit}
+      FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true, auto_detect=false)
+      WHERE entity_id LIKE ${statePrefix} || '%-PARTY-%'
+        AND period_label IN (${periodList})
         AND indicator_id IN (
           'party-contested-acs',
           'party-seats-won',
@@ -139,10 +156,14 @@ async function runQueries(
       ON dp.short_name = regexp_extract(ps.entity_id, '-PARTY-(.+)$', 1)
     GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9
   `;
-  return query<PartyRow>(sql);
+  const rows = await query<PartyRow>(sql);
+  return { rows, displayByState };
 }
 
-function assembleResult(rows: PartyRow[]): IndiaLeadingPartiesViewModel {
+function assembleResult(
+  rows: PartyRow[],
+  displayByState: Record<string, string>,
+): IndiaLeadingPartiesViewModel {
   const grouped = new Map<string, PartyRow[]>();
   for (const r of rows) {
     const arr = grouped.get(r.state_code) ?? [];
@@ -175,7 +196,10 @@ function assembleResult(rows: PartyRow[]): IndiaLeadingPartiesViewModel {
     }));
     totals.sort((a, b) => b.seats_won - a.seats_won || b.votes - a.votes);
     per_state[state_code] = {
-      event_id: arr[0].period_label,
+      // Citizen slug (assembly-2024) resolved from the catalogue, NOT the
+      // on-disk cohort token (AcGenNov2024) the row's period_label carries -
+      // cohort codes must never reach citizen display (schema display rule).
+      event_id: displayByState[state_code] ?? arr[0].period_label,
       party_totals: totals,
     };
   }
@@ -183,17 +207,29 @@ function assembleResult(rows: PartyRow[]): IndiaLeadingPartiesViewModel {
   return { per_state };
 }
 
+/**
+ * Load each state's leading parties for the home-page choropleth.
+ *
+ * `state_event_map` is keyed by ECI state code; the value is the citizen
+ * event token (the slug `assembly-2024` from `defaultEventForState`, or an
+ * explicit cohort token from a cohort-scoped consumer). `catalogue` is the
+ * SSOT used to resolve that token to the on-disk `period_label` set the
+ * canonical store actually filed the rows under (see runQueries). Passing
+ * `null` (the default, used by unit tests) resolves each token to itself -
+ * an exact-match pass-through.
+ */
 export async function loadIndiaLeadingParties(
   state_event_map: Record<string, string>,
+  catalogue: ElectionEventsCatalogue | null = null,
 ): Promise<LoaderResult<IndiaLeadingPartiesViewModel>> {
   try {
-    const rows = await runQueries(state_event_map);
-    return { status: "ok", data: assembleResult(rows) };
+    const { rows, displayByState } = await runQueries(state_event_map, catalogue);
+    return { status: "ok", data: assembleResult(rows, displayByState) };
   } catch (err) {
     return {
       status: "failed",
       reason: describeFailure(err),
-      retry: () => loadIndiaLeadingParties(state_event_map),
+      retry: () => loadIndiaLeadingParties(state_event_map, catalogue),
     };
   }
 }

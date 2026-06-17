@@ -3,6 +3,7 @@ import {
   defaultEventForState,
   listEventsForState,
   findEvent,
+  resolveEventIdentity,
   daysSincePolled,
   isPendingUpstream,
   type ElectionEventRow,
@@ -207,6 +208,39 @@ describe("PR-W2a bye-kind fixture (G5)", () => {
     const ev = findEvent(CATALOGUE, "S29", "assembly-2023");
     expect(ev).toBeDefined();
     expect(ev?.event_id_aliases).toContain("AcGenMay2023");
+  });
+});
+
+describe("resolveEventIdentity (citizen slug <-> on-disk cohort bridge)", () => {
+  it("resolves a citizen slug to the slug + every cohort alias as period_labels", () => {
+    // S29 assembly-2023 carries alias AcGenMay2023 (the on-disk period_label).
+    const id = resolveEventIdentity(CATALOGUE, "S29", "assembly-2023");
+    expect(id.event_id).toBe("assembly-2023");
+    expect(id.period_labels).toEqual(["assembly-2023", "AcGenMay2023"]);
+  });
+
+  it("resolves a legacy cohort token (the alias) back to the same identity", () => {
+    // A cohort-scoped consumer passing AcGenMay2023 must land on the same row.
+    const id = resolveEventIdentity(CATALOGUE, "S29", "AcGenMay2023");
+    expect(id.event_id).toBe("assembly-2023");
+    expect(id.period_labels).toContain("AcGenMay2023");
+  });
+
+  it("returns a single-element set for a row with no aliases", () => {
+    // S22 rows carry no event_id_aliases - the token is its own period_label.
+    const id = resolveEventIdentity(CATALOGUE, "S22", "AcGenMay2026");
+    expect(id.event_id).toBe("AcGenMay2026");
+    expect(id.period_labels).toEqual(["AcGenMay2026"]);
+  });
+
+  it("passes an unknown token through as its own identity (no catalogue match)", () => {
+    const id = resolveEventIdentity(CATALOGUE, "S22", "no-such-event");
+    expect(id).toEqual({ event_id: "no-such-event", period_labels: ["no-such-event"] });
+  });
+
+  it("passes through unchanged when the catalogue is null (pre-catalogue path)", () => {
+    const id = resolveEventIdentity(null, "S22", "AcGenMay2026");
+    expect(id).toEqual({ event_id: "AcGenMay2026", period_labels: ["AcGenMay2026"] });
   });
 });
 
