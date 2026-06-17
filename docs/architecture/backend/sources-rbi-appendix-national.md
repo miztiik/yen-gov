@@ -3,15 +3,15 @@
 **Last Updated**: 2026-05-13
 **Module**: [`backend/yen_gov/sources/rbi_appendix_national/`](../../../backend/yen_gov/sources/rbi_appendix_national/)
 **Topic**: `fiscal`
-**See also**: [`sources-rbi.md`](sources-rbi.md) (per-state companion), [`sources-eci.md`](sources-eci.md), [`overview.md`](overview.md), [Holy Law #4](../../../CLAUDE.md), [Data Provenance](../../concepts/data-provenance.md)
+**See also**: [`sources-rbi-handbook.md`](sources-rbi-handbook.md) (the reusable RBI table adapter; superseded the retired per-state `rbi_xlsx`), [`sources-eci.md`](sources-eci.md), [`overview.md`](overview.md), [Holy Law #4](../../../CLAUDE.md), [Data Provenance](../../concepts/data-provenance.md)
 
 ## What this adapter does
 
-Reads the **Appendix Tables** of RBI's *State Finances: A Study of Budgets* — the all-India companion to the per-state Statements that [`rbi_xlsx`](sources-rbi.md) parses. Each appendix workbook carries 1–3 sheets where rows are *items* (devolution, grants, transfers) and columns are *fiscal-year periods*. Stitching the sheets gives one continuous national time series spanning ~20 fiscal years.
+Reads the **Appendix Tables** of RBI's *State Finances: A Study of Budgets* — the all-India companion to the per-state Statements that the retired `rbi_xlsx` parser once handled (per-state RBI tables now route through the reusable [`rbi_handbook` adapter](sources-rbi-handbook.md)). Each appendix workbook carries 1–3 sheets where rows are *items* (devolution, grants, transfers) and columns are *fiscal-year periods*. Stitching the sheets gives one continuous national time series spanning ~20 fiscal years.
 
-**Two parsers in one source family by intent** (Holy Law #5):
-- `rbi_xlsx` → row=state, column=year (per-state wide tables, one Statement per file).
-- `rbi_appendix_national` → row=item, column=year (national time series, one Appendix per file).
+**This module parses the national-aggregate shape** (Holy Law #5):
+- per-state RBI tables -> row=state, column=year -> handled by the [`rbi_handbook` adapter](sources-rbi-handbook.md).
+- `rbi_appendix_national` -> row=item, column=year (national time series, one Appendix per file).
 
 A single workbook layout can host many indicators via one-line `AppendixSpec` entries — no parser-logic edits needed.
 
@@ -108,9 +108,9 @@ Pure-parser tests in [`backend/tests/test_sources_rbi_appendix_national.py`](../
 
 Synthetic in-memory workbooks via openpyxl — no real RBI bytes touch the test suite (Holy Law #7).
 
-## Why this is a separate module from `rbi_xlsx`
+## Why this is a separate module from the per-state RBI adapter
 
-Same publication, different table shape, different entity kind (`country` vs `state`), different metadata flavor (no per-state ECI normalisation, no `unmatched_states` field, no funding_split state %, different comparability semantics). Folding it into `rbi_xlsx` would require a `mode` flag and `if mode == ...` branches in every helper — the kind of optionality that becomes load-bearing within two more indicators. Two modules, one for each shape, costs nothing and reads cleanly.
+Same publication, different table shape, different entity kind (`country` vs `state`), different metadata flavor (no per-state normalisation, no `unmatched_states` field, no funding_split state %, different comparability semantics). Folding it into the per-state adapter would require a `mode` flag and `if mode == ...` branches in every helper — the kind of optionality that becomes load-bearing within two more indicators. Two modules, one for each shape, costs nothing and reads cleanly.
 
 ## Adding the next indicator from the same workbook
 

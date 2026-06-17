@@ -31,8 +31,8 @@ Ship socio-economic indicators with **as much historical coverage as the source 
 
 | Indicator | Topic | Coverage | Source | Adapter | Doc |
 | --- | --- | --- | --- | --- | --- |
-| `fiscal/outstanding_debt_pct_gsdp` | fiscal | FY24A + FY25RE + FY26BE per state | RBI State Finances Statement 20 | [`rbi_xlsx`](../architecture/backend/sources-rbi.md) | sources-rbi.md |
-| `fiscal/net_transfers_from_centre` | fiscal | FY24A + FY25RE + FY26BE per state | RBI State Finances Statement 17 | [`rbi_xlsx`](../architecture/backend/sources-rbi.md) | sources-rbi.md |
+| `fiscal/outstanding_debt_pct_gsdp` | fiscal | FY24A + FY25RE + FY26BE per state | RBI State Finances Statement 20 | `rbi_xlsx` (retired 2026-06-17; data frozen) | [sources-rbi-handbook.md](../architecture/backend/sources-rbi-handbook.md) |
+| `fiscal/net_transfers_from_centre` | fiscal | FY24A + FY25RE + FY26BE per state | RBI State Finances Statement 17 | `rbi_xlsx` (retired 2026-06-17; data frozen) | [sources-rbi-handbook.md](../architecture/backend/sources-rbi-handbook.md) |
 | `fiscal/centre_transfers_gross` | fiscal | FY17–FY23 per state (196 rows) | data.gov.in OGD CSV (Rajya Sabha tabled) | [`datagovin_ogd`](../../../backend/yen_gov/sources/datagovin_ogd/) | (in code header) |
 | `fiscal/centre_transfers_to_states_net` | fiscal | FY08–FY26 (19y, all-India) | RBI State Finances Appendix Table 2, Item VI | [`rbi_appendix_national`](../architecture/backend/sources-rbi-appendix-national.md) | sources-rbi-appendix-national.md |
 | `fiscal/centre_transfers_to_states_tax_devolution` | fiscal | FY08–FY26 (19y, all-India) | RBI App T2 Item I | `rbi_appendix_national` | sources-rbi-appendix-national.md |

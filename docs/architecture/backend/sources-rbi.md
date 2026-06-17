@@ -1,7 +1,11 @@
 # RBI as a fiscal-indicator source
 
-**Last Updated**: 2026-05-11
-**Status**: SPEC — no ingest implemented yet. This document fixes the contract so the future ingest commit is a small mechanical step instead of a design discussion.
+**Last Updated**: 2026-06-17
+**Status**: RETIRED (module deleted 2026-06-17). The `backend/yen_gov/sources/rbi_xlsx/` per-state Statement parser was an ECI-keyed emitter that does not FK-close against the canonical LGD-slug store; it was deleted in the rip-and-replace. The forward path for any RBI table (fiscal included) is the reusable, LGD-slug-keyed [`rbi_handbook` adapter](sources-rbi-handbook.md). The 2 fiscal indicators this spec once described (`outstanding_debt_pct_gsdp`, `net_transfers_from_centre`) are frozen canonical CSV from the W1 migration. The historical spec below is kept as a receipt for the fiscal honesty-field design.
+
+---
+
+## Historical spec (receipt)
 
 > Per [docs/concepts/cross-state-comparison.md](../../concepts/cross-state-comparison.md), `fiscal/` is the **first** indicator family yen-gov should ship after the energy pilot. Fiscal data is the baseline that contextualises every other social and economic indicator: a state with `own-tax / GSDP = 4%` is not playing the same game as one at `7%`, and aggregators that hide this lie by omission.
 

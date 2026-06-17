@@ -116,7 +116,7 @@ These artifacts are on disk and schema-valid, but the citizen will read them wro
 | -------- | ------------ | --- |
 | `energy/installed_capacity_*_mw` (CEA, 7 fuel artifacts) | single month: 2026-03 | Backfill prior months from `cea.nic.in/wp-content/uploads/installed/<YYYY>/<MM>/Website.xlsx` to get a monthly time series. ICED already covers FY15→FY25 annual, so prioritize last ~24 monthly snapshots, not deep history. |
 | `fiscal/centre_transfers_gross` | FY17..FY23 | Refresh when data.gov.in publishes FY24+. Requires re-solving the captcha + dropping new CSVs into `.runtime/raw/datagovin/`. |
-| `fiscal/net_transfers_from_centre` | FY24..FY26 | Backfill FY08..FY23 from older RBI State Finances editions (per-edition pin already exists in `rbi_xlsx/urls.py`). |
+| `fiscal/net_transfers_from_centre` | FY24..FY26 | Backfill FY08..FY23 from older RBI State Finances editions. The legacy `rbi_xlsx` ingester was retired 2026-06-17 (data frozen as canonical CSV); a backfill now lands via a fiscal spec on the [`rbi_handbook` adapter](../architecture/backend/sources-rbi-handbook.md). |
 | Per-state constituency lists | 26 of 36 covered | Missing UTs / smaller states. Bootstrap from ECI statistical reports for any state with a past election in the inventory. |
 | Per-state district lists | 6 of 36 hand-authored | Pending the LGD pipeline (see §6). |
 | Election results | 17 states/UTs covered | Pre-2016 history is not ingested. The TCPD + ECI Section 10 adapters already support it; backfill is operator-driven via `python -m yen_gov ingest-ls-ge-tcpd` (historical LS years) and `python -m yen_gov eci-statreport-emit-local <xlsx>` (per-AC assembly slices). |

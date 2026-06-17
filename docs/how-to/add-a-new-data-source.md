@@ -96,9 +96,9 @@ backend/yen_gov/canonical/adapters/<family>/
 backend/tests/test_sources_<source>_*.py
 ```
 
-See [docs/architecture/backend/sources-rbi.md](../architecture/backend/sources-rbi.md)
-for the XLSX reference; `backend/yen_gov/sources/rbi_hbs/` is the canonical
-implementation.
+See [docs/architecture/backend/sources-rbi-handbook.md](../architecture/backend/sources-rbi-handbook.md)
+for the reusable XLSX reference; `backend/yen_gov/canonical/adapters/rbi_handbook/`
+is the canonical, LGD-slug-keyed, config-driven implementation.
 
 ## 5. Step 3 -- Imports to copy verbatim
 
@@ -214,8 +214,8 @@ python -m yen_gov validate --root .
   `backend/yen_gov/sources/iced_power/fetch_pipeline.py`,
   `backend/yen_gov/sources/iced_power/parsers.py`,
   `backend/yen_gov/canonical/adapters/energy/capacity_pipeline.py`.
-- XLSX end-to-end: `backend/yen_gov/sources/rbi_hbs/` plus
-  [docs/architecture/backend/sources-rbi.md](../architecture/backend/sources-rbi.md).
+- XLSX end-to-end (reusable, LGD-slug-keyed, config-driven): `backend/yen_gov/canonical/adapters/rbi_handbook/` plus
+  [docs/architecture/backend/sources-rbi-handbook.md](../architecture/backend/sources-rbi-handbook.md).
 
 ## 11. See also
 
