@@ -11,9 +11,10 @@
  * `$derived`.
  *
  * Three orthogonal controls compose, in this fixed order:
- *   1. filter chip  - "all" | "flips" | "holds"  (the EXACT predicate the
- *                     component used before extraction: flips = is_flip;
- *                     holds = !is_flip && !is_orphan).
+ *   1. filter chip  - "all" | "flips" | "holds" | "new"  (flips = is_flip;
+ *                     holds = !is_flip && !is_orphan; new = is_new_party,
+ *                     the PR4 new-party-entry flag). The all/flips/holds
+ *                     predicates are preserved EXACTLY from the component.
  *   2. search query - live case-insensitive substring over the
  *                     constituency name AND both winner party short codes
  *                     (from_party / to_party, e.g. "DMK").
@@ -25,7 +26,7 @@
  */
 
 /** Filter-chip selection. */
-export type CompareFilter = "all" | "flips" | "holds";
+export type CompareFilter = "all" | "flips" | "holds" | "new";
 
 /** Sortable text column. */
 export type CompareSortKey = "entity_name" | "from_party" | "to_party";
@@ -43,6 +44,10 @@ export interface CompareTableRow {
   to_party: string | null;
   is_flip: boolean;
   is_orphan: boolean;
+  /** True when this comparable seat was won by a party that won zero seats
+   *  in `from` (the "New parties" filter-chip predicate; derived upstream by
+   *  compare-kpis `isNewPartyRow`). */
+  is_new_party: boolean;
 }
 
 /** True when `q` (already lowercased + trimmed) is a substring of the
@@ -79,6 +84,8 @@ export function filterAndSortCompareRows<R extends CompareTableRow>(
     rs = rs.filter((r) => r.is_flip);
   } else if (filter === "holds") {
     rs = rs.filter((r) => !r.is_flip && !r.is_orphan);
+  } else if (filter === "new") {
+    rs = rs.filter((r) => r.is_new_party);
   }
 
   // 2. search query (composes with the chip).
