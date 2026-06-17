@@ -62,7 +62,9 @@
   import {
     fetchElectionEvents,
     findEvent,
+    listEventsForState,
     type ElectionEventsCatalogue,
+    type ElectionEventRow,
   } from "../lib/election-events";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
@@ -72,6 +74,14 @@
   import { filterAndSortCompareRows } from "../lib/elections/compare-table-filter";
   import { buildCompareDotSummary } from "../lib/elections/compare-dot-summary";
   import { buildCompareKpis, isNewPartyRow } from "../lib/elections/compare-kpis";
+  import {
+    siblingKindFor,
+    deriveYearNumber,
+  } from "../lib/elections/sibling-events-rail-model";
+  import {
+    computeFlipTrend,
+    type FlipTrend,
+  } from "../lib/elections/flip-trend-model";
 
   interface Props {
     params: { state: string; fromEvent: string; toEvent: string };
@@ -136,6 +146,33 @@
     status: "loading",
   });
 
+  // ---- PR5 flip-trend: resolve the same-body event BEFORE `from` -----
+  // The flip-trend delta compares this transition (from -> to, i.e.
+  // N-1 -> N) against the PRIOR one (the event before `from` -> `from`,
+  // i.e. N-2 -> N-1). Resolve that prior event purely from the catalogue:
+  // filter the state's events to `from`'s body kind, sort ASC by
+  // polled_on, find `from`'s index, take index-1. When `from` is the
+  // earliest same-body event (or is not in the catalogue) there is NO
+  // prior transition -> null, and the pill is omitted entirely
+  // (first-transition pin; never render "0" or a dash).
+  const prior_event = $derived.by<ElectionEventRow | null>(() => {
+    if (!catalogue || !state_code) return null;
+    const kind = siblingKindFor(bodyFromEvent(params.fromEvent));
+    const same_body = listEventsForState(catalogue, state_code)
+      .filter((e) => e.kind === kind)
+      .sort((a, b) => a.polled_on.localeCompare(b.polled_on));
+    const idx = same_body.findIndex((e) => e.event_id === params.fromEvent);
+    if (idx <= 0) return null;
+    return same_body[idx - 1];
+  });
+
+  // Winners of the prior event (N-2). `null` is the sentinel for "no prior
+  // event" (skips loading + short-circuits the trend derivation); a
+  // LoaderResult tracks the in-flight / loaded state otherwise.
+  let prevprev_result = $state<LoaderResult<ElectionResultRow[]> | null>({
+    status: "loading",
+  });
+
   $effect(() => {
     const sc = state_code;
     const fe = params.fromEvent;
@@ -143,6 +180,7 @@
     if (!sc) {
       from_result = { status: "loading" };
       to_result = { status: "loading" };
+      prevprev_result = { status: "loading" };
       return;
     }
     from_result = { status: "loading" };
@@ -153,6 +191,27 @@
     });
     loadForBody(te, sc).then((r) => {
       if (te === params.toEvent && sc === state_code) to_result = r;
+    });
+    // Load the pre-`from` event for the flip-trend delta. `prior_event`
+    // is reactive (re-resolves when the catalogue arrives), so this
+    // effect re-runs and loads it once known. No prior event -> sentinel.
+    const pe = prior_event;
+    if (!pe) {
+      prevprev_result = null;
+      return;
+    }
+    const pe_id = pe.event_id;
+    prevprev_result = { status: "loading" };
+    loadForBody(pe_id, sc).then((r) => {
+      // Stale guard: the prior id is derived from `from` + the catalogue,
+      // so re-check both still resolve to the same prior event.
+      if (
+        sc === state_code &&
+        fe === params.fromEvent &&
+        prior_event?.event_id === pe_id
+      ) {
+        prevprev_result = r;
+      }
     });
   });
 
@@ -258,9 +317,52 @@
   // lives in compare-kpis.ts so vitest exercises it without mounting Svelte.
   const kpis = $derived(buildCompareKpis(raw_compare_rows));
 
-  // Layer is_new_party onto each row from the model's new-party set so the
-  // "New parties" filter chip + the per-row "New entry" badge read it
-  // without re-deriving the predicate in the template.
+  // ---- PR5 flip-trend delta (pure model) -----------------------------
+  // Counts flips for the PRIOR transition (prevPrev -> from) vs the
+  // CURRENT one (from -> to) over comparable seats, and deltas them. Null
+  // (pill omitted) when there is no prior event OR any of the three winner
+  // sets is not loaded ok/partial - a misleading partial delta is worse
+  // than no pill. The math lives in flip-trend-model.ts (vitest-tested
+  // without mounting Svelte).
+  const flip_trend = $derived.by<FlipTrend | null>(() => {
+    if (prevprev_result === null) return null; // first transition; no prior
+    if (
+      prevprev_result.status !== "ok" &&
+      prevprev_result.status !== "partial"
+    ) {
+      return null;
+    }
+    if (from_result.status !== "ok" && from_result.status !== "partial") {
+      return null;
+    }
+    if (to_result.status !== "ok" && to_result.status !== "partial") {
+      return null;
+    }
+    const winners = (rows: ElectionResultRow[]) =>
+      projectAsWinnersByEntity(rows).map((w) => ({
+        entity_id: w.entity_id,
+        party_id: w.party_id,
+      }));
+    return computeFlipTrend({
+      prevPrevWinners: winners(prevprev_result.data),
+      fromWinners: winners(from_result.data),
+      toWinners: winners(to_result.data),
+    });
+  });
+
+  // Year span of the PRIOR transition for the pill label, e.g.
+  // "2016-2021" (prevPrev year -> from year). Null when there is no prior
+  // event or either year is unparseable.
+  const flip_trend_label = $derived.by<string | null>(() => {
+    const pe = prior_event;
+    if (!pe) return null;
+    const prior_year = deriveYearNumber(pe.event_id);
+    const from_year = deriveYearNumber(params.fromEvent);
+    if (prior_year === null || from_year === null) return null;
+    return `${prior_year}-${from_year}`;
+  });
+
+
   const compare_rows = $derived<CompareRow[]>(
     raw_compare_rows.map((r) => ({
       ...r,
@@ -369,6 +471,14 @@
   function fmtSharePct(pct: number): string {
     return `${Math.round(pct)}%`;
   }
+
+  // Signed flip-count delta for the trend pill, e.g. "+12" / "-3" / "+0".
+  // The sign is the structural cue (volatility up vs down) the citizen
+  // reads before the number, mirroring StateEventHero's pp-delta.
+  function fmtSignedDelta(n: number): string {
+    const sign = n >= 0 ? "+" : "";
+    return `${sign}${fmtInt(n)}`;
+  }
 </script>
 
 <PageContainer
@@ -458,6 +568,24 @@
             class="mt-0.5 text-xs text-slate-500"
             data-testid="compare-elections-kpi-flips-pct"
           >{fmtSharePct(kpis.flips_pct)} of seats</div>
+        {/if}
+        <!-- PR5 flip-trend delta. NEUTRAL slate tint - more flips is not
+             "good" or "bad", just a direction (volatility up vs down).
+             Omitted entirely on the first available transition (no prior
+             event) or when a winner set failed to load. -->
+        {#if flip_trend !== null && flip_trend_label !== null}
+          {@const up = flip_trend.delta >= 0}
+          <div
+            class="mt-1.5 inline-flex items-center gap-1 rounded-yen-pill bg-slate-100 px-2 py-0.5 text-[11px] font-medium tabular-nums text-slate-600"
+            data-testid="compare-elections-flips-trend"
+            title="Change in the number of seats that flipped vs the previous transition. Counted on comparable seats only (constituencies present in both events of each pair); delimitation can shift the seat set."
+          >
+            <TopicIcon
+              name={up ? "trending-up" : "trending-down"}
+              cls="h-3 w-3 shrink-0"
+            />
+            <span>{fmtSignedDelta(flip_trend.delta)} flips vs {flip_trend_label}</span>
+          </div>
         {/if}
       </div>
       <div class="rounded border border-slate-200 bg-white p-3">
