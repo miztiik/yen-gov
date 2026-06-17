@@ -1,0 +1,54 @@
+name: auto-enable-auto-merge
+
+# Turns GitHub auto-merge ON for every non-draft pull request, so a PR
+# squash-merges itself the moment its required checks pass (vitest + build,
+# per the `main` branch-protection rule) with no conflicts - no agent or
+# human needs to remember `gh pr merge --auto`.
+#
+# Hold mechanism: open a PR as a DRAFT to suppress auto-merge; mark it
+# "ready for review" when you want it to ship. The `ready_for_review`
+# trigger then enables auto-merge.
+#
+# Requires the repo setting `allow_auto_merge: true` and a branch-
+# protection rule on `main` with required status checks (both already
+# configured). The branch is deleted on merge via the repo's
+# `delete_branch_on_merge` setting (and `--delete-branch` here as a belt).
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+
+# Least-privilege token: enabling auto-merge needs pull-requests:write;
+# the merge itself (performed natively by GitHub) needs contents:write.
+permissions:
+  contents: write
+  pull-requests: write
+
+# One in-flight run per PR; a newer event supersedes an older queued run.
+concurrency:
+  group: auto-merge-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  enable-auto-merge:
+    # Drafts are the manual hold - never auto-enable on them.
+    if: ${{ github.event.pull_request.draft == false }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable auto-merge (squash, delete branch)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          # Normal path: checks are still pending at this point, so
+          # `--auto` queues the merge for when they go green.
+          if gh pr merge --auto --squash --delete-branch "$PR_URL"; then
+            echo "Auto-merge enabled for $PR_URL"
+            exit 0
+          fi
+          # Race path: a draft that was already green before being marked
+          # ready reports "clean status" (auto-merge is rejected on an
+          # already-mergeable PR). Merge it directly instead.
+          echo "Auto-merge not accepted (likely already mergeable); trying a direct squash-merge."
+          gh pr merge --squash --delete-branch "$PR_URL" \
+            || echo "PR is not mergeable yet (e.g. conflicts or failing checks); leaving it open."
