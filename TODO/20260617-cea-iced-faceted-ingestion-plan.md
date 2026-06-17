@@ -28,7 +28,7 @@ The `sources/{cea_installed_capacity, iced_power}` adapters are stale across:
 
 | # | Drift | Adapters emit | Current contract |
 | --- | --- | --- | --- |
-| 1 | Entity key | ECI codes (`S22`, `U05`, `IN`) via `iced_common.ENTITY_MAP` | LGD slugs (`andhra-pradesh`, `IN`). No clean ECI->slug crosswalk (`state_codes.csv` keys on lgd_state_id / iso_3166_2 / slug / aliases) |
+| 1 | Entity key | ECI codes (`S22`, `U05`, `IN`) via `iced_common.ENTITY_MAP` | LGD slugs (`andhra-pradesh`, `IN`). **A clean ECI->slug crosswalk ALREADY EXISTS**: `eci_to_lgd_slug()` in `backend/yen_gov/canonical/adapters/eci/state_slug.py`, backed by `datasets/taxonomy/lgd_states.json` (36 rows = 28 states + 8 UTs; `S22 -> tamil-nadu`). Used today by `eci_ae_panel.py`. No new seed needed. |
 | 2 | Indicator id | `installed-capacity-mw`, `electricity-generation-snapshot-gwh`, `thermal-capacity-retired-mw` | `installed-capacity-{geographical,snapshot}-mw`, `electricity-generation-gwh` |
 | 3 | Fuel collapse | raw upstream fuels (`small-hydro`, `oil-gas`, `bio-power`, `solar`, `wind`, `waste-to-energy`) | 5-bucket `{coal, gas, hydro, nuclear, renewable}` (Hans D33.8). The `SUB_FUEL_TO_CANONICAL` map was DELETED in `8ea74f243`; recoverable from git |
 | 4 | Shape | N per-fuel files under `geo/` | ONE faceted `geo_by_fuel/<measure>.csv` |
@@ -37,7 +37,9 @@ The `sources/{cea_installed_capacity, iced_power}` adapters are stale across:
 (`datasets/energy/_meadow/<source>/<vintage>/*.json`); the deleted `canonical/adapters/energy/`
 package lifted meadow -> Parquet. The G5 / energy-livestock migration then converted Parquet -> CSV;
 PR #1097 faceted the CSV. The meadow -> Parquet chain is dead (the store is CSV). So the modern shape
-is a **single pass**: parse -> 5-bucket collapse -> ECI->slug -> faceted CSV.
+is a **single pass**: parse -> 5-bucket collapse -> ECI->slug (`eci_to_lgd_slug`) -> faceted CSV. Every
+building block already exists: the parsers (kept), the collapse map (`SUB_FUEL_TO_CANONICAL`, recoverable
+from git), the entity helper (`eci_to_lgd_slug`), and the faceted-CSV contract (`geo_by_fuel/*.csv`).
 
 ### 0.3 Hard constraints
 
@@ -60,7 +62,7 @@ ratifies here.
 | Ruling | Lens | RECOMMENDED resolution |
 | --- | --- | --- |
 | **R-A Revive vs rewrite** | Gregor + Fowler | **HYBRID.** Keep the `sources/*` parsers (the CEA-XLSX column decode + ICED AES-JSON decode is genuine, hard-won value). REWRITE only the emit + entity + id + collapse layer into a thin single-pass that writes the faceted CSV directly. Do NOT revive the deleted meadow->Parquet `canonical/adapters/energy/` package (obsolete). Delete the stale per-fuel emit functions. |
-| **R-B Entity seam** | Gregor | ECI->LGD-slug translation lives in ONE shared helper all energy adapters call (not per-adapter). **ESCALATE risk:** if no clean ECI->LGD-slug crosswalk can be derived from `state_codes.csv` (aliases) or an existing seed, minting a new authoritative crosswalk seed is a Hans+Max data-shape call - stop and surface. |
+| **R-B Entity seam** | Gregor | **RESOLVED - no escalation.** The shared ECI->LGD-slug helper already exists: `eci_to_lgd_slug()` in `canonical/adapters/eci/state_slug.py` (backed by `datasets/taxonomy/lgd_states.json`, 36 rows, all states + UTs). REUSE it; do NOT mint a parallel seed. The energy single-pass emit helper lives under `canonical/` and imports this helper (matching the existing `eci_ae_panel.py` precedent). ICED produces ECI via `ENTITY_MAP`, CEA produces ECI directly; both converge on `eci_to_lgd_slug`. The only residual check (Row 0): confirm the helper's slug codomain FK-closes against `entities/geo.csv.entity_id`. |
 | **R-C CEA family + fuels** | Hans + Max | CEA = "Executive Summary on Power Sector" monthly snapshot, state-grain -> `installed-capacity-snapshot-mw`. `total` -> `fuel_type=all`; `thermal` (coal+lignite+gas+diesel composite, not a D33.8 bucket, derivable, unconsumed) -> **DROP** from the facet axis (if "total thermal" earns citizen value it is a separate single-value indicator, deferred). |
 | **R-D ICED capacity family** | Hans + Max | ICED capacity-metatable, state-grain -> `installed-capacity-geographical-mw`, with `SUB_FUEL_TO_CANONICAL` 5-bucket collapse + `total`/sum -> `all`. |
 | **R-E ICED generation** | Hans + Max + Fowler | **DEFER to its own PR.** Generation faceting is incomplete even on the frontend (still per-fuel; no `geo_by_fuel/electricity-generation-gwh.csv`). Faceting it is a #1097-style effort (FE migration + consolidate); do not entangle the pilot. |
@@ -70,7 +72,8 @@ ratifies here.
 
 ### 0.5 ESCALATE triggers (stop, surface, wait)
 
-- R-B: no clean ECI->LGD-slug crosswalk exists -> minting an authoritative seed is Hans+Max.
+- ~~R-B: no clean ECI->LGD-slug crosswalk exists~~ **CLEARED 2026-06-17** - `eci_to_lgd_slug` verified to exist and cover all 36 states/UTs. No longer an escalation.
+- Row 0 only: if the `eci_to_lgd_slug` slug codomain does NOT FK-close against `entities/geo.csv` (an unmapped state surfaces), surface the unmapped set (data-shape, Hans+Max) before proceeding.
 - Any need for a NEW file-class or a `columns.json` bump (collides with the moving SDG version).
 - R-E generation faceting (a Level-4 FE migration) if pulled in.
 - Any disagreement with a ratified ruling in 0.4 surfaced mid-execution.
@@ -81,7 +84,7 @@ ratifies here.
 
 | Row | Title | Status | PR | Effort |
 | --- | --- | --- | --- | --- |
-| 0 | ECI -> LGD-slug shared entity crosswalk seam | [ ] PENDING | - | S-M (ESCALATE if no crosswalk) |
+| 0 | Verify + wire the EXISTING `eci_to_lgd_slug` helper (FK-close vs geo.csv) | [ ] PENDING | - | S |
 | 1 | Restore `SUB_FUEL_TO_CANONICAL` as a shared helper (from git) | [ ] PENDING | - | S |
 | 2 | PILOT: CEA installed-capacity -> faceted `geo_by_fuel/installed-capacity-snapshot-mw` + CLI + fixture tests | [ ] PENDING | - | M |
 | 3 | ICED capacity-metatable -> faceted `geo_by_fuel/installed-capacity-geographical-mw` + CLI + fixture tests | [ ] PENDING | - | M |
@@ -94,13 +97,17 @@ ratifies here.
 
 ## 2. Per-row specs
 
-### Row 0 - ECI -> LGD-slug shared entity crosswalk seam
-- **Scope:** establish ONE helper that maps the adapters' entity output (ICED state-name / ECI code)
-  to the canonical LGD slug used by `entities/geo.csv`. Investigate first whether `state_codes.csv`
-  aliases or an existing seed already carries the mapping; if not -> ESCALATE (Hans+Max seed mint).
-- **Files:** new shared module under `backend/yen_gov/sources/iced_common/` (or `canonical/`); a unit test.
-- **Oracle:** for every ICED state-name in `ENTITY_MAP`, the helper resolves to a slug that exists in
-  `datasets/data/entities/geo.csv.entity_id` (FK-closed), or the row ESCALATES with the unmapped set.
+### Row 0 - Verify + wire the existing `eci_to_lgd_slug` helper
+- **Scope:** NO new seam is minted. Reuse `eci_to_lgd_slug()` from `canonical/adapters/eci/state_slug.py`
+  (backed by `datasets/taxonomy/lgd_states.json`). This row only (a) proves the helper's slug codomain
+  FK-closes against `entities/geo.csv.entity_id`, and (b) confirms the import layering is clean for the
+  new energy emit helper (sources orchestrator -> `canonical/` emit helper -> `eci_to_lgd_slug`), matching
+  the established `eci_ae_panel.py` import. ICED's `ENTITY_MAP` (state-name -> ECI) feeds `eci_to_lgd_slug`;
+  CEA emits ECI directly.
+- **Files:** a unit test under `backend/tests/`; (no new mapping module - the helper already exists).
+- **Oracle:** for every ECI code in the union of `lgd_states.json` and ICED `ENTITY_MAP`'s codomain,
+  `eci_to_lgd_slug(code)` returns a slug present in `datasets/data/entities/geo.csv.entity_id`
+  (FK-closed). If any state is unmapped, surface the set (Hans+Max) - do not silently drop.
 - **Capability-only:** yes (no data emitted).
 
 ### Row 1 - Restore SUB_FUEL_TO_CANONICAL
