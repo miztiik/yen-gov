@@ -193,6 +193,38 @@ _INSTALLED_CAPACITY_ALLOWED_SUFFIXES: frozenset[str] = frozenset(
 )
 
 
+# CSV-era fuel-facet re-fragmentation fence (follow-on to PR #1097).
+# PR #1097 migrated the fuel-faceted installed-capacity measures from N
+# per-fuel single-value files under datasets/data/datapoints/geo/ to ONE
+# faceted file each under datasets/data/datapoints/geo_by_fuel/ (fuel_type
+# dimension column; closed enum {coal, gas, hydro, nuclear, renewable, all}).
+# The CEA + ICED source adapters now emit that faceted shape directly
+# (TODO/20260617-cea-iced-faceted-ingestion-plan.md, Rows 2-3). This fence is
+# the CSV-era sibling of tier_b_no_new_sub_fuel_shards (which guards the
+# retired JSON-shard path): it makes the geo/ -> geo_by_fuel/ split
+# computationally enforced so a future re-ingest cannot regress the corpus to
+# the per-fuel shape, regardless of producer.
+#
+# Scope (plan R-H): installed-capacity families ONLY. The net-transfers
+# estimate-stage fence is intentionally NOT folded in here -- it is owned by
+# the RBI net-transfers agent and lands separately.
+DATAPOINTS_GEO_DIR = Path("datasets/data/datapoints/geo")
+
+# Measures that moved to the faceted geo_by_fuel/*.csv class in PR #1097. Both
+# their per-fuel child form (`<measure>-<fuel>.csv`) AND their parent
+# single-file form (`<measure>.csv`) under geo/ are re-fragmentation -- the
+# data lives in geo_by_fuel/<measure>.csv now. installed-capacity-allocated-mw
+# is deliberately ABSENT: it is single-value (no fuel children) and correctly
+# stays in geo/ (it fails the four-gate facet test).
+_FACETED_FUEL_MEASURES: frozenset[str] = frozenset(
+    {
+        "installed-capacity-geographical-mw",
+        "installed-capacity-snapshot-mw",
+        "installed-capacity-mw",
+    }
+)
+
+
 # Meadow producer-shortname registry (ADR-0041 §nn4 + ADR-0042).
 # Maps the `<source>` path segment used in `datasets/<family>/_meadow/
 # <source>/<vintage>/*.json` to the full producer string carried on
@@ -1314,6 +1346,68 @@ def tier_b_no_new_sub_fuel_shards(root: Path) -> list[Failure]:
     return failures
 
 
+def tier_b_no_refragmented_fuel_facet_csv(root: Path) -> list[Failure]:
+    """Forbid re-fragmented fuel-facet CSVs under datasets/data/datapoints/geo/.
+
+    CSV-era sibling of ``tier_b_no_new_sub_fuel_shards`` (which guards the
+    retired JSON-shard path). PR #1097 collapsed the fuel-faceted
+    installed-capacity measures into the faceted ``geo_by_fuel/*.csv``
+    file-class (``fuel_type`` dimension column; closed enum {coal, gas, hydro,
+    nuclear, renewable, all}), and the CEA + ICED adapters now emit that shape
+    directly. This fence makes the split computationally enforced: any file
+    under ``datasets/data/datapoints/geo/`` whose stem re-fragments a faceted
+    measure -- a per-fuel child (``<measure>-coal``) OR the parent single-file
+    form (``<measure>``) of installed-capacity-{geographical-mw, snapshot-mw,
+    mw} -- is rejected; the data belongs in ``geo_by_fuel/<measure>.csv``.
+
+    The check is **source-agnostic**: it catches re-fragmentation from any
+    producer (including the source adapters that emit the faceted shape).
+    ``installed-capacity-allocated-mw`` is intentionally NOT fenced: it is a
+    single-value measure (no fuel children) that correctly stays in ``geo/``.
+
+    Scope (plan R-H): installed-capacity only; the net-transfers estimate-stage
+    fence is owned by the RBI agent and lands separately.
+
+    No-op if ``datasets/data/datapoints/geo/`` does not exist.
+    """
+    failures: list[Failure] = []
+    geo_dir = root / DATAPOINTS_GEO_DIR
+    if not geo_dir.exists():
+        return failures
+
+    for p in sorted(geo_dir.glob("*.csv")):
+        stem = p.stem
+        rel = _posix(p, root)
+        refragmented = next(
+            (
+                m
+                for m in sorted(_FACETED_FUEL_MEASURES)
+                if stem == m or stem.startswith(m + "-")
+            ),
+            None,
+        )
+        if refragmented is not None:
+            failures.append(
+                Failure(
+                    rel,
+                    "B",
+                    f"re-fragmented fuel-facet CSV: {stem!r} belongs to the "
+                    f"faceted measure {refragmented!r}, which moved to "
+                    f"datasets/data/datapoints/geo_by_fuel/{refragmented}.csv "
+                    f"(fuel_type dimension column, closed enum {{coal, gas, "
+                    f"hydro, nuclear, renewable, all}}) in PR #1097. The geo/ "
+                    f"per-fuel child + parent single-file forms are banned; "
+                    f"emit the faceted file via the source adapter "
+                    f"(ingest-cea-installed-capacity / ingest-iced-capacity) "
+                    f"or directly to the geo_by_fuel/*.csv class. Reviving a "
+                    f"per-fuel id requires a Hans+Max doctrine amendment per "
+                    f"CLAUDE.md §0a.",
+                )
+            )
+
+    return failures
+
+
 def tier_b_meadow_vintage_matches_source_id(root: Path) -> list[Failure]:
     """ADR-0041 §nn4 + ADR-0042: meadow path vintage MUST match a source row.
 
@@ -1889,6 +1983,7 @@ def run(root: Path) -> list[Failure]:
         + tier_b_boundary_topo_sibling_pairs(root)
         + tier_b_boundary_encoding_receipt(root)
         + tier_b_no_new_sub_fuel_shards(root)
+        + tier_b_no_refragmented_fuel_facet_csv(root)
         + tier_b_meadow_vintage_matches_source_id(root)
         + tier_b_indicator_freshness_declared(root)
         + tier_b_indicator_has_justification(root)
