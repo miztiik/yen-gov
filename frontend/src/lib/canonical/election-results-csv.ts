@@ -21,7 +21,20 @@ import { ECI_TO_LGD_SLUG } from "../boundaries/sources";
 
 /** Inline columns clause for read_csv. 9 columns mirroring the 9-column
  *  emission shape declared in
- *  datasets/data/_schema/columns.json:datapoints/electoral/*.csv. */
+ *  datasets/data/_schema/columns.json:datapoints/electoral/*.csv.
+ *
+ *  Consumers MUST splice this together with `header=true, auto_detect=false`
+ *  (e.g. `read_csv(<url>, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true,
+ *  auto_detect=false)`). These reads are a fully-typed boundary - the
+ *  column shape and header are already declared here - so the DuckDB CSV
+ *  sniffer has nothing left to discover and must stay out of the path.
+ *  DuckDB-WASM's sniffer (1.33-dev) mis-detects the delimiter on the
+ *  smaller, hyphen-dense parliament-only shards (lakshadweep: first rows
+ *  are `IN-PC-...` candidate ids with an empty value_text), throwing
+ *  `CSV sniffer: 1 column, expected 9` and failing the whole bulk home-map
+ *  query. `auto_detect=false` pins the comma dialect and removes the
+ *  sniffer entirely. Verified row-count-identical to the sniffer path
+ *  across all 36 state shards. */
 export const ELECTION_RESULTS_COLUMNS_CLAUSE =
   "columns={" +
   "'entity_id': 'VARCHAR', " +

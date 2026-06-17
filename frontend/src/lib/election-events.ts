@@ -172,6 +172,60 @@ export function findEvent(
 }
 
 /**
+ * The on-disk identity of a catalogue event for the canonical store.
+ *
+ * The canonical long-format store at
+ * `datasets/data/datapoints/electoral/*.csv` keeps `period_label` (and the
+ * cohort token embedded in `entity_id`) in ECI cohort form - e.g.
+ * `AcGenNov2024` - because `parse_period_label` makes that the invariant
+ * write-time identifier (backend events.py). The citizen catalogue exposes
+ * the same event under a readable slug `event_id` (`assembly-2024`) and
+ * lists every cohort token in `event_id_aliases[]`.
+ */
+export interface ResolvedEventIdentity {
+  /** Canonical citizen slug for display (never an ECI cohort code). */
+  event_id: string;
+  /** Every value the on-disk `period_label` / `entity_id` cohort token may
+   *  carry for this event: the slug itself (forward-compatible if the store
+   *  is ever re-keyed to slugs) plus every `event_id_aliases[]` entry. A
+   *  loader filters `period_label IN (...)` over this set. */
+  period_labels: string[];
+}
+
+/**
+ * Resolve a citizen event token to its canonical slug + on-disk
+ * `period_label` set via the catalogue - the single source of truth for the
+ * slug <-> cohort bridge.
+ *
+ * `eventToken` may be either the citizen slug (`assembly-2024`) or a legacy
+ * cohort token (`AcGenNov2024`); both resolve to the same row. The returned
+ * `period_labels` set is phase-proof: it matches the cohort-form data on
+ * disk today (via the alias) AND the slug-form data a future re-key would
+ * produce (via `event_id`), so no caller has to know the ECI cohort grammar.
+ *
+ * When the token matches no catalogue row (or the catalogue is null) the
+ * token is returned as its own identity - an exact-match pass-through that
+ * degrades to the pre-catalogue behaviour rather than dropping the query.
+ */
+export function resolveEventIdentity(
+  catalogue: ElectionEventsCatalogue | null,
+  stateCode: string,
+  eventToken: string,
+): ResolvedEventIdentity {
+  const rows = catalogue?.states[stateCode] ?? [];
+  const row = rows.find(
+    (r) =>
+      r.event_id === eventToken ||
+      (r.event_id_aliases ?? []).includes(eventToken),
+  );
+  if (!row) return { event_id: eventToken, period_labels: [eventToken] };
+  return {
+    event_id: row.event_id,
+    period_labels: [row.event_id, ...(row.event_id_aliases ?? [])],
+  };
+}
+
+/**
  * Days since this event's polling date (negative if polling is in the future).
  * Used by StateOverview's recency rule: <90 days → election leads above the
  * government card; otherwise government card leads.
