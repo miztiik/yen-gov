@@ -83,8 +83,10 @@
     computeFlipTrend,
     type FlipTrend,
   } from "../lib/elections/flip-trend-model";
-  import { buildYearPickerOptions } from "../lib/elections/year-compare-picker-model";
-  import YearComparePicker from "../lib/elections/YearComparePicker.svelte";
+  import {
+    buildYearPickerOptions,
+    type YearPickerOption,
+  } from "../lib/elections/year-compare-picker-model";
 
   interface Props {
     params: { state: string; fromEvent: string; toEvent: string };
@@ -532,45 +534,85 @@
     {/if}
   {/snippet}
 
+  {#snippet yearStrip(
+    opts: YearPickerOption[],
+    selectedId: string,
+    axisTestid: string,
+    onPick: (id: string) => void,
+  )}
+    <div class="flex gap-1.5 overflow-x-auto whitespace-nowrap py-0.5">
+      {#each opts as o (o.event_id)}
+        <button
+          type="button"
+          disabled={o.is_disabled}
+          onclick={() => onPick(o.event_id)}
+          data-testid={o.event_id === selectedId ? axisTestid : undefined}
+          class="shrink-0 rounded-yen-pill border px-2.5 py-1 text-xs font-medium tabular-nums transition-colors {o.event_id ===
+          selectedId
+            ? 'border-slate-900 bg-slate-900 text-white'
+            : o.is_disabled
+              ? 'border-slate-100 bg-slate-50 text-slate-300'
+              : 'border-slate-200 bg-white text-slate-500 hover:border-slate-300 hover:text-slate-900'}"
+        >
+          {o.year_label}
+        </button>
+      {/each}
+    </div>
+  {/snippet}
+
   <header class="space-y-2">
     <h1 class="text-2xl font-semibold text-slate-900">
       {state_name || params.state}
       <span class="text-slate-500"> &middot; </span>
       <span class="text-slate-700">{from_display} vs {to_display}</span>
     </h1>
-    <div class="flex flex-wrap items-center gap-2 text-xs">
-      {#if catalogue && from_options.length > 1}
-        <YearComparePicker
-          label={`From: ${from_display}`}
-          align="left"
-          testid="compare-elections-from-badge"
-          options={from_options}
-          onSelect={(id) =>
-            navigate(link.compareElections(params.state, id, params.toEvent))}
-        />
-      {:else}
+    {#if catalogue && sibling_events.length > 1}
+      <!-- Inline year-chip strips (Jony 2026-06-18): swap either axis
+           without a dropdown. Selected = solid dark; the year pinned on
+           the other axis is muted/disabled; others are tappable. -->
+      <div class="space-y-1">
+        <div class="flex items-center gap-2">
+          <span
+            class="w-9 shrink-0 text-[11px] font-medium uppercase tracking-wide text-slate-400"
+            >From</span
+          >
+          {@render yearStrip(
+            from_options,
+            params.fromEvent,
+            "compare-elections-from-badge",
+            (id) =>
+              navigate(link.compareElections(params.state, id, params.toEvent)),
+          )}
+        </div>
+        <div class="flex items-center gap-2">
+          <span
+            class="w-9 shrink-0 text-[11px] font-medium uppercase tracking-wide text-slate-400"
+            >To</span
+          >
+          {@render yearStrip(
+            to_options,
+            params.toEvent,
+            "compare-elections-to-badge",
+            (id) =>
+              navigate(
+                link.compareElections(params.state, params.fromEvent, id),
+              ),
+          )}
+        </div>
+      </div>
+    {:else}
+      <div class="flex flex-wrap items-center gap-2 text-xs">
         <span
           class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
           data-testid="compare-elections-from-badge"
         >From: {from_display}</span>
-      {/if}
-      <span class="text-slate-400">&rarr;</span>
-      {#if catalogue && to_options.length > 1}
-        <YearComparePicker
-          label={`To: ${to_display}`}
-          align="left"
-          testid="compare-elections-to-badge"
-          options={to_options}
-          onSelect={(id) =>
-            navigate(link.compareElections(params.state, params.fromEvent, id))}
-        />
-      {:else}
+        <span class="text-slate-400">&rarr;</span>
         <span
           class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
           data-testid="compare-elections-to-badge"
         >To: {to_display}</span>
-      {/if}
-    </div>
+      </div>
+    {/if}
   </header>
 
   {#if failed_reason}

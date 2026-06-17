@@ -1,15 +1,18 @@
 /**
- * year-compare-picker-model: pure option projection for the reusable
- * `<YearComparePicker>` popover (PR1 of
- * TODO/20260617-election-compare-ux-overhaul-plan.md).
+ * year-compare-picker-model: pure option projection for the compare-page
+ * year-chip strips (originally PR1 of
+ * TODO/20260617-election-compare-ux-overhaul-plan.md; the dropdown
+ * `<YearComparePicker>` it fed was retired 2026-06-18 in favour of inline
+ * tap-to-compare on the rail + inline From/To chip strips on the compare
+ * page - a dropdown was the 1990 pattern the citizen rejected).
  *
- * ONE picker primitive serves two surfaces (section 2b):
- *   - the sibling rail's "Compare" entry (options = the earlier
- *     same-body events the current one can be compared against); and
- *   - the compare page's From / To selectors (options = every same-body
- *     event, with the year already pinned on the OTHER axis disabled).
+ * Still the single place that decides option ordering + the disabled
+ * (other-axis) flag for the compare page's From / To selectors (options =
+ * every same-body event, with the year pinned on the OTHER axis disabled).
+ * The rail now resolves its earlier-event targets directly from the rail
+ * model's `compare_options`.
  *
- * The component renders whatever option list it is handed; this module
+ * The consumer renders whatever option list it is handed; this module
  * is the only place that decides ordering + the disabled flag, so vitest
  * pins the contract without mounting Svelte. Same inputs -> same output.
  */

@@ -82,18 +82,38 @@ R2 of [TODO/20260615-state-election-event-page-redesign-plan.md](../../../../TOD
 
 The `/compare/elections/<state>/<from>/<to>` surface ([CompareElections.svelte](../../../../frontend/src/routes/CompareElections.svelte)) and the per-event sibling rail ([SiblingEventsRail.svelte](../../../../frontend/src/lib/elections/SiblingEventsRail.svelte)) carry the citizen-facing controls shipped by the 2026-06-17 compare-UX overhaul ([TODO/20260617-election-compare-ux-overhaul-plan.md](../../../../TODO/20260617-election-compare-ux-overhaul-plan.md); PRs #1120 / #1121 / #1123 / #1124 / #1125). Durable contracts:
 
-### Compare any two elections - one picker primitive
+### Compare any two elections - no dropdown
 
-`YearComparePicker.svelte` (a year-GRID popover, never a native `<select>` - the "2027-ready not 1990-ready" rail doctrine) + the pure `year-compare-picker-model.ts` is the single way a comparison year is chosen. It is mounted in two places and the consumer owns navigation:
+Comparison is chosen WITHOUT a dropdown (Jony 2026-06-18: the citizen called the
+dropdown "annoying and ugly" and the per-option winner-colours "unnecessary" - the
+original `YearComparePicker.svelte` popover was retired). Two surfaces:
 
-- **Sibling rail "Compare" chip** - replaces the old hardwired "Compare with {prior_year}" pill. Offers EVERY earlier same-body election as the "from" (current event is the "to"); the rail renders no Compare control when the current event is the first on record. The rail model (`sibling-events-rail-model.ts`) supplies `compare_options` (earlier events only) + `state_slug` + `current_event_id`.
-- **Compare-page From / To badges** - each badge is a picker that re-navigates `link.compareElections(state, from, to)` on selection, so the citizen swaps either axis without leaving the page. The year pinned on the OTHER axis is shown disabled ("current"), never dropped from the list. Before the events catalogue resolves, the header falls back to plain text badges (`compare-elections-from-badge` / `-to-badge` testids preserved on the picker buttons).
+- **Sibling rail - tap-to-compare.** A monochrome **Compare** toggle sits after the year
+  strip (rendered only when an earlier same-body event exists). Tapping it enters compare
+  mode: a hint shows ("Tap an earlier year to compare with {year}"), the EARLIER chips
+  become tappable targets and the rest dim; tapping an earlier year navigates to
+  `link.compareElections(state, earlier, current)` (comparison reads older -> current).
+  Esc or tapping Compare again (now "Cancel") exits. The rail the citizen already reads IS
+  the picker - no popover, no list. The rail model (`sibling-events-rail-model.ts`)
+  supplies `compare_options` (earlier events only - the compare-mode target set) +
+  `state_slug` + `current_event_id`.
+- **Compare page - inline From / To chip strips.** Each axis is a horizontally-scrollable
+  row of year chips (selected = solid dark; the year pinned on the OTHER axis is muted +
+  disabled; others are tappable), so the citizen swaps either axis in place without a
+  dropdown. Built from `year-compare-picker-model.ts::buildYearPickerOptions` (still the
+  one place that decides ordering + the disabled flag). The selected chip carries the
+  `compare-elections-from-badge` / `-to-badge` testids; before the catalogue resolves the
+  header falls back to plain text badges.
 
-The model decides ordering (oldest-first) + the disabled flag; the component owns open/close (Escape + click-outside) and fires `onSelect(event_id)`.
+### Rail focus + monochrome
+
+The current year is the single spotlight (`bg-slate-900 text-white`); every other chip is
+MUTED (`text-slate-500`) so the current reads as in-focus even when the strip fits. There
+is NO per-chip winner-colour underline (removed 2026-06-18 - one spotlight, monochrome).
 
 ### Sibling-rail overflow affordance
 
-The rail shows left/right gradient fades ONLY when it overflows (recomputed on scroll / model change / resize), so 10-15+ elections read as "more this way" rather than a hard cut. The Compare picker sits OUTSIDE the `overflow-x-auto` scroll container so its popover is not clipped vertically.
+The rail shows left/right gradient fades ONLY when it overflows (recomputed on scroll / model change / resize), so 10-15+ elections read as "more this way" rather than a hard cut. The Compare toggle sits OUTSIDE the `overflow-x-auto` scroll container.
 
 ### Winner-change table
 
