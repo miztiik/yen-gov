@@ -28,6 +28,10 @@ import type {
 } from "../election-events";
 import { listEventsForState } from "../election-events";
 import { link } from "../links";
+import {
+  buildYearPickerOptions,
+  type YearPickerOption,
+} from "./year-compare-picker-model";
 
 /** One year-chip in the rail. */
 export interface SiblingEventChip {
@@ -61,6 +65,17 @@ export interface SiblingEventsRailModel {
   prior_year: number | null;
   /** Compare-route href; null when no prior event exists. */
   compare_href: string | null;
+  /** State slug the chips belong to (PR1 - the Compare picker builds
+   *  compare URLs from it). */
+  state_slug: string;
+  /** The event the citizen is reading (PR1 - the "to" side of every
+   *  compare URL the Compare picker generates). */
+  current_event_id: string;
+  /** PR1 Compare-picker options: the EARLIER same-body events this one
+   *  can be compared against (oldest-to-newest). Empty when the current
+   *  event is the first on record - the rail then renders no Compare
+   *  control. None are disabled (all are valid earlier "from" years). */
+  compare_options: YearPickerOption[];
 }
 
 /**
@@ -165,5 +180,20 @@ export function buildSiblingEventsRail({
     ? link.compareElections(state_slug, prior.event_id, current_event_id)
     : null;
 
-  return { events, prior_year, compare_href };
+  // PR1: the Compare picker offers every EARLIER same-body event as a
+  // "from" to compare the current event against (current event is the
+  // "to"). Slicing to the chips before the current one keeps the
+  // compare reading forward in time (older -> current) and yields an
+  // empty list when the current event is the first on record.
+  const earlier = has_prior ? events.slice(0, current_idx) : [];
+  const compare_options = buildYearPickerOptions(earlier);
+
+  return {
+    events,
+    prior_year,
+    compare_href,
+    state_slug,
+    current_event_id,
+    compare_options,
+  };
 }

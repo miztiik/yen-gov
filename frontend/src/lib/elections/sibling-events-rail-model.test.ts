@@ -183,6 +183,15 @@ describe("buildSiblingEventsRail", () => {
     expect(rail.compare_href).toBe(
       "/compare/elections/maharashtra/assembly-2019/assembly-2024",
     );
+    // PR1: the Compare picker offers the earlier same-body event(s) as
+    // selectable "from" years; state_slug + current_event_id are echoed
+    // so the picker can build compare URLs.
+    expect(rail.state_slug).toBe(STATE_SLUG);
+    expect(rail.current_event_id).toBe("assembly-2024");
+    expect(rail.compare_options.map((o) => o.event_id)).toEqual([
+      "assembly-2019",
+    ]);
+    expect(rail.compare_options.every((o) => !o.is_disabled)).toBe(true);
   });
 
   it("OMITS prior_year + compare_href when the current event is the FIRST chip (J-elevated-4 single-event pin)", () => {
@@ -205,6 +214,9 @@ describe("buildSiblingEventsRail", () => {
     expect(rail.events).toHaveLength(1);
     expect(rail.prior_year).toBeNull();
     expect(rail.compare_href).toBeNull();
+    // PR1: no earlier event -> the Compare picker has no options and the
+    // rail renders no Compare control.
+    expect(rail.compare_options).toEqual([]);
   });
 
   it("excludes events of the OTHER body kind (assembly rail hides parliament rows)", () => {

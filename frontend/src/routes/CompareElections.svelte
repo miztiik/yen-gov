@@ -77,11 +77,14 @@
   import {
     siblingKindFor,
     deriveYearNumber,
+    deriveYearLabel,
   } from "../lib/elections/sibling-events-rail-model";
   import {
     computeFlipTrend,
     type FlipTrend,
   } from "../lib/elections/flip-trend-model";
+  import { buildYearPickerOptions } from "../lib/elections/year-compare-picker-model";
+  import YearComparePicker from "../lib/elections/YearComparePicker.svelte";
 
   interface Props {
     params: { state: string; fromEvent: string; toEvent: string };
@@ -116,6 +119,34 @@
   }
   const from_display = $derived(eventPretty(params.fromEvent));
   const to_display = $derived(eventPretty(params.toEvent));
+
+  // ---- PR1 year pickers: every same-body sibling event, oldest-first.
+  // The citizen swaps either axis from these popovers without leaving the
+  // page (kills "comparison is hard-tied to one year"). winner_color_hex
+  // is null here - no event_summary mart is loaded on this surface, so
+  // the option underline falls back to the slate baseline. Empty until
+  // the catalogue resolves; the template falls back to plain badges then.
+  const sibling_events = $derived.by(() => {
+    const sc = state_code;
+    if (!catalogue || !sc) return [];
+    const kind = siblingKindFor(bodyFromEvent(params.toEvent));
+    return listEventsForState(catalogue, sc)
+      .filter((e) => e.kind === kind)
+      .sort((a, b) => a.polled_on.localeCompare(b.polled_on))
+      .map((e) => ({
+        event_id: e.event_id,
+        year_label: deriveYearLabel(e.event_id),
+        winner_color_hex: null,
+      }));
+  });
+  // From picker cannot pick the year already on the To axis, and vice
+  // versa (you cannot compare an election with itself).
+  const from_options = $derived(
+    buildYearPickerOptions(sibling_events, { excludeEventId: params.toEvent }),
+  );
+  const to_options = $derived(
+    buildYearPickerOptions(sibling_events, { excludeEventId: params.fromEvent }),
+  );
 
   // ---- Loader dispatch (parallel) -----------------------------------
   // For NATIONAL-PC events (general-*) the W2b loader rejects the
@@ -508,15 +539,37 @@
       <span class="text-slate-700">{from_display} vs {to_display}</span>
     </h1>
     <div class="flex flex-wrap items-center gap-2 text-xs">
-      <span
-        class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
-        data-testid="compare-elections-from-badge"
-      >From: {from_display}</span>
+      {#if catalogue && from_options.length > 1}
+        <YearComparePicker
+          label={`From: ${from_display}`}
+          align="left"
+          testid="compare-elections-from-badge"
+          options={from_options}
+          onSelect={(id) =>
+            navigate(link.compareElections(params.state, id, params.toEvent))}
+        />
+      {:else}
+        <span
+          class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
+          data-testid="compare-elections-from-badge"
+        >From: {from_display}</span>
+      {/if}
       <span class="text-slate-400">&rarr;</span>
-      <span
-        class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
-        data-testid="compare-elections-to-badge"
-      >To: {to_display}</span>
+      {#if catalogue && to_options.length > 1}
+        <YearComparePicker
+          label={`To: ${to_display}`}
+          align="left"
+          testid="compare-elections-to-badge"
+          options={to_options}
+          onSelect={(id) =>
+            navigate(link.compareElections(params.state, params.fromEvent, id))}
+        />
+      {:else}
+        <span
+          class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
+          data-testid="compare-elections-to-badge"
+        >To: {to_display}</span>
+      {/if}
     </div>
   </header>
 
