@@ -26,6 +26,7 @@ from .crypto import (
     ICEDShapeError,
     decrypt_cryptojs_openssl,
     decrypt_response,
+    load_iced_response,
 )
 from .entities import ENTITY_MAP, fy_to_period, coerce_numeric, lookup_entity
 from . import parser_kit
@@ -36,6 +37,7 @@ __all__ = (
     "ICEDShapeError",
     "decrypt_cryptojs_openssl",
     "decrypt_response",
+    "load_iced_response",
     "ENTITY_MAP",
     "fy_to_period",
     "coerce_numeric",

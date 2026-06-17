@@ -15,6 +15,7 @@ from typing import Any
 from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
+from yen_gov.sources.iced_common import load_iced_response
 from yen_gov.sources.iced_common.fuel_collapse import collapse_fuel
 from yen_gov.sources.iced_power.parsers import (
     parse_capacity_metatable,
@@ -548,18 +549,19 @@ def emit_capacity_faceted(
 
 
 def ingest_capacity(
-    *, repo_root: Path, raw_json_path: Path
+    *, repo_root: Path, raw_json_path: Path, decrypt: bool = False
 ) -> CapacityFacetedResult:
     """Read a staged capacity-metatable JSON, emit the faceted capacity CSV.
 
-    Capability-only entry point (no network): the operator stages the raw
-    ``/v1/capacity-metatable-data`` JSON response locally and runs this. Emits
+    Operator-staged local file (no network). ``/v1/capacity-metatable-data``
+    is plain JSON (``decrypt=False``); the flag is accepted so an encrypted
+    variant still loads via the auto-detecting ``load_iced_response``. Emits
     ONE faceted file
     ``datasets/data/datapoints/geo_by_fuel/installed-capacity-geographical-mw.csv``.
     """
-    import json
-
-    decoded = json.loads(raw_json_path.read_text(encoding="utf-8"))
+    decoded = load_iced_response(
+        raw_json_path.read_bytes(), decrypt=decrypt
+    )
     parsed_rows, skipped = parse_capacity_metatable(decoded)
     source_id = derive_source_id(
         _CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE_CAPACITY, _CSV_SOURCE_VINTAGE
@@ -620,17 +622,21 @@ def build_peak_rows(
     return {_CSV_VARIABLE_PREFIX_PEAK: rows}
 
 
-def ingest_peak(*, repo_root: Path, raw_json_path: Path) -> PeakIngestResult:
+def ingest_peak(
+    *, repo_root: Path, raw_json_path: Path, decrypt: bool = True
+) -> PeakIngestResult:
     """Read a staged powerStatistics JSON, emit the slug-keyed peak-demand CSV.
 
-    Capability-only entry point (no network): the operator stages the raw
-    ``/energy/powerStatistics`` response locally and runs this. Emits the
-    single-value file ``datasets/data/datapoints/geo/peak-electricity-demand-mw.csv``
-    with LGD-slug ``entity_id`` rows (Row 4 entity-key fix).
+    Operator-staged local file (no network). ``/energy/powerStatistics`` is
+    AES-encrypted on the wire, so the staged blob is the CryptoJS envelope;
+    ``decrypt=True`` (default) makes ``load_iced_response`` decrypt it before
+    parsing (an already-plain file still loads). Emits the single-value file
+    ``datasets/data/datapoints/geo/peak-electricity-demand-mw.csv`` with
+    LGD-slug ``entity_id`` rows.
     """
-    import json
-
-    decoded = json.loads(raw_json_path.read_text(encoding="utf-8"))
+    decoded = load_iced_response(
+        raw_json_path.read_bytes(), decrypt=decrypt
+    )
     _generation_rows, peak_rows, skipped = parse_power_statistics(decoded)
     source_id = derive_source_id(
         _CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE_PEAK, _CSV_SOURCE_VINTAGE
