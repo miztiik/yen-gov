@@ -1,123 +1,181 @@
-"""B1.6.1 writer-unit gate: cea_installed_capacity row-builder + write_csv.
+"""Row 2 writer-unit gate: CEA installed-capacity -> faceted geo_by_fuel CSV.
 
-Locks the contract for sub-row B1.6.1 of
-``docs/archive/plans/20260604-b1.6-misc-repoint-subplan.md``: each of the seven
-SHIPPED_COLUMNS fuel facets maps 1:1 to a kebab-case ``variable_id``
-(one-variable-per-facet interim while csv_writer lacks facet column
-support), is emitted via the canonical
-``yen_gov.canonical.csv_writer.write_csv`` against file class
-``datasets/data/datapoints/geo/*.csv``, and stamps every row with the
-deterministic ``source_id`` derived from one shared citation triple
-(producer / title / vintage = the monthly Executive Summary publication
-keyed by the workbook snapshot period).
+Locks the faceted-emit contract for the CEA Installed Capacity adapter
+(plan TODO/20260617-cea-iced-faceted-ingestion-plan.md, Row 2): the
+workbook fuel columns map to the canonical ``fuel_type`` enum (Grand Total
+-> ``all``; Total Thermal dropped per R-C; Coal/Gas/Nuclear/Hydro/RES ->
+the 5-bucket axis), ECI st_codes translate to LGD slugs via the existing
+``eci_to_lgd_slug`` bridge, the snapshot reduces to the integer report
+year, and the adapter emits ONE faceted file
+``geo_by_fuel/installed-capacity-snapshot-mw.csv`` that passes
+``validate_csv`` (header + enum + composite-PK + FK closure).
 
-No mocks (Holy Law #7); uses ``tmp_path`` per CLAUDE.md anti-pattern on
-walking the real corpus from pytest.
+No mocks (Holy Law #7); ``tmp_path`` fixtures only (CLAUDE.md anti-pattern
+on walking the real corpus). FK targets (geo.csv + source.csv) are staged
+in ``tmp_path``; variables.csv is intentionally omitted (the validator
+skips the datapoint-filename check when it is absent).
 """
+
 from __future__ import annotations
 
-import csv
 from pathlib import Path
 
+import pytest
+
 from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_validator import validate_csv
 from yen_gov.sources.cea_installed_capacity.ingest import (
     _CSV_FILE_CLASS,
-    _CSV_OUT_REL_DIR,
     _CSV_SOURCE_PRODUCER,
     _CSV_SOURCE_TITLE,
-    _INDICATOR_TO_VARIABLE_ID,
-    _slug_segment,
-    _snapshot_to_time,
-    build_csv_variables,
-    emit_csv_variables,
+    _DROPPED_INDICATOR,
+    _FACETED_VARIABLE_ID,
+    _INDICATOR_TO_FUEL_TYPE,
+    _snapshot_to_year,
+    _to_slug,
+    build_faceted_rows,
+    emit_faceted,
 )
 from yen_gov.sources.cea_installed_capacity.parsers import (
     SHIPPED_COLUMNS,
-    FuelColumn,
     ParsedRow,
+    ParsedWorkbook,
+)
+
+_SNAPSHOT = "2026-03"
+
+# entity_id FK target: the two states the fixture exercises (+ India).
+_GEO_CSV = (
+    "entity_id,name,parent,entity_kind,aliases,census_2001_code,census_2011_code\n"
+    "IN,India,,country,IN|IND|356,,\n"
+    "tamil-nadu,Tamil Nadu,IN,state,IN-TN|S22|lgd:33,33,33\n"
+    "andhra-pradesh,Andhra Pradesh,IN,state,IN-AP|S01|lgd:28,28,28\n"
 )
 
 
-def _column() -> FuelColumn:
-    return FuelColumn("energy/installed_capacity_coal_mw", 3, "Coal")
+def _parsed() -> ParsedWorkbook:
+    def rows(*pairs: tuple[str, float]) -> list[ParsedRow]:
+        return [ParsedRow(entity_id=e, time=_SNAPSHOT, value=v) for e, v in pairs]
 
-
-def _rows() -> list[ParsedRow]:
-    return [
-        ParsedRow(entity_id="S22", time="2026-01", value=12345.6),
-        ParsedRow(entity_id="S01", time="2026-01", value=2345.6),
-    ]
-
-
-def test_snapshot_to_time_encodes_year_month_as_integer():
-    assert _snapshot_to_time("2026-01") == 202601
-    assert _snapshot_to_time("2024-12") == 202412
-
-
-def test_slug_segment_is_kebab_and_ban_safe():
-    assert _slug_segment("Total Thermal") == "total-thermal"
-    assert _slug_segment("RES (MNRE)") == "res-mnre"
-    assert "__" not in _slug_segment("foo__bar  baz")
-
-
-def test_indicator_variable_id_map_covers_all_shipped_columns():
-    assert {c.indicator_id for c in SHIPPED_COLUMNS} == set(
-        _INDICATOR_TO_VARIABLE_ID.keys()
-    )
-    for vid in _INDICATOR_TO_VARIABLE_ID.values():
-        assert "__" not in vid
-        assert not vid.startswith(("state-", "district-", "national-"))
-
-
-def test_build_csv_variables_maps_one_variable_per_column_with_canonical_columns():
-    source_id = derive_source_id(
-        _CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE, "2026-01"
-    )
-    by_variable = build_csv_variables(
-        _column(), _rows(),
-        snapshot_period="2026-01",
-        source_id=source_id,
+    return ParsedWorkbook(
+        snapshot_period=_SNAPSHOT,
+        rows_by_indicator={
+            "energy/installed_capacity_total_mw": rows(("S22", 30000.0), ("S01", 25000.0)),
+            "energy/installed_capacity_thermal_mw": rows(("S22", 12000.0)),  # DROPPED
+            "energy/installed_capacity_coal_mw": rows(("S22", 10000.0), ("S01", 8000.0)),
+            "energy/installed_capacity_gas_mw": rows(("S22", 2000.0)),
+            "energy/installed_capacity_nuclear_mw": rows(("S22", 1000.0)),
+            "energy/installed_capacity_hydro_mw": rows(("S01", 3000.0)),
+            "energy/installed_capacity_renewable_mw": rows(("S22", 15000.0), ("S01", 14000.0)),
+        },
+        state_count=2,
     )
 
-    assert set(by_variable.keys()) == {"installed-capacity-mw-coal"}
-    rows = by_variable["installed-capacity-mw-coal"]
-    assert len(rows) == 2
-    assert {tuple(sorted(r.keys())) for r in rows} == {
-        ("entity_id", "source_id", "time", "value")
+
+def _source_id() -> str:
+    return derive_source_id(_CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE, _SNAPSHOT)
+
+
+def _stage_fk_targets(repo_root: Path, source_id: str) -> None:
+    entities = repo_root / "datasets" / "data" / "entities"
+    entities.mkdir(parents=True, exist_ok=True)
+    (entities / "geo.csv").write_text(_GEO_CSV, encoding="utf-8")
+    (entities / "source.csv").write_text(
+        "source_id,producer,title,vintage,url\n"
+        f"{source_id},{_CSV_SOURCE_PRODUCER},{_CSV_SOURCE_TITLE},{_SNAPSHOT},\n",
+        encoding="utf-8",
+    )
+
+
+# --- mapping integrity ------------------------------------------------------
+
+
+def test_fuel_type_map_partitions_shipped_columns():
+    # Every workbook column is either mapped to a fuel_type or explicitly
+    # dropped -- no column is silently unhandled.
+    shipped = {c.indicator_id for c in SHIPPED_COLUMNS}
+    assert set(_INDICATOR_TO_FUEL_TYPE) | {_DROPPED_INDICATOR} == shipped
+
+
+def test_fuel_type_codomain_is_enum_subset():
+    assert set(_INDICATOR_TO_FUEL_TYPE.values()) == {
+        "all",
+        "coal",
+        "gas",
+        "nuclear",
+        "hydro",
+        "renewable",
     }
-    for row in rows:
-        assert isinstance(row["time"], int)
-        assert row["time"] == 202601
-        assert row["source_id"] == source_id
 
 
-def test_emit_csv_variables_writes_one_file_per_variable(tmp_path: Path):
-    source_id = derive_source_id(
-        _CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE, "2026-01"
+def test_thermal_is_the_dropped_indicator():
+    assert _DROPPED_INDICATOR == "energy/installed_capacity_thermal_mw"
+    assert _DROPPED_INDICATOR not in _INDICATOR_TO_FUEL_TYPE
+
+
+# --- helpers ----------------------------------------------------------------
+
+
+def test_snapshot_reduces_to_report_year_int():
+    assert _snapshot_to_year("2026-03") == 2026
+    assert _snapshot_to_year("2024-12") == 2024
+
+
+def test_snapshot_rejects_malformed():
+    with pytest.raises(ValueError):
+        _snapshot_to_year("2026")
+
+
+def test_to_slug_translates_and_passes_country_through():
+    assert _to_slug("S22") == "tamil-nadu"
+    assert _to_slug("IN") == "IN"
+
+
+# --- build ------------------------------------------------------------------
+
+
+def test_build_emits_faceted_rows():
+    rows = build_faceted_rows(_parsed(), source_id=_source_id())
+    # 6 mapped columns, thermal dropped; per the fixture: all(2)+coal(2)+gas(1)
+    # +nuclear(1)+hydro(1)+renewable(2) = 9 rows.
+    assert len(rows) == 9
+    assert {r["fuel_type"] for r in rows} == {
+        "all",
+        "coal",
+        "gas",
+        "nuclear",
+        "hydro",
+        "renewable",
+    }
+    assert "thermal" not in {r["fuel_type"] for r in rows}
+
+
+def test_build_translates_entity_and_time_and_source():
+    sid = _source_id()
+    rows = build_faceted_rows(_parsed(), source_id=sid)
+    assert {r["entity_id"] for r in rows} == {"tamil-nadu", "andhra-pradesh"}
+    assert all(r["time"] == 2026 for r in rows)
+    assert all(r["source_id"] == sid for r in rows)
+    assert all(set(r) == {"entity_id", "time", "fuel_type", "value", "source_id"} for r in rows)
+
+
+# --- emit + validate --------------------------------------------------------
+
+
+def test_emit_one_faceted_file_that_validates(tmp_path: Path):
+    sid = _source_id()
+    _stage_fk_targets(tmp_path, sid)
+    rows = build_faceted_rows(_parsed(), source_id=sid)
+
+    out = emit_faceted(repo_root=tmp_path, rows=rows)
+
+    assert out == (
+        tmp_path
+        / "datasets/data/datapoints/geo_by_fuel"
+        / f"{_FACETED_VARIABLE_ID}.csv"
     )
-    by_variable = build_csv_variables(
-        _column(), _rows(),
-        snapshot_period="2026-01",
-        source_id=source_id,
-    )
-    written = emit_csv_variables(repo_root=tmp_path, by_variable=by_variable)
+    header = out.read_text(encoding="utf-8").splitlines()[0]
+    assert header == "entity_id,time,fuel_type,value,source_id"
 
-    assert len(written) == 1
-    target = tmp_path / _CSV_OUT_REL_DIR / "installed-capacity-mw-coal.csv"
-    assert target.exists()
-
-    text = target.read_text(encoding="utf-8")
-    assert text.splitlines()[0] == "entity_id,time,value,source_id"
-    assert text.endswith("\n")
-    assert "\r" not in text
-
-    with target.open(encoding="utf-8", newline="") as fh:
-        reader = csv.DictReader(fh)
-        parsed_rows = list(reader)
-    # Deterministic sort on PK (entity_id, time).
-    assert [r["entity_id"] for r in parsed_rows] == ["S01", "S22"]
-    assert parsed_rows[0]["source_id"] == source_id
-
-
-def test_file_class_matches_writer_glob():
-    assert _CSV_FILE_CLASS == "datasets/data/datapoints/geo/*.csv"
+    # FK + enum + composite-PK closure.
+    validate_csv(path=out, file_class=_CSV_FILE_CLASS, repo_root=tmp_path)

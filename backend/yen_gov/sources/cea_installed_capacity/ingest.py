@@ -1,10 +1,19 @@
-"""Orchestrator for CEA Installed Capacity ingest.
+"""Orchestrator for CEA Installed Capacity ingest -> faceted geo_by_fuel CSV.
 
 No network. Reads the workbook from
-``.runtime/raw/cea/installed_capacity_<YYYY>_<MM>.xlsx`` (or operator-
-overridden via ``CEA_INSTALLED_CAPACITY_PATH``), runs the pure parser,
-and writes one canonical state-level indicator artifact per fuel
-column under ``datasets/indicators/in/energy/<leaf>.json``.
+``.runtime/raw/cea/installed_capacity_<YYYY>_<MM>.xlsx`` (or an explicit
+path / ``CEA_INSTALLED_CAPACITY_PATH`` override), runs the pure parser,
+and writes ONE faceted canonical file
+``datasets/data/datapoints/geo_by_fuel/installed-capacity-snapshot-mw.csv``
+(``entity_id, time, fuel_type, value, source_id``; composite PK
+``(entity_id, time, fuel_type)``; closed ``fuel_type`` enum).
+
+Shape history (plan TODO/20260617-cea-iced-faceted-ingestion-plan.md, Row 2):
+the legacy emit fanned each fuel column out into a per-fuel single-value
+``geo/*.csv`` file; PR #1097 consolidated those into the faceted
+``geo_by_fuel/*.csv`` class. This adapter now emits that faceted shape
+DIRECTLY in a single pass: parse -> map workbook fuel columns to the
+canonical ``fuel_type`` enum -> ECI st_code -> LGD slug -> faceted CSV.
 
 Why no network in this adapter: CEA's TLS chain is not in the standard
 CA bundle on Windows / many CI images, so direct httpx fetches fail
@@ -21,56 +30,46 @@ import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
 
+from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
 
 from .parsers import (
-    SHIPPED_COLUMNS,
-    FuelColumn,
-    ParsedRow,
     ParsedWorkbook,
     parse_workbook,
 )
 
-# B1.6.1 - canonical CSV citation triple for the CEA monthly Installed
-# Capacity report (sub-plan
-# `TODO/20260604-b1.6-misc-repoint-subplan.md`). All seven SHIPPED_COLUMNS
-# share one publication (Executive Summary on Power Sector, monthly
-# edition). Producer / title / vintage match the per-family convention
-# declared in the sub-plan section B1.6.1..7 point 8; vintage per
-# ADR-0042 is the publisher edition string (YYYY-MM from the workbook
-# snapshot period). The fk-validator gate is dark on this hash until
-# `entities/source.csv` lands (B2a), by design per sub-plan
-# section "Pre-flight - source-id + concept-id readiness".
+# Canonical CSV citation triple for the CEA monthly Installed Capacity
+# report. All fuel columns share one publication (Executive Summary on
+# Power Sector, monthly edition). Vintage per ADR-0042 is the publisher
+# edition string (YYYY-MM from the workbook snapshot period). derive_source_id
+# hashes the triple at write time.
 _CSV_SOURCE_PRODUCER = "Central Electricity Authority"
 _CSV_SOURCE_TITLE = "Executive Summary on Power Sector"
-_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
-_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
 
-# Mapping from legacy `<topic>/<leaf>` indicator_id to the canonical CSV
-# variable_id (kebab-case `<measure>-<unit>-<facet>` per ADR-0044; no
-# `__`, no grain prefix, per parent plan section 21.6 / 21.12). One
-# variable_id per fuel facet (csv_writer.py does not yet support facet
-# columns; per-facet split is the documented interim per sub-plan
-# section B1.6.1..7 point 7).
-_INDICATOR_TO_VARIABLE_ID: dict[str, str] = {
-    "energy/installed_capacity_total_mw":
-        "installed-capacity-mw-total",
-    "energy/installed_capacity_thermal_mw":
-        "installed-capacity-mw-thermal",
-    "energy/installed_capacity_coal_mw":
-        "installed-capacity-mw-coal",
-    "energy/installed_capacity_gas_mw":
-        "installed-capacity-mw-gas",
-    "energy/installed_capacity_nuclear_mw":
-        "installed-capacity-mw-nuclear",
-    "energy/installed_capacity_hydro_mw":
-        "installed-capacity-mw-hydro",
-    "energy/installed_capacity_renewable_mw":
-        "installed-capacity-mw-renewable",
+# Faceted target (PR #1097 dimension-column branch). One file per measure;
+# the fuel members live in the `fuel_type` column, not in the filename.
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo_by_fuel/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo_by_fuel"
+_FACETED_VARIABLE_ID = "installed-capacity-snapshot-mw"
+
+# Workbook fuel column (its parser indicator_id) -> canonical `fuel_type`
+# enum member. The CEA columns map 1:1 to the 5-bucket axis; the published
+# Grand Total is the `all` aggregate member (NOT a render-time sum). The
+# "Total Thermal" composite (coal + lignite + gas + diesel) is NOT a
+# canonical fuel_type bucket and is intentionally DROPPED from the facet
+# axis per plan ruling R-C (it is derivable + unconsumed; a separate
+# single-value "total thermal" indicator is deferred).
+_INDICATOR_TO_FUEL_TYPE: dict[str, str] = {
+    "energy/installed_capacity_total_mw": "all",
+    "energy/installed_capacity_coal_mw": "coal",
+    "energy/installed_capacity_gas_mw": "gas",
+    "energy/installed_capacity_nuclear_mw": "nuclear",
+    "energy/installed_capacity_hydro_mw": "hydro",
+    "energy/installed_capacity_renewable_mw": "renewable",
 }
+_DROPPED_INDICATOR = "energy/installed_capacity_thermal_mw"
 
 
 CACHE_DIR_RELPATH = ".runtime/raw/cea"
@@ -91,193 +90,55 @@ class CEACacheMissing(RuntimeError):
 
 
 @dataclass(frozen=True)
-class IndicatorMeta:
-    indicator_id: str
-    title: str
-    description: str
-    icon: str
-    notes: str
+class FacetedIngestResult:
+    """Receipt for the single faceted CSV emit."""
+
+    variable_id: str
+    csv_path: Path
+    workbook_fetched_at: datetime
+    snapshot_period: str
+    time: int
+    row_count: int
+    fuel_types: tuple[str, ...]
 
 
-# Notes shared across all CEA installed-capacity indicators.
-_COMMON_NOTES_TAIL = (
-    " Source: CEA monthly Executive Summary, 'IC' sheet, per-state Sub-Total "
-    "row (sum of State + Private + Central ownership tiers, including "
-    "allocated shares from joint and central-sector utilities). Snapshot "
-    "is point-in-time as of the last day of the report month — NOT a "
-    "year-average. Capacity is **nameplate** MW, not generation; a state "
-    "with high coal capacity isn't necessarily a high coal-generation "
-    "state if those plants run at low PLF. Two CEA-reported entities are "
-    "intentionally dropped: 'NLC' (a central PSU on the Tamil Nadu list) "
-    "and 'DVC' (a central corporation on the West Bengal list) — their "
-    "capacity is not state-attributable. 'Central - Unallocated' shares "
-    "are also dropped for the same reason. CEA bundles 'Jammu & Kashmir "
-    "and Ladakh' into a single row; the combined capacity is attributed "
-    "to U08 (J&K UT) — the alternative would require a fabrication "
-    "split. The Andaman & Nicobar (U01) and Lakshadweep (U04) entries "
-    "in the Islands region are tiny but real."
-)
+def _resolve_workbook(
+    *, repo_root: Path, workbook_path: Path | None = None
+) -> tuple[bytes, datetime, str]:
+    """Read the CEA workbook, returning ``(content, mtime, url)``.
 
-
-INDICATOR_META: dict[str, IndicatorMeta] = {
-    "energy/installed_capacity_total_mw": IndicatorMeta(
-        indicator_id="energy/installed_capacity_total_mw",
-        title="Installed power-generation capacity (all fuels)",
-        description=(
-            "Total nameplate generation capacity physically located in (or "
-            "allocated to) each state, in megawatts, from CEA's monthly "
-            "Installed Capacity report. Sum of thermal + nuclear + hydro + "
-            "renewable across all ownership tiers (state, private, central, "
-            "and allocated shares from joint / central-sector utilities). "
-            "Read this as 'how much grid-connected generation gets billed "
-            "to this state', not 'how much electricity citizens here "
-            "consume' — a state can have large central-sector plants whose "
-            "output flows to the regional grid."
-        ),
-        icon="zap",
-        notes=(
-            "The headline 'how big is each state's power footprint' "
-            "indicator." + _COMMON_NOTES_TAIL
-        ),
-    ),
-    "energy/installed_capacity_thermal_mw": IndicatorMeta(
-        indicator_id="energy/installed_capacity_thermal_mw",
-        title="Installed thermal capacity (coal + lignite + gas + diesel)",
-        description=(
-            "Total fossil-fuel thermal generation capacity (coal + lignite "
-            "+ gas + diesel), in megawatts, per state. The 'IC' sheet's "
-            "Total Thermal column. Useful for the 'how dependent is each "
-            "state on fossil-fuel plants' question."
-        ),
-        icon="flame",
-        notes=(
-            "Includes lignite and diesel alongside coal and gas. Lignite "
-            "is concentrated in Tamil Nadu (Neyveli) and Gujarat / "
-            "Rajasthan; diesel is mostly small island / off-grid plants."
-            + _COMMON_NOTES_TAIL
-        ),
-    ),
-    "energy/installed_capacity_coal_mw": IndicatorMeta(
-        indicator_id="energy/installed_capacity_coal_mw",
-        title="Installed coal-fired capacity",
-        description=(
-            "Coal-fired thermal generation capacity in megawatts, per "
-            "state. The single largest fuel category nationally — about "
-            "42% of all-India installed capacity as of FY26. States with "
-            "captive coal (Chhattisgarh, Odisha, Jharkhand, MP) and the "
-            "central-sector NTPC plants in UP / Bihar / WB dominate."
-        ),
-        icon="flame",
-        notes=(
-            "Excludes lignite (which CEA lists as a separate column — "
-            "see energy/installed_capacity_thermal_mw for coal+lignite "
-            "combined)." + _COMMON_NOTES_TAIL
-        ),
-    ),
-    "energy/installed_capacity_gas_mw": IndicatorMeta(
-        indicator_id="energy/installed_capacity_gas_mw",
-        title="Installed gas-based capacity",
-        description=(
-            "Natural-gas-based thermal capacity in megawatts, per state. "
-            "Largely concentrated in gas-producing / pipeline-connected "
-            "states (Gujarat, Maharashtra, AP) and a few central-sector "
-            "stations. Many gas plants run at very low utilisation due "
-            "to tight gas supply, so this number overstates real "
-            "contribution to generation."
-        ),
-        icon="flame",
-        notes=(
-            "About 4% of all-India installed capacity but a much smaller "
-            "share of generation due to low PLF." + _COMMON_NOTES_TAIL
-        ),
-    ),
-    "energy/installed_capacity_nuclear_mw": IndicatorMeta(
-        indicator_id="energy/installed_capacity_nuclear_mw",
-        title="Installed nuclear capacity",
-        description=(
-            "Nuclear generation capacity in megawatts, per state. Eight "
-            "operating sites: Tarapur (Maharashtra), Kaiga (Karnataka), "
-            "Madras / Kalpakkam (Tamil Nadu), Kudankulam (Tamil Nadu), "
-            "RAPS (Rajasthan), NAPS (Uttar Pradesh), KAPS (Gujarat), "
-            "Kakrapar (Gujarat). All capacity is centrally allocated by "
-            "NPCIL across the regional grid; CEA reports the SHARE that "
-            "flows back to each state, which is why the values look "
-            "small relative to nameplate at each plant."
-        ),
-        icon="atom",
-        notes=(
-            "About 1.6% of all-India installed capacity. The state-level "
-            "split here is the central-sector ALLOCATION, not the "
-            "physical site of the plant — most states have a small "
-            "nuclear allocation even without a reactor in their "
-            "boundary." + _COMMON_NOTES_TAIL
-        ),
-    ),
-    "energy/installed_capacity_hydro_mw": IndicatorMeta(
-        indicator_id="energy/installed_capacity_hydro_mw",
-        title="Installed hydro capacity",
-        description=(
-            "Conventional hydro generation capacity in megawatts, per "
-            "state, including pumped-storage projects (PSPs) but "
-            "EXCLUDING small-hydro (SHP) which CEA classifies under RES. "
-            "Concentrated in the Himalayan states (Himachal Pradesh, "
-            "Uttarakhand, J&K) and the central / southern hill states "
-            "(Karnataka, AP, Telangana via Srisailam etc.)."
-        ),
-        icon="droplet",
-        notes=(
-            "Small hydro (≤25 MW) lives in the renewable category, not "
-            "here. PSPs ARE included." + _COMMON_NOTES_TAIL
-        ),
-    ),
-    "energy/installed_capacity_renewable_mw": IndicatorMeta(
-        indicator_id="energy/installed_capacity_renewable_mw",
-        title="Installed renewable capacity (RES MNRE)",
-        description=(
-            "Renewable capacity reported by MNRE (Ministry of New & "
-            "Renewable Energy) and republished by CEA in the IC sheet's "
-            "RES* (MNRE) column: solar (ground-mounted + rooftop + "
-            "hybrid + off-grid + KUSUM) + wind + small hydro + biomass "
-            "+ waste-to-energy, in megawatts per state. The fastest-"
-            "growing capacity category in India — about 42% of all-India "
-            "installed capacity as of FY26 (vs ~27% a decade ago)."
-        ),
-        icon="sun",
-        notes=(
-            "Excludes large hydro (which has its own column / "
-            "indicator). Includes small hydro (≤25 MW). "
-            "From August 2021 onwards CEA also includes off-grid "
-            "RES capacity in this column." + _COMMON_NOTES_TAIL
-        ),
-    ),
-}
-
-
-def _resolve_workbook(*, repo_root: Path) -> tuple[bytes, datetime, str]:
-    """Read latest cached CEA workbook, returning ``(content, mtime, url)``."""
-    env_path = os.environ.get("CEA_INSTALLED_CAPACITY_PATH", "").strip()
-    if env_path:
-        path = Path(env_path)
+    Resolution order: explicit ``workbook_path`` arg ->
+    ``$CEA_INSTALLED_CAPACITY_PATH`` -> latest cached
+    ``installed_capacity_YYYY_MM.xlsx`` under ``.runtime/raw/cea/``.
+    """
+    if workbook_path is not None:
+        path = workbook_path
         if not path.exists():
-            raise CEACacheMissing(
-                f"$CEA_INSTALLED_CAPACITY_PATH points to {path}, but that "
-                f"file does not exist."
-            )
+            raise CEACacheMissing(f"workbook path {path} does not exist.")
     else:
-        cache_dir = repo_root / CACHE_DIR_RELPATH
-        if not cache_dir.exists():
-            raise CEACacheMissing(_missing_cache_recipe(cache_dir))
-        candidates = sorted(
-            (
-                p
-                for p in cache_dir.iterdir()
-                if p.is_file() and _CACHE_FILE_RE.match(p.name)
-            ),
-            key=lambda p: p.name,
-        )
-        if not candidates:
-            raise CEACacheMissing(_missing_cache_recipe(cache_dir))
-        path = candidates[-1]  # latest YYYY_MM
+        env_path = os.environ.get("CEA_INSTALLED_CAPACITY_PATH", "").strip()
+        if env_path:
+            path = Path(env_path)
+            if not path.exists():
+                raise CEACacheMissing(
+                    f"$CEA_INSTALLED_CAPACITY_PATH points to {path}, but that "
+                    f"file does not exist."
+                )
+        else:
+            cache_dir = repo_root / CACHE_DIR_RELPATH
+            if not cache_dir.exists():
+                raise CEACacheMissing(_missing_cache_recipe(cache_dir))
+            candidates = sorted(
+                (
+                    p
+                    for p in cache_dir.iterdir()
+                    if p.is_file() and _CACHE_FILE_RE.match(p.name)
+                ),
+                key=lambda p: p.name,
+            )
+            if not candidates:
+                raise CEACacheMissing(_missing_cache_recipe(cache_dir))
+            path = candidates[-1]  # latest YYYY_MM
     mtime = datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc).replace(
         microsecond=0
     )
@@ -292,154 +153,99 @@ def _missing_cache_recipe(cache_dir: Path) -> str:
         f"  (c) Save it as {CACHE_DIR_RELPATH}/installed_capacity_YYYY_MM.xlsx\n"
         f"      where YYYY_MM is the report month\n"
         f"  (d) Re-run this command\n"
-        f"On Windows the one-liner is:\n"
-        f"  Invoke-WebRequest "
-        f"'https://cea.nic.in/wp-content/uploads/installed/<YYYY>/<MM>/Website-1.xlsx' "
-        f"-OutFile '{cache_dir}/installed_capacity_<YYYY>_<MM>.xlsx'\n"
-        f"Or override the source file entirely with "
+        f"Or pass the workbook path explicitly (CLI --xlsx) or override with "
         f"$CEA_INSTALLED_CAPACITY_PATH=<absolute path>."
     )
 
 
-def _build_payload(*args: Any, **kwargs: Any) -> dict[str, Any]:  # pragma: no cover
-    raise RuntimeError(
-        "_build_payload retired in B4-pt3; this adapter only emits canonical CSV now"
-    )
+def _snapshot_to_year(snapshot_period: str) -> int:
+    """Encode the snapshot ``YYYY-MM`` into the canonical integer ``time``.
 
-
-@dataclass(frozen=True)
-class IndicatorIngestResult:
-    """Per-CSV emit receipt."""
-    indicator_id: str
-    csv_path: Path
-    workbook_fetched_at: datetime
-    snapshot_period: str
-    row_count: int
-
-
-@dataclass(frozen=True)
-class IngestResult:
-    indicators: tuple[IndicatorIngestResult, ...]
-
-
-def _slug_segment(text: str) -> str:
-    """Kebab-case a segment for use inside a `variable_id`.
-
-    Mirrors the iced / rbi family helpers (lifted verbatim rather than
-    imported to keep this family self-contained). Parent plan section
-    21.6 / 21.12 ban `__`; ADR-0044 bans grain prefixes. Lower-case,
-    replace any non-alphanumeric run with a single `-`, strip
-    leading/trailing `-`.
-    """
-    out: list[str] = []
-    prev_dash = True
-    for ch in text.lower():
-        if ch.isalnum():
-            out.append(ch)
-            prev_dash = False
-        elif not prev_dash:
-            out.append("-")
-            prev_dash = True
-    return "".join(out).strip("-")
-
-
-def _snapshot_to_time(snapshot_period: str) -> int:
-    """Encode the snapshot YYYY-MM into a canonical integer `time`.
-
-    The geo datapoints file class declares `time` as `integer`. CEA is
-    a monthly snapshot, so we encode as `YYYYMM` to keep month-level
-    uniqueness on the (entity_id, time) PK. Raises `ValueError` on
-    shape drift - fail fast at the boundary (CLAUDE.md anti-pattern:
-    no silent coercion).
+    The ``geo_by_fuel`` datapoints class declares ``time`` as integer and the
+    consolidated CEA snapshot keys on the report YEAR (the March FY-end
+    snapshot is the canonical edition), matching the on-disk faceted file.
+    Raises ``ValueError`` on shape drift -- fail fast at the boundary.
     """
     year_str, _, month_str = snapshot_period.partition("-")
-    return int(year_str) * 100 + int(month_str)
-
-
-def build_csv_variables(
-    column: FuelColumn,
-    rows: list[ParsedRow],
-    *,
-    snapshot_period: str,
-    source_id: str,
-) -> dict[str, list[dict[str, Any]]]:
-    """Build per-`variable_id` CSV row lists for one fuel column.
-
-    Each row carries the four canonical columns declared on file class
-    `datasets/data/datapoints/geo/*.csv`: `entity_id`, `time`, `value`,
-    `source_id`. One `variable_id` per fuel facet (no faceting columns
-    in csv_writer yet).
-    """
-    variable_id = _INDICATOR_TO_VARIABLE_ID[column.indicator_id]
-    time_int = _snapshot_to_time(snapshot_period)
-    csv_rows: list[dict[str, Any]] = []
-    for r in rows:
-        csv_rows.append({
-            "entity_id": r.entity_id,
-            "time": time_int,
-            "value": r.value,
-            "source_id": source_id,
-        })
-    return {variable_id: csv_rows}
-
-
-def emit_csv_variables(
-    *, repo_root: Path, by_variable: dict[str, list[dict[str, Any]]]
-) -> tuple[Path, ...]:
-    """Write each `variable_id` to `datasets/data/datapoints/geo/<id>.csv`."""
-    written: list[Path] = []
-    out_dir = repo_root / _CSV_OUT_REL_DIR
-    for variable_id, rows in sorted(by_variable.items()):
-        path = write_csv(
-            path=out_dir / f"{variable_id}.csv",
-            file_class=_CSV_FILE_CLASS,
-            rows=rows,
+    if not (year_str.isdigit() and month_str.isdigit()):
+        raise ValueError(
+            f"unexpected snapshot period {snapshot_period!r}; expected 'YYYY-MM'"
         )
-        written.append(path)
-    return tuple(written)
+    return int(year_str)
 
 
-def ingest(*, repo_root: Path, schema_dir: Path | None = None) -> IngestResult:
-    """Read cached workbook, parse all fuel columns, emit canonical CSV variables.
+def _to_slug(eci_st_code: str) -> str:
+    """ECI st_code -> LGD slug, with the country rollup passed through."""
+    if eci_st_code == "IN":
+        return "IN"
+    return eci_to_lgd_slug(eci_st_code)
 
-    Under B4-pt3 (no strangler-fig per umbrella plan O1), only the
-    canonical long-format CSV under ``datasets/data/datapoints/geo/``
-    is emitted. ``schema_dir`` is accepted for back-compat but unused.
+
+def build_faceted_rows(
+    parsed: ParsedWorkbook,
+    *,
+    source_id: str,
+) -> list[dict[str, object]]:
+    """Build the faceted ``geo_by_fuel`` row list for one workbook.
+
+    One row per ``(state, fuel_type)``: the workbook fuel columns map to the
+    canonical ``fuel_type`` enum via ``_INDICATOR_TO_FUEL_TYPE`` (Grand Total
+    -> ``all``; Total Thermal dropped), the ECI st_code translates to the LGD
+    slug, and the snapshot reduces to the integer report year. write_csv sorts
+    by the composite PK.
     """
-    del schema_dir  # back-compat shim
+    time_int = _snapshot_to_year(parsed.snapshot_period)
+    rows: list[dict[str, object]] = []
+    for indicator_id, fuel_type in _INDICATOR_TO_FUEL_TYPE.items():
+        for r in parsed.rows_by_indicator[indicator_id]:
+            rows.append(
+                {
+                    "entity_id": _to_slug(r.entity_id),
+                    "time": time_int,
+                    "fuel_type": fuel_type,
+                    "value": r.value,
+                    "source_id": source_id,
+                }
+            )
+    return rows
 
-    content, mtime, _url = _resolve_workbook(repo_root=repo_root)
+
+def emit_faceted(*, repo_root: Path, rows: list[dict[str, object]]) -> Path:
+    """Write the single faceted ``geo_by_fuel/<variable_id>.csv`` file."""
+    out_path = repo_root / _CSV_OUT_REL_DIR / f"{_FACETED_VARIABLE_ID}.csv"
+    return write_csv(path=out_path, file_class=_CSV_FILE_CLASS, rows=rows)
+
+
+def ingest(
+    *, repo_root: Path, workbook_path: Path | None = None
+) -> FacetedIngestResult:
+    """Read the workbook, parse all fuel columns, emit the faceted CSV.
+
+    Emits ONE faceted file
+    ``datasets/data/datapoints/geo_by_fuel/installed-capacity-snapshot-mw.csv``.
+    ``workbook_path`` overrides the cache resolution (used by the CLI).
+    """
+    content, mtime, _url = _resolve_workbook(
+        repo_root=repo_root, workbook_path=workbook_path
+    )
     parsed: ParsedWorkbook = parse_workbook(content)
 
-    # B1.6.1 - one citation-ledger source_id shared across all seven
-    # SHIPPED_COLUMNS (same Executive Summary monthly publication).
-    # Vintage per ADR-0042 is the workbook snapshot period (YYYY-MM).
-    csv_source_id = derive_source_id(
+    # One citation-ledger source_id shared across all fuel facets (same
+    # Executive Summary monthly publication). Vintage = workbook snapshot
+    # period (YYYY-MM) per ADR-0042.
+    source_id = derive_source_id(
         _CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE, parsed.snapshot_period
     )
 
-    results: list[IndicatorIngestResult] = []
-    for column in SHIPPED_COLUMNS:
-        rows = parsed.rows_by_indicator[column.indicator_id]
-        by_variable = build_csv_variables(
-            column, rows,
-            snapshot_period=parsed.snapshot_period,
-            source_id=csv_source_id,
-        )
-        emitted = emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
-        csv_path = emitted[0] if emitted else (
-            repo_root / _CSV_OUT_REL_DIR
-            / f"{_INDICATOR_TO_VARIABLE_ID[column.indicator_id]}.csv"
-        )
+    rows = build_faceted_rows(parsed, source_id=source_id)
+    csv_path = emit_faceted(repo_root=repo_root, rows=rows)
 
-        results.append(
-            IndicatorIngestResult(
-                indicator_id=column.indicator_id,
-                csv_path=csv_path,
-                workbook_fetched_at=mtime,
-                snapshot_period=parsed.snapshot_period,
-                row_count=len(rows),
-            )
-        )
-
-    return IngestResult(indicators=tuple(results))
+    return FacetedIngestResult(
+        variable_id=_FACETED_VARIABLE_ID,
+        csv_path=csv_path,
+        workbook_fetched_at=mtime,
+        snapshot_period=parsed.snapshot_period,
+        time=_snapshot_to_year(parsed.snapshot_period),
+        row_count=len(rows),
+        fuel_types=tuple(sorted({str(r["fuel_type"]) for r in rows})),
+    )
