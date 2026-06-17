@@ -67,6 +67,9 @@
   import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import { slugify } from "../lib/slug";
+  import { getPartyColor } from "../lib/colors/resolver";
+  import { filterAndSortCompareRows } from "../lib/elections/compare-table-filter";
+  import { buildCompareDotSummary } from "../lib/elections/compare-dot-summary";
 
   interface Props {
     params: { state: string; fromEvent: string; toEvent: string };
@@ -272,13 +275,26 @@
     };
   });
 
-  // ---- Filter chip + sorting -----------------------------------------
+  // ---- Filter chip + search + sorting --------------------------------
   type Filter = "all" | "flips" | "holds";
   let filter = $state<Filter>("all");
+
+  // Live case-insensitive substring search over the constituency name and
+  // both winner party short codes. Composes with the filter chip + sort
+  // (the predicate lives in compare-table-filter.ts so vitest exercises it
+  // without mounting Svelte).
+  let search = $state("");
 
   type SortKey = "entity_name" | "from_party" | "to_party";
   let sort_key = $state<SortKey>("entity_name");
   let sort_dir = $state<"asc" | "desc">("asc");
+
+  // Sort-affordance glyphs, kept as named consts so the markup stays
+  // ASCII-only. Every sortable header shows the faint neutral up-down hint
+  // at rest; the active column shows the small solid triangle for its dir.
+  const SORT_GLYPH_ASC = "\u25b2"; // up triangle (active, ascending)
+  const SORT_GLYPH_DESC = "\u25bc"; // down triangle (active, descending)
+  const SORT_GLYPH_NEUTRAL = "\u2195"; // up-down arrow (at-rest hint)
 
   function toggleSort(k: SortKey): void {
     if (sort_key === k) {
@@ -289,21 +305,21 @@
     }
   }
 
-  const filtered_sorted = $derived.by<CompareRow[]>(() => {
-    let rs = compare_rows;
-    if (filter === "flips") rs = rs.filter((r) => r.is_flip);
-    else if (filter === "holds")
-      rs = rs.filter((r) => !r.is_flip && !r.is_orphan);
-    const cmp = (a: CompareRow, b: CompareRow): number => {
-      const ka = a[sort_key];
-      const kb = b[sort_key];
-      const av = ka ?? "";
-      const bv = kb ?? "";
-      const diff = av < bv ? -1 : av > bv ? 1 : 0;
-      return sort_dir === "asc" ? diff : -diff;
-    };
-    return [...rs].sort(cmp);
-  });
+  const filtered_sorted = $derived.by<CompareRow[]>(() =>
+    filterAndSortCompareRows(compare_rows, search, filter, sort_key, sort_dir),
+  );
+
+  // To-winner party-dot summary over the CURRENT filtered rows (plan-doc
+  // section 3a). Orphans are excluded inside the model. The colour resolver
+  // is the same 3-tier resolver PartyPill uses, called with a null row so
+  // the dot hue matches what the table pill renders (anchor + algorithmic
+  // fallback tiers).
+  const dot_summary = $derived(
+    buildCompareDotSummary(
+      filtered_sorted,
+      (pid) => getPartyColor(pid, null).hex,
+    ),
+  );
 
   // ---- Row click - drill into the newer event's constituency page ----
   // For AC events, the route is `/<state>/elections/<event>/ac/<eci_no>`
@@ -360,6 +376,20 @@
   data-testid="compare-elections"
 >
   <Breadcrumb {crumbs} />
+
+  {#snippet sortIndicator(key: SortKey)}
+    {#if sort_key === key}
+      <span
+        class="ml-0.5 text-[10px] leading-none text-slate-600"
+        aria-hidden="true"
+      >{sort_dir === "asc" ? SORT_GLYPH_ASC : SORT_GLYPH_DESC}</span>
+    {:else}
+      <span
+        class="ml-0.5 text-[10px] leading-none text-slate-300"
+        aria-hidden="true"
+      >{SORT_GLYPH_NEUTRAL}</span>
+    {/if}
+  {/snippet}
 
   <header class="space-y-2">
     <h1 class="text-2xl font-semibold text-slate-900">
@@ -434,7 +464,7 @@
       </div>
     </section>
 
-    <!-- Filter chips -->
+    <!-- Filter chips + search + result summary -->
     <section class="flex flex-wrap items-center gap-2">
       {#each [{ k: "all", label: "All" }, { k: "flips", label: "Flips" }, { k: "holds", label: "Holds" }] as opt (opt.k)}
         <button
@@ -449,9 +479,47 @@
           data-testid="compare-elections-filter-{opt.k}"
         >{opt.label}</button>
       {/each}
-      <span class="text-xs text-slate-500"
-        >{fmtInt(filtered_sorted.length)} of {fmtInt(compare_rows.length)} rows</span
-      >
+
+      <!-- Search: case-insensitive substring over the constituency name +
+           both winner party short codes. Mirrors the
+           StateEventConstituencyList input styling (rounded border + sky
+           focus ring), compact for the toolbar. -->
+      <label class="block">
+        <span class="sr-only">Search constituency or party</span>
+        <input
+          type="search"
+          placeholder="Search constituency or party..."
+          class="w-48 rounded border border-slate-300 px-2.5 py-1 text-xs placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+          data-testid="compare-elections-search"
+          bind:value={search}
+        />
+      </label>
+
+      <!-- Result count + To-winner party-dot cluster (plan-doc section 3a) -->
+      <div class="ml-auto flex items-center gap-2">
+        <span class="text-xs text-slate-500"
+          >{fmtInt(filtered_sorted.length)} of {fmtInt(compare_rows.length)} rows</span
+        >
+        {#if dot_summary.dots.length > 0}
+          <span
+            class="flex items-center gap-0.5"
+            aria-hidden="true"
+            data-testid="compare-elections-dot-summary"
+          >
+            {#each dot_summary.dots as hex, i (i)}
+              <span
+                class="inline-block h-2 w-2 rounded-full"
+                style="background-color: {hex};"
+              ></span>
+            {/each}
+            {#if dot_summary.overflow > 0}
+              <span class="text-[10px] text-slate-500"
+                >+{dot_summary.overflow}</span
+              >
+            {/if}
+          </span>
+        {/if}
+      </div>
     </section>
 
     {#if loading && compare_rows.length === 0}
@@ -481,40 +549,37 @@
               <th class="px-3 py-2 text-left">
                 <button
                   type="button"
-                  class="font-medium hover:underline"
+                  class="inline-flex cursor-pointer items-center hover:underline"
+                  class:font-semibold={sort_key === "entity_name"}
+                  class:font-medium={sort_key !== "entity_name"}
                   onclick={() => toggleSort("entity_name")}
                 >
-                  Constituency{sort_key === "entity_name"
-                    ? sort_dir === "asc"
-                      ? " \u25b2"
-                      : " \u25bc"
-                    : ""}
+                  <span>Constituency</span>
+                  {@render sortIndicator("entity_name")}
                 </button>
               </th>
               <th class="px-3 py-2 text-left">
                 <button
                   type="button"
-                  class="font-medium hover:underline"
+                  class="inline-flex cursor-pointer items-center hover:underline"
+                  class:font-semibold={sort_key === "from_party"}
+                  class:font-medium={sort_key !== "from_party"}
                   onclick={() => toggleSort("from_party")}
                 >
-                  {from_display} winner{sort_key === "from_party"
-                    ? sort_dir === "asc"
-                      ? " \u25b2"
-                      : " \u25bc"
-                    : ""}
+                  <span>{from_display} winner</span>
+                  {@render sortIndicator("from_party")}
                 </button>
               </th>
               <th class="px-3 py-2 text-left">
                 <button
                   type="button"
-                  class="font-medium hover:underline"
+                  class="inline-flex cursor-pointer items-center hover:underline"
+                  class:font-semibold={sort_key === "to_party"}
+                  class:font-medium={sort_key !== "to_party"}
                   onclick={() => toggleSort("to_party")}
                 >
-                  {to_display} winner{sort_key === "to_party"
-                    ? sort_dir === "asc"
-                      ? " \u25b2"
-                      : " \u25bc"
-                    : ""}
+                  <span>{to_display} winner</span>
+                  {@render sortIndicator("to_party")}
                 </button>
               </th>
               <th class="px-3 py-2 text-left">Change</th>
