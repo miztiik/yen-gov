@@ -12,6 +12,9 @@ import io
 from pathlib import Path
 
 from yen_gov.canonical.fuel_facet_consolidation import (
+    ALL_FUEL_FACETED_FAMILIES,
+    GENERATION_FAMILIES,
+    INSTALLED_CAPACITY_FAMILIES,
     FuelFamilySpec,
     consolidate_family_rows,
     write_faceted_family,
@@ -116,3 +119,33 @@ def test_null_value_round_trips_as_empty(tmp_path):
     out = write_faceted_family(tmp_path, spec)
     _header, data = _read_csv(out)
     assert data == [["IN-S01", "2026", "coal", "", "src-b"]]
+
+
+def test_generation_family_is_registered_with_all_member():
+    # D1: state electricity generation by fuel, parent total -> `all`.
+    assert len(GENERATION_FAMILIES) == 1
+    gen = GENERATION_FAMILIES[0]
+    assert gen.parent_id == "electricity-generation-gwh"
+    assert gen.has_all_member is True  # parent geo file = the published total
+    assert [fuel for fuel, _ in gen.children] == [
+        "coal", "gas", "hydro", "nuclear", "renewable",
+    ]
+    # The combined registry the CLI iterates is capacity + generation.
+    assert set(ALL_FUEL_FACETED_FAMILIES) == set(
+        INSTALLED_CAPACITY_FAMILIES + GENERATION_FAMILIES
+    )
+
+
+def test_generation_consolidation_folds_parent_into_all(tmp_path):
+    geo = _geo(tmp_path)
+    _write_geo(geo / "electricity-generation-gwh.csv", [("andhra-pradesh", "2020", "1500", "src-g")])
+    _write_geo(geo / "electricity-generation-gwh-coal.csv", [("andhra-pradesh", "2020", "1000", "src-g")])
+    _write_geo(geo / "electricity-generation-gwh-renewable.csv", [("andhra-pradesh", "2020", "500", "src-g")])
+    spec = FuelFamilySpec(
+        parent_id="electricity-generation-gwh",
+        has_all_member=True,
+        children=(("coal", "electricity-generation-gwh-coal"), ("renewable", "electricity-generation-gwh-renewable")),
+    )
+    rows = consolidate_family_rows(tmp_path, spec)
+    by_fuel = {r["fuel_type"]: r["value"] for r in rows}
+    assert by_fuel == {"all": "1500", "coal": "1000", "renewable": "500"}
