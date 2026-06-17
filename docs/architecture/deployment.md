@@ -1,17 +1,19 @@
 # Deployment
 
-**Last Updated**: 2026-05-19
+**Last Updated**: 2026-06-17
 
 yen-gov deploys as a single static bundle to GitHub Pages. There is no production backend (CLAUDE.md Holy Law #1). This page is the operator-level overview; the design rationale lives in [frontend/data-loading > production placement](frontend/data-loading.md#production-placement).
 
-## Two workflows: front-end and back-end
+## Workflow Contracts
 
-| Workflow | Trigger | What it does | Publishes? |
-| -------- | ------- | ------------ | ---------- |
-| [`deploy-site.yml`](../../.github/workflows/deploy-site.yml) | every PR + push to main + manual dispatch | All gating jobs for the public citizen site (vitest frontend, build, Playwright on the citizen frontend) AND, on push to main / manual dispatch only, the Pages deploy of the bundle this run just built + a live smoke check. Stale runs for the same PR/branch are cancelled. | Yes - on green push to main. |
-| [`backend.yml`](../../.github/workflows/backend.yml) | push / PR with `paths:` filter on `backend/**`, `admin/**`, `datasets/**`, the workflow file itself + manual `workflow_dispatch` | All dev-only tooling: pytest of the ingest pipeline (non-admin), pytest of the admin FastAPI routes, admin SPA svelte-check + vitest, admin Playwright e2e (mocks `/api/*` via `page.route`). Frontend-only commits skip this workflow entirely. No cron - dev tooling doesn't break without code changes. Live tests skipped via `YEN_GOV_NO_NET=1`. Tier-B corpus conformance is a LOCAL pre-emit check, not gated here - see [backend/validator.md](backend/validator.md). | No - everything here is dev-only (CLAUDE.md §3) and never ships in `_site/`. |
+| Workflow | Contract | Trigger | Publishes? |
+| -------- | -------- | ------- | ---------- |
+| [`deploy-site.yml`](../../.github/workflows/deploy-site.yml) | Public static citizen bundle. On PRs it runs frontend Vitest plus a verification build. On `main` push / manual dispatch it runs the same checks, deploys the artifact, then performs a live CSV smoke check. | every PR + push to main + manual dispatch | Yes - only after green `main` push / manual dispatch. |
+| [`backend.yml`](../../.github/workflows/backend.yml) | Dev/operator tooling: ingest pipeline pytest, admin FastAPI route pytest, admin SPA svelte-check + vitest, and admin Playwright e2e (mocks `/api/*` via `page.route`). | push / PR with `paths:` filter on `backend/**`, `admin/**`, `datasets/**`, the workflow file itself + manual `workflow_dispatch` | No - everything here is dev-only (CLAUDE.md section 3) and never ships in `_site/`. |
+| [`indicator-add-gate.yml`](../../.github/workflows/indicator-add-gate.yml) | Governance gate for multi-indicator additions and ingest proposal pre-flight. It reads PR metadata / proposal files; it is not a publish prerequisite. | PRs touching indicator catalogue, ingest proposal, meadow, or related source paths | No. |
+| [`e2e-ac-full.yml`](../../.github/workflows/e2e-ac-full.yml) | Sentinel coverage for the full 31-state AC e2e matrix. It catches drift beyond the cheap/default checks and remains outside the Pages deploy path. | nightly schedule + path-filtered PRs + manual dispatch | No. |
 
-The split mirrors the deployment reality: anything in `frontend/` ships; anything in `backend/` or `admin/` does not. `deploy-site.yml` defends the public artifact; `backend.yml` defends the local dev/operator tooling that produces and manages it. The two workflows are independent - a red `backend.yml` never blocks a green `deploy-site.yml` from publishing.
+The split mirrors the deployment reality: `deploy-site.yml` defends the public artifact; `backend.yml` defends the local dev/operator tooling; `indicator-add-gate.yml` and `e2e-ac-full.yml` defend domain-governance and drift-sentinel concerns. There is intentionally no `workflow_run` chain between these contracts. A red dev/operator or sentinel workflow never blocks a green public bundle from publishing.
 
 ### One workflow for the site, not two
 
@@ -27,13 +29,15 @@ The deployed bundle is pure static (Svelte build + datasets/ staged under `_site
 - never executes again until the next local ingest,
 - has no presence in the deployed artifact.
 
-Gating publish on it would conflate "my dev tooling is healthy" with "the public site is healthy". They are different concerns. The publish-relevant defences are: (a) does the bundle build (`frontend-build`), (b) does the deployed origin respond correctly (the smoke step in `deploy-pages`). That is what `deploy-site.yml` checks; everything else lives in `backend.yml`.
+Gating publish on it would conflate "my dev tooling is healthy" with "the public site is healthy". They are different concerns. The publish-relevant defences are: (a) do the frontend unit / contract / integration tests pass (`frontend-vitest`), (b) does the bundle build and stage `datasets/` correctly (`frontend-build`), and (c) does the deployed origin serve the expected CSV static bytes (the smoke step in `deploy-pages`). That is what `deploy-site.yml` checks; everything else lives outside the publish path.
 
 ### Why admin lives under backend.yml, not its own workflow
 
-The admin operator console is a separate local-only Svelte app on port 5174 (CLAUDE.md §3, [admin/AGENTS.md](../../admin/AGENTS.md)) and nothing under `admin/` is copied into the deployed Pages bundle. Earlier the admin checks lived in their own workflow (`admin-checks.yml`); they collapsed into `backend.yml` because the unifying axis is "dev-only / never deployed" rather than "admin specifically". The admin console (Svelte SPA) and the admin API (FastAPI shim under `backend/yen_gov/admin/`) are the operator-facing face of the same local pipeline that `pipeline-pytest` already covers. Coupling admin tests to the publish gate would create an inverted incentive: any flake in admin e2e (vite webServer boot race, Playwright timing) indefinitely blocks the public site from updating. The two-workflow split makes that impossible by construction: `deploy-site.yml` never depends on `backend.yml`.
+The admin operator console is a separate local-only Svelte app on port 5174 (CLAUDE.md section 3, [admin/AGENTS.md](../../admin/AGENTS.md)) and nothing under `admin/` is copied into the deployed Pages bundle. Earlier the admin checks lived in their own workflow (`admin-checks.yml`); they collapsed into `backend.yml` because the unifying axis is "dev-only / never deployed" rather than "admin specifically". The admin console (Svelte SPA) and the admin API (FastAPI shim under `backend/yen_gov/admin/`) are the operator-facing face of the same local pipeline that `pipeline-pytest` already covers. Coupling admin tests to the publish gate would create an inverted incentive: any flake in admin e2e (vite webServer boot race, Playwright timing) indefinitely blocks the public site from updating. The workflow-contract split makes that impossible by construction: `deploy-site.yml` never depends on `backend.yml`.
 
 The `pipeline-pytest` job in `backend.yml` installs only the `[dev]` extra and `--ignore`s the four `test_admin_*.py` files, so a transitive `import fastapi` failure in admin tests cannot accidentally pull admin coverage into the pipeline-pytest job. The matching `admin-api-pytest` job installs `[dev,admin]` and runs only those four files.
+
+`pipeline-pytest` is currently non-blocking inside `backend.yml` while chronic corpus-contract failures are worked down. That is degraded operator-health signal, not a public deploy gate. The desired end state is to make it blocking again inside `backend.yml` once it is green on current `main`.
 
 ## Job naming
 
@@ -48,6 +52,9 @@ Workflow job names read top-to-bottom and say what the job actually does, so PR 
 | `backend.yml` | `admin-api-pytest` | pytest (admin FastAPI routes) |
 | `backend.yml` | `admin-console-vitest` | vitest (admin console unit + contract) |
 | `backend.yml` | `admin-console-e2e` | Playwright e2e (admin operator console) |
+| `indicator-add-gate.yml` | `gate` | indicator-add justification gate |
+| `indicator-add-gate.yml` | `preflight` | pre-flight ingest gate (ADR-0046) |
+| `e2e-ac-full.yml` | `ac-coverage-full` | Playwright e2e (AC coverage, full 31-state matrix) |
 
 `admin-console-e2e` (in `backend.yml`) covers the dev-only operator console on port 5174. Playwright e2e for the public citizen site is run locally by developers via `bun run test:e2e` in `frontend/`; it is not part of the CI gating chain.
 
@@ -55,12 +62,12 @@ Workflow job names read top-to-bottom and say what the job actually does, so PR 
 
 Branch protection on `main` is not currently configured (verified empty via `gh api repos/miztiik/yen-gov/branches/main/protection` -> 404). For a solo repo at low frequency this is intentional: red tests show up as red checks on the commit but do not block merging. The `deploy-pages` job's own `needs:` chain already prevents a broken bundle from publishing.
 
-If branch protection is ever enabled (multi-author repo, for example), the required status checks should be:
+If branch protection is ever enabled (multi-author repo, for example), the required status checks should be only the PR-running public-site checks:
 
 - `frontend-vitest`
 - `frontend-build`
 
-`deploy-pages` MUST NOT be a required check - it never runs on PRs (its `if` requires push or workflow_dispatch on main), so requiring it would block every merge. Jobs from `backend.yml` MUST NOT be required either - they are path-filtered and would not run on pure-frontend PRs, blocking every such merge.
+`deploy-pages` MUST NOT be a required check - it never runs on PRs (its `if` requires push or workflow_dispatch on main), so requiring it would block every merge. Jobs from `backend.yml`, `indicator-add-gate.yml`, and `e2e-ac-full.yml` MUST NOT be globally required either - they are path-filtered, scheduled, manual, or deliberately outside the public deploy contract.
 
 Corpus conformance is the engineer's local pre-emit responsibility (`python -m yen_gov validate --root .`), since this repo's CI has no build that consumes `datasets/**` to defend - see [backend/validator.md](backend/validator.md).
 
@@ -95,43 +102,23 @@ To move the bundle (custom domain, user/org Pages, CDN, S3 origin) change **only
 
 Hardcoding the repo name in source is forbidden (CLAUDE.md §6); the env var is the structural seam.
 
-## HTTP Range + MIME (canonical Parquet contract)
+## Static CSV Serving Contract
 
-DuckDB-WASM in the browser reads Parquet via HTTP `Range:` requests so it never has to download a full file to project a few columns. The canonical store therefore depends on GitHub Pages honouring two HTTP properties:
+Post-X1a-fu2, the live deploy contract for tabular canonical data is fetchable long-format CSV under `/data/data/...`, not Parquet range serving. The frontend reads these files through DuckDB-WASM `read_csv(columns=..., header=true, auto_detect=false)` or typed loader code. GitHub Pages therefore has to serve the committed CSV bytes at the expected URL and must not return an HTML fallback page for data paths.
 
-1. `Accept-Ranges: bytes` on every static asset.
-2. `206 Partial Content` + a correct `Content-Range` header when the client sends `Range: bytes=N-M`.
-3. A non-`text/html` content type for `.parquet` so DuckDB-WASM does not try to parse it as HTML on error pages. Pages defaults unknown extensions to `application/octet-stream`, which is the contract DuckDB-WASM expects.
+The `deploy-pages` smoke check enforces the current contract by fetching the Tamil Nadu election-results CSV from the live Pages URL:
 
-Verified Phase 0.7 (2026-05-18) against the live Pages deploy:
-
-```
-$ curl -sI https://miztiik.github.io/yen-gov/data/elections/election_results.parquet
-HTTP/1.1 200 OK
-Content-Length: <varies>
-Content-Type: application/octet-stream
-Accept-Ranges: bytes
-
-$ curl -s -o /dev/null -w "%{http_code} %header{content-range}\n" \
-    -H "Range: bytes=100-199" \
-    https://miztiik.github.io/yen-gov/data/elections/election_results.parquet
-206 bytes 100-199/<total>
-
-$ curl -sI https://miztiik.github.io/yen-gov/data/_ops/range-mime-probe.parquet
-HTTP/1.1 200 OK
-Content-Length: 363
-Content-Type: application/octet-stream
-Accept-Ranges: bytes
-
-$ curl -s -o /dev/null -w "%{http_code} %{content_type} %header{content-range}\n" \
-    -H "Range: bytes=0-99" \
-    https://miztiik.github.io/yen-gov/data/_ops/range-mime-probe.parquet
-206 application/octet-stream bytes 0-99/363
+```text
+https://miztiik.github.io/yen-gov/data/data/datapoints/electoral/tamil-nadu_election_results.csv
 ```
 
-The Parquet-MIME probe lives at `datasets/_ops/range-mime-probe.parquet` (363 bytes, hand-emitted via DuckDB COPY with KV metadata `purpose=pages-range-mime-probe-phase-0.7`). It is the single asset under `datasets/_ops/` whose sole purpose is to keep the Pages MIME contract observable after every deploy. Do not delete it; do not consume it from frontend code. Relocated here by T.1 — was previously `datasets/_test/range-mime-probe.parquet`.
+The smoke asserts that the file is non-empty and that its header is exactly:
 
-If the Pages contract ever regresses (any of `Accept-Ranges`, `206`, or `Content-Type != text/html` on the probe), the canonical store is unreadable in the browser and the deploy MUST be rolled back. Add a curl-based smoke check to the `deploy-pages` job in `deploy-site.yml` if that ever happens.
+```text
+entity_id,year,period_label,period_seq,indicator_id,value_numeric,value_text,source_id,derivation
+```
+
+This smoke catches the two deploy failures that matter for the static CSV seam: `datasets/` was not staged into `_site/data`, or the Pages origin is serving the wrong bytes for the canonical CSV path.
 
 ## What is NOT deployed
 

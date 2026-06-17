@@ -1,9 +1,9 @@
 name: e2e AC coverage (full 31-state matrix)
 
-# Full-matrix companion to the canary AC-coverage spec that runs by default
-# in deploy-site.yml's `citizen-site-e2e` job. The default Playwright run
-# exercises a 5-code canary (CANARY_CODES in frontend/e2e/state-ac-coverage.spec.ts);
-# this workflow runs the full 31-code matrix via `AC_COVERAGE_FULL=1`.
+# Full-matrix AC-coverage sentinel. The spec defaults to a 5-code canary
+# (CANARY_CODES in frontend/e2e/state-ac-coverage.spec.ts) when run
+# locally or by a narrower caller; this workflow runs the full 31-code
+# matrix via `AC_COVERAGE_FULL=1`.
 #
 # Triggers:
 #   - Nightly schedule: time-based safety net catches drift the canary
@@ -33,6 +33,7 @@ on:
       - "datasets/boundaries/electoral/delim=2024/ac/**"
       - "datasets/taxonomy/entities.json"
       - "datasets/taxonomy/election_events.json"
+      - ".github/workflows/e2e-ac-full.yml"
   workflow_dispatch:
 
 permissions:
@@ -65,8 +66,8 @@ jobs:
         working-directory: frontend
         env:
           AC_COVERAGE_FULL: "1"
-        # Single-spec invocation; the rest of the e2e suite is owned by
-        # deploy-site.yml. --project=chromium since the AC spec already
+        # Single-spec invocation; the broader citizen e2e suite is local
+        # or manually run. --project=chromium since the AC spec already
         # skips mobile-pixel-5 internally.
         run: bunx playwright test state-ac-coverage.spec.ts --project=chromium
 
