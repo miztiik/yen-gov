@@ -618,6 +618,7 @@
     <PartyCurrentStrength
       current_strength={view_model.current_strength}
       is_sentinel={meta.is_sentinel}
+      party_label={meta.short}
     />
 
     <!-- PR-8: "Who they ride with" Alliance Context strip. Sits
@@ -629,6 +630,7 @@
     <PartyAllianceContext
       alliance_context={view_model.alliance_context}
       is_sentinel={meta.is_sentinel}
+      party_label={meta.short}
     />
 
     <!--

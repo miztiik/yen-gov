@@ -115,3 +115,49 @@ describe("PartyAllianceContext.svelte D3 icon contract", () => {
     expect(source).toMatch(/<TopicIcon[\s\S]*?name="flag"/);
   });
 });
+
+describe("PartyAllianceContext.svelte heading contract", () => {
+  // Source-level pin (Row F): the strip heading + aria-label name the
+  // party via the new `party_label` prop, so for party_label="CPI" the
+  // section reads "Who CPI team up with". Doctrine forbids mounting
+  // Svelte in vitest, so we read the .svelte source and assert the
+  // template shape + the removal of the pre-Row-F literal
+  // "Who they ride with".
+  const here = dirname(fileURLToPath(import.meta.url));
+  const source = readFileSync(
+    join(here, "PartyAllianceContext.svelte"),
+    "utf-8",
+  );
+
+  it("declares the party_label prop and destructures it from $props()", () => {
+    expect(source).toMatch(/party_label:\s*string/);
+    expect(source).toMatch(
+      /const\s*\{[^}]*\bparty_label\b[^}]*\}\s*:\s*Props\s*=\s*\$props\(\)/,
+    );
+  });
+
+  it("renders the <h2> heading template as `Who {party_label} team up with`", () => {
+    expect(source).toMatch(/<h2[\s\S]*?Who \{party_label\} team up with/);
+  });
+
+  it("yields 'Who CPI team up with' when party_label is 'CPI'", () => {
+    // The source-wired template is `Who {party_label} team up with`;
+    // substituting the short code reproduces the rendered heading.
+    const headingTemplate = "Who {party_label} team up with";
+    expect(source).toContain(headingTemplate);
+    expect(headingTemplate.replace("{party_label}", "CPI")).toBe(
+      "Who CPI team up with",
+    );
+  });
+
+  it("sets the section aria-label to match the visible heading", () => {
+    expect(source).toContain(
+      "aria-label={`Who ${party_label} team up with`}",
+    );
+  });
+
+  it("drops the pre-Row-F literal heading + aria-label", () => {
+    expect(source).not.toMatch(/<h2[\s\S]*?Who they ride with/);
+    expect(source).not.toContain('aria-label="Who this party rides with"');
+  });
+});

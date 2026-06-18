@@ -118,9 +118,12 @@
      *  if the view-model accidentally arrived populated. The IND
      *  short-circuit is handled upstream by the loader. */
     is_sentinel: boolean;
+    /** Party short code (e.g. "CPI") - names the strip heading +
+     *  aria-label so the section reads "Who CPI team up with". */
+    party_label: string;
   }
 
-  const { alliance_context, is_sentinel }: Props = $props();
+  const { alliance_context, is_sentinel, party_label }: Props = $props();
 
   const visible = $derived(
     !is_sentinel &&
@@ -136,12 +139,12 @@
   <section
     data-testid="party-alliance-context"
     class="mt-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm md:mt-4 md:p-5"
-    aria-label="Who this party rides with"
+    aria-label={`Who ${party_label} team up with`}
   >
     <h2
       class="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-500"
     >
-      Who they ride with
+      Who {party_label} team up with
     </h2>
     {#if parliament}
       <p
