@@ -43,6 +43,7 @@ effective-candidates-pc,Effective candidates (PC),index,index,pc,Laakso-Taageper
 effective-parties,Effective parties,count,index,state,1 / sum(seat_share_squared) across parties. Higher = more fragmented legislature.
 electors,Electors,persons,absolute,ac,Number of voters on the electoral roll for this AC as of election day.
 electors-pc,Electors (PC),persons,absolute,pc,Total enrolled electors in a single Parliament parliamentary constituency contest.
+ev-registration-share,EV registration share,%,share,state,"Share of newly-registered vehicles that are electric, in percent - the EV-transition signal. For each state and year, the count of newly-registered electric vehicles (all vehicle categories) divided by the count of ALL newly-registered vehicles. This is a share of NEW registrations in the year, NOT the share of vehicles on the road; the on-road stock turns over slowly, so the stock share lags this flow share by years."
 farmers-benefitted,Farmers benefitted,farmers,absolute,district state,Count of unique farmers in each district reached by NAIP IV inseminations during FY 2024-25.
 final-energy-consumption,Final energy consumption,mtoe,absolute,country,"Final energy consumption in India broken down by end-use sector x fuel (18 pairs). Final = what households / industry actually USE (post-conversion losses), distinct from TPES (primary supply)."
 forfeitures,Forfeitures,ACs,absolute,party,"Number of ACs where the party's candidate received less than 1/6 of valid votes (Section 158, Representation of the People Act)."

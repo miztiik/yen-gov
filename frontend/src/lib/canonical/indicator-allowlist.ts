@@ -3413,6 +3413,49 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       },
     ],
   },
+
+  // --- Tier-B EV-share (NITI ICED 'ICE vs EV (VAHAN) State-wise', NET-NEW
+  //     2026-06-18) --- The state EV SHARE of new vehicle registrations (%),
+  // derived per (state, fiscal-year) as 100 * electric registrations /
+  // all-fuel registrations summed across every vehicle category (Hans verdict:
+  // a share, not the absolute EV count, is the cross-state-comparable
+  // transition signal). Net-new mint: check-overlap's >= 0.70 matches
+  // (nota-share, others-share-pc, distribution-efficiency) are structural
+  // false positives on the generic (share, %, state) signature - none MEASURE
+  // EV registration share. CSV-only (csv_path set; table_id is the nominal
+  // family key, bypassed at read time). Backend: iced_ev_share adapter +
+  // ingest-iced-ev-share CLI.
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_ev_share_pct",
+    canonical_indicator_id: "ev-share-of-registrations-pct",
+    csv_path: "data/datapoints/geo/ev-share-of-registrations-pct.csv",
+    table_id: "energy.ev_registrations",
+    meta: {
+      id: "ev-share-of-registrations-pct",
+      title: "EV share of new vehicle registrations (%)",
+      description:
+        "Share of newly-registered vehicles that are electric, in percent - the EV-transition signal. For each state and year, the count of newly-registered electric vehicles (all vehicle categories) divided by the count of ALL newly-registered vehicles. A flow measure of how fast a state is switching to electric, from MoRTH VAHAN registration counts republished by NITI Aayog ICED.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "share",
+      direction: "higher_is_better",
+      scale_hint: "linear",
+      unit: "%",
+      icon: "zap",
+      attribution_geography: "where_administered",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "joint",
+      methodology_vintage:
+        "NITI Aayog India Climate & Energy Dashboard 'ICE vs EV (VAHAN) State-wise' API (2024-25 edition). Originating data: Ministry of Road Transport & Highways VAHAN registration portal. Derived as 100 * electric registrations / all-fuel registrations per (state, fiscal year).",
+      notes:
+        "A flow measure (share of NEW registrations in the year), not the share of vehicles on the road - the on-road stock turns over slowly and lags this by years. Two- and three-wheelers dominate India's EV transition, so a state's headline share is driven mostly by e-2W / e-3W adoption.",
+    },
+    caveats: [
+      "VAHAN registration coverage is incomplete before ~2019 (late-migrating states); cross-state EV-share before 2019 is unreliable.",
+      "Share of NEW registrations, not the share of vehicles on the road.",
+    ],
+  },
 ];
 
 const BY_LEGACY_ID = new Map(

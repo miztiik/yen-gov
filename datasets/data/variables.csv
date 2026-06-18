@@ -37,6 +37,7 @@ electricity-generation-gwh-nuclear,Nuclear,nuclear,GWh,,energy,src-ddbfadd51428,
 electricity-generation-gwh-renewable,Renewable,renewable,GWh,,energy,src-ddbfadd51428,365,,,
 electricity-requirement-mu,Power requirement,power-requirement,MU,,energy,src-f7ce9960caba,365,,,
 electricity-sales-mu,State electricity sales,state-electricity-sales,MU,,energy,src-bb1d7bec8b34,365,,,
+ev-share-of-registrations-pct,EV share of new vehicle registrations,ev-registration-share,%,"Per (state, year): 100 * sum(VAHAN new registrations with fuelCategory = 'Electric Vehicle') / sum(VAHAN new registrations across all fuelCategory), summed over all vehicle categories. Cells with zero total registrations are dropped.",energy,src-412af3a265c8,365,2000,2026,state
 india-final-energy-consumption-mtoe,Final energy consumption,final-energy-consumption,mtoe,,energy,src-29ecbb6dce9d,365,,,
 india-final-energy-consumption-mtoe-agriculture-electricity,Agriculture (electricity),agriculture-electricity,mtoe,,energy,src-29ecbb6dce9d,365,,,
 india-final-energy-consumption-mtoe-agriculture-gas,Agriculture (gas),agriculture-gas,mtoe,,energy,src-29ecbb6dce9d,365,,,
