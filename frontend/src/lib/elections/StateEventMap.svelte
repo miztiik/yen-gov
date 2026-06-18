@@ -111,7 +111,7 @@
     data-testid="state-event-map"
   >
     <div class="flex flex-wrap items-center justify-between gap-2">
-      <h2 class="text-sm font-medium text-slate-700">
+      <h2 class="text-sm font-semibold text-slate-800">
         Constituencies
       </h2>
       <div class="flex flex-wrap items-center gap-2">
@@ -235,7 +235,7 @@
       class="space-y-2"
       data-testid="state-event-map-placeholder"
     >
-      <h2 class="text-sm font-medium text-slate-700">
+      <h2 class="text-sm font-semibold text-slate-800">
         Constituencies
       </h2>
       <div
@@ -253,7 +253,7 @@
       data-testid="state-event-map"
     >
       <div class="flex flex-wrap items-center justify-between gap-2">
-        <h2 class="text-sm font-medium text-slate-700">
+        <h2 class="text-sm font-semibold text-slate-800">
           Constituencies
         </h2>
         <div

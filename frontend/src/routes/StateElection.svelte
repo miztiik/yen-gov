@@ -1291,7 +1291,7 @@
            hidden_parties so muting a party recedes its seats here too. -->
       {#if arc_parties.length > 0 && kpis.total_seats > 0}
         <section class="space-y-2" data-testid="state-event-seat-arc">
-          <h2 class="text-sm font-medium text-slate-700">Seats won</h2>
+          <h2 class="text-sm font-semibold text-slate-800">Seats won</h2>
           <ParliamentArc
             parties={arc_parties}
             total_seats={kpis.total_seats}
@@ -1302,10 +1302,13 @@
         </section>
       {/if}
 
-      <!-- Alliance totals -->
+      <!-- Alliance totals - headingClass harmonises this section's heading
+           to the canonical state-event treatment (Row 4, 2026-06-18); the
+           component default keeps the national surface unchanged. -->
       <AllianceTotals
         event={ev.event_id}
         state_slug={params.state}
+        headingClass="text-sm font-semibold text-slate-800"
         winners={winners.map((w) => ({
           party_id: w.party_id,
           party_short: w.party_short,
@@ -1392,7 +1395,7 @@
           class="rounded border border-slate-200 bg-white p-4"
           data-testid="state-event-races-board"
         >
-          <h2 class="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">
+          <h2 class="mb-3 text-sm font-semibold text-slate-800">
             Races by competitiveness
           </h2>
           <RacesBoard

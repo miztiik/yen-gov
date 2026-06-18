@@ -53,7 +53,7 @@
   data-testid="state-event-all-parties"
 >
   <div class="mb-1 flex flex-wrap items-baseline justify-between gap-3">
-    <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+    <h2 class="text-sm font-semibold text-slate-800">
       All parties &middot; directory
     </h2>
     <div class="flex items-center gap-3">

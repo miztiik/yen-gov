@@ -113,7 +113,7 @@
 </script>
 
 <section class="space-y-2" data-testid="state-event-scatter">
-  <h2 class="text-sm font-medium text-slate-700">
+  <h2 class="text-sm font-semibold text-slate-800">
     Turnout vs winning margin &middot; {state_name} constituencies
   </h2>
   <p class="text-xs text-slate-500" data-testid="state-event-scatter-note">

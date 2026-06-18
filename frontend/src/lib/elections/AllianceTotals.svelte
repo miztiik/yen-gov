@@ -60,10 +60,21 @@
      *  or "ECI Form 21A"). When provided, the caption reads "as reported
      *  by {source_title}"; otherwise the caption uses a generic phrasing. */
     source_title?: string | null;
+    /** Optional section-heading class. Defaults to the legacy plain
+     *  treatment so the national election surface is unchanged; the
+     *  state-event page passes the canonical harmonised heading
+     *  (Row 4, 2026-06-18). */
+    headingClass?: string;
   }
 
-  let { event, winners, polled_on, state_slug, source_title }: Props
-    = $props();
+  let {
+    event,
+    winners,
+    polled_on,
+    state_slug,
+    source_title,
+    headingClass = "text-sm font-medium text-slate-700",
+  }: Props = $props();
 
   let lookup = $state<AllianceLookup | null>(null);
 
@@ -149,7 +160,7 @@
     class="rounded border border-slate-200 bg-white p-4"
     data-testid="alliance-totals"
   >
-    <h2 class="text-sm font-medium text-slate-700">Alliance totals</h2>
+    <h2 class={headingClass}>Alliance totals</h2>
     <p class="mt-2 text-xs text-slate-500">Loading alliance data&hellip;</p>
   </section>
 {:else if !breakdown.has_any}
@@ -166,7 +177,7 @@
     class="rounded border border-slate-200 bg-white p-4"
     data-testid="alliance-totals"
   >
-    <h2 class="text-sm font-medium text-slate-700">Alliance totals</h2>
+    <h2 class={headingClass}>Alliance totals</h2>
     <!-- R6 honesty caption above the panel. The wording distinguishes
          pre-poll seat-sharing arrangements from post-poll government
          formation; the cited source attribution flows from the citation

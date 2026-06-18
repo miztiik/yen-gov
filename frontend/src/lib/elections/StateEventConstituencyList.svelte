@@ -156,7 +156,7 @@
   data-testid="state-event-constituency-table"
 >
   <div class="flex flex-wrap items-baseline justify-between gap-2">
-    <h2 class="text-sm font-medium text-slate-700">
+    <h2 class="text-sm font-semibold text-slate-800">
       Constituencies ({loading ? "-" : fmtInt(seat_rows.length)})
     </h2>
   </div>
