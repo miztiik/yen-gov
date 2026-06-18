@@ -280,6 +280,7 @@
   import { loadPartyDetail } from "../lib/view-models/party-detail";
   import { partyIdFromSlug } from "../lib/slug";
   import { link } from "../lib/links";
+  import { assetUrl } from "../lib/config/cdn";
   import { states } from "../lib/states.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
@@ -630,7 +631,7 @@
                 class="inline-flex items-center gap-1 text-sky-700 hover:underline"
                 data-testid="party-meta-wikipedia"
               ><img
-                  src="/brands/wikipedia.svg"
+                  src={assetUrl("/brands/wikipedia.svg")}
                   alt=""
                   width="16"
                   height="16"
