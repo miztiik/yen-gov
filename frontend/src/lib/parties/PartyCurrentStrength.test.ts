@@ -126,3 +126,60 @@ describe("PartyCurrentStrength.svelte heading contract", () => {
     expect(source).not.toContain('aria-label="Where this party sits today"');
   });
 });
+
+describe("PartyCurrentStrength.svelte parliament-date link contract", () => {
+  // Source-level pin (Row G): the Parliament line's date
+  // `{parliament.month_label}` is wrapped in an in-app anchor pointing
+  // at the national parliament election page via the base-aware
+  // `link.nationalElection(parliament.event_id)` builder. The State-
+  // Assembly line is intentionally NOT linked (out of Row-G scope).
+  // Doctrine forbids mounting Svelte in vitest, so we read the .svelte
+  // source and assert the template shape.
+  const here = dirname(fileURLToPath(import.meta.url));
+  const source = readFileSync(
+    join(here, "PartyCurrentStrength.svelte"),
+    "utf-8",
+  );
+
+  // Scope the link assertions to each body line by slicing the source
+  // between the per-line data-testid anchors.
+  const parliamentBlock = source.slice(
+    source.indexOf('data-testid="party-current-strength-parliament"'),
+    source.indexOf('data-testid="party-current-strength-assemblies"'),
+  );
+  const assembliesBlock = source.slice(
+    source.indexOf('data-testid="party-current-strength-assemblies"'),
+    source.indexOf('data-testid="party-current-strength-last"'),
+  );
+
+  it("imports the base-aware link builder", () => {
+    expect(source).toContain('import { link } from "../links"');
+  });
+
+  it("wraps the parliament month_label in an anchor built via link.nationalElection(parliament.event_id)", () => {
+    // The href MUST go through the base-aware builder (not a hardcoded
+    // `/t/elections/...`) so the `in-app-hrefs-use-base` contract holds.
+    expect(parliamentBlock).toContain(
+      "href={link.nationalElection(parliament.event_id)}",
+    );
+    // The anchor wraps the month_label text node.
+    expect(parliamentBlock).toMatch(
+      /<a[\s\S]*?href=\{link\.nationalElection\(parliament\.event_id\)\}[\s\S]*?>\{parliament\.month_label\}<\/a>/,
+    );
+    // Standard in-app link styling (matches the wiki link + other
+    // in-app links across /parties/<slug>).
+    expect(parliamentBlock).toContain('class="text-sky-700 hover:underline"');
+  });
+
+  it("guards the anchor behind a truthy event_id so a missing id never yields a base-only href", () => {
+    expect(parliamentBlock).toMatch(/\{#if parliament\.event_id\}/);
+    expect(parliamentBlock).toMatch(
+      /\{:else\}\{parliament\.month_label\}\{\/if\}/,
+    );
+  });
+
+  it("does NOT link the State-Assembly date", () => {
+    expect(assembliesBlock).not.toContain("link.nationalElection");
+    expect(assembliesBlock).not.toMatch(/<a\s/);
+  });
+});
