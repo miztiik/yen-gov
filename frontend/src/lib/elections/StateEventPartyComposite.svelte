@@ -57,7 +57,7 @@
   data-testid="state-event-top-parties"
 >
   <div class="flex items-baseline justify-between gap-2 flex-wrap">
-    <h2 class="text-sm font-medium text-slate-700">
+    <h2 class="text-sm font-semibold text-slate-800">
       Top parties by seats
     </h2>
     {#if hidden_parties.size > 0}

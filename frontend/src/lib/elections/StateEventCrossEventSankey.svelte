@@ -219,7 +219,7 @@
 </script>
 
 <section class="space-y-2" data-testid="state-event-seat-flow">
-  <h2 class="text-sm font-medium text-slate-700">
+  <h2 class="text-sm font-semibold text-slate-800">
     Seat flow: where each seat moved
   </h2>
 
