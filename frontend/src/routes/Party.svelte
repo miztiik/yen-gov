@@ -629,14 +629,17 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-1 text-sky-700 hover:underline"
+                aria-label="Wikipedia"
+                title="Wikipedia"
                 data-testid="party-meta-wikipedia"
               ><img
                   src={assetUrl("/brands/wikipedia.svg")}
-                  alt=""
+                  alt="Wikipedia"
+                  title="Wikipedia"
                   width="16"
                   height="16"
                   class="h-4 w-4 inline-block"
-                /><span>Wikipedia</span></a>
+                /></a>
             {/if}
           </p>
         {/if}
