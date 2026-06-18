@@ -37,7 +37,6 @@
   import type {
     PartyDetailViewModel,
     PartyHistoryPoint,
-    PartyStronghold,
   } from "../lib/view-models/party-detail";
   import {
     getPartyColor,
@@ -232,48 +231,6 @@
   export function showPuclAttribution(party_id: string): boolean {
     return party_id === "parties.IN.NOTA";
   }
-
-  /** Pure: format a single stronghold row as a citizen-readable
-   *  one-line tally - e.g.
-   *     "Punjab - Sangrur: won 3 of 4 times, last 2024"
-   *  PR-7 of TODO/20260615-party-page-citizen-fixes-plan.md (Jony +
-   *  Citizen, section 0.5 RIP doctrine). Replaces the prior 2-cell
-   *  layout (name on the left + SVG dot strip on the right) which
-   *  carried glyph chrome the citizen cannot parse without a legend.
-   *
-   *  Inputs:
-   *    - `stronghold`: a single row from the strongholds mart.
-   *    - `state_name`: citizen-readable state display name resolved
-   *      from `entity_id` via `stateNameFromEntityId` + `states.name`
-   *      at the call site. Empty string when the entity_id is not
-   *      state-coded (e.g. national / sentinel) - we then drop the
-   *      "State - " prefix entirely.
-   *
-   *  Recency suffix:
-   *    - When `last_won_year` is present (production loader path) we
-   *      append ", last YYYY". Citizen-honest: a stronghold that the
-   *      party last won in 1980 is materially different from one
-   *      last won in 2024 even when the W/L count is identical.
-   *    - When null (the legacy in-memory fold path, test-only) we
-   *      drop the suffix - the bare "won X of Y times" stands alone.
-   *
-   *  Constituency fallback: when the mart row's `constituency_name`
-   *  is empty (taxonomy-misses) we surface the raw entity_id rather
-   *  than rendering an empty string - matches the prior 2-cell
-   *  template's fallback. */
-  export function formatStrongholdTally(
-    stronghold: PartyStronghold,
-    state_name: string,
-  ): string {
-    const constituency = stronghold.constituency_name || stronghold.entity_id;
-    const prefix = state_name ? `${state_name} - ` : "";
-    const recency =
-      stronghold.last_won_year != null
-        ? `, last ${stronghold.last_won_year}`
-        : "";
-    return `${prefix}${constituency}: won ${stronghold.wins} of ${stronghold.contested} times${recency}`;
-  }
-
 </script>
 
 <script lang="ts">
@@ -281,13 +238,17 @@
   import { partyIdFromSlug } from "../lib/slug";
   import { link } from "../lib/links";
   import { assetUrl } from "../lib/config/cdn";
-  import { states } from "../lib/states.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import DualAxisBarLine from "../lib/charts/DualAxisBarLine/DualAxisBarLine.svelte";
   import RecognitionStrip from "../lib/parties/RecognitionStrip.svelte";
+  // Row E (TODO/20260617-party-page-polish-and-cdn-config-plan.md,
+  // Jony P1 + Citizen): the two strongholds lists (Parliament + State
+  // Assembly) render via this shared component - a two-line row
+  // hierarchy + colour-coded strike-rate badge, top-5 + "Show all".
+  import StrongholdList from "../lib/parties/StrongholdList.svelte";
   // Wave-F F6: PartyAboutCard.svelte was RIP'd per CLAUDE.md section 0.5
   // (RIP doctrine) - the metadata it carried (founding range, recognition,
   // Wikipedia link) collapses into the per-party header meta-strip below
@@ -316,7 +277,6 @@
   // the single "About this page" link (the `docsUrl()` seam moved into
   // the footer with that link).
   import PartyProvenanceFooter from "../lib/parties/PartyProvenanceFooter.svelte";
-  import { stateNameFromEntityId } from "../lib/parties/party-detail-utils";
   import { formatLeaderSince } from "../lib/view-models/parties";
 
   interface Props {
@@ -838,28 +798,7 @@
               <TopicIcon name="landmark" cls="w-4 h-4 text-slate-500 shrink-0" />
               <span>Parliament strongholds</span>
             </h3>
-            <ul
-              class="divide-y divide-slate-100 border border-slate-200 rounded bg-white"
-            >
-              {#each view_model.ls_strongholds as s (s.entity_id)}
-                {@const parsed = stateNameFromEntityId(s.entity_id, (c) => states.name(c))}
-                <li
-                  class="px-3 py-2 text-sm text-slate-700"
-                  data-testid="party-stronghold-ls"
-                  data-state={parsed.state_code}
-                >
-                  {#if s.href}
-                    <a
-                      href={s.href}
-                      class="text-sky-700 hover:text-sky-900 hover:underline"
-                      data-testid="party-stronghold-ls-link"
-                    >{formatStrongholdTally(s, parsed.state_name)}</a>
-                  {:else}
-                    <span>{formatStrongholdTally(s, parsed.state_name)}</span>
-                  {/if}
-                </li>
-              {/each}
-            </ul>
+            <StrongholdList rows={view_model.ls_strongholds} />
           </div>
         {/if}
 
@@ -869,28 +808,7 @@
               <TopicIcon name="flag" cls="w-4 h-4 text-slate-500 shrink-0" />
               <span>State Assembly strongholds</span>
             </h3>
-            <ul
-              class="divide-y divide-slate-100 border border-slate-200 rounded bg-white"
-            >
-              {#each view_model.vs_strongholds as s (s.entity_id)}
-                {@const parsed = stateNameFromEntityId(s.entity_id, (c) => states.name(c))}
-                <li
-                  class="px-3 py-2 text-sm text-slate-700"
-                  data-testid="party-stronghold-vs"
-                  data-state={parsed.state_code}
-                >
-                  {#if s.href}
-                    <a
-                      href={s.href}
-                      class="text-sky-700 hover:text-sky-900 hover:underline"
-                      data-testid="party-stronghold-vs-link"
-                    >{formatStrongholdTally(s, parsed.state_name)}</a>
-                  {:else}
-                    <span>{formatStrongholdTally(s, parsed.state_name)}</span>
-                  {/if}
-                </li>
-              {/each}
-            </ul>
+            <StrongholdList rows={view_model.vs_strongholds} />
           </div>
         {/if}
       </section>
