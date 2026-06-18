@@ -9,12 +9,15 @@ reduces ``YYYY-04`` fiscal-year periods to integer years, and emits one
 only. The triples reproduce the on-disk source_ids so a re-emit is idempotent
 with the committed files.
 
-SCOPE: two single-source ICED targets (rooftop-solar-capacity-mw,
-electricity-sales-mu). installed-capacity-allocated-mw is EXCLUDED -- its
-on-disk file is a dual-source historical merge (RBI Handbook Table 140 for
-FY2004-2014 + ICED State-wise Deep Dive for FY2015+); a clean ICED-only re-emit
-would truncate the RBI history, so it is left to the RBI Handbook ingest. See
-``yen_gov.sources.iced_state_wise.ingest`` (multi-FY re-ingest section).
+SCOPE: three targets - two single-source ICED indicators
+(rooftop-solar-capacity-mw, electricity-sales-mu) plus the ICED portion of the
+DUAL-SOURCE installed-capacity-allocated-mw file (RBI Handbook Table 140 for
+FY2004-2014 [src-3d1d55f8a94b] + ICED State-wise Deep Dive for FY2015+
+[src-bb1d7bec8b34]). The allocated target emits via the merge-preserving
+``upsert_source_scoped`` path, which replaces ONLY the ICED rows and preserves
+the RBI history byte-identical, so an ICED-only re-emit can never truncate the
+RBI rows. See ``yen_gov.sources.iced_state_wise.ingest`` (multi-FY re-ingest
+section).
 
 Mirrors ``test_iced_coal_consumption_reingest.py``.
 """
@@ -28,6 +31,7 @@ import pytest
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_validator import validate_csv
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.sources.iced_state_wise.ingest import (
     _CSV_FILE_CLASS,
     _CSV_SOURCE_PRODUCER,
@@ -41,10 +45,26 @@ from yen_gov.sources.iced_state_wise.parsers import extract_rows
 # datasets/data/datapoints/geo/<id>.csv + datasets/data/entities/source.csv).
 _ROOFTOP_SOURCE_ID = "src-018bb42f9519"
 _SALES_SOURCE_ID = "src-bb1d7bec8b34"
+# Allocated shares the ICED "State-wise Deep Dive API" citation triple with
+# sales, so it reproduces the SAME source_id (the ICED half of the dual-source
+# on-disk file).
+_ALLOC_SOURCE_ID = "src-bb1d7bec8b34"
+# The RBI Handbook Table 140 half of the dual-source allocated file. Produced
+# on disk by ingest-rbi-hbs (the deleted energy RBI adapter); carried here as
+# the binding on-disk other-source id.
+_RBI_ALLOC_SOURCE_ID = "src-3d1d55f8a94b"
 
-# On-disk filenames (== variable_id) for the two included targets.
+# On-disk filenames (== variable_id) for the three included targets.
 _ROOFTOP_VAR = "rooftop-solar-capacity-mw"
 _SALES_VAR = "electricity-sales-mu"
+_ALLOC_VAR = "installed-capacity-allocated-mw"
+
+# The allocated indicator's API key carries a sub-dict {"data": [...]} parallel
+# to `states` (api_key_subkey="data"); copied VERBATIM from the catalogue spec.
+_ALLOC_API_KEY = (
+    "Installed Capacity*(Including Allocated Shares in Joint & "
+    "Central Sector Utilities)"
+)
 
 # Minimal geo.csv FK target: the two state slugs the fixture resolves to
 # (S13 -> maharashtra, S22 -> tamil-nadu) plus the national rollup. Rows
@@ -69,41 +89,68 @@ def _source_id(variable_id: str) -> str:
     )
 
 
-def _stage_fk_targets(repo_root: Path) -> None:
+def _stage_fk_targets(repo_root: Path, *, include_rbi_alloc: bool = False) -> None:
     entities = repo_root / "datasets" / "data" / "entities"
     entities.mkdir(parents=True, exist_ok=True)
     (entities / "geo.csv").write_text(_GEO_CSV, encoding="utf-8")
     lines = ["source_id,producer,title,vintage,url"]
-    for var in (_ROOFTOP_VAR, _SALES_VAR):
+    seen: set[str] = set()
+    for var in (_ROOFTOP_VAR, _SALES_VAR, _ALLOC_VAR):
         target = _target(var)
+        sid = _source_id(var)
+        if sid in seen:  # sales + allocated share the State-wise Deep Dive id
+            continue
+        seen.add(sid)
         lines.append(
-            f"{_source_id(var)},{_CSV_SOURCE_PRODUCER},{target.source_title},"
+            f"{sid},{_CSV_SOURCE_PRODUCER},{target.source_title},"
             f"{target.source_vintage},"
+        )
+    if include_rbi_alloc:
+        # The RBI Handbook half of installed-capacity-allocated-mw. The id is
+        # the binding on-disk value; the title is ASCII-normalised here (the
+        # on-disk citation carries a unicode dash). The FK check only verifies
+        # the source_id exists, not the triple hash.
+        lines.append(
+            f"{_RBI_ALLOC_SOURCE_ID},Reserve Bank of India,"
+            "Handbook of Statistics on Indian States - Table 140: State-wise "
+            "Installed Capacity of Power,2024-25,"
         )
     (entities / "source.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def _fy_response(rooftop: list[float], sales: list[float]) -> dict:
+def _fy_response(
+    rooftop: list[float],
+    sales: list[float],
+    allocated: list[float] | None = None,
+) -> dict:
     # One decrypted state-wise response: parallel `states` + indicator arrays.
     # "All India" -> IN; "Maharashtra" -> S13 -> maharashtra; "Tamil Nadu" ->
-    # S22 -> tamil-nadu.
-    return {
-        "data": {
-            "states": ["All India", "Maharashtra", "Tamil Nadu"],
-            "Rooftop Solar Capacity": rooftop,
-            "Electricity Sales": sales,
-        }
+    # S22 -> tamil-nadu. The allocated indicator is a sub-dict {"data": [...]}
+    # (api_key_subkey="data"); omitted when `allocated` is None.
+    payload: dict = {
+        "states": ["All India", "Maharashtra", "Tamil Nadu"],
+        "Rooftop Solar Capacity": rooftop,
+        "Electricity Sales": sales,
     }
+    if allocated is not None:
+        payload[_ALLOC_API_KEY] = {"data": allocated}
+    return {"data": payload}
 
 
 def _stage_two_fy(staging_dir: Path) -> None:
     staging_dir.mkdir(parents=True, exist_ok=True)
     (staging_dir / "2023-24.json").write_text(
-        json.dumps(_fy_response([100.0, 30.0, 20.0], [9000.0, 3000.0, 2000.0])),
+        json.dumps(_fy_response(
+            [100.0, 30.0, 20.0], [9000.0, 3000.0, 2000.0],
+            allocated=[50000.0, 40000.0, 30000.0],
+        )),
         encoding="utf-8",
     )
     (staging_dir / "2024-25.json").write_text(
-        json.dumps(_fy_response([120.0, 36.0, 24.0], [9500.0, 3200.0, 2100.0])),
+        json.dumps(_fy_response(
+            [120.0, 36.0, 24.0], [9500.0, 3200.0, 2100.0],
+            allocated=[52000.0, 41000.0, 31000.0],
+        )),
         encoding="utf-8",
     )
 
@@ -111,15 +158,19 @@ def _stage_two_fy(staging_dir: Path) -> None:
 def test_targets_map_to_on_disk_filenames():
     # The registry's variable_ids are the EXACT on-disk geo/*.csv filenames.
     got = {t.variable_id for t in _STATE_WISE_TARGETS}
-    assert got == {_ROOFTOP_VAR, _SALES_VAR}
-    # installed-capacity-allocated-mw is intentionally absent (dual-source).
-    assert "installed-capacity-allocated-mw" not in got
+    assert got == {_ROOFTOP_VAR, _SALES_VAR, _ALLOC_VAR}
+    # installed-capacity-allocated-mw is now INCLUDED (dual-source on disk;
+    # emitted via the merge-preserving upsert_source_scoped path).
+    assert _ALLOC_VAR in got
 
 
 def test_source_ids_reproduce_on_disk():
     # Pinned so a re-emit is idempotent with the committed files.
     assert _source_id(_ROOFTOP_VAR) == _ROOFTOP_SOURCE_ID
     assert _source_id(_SALES_VAR) == _SALES_SOURCE_ID
+    # Allocated shares the ICED State-wise Deep Dive triple with sales.
+    assert _source_id(_ALLOC_VAR) == _ALLOC_SOURCE_ID
+    assert _ALLOC_SOURCE_ID == _SALES_SOURCE_ID
 
 
 def test_build_state_wise_rows_translates_eci_to_slug_and_year():
@@ -145,9 +196,11 @@ def test_ingest_state_wise_end_to_end_validates(tmp_path: Path):
 
     result = ingest_state_wise(repo_root=tmp_path, staging_dir=staging)
 
-    # Two targets emitted (allocated excluded), both FYs processed, nothing
-    # missing (every FY carries both indicators).
-    assert {t.variable_id for t in result.targets} == {_ROOFTOP_VAR, _SALES_VAR}
+    # Three targets emitted, both FYs processed, nothing missing (every FY
+    # carries all three indicators).
+    assert {t.variable_id for t in result.targets} == {
+        _ROOFTOP_VAR, _SALES_VAR, _ALLOC_VAR,
+    }
     assert result.fy_labels == ("2023-24", "2024-25")
     assert result.skipped_missing == 0
 
@@ -155,6 +208,7 @@ def test_ingest_state_wise_end_to_end_validates(tmp_path: Path):
     for var, expected_sid in (
         (_ROOFTOP_VAR, _ROOFTOP_SOURCE_ID),
         (_SALES_VAR, _SALES_SOURCE_ID),
+        (_ALLOC_VAR, _ALLOC_SOURCE_ID),
     ):
         out = geo_dir / f"{var}.csv"
         assert out.exists()
@@ -171,16 +225,20 @@ def test_ingest_state_wise_end_to_end_validates(tmp_path: Path):
 
 
 def test_missing_indicator_in_one_fy_is_skipped_not_fatal(tmp_path: Path):
-    # A FY response missing one indicator key is skipped (counted), and the
-    # other indicator + the present FYs still emit.
+    # A FY response missing some indicator keys: those (target, FY) extracts
+    # are skipped (counted), and the present indicators + FYs still emit.
     _stage_fk_targets(tmp_path)
     staging = tmp_path / "staging"
     staging.mkdir(parents=True, exist_ok=True)
     (staging / "2024-25.json").write_text(
-        json.dumps(_fy_response([120.0, 36.0, 24.0], [9500.0, 3200.0, 2100.0])),
+        json.dumps(_fy_response(
+            [120.0, 36.0, 24.0], [9500.0, 3200.0, 2100.0],
+            allocated=[52000.0, 41000.0, 31000.0],
+        )),
         encoding="utf-8",
     )
-    # 2025-26: only Electricity Sales present (Rooftop Solar Capacity missing).
+    # 2025-26: only Electricity Sales present (Rooftop Solar Capacity AND the
+    # allocated capacity sub-dict both missing).
     (staging / "2025-26.json").write_text(
         json.dumps({
             "data": {
@@ -193,10 +251,100 @@ def test_missing_indicator_in_one_fy_is_skipped_not_fatal(tmp_path: Path):
 
     result = ingest_state_wise(repo_root=tmp_path, staging_dir=staging)
 
-    # Rooftop missing from exactly one FY (2025-26) -> one skip.
-    assert result.skipped_missing == 1
+    # Rooftop + allocated each missing from exactly one FY (2025-26) -> 2 skips.
+    assert result.skipped_missing == 2
     rooftop = next(t for t in result.targets if t.variable_id == _ROOFTOP_VAR)
     sales = next(t for t in result.targets if t.variable_id == _SALES_VAR)
-    # Rooftop emitted only the FY that carried it (3 rows); sales both (6).
+    allocated = next(t for t in result.targets if t.variable_id == _ALLOC_VAR)
+    # Rooftop + allocated emitted only the FY that carried them (3 rows each);
+    # sales both FYs (6).
     assert rooftop.row_count == 3
+    assert allocated.row_count == 3
     assert sales.row_count == 6
+
+
+def test_allocated_emit_preserves_rbi_history(tmp_path: Path):
+    # The dual-source installed-capacity-allocated-mw file: pre-seed synthetic
+    # RBI Handbook rows (src-3d1d55f8a94b, FY2004-2014), then re-ingest the ICED
+    # allocated portion. The merge-preserving upsert_source_scoped emit must
+    # replace ONLY the ICED rows and preserve the RBI rows byte-identical.
+    _stage_fk_targets(tmp_path, include_rbi_alloc=True)
+
+    geo_dir = tmp_path / "datasets/data/datapoints/geo"
+    geo_dir.mkdir(parents=True, exist_ok=True)
+    alloc_path = geo_dir / f"{_ALLOC_VAR}.csv"
+
+    # Synthetic RBI history: maharashtra + tamil-nadu, FY2004-2014 (no national
+    # IN row, mirroring the on-disk RBI allocated coverage). Seeded through the
+    # canonical writer so "byte-identical" preservation is well-defined.
+    rbi_rows = [
+        {
+            "entity_id": ent,
+            "time": year,
+            "value": float(1000 + year),
+            "source_id": _RBI_ALLOC_SOURCE_ID,
+        }
+        for ent in ("maharashtra", "tamil-nadu")
+        for year in range(2004, 2015)
+    ]
+    write_csv(path=alloc_path, file_class=_CSV_FILE_CLASS, rows=rbi_rows)
+    rbi_lines_before = [
+        ln
+        for ln in alloc_path.read_text(encoding="utf-8").splitlines()[1:]
+        if ln.endswith(f",{_RBI_ALLOC_SOURCE_ID}")
+    ]
+    assert len(rbi_lines_before) == 22  # 2 states x 11 FYs
+
+    # Stage two ICED FYs (FY2015+) that carry the allocated capacity sub-dict.
+    staging = tmp_path / "staging"
+    staging.mkdir(parents=True, exist_ok=True)
+    (staging / "2015-16.json").write_text(
+        json.dumps(_fy_response(
+            [100.0, 30.0, 20.0], [9000.0, 3000.0, 2000.0],
+            allocated=[60000.0, 45000.0, 35000.0],
+        )),
+        encoding="utf-8",
+    )
+    (staging / "2016-17.json").write_text(
+        json.dumps(_fy_response(
+            [110.0, 33.0, 22.0], [9100.0, 3100.0, 2050.0],
+            allocated=[61000.0, 46000.0, 36000.0],
+        )),
+        encoding="utf-8",
+    )
+
+    ingest_state_wise(repo_root=tmp_path, staging_dir=staging)
+
+    # source_id reproduction (explicit, per the task).
+    derived = derive_source_id(
+        _CSV_SOURCE_PRODUCER,
+        _target(_ALLOC_VAR).source_title,
+        _target(_ALLOC_VAR).source_vintage,
+    )
+    assert derived == _ALLOC_SOURCE_ID == "src-bb1d7bec8b34"
+
+    text = alloc_path.read_text(encoding="utf-8")
+    parsed = list(csv.DictReader(text.splitlines()))
+    by_source: dict[str, list[dict]] = {}
+    for r in parsed:
+        by_source.setdefault(r["source_id"], []).append(r)
+
+    # 1) RBI rows survive byte-identical.
+    rbi_lines_after = [
+        ln for ln in text.splitlines()[1:]
+        if ln.endswith(f",{_RBI_ALLOC_SOURCE_ID}")
+    ]
+    assert rbi_lines_after == rbi_lines_before
+    assert len(by_source[_RBI_ALLOC_SOURCE_ID]) == 22
+
+    # 2) New ICED allocated rows present (src-bb1d7bec8b34): 3 entities x 2 FYs.
+    iced_rows = by_source[_ALLOC_SOURCE_ID]
+    assert len(iced_rows) == 6
+    assert {r["entity_id"] for r in iced_rows} == {
+        "IN", "maharashtra", "tamil-nadu",
+    }
+    assert {int(r["time"]) for r in iced_rows} == {2015, 2016}
+
+    # 3) Both sources coexist; the merged file FK-closes under the validator.
+    assert set(by_source) == {_RBI_ALLOC_SOURCE_ID, _ALLOC_SOURCE_ID}
+    validate_csv(path=alloc_path, file_class=_CSV_FILE_CLASS, repo_root=tmp_path)
