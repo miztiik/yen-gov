@@ -2370,6 +2370,49 @@ def ingest_iced_pipeline(
     typer.echo(f"  rows:     {result.row_count}")
 
 
+@app.command("ingest-iced-coal-consumption")
+def ingest_iced_coal_consumption(
+    json_path: Path = typer.Argument(
+        ...,
+        help=(
+            "Path to the operator-staged ICED /energy/fuel-sources/coal/"
+            "consumption-domestic-state JSON response (per-state fiscal-year "
+            "coal consumption, by grade). AES-encrypted; saved raw by "
+            "tools/iced_stage.py and decrypted here. No network."
+        ),
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Ingest the ICED coal-consumption feed into the single-value store.
+
+    Emits the single-value file
+    ``datasets/data/datapoints/geo/coal-consumption-mt.csv`` (one Mt total per
+    (state, calendar year), summed across coal grades by the parser; ECI state
+    codes translate to LGD slugs). Graduates this orphan series to LIVE
+    re-ingest (Tier-B); re-running with a fresher staged response adds new
+    years.
+    """
+    from yen_gov.sources.iced_fuel.ingest import ingest_coal_consumption
+
+    result = ingest_coal_consumption(repo_root=root, raw_json_path=json_path)
+    typer.echo("ingest-iced-coal-consumption: OK")
+    typer.echo(f"  output:   {result.artifact_path.relative_to(root).as_posix()}")
+    typer.echo(f"  variable: {result.variable_id}")
+    typer.echo(f"  rows:     {result.row_count}")
+    typer.echo(f"  skipped (unmapped states): {result.skipped_unmapped}")
+
+
 @app.command("seed-goals")
 def seed_goals_cmd(
     root: Path = typer.Option(

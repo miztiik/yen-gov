@@ -18,8 +18,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
+from yen_gov.sources.iced_common import load_iced_response
+from yen_gov.sources.iced_fuel.parsers import parse_coal_consumption_state
 
 # B1.4.3 - canonical CSV citation triples + variable_id prefixes per indicator.
 # All three iced_fuel indicators are NITI Aayog ICED v0 endpoints (same
@@ -311,3 +314,109 @@ def _emit_csv_for(
         parsed_rows, source_id=source_id, variable_prefix=variable_prefix
     )
     return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+
+
+# ---------------------------------------------------------------------------
+# Coal-consumption re-ingest (Tier-B: orphan -> LIVE re-ingest)
+# ---------------------------------------------------------------------------
+#
+# ICED domestic coal-consumption-by-state feed: per-(state, FY) coal
+# consumption (Mt), aggregated across grades by the parser. The canonical
+# single-value series carries one Mt value per (state, calendar year). This
+# graduates `coal-consumption-mt` from orphan (the energy-adapter lift code
+# was deleted in X1b-pt2) to LIVE re-ingest: stage the response, run the CLI,
+# add new years.
+#
+# The (producer, title, vintage) triple below REPRODUCES the on-disk
+# source_id src-c222a8e2cd61 (idempotent re-emit). Recovered verbatim from
+# the retired energy adapter's SOURCE_IDS dict
+# (8ea74f243^:backend/yen_gov/canonical/adapters/energy/_shared.py, key
+# `iced_consumption_coal`). NB: this title differs from the
+# `_CSV_SOURCE_TITLE_COAL` constant above -- the on-disk file was written by
+# the energy-adapter path, NOT the iced_fuel `_emit_csv_for` path, so the
+# idempotent triple is the adapter's, not iced_fuel's legacy constant. The
+# variable_id reuses `_CSV_VARIABLE_PREFIX_COAL` (== "coal-consumption-mt").
+_COAL_REINGEST_TITLE = (
+    "Coal Consumption (Domestic) State-wise API (per-state fiscal-year "
+    "coal consumption, by grade)"
+)
+_COAL_REINGEST_VINTAGE = "2024-25"
+
+
+@dataclass(frozen=True)
+class CoalConsumptionIngestResult:
+    """Receipt for the single-value coal-consumption CSV emit."""
+
+    variable_id: str
+    artifact_path: Path
+    row_count: int
+    skipped_unmapped: int
+
+
+def _to_slug(eci_st_code: str) -> str:
+    """ECI st_code -> LGD slug, with the country rollup passed through.
+
+    Mirrors ``iced_power.ingest._to_slug``. The coal parser emits ECI
+    st_codes (``S13``); ``entities/geo.csv`` keys on LGD slugs
+    (``maharashtra``), so the entity output is re-pointed through the
+    translation. ``IN`` (national rollup) passes through unchanged even
+    though the coal feed is state-only -- kept for parity with the family.
+    """
+    if eci_st_code == "IN":
+        return "IN"
+    return eci_to_lgd_slug(eci_st_code)
+
+
+def build_coal_consumption_rows(
+    parsed_rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Build the single-value coal-consumption geo rows, ECI st_code -> LGD slug.
+
+    Each parser row ``{entity_id(ECI), time("YYYY-04"), value}`` keeps its
+    single-value shape (no facet -- the coal parser sums the grade dimension
+    away) but its ECI st_code resolves to the LGD slug (``IN`` country
+    passthrough) and its fiscal-year period reduces to the integer start year.
+    Returns a one-key ``by_variable`` map keyed on ``coal-consumption-mt``,
+    ready for ``emit_csv_variables``.
+    """
+    rows = [
+        {
+            "entity_id": _to_slug(str(r["entity_id"])),
+            "time": _period_to_year_int(str(r["time"])),
+            "value": r["value"],
+            "source_id": source_id,
+        }
+        for r in parsed_rows
+    ]
+    return {_CSV_VARIABLE_PREFIX_COAL: rows}
+
+
+def ingest_coal_consumption(
+    *, repo_root: Path, raw_json_path: Path, decrypt: bool = True
+) -> CoalConsumptionIngestResult:
+    """Read a staged coal-consumption JSON, emit the slug-keyed coal CSV.
+
+    Operator-staged local file (no network). The
+    ``/energy/fuel-sources/coal/consumption-domestic-state`` feed is
+    AES-encrypted on the wire, so the staged blob is the CryptoJS envelope;
+    ``decrypt=True`` (default) makes ``load_iced_response`` decrypt it before
+    parsing (an already-plain file still loads). Emits the single-value file
+    ``datasets/data/datapoints/geo/coal-consumption-mt.csv`` with LGD-slug
+    ``entity_id`` rows. The (producer, title, vintage) triple reproduces the
+    on-disk ``source_id`` so a re-emit is idempotent with the committed file.
+    """
+    decoded = load_iced_response(raw_json_path.read_bytes(), decrypt=decrypt)
+    parsed_rows, skipped = parse_coal_consumption_state(decoded)
+    source_id = derive_source_id(
+        _CSV_SOURCE_PRODUCER, _COAL_REINGEST_TITLE, _COAL_REINGEST_VINTAGE
+    )
+    by_variable = build_coal_consumption_rows(parsed_rows, source_id=source_id)
+    written = emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+    return CoalConsumptionIngestResult(
+        variable_id=_CSV_VARIABLE_PREFIX_COAL,
+        artifact_path=written[0],
+        row_count=len(by_variable[_CSV_VARIABLE_PREFIX_COAL]),
+        skipped_unmapped=skipped,
+    )
