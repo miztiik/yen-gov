@@ -741,6 +741,89 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- Captive power (industry-wise) state totals, ICED / CEA, 2026-06-18 ---
+  // NITI Aayog ICED republishes the CEA captive generating-plant returns as a
+  // single feed (state x industry x year, two measures). The backend adapter
+  // iced_captive_power sums over the 22 industry categories into ONE state
+  // total per measure (Hans: no per-industry fragmentation), drops the
+  // all-India aggregate row + the unsplittable combined "Jammu and Kashmir and
+  // Ladakh" label, and ignores the national fuel-mix "sourceWise" rows. These
+  // are MULTI-YEAR series (FY2005-06..FY2023-24, FY2011-12 absent upstream) so
+  // comparability is "comparable_across_states_and_time" (not snapshot-only).
+  // direction = "neutral": a high captive total is genuinely ambiguous
+  // (industrial strength, or a symptom of an unreliable / costly public grid).
+  // table_id is nominal (CSV-only descriptor - csv_path is the live read path,
+  // no parquet stem); implementing_authority = "centre" (the CEA is a
+  // central-government body, no "national" enum member).
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_captive_power_capacity_mw",
+    canonical_indicator_id: "captive-power-capacity-mw",
+    csv_path: "data/datapoints/geo/captive-power-capacity-mw.csv",
+    table_id: "energy.captive_power",
+    meta: {
+      id: "captive-power-capacity-mw",
+      title: "Captive power capacity (MW)",
+      description:
+        "Installed capacity (MW) of captive power plants - generation that industry builds and runs behind the meter for its own use - summed across all 22 industry categories in a state. A high captive total often signals industry routing around an unreliable or expensive public grid by self-generating, rather than a policy achievement. Self-reported by industry to the Central Electricity Authority (CEA) and widely under-reported, so read it as a lower bound.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "MW",
+      short_unit: "MW",
+      icon: "factory",
+      attribution_geography: "where_produced",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NITI Aayog ICED 'Captive Power (industry-wise) State-wise', 2024-25 access edition. Underlying data: Central Electricity Authority (CEA) captive generating-plant returns, FY2005-06 to FY2023-24 (FY2011-12 absent upstream). Summed across the 22 industry categories the feed breaks out.",
+      notes:
+        "Captive power is behind-the-meter self-generation, NOT grid supply. Read alongside grid-reliability indicators: a high captive share is often a symptom of an unreliable or expensive public grid. The source's combined 'Jammu and Kashmir and Ladakh' label cannot be split across the two post-2019 entities and is not included.",
+    },
+    caveats: [
+      "Self-reported by industry to the CEA and widely understood to be under-reported - treat the totals as a lower bound, not a precise census.",
+      "A high captive total is ambiguous, not 'good' or 'bad': it can signal industrial strength, or industry self-generating because the public grid is unreliable or costly. Direction is deliberately neutral.",
+      "Summed across 22 industry categories; the per-industry breakdown is dropped. The source's all-India aggregate row is excluded (this is a state-grain series).",
+      "The source's combined 'Jammu and Kashmir and Ladakh' total cannot be split across the two post-2019 entities, so those territories are not covered.",
+    ],
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_captive_power_generation_gwh",
+    canonical_indicator_id: "captive-power-generation-gwh",
+    csv_path: "data/datapoints/geo/captive-power-generation-gwh.csv",
+    table_id: "energy.captive_power",
+    meta: {
+      id: "captive-power-generation-gwh",
+      title: "Captive power generation (GWh)",
+      description:
+        "Electricity generated (GWh) by captive power plants - the energy industry produces behind the meter for its own use - summed across all 22 industry categories in a state. High captive generation often signals industry self-supplying because the public grid is unreliable or costly. The CEA reports this in Million Units (MU); 1 MU equals 1 GWh exactly, so the values are unchanged under the GWh label. Self-reported and widely under-reported, so read it as a lower bound.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "GWh",
+      short_unit: "GWh",
+      icon: "zap",
+      attribution_geography: "where_produced",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NITI Aayog ICED 'Captive Power (industry-wise) State-wise', 2024-25 access edition. Underlying data: Central Electricity Authority (CEA) captive generating-plant returns, FY2005-06 to FY2023-24 (FY2011-12 absent upstream). Reported in Million Units (1 MU = 1 GWh), summed across the 22 industry categories.",
+      notes:
+        "Captive generation is behind-the-meter self-supply, NOT grid energy. Pair with captive-power-capacity-mw to read utilisation (generation per MW of captive capacity). The source's combined 'Jammu and Kashmir and Ladakh' label cannot be split across the two post-2019 entities and is not included.",
+    },
+    caveats: [
+      "Self-reported by industry to the CEA and widely understood to be under-reported - treat the totals as a lower bound, not a precise census.",
+      "A high captive total is ambiguous, not 'good' or 'bad': it can signal industrial strength, or industry self-generating because the public grid is unreliable or costly. Direction is deliberately neutral.",
+      "Reported by the CEA in Million Units (MU); 1 MU = 1 GWh exactly, so the values are shown unchanged under the GWh label.",
+      "Summed across 22 industry categories; the all-India aggregate row and the unsplittable combined 'Jammu and Kashmir and Ladakh' label are excluded.",
+    ],
+  },
+
   // --- PR-R (Row 6 P.1.C 2/9, rooftop solar capacity lift, 2026-05-25) ---
   // ICED `/energy/renewable/solar/rooftop/state` -> 321 obs rows (states x
   // fiscal-years FY18-FY25) joined into the existing `energy_installed_capacity`

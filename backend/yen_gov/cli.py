@@ -2585,6 +2585,91 @@ def ingest_iced_renewable_potential(
     typer.echo(f"  total rows written: {result.total_rows}")
 
 
+@app.command("ingest-iced-captive-power")
+def ingest_iced_captive_power(
+    staging_dir: Path = typer.Option(
+        ...,
+        "--staging-dir",
+        "-s",
+        help=(
+            "Directory holding the operator-staged ICED captive-power response "
+            "(captive_power_industry.json). AES-encrypted; saved raw by "
+            "tools/iced_stage.py and decrypted here. No network."
+        ),
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    indicators: list[str] = typer.Option(
+        None,
+        "--indicator",
+        "-i",
+        help=(
+            "Restrict to specific indicator_id(s); repeatable. Defaults to "
+            "both shipped captive measures (capacity + generation)."
+        ),
+    ),
+) -> None:
+    """Ingest the ICED captive-power (industry-wise) state-wise feed.
+
+    Emits two ``datasets/data/datapoints/geo/<indicator_id>.csv`` files -
+    captive-power-capacity-mw (MW) and captive-power-generation-gwh (GWh):
+    state totals of industrial behind-the-meter self-generation, summed across
+    the 22 industry categories the feed breaks out (the industry dimension is
+    dropped). The national fuel-mix "sourceWise" rows are ignored to avoid
+    double-counting; the all-India aggregate label and any state that does not
+    resolve to a single LGD entity (the combined "Jammu and Kashmir and
+    Ladakh" label) are dropped and reported. Upserts the variables / concepts
+    / source catalogue rows. Idempotent: re-running the same staged feed is a
+    no-op.
+    """
+    from yen_gov.canonical.adapters.iced_captive_power import (
+        SHIPPED_SPECS,
+        ingest as ingest_captive,
+    )
+
+    specs = SHIPPED_SPECS
+    if indicators:
+        wanted = set(indicators)
+        specs = tuple(s for s in SHIPPED_SPECS if s.indicator_id in wanted)
+        missing = wanted - {s.indicator_id for s in specs}
+        if missing:
+            typer.echo(
+                f"ingest-iced-captive-power: unknown indicator_id(s): "
+                f"{sorted(missing)}; known: "
+                f"{[s.indicator_id for s in SHIPPED_SPECS]}",
+                err=True,
+            )
+            raise typer.Exit(2)
+
+    result = ingest_captive(repo_root=root, staging_dir=staging_dir, specs=specs)
+    typer.echo("ingest-iced-captive-power: OK")
+    for ind in result.indicators:
+        typer.echo(f"  {ind.indicator_id}:")
+        typer.echo(f"    output:  {ind.output_path.relative_to(root).as_posix()}")
+        typer.echo(f"    rows:    {ind.row_count}")
+        typer.echo(f"    entities:{ind.entity_count}")
+        typer.echo(f"    year:    {ind.time_min}-{ind.time_max}")
+        typer.echo(
+            f"    dropped aggregate labels:  "
+            f"{list(ind.drop_report.aggregate_labels)}"
+        )
+        typer.echo(
+            f"    dropped unresolved labels: "
+            f"{list(ind.drop_report.unresolved_labels)}"
+        )
+    typer.echo(f"  total rows written: {result.total_rows}")
+
+
 @app.command("ingest-iced-plant-load-factor")
 def ingest_iced_plant_load_factor(
     json_path: Path = typer.Argument(
