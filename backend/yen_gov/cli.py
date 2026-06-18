@@ -2585,6 +2585,60 @@ def ingest_iced_renewable_potential(
     typer.echo(f"  total rows written: {result.total_rows}")
 
 
+@app.command("ingest-iced-transmission-substations")
+def ingest_iced_transmission_substations(
+    staging_dir: Path = typer.Option(
+        ...,
+        "--staging-dir",
+        "-s",
+        help=(
+            "Directory holding the operator-staged ICED transmission-substation "
+            "response named transmission_substation_list.json. AES-encrypted; "
+            "saved raw by tools/iced_stage.py and decrypted here. No network."
+        ),
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Ingest the ICED transmission-substation list into the faceted store.
+
+    Emits ONE faceted file
+    ``datasets/data/datapoints/geo_by_voltage/substation-capacity-commissioned-mva.csv``
+    (entity_id, time, voltage_class, value, source_id): the nameplate substation
+    capacity (MVA) commissioned per fiscal year, summed by voltage class
+    (hvdc / 765kv / 400kv / 220kv / other). The feed carries no state field, so
+    the series is NATIONAL-only (entity_id "IN") - a grid build-out indicator,
+    NOT installed generation capacity. Rows with a null capacity or unparseable
+    completion year are dropped and counted. Upserts the variables / concepts /
+    source catalogue rows. Idempotent: re-running the same staged feed is a no-op.
+    """
+    from yen_gov.canonical.adapters.iced_transmission_substations import (
+        ingest as ingest_substations,
+    )
+
+    result = ingest_substations(repo_root=root, staging_dir=staging_dir)
+    typer.echo("ingest-iced-transmission-substations: OK")
+    typer.echo(f"  output:      {result.output_path.relative_to(root).as_posix()}")
+    typer.echo(f"  variable:    {result.indicator_id}")
+    typer.echo(f"  rows:        {result.row_count}")
+    typer.echo(f"  years:       {result.time_min}-{result.time_max}")
+    typer.echo(f"  assets read: {result.total_assets}")
+    typer.echo(f"  dropped (null capacity):    {result.dropped_null_capacity}")
+    typer.echo(f"  dropped (unparseable year): {result.dropped_unparseable_year}")
+    for voltage_class, count in result.class_row_counts:
+        typer.echo(f"    {voltage_class}: {count} rows")
+
+
 @app.command("ingest-iced-plant-load-factor")
 def ingest_iced_plant_load_factor(
     json_path: Path = typer.Argument(

@@ -3,7 +3,7 @@
   "$id": "./columns.schema.json",
   "title": "CSV column contract (schema-of-schemas)",
   "description": "Validates datasets/data/_schema/columns.json - the one machine-readable home for the per-file-class CSV column contract. Spec: docs/architecture/data/csv-column-contract.md (D-DOC0). Consumed by the backend write-time validator (B1.3), the frontend typed-read codegen (F1), and the cross-format drift test.",
-  "x-version": "2.9",
+  "x-version": "2.10",
   "x-changelog": [
     {
       "version": "1.0",
@@ -64,6 +64,11 @@
       "version": "2.9",
       "date": "2026-06-18",
       "description": "Companion bump for columns.json $schema_version 2.8 -> 2.9 (Path A oil-product faceting; mirrors the geo_by_fuel per-axis sibling pattern of v2.7). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: NEW file-class datasets/data/datapoints/geo_by_product/*.csv for long-format datapoints faceted by product (the petroleum-product consumption dimension), the second per-axis sibling under the plan section 21.6 dimension-column branch (geo_by_<axis>/*.csv). 5 columns: composite PK (entity_id, time, product); product closed enum [diesel-hsd, kerosene, lpg, naphtha, others, petrol, petroleum-coke] (the seven refined-petroleum products the NITI Aayog India Climate & Energy Dashboard Oil Product Consumption State-wise series reports); value nullable; source_id FK source.csv; entity_id FK geo.csv. UNLIKE geo_by_fuel this class has NO `all` member - there is no published per-state total file on disk for oil-product consumption, and the contract forbids synthesising a sum-of-parts total. Collapses the 7 per-product geo/*.csv files (oil-product-consumption-kt-{diesel-hsd, kerosene, lpg, naphtha, others, petrol, petroleum-coke}) into ONE faceted geo_by_product/oil-product-consumption-kt.csv (2901 rows). The per-product inputs are deleted in the same migration; the move is recorded in datasets/migration-ledger.csv. Existing file-classes unchanged in shape."
+    },
+    {
+      "version": "2.10",
+      "date": "2026-06-18",
+      "description": "Companion bump for columns.json $schema_version 2.9 -> 2.10 (ICED transmission-substation faceted ingest; mirrors the geo_by_fuel / geo_by_product per-axis sibling pattern of v2.7 / v2.9). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: NEW file-class datasets/data/datapoints/geo_by_voltage/*.csv for long-format datapoints faceted by voltage_class (the transmission-substation voltage-tier dimension), the third per-axis sibling under the plan section 21.6 dimension-column branch (geo_by_<axis>/*.csv). 5 columns: composite PK (entity_id, time, voltage_class); voltage_class closed enum [hvdc, 765kv, 400kv, 220kv, other] (India's EHV transmission tiers keyed on each asset's governing / highest winding voltage; hvdc = the +-320 / +-500 / +-800 kV DC terminals; other = the residual bucket for rows with no parseable voltage or a sub-220 kV winding); value nullable; source_id FK source.csv; entity_id FK geo.csv. Seeds with one NATIONAL-ONLY measure (substation-capacity-commissioned-mva, NITI Aayog India Climate & Energy Dashboard Transmission Substation List API; the feed has no state attribution, so the only entity_id is the country IN). UNLIKE geo_by_fuel this class carries NO `all` member - there is no published per-class total, and the contract forbids synthesising a sum-of-parts total. Existing file-classes unchanged in shape."
     }
   ],
   "type": "object",

@@ -29,6 +29,12 @@
       ]
     },
     {
+      "indicator_id": "substation-capacity-commissioned-mva",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
       "indicator_id": "economy/gdp_inr_crore",
       "chart_types": [
         "stacked-trend"

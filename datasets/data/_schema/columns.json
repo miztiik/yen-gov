@@ -1,6 +1,6 @@
 {
   "$schema": "./columns.schema.json",
-  "$schema_version": "2.9",
+  "$schema_version": "2.10",
   "file_classes": {
     "datasets/data/variables.csv": {
       "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
@@ -347,6 +347,16 @@
         { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
         { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
         { "name": "product", "dtype": "string", "nullable": false, "pk": true, "enum": ["diesel-hsd", "kerosene", "lpg", "naphtha", "others", "petrol", "petroleum-coke"] },
+        { "name": "value", "dtype": "number", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
+    "datasets/data/datapoints/geo_by_voltage/*.csv": {
+      "notes": "Long-format datapoints faceted by voltage_class (the transmission-substation voltage-tier dimension). Sibling to datasets/data/datapoints/geo/*.csv, geo_by_fuel/*.csv and geo_by_product/*.csv: same LGD entity_id FK target + the same (entity_id, time) spine, PLUS a voltage_class dimension column that joins the PK. Mirrors the geo_by_fuel / geo_by_product per-axis sibling pattern (geo_by_<axis>/*.csv) under the plan section 21.6 dimension-column branch: ONE file per measure (filename exactly <variable_id>.csv) carries all voltage-class members in long format. Composite PK (entity_id, time, voltage_class). voltage_class is a closed enum [hvdc, 765kv, 400kv, 220kv, other] - the EHV transmission tiers keyed on each asset's GOVERNING (highest) winding voltage; hvdc covers the +-320 / +-500 / +-800 kV DC terminals, and other is the residual bucket for assets whose voltageRatio carries no parseable voltage (a handful of upstream rows mis-populated with the executive-agency name) or a winding below the 220 kV EHV floor. The seed measure (substation-capacity-commissioned-mva, NITI Aayog India Climate & Energy Dashboard Transmission Substation List) is NATIONAL-ONLY (the feed has no state attribution, so the only entity_id is the country IN). UNLIKE geo_by_fuel this class carries NO `all` member - there is no published per-class total, and the contract forbids synthesising a sum-of-parts total. A measure is admissible in this class ONLY when voltage_class passes the four-gate facet test (docs/concepts/indicator-naming.md section 6 / plan F2): same concept/unit/normalisation, same publisher-fact, members partition a recognisable whole (annual commissioned substation capacity), real citizen question. The facet axis + enum live HERE in columns.json so the frontend reader stays columns.json-only (no variables.csv dimension dispatch) per the Gregor contract ruling (TODO/20260616-geo-facet-dimension-column-plan.md). Spec: csv-column-contract.md section 3.3.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "voltage_class", "dtype": "string", "nullable": false, "pk": true, "enum": ["hvdc", "765kv", "400kv", "220kv", "other"] },
         { "name": "value", "dtype": "number", "nullable": true },
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]

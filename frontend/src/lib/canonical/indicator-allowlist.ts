@@ -741,6 +741,89 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- Tier-B transmission-substation ingest (2026-06-18) --- facet-multiplexed
+  // ICED 'Transmission Substation List' (national asset inventory) -> ONE
+  // NET-NEW country-grain faceted indicator emitted to
+  // data/datapoints/geo_by_voltage/substation-capacity-commissioned-mva.csv by
+  // backend/yen_gov/canonical/adapters/iced_transmission_substations. The feed
+  // carries NO state field, so this is NATIONAL-only (entity_id "IN") - a grid
+  // build-out series (substation MVA commissioned per fiscal year), NOT
+  // installed generation capacity. The analytical detail lives on the
+  // voltage_class facet axis (the EHV transmission tiers), read from the one
+  // faceted file via faceted_csv_path + facet_column (the geo_by_voltage
+  // dimension-column path). table_id is nominal (CSV-only descriptor; there is
+  // no parquet stem). comparability = comparable_within_state_over_time: a
+  // single-entity time series is comparable over years but carries no
+  // cross-entity rank (canShowRank suppresses the meaningless one-row rank
+  // table); the grapher companion row in indicator_render.json carries the
+  // matching no_rank_table renderer rule. implementing_authority = "joint"
+  // (central PGCIL / CTUIL plus the state transmission utilities both build
+  // substations).
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "energy/national_transmission_substation_capacity_mva",
+    canonical_parent_indicator_id: "substation-capacity-commissioned-mva",
+    table_id: "energy.transmission_substations",
+    facet_axis_id: "voltage_class",
+    faceted_csv_path:
+      "data/datapoints/geo_by_voltage/substation-capacity-commissioned-mva.csv",
+    facet_column: "voltage_class",
+    facet_values: [
+      {
+        canonical_child_id: "substation-capacity-commissioned-mva-hvdc",
+        facet_value: "hvdc",
+        legacy_facet_label: "HVDC",
+      },
+      {
+        canonical_child_id: "substation-capacity-commissioned-mva-765kv",
+        facet_value: "765kv",
+        legacy_facet_label: "765 kV",
+      },
+      {
+        canonical_child_id: "substation-capacity-commissioned-mva-400kv",
+        facet_value: "400kv",
+        legacy_facet_label: "400 kV",
+      },
+      {
+        canonical_child_id: "substation-capacity-commissioned-mva-220kv",
+        facet_value: "220kv",
+        legacy_facet_label: "220 kV",
+      },
+      {
+        canonical_child_id: "substation-capacity-commissioned-mva-other",
+        facet_value: "other",
+        legacy_facet_label: "Other / unclassified",
+      },
+    ],
+    meta: {
+      id: "substation-capacity-commissioned-mva",
+      title: "Transmission substation capacity commissioned (MVA)",
+      description:
+        "Total nameplate transmission-substation capacity (MVA) commissioned across India each fiscal year, broken out by voltage class. This is GRID BUILD-OUT - how much high-voltage switching and transformation capacity the country adds each year - NOT installed generation capacity (MW) and NOT line length. The source (NITI Aayog ICED Transmission Substation List) is a national asset inventory with no state field, so this series is national-only and cannot be attributed to states.",
+      entity_kind: "country",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "MVA",
+      short_unit: "MVA",
+      icon: "zap",
+      attribution_geography: "where_produced",
+      comparability: "comparable_within_state_over_time",
+      implementing_authority: "joint",
+      methodology_vintage:
+        "NITI Aayog India Climate & Energy Dashboard 'Transmission Substation List' (national asset inventory), 2024-25 snapshot. Each asset's nameplate capacity (MVA) is summed by completion fiscal year and governing voltage class - the highest winding voltage of the asset bucketed into hvdc / 765kv / 400kv / 220kv / other. No state attribution exists in the source.",
+      notes:
+        "A national grid build-out indicator (annual flow of additions, not a cumulative stock). Pair with installed-capacity (generation MW) to distinguish grid expansion from generation expansion.",
+    },
+    caveats: [
+      "National only. The ICED substation feed carries no state field, so capacity cannot be attributed to states - read this as a country-level grid build-out trend, not a per-state comparison.",
+      "Voltage class is derived from each asset's governing (highest) winding voltage: hvdc = the +-320 / +-500 / +-800 kV DC terminals; 765 / 400 / 220 kV are the AC transmission tiers; 'other' collects the ~1% of rows whose voltage field was mis-populated upstream with an agency name.",
+      "Substation MVA is transformation / switching capacity at grid nodes, NOT generation (MW) and NOT line length. 'Commissioned per year' is an annual flow of additions; sum across years for cumulative build-out.",
+      "A handful of assets with no completion year or no reported capacity are dropped (not silently zero-filled).",
+    ],
+  },
+
   // --- PR-R (Row 6 P.1.C 2/9, rooftop solar capacity lift, 2026-05-25) ---
   // ICED `/energy/renewable/solar/rooftop/state` -> 321 obs rows (states x
   // fiscal-years FY18-FY25) joined into the existing `energy_installed_capacity`
