@@ -68,7 +68,7 @@
   }
 </script>
 
-<ul class="divide-y divide-slate-100" data-testid="stronghold-list">
+<ul class="max-w-xl divide-y divide-slate-100" data-testid="stronghold-list">
   {#each visible as s (s.entity_id)}
     {@const rate = strongholdStrikeRate(s)}
     {@const stateName = rowState(s)}

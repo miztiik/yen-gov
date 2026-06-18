@@ -6,7 +6,7 @@
  * Covers:
  *   - Pure helpers: `chronologicalSortKey`,
  *     `parseMonthFromPeriodLabel`, `lsEventIdFromPeriodLabel`,
- *     `titleCaseStateSlug`, `pickLastContestedLabel`.
+ *     `titleCaseStateSlug`, `pickLastContested`.
  *   - Pure SQL builders: `buildParliamentLatestSql`,
  *     `buildStateAssembliesLatestSql` - shape contract only (CAST
  *     AS BIGINT present, ROW_NUMBER pattern, no QUALIFY).
@@ -40,6 +40,7 @@ vi.mock("../canonical/csv-columns", () => ({
 
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { query, registerCsvFile } from "../duckdb";
+import { link } from "../links";
 import {
   __resetForTests,
   PARLIAMENT_TOTAL_SEATS,
@@ -49,7 +50,7 @@ import {
   loadPartyCurrentStrength,
   lsEventIdFromPeriodLabel,
   parseMonthFromPeriodLabel,
-  pickLastContestedLabel,
+  pickLastContested,
   projectParliamentLatest,
   projectStateAssembliesLatest,
   titleCaseStateSlug,
@@ -138,7 +139,7 @@ describe("titleCaseStateSlug", () => {
   });
 });
 
-describe("pickLastContestedLabel", () => {
+describe("pickLastContested", () => {
   const parliamentJun2024: ParliamentLatest = {
     year: 2024,
     event_id: "general-2024",
@@ -154,6 +155,8 @@ describe("pickLastContestedLabel", () => {
     state_count: 5,
     latest_event_label: "West Bengal State Assembly, May 2026",
     latest_event_sort_key: "2026-05",
+    latest_event_state_slug: "west-bengal",
+    latest_event_id: "assembly-2026",
   };
   const assembliesOct2019: StateAssembliesLatest = {
     seats_won: 50,
@@ -161,34 +164,55 @@ describe("pickLastContestedLabel", () => {
     state_count: 1,
     latest_event_label: "Maharashtra State Assembly, Oct 2019",
     latest_event_sort_key: "2019-10",
+    latest_event_state_slug: "maharashtra",
+    latest_event_id: null,
   };
 
-  it("picks the assembly latest when assemblies are more recent than parliament", () => {
-    expect(pickLastContestedLabel(parliamentJun2024, assembliesMay2026)).toBe(
-      "West Bengal State Assembly, May 2026",
-    );
+  it("picks the assembly latest and links ONLY the date token via stateElection", () => {
+    expect(pickLastContested(parliamentJun2024, assembliesMay2026)).toEqual({
+      prefix: "West Bengal State Assembly,",
+      date_text: "May 2026",
+      href: link.stateElection("west-bengal", "assembly-2026"),
+    });
   });
 
-  it("picks parliament when parliament is more recent than the assembly latest", () => {
-    expect(pickLastContestedLabel(parliamentJun2024, assembliesOct2019)).toBe(
-      "Parliament General Election, Jun 2024",
-    );
+  it("picks parliament and links ONLY the date token via nationalElection", () => {
+    expect(pickLastContested(parliamentJun2024, assembliesOct2019)).toEqual({
+      prefix: "Parliament General Election,",
+      date_text: "Jun 2024",
+      href: link.nationalElection("general-2024"),
+    });
   });
 
   it("picks the assembly latest when parliament is null", () => {
-    expect(pickLastContestedLabel(null, assembliesMay2026)).toBe(
-      "West Bengal State Assembly, May 2026",
-    );
+    expect(pickLastContested(null, assembliesMay2026)).toEqual({
+      prefix: "West Bengal State Assembly,",
+      date_text: "May 2026",
+      href: link.stateElection("west-bengal", "assembly-2026"),
+    });
+  });
+
+  it("emits a null href (plain-text date) when the assembly event_id is unresolved", () => {
+    // assembliesOct2019 wins here (parliament null); its latest_event_id
+    // is null, so the date token stays plain text - no silent demotion of
+    // the prefix, just an unlinked but honest token (CLAUDE.md section 10).
+    expect(pickLastContested(null, assembliesOct2019)).toEqual({
+      prefix: "Maharashtra State Assembly,",
+      date_text: "Oct 2019",
+      href: null,
+    });
   });
 
   it("picks parliament when assemblies is null", () => {
-    expect(pickLastContestedLabel(parliamentJun2024, null)).toBe(
-      "Parliament General Election, Jun 2024",
-    );
+    expect(pickLastContested(parliamentJun2024, null)).toEqual({
+      prefix: "Parliament General Election,",
+      date_text: "Jun 2024",
+      href: link.nationalElection("general-2024"),
+    });
   });
 
   it("returns null when both inputs are null", () => {
-    expect(pickLastContestedLabel(null, null)).toBeNull();
+    expect(pickLastContested(null, null)).toBeNull();
   });
 });
 
@@ -378,6 +402,47 @@ describe("projectStateAssembliesLatest", () => {
     // valid; the test asserts the ordering rule the helper documents.
     expect(out!.latest_event_label).toBe("Tamil Nadu State Assembly, May 2026");
     expect(out!.latest_event_sort_key).toBe("2026-05");
+    // The latest event's state slug is carried verbatim; latest_event_id
+    // defaults to null because no event-id resolver was injected.
+    expect(out!.latest_event_state_slug).toBe("tamil-nadu");
+    expect(out!.latest_event_id).toBeNull();
+  });
+
+  it("resolves latest_event_id via the injected assemblyEventIdFromSlug resolver", () => {
+    const eventIdResolver = (slug: string): string | null =>
+      slug === "west-bengal" ? "assembly-2026" : null;
+    const out = projectStateAssembliesLatest(
+      [
+        {
+          state: "west-bengal",
+          period_label: "AcGenMay2026",
+          year: 2026,
+          party_seats: 207n,
+          chamber_seats: 294n,
+        },
+      ],
+      resolver,
+      eventIdResolver,
+    );
+    expect(out!.latest_event_state_slug).toBe("west-bengal");
+    expect(out!.latest_event_id).toBe("assembly-2026");
+  });
+
+  it("leaves latest_event_id null when no event-id resolver is injected (loader default)", () => {
+    const out = projectStateAssembliesLatest(
+      [
+        {
+          state: "west-bengal",
+          period_label: "AcGenMay2026",
+          year: 2026,
+          party_seats: 207n,
+          chamber_seats: 294n,
+        },
+      ],
+      resolver,
+    );
+    expect(out!.latest_event_state_slug).toBe("west-bengal");
+    expect(out!.latest_event_id).toBeNull();
   });
 
   it("falls back to Title Cased slug when the resolver returns null", () => {
@@ -499,8 +564,15 @@ describe("loadPartyCurrentStrength", () => {
     expect(out!.state_assemblies_latest!.state_count).toBe(2);
     // 2026-05 > 2024-11 > 2024-06 - the cross-body latest is the WB
     // 2026 row (titleCaseStateSlug fallback because the loader was
-    // called without an explicit stateNameFromSlug resolver).
-    expect(out!.last_contested_label).toBe("West Bengal State Assembly, May 2026");
+    // called without an explicit stateNameFromSlug resolver). The
+    // assembly href is null here: the loader holds no election-events
+    // catalogue, so the per-state assembly event_id is resolved later
+    // in party-detail.ts (tested in party-detail.test.ts).
+    expect(out!.last_contested).toEqual({
+      prefix: "West Bengal State Assembly,",
+      date_text: "May 2026",
+      href: null,
+    });
   });
 
   it("returns parliament-only shape for a synthetic LS-only party (state_assemblies null)", async () => {
@@ -518,9 +590,11 @@ describe("loadPartyCurrentStrength", () => {
     const out = await loadPartyCurrentStrength("parties.IN.LS_ONLY");
     expect(out!.parliament_latest).not.toBeNull();
     expect(out!.state_assemblies_latest).toBeNull();
-    expect(out!.last_contested_label).toBe(
-      "Parliament General Election, Jun 2024",
-    );
+    expect(out!.last_contested).toEqual({
+      prefix: "Parliament General Election,",
+      date_text: "Jun 2024",
+      href: link.nationalElection("general-2024"),
+    });
   });
 
   it("returns assemblies-only shape for a state-party (parliament null)", async () => {
@@ -542,7 +616,11 @@ describe("loadPartyCurrentStrength", () => {
     expect(out!.state_assemblies_latest).not.toBeNull();
     expect(out!.state_assemblies_latest!.seats_won).toBe(59);
     expect(out!.state_assemblies_latest!.state_count).toBe(1);
-    expect(out!.last_contested_label).toBe("Tamil Nadu State Assembly, May 2026");
+    expect(out!.last_contested).toEqual({
+      prefix: "Tamil Nadu State Assembly,",
+      date_text: "May 2026",
+      href: null,
+    });
   });
 
   it("returns null overall when both bodies have no data (defunct / unknown party)", async () => {

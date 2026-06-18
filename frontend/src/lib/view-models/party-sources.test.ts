@@ -307,8 +307,14 @@ describe("buildPartyProvenance happy path", () => {
           state_count: 1,
           latest_event_label: "Tamil Nadu State Assembly, Apr 2021",
           latest_event_sort_key: "2021-04",
+          latest_event_state_slug: "tamil-nadu",
+          latest_event_id: null,
         },
-        last_contested_label: "Parliament, May 2024",
+        last_contested: {
+          prefix: "Parliament General Election,",
+          date_text: "May 2024",
+          href: null,
+        },
       },
       alliance_context: {
         parliament: {

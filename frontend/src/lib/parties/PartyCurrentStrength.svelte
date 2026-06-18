@@ -27,7 +27,7 @@
    *     a meaningless headline onto the sentinel page.
    *   - `parliament_latest === null`: skip line 1.
    *   - `state_assemblies_latest === null`: skip line 2.
-   *   - `last_contested_label === null`: skip line 3 (only when both
+   *   - `last_contested === null`: skip line 3 (only when both
    *     of the above are also null - by view-model construction this
    *     means the strip is null overall and we never reach this branch).
    *
@@ -97,7 +97,7 @@
   const visible = $derived(!is_sentinel && current_strength !== null);
   const parliament = $derived(current_strength?.parliament_latest ?? null);
   const assemblies = $derived(current_strength?.state_assemblies_latest ?? null);
-  const lastContested = $derived(current_strength?.last_contested_label ?? null);
+  const lastContested = $derived(current_strength?.last_contested ?? null);
 </script>
 
 {#if visible}
@@ -151,9 +151,12 @@
     {#if lastContested}
       <p
         data-testid="party-current-strength-last"
-        class="mt-3 text-xs italic text-slate-500"
+        class="mt-3 text-xs text-slate-500"
       >
-        Last contested: {lastContested}.
+        Last contested: {lastContested.prefix}{" "}{#if lastContested.href}<a
+            href={lastContested.href}
+            class="text-sky-700 hover:underline"
+            data-testid="party-current-strength-last-link">{lastContested.date_text}</a>{:else}{lastContested.date_text}{/if}.
       </p>
     {/if}
   </section>

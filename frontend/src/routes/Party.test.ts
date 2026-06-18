@@ -9,7 +9,7 @@
 import { describe, expect, it } from "vitest";
 import {
   computeKpis,
-  formatLatestSentence,
+  formatPeakFraming,
   getAvatarStyle,
   partyRowFromMeta,
   sentinelFraming,
@@ -149,71 +149,56 @@ describe("computeKpis", () => {
   });
 });
 
-// --- formatLatestSentence -------------------------------------------------
+// --- formatPeakFraming ----------------------------------------------------
 
-describe("formatLatestSentence", () => {
-  it("returns null when the history is empty (consumer skips the line)", () => {
-    expect(formatLatestSentence([], 543, "Parliament")).toBeNull();
+describe("formatPeakFraming", () => {
+  it("returns empty string when the history is empty (no caption)", () => {
+    expect(formatPeakFraming([])).toBe("");
   });
 
-  it("formats latest seats + vote share + peak framing when latest is below peak", () => {
+  it("returns the down-from-peak clause when the latest sits below the peak", () => {
     const ls: PartyHistoryPoint[] = [
       { year: 1984, period_label: "LsGenDec1984", seats: 415, vote_share_pct: 49.1, contested: 517, source_ids: [] },
       { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: 21.2, contested: 328, source_ids: [] },
     ];
-    const out = formatLatestSentence(ls, 543, "Parliament");
-    expect(out).toBe(
-      "Parliament (2024): 99 of 543 seats won, 21.2% of votes - down from the party's peak of 415 seats in 1984.",
+    expect(formatPeakFraming(ls)).toBe(
+      "Down from the party's peak of 415 seats in 1984.",
     );
   });
 
-  it("omits the peak framing when the latest IS the peak (no down-framing)", () => {
+  it("returns empty string when the series is flat (latest equals both peak and low)", () => {
     const ls: PartyHistoryPoint[] = [
       { year: 2019, period_label: "LsGenApr2019", seats: 200, vote_share_pct: 31, contested: 400, source_ids: [] },
-      { year: 2024, period_label: "LsGenMay2024", seats: 240, vote_share_pct: 36, contested: 440, source_ids: [] },
+      { year: 2024, period_label: "LsGenMay2024", seats: 200, vote_share_pct: 33, contested: 420, source_ids: [] },
     ];
-    const out = formatLatestSentence(ls, 543, "Parliament")!;
-    expect(out).toMatch(/Parliament \(2024\)/);
-    expect(out).toMatch(/240 of 543/);
-    expect(out).not.toMatch(/peak/);
+    expect(formatPeakFraming(ls)).toBe("");
   });
 
-  it("emits the up-from-low framing when latest exceeds earlier low", () => {
+  it("returns the up-from-low clause when the latest exceeds the earlier low", () => {
     const ls: PartyHistoryPoint[] = [
       { year: 2019, period_label: "LsGenApr2019", seats: 50, vote_share_pct: 10, contested: 200, source_ids: [] },
       { year: 2024, period_label: "LsGenMay2024", seats: 240, vote_share_pct: 36, contested: 440, source_ids: [] },
     ];
-    const out = formatLatestSentence(ls, 543, "Parliament")!;
-    expect(out).toMatch(/up from the party's earlier low of 50 in 2019/);
+    expect(formatPeakFraming(ls)).toBe(
+      "Up from the party's earlier low of 50 in 2019.",
+    );
   });
 
-  it("omits the 'of N' denominator when total_seats == 0 (mixed-state State Assembly bar)", () => {
+  it("returns empty string for a single-cycle history (nothing to frame against)", () => {
     const vs: PartyHistoryPoint[] = [
       { year: 2021, period_label: "AcGenApr2021", seats: 133, vote_share_pct: 37.7, contested: 188, source_ids: [] },
     ];
-    const out = formatLatestSentence(vs, 0, "State Assembly")!;
-    expect(out).toMatch(/State Assembly \(2021\): 133 seats won/);
-    expect(out).not.toMatch(/of \d+/);
-  });
-
-  it("omits the vote-share clause when the latest cycle has no vote_share_pct", () => {
-    const ls: PartyHistoryPoint[] = [
-      { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: null, contested: 328, source_ids: [] },
-    ];
-    const out = formatLatestSentence(ls, 543, "Parliament")!;
-    expect(out).toBe("Parliament (2024): 99 of 543 seats won.");
+    expect(formatPeakFraming(vs)).toBe("");
   });
 
   it("sorts the history defensively before picking the latest", () => {
-    const out = formatLatestSentence(
-      [
-        { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: 21.2, contested: 328, source_ids: [] },
-        { year: 1984, period_label: "LsGenDec1984", seats: 415, vote_share_pct: 49.1, contested: 517, source_ids: [] },
-      ],
-      543,
-      "Parliament",
-    )!;
-    expect(out).toMatch(/\(2024\):/);
+    // Unsorted input: the 2024 cycle (99 seats) is the latest, below
+    // the 1984 peak (415). The helper must sort first, then frame.
+    const out = formatPeakFraming([
+      { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: 21.2, contested: 328, source_ids: [] },
+      { year: 1984, period_label: "LsGenDec1984", seats: 415, vote_share_pct: 49.1, contested: 517, source_ids: [] },
+    ]);
+    expect(out).toBe("Down from the party's peak of 415 seats in 1984.");
   });
 });
 

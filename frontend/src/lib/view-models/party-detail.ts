@@ -35,6 +35,7 @@ import {
 import { loadPartyMeta, type PartyMeta } from "./parties";
 import {
   loadPartyCurrentStrength,
+  pickLastContested,
   type PartyCurrentStrength,
 } from "./party-current-strength";
 import {
@@ -827,6 +828,25 @@ async function fetchPartyDetail(
   const election_catalogue = await election_events_promise;
   const current_strength = await current_strength_promise;
   const alliance_context = await alliance_context_promise;
+  // Issue 3 (party-ux follow-up): the Current Strength strip's "Last
+  // contested" line links ONLY the trailing date token. For an assembly
+  // latest that needs the per-state assembly event_id, which the strip
+  // loader cannot resolve (it holds no election-events catalogue). This
+  // loader DOES hold the catalogue (loaded in parallel above), so resolve
+  // the assembly event_id here - reusing the exact slug -> code -> default-
+  // event chain proven in `attachStrongholdLink` - and re-derive the
+  // "Last contested" struct so the date token can link. ZERO new fetch.
+  if (current_strength?.state_assemblies_latest) {
+    const sal = current_strength.state_assemblies_latest;
+    const state_code = states.codeFromSlug(sal.latest_event_state_slug);
+    sal.latest_event_id = state_code
+      ? (defaultEventForState(election_catalogue, state_code)?.event_id ?? null)
+      : null;
+    current_strength.last_contested = pickLastContested(
+      current_strength.parliament_latest,
+      sal,
+    );
+  }
   const ls_event_id =
     current_strength?.parliament_latest?.event_id ?? null;
   for (const row of strongholdRows) {

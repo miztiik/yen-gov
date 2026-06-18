@@ -105,6 +105,10 @@ describe("TopicIcon helpers", () => {
         // glyph. See TODO/20260617-election-compare-ux-overhaul-plan.md.
         "arrow-left-right",
         "bar-chart",
+        // Row B (2026-06-18): the "Active" KPI tile on the party page
+        // labels its election-span range with this Lucide calendar-range
+        // glyph. See TODO/20260617-party-page-polish-and-cdn-config-plan.md.
+        "calendar-range",
         "car",
         "check",
         "chevron-right",
