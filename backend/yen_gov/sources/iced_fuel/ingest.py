@@ -22,7 +22,10 @@ from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.sources.iced_common import load_iced_response
-from yen_gov.sources.iced_fuel.parsers import parse_coal_consumption_state
+from yen_gov.sources.iced_fuel.parsers import (
+    parse_coal_consumption_state,
+    parse_ppa_share,
+)
 
 # B1.4.3 - canonical CSV citation triples + variable_id prefixes per indicator.
 # All three iced_fuel indicators are NITI Aayog ICED v0 endpoints (same
@@ -418,5 +421,106 @@ def ingest_coal_consumption(
         variable_id=_CSV_VARIABLE_PREFIX_COAL,
         artifact_path=written[0],
         row_count=len(by_variable[_CSV_VARIABLE_PREFIX_COAL]),
+        skipped_unmapped=skipped,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Power-purchase-share re-ingest (Tier-B: orphan -> LIVE re-ingest)
+# ---------------------------------------------------------------------------
+#
+# ICED state-level power-purchase feed: per-(state, FY, source) share (%) of
+# electricity procured by a state's DISCOMs, faceted by 12 generation sources
+# (biomass, coal, diesel, gas, hybrid-bundled, hydro, nuclear,
+# renewable-other, small-hydro, solar, trading-other, wind). This is a
+# PERCENTAGE / non-fuel-axis family that does NOT fit the geo_by_fuel
+# file-class, so it stays in its existing per-facet
+# `datasets/data/datapoints/geo/power-purchase-share-pct-<source>.csv` shape
+# (Path B: emit the current shape, NO new file-class). This graduates the
+# orphan family to LIVE re-ingest: the energy-adapter lift code that wrote
+# these files was deleted in X1b-pt2.
+#
+# The (producer, title, vintage) triple below REPRODUCES the on-disk
+# source_id src-1401f8087b0d (idempotent re-emit). Recovered verbatim from
+# the FK target row in `datasets/data/entities/source.csv`. NB: this title
+# differs from the `_CSV_SOURCE_TITLE_PPA` constant above -- the on-disk
+# files were written by the energy-adapter path, NOT the iced_fuel
+# `_emit_csv_for` path, so the idempotent triple is the adapter's, not
+# iced_fuel's legacy constant. The variable_id reuses
+# `_CSV_VARIABLE_PREFIX_PPA` (== "power-purchase-share-pct").
+_PPA_REINGEST_TITLE = (
+    "State Power Purchase Quantum and Cost API (state-wise procurement-mix "
+    "share by source, fiscal-year, 12 source buckets)"
+)
+_PPA_REINGEST_VINTAGE = "2024-25"
+
+
+@dataclass(frozen=True)
+class PowerPurchaseShareIngestResult:
+    """Receipt for the per-source power-purchase-share CSV emit."""
+
+    variable_ids: tuple[str, ...]
+    artifact_paths: tuple[Path, ...]
+    row_count: int
+    skipped_unmapped: int
+
+
+def build_power_purchase_share_variables(
+    parsed_rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Build the per-source power-purchase-share geo rows, ECI st_code -> LGD slug.
+
+    Each parser row ``{entity_id(ECI), time("YYYY-04"), value, facet(source)}``
+    keeps its faceted shape but its ECI st_code resolves to the LGD slug
+    (``IN`` country passthrough). ``time`` is left as the ``YYYY-04`` period
+    because ``build_csv_variables`` reduces it to the integer fiscal-year
+    start internally. Returns a ``by_variable`` map with one key per source
+    facet (``power-purchase-share-pct-<source-slug>``), ready for
+    ``emit_csv_variables``.
+    """
+    translated = [
+        {
+            "entity_id": _to_slug(str(r["entity_id"])),
+            "time": r["time"],
+            "value": r["value"],
+            "facet": r["facet"],
+        }
+        for r in parsed_rows
+    ]
+    return build_csv_variables(
+        translated, source_id=source_id, variable_prefix=_CSV_VARIABLE_PREFIX_PPA
+    )
+
+
+def ingest_power_purchase_share(
+    *, repo_root: Path, raw_json_path: Path, decrypt: bool = True
+) -> PowerPurchaseShareIngestResult:
+    """Read a staged power-purchase JSON, emit the per-source share CSVs.
+
+    Operator-staged local file (no network). The
+    ``/statelevel-power-purchase-quantum-and-cost`` feed is AES-encrypted on
+    the wire, so the staged blob is the CryptoJS envelope; ``decrypt=True``
+    (default) makes ``load_iced_response`` decrypt it before parsing (an
+    already-plain file still loads). Emits one
+    ``datasets/data/datapoints/geo/power-purchase-share-pct-<source>.csv`` per
+    source facet with LGD-slug ``entity_id`` rows. The
+    (producer, title, vintage) triple reproduces the on-disk ``source_id`` so
+    a re-emit is idempotent with the committed files.
+    """
+    decoded = load_iced_response(raw_json_path.read_bytes(), decrypt=decrypt)
+    parsed_rows, skipped = parse_ppa_share(decoded)
+    source_id = derive_source_id(
+        _CSV_SOURCE_PRODUCER, _PPA_REINGEST_TITLE, _PPA_REINGEST_VINTAGE
+    )
+    by_variable = build_power_purchase_share_variables(
+        parsed_rows, source_id=source_id
+    )
+    written = emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+    return PowerPurchaseShareIngestResult(
+        variable_ids=tuple(sorted(by_variable)),
+        artifact_paths=written,
+        row_count=sum(len(rows) for rows in by_variable.values()),
         skipped_unmapped=skipped,
     )

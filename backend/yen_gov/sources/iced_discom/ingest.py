@@ -19,8 +19,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
+from yen_gov.sources.iced_common import load_iced_response
+from yen_gov.sources.iced_discom.parsers import parse_rpo
 
 
 # ---------------------------------------------------------------------------
@@ -336,3 +339,115 @@ def _emit_csv_for(
         parsed_rows, source_id=source_id, variable_prefix=variable_prefix
     )
     return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+
+
+# ---------------------------------------------------------------------------
+# RPO-compliance re-ingest (Tier-B: orphan -> LIVE re-ingest)
+# ---------------------------------------------------------------------------
+#
+# ICED distribution RPO feed: per-(state, FY, segment) Renewable Purchase
+# Obligation compliance (% of target), faceted by 3 segments (solar,
+# non-solar, total). This is a PERCENTAGE / non-fuel-axis family that does
+# NOT fit the geo_by_fuel file-class, so it stays in its existing per-facet
+# `datasets/data/datapoints/geo/rpo-compliance-pct-<segment>.csv` shape
+# (Path B: emit the current shape, NO new file-class). This graduates the
+# orphan family to LIVE re-ingest: the energy-adapter lift code that wrote
+# these files was deleted in X1b-pt2.
+#
+# The (producer, title, vintage) triple below REPRODUCES the on-disk
+# source_id src-0ea63ed47704 (idempotent re-emit). Recovered verbatim from
+# the FK target row in `datasets/data/entities/source.csv`. NB: this title
+# differs from the `_CSV_SOURCE_TITLE_RPO` constant above -- the on-disk
+# files were written by the energy-adapter path, NOT the iced_discom
+# `_emit_csv_for` path, so the idempotent triple is the adapter's, not
+# iced_discom's legacy constant. The variable_id reuses
+# `_CSV_VARIABLE_PREFIX_RPO` (== "rpo-compliance-pct").
+_RPO_REINGEST_TITLE = (
+    "Distribution RPO Compliance API (state-wise Renewable Purchase "
+    "Obligation compliance, by segment)"
+)
+_RPO_REINGEST_VINTAGE = "2024-25"
+
+
+@dataclass(frozen=True)
+class RpoComplianceIngestResult:
+    """Receipt for the per-segment RPO-compliance CSV emit."""
+
+    variable_ids: tuple[str, ...]
+    artifact_paths: tuple[Path, ...]
+    row_count: int
+    skipped_unmapped: int
+
+
+def _to_slug(eci_st_code: str) -> str:
+    """ECI st_code -> LGD slug, with the country rollup passed through.
+
+    Mirrors ``iced_fuel.ingest._to_slug``. The RPO parser emits ECI st_codes
+    (``S13``); ``entities/geo.csv`` keys on LGD slugs (``maharashtra``), so
+    the entity output is re-pointed through the translation. ``IN`` (national
+    rollup) passes through unchanged.
+    """
+    if eci_st_code == "IN":
+        return "IN"
+    return eci_to_lgd_slug(eci_st_code)
+
+
+def build_rpo_compliance_variables(
+    parsed_rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Build the per-segment RPO-compliance geo rows, ECI st_code -> LGD slug.
+
+    Each parser row ``{entity_id(ECI), time("YYYY-04"), value, facet(segment)}``
+    keeps its faceted shape but its ECI st_code resolves to the LGD slug
+    (``IN`` country passthrough). ``time`` is left as the ``YYYY-04`` period
+    because ``build_csv_variables`` reduces it to the integer fiscal-year
+    start internally. Returns a ``by_variable`` map with one key per segment
+    facet (``rpo-compliance-pct-<segment-slug>``), ready for
+    ``emit_csv_variables``.
+    """
+    translated = [
+        {
+            "entity_id": _to_slug(str(r["entity_id"])),
+            "time": r["time"],
+            "value": r["value"],
+            "facet": r["facet"],
+        }
+        for r in parsed_rows
+    ]
+    return build_csv_variables(
+        translated, source_id=source_id, variable_prefix=_CSV_VARIABLE_PREFIX_RPO
+    )
+
+
+def ingest_rpo_compliance(
+    *, repo_root: Path, raw_json_path: Path, decrypt: bool = True
+) -> RpoComplianceIngestResult:
+    """Read a staged RPO-compliance JSON, emit the per-segment RPO CSVs.
+
+    Operator-staged local file (no network). The
+    ``/energy/electricity/distribution/rpo`` feed is AES-encrypted on the
+    wire, so the staged blob is the CryptoJS envelope; ``decrypt=True``
+    (default) makes ``load_iced_response`` decrypt it before parsing (an
+    already-plain file still loads). Emits one
+    ``datasets/data/datapoints/geo/rpo-compliance-pct-<segment>.csv`` per
+    segment facet (solar, non-solar, total) with LGD-slug ``entity_id`` rows.
+    The (producer, title, vintage) triple reproduces the on-disk ``source_id``
+    so a re-emit is idempotent with the committed files.
+    """
+    decoded = load_iced_response(raw_json_path.read_bytes(), decrypt=decrypt)
+    parsed_rows, skipped = parse_rpo(decoded)
+    source_id = derive_source_id(
+        _CSV_SOURCE_PRODUCER, _RPO_REINGEST_TITLE, _RPO_REINGEST_VINTAGE
+    )
+    by_variable = build_rpo_compliance_variables(
+        parsed_rows, source_id=source_id
+    )
+    written = emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+    return RpoComplianceIngestResult(
+        variable_ids=tuple(sorted(by_variable)),
+        artifact_paths=written,
+        row_count=sum(len(rows) for rows in by_variable.values()),
+        skipped_unmapped=skipped,
+    )
