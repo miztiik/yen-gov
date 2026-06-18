@@ -80,6 +80,7 @@
 
 <script lang="ts">
   import TopicIcon from "../TopicIcon.svelte";
+  import { link } from "../links";
 
   interface Props {
     current_strength: PartyCurrentStrength | null;
@@ -118,7 +119,9 @@
           cls="mr-2 mt-1 inline-block flex-none w-4 h-4 text-slate-500"
         />
         <span>
-          Parliament ({parliament.month_label}):
+          Parliament ({#if parliament.event_id}<a
+              href={link.nationalElection(parliament.event_id)}
+              class="text-sky-700 hover:underline">{parliament.month_label}</a>{:else}{parliament.month_label}{/if}):
           <span class="tabular-nums font-semibold">{formatSeats(parliament.seats_won)}</span>
           of
           <span class="tabular-nums">{formatSeats(parliament.seats_total)}</span>
