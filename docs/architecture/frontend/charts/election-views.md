@@ -82,34 +82,38 @@ R2 of [TODO/20260615-state-election-event-page-redesign-plan.md](../../../../TOD
 
 The `/compare/elections/<state>/<from>/<to>` surface ([CompareElections.svelte](../../../../frontend/src/routes/CompareElections.svelte)) and the per-event sibling rail ([SiblingEventsRail.svelte](../../../../frontend/src/lib/elections/SiblingEventsRail.svelte)) carry the citizen-facing controls shipped by the 2026-06-17 compare-UX overhaul ([TODO/20260617-election-compare-ux-overhaul-plan.md](../../../../TODO/20260617-election-compare-ux-overhaul-plan.md); PRs #1120 / #1121 / #1123 / #1124 / #1125). Durable contracts:
 
-### Compare any two elections - no dropdown
+### Starting a comparison
 
-Comparison is chosen WITHOUT a dropdown (Jony 2026-06-18: the citizen called the
-dropdown "annoying and ugly" and the per-option winner-colours "unnecessary" - the
-original `YearComparePicker.svelte` popover was retired). Two surfaces:
+The two surfaces have DIFFERENT compare affordances (Jony + Citizen 2026-06-18, after
+several live-feedback iterations - a dropdown ON THE RAIL was rejected as "annoying/ugly",
+but a dropdown is right on the dedicated compare page):
 
-- **Sibling rail - tap-to-compare.** A monochrome **Compare** toggle sits after the year
-  strip (rendered only when an earlier same-body event exists). Tapping it enters compare
-  mode: a hint shows ("Tap an earlier year to compare with {year}"), the EARLIER chips
-  become tappable targets and the rest dim; tapping an earlier year navigates to
-  `link.compareElections(state, earlier, current)` (comparison reads older -> current).
-  Esc or tapping Compare again (now "Cancel") exits. The rail the citizen already reads IS
-  the picker - no popover, no list. The rail model (`sibling-events-rail-model.ts`)
-  supplies `compare_options` (earlier events only - the compare-mode target set) +
-  `state_slug` + `current_event_id`.
-- **Compare page - inline From / To chip strips.** Each axis is a horizontally-scrollable
-  row of year chips (selected = solid dark; the year pinned on the OTHER axis is muted +
-  disabled; others are tappable), so the citizen swaps either axis in place without a
-  dropdown. Built from `year-compare-picker-model.ts::buildYearPickerOptions` (still the
-  one place that decides ordering + the disabled flag). The selected chip carries the
-  `compare-elections-from-badge` / `-to-badge` testids; before the catalogue resolves the
-  header falls back to plain text badges.
+- **Sibling rail - soft CTA, not a control on the rail.** The rail is NAVIGATION-ONLY
+  (tap a year chip = go to that election). Comparing is offered as a gentle, inviting CTA
+  BELOW the rail (NOT a right-parked button, NOT a hidden tap-mode - both were rejected):
+  "See how this election compares **with {prior}** *or another year ->*". The ready chip
+  links to the prior-vs-current pairing (`model.compare_href`); "another year" lands on
+  the compare page where the dropdowns pick any pairing. Current chip = solid dark (the
+  single spotlight); others muted (`text-slate-500`); no winner-colour underline
+  (monochrome).
+- **Compare page - title-as-control, two dropdowns.** The H1 is `{state} . {body}
+  elections`; below it a control line `Earlier <year v>  vs  Later <year v>` - two custom
+  popover dropdowns ([YearDropdown.svelte](../../../../frontend/src/lib/elections/YearDropdown.svelte),
+  not a native `<select>`; each option row = winner-colour dot + year + a check on the
+  selected one). No "From/To" - the years self-label under faint `Earlier` / `Later`
+  eyebrows. The two are independent peers (open whichever first - supports picking the
+  anchor/target year first).
 
-### Rail focus + monochrome
+### Forward-time only (never a reverse comparison)
 
-The current year is the single spotlight (`bg-slate-900 text-white`); every other chip is
-MUTED (`text-slate-500`) so the current reads as in-focus even when the strip fits. There
-is NO per-chip winner-colour underline (removed 2026-06-18 - one spotlight, monochrome).
+A comparison ALWAYS reads oldest -> newest. `year-compare-picker-model.ts::buildTimeOrderedYearOptions`
+disables, in the **Earlier** dropdown, every year at/after the Later selection, and in the
+**Later** dropdown every year at/before the Earlier selection (greyed in place, never
+removed). One rule bans BOTH a reverse-in-time pair AND the same year on both sides, while
+still allowing any GAP (adjacent years or N-5 vs N). A hand-typed reverse URL
+(`/compare/.../<later>/<earlier>`) is normalised on load by a `navigate(..., {replace})`
+redirect to forward order, so the whole page (dropdowns + table + KPIs) reads oldest ->
+newest.
 
 ### Sibling-rail overflow affordance
 
