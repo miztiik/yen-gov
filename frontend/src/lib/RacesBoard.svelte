@@ -35,7 +35,13 @@
   // and passes them in here; MarginHistogram does the same. No `getDb`,
   // no SQL, no fetch — failure / loading arms live on the parent's
   // `LoaderResult`.
-  let { rows: input_rows, state: state_code, event = null }: { rows: AcWinner[] | null; state: string; event?: string | null } = $props();
+  //
+  // `hrefFor` (optional) lets the parent override the per-race href so
+  // RacesBoard stays presentational + body-agnostic: assembly call sites
+  // omit it and keep the default `link.ac(...)` AC drill; parliament call
+  // sites pass a resolver that routes each row to its PC drill. When null
+  // (the default) the behaviour is byte-identical to the AC-only era.
+  let { rows: input_rows, state: state_code, event = null, hrefFor = null }: { rows: AcWinner[] | null; state: string; event?: string | null; hrefFor?: ((row: { eci_no: number; name: string }) => string) | null } = $props();
 
   interface Row {
     eci_no: number;
@@ -247,7 +253,7 @@
               {@const mc = marginColor(r.margin_pct ?? 0)}
               <li>
                 <a
-                  href={link.ac(state_code, r.name, event)}
+                  href={hrefFor ? hrefFor({ eci_no: r.eci_no, name: r.name }) : link.ac(state_code, r.name, event)}
                   class="flex items-center gap-2 px-3 py-1.5 hover:bg-white transition-colors"
                   title="{r.name} (#{r.eci_no}) — {r.winner_party_short} won by {r.margin_pct?.toFixed(2) ?? '—'} pp"
                 >

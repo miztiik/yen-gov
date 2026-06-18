@@ -227,3 +227,63 @@ describe("StateElection.svelte - gap-closure G2/G3/G5 contract", () => {
   });
 });
 
+// ---------------------------------------------------------------------------
+// Row 2 (2026-06-18): section reorder + Races-by-competitiveness for
+// parliament. The election-route tail was reordered to
+//   Scatter -> CrossEventSankey -> AllParties -> RacesBoard -> ConstituencyList
+// and the Races mount gate was relaxed from assembly-only (body === "ac")
+// to assembly + parliament ((body === "ac" || body === "pc")). Freeze BOTH
+// at the vitest gate so a worktree-staleness merge can't silently revert
+// either half.
+// ---------------------------------------------------------------------------
+describe("StateElection.svelte - Row 2 reorder + PC races contract (2026-06-18)", () => {
+  it("orders Sankey -> AllParties -> RacesBoard -> ConstituencyList and admits PC to the races gate", () => {
+    const sankey_at = TEMPLATE.indexOf("<StateEventCrossEventSankey");
+    const all_at = TEMPLATE.indexOf("<StateEventAllParties");
+    const races_at = TEMPLATE.indexOf("<RacesBoard");
+    const list_at = TEMPLATE.indexOf("<StateEventConstituencyList");
+
+    expect(
+      sankey_at,
+      "StateEventCrossEventSankey mount not found in StateElection.svelte template",
+    ).toBeGreaterThanOrEqual(0);
+    expect(
+      all_at,
+      "StateEventAllParties mount not found in StateElection.svelte template",
+    ).toBeGreaterThanOrEqual(0);
+    expect(
+      races_at,
+      "RacesBoard mount not found in StateElection.svelte template",
+    ).toBeGreaterThanOrEqual(0);
+    expect(
+      list_at,
+      "StateEventConstituencyList mount not found in StateElection.svelte template",
+    ).toBeGreaterThanOrEqual(0);
+
+    expect(
+      sankey_at < all_at && all_at < races_at && races_at < list_at,
+      `Row 2 (2026-06-18) tail order MUST be StateEventCrossEventSankey -> ` +
+        `StateEventAllParties -> RacesBoard -> StateEventConstituencyList. ` +
+        `Found indices: sankey=${sankey_at}, allParties=${all_at}, ` +
+        `races=${races_at}, list=${list_at}. Reverting the reorder flips ` +
+        `this RED.`,
+    ).toBe(true);
+
+    // The races gate admits PC. We pin the races-SPECIFIC gate (it carries
+    // the `&& races_rows.length > 0` clause) rather than the bare
+    // `body === "ac" || body === "pc"` substring, because the latter
+    // already appears on the StateEventMap gate above - so the bare check
+    // would NOT flip RED when the races gate alone is reverted. This exact
+    // substring is unique to the races mount and reverts to
+    // `body === "ac" && races_rows.length > 0` on rollback.
+    expect(
+      TEMPLATE.includes('(body === "ac" || body === "pc") && races_rows.length > 0'),
+      `Row 2 (2026-06-18) relaxes the Races mount gate to admit PARLIAMENT ` +
+        `(PC) events: the template MUST contain the races gate ` +
+        `'(body === "ac" || body === "pc") && races_rows.length > 0'. If it ` +
+        `is missing, the races board is gated to assembly only again - ` +
+        `reverting the gate relaxation flips this RED.`,
+    ).toBe(true);
+  });
+});
+

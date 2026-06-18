@@ -489,7 +489,7 @@
   // glyph. AC events only (RacesBoard is AC-shaped, same as the state
   // page). Spec: TODO/20260616-state-event-page-gap-closure-plan.md G2.
   const races_rows = $derived<AcWinner[]>(
-    body !== "ac"
+    body !== "ac" && body !== "pc"
       ? []
       : winners.map<AcWinner>((w) => ({
           ac_eci_no: w.eci_no,
@@ -1352,15 +1352,42 @@
         resolved_event_id={event_row?.event_id}
       />
 
+      <!-- Cross-event SEAT-FLOW comparison. Gap-closure G5
+           (TODO/20260616-state-event-page-gap-closure-plan.md): the
+           prior vote-flow APPROXIMATION is replaced by the FACTUAL
+           hold/loss seat-transition Sankey - join current + prior
+           winners on entity_id, ribbon width = number of seats. Always-on
+           holds/flips headline; the seat-flow diagram renders inline
+           (always-on, no toggle). When no prior same-body event exists
+           the section renders the no-prior copy. -->
+      <StateEventCrossEventSankey
+        current_winners={winners}
+        prev_winners={prev_winners_state}
+        prev_event_label={hero_delta.prev_event_label}
+        {current_event_label}
+        {body_pretty}
+        {state_name}
+      />
+
+      <!-- All parties - directory. Gap-closure G3
+           (TODO/20260616-state-event-page-gap-closure-plan.md): the
+           searchable all-parties directory existed on /<state> but was
+           never mounted on the election route. Sits after the seat-flow
+           Sankey; lists every party that contested (not just the top-N
+           from the composite), each linking to its party page. -->
+      <StateEventAllParties parties={all_parties} {loading} />
+
       <!-- Races by competitiveness. Gap-closure G2
            (TODO/20260616-state-event-page-gap-closure-plan.md): the
            RacesBoard surface existed on /<state> but was never mounted
            on the election route. Sits directly ABOVE the constituency
            list so the citizen reads the competitiveness story (who won
-           easily / nail-biters) before the per-AC rows. AC events only;
-           races_rows carries TRUE winner colours + the symbol asset
-           (NOT the margin-grey the map shim uses). -->
-      {#if body === "ac" && races_rows.length > 0}
+           easily / nail-biters) before the per-constituency rows.
+           Assembly + parliament events; races_rows carries TRUE winner
+           colours + the symbol asset (NOT the margin-grey the map shim
+           uses). For parliament the per-race href routes to the PC drill
+           via hrefFor; assembly keeps the default AC link. -->
+      {#if (body === "ac" || body === "pc") && races_rows.length > 0}
         <section
           class="rounded border border-slate-200 bg-white p-4"
           data-testid="state-event-races-board"
@@ -1372,6 +1399,7 @@
             state={state_code ?? ""}
             rows={races_rows}
             event={event_row?.event_id ?? null}
+            hrefFor={body === "pc" ? (r) => link.pc(state_code ?? "", event_row?.event_id ?? "", slugify(r.name)) : undefined}
           />
         </section>
       {/if}
@@ -1392,31 +1420,6 @@
         {fmtInt}
         {fmtPct}
       />
-
-      <!-- Cross-event SEAT-FLOW comparison. Gap-closure G5
-           (TODO/20260616-state-event-page-gap-closure-plan.md): the
-           prior vote-flow APPROXIMATION is replaced by the FACTUAL
-           hold/loss seat-transition Sankey - join current + prior
-           winners on entity_id, ribbon width = number of seats. Always-on
-           holds/flips headline; the diagram is collapsed behind a 'Show
-           seat flow' pill. When no prior same-body event exists the
-           section renders the no-prior copy with no button. -->
-      <StateEventCrossEventSankey
-        current_winners={winners}
-        prev_winners={prev_winners_state}
-        prev_event_label={hero_delta.prev_event_label}
-        {current_event_label}
-        {body_pretty}
-        {state_name}
-      />
-
-      <!-- All parties - directory. Gap-closure G3
-           (TODO/20260616-state-event-page-gap-closure-plan.md): the
-           searchable all-parties directory existed on /<state> but was
-           never mounted on the election route. Final content section;
-           lists every party that contested (not just the top-N from the
-           composite), each linking to its party page. -->
-      <StateEventAllParties parties={all_parties} {loading} />
     {/if}
   {/if}
 </PageContainer>
