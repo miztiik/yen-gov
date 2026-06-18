@@ -596,6 +596,44 @@ def consolidate_fuel_facets(
         )
 
 
+@app.command("consolidate-product-facets")
+def consolidate_product_facets(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Collapse per-product oil geo datapoint files into faceted geo_by_product.
+
+    Path A sibling of ``consolidate-fuel-facets`` for the petroleum-product
+    axis (columns.json blesses one per-axis sibling class
+    datasets/data/datapoints/geo_by_<axis>/*.csv): reads the per-product
+    single-value files under datasets/data/datapoints/geo/ and writes one
+    faceted file per measure under datasets/data/datapoints/geo_by_product/
+    with a ``product`` dimension column. The per-product inputs are deleted in
+    the same migration's final commit.
+    """
+    from yen_gov.canonical.fuel_facet_consolidation import (
+        OIL_PRODUCT_FAMILIES,
+        write_faceted_family,
+    )
+
+    for spec in OIL_PRODUCT_FAMILIES:
+        out_path = write_faceted_family(root, spec)
+        n_rows = sum(1 for _ in out_path.read_text(encoding="utf-8").splitlines()) - 1
+        typer.echo(
+            f"consolidate-product-facets: wrote "
+            f"{out_path.relative_to(root).as_posix()} "
+            f"({n_rows} rows; all_member={spec.has_all_member}; "
+            f"{len(spec.children)} products)"
+        )
+
+
 @app.command("ingest-cea-installed-capacity")
 def ingest_cea_installed_capacity(
     root: Path = typer.Option(
