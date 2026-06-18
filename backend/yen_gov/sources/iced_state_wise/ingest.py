@@ -12,8 +12,10 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
+from yen_gov.sources.iced_common import load_iced_response
 
 from .parsers import (
     ENTITY_MAP,
@@ -520,3 +522,199 @@ def _emit_csv_for(
         payload_rows, source_id=source_id, variable_prefix=variable_prefix
     )
     return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+
+
+# ---------------------------------------------------------------------------
+# Multi-FY state-wise re-ingest (Tier-B: orphan single-value -> LIVE re-ingest)
+# ---------------------------------------------------------------------------
+#
+# Graduates the ICED state-wise deep-dive SINGLE-VALUE energy indicators from
+# orphan (the energy-adapter lift code was deleted in X1b-pt2) to LIVE
+# re-ingest: an operator stages one response per fiscal year
+# (``<fy_label>.json``, e.g. ``2024-25.json``) under a directory, runs the CLI,
+# and the per-FY per-state columns are accumulated + emitted as one
+# ``geo/<variable_id>.csv`` per indicator. ECI state codes translate to LGD
+# slugs (``IN`` passthrough); fiscal-year periods reduce to integer years.
+#
+# SCOPE / RECONCILIATION (verified against the on-disk ``geo/*.csv`` +
+# ``entities/source.csv`` citation ledger; ``derive_source_id`` reproduces each
+# on-disk ``source_id`` so a re-emit is idempotent with the committed file):
+#
+#   rooftop-solar-capacity-mw  api_key "Rooftop Solar Capacity"  -> src-018bb42f9519
+#       single-source (NITI "Rooftop Solar Capacity (MW) State-wise API"),
+#       FY2017-2025, 321 rows. INCLUDED.
+#   electricity-sales-mu       api_key "Electricity Sales"       -> src-bb1d7bec8b34
+#       single-source (NITI "State-wise Deep Dive API"), FY2015-2024, 356 rows.
+#       INCLUDED.
+#
+# installed-capacity-allocated-mw is EXCLUDED. Its on-disk file is a DUAL-SOURCE
+# historical merge: RBI Handbook Table 140 [src-3d1d55f8a94b] for FY2004-2014
+# (374 rows) + ICED State-wise Deep Dive [src-bb1d7bec8b34] for FY2015-2025
+# (396 rows). A clean ICED-only re-emit reproduces ONLY the 396 ICED rows and
+# would TRUNCATE the 374 RBI historical rows (data loss). The RBI portion
+# belongs to ``ingest-rbi-hbs``; faithfully reproducing the merged file needs a
+# merge-preserving emit, out of scope for a Path-C single-value re-ingest. The
+# ICED ``source_id`` DOES reproduce, but the FILE is not idempotently
+# reproducible, so the indicator is left out of this CLI rather than silently
+# truncated.
+
+_STATE_WISE_PRODUCER = _CSV_SOURCE_PRODUCER  # NITI Aayog India Climate & Energy Dashboard
+
+
+@dataclass(frozen=True)
+class _StateWiseTarget:
+    """One single-value indicator the multi-FY state-wise re-ingest emits.
+
+    ``spec`` locates the per-state column in each decrypted FY response;
+    ``variable_id`` is the EXACT on-disk ``geo/<variable_id>.csv`` filename;
+    ``source_title`` + ``source_vintage`` reproduce the on-disk ``source_id``
+    via :func:`derive_source_id` (idempotent re-emit).
+    """
+
+    spec: IndicatorSpec
+    variable_id: str
+    source_title: str
+    source_vintage: str
+
+
+_STATE_WISE_TARGETS: tuple[_StateWiseTarget, ...] = (
+    _StateWiseTarget(
+        spec=IndicatorSpec(
+            indicator_id="energy/state_rooftop_solar_capacity_mw",
+            api_key="Rooftop Solar Capacity",
+        ),
+        variable_id="rooftop-solar-capacity-mw",
+        source_title=(
+            "Rooftop Solar Capacity (MW) State-wise API (per-state cumulative "
+            "rooftop solar installed capacity)"
+        ),
+        source_vintage="2024-25",
+    ),
+    _StateWiseTarget(
+        spec=IndicatorSpec(
+            indicator_id="energy/state_electricity_sales_mu",
+            api_key="Electricity Sales",
+        ),
+        variable_id="electricity-sales-mu",
+        source_title="State-wise Deep Dive API",
+        source_vintage="2024-25",
+    ),
+)
+
+
+@dataclass(frozen=True)
+class StateWiseTargetResult:
+    """Receipt for one emitted single-value geo CSV."""
+
+    variable_id: str
+    artifact_path: Path
+    row_count: int
+
+
+@dataclass(frozen=True)
+class StateWiseIngestResult:
+    """Receipt for one multi-FY state-wise re-ingest run."""
+
+    targets: tuple[StateWiseTargetResult, ...]
+    fy_labels: tuple[str, ...]
+    skipped_missing: int
+
+
+def _to_slug(eci_st_code: str) -> str:
+    """ECI st_code -> LGD slug, with the country rollup passed through.
+
+    Mirrors ``iced_power.ingest._to_slug`` / ``iced_fuel.ingest._to_slug``.
+    ``extract_rows`` emits ECI st_codes (``S13``) via ``ENTITY_MAP``;
+    ``entities/geo.csv`` keys on LGD slugs (``maharashtra``), and the ICED
+    "All India" row maps to ``IN`` (passed through unchanged).
+    """
+    if eci_st_code == "IN":
+        return "IN"
+    return eci_to_lgd_slug(eci_st_code)
+
+
+def build_state_wise_rows(
+    parsed_years: list[ParsedYear],
+    *,
+    source_id: str,
+) -> list[dict[str, Any]]:
+    """Flatten per-FY ParsedYear rows into geo CSV rows (ECI -> slug, year int).
+
+    Each ``ParsedRow(entity_id(ECI), time("YYYY-04"), value)`` becomes a
+    canonical geo row ``{entity_id(slug), time(int year), value, source_id}``.
+    Rows accumulate across the supplied fiscal years; ``write_csv`` sorts by
+    the ``(entity_id, time)`` PK at emit time.
+    """
+    rows: list[dict[str, Any]] = []
+    for parsed in parsed_years:
+        for r in parsed.rows:
+            rows.append({
+                "entity_id": _to_slug(r.entity_id),
+                "time": _period_to_year_int(r.time),
+                "value": r.value,
+                "source_id": source_id,
+            })
+    return rows
+
+
+def ingest_state_wise(
+    *, repo_root: Path, staging_dir: Path, decrypt: bool = True
+) -> StateWiseIngestResult:
+    """Re-ingest the ICED state-wise single-value energy indicators across FYs.
+
+    Operator-staged local files (no network): one response per fiscal year
+    named ``<fy_label>.json`` (e.g. ``2024-25.json``) under ``staging_dir``. The
+    state-wise endpoint is AES-encrypted on the wire, so ``decrypt=True``
+    (default) makes :func:`load_iced_response` decrypt each envelope before
+    parsing (an already-plain staged file still loads).
+
+    For each target in :data:`_STATE_WISE_TARGETS` the run extracts the
+    per-state column from every FY, accumulates the rows, re-keys ECI state
+    codes to LGD slugs (``IN`` passthrough), reduces fiscal-year periods to
+    integer years, derives the per-indicator ``source_id`` (reproducing the
+    on-disk id for an idempotent re-emit), and emits ONE
+    ``datasets/data/datapoints/geo/<variable_id>.csv``.
+
+    A target absent from a given FY response (``ICEDShapeError`` on the
+    per-(target, FY) extract) is skipped and counted in ``skipped_missing``
+    rather than failing the whole run -- early fiscal years may not carry every
+    indicator. Returns a per-target receipt list plus the FY labels processed.
+    """
+    decoded_by_fy: list[tuple[str, dict[str, Any]]] = []
+    for path in sorted(staging_dir.glob("*.json")):
+        decoded = load_iced_response(path.read_bytes(), decrypt=decrypt)
+        if isinstance(decoded, dict):
+            decoded_by_fy.append((path.stem, decoded))
+
+    results: list[StateWiseTargetResult] = []
+    skipped_missing = 0
+    for target in _STATE_WISE_TARGETS:
+        parsed_years: list[ParsedYear] = []
+        for fy_label, decoded in decoded_by_fy:
+            try:
+                parsed_years.append(
+                    extract_rows(
+                        spec=target.spec, fy_label=fy_label, decrypted=decoded
+                    )
+                )
+            except ICEDShapeError:
+                skipped_missing += 1
+        source_id = derive_source_id(
+            _STATE_WISE_PRODUCER, target.source_title, target.source_vintage
+        )
+        rows = build_state_wise_rows(parsed_years, source_id=source_id)
+        written = emit_csv_variables(
+            repo_root=repo_root, by_variable={target.variable_id: rows}
+        )
+        results.append(
+            StateWiseTargetResult(
+                variable_id=target.variable_id,
+                artifact_path=written[0],
+                row_count=len(rows),
+            )
+        )
+    return StateWiseIngestResult(
+        targets=tuple(results),
+        fy_labels=tuple(fy for fy, _ in decoded_by_fy),
+        skipped_missing=skipped_missing,
+    )
