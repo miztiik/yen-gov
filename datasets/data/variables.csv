@@ -18,6 +18,7 @@ bio-energy-potential-mw,Bio-energy potential,bio-energy-potential,MW,Sum of the 
 candidate-rank,Rank,rank,rank,,elections,,365,,,
 candidate-vote-share-pct,Vote share,vote-share-candidate,%,,elections,,365,,,
 candidate-votes-polled,Candidate votes,candidate-votes,votes,,elections,,365,,,
+coal-capacity-fgd-share-pct,Operating coal capacity fitted with FGD (SO2 scrubbers),coal-fgd-compliance-share,%,"Each coal unit geocoded to its state by point-in-polygon over the LGD state boundaries (datasets/boundaries/in/states/all.geojson; ray-casting, with a bounded coastal-boundary snap for plants just outside the simplified coastline). Per state, share = 100 x (sum capacity of operating coal units with FGD installed) / (sum capacity of all operating coal units). Operating = commissioningGroup 'operational'; FGD installed = fgdGroup 'FGD installed'.",energy,src-85c67674901f,365,2026,2026,state
 coal-consumption-mt,Coal consumption,coal-consumption,Mt,,energy,src-c222a8e2cd61,365,,,
 distribution-efficiency-pct,Distribution efficiency,distribution-efficiency,%,,energy,,365,,,
 distribution-efficiency-pct-billing,Billing efficiency,billing-efficiency,%,,energy,src-650b1c25d1f7,365,,,

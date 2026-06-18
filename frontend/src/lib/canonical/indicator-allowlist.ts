@@ -741,6 +741,53 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- Tier-B coal-FGD ingest (2026-06-18) ---
+  // ICED coal-plant AQI-impact feed -> 1 NET-NEW state-grain share indicator
+  // emitted to data/datapoints/geo/coal-capacity-fgd-share-pct.csv by
+  // backend/yen_gov/canonical/adapters/iced_coal_fgd. A SNAPSHOT (FGD-retrofit
+  // status is current, not a time series) stamped at one assessment year
+  // (2026). Each coal UNIT carries coordinates but no state field, so the
+  // adapter GEOCODES every unit to its LGD state by point-in-polygon over
+  // datasets/boundaries/in/states (ray-casting, with a bounded coastal-
+  // boundary snap for the handful of coastal plants just outside the
+  // simplified coastline). Per state, share = operating coal capacity with
+  // FGD installed / total operating coal capacity. A geocode-derived
+  // (major-processing) statistic. table_id is nominal (CSV-only descriptor -
+  // csv_path is the live read path; there is no parquet stem).
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_coal_fgd_share_pct",
+    canonical_indicator_id: "coal-capacity-fgd-share-pct",
+    csv_path: "data/datapoints/geo/coal-capacity-fgd-share-pct.csv",
+    table_id: "energy.coal_fgd",
+    meta: {
+      id: "coal-capacity-fgd-share-pct",
+      title: "Operating coal capacity fitted with FGD / SO2 scrubbers (% share)",
+      description:
+        "Share of a state's OPERATING coal-power capacity fitted with FGD (flue-gas desulphurisation - the SO2 'scrubber' the 2015 emission norms require). More scrubbed capacity = less sulphur dioxide in the air the state breathes. The numerator is operating coal units whose FGD is installed; the denominator is all operating coal units. India's FGD-retrofit programme runs years behind schedule, so most coal states still sit in single digits or at zero - a low number is the honest reality of the rollout, not a data gap.",
+      entity_kind: "state",
+      time_grain: "year",
+      value_kind: "share",
+      direction: "higher_is_better",
+      scale_hint: "linear",
+      unit: "%",
+      short_unit: "%",
+      icon: "factory",
+      attribution_geography: "where_produced",
+      comparability: "comparable_across_states_snapshot_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NITI Aayog ICED 'Coal Plant AQI Impact List' (2024-25 edition), recorded as a 2026 snapshot. FGD status from the feed's fgdGroup field ('FGD installed' = scrubbed); operating fleet = commissioningGroup 'operational'. Each plant geocoded to its state by point-in-polygon over datasets/boundaries/in/states (ray-casting; a bounded nearest-boundary snap places coastal plants just outside the simplified coastline). A geocode-derived, major-processing statistic.",
+      notes:
+        "A current snapshot of FGD-retrofit status, not a time series - the SO2 norm post-dates most plants, so units are retrofitted one by one over years. CFBC boilers (a different in-furnace SO2 control, not a flue-gas scrubber) and unverified 'claims to be SO2 compliant' are deliberately NOT counted as installed FGD.",
+    },
+    caveats: [
+      "Plants geocoded to state by coordinates (point-in-polygon). A handful of coastal plants that fall just outside the simplified coastline are snapped to the nearest state boundary.",
+      "FGD status is a current snapshot - plants retrofit over time, so a state's share rises as units are scrubbed.",
+      "Share of the OPERATING coal fleet only; retired and under-construction units are excluded. CFBC boilers and unverified SO2-compliance claims are not counted as installed FGD.",
+    ],
+  },
+
   // --- PR-R (Row 6 P.1.C 2/9, rooftop solar capacity lift, 2026-05-25) ---
   // ICED `/energy/renewable/solar/rooftop/state` -> 321 obs rows (states x
   // fiscal-years FY18-FY25) joined into the existing `energy_installed_capacity`

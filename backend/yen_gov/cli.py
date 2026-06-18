@@ -2585,6 +2585,82 @@ def ingest_iced_renewable_potential(
     typer.echo(f"  total rows written: {result.total_rows}")
 
 
+@app.command("ingest-iced-coal-fgd")
+def ingest_iced_coal_fgd(
+    staging_dir: Path = typer.Option(
+        ...,
+        "--staging-dir",
+        "-s",
+        help=(
+            "Directory holding the operator-staged ICED coal-plant AQI-impact "
+            "response named aq_coal_plant_impact.json. AES-encrypted; saved "
+            "raw by tools/iced_stage.py and decrypted here. No network."
+        ),
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Ingest the ICED coal-plant FGD air-quality feed -> coal-capacity-fgd-share-pct.
+
+    Each coal unit is geocoded to its state by point-in-polygon over the LGD
+    state boundaries (datasets/boundaries/in/states/all.geojson; ray-casting,
+    with a bounded coastal-boundary snap for plants just outside the
+    simplified coastline). Per state, share = 100 x (operating coal capacity
+    with FGD installed) / (total operating coal capacity). A SNAPSHOT (FGD
+    status is current, not a time series) stamped at one assessment year.
+    Upserts the variables / concepts / source catalogue rows. FAILS LOUD
+    rather than emit a misleading partial series if too much of the fleet
+    cannot be geocoded. Idempotent: re-running the same staged feed is a no-op.
+    """
+    from yen_gov.canonical.adapters.iced_coal_fgd import ingest as ingest_coal_fgd
+
+    result = ingest_coal_fgd(repo_root=root, staging_dir=staging_dir)
+    pr = result.parse_report
+    gr = result.geocode_report
+
+    typer.echo("ingest-iced-coal-fgd: OK")
+    typer.echo(f"  output:  {result.output_path.relative_to(root).as_posix()}")
+    typer.echo(f"  rows:    {result.row_count}  (states with operating coal)")
+    typer.echo(f"  source:  {result.source_id}")
+    typer.echo(
+        f"  parsed:  {pr.coal_units} coal units; {pr.operational_units} "
+        f"operating; {pr.operational_fgd_units} operating with FGD installed"
+    )
+    typer.echo(
+        f"  geocode: {gr.placed_contained} contained + {gr.placed_snapped} "
+        f"coastal-snapped = {gr.placed_contained + gr.placed_snapped} placed; "
+        f"{len(gr.unplaced_units)} unplaced; "
+        f"{len(gr.missing_coords_units)} missing-coords "
+        f"({gr.unattributed_fraction:.2%} unattributed)"
+    )
+    if gr.snapped_units:
+        typer.echo("  coastal-snapped plants (placed via nearest-boundary snap):")
+        for unit in gr.snapped_units:
+            typer.echo(
+                f"    {unit.plant_name} ({unit.lat}, {unit.lng}) "
+                f"cap={unit.capacity_mw} MW fgd={unit.has_fgd}"
+            )
+    if gr.unplaced_units:
+        typer.echo("  UNPLACED plants (no state within snap tolerance):")
+        for unit in gr.unplaced_units:
+            typer.echo(f"    {unit.plant_name} ({unit.lat}, {unit.lng})")
+    typer.echo(
+        f"  states:  {gr.states_emitted} with operating coal, "
+        f"{gr.states_with_fgd} with any FGD; "
+        f"national operating FGD share {gr.national_share_pct}%"
+    )
+
+
 @app.command("ingest-iced-plant-load-factor")
 def ingest_iced_plant_load_factor(
     json_path: Path = typer.Argument(
