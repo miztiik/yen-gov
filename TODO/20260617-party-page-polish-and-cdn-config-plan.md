@@ -128,13 +128,13 @@ After the first plan draft + the persona consult, the user reviewed and ruled:
 
 | Row | Title | Status | PR | Effort |
 | --- | --- | --- | --- | --- |
-| A | CDN/base config seam (`assetUrl`) + consolidate readers + contract test (forces wiki `src` base-fix) | [ ] PENDING | - | M |
-| B | Wiki logo: drop visible "Wikipedia" text, keep logo image + tooltip | [ ] PENDING | - | S |
-| C | Sources: replace 5 per-card lines + orphan footer with ONE page-foot mapped sentence (Jony P2) | [ ] PENDING | - | M |
-| D | "best:" caption -> REUSE the existing trophy glyph + "N seats in YYYY" (Jony P3; resolves Max "best" ambiguity) | [ ] PENDING | - | S |
-| E | Strongholds: `StrongholdList.svelte` two-line hierarchy + colour-coded strike-rate badge + strike-rate sort, top-5 + show-all | [ ] PENDING | - | M |
-| F | Headings (user-decided): "{party} latest scorecard" + "Who {party} team up with" | [ ] PENDING | - | S |
-| G | Parliament strength-line date -> `link.nationalElection(event_id)` link | [ ] PENDING | - | S |
+| A | CDN/base config seam (`assetUrl`) + consolidate readers + contract test (forces wiki `src` base-fix) | [x] DONE | #1129 | M |
+| B | Wiki logo: drop visible "Wikipedia" text, keep logo image + tooltip | [x] DONE | #1130 | S |
+| C | Sources: replace 5 per-card lines + orphan footer with ONE page-foot mapped sentence (Jony P2) | [x] DONE | #1131 | M |
+| D | "best:" caption -> REUSE the existing trophy glyph + "N seats in YYYY" (Jony P3; resolves Max "best" ambiguity) | [x] DONE | #1132 | S |
+| E | Strongholds: `StrongholdList.svelte` two-line hierarchy + colour-coded strike-rate badge + strike-rate sort, top-5 + show-all | [x] DONE | #1134 | M |
+| F | Headings (user-decided): "{party} latest scorecard" + "Who {party} team up with" | [x] DONE | #1135 | S |
+| G | Parliament strength-line date -> `link.nationalElection(event_id)` link | [x] DONE | #1136 | S |
 
 Phase / dependency: **A first** (foundational seam + guard). **B depends on A** (uses the seam).
 **C, D, E, F, G are independent** of A and of each other (none add base-less asset strings) and
@@ -387,6 +387,33 @@ When this plan is in context and the instruction is "implement it", execute as t
 9. **Closure.** Done only when every in-scope row is DONE or COLLAPSED-with-cited-rationale. No-op rows carry a receipt (the command + its zero result). Archive the plan-doc with a per-row distillation map per `docs/how-to/distill-a-plan.md`.
 
 ---
+
+## Section 4 - Closure (2026-06-18)
+
+All seven rows shipped as seven squash-merged PRs off `main`, one row each, via an isolated
+worktree + per-row `runSubagent` briefs (the orchestrator verified gates + the section-13
+browser smoke on `/parties/cpi` for every row):
+
+| Row | PR | Note |
+| --- | --- | --- |
+| A - CDN/base `assetUrl` seam + `cdn-assets-use-seam` contract | #1129 | foundational seam; wiki `src` base-fixed |
+| B - wiki logo icon-only + tooltip | #1130 | depends on A |
+| C - one page-foot provenance sentence | #1131 | 5 SourceList mounts -> one foot block, ECI+Wikipedia kept clickable |
+| D - chart-caption trophy glyph | #1132 | reused the MarginHistogram Lucide trophy |
+| E - `StrongholdList` + colour-coded strike-rate + sort | #1134 | frontend re-sort of the mart-`rank` arrays |
+| F - party-named card headings | #1135 | `{party} latest scorecard` + `Who {party} team up with` |
+| G - parliament-date election link | #1136 | `link.nationalElection(event_id)` |
+
+**Distillation (per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md)):**
+
+- Row A's base/CDN seam - the `frontend/src/lib/config/cdn.ts` `assetUrl`/`withBase`/`CDN_BASE`
+  consolidation + the `cdn-assets-use-seam.test.ts` guard - is folded into
+  [docs/architecture/deployment.md](../docs/architecture/deployment.md) "Pages URL base".
+- Agent-only execution lessons (stacked-PR pipeline for file-sharing sequential rows, the Svelte
+  trailing-whitespace trim needing `{" "}`, the two icon-registry gates, the stronghold mart-`rank`
+  display ordering, source-contract testing of routes) live in agent memory, not `docs/`.
+- Rows B-G are citizen-facing UX on `/parties/<slug>`; the shipped components + their contract tests
+  are the durable record (no separate `docs/` home needed).
 
 ## See also
 
