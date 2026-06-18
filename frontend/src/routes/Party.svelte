@@ -760,8 +760,12 @@
             <span>Parliament - every general election contested</span>
           </h2>
           {#if ls_peak > 0}
-            <span class="text-xs text-slate-500">
-              best: {ls_peak} seats in {ls_peak_year}
+            <span class="text-xs text-slate-500 inline-flex items-center gap-1">
+              <TopicIcon
+                name="trophy"
+                cls="inline-block w-3.5 h-3.5 text-amber-600 shrink-0"
+              />
+              {ls_peak} seats in {ls_peak_year}
             </span>
           {/if}
         </div>
@@ -795,8 +799,12 @@
             <span>State Assembly - every election contested</span>
           </h2>
           {#if vs_peak > 0}
-            <span class="text-xs text-slate-500">
-              best: {vs_peak} seats in {vs_peak_year}
+            <span class="text-xs text-slate-500 inline-flex items-center gap-1">
+              <TopicIcon
+                name="trophy"
+                cls="inline-block w-3.5 h-3.5 text-amber-600 shrink-0"
+              />
+              {vs_peak} seats in {vs_peak_year}
             </span>
           {/if}
         </div>

@@ -31,12 +31,12 @@ inside the open families above.
 
 ## Inventory
 
-The 25 glyphs listed below are the file set this directory carries. The
+The 26 glyphs listed below are the file set this directory carries. The
 21 originally migrated under U3 (plan chunk U3, 2026-06-05; the set was
 unchanged from the prior `frontend/src/lib/icons/` location — only the
 on-disk home moved per plan section 21.10) plus `chevron-right` (added
 under U2b, 2026-06-05) for the `Breadcrumb` separator glyph between
-ascend crumbs (see [`frontend/src/lib/Breadcrumb.svelte`](../../src/lib/Breadcrumb.svelte); the breadcrumb spine was renamed to its current shared form in PR-W1d, 2026-06-10), plus `wikipedia` (added under PR-3 D4 of [`TODO/20260615-party-page-citizen-fixes-plan.md`](../../../TODO/20260615-party-page-citizen-fixes-plan.md)) for the Gallagher "learn more" link, plus `wheat` (added 2026-06-16) for the `agriculture` topic card's glyph on the home Topic Front Door, plus `arrow-left-right` (added 2026-06-17) for the compare-page Flips KPI card glyph per [PR4 of the election-compare UX overhaul plan](../../../TODO/20260617-election-compare-ux-overhaul-plan.md). The original Party-page consumer (PartyAboutCard) was RIP'd in Wave-F F6 in favour of the CC BY-SA puzzle-globe served as a static brand asset from [`../brands/wikipedia.svg`](../brands/LICENCES.md); the W glyph survives here for the sole remaining consumer (`GallagherDisproportionality.svelte`).
+ascend crumbs (see [`frontend/src/lib/Breadcrumb.svelte`](../../src/lib/Breadcrumb.svelte); the breadcrumb spine was renamed to its current shared form in PR-W1d, 2026-06-10), plus `wikipedia` (added under PR-3 D4 of [`TODO/20260615-party-page-citizen-fixes-plan.md`](../../../TODO/20260615-party-page-citizen-fixes-plan.md)) for the Gallagher "learn more" link, plus `wheat` (added 2026-06-16) for the `agriculture` topic card's glyph on the home Topic Front Door, plus `arrow-left-right` (added 2026-06-17) for the compare-page Flips KPI card glyph per [PR4 of the election-compare UX overhaul plan](../../../TODO/20260617-election-compare-ux-overhaul-plan.md), plus `trophy` (added 2026-06-18) for the party-page chart captions' peak-seats celebration mark per [Row D of the party-page polish + CDN config plan](../../../TODO/20260617-party-page-polish-and-cdn-config-plan.md). The original Party-page consumer (PartyAboutCard) was RIP'd in Wave-F F6 in favour of the CC BY-SA puzzle-globe served as a static brand asset from [`../brands/wikipedia.svg`](../brands/LICENCES.md); the W glyph survives here for the sole remaining consumer (`GallagherDisproportionality.svelte`).
 
 | Icon | Family | Source URL | Licence | Attribution | Modifications |
 | --- | --- | --- | --- | --- | --- |
@@ -59,6 +59,7 @@ ascend crumbs (see [`frontend/src/lib/Breadcrumb.svelte`](../../src/lib/Breadcru
 | sun | Lucide | https://lucide.dev/icons/sun | ISC | | none |
 | trending-down | Lucide | https://lucide.dev/icons/trending-down | ISC | | none |
 | trending-up | Lucide | https://lucide.dev/icons/trending-up | ISC | | none |
+| trophy | Lucide | https://lucide.dev/icons/trophy | ISC | | none |
 | users | Lucide | https://lucide.dev/icons/users | ISC | | none |
 | vote | Lucide | https://lucide.dev/icons/vote | ISC | | none |
 | wheat | Lucide | https://lucide.dev/icons/wheat | ISC | | none |

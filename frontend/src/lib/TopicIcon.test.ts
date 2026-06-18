@@ -123,6 +123,10 @@ describe("TopicIcon helpers", () => {
         "sun",
         "trending-down",
         "trending-up",
+        // Row D (2026-06-18): the party-page chart captions swap the
+        // "best:" word for this Lucide trophy glyph. See
+        // TODO/20260617-party-page-polish-and-cdn-config-plan.md.
+        "trophy",
         "users",
         "vote",
         "wheat",
