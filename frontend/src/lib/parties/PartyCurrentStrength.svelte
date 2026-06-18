@@ -86,9 +86,12 @@
     /** Sentinel short-circuit: NOTA / UNK suppress the strip even if
      *  the view-model accidentally arrived populated. */
     is_sentinel: boolean;
+    /** Party short code (e.g. "CPI") - names the strip heading +
+     *  aria-label so the section reads "CPI latest scorecard". */
+    party_label: string;
   }
 
-  const { current_strength, is_sentinel }: Props = $props();
+  const { current_strength, is_sentinel, party_label }: Props = $props();
 
   const visible = $derived(!is_sentinel && current_strength !== null);
   const parliament = $derived(current_strength?.parliament_latest ?? null);
@@ -100,10 +103,10 @@
   <section
     data-testid="party-current-strength"
     class="mt-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm md:mt-4 md:p-5"
-    aria-label="Where this party sits today"
+    aria-label={`${party_label} latest scorecard`}
   >
     <h2 class="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
-      Where this party sits today
+      {party_label} latest scorecard
     </h2>
     {#if parliament}
       <p
