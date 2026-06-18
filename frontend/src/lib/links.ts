@@ -21,23 +21,13 @@
 //     (`withBase`, `stripBase`, `navigate`); the Grammar B `url.X()`
 //     builders that used to live there are deleted.
 //   * frontend/src/lib/slug.ts — the slugify primitive shared with url.ts.
+//   * frontend/src/lib/config/cdn.ts — the single base/CDN seam that owns
+//     the canonical `withBase` consumed by every builder below.
 //   * frontend/src/lib/paths.ts — the (unrelated) DATA_BASE prefix module.
 
 import { slugify, partyIdToSlug } from "./slug";
 import { states } from "./states.svelte";
-
-const BASE = import.meta.env.BASE_URL; // always ends in '/'
-
-/**
- * Prefix a path with the deploy base URL. Inputs MUST start with `/`;
- * the duplicate slash that BASE='/yen-gov/' would otherwise produce is
- * collapsed. Mirrors `url.ts:withBase` so behaviour is identical between
- * the two builder layers.
- */
-export function withBase(path: string): string {
-  if (!path.startsWith("/")) path = "/" + path;
-  return BASE.replace(/\/$/, "") + path;
-}
+import { withBase } from "./config/cdn";
 
 /** Resolve a state code OR an already-slugified state name to the
  * canonical state slug. Lower-cases unknown codes as a graceful fallback

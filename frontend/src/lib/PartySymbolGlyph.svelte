@@ -19,6 +19,8 @@
   render the same glyph treatment without copy-pasting <img> markup.
 -->
 <script lang="ts" module>
+  import { assetUrl } from "./config/cdn";
+
   /**
    * Fallback policy when `assetPath` is null / undefined / empty.
    *   - "silent"      : return null; the component renders nothing
@@ -56,17 +58,16 @@
     assetPath: string | null | undefined,
     fallback: GlyphFallbackMode = "silent",
   ): string | null {
-    const base = import.meta.env.BASE_URL;
     if (assetPath == null || assetPath.trim().length === 0) {
       if (fallback === "placeholder") {
-        return `${base}party-symbols/placeholder.svg`;
+        return assetUrl("/party-symbols/placeholder.svg");
       }
       if (fallback === "unverified") {
-        return `${base}party-symbols/unverified.svg`;
+        return assetUrl("/party-symbols/unverified.svg");
       }
       return null;
     }
-    return `${base}${assetPath.trim().replace(/^\/+/, "")}`;
+    return assetUrl(assetPath.trim());
   }
 </script>
 

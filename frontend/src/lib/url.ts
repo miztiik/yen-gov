@@ -7,7 +7,11 @@
 // belong on the link object:
 //
 //   * `withBase(path)`     — prefix a path with the deploy `BASE_URL`.
-//                            Used by every `link.X()` builder.
+//                            Canonical definition now lives in
+//                            `./config/cdn` (the single base/CDN seam);
+//                            re-exported here so existing
+//                            `import { withBase } from "./url"` call sites
+//                            keep working. Used by every `link.X()` builder.
 //   * `stripBase(pathname)`— inverse, used by the router to derive the
 //                            route path from `window.location.pathname`.
 //   * `navigate(path)`     — programmatic navigation (pushState +
@@ -20,21 +24,17 @@
 // The `url` builder object was Grammar B (`/s/<state>/...`) and is
 // retired in PR-P3. Any new builder belongs on `link` in `./links.ts`.
 
-const BASE = import.meta.env.BASE_URL; // always ends in '/'
+import { CDN_BASE, withBase } from "./config/cdn";
 
-/**
- * Prefix a path with the deploy base URL. Inputs MUST start with `/`;
- * we collapse the duplicate slash that would otherwise appear when BASE
- * is `/yen-gov/`.
- */
-export function withBase(path: string): string {
-  if (!path.startsWith("/")) path = "/" + path;
-  return BASE.replace(/\/$/, "") + path;
-}
+// `withBase`'s canonical definition lives in `./config/cdn` (the single
+// base/CDN seam). Re-exported here so existing
+// `import { withBase } from "./url"` / "../url" call sites keep working
+// unchanged after the consolidation.
+export { withBase };
 
 /** Strip the deploy base from `location.pathname` to get the route path. */
 export function stripBase(pathname: string): string {
-  const baseNoSlash = BASE.replace(/\/$/, "");
+  const baseNoSlash = CDN_BASE.replace(/\/$/, "");
   if (baseNoSlash && pathname.startsWith(baseNoSlash)) {
     const tail = pathname.slice(baseNoSlash.length);
     return tail === "" ? "/" : tail;
@@ -53,7 +53,7 @@ export function stripBase(pathname: string): string {
  * legacy/raw paths still work.
  */
 export function navigate(path: string, opts: { replace?: boolean } = {}): void {
-  const baseNoSlash = BASE.replace(/\/$/, "");
+  const baseNoSlash = CDN_BASE.replace(/\/$/, "");
   const alreadyPrefixed =
     !!baseNoSlash && (path === baseNoSlash || path.startsWith(baseNoSlash + "/"));
   const target = alreadyPrefixed ? path : withBase(path);

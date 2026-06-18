@@ -5,8 +5,9 @@
  *
  * GitHub Pages serves the site under a sub-path (BASE_URL=/yen-gov/), so a
  * bare relative `src` would resolve against the current route, not the site
- * root. Vite's `import.meta.env.BASE_URL` (always ends in '/') is the
- * documented seam for this — the same one `paths.ts` uses for data loads.
+ * root. This routes through `assetUrl` from the single base/CDN seam
+ * (`lib/config/cdn.ts`), which prefixes Vite's `import.meta.env.BASE_URL`
+ * (always ends in '/') — the same base every data load + glyph resolves.
  *
  * Fallback policy when `assetPath` is null / undefined / empty:
  *   - "silent"      : return null (today's behaviour); tooltip degrades
@@ -19,21 +20,22 @@
  * MapLibre tooltip surfaces share one fallback vocabulary.
  */
 
+import { assetUrl } from "../config/cdn";
+
 export type SymbolAssetFallbackMode = "silent" | "placeholder" | "unverified";
 
 export function symbolAssetUrl(
   assetPath: string | null | undefined,
   fallback: SymbolAssetFallbackMode = "silent",
 ): string | null {
-  const base = import.meta.env.BASE_URL; // always ends in '/'
   if (!assetPath) {
     if (fallback === "placeholder") {
-      return `${base}party-symbols/placeholder.svg`;
+      return assetUrl("/party-symbols/placeholder.svg");
     }
     if (fallback === "unverified") {
-      return `${base}party-symbols/unverified.svg`;
+      return assetUrl("/party-symbols/unverified.svg");
     }
     return null;
   }
-  return base + assetPath.replace(/^\/+/, "");
+  return assetUrl(assetPath);
 }
