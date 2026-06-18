@@ -86,6 +86,15 @@ test.describe("state event view (PR-W3b rebuild)", () => {
       page.getByTestId("state-event-constituency-row").first(),
     ).toBeVisible({ timeout: 30_000 });
 
+    // Row 2 (2026-06-18): the Races-by-competitiveness board now mounts on
+    // PARLIAMENT events too (it previously gated on assembly only). With
+    // per-PC winners loaded above, the board section is present + visible
+    // on this general-2024 page; each race row links to its PC drill via
+    // the body-aware hrefFor seam.
+    await expect(page.getByTestId("state-event-races-board")).toBeVisible({
+      timeout: 30_000,
+    });
+
     // Alliance panel mounts; after the Phase 1 alliance fix (2026-06-12,
     // plan TODO/20260612-alliance-phase-1-structural-fix-plan.md)
     // general-2024 is curated nationally (state=IN rows), so the panel
