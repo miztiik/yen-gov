@@ -2467,6 +2467,139 @@ def ingest_iced_state_wise(
     typer.echo(f"  skipped (indicator x FY missing): {result.skipped_missing}")
 
 
+@app.command("ingest-iced-plant-load-factor")
+def ingest_iced_plant_load_factor(
+    json_path: Path = typer.Argument(
+        ...,
+        help=(
+            "Path to the operator-staged ICED /v1/plf-metatable-data JSON "
+            "response (per-state fiscal-year plant load factor by fuel "
+            "source). Plain JSON (v1 metatable, not AES-encrypted); saved raw "
+            "by tools/iced_stage.py. No network."
+        ),
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Ingest the ICED plant-load-factor feed into the per-fuel store.
+
+    Emits one
+    ``datasets/data/datapoints/geo/plant-load-factor-pct-<fuel>.csv`` per fuel
+    source (8 facets: biomass, coal, gas, hydro, nuclear, small-hydro, solar,
+    wind); ECI state codes translate to LGD slugs. Graduates this orphan
+    percentage/multi-facet family to LIVE re-ingest (Tier-B); re-running with
+    a fresher staged response adds new years.
+    """
+    from yen_gov.sources.iced_metatable.ingest import ingest_plant_load_factor
+
+    result = ingest_plant_load_factor(repo_root=root, raw_json_path=json_path)
+    typer.echo("ingest-iced-plant-load-factor: OK")
+    typer.echo(f"  variables: {len(result.variable_ids)}")
+    for path in result.artifact_paths:
+        typer.echo(f"    output: {path.relative_to(root).as_posix()}")
+    typer.echo(f"  rows:     {result.row_count}")
+    typer.echo(f"  skipped (unmapped states): {result.skipped_unmapped}")
+
+
+@app.command("ingest-iced-power-purchase-share")
+def ingest_iced_power_purchase_share(
+    json_path: Path = typer.Argument(
+        ...,
+        help=(
+            "Path to the operator-staged ICED /statelevel-power-purchase-"
+            "quantum-and-cost JSON response (per-state fiscal-year power-"
+            "purchase share by generation source). AES-encrypted; saved raw "
+            "by tools/iced_stage.py and decrypted here. No network."
+        ),
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Ingest the ICED power-purchase-share feed into the per-source store.
+
+    Emits one
+    ``datasets/data/datapoints/geo/power-purchase-share-pct-<source>.csv`` per
+    generation source (12 facets: biomass, coal, diesel, gas, hybrid-bundled,
+    hydro, nuclear, renewable-other, small-hydro, solar, trading-other, wind);
+    ECI state codes translate to LGD slugs. Graduates this orphan
+    percentage/multi-facet family to LIVE re-ingest (Tier-B); re-running with
+    a fresher staged response adds new years.
+    """
+    from yen_gov.sources.iced_fuel.ingest import ingest_power_purchase_share
+
+    result = ingest_power_purchase_share(repo_root=root, raw_json_path=json_path)
+    typer.echo("ingest-iced-power-purchase-share: OK")
+    typer.echo(f"  variables: {len(result.variable_ids)}")
+    for path in result.artifact_paths:
+        typer.echo(f"    output: {path.relative_to(root).as_posix()}")
+    typer.echo(f"  rows:     {result.row_count}")
+    typer.echo(f"  skipped (unmapped states): {result.skipped_unmapped}")
+
+
+@app.command("ingest-iced-rpo-compliance")
+def ingest_iced_rpo_compliance(
+    json_path: Path = typer.Argument(
+        ...,
+        help=(
+            "Path to the operator-staged ICED /energy/electricity/"
+            "distribution/rpo JSON response (per-state fiscal-year Renewable "
+            "Purchase Obligation compliance by segment). AES-encrypted; saved "
+            "raw by tools/iced_stage.py and decrypted here. No network."
+        ),
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Ingest the ICED RPO-compliance feed into the per-segment store.
+
+    Emits one
+    ``datasets/data/datapoints/geo/rpo-compliance-pct-<segment>.csv`` per
+    segment (3 facets: solar, non-solar, total); ECI state codes translate to
+    LGD slugs. Graduates this orphan percentage/multi-facet family to LIVE
+    re-ingest (Tier-B); re-running with a fresher staged response adds new
+    years.
+    """
+    from yen_gov.sources.iced_discom.ingest import ingest_rpo_compliance
+
+    result = ingest_rpo_compliance(repo_root=root, raw_json_path=json_path)
+    typer.echo("ingest-iced-rpo-compliance: OK")
+    typer.echo(f"  variables: {len(result.variable_ids)}")
+    for path in result.artifact_paths:
+        typer.echo(f"    output: {path.relative_to(root).as_posix()}")
+    typer.echo(f"  rows:     {result.row_count}")
+    typer.echo(f"  skipped (unmapped states): {result.skipped_unmapped}")
+
+
 @app.command("seed-goals")
 def seed_goals_cmd(
     root: Path = typer.Option(
