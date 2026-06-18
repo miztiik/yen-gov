@@ -1,6 +1,6 @@
 # Energy coverage matrix (ICED + CEA + RBI)
 
-**Last Updated:** 2026-06-17 (D1/D2 faceting + CEA UPSERT + decrypt wiring landed; sections 3, 6, 7 added)
+**Last Updated:** 2026-06-18 (dual-source merge-preserving write discipline + allocated ICED re-ingest landed; section 8 added)
 **Tracked by:** this doc is the receipt; the staging tool [tools/iced_stage.py](../../../tools/iced_stage.py) reads the same feed list and its run-log records each download.
 
 This document answers: **for the energy indicator category, what ICED / CEA / RBI data yen-gov already HAS (with year coverage), what we do NOT yet have (the agreed download targets), and -- crucially -- which of it can actually be (re)ingested today versus needs an adapter built first.**
@@ -67,7 +67,7 @@ Year coverage is the min..max `time` actually present in each datapoint CSV. Gra
 | peak-electricity-supplied-mw | 2013-2024 | ORPHAN |
 | per-capita-electricity-availability-kwh | 2004-2024 | ORPHAN |
 | renewable-grid-capacity-mw | 2007-2024 | ORPHAN |
-| installed-capacity-allocated-mw (ICED+RBI) | 2004-2025 | ORPHAN |
+| installed-capacity-allocated-mw (ICED+RBI) | 2004-2025 | DUAL-SOURCE -- ICED half (FY2015+) re-ingestable via `ingest-iced-state-wise`; RBI half (FY2004-2014) orphan. See section 8. |
 | peak-electricity-demand-mw (ICED+RBI) | 2013-2025 | LIVE (`ingest-iced-peak-demand`, snapshot only) |
 
 Totals: 70 energy datapoint files at the survey (ICED 60, RBI 5, CEA 2, ICED/RBI 2, derived 1). **4 LIVE re-ingest CLIs, 66 ORPHAN.** After D1/D2 the per-fuel generation (6) + retired (2) `geo/` files folded into 2 faceted `geo_by_fuel/` files (net ~64 files); the LIVE/ORPHAN split (a re-ingest-CLI count, not a file count) is unchanged -- faceting changes shape, not the ability to add new years.
@@ -133,3 +133,25 @@ A "full refresh" of the LIVE feeds, end to end:
 3. **Validate + receipt**: `python -m yen_gov validate --root .`; the staging run-log (`.runtime/raw/iced/_stage-log.json`) records what was fetched, when, sizes, and sha; this doc records the coverage state. Together they are the refresh receipt.
 
 For the orphan families (Tier B) and the 7 new feeds (section 4), staging works today but a full refresh waits on the per-family adapter rebuild.
+
+## 8. Dual-source indicators and the merge-preserving write discipline
+
+A few canonical `geo/<id>.csv` files are **dual-source**: their rows are contributed by more than one publisher, split cleanly by period. The reference case is `installed-capacity-allocated-mw` (installed capacity including allocated shares):
+
+| Period | Source | source_id | Rows |
+| --- | --- | --- | ---: |
+| FY2004-2014 | RBI Handbook Table 140 (State-wise Installed Capacity of Power) | `src-3d1d55f8a94b` | 374 (36 states, no national IN) |
+| FY2015-2025 | ICED NITI "State-wise Deep Dive API" | `src-bb1d7bec8b34` | 396 (36 states + IN) |
+
+It stays **one OWID variable in one file** -- the publisher split is recorded per row via `source_id` (provenance is a FK, never part of identity; CLAUDE.md section 12 + the "never mint a new id for a new publisher" anti-pattern). Splitting the indicator by publisher would violate the one-concept rule, so the two publishers share a single fact table.
+
+**The write discipline.** Each source re-ingests **independently and source-scoped** via [`upsert_source_scoped`](../../../backend/yen_gov/canonical/csv_writer.py):
+
+- the ICED half is produced by `ingest-iced-state-wise` (the multi-FY state-wise re-ingest), which re-emits ONLY the `src-bb1d7bec8b34` rows;
+- the RBI half is produced by `ingest-rbi-hbs`, which owns the `src-3d1d55f8a94b` rows.
+
+`upsert_source_scoped(path, file_class, new_rows, source_id)` reads the existing file, **drops only the rows whose `source_id` equals the incoming source**, keeps every other source's rows verbatim, and writes the merged set. So re-emitting one source can **never truncate** the other -- an ICED-only re-ingest preserves the RBI Handbook history byte-identical, and an RBI re-ingest preserves the ICED years. A plain `write_csv` (full accumulate-then-rewrite) would truncate whichever source the current run did not re-emit; that is why the ICED allocated target was initially excluded from the Path-C re-ingest and is now included only through this seam.
+
+**Cross-source independence is enforced, not assumed.** If an incoming row's PK `(entity_id, time)` collides with a preserved other-source row, `upsert_source_scoped` **fails loud** (`ValueError`) rather than letting one publisher silently overwrite another. For the allocated file the keyspaces are disjoint (RBI <= 2014, ICED >= 2015) so the guard never fires in practice -- it is the structural contract that keeps the two publishers' rows from ever being combined or silently overwritten. An incoming row that claims a different `source_id` than the call names is likewise rejected as a programming error.
+
+This is the canonical write discipline for any future multi-source single-value file: reach for `upsert_source_scoped` (not `write_csv`) whenever a `geo/<id>.csv` carries rows from more than one `source_id`.

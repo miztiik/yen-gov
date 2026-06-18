@@ -9,6 +9,13 @@ Public surface:
     from yen_gov.canonical.csv_writer import write_csv
     write_csv(path=..., file_class="datasets/data/...", rows=[{...}, ...])
 
+    # Multi-source files (one canonical CSV fed by >1 publisher) use the
+    # merge-preserving variant so re-emitting one source can never truncate
+    # another source's rows (see ``upsert_source_scoped`` below):
+    from yen_gov.canonical.csv_writer import upsert_source_scoped
+    upsert_source_scoped(path=..., file_class="datasets/data/...",
+                         new_rows=[{...}, ...], source_id="src-...")
+
 Responsibilities:
 
 - file_class must be a known glob in ``columns.json``; else ``KeyError``.
@@ -57,7 +64,14 @@ from yen_gov.canonical.csv_columns import (
     load_columns,
 )
 
-__all__ = ["write_csv"]
+__all__ = ["upsert_source_scoped", "write_csv"]
+
+# The attribute column every observation row carries to name its upstream
+# publisher (FK to ``datasets/data/entities/source.csv``). It is NOT part of
+# any single-value file class's PK -- that is precisely why one PK can be
+# claimed by two different sources, which is the collision ``upsert_source_scoped``
+# guards against.
+_SOURCE_ID_COLUMN = "source_id"
 
 
 def write_csv(
@@ -144,6 +158,124 @@ def write_csv(
     return path
 
 
+def upsert_source_scoped(
+    *,
+    path: Path,
+    file_class: str,
+    new_rows: Iterable[dict[str, Any]],
+    source_id: str,
+    contract: ColumnContract | None = None,
+) -> Path:
+    """Merge-preserving CSV emit that replaces ONLY one source's rows.
+
+    The structural write discipline for a MULTI-SOURCE single-value file - a
+    canonical ``geo/<id>.csv`` whose rows are contributed by more than one
+    upstream publisher (e.g. ``installed-capacity-allocated-mw.csv`` = RBI
+    Handbook history for FY2004-2014 + ICED recent years for FY2015+). A plain
+    :func:`write_csv` accumulate-then-rewrite would TRUNCATE every row the
+    current run did not re-emit, silently destroying the other sources'
+    contributions. This function re-emits ONE source in place instead:
+
+    1. Every existing row whose ``source_id`` column equals ``source_id`` is
+       REPLACED wholesale by ``new_rows`` - so a key dropped from this source's
+       latest extract is removed, and a changed value is updated.
+    2. Every existing row contributed by ANY OTHER source is PRESERVED
+       verbatim.
+    3. Re-emitting one source can therefore never truncate another source's
+       rows: the merge-preserving guarantee the dual-source split relies on
+       (an ICED-only re-ingest never clobbers the RBI Handbook history, and an
+       RBI re-ingest never clobbers the ICED years).
+
+    Cross-source independence is ENFORCED, not assumed: if any incoming PK
+    collides with a PRESERVED other-source row, the call FAILS LOUD
+    (``ValueError``) rather than letting one source silently overwrite
+    another. For the allocated file the keyspaces are disjoint (RBI
+    FY2004-2014, ICED FY2015+), so the guard never fires in practice - it is
+    the structural contract that keeps the two sources from ever being
+    combined.
+
+    Within ``new_rows`` the last row wins on a repeated PK (matching
+    :func:`write_csv`'s by-PK contract). ``write_csv`` then sorts by PK and
+    skip-writes when the merged output is byte-identical, so a no-op re-emit
+    leaves a clean ``git status``.
+
+    Args:
+        path: target ``geo/<variable_id>.csv`` path.
+        file_class: glob key into ``columns.json`` (e.g.
+            ``"datasets/data/datapoints/geo/*.csv"``). MUST declare a
+            ``source_id`` column.
+        new_rows: the incoming rows for ``source_id`` ONLY. Every row MUST
+            carry ``source_id == source_id``; a row that claims a different
+            source is a programming error (``ValueError``).
+        source_id: the single source whose rows this run owns and replaces.
+        contract: optional pre-loaded ``ColumnContract`` (defaults to the
+            shipped contract via :func:`load_columns`).
+
+    Returns:
+        The resolved ``path``.
+
+    Raises:
+        KeyError: ``file_class`` is not declared in ``columns.json``.
+        ValueError: the file class declares no ``source_id`` column; an
+            incoming row carries a different ``source_id``; or an incoming PK
+            collides with a preserved other-source row.
+    """
+    resolved = contract if contract is not None else load_columns()
+    fc = resolved.for_glob(file_class)
+    names = tuple(c.name for c in fc.columns)
+    if _SOURCE_ID_COLUMN not in names:
+        raise ValueError(
+            f"upsert_source_scoped requires a {_SOURCE_ID_COLUMN!r} column; "
+            f"file class {fc.glob!r} declares {list(names)}"
+        )
+    pk_names = tuple(c.name for c in fc.pk_columns)
+
+    incoming = list(new_rows)
+    for index, row in enumerate(incoming):
+        row_source_id = row.get(_SOURCE_ID_COLUMN)
+        if row_source_id != source_id:
+            raise ValueError(
+                f"new_rows[{index}] carries {_SOURCE_ID_COLUMN}={row_source_id!r} "
+                f"but upsert_source_scoped was called with source_id={source_id!r}; "
+                f"every incoming row must belong to the named source"
+            )
+
+    kept_other: dict[tuple[Any, ...], dict[str, Any]] = {}
+    if path.exists():
+        with path.open(encoding="utf-8", newline="") as fh:
+            for raw in csv.DictReader(fh):
+                existing = {
+                    name: (raw.get(name) if (raw.get(name) or "") != "" else None)
+                    for name in names
+                }
+                if existing.get(_SOURCE_ID_COLUMN) == source_id:
+                    # This source's own rows are replaced wholesale by new_rows.
+                    continue
+                key = tuple(_pk_value(existing[n]) for n in pk_names)
+                kept_other[key] = existing
+
+    merged: dict[tuple[Any, ...], dict[str, Any]] = dict(kept_other)
+    for row in incoming:
+        key = tuple(_pk_value(row.get(n)) for n in pk_names)
+        if key in kept_other:
+            other_source_id = kept_other[key].get(_SOURCE_ID_COLUMN)
+            raise ValueError(
+                f"cross-source PK collision on "
+                f"{dict(zip(pk_names, key, strict=True))}: incoming "
+                f"source_id={source_id!r} would overwrite a row owned by "
+                f"source_id={other_source_id!r}; sources must not silently "
+                f"overwrite each other (file {path.name!r})"
+            )
+        merged[key] = {name: row.get(name) for name in names}
+
+    return write_csv(
+        path=path,
+        file_class=file_class,
+        rows=list(merged.values()),
+        contract=resolved,
+    )
+
+
 # --- coercion + formatting helpers -----------------------------------------
 
 
@@ -207,6 +339,19 @@ def _sort_key(value: Any) -> tuple[int, Any]:
     if value is None:
         return (0, "")
     return (1, value)
+
+
+def _pk_value(value: Any) -> Any:
+    """Normalise a PK value for keying so int/str compare equal.
+
+    The on-disk file is read back through ``csv.DictReader`` (every field is a
+    string), whereas freshly-built rows carry typed values (``time`` is an
+    int). Stringifying both sides keeps ``upsert_source_scoped``'s PK merge
+    and cross-source collision check robust across the two representations.
+    A local copy of the rbi_handbook helper (canonical/ MUST NOT import
+    adapters/ - layer rule).
+    """
+    return str(value) if value is not None else None
 
 
 # --- skip-write-if-equal optimisation --------------------------------------

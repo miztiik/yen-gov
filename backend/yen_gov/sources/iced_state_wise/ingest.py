@@ -14,7 +14,7 @@ from typing import Any
 
 from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
-from yen_gov.canonical.csv_writer import write_csv
+from yen_gov.canonical.csv_writer import upsert_source_scoped, write_csv
 from yen_gov.sources.iced_common import load_iced_response
 
 from .parsers import (
@@ -546,17 +546,18 @@ def _emit_csv_for(
 #   electricity-sales-mu       api_key "Electricity Sales"       -> src-bb1d7bec8b34
 #       single-source (NITI "State-wise Deep Dive API"), FY2015-2024, 356 rows.
 #       INCLUDED.
-#
-# installed-capacity-allocated-mw is EXCLUDED. Its on-disk file is a DUAL-SOURCE
-# historical merge: RBI Handbook Table 140 [src-3d1d55f8a94b] for FY2004-2014
-# (374 rows) + ICED State-wise Deep Dive [src-bb1d7bec8b34] for FY2015-2025
-# (396 rows). A clean ICED-only re-emit reproduces ONLY the 396 ICED rows and
-# would TRUNCATE the 374 RBI historical rows (data loss). The RBI portion
-# belongs to ``ingest-rbi-hbs``; faithfully reproducing the merged file needs a
-# merge-preserving emit, out of scope for a Path-C single-value re-ingest. The
-# ICED ``source_id`` DOES reproduce, but the FILE is not idempotently
-# reproducible, so the indicator is left out of this CLI rather than silently
-# truncated.
+#   installed-capacity-allocated-mw
+#       api_key "Installed Capacity*(Including Allocated Shares in Joint &
+#       Central Sector Utilities)" subkey "data"             -> src-bb1d7bec8b34
+#       DUAL-SOURCE on disk: RBI Handbook Table 140 [src-3d1d55f8a94b] for
+#       FY2004-2014 (374 rows) + ICED State-wise Deep Dive [src-bb1d7bec8b34]
+#       for FY2015-2025 (396 rows). INCLUDED via the merge-preserving
+#       `upsert_source_scoped` emit, which replaces ONLY the ICED
+#       [src-bb1d7bec8b34] rows and preserves the RBI Handbook
+#       [src-3d1d55f8a94b] FY2004-2014 historical rows verbatim - so an
+#       ICED-only re-emit can never truncate the RBI history (the disjoint FY
+#       keyspaces also mean the cross-source PK-collision guard never fires).
+#       The RBI portion is still produced by `ingest-rbi-hbs`.
 
 _STATE_WISE_PRODUCER = _CSV_SOURCE_PRODUCER  # NITI Aayog India Climate & Energy Dashboard
 
@@ -596,6 +597,24 @@ _STATE_WISE_TARGETS: tuple[_StateWiseTarget, ...] = (
             api_key="Electricity Sales",
         ),
         variable_id="electricity-sales-mu",
+        source_title="State-wise Deep Dive API",
+        source_vintage="2024-25",
+    ),
+    _StateWiseTarget(
+        spec=IndicatorSpec(
+            indicator_id="energy/state_installed_capacity_with_alloc_mw",
+            api_key=(
+                "Installed Capacity*(Including Allocated Shares in Joint & "
+                "Central Sector Utilities)"
+            ),
+            api_key_subkey="data",
+        ),
+        variable_id="installed-capacity-allocated-mw",
+        # Shares the ICED "State-wise Deep Dive API" citation triple with
+        # electricity-sales-mu -> derive_source_id(...) == src-bb1d7bec8b34
+        # (the ICED half of the dual-source on-disk file). The RBI Handbook
+        # half [src-3d1d55f8a94b] for FY2004-2014 is preserved by the
+        # merge-preserving upsert_source_scoped emit.
         source_title="State-wise Deep Dive API",
         source_vintage="2024-25",
     ),
@@ -703,13 +722,25 @@ def ingest_state_wise(
             _STATE_WISE_PRODUCER, target.source_title, target.source_vintage
         )
         rows = build_state_wise_rows(parsed_years, source_id=source_id)
-        written = emit_csv_variables(
-            repo_root=repo_root, by_variable={target.variable_id: rows}
+        # Every target emits via the merge-preserving upsert_source_scoped
+        # (NOT plain write_csv). Uniform on purpose: for the single-source
+        # targets (rooftop-solar, electricity-sales) this run owns the whole
+        # file, so dropping all rows of the one source and writing the new ones
+        # is behaviour-identical to a full rewrite; for the dual-source
+        # installed-capacity-allocated-mw file it replaces ONLY the ICED
+        # [src-bb1d7bec8b34] rows and preserves the RBI Handbook
+        # [src-3d1d55f8a94b] FY2004-2014 history. One write path, no per-target
+        # special-casing.
+        out_path = upsert_source_scoped(
+            path=repo_root / _CSV_OUT_REL_DIR / f"{target.variable_id}.csv",
+            file_class=_CSV_FILE_CLASS,
+            new_rows=rows,
+            source_id=source_id,
         )
         results.append(
             StateWiseTargetResult(
                 variable_id=target.variable_id,
-                artifact_path=written[0],
+                artifact_path=out_path,
                 row_count=len(rows),
             )
         )
