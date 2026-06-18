@@ -18,6 +18,8 @@ bio-energy-potential-mw,Bio-energy potential,bio-energy-potential,MW,Sum of the 
 candidate-rank,Rank,rank,rank,,elections,,365,,,
 candidate-vote-share-pct,Vote share,vote-share-candidate,%,,elections,,365,,,
 candidate-votes-polled,Candidate votes,candidate-votes,votes,,elections,,365,,,
+captive-power-capacity-mw,Captive power capacity,captive-power-capacity,MW,Sum of self-reported captive power capacity (MW) across all 22 industry categories per state and year; the industry dimension is dropped. stateWise rows only (the national fuel-mix 'sourceWise' rows are ignored).,energy,src-3d0b1c141f6a,365,2005,2023,state
+captive-power-generation-gwh,Captive power generation,captive-power-generation,GWh,"Sum of self-reported captive power generation across all 22 industry categories per state and year; the industry dimension is dropped. The CEA reports in Million Units (1 MU = 1 GWh), emitted unchanged as GWh. stateWise rows only (the national fuel-mix 'sourceWise' rows are ignored).",energy,src-3d0b1c141f6a,365,2005,2023,state
 coal-consumption-mt,Coal consumption,coal-consumption,Mt,,energy,src-c222a8e2cd61,365,,,
 distribution-efficiency-pct,Distribution efficiency,distribution-efficiency,%,,energy,,365,,,
 distribution-efficiency-pct-billing,Billing efficiency,billing-efficiency,%,,energy,src-650b1c25d1f7,365,,,
