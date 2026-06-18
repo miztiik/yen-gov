@@ -627,6 +627,120 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- Tier-B renewable-potential ingest (2026-06-18) ---
+  // ICED renewable-potential feeds (NISE solar / NIWE wind / MNRE bio) -> 3
+  // NET-NEW state-grain single-value indicators emitted to
+  // data/datapoints/geo/<id>.csv by
+  // backend/yen_gov/canonical/adapters/iced_renewable_potential. These are
+  // MODELLED maximum buildable potential (a single 2025-26 assessment-year
+  // snapshot), NOT installed capacity and NOT a performance ranking. The feeds
+  // carry no all-India row, so the emitted series are purely state-grain;
+  // entity_kinds stays "country state" on the catalogue because the concept is
+  // country-capable (an "India" row maps to IN if a future edition adds one).
+  // table_id is nominal here (CSV-only descriptor - csv_path is the live read
+  // path; there is no parquet stem). implementing_authority = "centre" (the
+  // closest valid enum value; the assessing bodies NISE / NIWE / MNRE are
+  // central-government agencies - there is no "national" enum member).
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_solar_potential_mw",
+    canonical_indicator_id: "solar-potential-mw",
+    csv_path: "data/datapoints/geo/solar-potential-mw.csv",
+    table_id: "energy.renewable_potential",
+    meta: {
+      id: "solar-potential-mw",
+      title: "Solar power potential (MW)",
+      description:
+        "Modelled maximum solar PV capacity (MW) a state could build, from the National Institute of Solar Energy (NISE) headline scenario of 3% of the state's wasteland area. This is a geography-driven endowment (arid land + solar irradiation), NOT installed capacity and NOT a measure of policy effort - states with large arid expanses (Rajasthan, Gujarat, Madhya Pradesh) dominate the national total.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "MW",
+      short_unit: "MW",
+      icon: "sun",
+      attribution_geography: "where_produced",
+      comparability: "comparable_across_states_snapshot_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NITI Aayog ICED 'Renewable Energy Potential - Solar (state-wise)', 2025-26 assessment. Underlying study: National Institute of Solar Energy (NISE), headline 3%-of-wasteland scenario (the @6.69% scenario is an alternative, non-additive estimate and is not ingested).",
+      notes:
+        "Compare against installed solar (rooftop-solar-capacity-mw) to read the gap between buildable potential and what is actually built. A single assessment-year snapshot, not a time series.",
+    },
+    caveats: [
+      "Modelled maximum buildable potential, driven by geography (wasteland area and solar irradiation) - not a policy achievement or a ranking of effort.",
+      "Headline NISE scenario only (3% of wasteland area). The publisher's higher @6.69%-of-wasteland scenario is an alternative estimate, not an additive extra, and is deliberately not ingested.",
+      "A single 2025-26 assessment-year snapshot - comparable across states for that one assessment, not a year-on-year trend.",
+    ],
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_wind_potential_mw",
+    canonical_indicator_id: "wind-potential-mw",
+    csv_path: "data/datapoints/geo/wind-potential-mw.csv",
+    table_id: "energy.renewable_potential",
+    meta: {
+      id: "wind-potential-mw",
+      title: "Wind power potential (MW)",
+      description:
+        "Modelled maximum wind capacity (MW) a state could build, from the National Institute of Wind Energy (NIWE) assessment at 150 metres above ground level (the current headline hub height). This is a geography-driven endowment (wind corridors, coastline, terrain), NOT installed capacity and NOT a measure of policy effort - a handful of strong-wind states (Gujarat, Rajasthan, Karnataka, Andhra Pradesh, Tamil Nadu) dominate the national total.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "MW",
+      short_unit: "MW",
+      icon: "wind",
+      attribution_geography: "where_produced",
+      comparability: "comparable_across_states_snapshot_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NITI Aayog ICED 'Renewable Energy Potential - Wind (state-wise)', 2025-26 assessment. Underlying study: National Institute of Wind Energy (NIWE), headline 150m-AGL hub height (the 120m-AGL scenario is a lower, non-additive estimate and is not ingested).",
+      notes:
+        "The 150m hub height roughly doubles assessed potential versus older 120m / 100m studies, because taller turbines reach stronger, steadier wind. A single assessment-year snapshot, not a time series.",
+    },
+    caveats: [
+      "Modelled maximum buildable potential, driven by geography (wind corridors, coastline, terrain) - not a policy achievement or a ranking of effort.",
+      "Headline NIWE scenario only (150m above ground level). The lower 120m-AGL scenario is an alternative estimate, not an additive extra, and is deliberately not ingested.",
+      "A single 2025-26 assessment-year snapshot - comparable across states for that one assessment, not a year-on-year trend.",
+    ],
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_bio_energy_potential_mw",
+    canonical_indicator_id: "bio-energy-potential-mw",
+    csv_path: "data/datapoints/geo/bio-energy-potential-mw.csv",
+    table_id: "energy.renewable_potential",
+    meta: {
+      id: "bio-energy-potential-mw",
+      title: "Bio-energy potential (MW)",
+      description:
+        "Modelled maximum bio-energy capacity (MW) a state could build, summed across the two physically-additive streams the assessment publishes: agricultural / forestry biomass and bagasse-based cogeneration at sugar mills. This is a geography-driven endowment (crop residue + sugar industry), NOT installed capacity and NOT a measure of policy effort - large-cropland and sugar-belt states (Uttar Pradesh, Maharashtra, Punjab) lead.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "MW",
+      short_unit: "MW",
+      icon: "leaf",
+      attribution_geography: "where_produced",
+      comparability: "comparable_across_states_snapshot_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NITI Aayog ICED 'Renewable Energy Potential - Bioenergy (state-wise)', 2025-26 assessment (MNRE / biomass-atlas lineage). Derived as the SUM of the biomass and cogeneration-bagasse potential streams per state - both are additive components of the same buildable bio-energy capacity.",
+      notes:
+        "Unlike solar and wind (where the two published variants are alternative scenarios), bio-energy's biomass and bagasse-cogeneration are distinct physical streams and ARE summed. A single assessment-year snapshot, not a time series.",
+    },
+    caveats: [
+      "Modelled maximum buildable potential, driven by geography (crop residue availability and the sugar industry) - not a policy achievement or a ranking of effort.",
+      "Sum of two additive streams: agricultural / forestry biomass plus bagasse-based cogeneration at sugar mills. Sugar-belt states carry a large cogeneration component on top of their biomass.",
+      "A single 2025-26 assessment-year snapshot - comparable across states for that one assessment, not a year-on-year trend.",
+    ],
+  },
+
   // --- PR-R (Row 6 P.1.C 2/9, rooftop solar capacity lift, 2026-05-25) ---
   // ICED `/energy/renewable/solar/rooftop/state` -> 321 obs rows (states x
   // fiscal-years FY18-FY25) joined into the existing `energy_installed_capacity`

@@ -104,6 +104,7 @@ src-33e3388cf85e,Wikipedia,2021 West Bengal Legislative Assembly election - Sany
 src-35e6c87c480b,Wikipedia,List of Chief Ministers of Bihar,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Bihar
 src-368e01b659fe,Wikipedia,List of Chief Ministers of Punjab,operator-snapshot-2026-05,"https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Punjab,_India"
 src-36cc682d1b2a,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Rajasthan, 1980",1980,
+src-36e84f35548b,NITI Aayog India Climate & Energy Dashboard,Renewable Energy Potential - Wind (state-wise) API,2025-26,https://iced.niti.gov.in
 src-3784c1ebd2b2,Wikipedia,List of Chief Ministers of Kerala,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Kerala
 src-382c810a61ba,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Mizoram, 1998",1998,
 src-395f973d4b88,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Rajasthan, 1977",1977,
@@ -167,6 +168,7 @@ src-4f63186fa7cf,Election Commission of India,"Statistical Report on General Ele
 src-508c8fe83f5c,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tripura, 1993",1993,
 src-50c93d074c18,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Rajasthan, 2008",2008,
 src-514f13de303b,Reserve Bank of India,State Finances: A Study of Budgets - Combined Gross Fiscal Deficit of All State Governments (INR crore),2025-26,https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets
+src-518795193989,NITI Aayog India Climate & Energy Dashboard,Renewable Energy Potential - Solar (state-wise) API,2025-26,https://iced.niti.gov.in
 src-5230abac31bb,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Uttar Pradesh, 2007",2007,
 src-5340fdfa9ce7,Wikipedia,2025 Delhi Legislative Assembly election,2025-02,https://en.wikipedia.org/wiki/2025_Delhi_Legislative_Assembly_election
 src-542153f504f1,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 2007",2007,
@@ -406,6 +408,7 @@ src-bf5bd3bc5809,Election Commission of India,"Statistical Report on General Ele
 src-bf60101d230f,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Uttar Pradesh, 1977",1977,
 src-bfb4e7fb9785,Election Commission of India,General Election to Lok Sabha 2024 — Constituency Wise Detailed Result (Report 33),2024,
 src-c03df2072e66,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Odisha, 2000",2000,
+src-c0a10bb04862,NITI Aayog India Climate & Energy Dashboard,Renewable Energy Potential - Bioenergy (state-wise) API,2025-26,https://iced.niti.gov.in
 src-c222a8e2cd61,NITI Aayog India Climate & Energy Dashboard,"Coal Consumption (Domestic) State-wise API (per-state fiscal-year coal consumption, by grade)",2024-25,https://icedapi.niti.gov.in/energy/fuel-sources/coal/consumption-domestic-state
 src-c385c8c3345a,Wikipedia,List of Chief Ministers of Mizoram,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Mizoram
 src-c63abce8f3ac,Election Commission of India,Form 10 Detailed Results - Arunachal Pradesh Legislative Assembly Election 2024,2026-06-14,https://results.eci.gov.in/

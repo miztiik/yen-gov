@@ -2505,6 +2505,86 @@ def ingest_iced_state_wise(
     typer.echo(f"  skipped (indicator x FY missing): {result.skipped_missing}")
 
 
+@app.command("ingest-iced-renewable-potential")
+def ingest_iced_renewable_potential(
+    staging_dir: Path = typer.Option(
+        ...,
+        "--staging-dir",
+        "-s",
+        help=(
+            "Directory holding the operator-staged ICED renewable-potential "
+            "responses, one per feed named by the spec's staging_filename "
+            "(solar_potential_by_state.json, wind_potential_by_state.json, "
+            "bio_energy_potential_by_state.json). AES-encrypted; saved raw by "
+            "tools/iced_stage.py and decrypted here. No network."
+        ),
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    indicators: list[str] = typer.Option(
+        None,
+        "--indicator",
+        "-i",
+        help=(
+            "Restrict to specific indicator_id(s); repeatable. Defaults to "
+            "every shipped renewable-potential feed (solar / wind / bio)."
+        ),
+    ),
+) -> None:
+    """Ingest the ICED state-wise renewable-potential feeds.
+
+    Emits one ``datasets/data/datapoints/geo/<indicator_id>.csv`` per feed
+    (solar-potential-mw, wind-potential-mw, bio-energy-potential-mw): modelled
+    maximum buildable potential in MW for a single assessment year. Solar and
+    wind keep their headline scenario (the alternative scenario is a
+    non-additive estimate, dropped); bio sums its biomass + cogeneration-
+    bagasse streams. Full state display names resolve to LGD slugs; the
+    "Others" aggregate bucket (and any future power-region / all-India
+    aggregate label) is dropped and reported. Upserts the variables / concepts
+    / source catalogue rows. Idempotent: re-running the same staged feeds is a
+    no-op.
+    """
+    from yen_gov.canonical.adapters.iced_renewable_potential import (
+        SHIPPED_SPECS,
+        ingest as ingest_potential,
+    )
+
+    specs = SHIPPED_SPECS
+    if indicators:
+        wanted = set(indicators)
+        specs = tuple(s for s in SHIPPED_SPECS if s.indicator_id in wanted)
+        missing = wanted - {s.indicator_id for s in specs}
+        if missing:
+            typer.echo(
+                f"ingest-iced-renewable-potential: unknown indicator_id(s): "
+                f"{sorted(missing)}; known: "
+                f"{[s.indicator_id for s in SHIPPED_SPECS]}",
+                err=True,
+            )
+            raise typer.Exit(2)
+
+    result = ingest_potential(repo_root=root, staging_dir=staging_dir, specs=specs)
+    typer.echo("ingest-iced-renewable-potential: OK")
+    for feed in result.feeds:
+        typer.echo(f"  {feed.indicator_id}:")
+        typer.echo(f"    output:  {feed.output_path.relative_to(root).as_posix()}")
+        typer.echo(f"    rows:    {feed.row_count}")
+        typer.echo(f"    entities:{feed.entity_count}")
+        typer.echo(f"    year:    {feed.time_min}-{feed.time_max}")
+        typer.echo(f"    dropped (unresolved aggregate rows): {feed.dropped_unresolved}")
+    typer.echo(f"  total rows written: {result.total_rows}")
+
+
 @app.command("ingest-iced-plant-load-factor")
 def ingest_iced_plant_load_factor(
     json_path: Path = typer.Argument(

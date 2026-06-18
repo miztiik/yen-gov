@@ -14,6 +14,7 @@ ac-winner-candidate-id,Winner,winner,entity_id,,elections,,365,,,
 ac-winner-party-id,Winning party,winning-party-ac,entity_id,,elections,,365,,,
 acs-arr-gap-inr-per-kwh,ACS-ARR gap,acs-arr-gap,â‚¹/kWh,,energy,src-bb1d7bec8b34,365,,,
 atc-losses-pct,AT&C losses,at-c-losses,%,,energy,src-bb1d7bec8b34,365,,,
+bio-energy-potential-mw,Bio-energy potential,bio-energy-potential,MW,Sum of the biomass and cogeneration-bagasse potential streams per state (both are additive components of the same buildable bio-energy capacity).,energy,src-c0a10bb04862,365,2025,2025,country state
 candidate-rank,Rank,rank,rank,,elections,,365,,,
 candidate-vote-share-pct,Vote share,vote-share-candidate,%,,elections,,365,,,
 candidate-votes-polled,Candidate votes,candidate-votes,votes,,elections,,365,,,
@@ -23,6 +24,7 @@ distribution-efficiency-pct-billing,Billing efficiency,billing-efficiency,%,,ene
 distribution-efficiency-pct-collection,Collection efficiency,collection-efficiency,%,,energy,src-650b1c25d1f7,365,,,
 distribution-efficiency-pct-td-loss,T&D loss,t-d-loss,%,,energy,src-650b1c25d1f7,365,,,
 effective-parties-laakso,Effective parties,effective-parties,count,,elections,,365,,,
+electors-persons-by-sex,Electors by sex,electors,persons,facet(sex),elections,src-99455a24d3c4,1825,2021,2021,ac
 electors-total,State electors,state-electors,persons,,elections,,365,,,
 electricity-availability-mu,Power availability,power-availability,MU,,energy,src-97a3c47d092f,365,,,
 electricity-generation-gwh,State generation (GWh),state-generation-gwh,GWh,,energy,src-ddbfadd51428,365,,,
@@ -154,9 +156,10 @@ rpo-compliance-pct,RPO compliance,rpo-compliance,%,,energy,,365,,,
 rpo-compliance-pct-non-solar,Non-solar RPO,non-solar-rpo,%,,energy,src-0ea63ed47704,365,,,
 rpo-compliance-pct-solar,Solar RPO,solar-rpo,%,,energy,src-0ea63ed47704,365,,,
 rpo-compliance-pct-total,Total RPO,total-rpo,%,,energy,src-0ea63ed47704,365,,,
+solar-potential-mw,Solar power potential,solar-energy-potential,MW,,energy,src-518795193989,365,2025,2025,country state
 turnout-pct,State turnout,state-turnout,%,,elections,,365,,,
 under-construction-capacity-gw,Under-construction capacity (pipeline),under-construction-capacity,GW,,energy,src-e0b2a084d204,30,,,
 votes-polled,State votes,state-votes,votes,,elections,,365,,,
+wind-potential-mw,Wind power potential,wind-energy-potential,MW,,energy,src-36e84f35548b,365,2025,2025,country state
 winning-party-id,Winning party,winning-party-state,entity_id,,elections,,365,,,
 winning-party-seats,Winning seats,winning-seats,ACs,,elections,,365,,,
-electors-persons-by-sex,Electors by sex,electors,persons,facet(sex),elections,src-99455a24d3c4,1825,2021,2021,ac
