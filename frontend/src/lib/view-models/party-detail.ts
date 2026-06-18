@@ -452,6 +452,45 @@ export function chronologicalSortKey(period_label: string): string {
   return `${m[2]}-${String(month).padStart(2, "0")}`;
 }
 
+/** Row E (TODO/20260617-party-page-polish-and-cdn-config-plan.md,
+ *  Jony P1 + Citizen): the headline strike-rate for a stronghold -
+ *  `wins / contested` as a whole percent. Returns 0 when `contested`
+ *  is 0 (defensive; the mart never emits a zero-denominator row).
+ *  Pure + exported so the comparator, the badge, and the unit test
+ *  share ONE definition. */
+export function strongholdStrikeRate(s: {
+  wins: number;
+  contested: number;
+}): number {
+  return s.contested > 0 ? Math.round((s.wins / s.contested) * 100) : 0;
+}
+
+/** Row E: comparator that orders strongholds best-to-least by
+ *  STRIKE-RATE (desc), then total wins (desc), then most-recent win
+ *  year (desc, nulls last), then `entity_id` (asc) for a fully
+ *  deterministic tiebreak. This OVERRIDES the mart's own `rank` order
+ *  on the page so the citizen reads the most-dominant seats first.
+ *  The sort is LITERAL strike-rate: a thin-sample 1-of-1 (100%)
+ *  intentionally floats above a 7-of-8 (88%); NO minimum-sample
+ *  filter is applied and NO row is dropped - the membership the mart
+ *  returned is preserved, only re-ordered. */
+export function compareStrongholdsByStrikeRate(
+  a: PartyStronghold,
+  b: PartyStronghold,
+): number {
+  const srDiff = strongholdStrikeRate(b) - strongholdStrikeRate(a);
+  if (srDiff !== 0) return srDiff;
+  if (a.wins !== b.wins) return b.wins - a.wins;
+  const ay = a.last_won_year;
+  const by = b.last_won_year;
+  if (ay !== by) {
+    if (ay == null) return 1;
+    if (by == null) return -1;
+    return by - ay;
+  }
+  return a.entity_id.localeCompare(b.entity_id);
+}
+
 /** Pure: fold stronghold rows into per-constituency aggregates.
  *  `target_party_id` is the party we're scoring against. For each
  *  (entity_id), count `wins` (rows where this party is the winner) +
@@ -513,15 +552,12 @@ export function foldStrongholdRows(
       href: null,
     });
   }
-  // Top-10 by wins desc, then by win-rate desc (so a 5-of-5 sweeper
-  // outranks a 5-of-10 streaky party), then by entity_id for
-  // determinism.
-  out.sort((a, b) => {
-    if (a.wins !== b.wins) return b.wins - a.wins;
-    const winRateDiff = b.wins / b.contested - a.wins / a.contested;
-    if (Math.abs(winRateDiff) > 1e-9) return winRateDiff;
-    return a.entity_id.localeCompare(b.entity_id);
-  });
+  // Row E (Jony P1 + Citizen): order best-to-least by STRIKE-RATE
+  // (wins/contested), then wins, then most-recent win, then entity_id
+  // - the SAME comparator the production loader applies to the
+  // mart-returned arrays, so the legacy fold path matches the page
+  // doctrine. Keeps the top-10 clip.
+  out.sort(compareStrongholdsByStrikeRate);
   return out.slice(0, 10);
 }
 
@@ -814,6 +850,16 @@ async function fetchPartyDetail(
       );
     }
   }
+
+  // Row E (Jony P1 + Citizen): the strongholds mart returns rows in
+  // its own `body, rank` order; the page reads best-to-least by
+  // STRIKE-RATE (wins/contested) so the most-dominant seats lead. We
+  // re-order the already-loaded arrays IN PLACE - NO mart/SQL change,
+  // and the top-N membership the mart chose is preserved (re-order
+  // only). This MUST run before `buildPartyProvenance` below, which
+  // consumes these arrays.
+  ls_strongholds.sort(compareStrongholdsByStrikeRate);
+  vs_strongholds.sort(compareStrongholdsByStrikeRate);
 
   const totals = computeTotals(ls_history, vs_history);
   const all_ls_methodology_breaks = await ls_methodology_breaks_promise;

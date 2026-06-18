@@ -356,27 +356,47 @@ describe("foldStrongholdRows", () => {
     expect(out).toEqual([]);
   });
 
-  it("sorts by wins desc, then win-rate desc, then entity_id asc", () => {
-    // Build 3 entities, all with the same number of wins (2) but
-    // different denominators - win-rate desc should pick the sweeper.
+  it("sorts by strike-rate desc, then wins desc, then entity_id asc", () => {
+    // Row E (TODO/20260617-party-page-polish-and-cdn-config-plan.md):
+    // the order is LITERAL strike-rate (wins/contested), NOT
+    // wins-primary. A thin-sample 1-of-1 (100%) floats ABOVE a
+    // 7-of-8 (88%) despite far fewer wins. Within an equal strike
+    // rate, more wins ranks higher; a full tie breaks on entity_id.
     const out = foldStrongholdRows(
       [
-        // ENT-A: 2-of-3
-        { entity_id: "ENT-A", period_label: "1", winner_party_id: target },
-        { entity_id: "ENT-A", period_label: "2", winner_party_id: target },
-        { entity_id: "ENT-A", period_label: "3", winner_party_id: "other" },
-        // ENT-B: 2-of-2 (sweeper)
+        // ENT-B: 2-of-2 = 100% strike, 2 wins
         { entity_id: "ENT-B", period_label: "1", winner_party_id: target },
         { entity_id: "ENT-B", period_label: "2", winner_party_id: target },
-        // ENT-C: 2-of-2 (sweeper; ties win-rate, lower entity_id wins)
+        // ENT-C: 2-of-2 = 100% strike, 2 wins (ties ENT-B; entity_id asc)
         { entity_id: "ENT-C", period_label: "1", winner_party_id: target },
         { entity_id: "ENT-C", period_label: "2", winner_party_id: target },
+        // ENT-SWEEP1: 1-of-1 = 100% strike, 1 win (fewer wins -> after B,C)
+        { entity_id: "ENT-SWEEP1", period_label: "1", winner_party_id: target },
+        // ENT-STRONG: 7-of-8 = 88% strike, 7 wins (most wins, lower strike)
+        { entity_id: "ENT-STRONG", period_label: "1", winner_party_id: target },
+        { entity_id: "ENT-STRONG", period_label: "2", winner_party_id: target },
+        { entity_id: "ENT-STRONG", period_label: "3", winner_party_id: target },
+        { entity_id: "ENT-STRONG", period_label: "4", winner_party_id: target },
+        { entity_id: "ENT-STRONG", period_label: "5", winner_party_id: target },
+        { entity_id: "ENT-STRONG", period_label: "6", winner_party_id: target },
+        { entity_id: "ENT-STRONG", period_label: "7", winner_party_id: target },
+        { entity_id: "ENT-STRONG", period_label: "8", winner_party_id: "other" },
+        // ENT-MID: 2-of-3 = 67% strike, 2 wins
+        { entity_id: "ENT-MID", period_label: "1", winner_party_id: target },
+        { entity_id: "ENT-MID", period_label: "2", winner_party_id: target },
+        { entity_id: "ENT-MID", period_label: "3", winner_party_id: "other" },
       ],
       target,
       new Map(),
       new Map(),
     );
-    expect(out.map((s) => s.entity_id)).toEqual(["ENT-B", "ENT-C", "ENT-A"]);
+    expect(out.map((s) => s.entity_id)).toEqual([
+      "ENT-B",
+      "ENT-C",
+      "ENT-SWEEP1",
+      "ENT-STRONG",
+      "ENT-MID",
+    ]);
   });
 
   it("clips the output to the top-10 strongholds", () => {
