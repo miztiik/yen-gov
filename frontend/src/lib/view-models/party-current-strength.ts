@@ -24,6 +24,7 @@
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { query, registerCsvFile } from "../duckdb";
 import { DATA_BASE } from "../paths";
+import { link } from "../links";
 
 /** Party-page mart paths (repo-relative for columns.json lookup +
  *  runtime URL for DuckDB-WASM HTTP reads). Mirrors the constants
@@ -122,16 +123,44 @@ export interface StateAssembliesLatest {
    *  Exposed so the caller can compare against `parliament_latest`
    *  for the cross-body "Last contested" line. */
   latest_event_sort_key: string;
+  /** LGD slug of the state whose assembly event is the latest (e.g.
+   *  `"west-bengal"`). Carried so a catalogue-aware caller can resolve
+   *  the per-state assembly event_id and link the "Last contested"
+   *  date token. Always set by `projectStateAssembliesLatest`. */
+  latest_event_state_slug: string;
+  /** Canonical assembly event_id for the latest event (e.g.
+   *  `"assembly-2026"`), or null when no event resolves for the state.
+   *  Resolved via the injected `assemblyEventIdFromSlug` resolver - the
+   *  pure helper stays mount-free; `party-detail.ts` enriches this from
+   *  the loaded election-events catalogue (this loader has no catalogue
+   *  of its own). */
+  latest_event_id: string | null;
+}
+
+/** Citizen-facing "Last contested" line, split so the consumer can
+ *  link ONLY the trailing date token (mirroring the Parliament-line
+ *  date-only link). `prefix` is the lead text up to and including the
+ *  comma before the date (e.g. `"West Bengal State Assembly,"` /
+ *  `"Parliament General Election,"`); `date_text` is the trailing
+ *  `"Mon YYYY"`; `href` is the body-aware in-app permalink for the
+ *  event, or null when no event_id resolves (the consumer then renders
+ *  the date as plain text - CLAUDE.md section 10: no silent demotion,
+ *  just an unlinked but honest token). */
+export interface LastContested {
+  prefix: string;
+  date_text: string;
+  href: string | null;
 }
 
 /** Top-level view-model for the Current Strength strip. */
 export interface PartyCurrentStrength {
   parliament_latest: ParliamentLatest | null;
   state_assemblies_latest: StateAssembliesLatest | null;
-  /** Citizen-facing "Last contested" one-liner. Picks whichever of
-   *  `parliament_latest` or `state_assemblies_latest.latest_event_label`
-   *  is chronologically most recent. Null only when both are null. */
-  last_contested_label: string | null;
+  /** Citizen-facing "Last contested" line, split for date-only
+   *  linking. Picks whichever of `parliament_latest` or
+   *  `state_assemblies_latest` is chronologically most recent. Null
+   *  only when both are null. */
+  last_contested: LastContested | null;
 }
 
 /** Total LS chamber size - exported for vitest. */
@@ -382,10 +411,18 @@ export function projectParliamentLatest(
  *  the helper falls back to the slug Title Cased via
  *  `titleCaseStateSlug` so the line never shows an empty placeholder.
  *
+ *  `assemblyEventIdFromSlug` is a second injected resolver that maps
+ *  the latest event's state slug to its canonical assembly event_id
+ *  (e.g. `"west-bengal" -> "assembly-2026"`). It defaults to `() =>
+ *  null` so the pure helper + the loader (which has no election-events
+ *  catalogue) stay mount-free; `party-detail.ts` enriches the resolved
+ *  id post-load from the catalogue it already holds.
+ *
  *  Exported for vitest. */
 export function projectStateAssembliesLatest(
   rows: RawStateAssemblyRow[],
   stateNameFromSlug: (slug: string) => string | null,
+  assemblyEventIdFromSlug: (slug: string) => string | null = () => null,
 ): StateAssembliesLatest | null {
   if (rows.length === 0) return null;
   let seats_won = 0;
@@ -420,20 +457,35 @@ export function projectStateAssembliesLatest(
     state_count: states.size,
     latest_event_label: `${state_name} State Assembly, ${month_label}`,
     latest_event_sort_key: latestKey,
+    latest_event_state_slug: latest.state,
+    latest_event_id: assemblyEventIdFromSlug(latest.state),
   };
 }
 
-/** Pure: pick the citizen-facing "Last contested" one-liner. Compares
- *  parliament_latest vs state_assemblies_latest by chronological sort
- *  key; whichever is more recent wins. Ties (same year + month for an
- *  LS general AND an AC general) break in favour of the state assembly
- *  because they are state-grain (more locally specific) - the citizen
- *  reads it as the more concrete event. Returns null when both are
- *  null. Exported for vitest. */
-export function pickLastContestedLabel(
+/** Pure: build the citizen-facing "Last contested" line, split into a
+ *  `{ prefix, date_text, href }` struct so the consumer links ONLY the
+ *  trailing date token (mirroring the Parliament-line date-only link).
+ *  Compares parliament_latest vs state_assemblies_latest by
+ *  chronological sort key; whichever is more recent wins. Ties (same
+ *  year + month for an LS general AND an AC general) break in favour of
+ *  the state assembly because they are state-grain (more locally
+ *  specific) - the citizen reads it as the more concrete event.
+ *
+ *  The href is body-aware:
+ *    - assembly winner -> `link.stateElection(state_slug, event_id)`,
+ *      or null when `latest_event_id` did not resolve (the assembly
+ *      event_id is enriched post-load in `party-detail.ts`; when this
+ *      runs inside the loader it is still null, so the consumer renders
+ *      the date as plain text until the enriched re-derivation lands).
+ *    - parliament winner -> `link.nationalElection(event_id)`, which
+ *      always resolves because the LS event_id is derived from the
+ *      period_label at load time.
+ *
+ *  Returns null when both inputs are null. Exported for vitest. */
+export function pickLastContested(
   parliament: ParliamentLatest | null,
   assemblies: StateAssembliesLatest | null,
-): string | null {
+): LastContested | null {
   const parliamentKey =
     parliament === null
       ? null
@@ -441,9 +493,32 @@ export function pickLastContestedLabel(
   const assemblyKey = assemblies?.latest_event_sort_key ?? null;
   if (parliamentKey === null && assemblyKey === null) return null;
   if (assemblyKey !== null && (parliamentKey === null || assemblyKey >= parliamentKey)) {
-    return assemblies!.latest_event_label;
+    // Assembly winner. `latest_event_label` is
+    // "<State> State Assembly, <Mon YYYY>"; split on the last ", " to
+    // isolate the trailing date token (state names never carry a comma).
+    const label = assemblies!.latest_event_label;
+    const sep = label.lastIndexOf(", ");
+    const prefix = sep >= 0 ? label.slice(0, sep + 1) : label;
+    const date_text = sep >= 0 ? label.slice(sep + 2) : "";
+    const href =
+      assemblies!.latest_event_id !== null
+        ? link.stateElection(
+            assemblies!.latest_event_state_slug,
+            assemblies!.latest_event_id,
+          )
+        : null;
+    return { prefix, date_text, href };
   }
-  return `Parliament General Election, ${parliament!.month_label}`;
+  // Parliament winner.
+  const href =
+    parliament!.event_id.length > 0
+      ? link.nationalElection(parliament!.event_id)
+      : null;
+  return {
+    prefix: "Parliament General Election,",
+    date_text: parliament!.month_label,
+    href,
+  };
 }
 
 /** Module-level Promise cache, keyed by party_id. Mirrors the
@@ -524,14 +599,14 @@ async function fetchPartyCurrentStrength(
   if (parliament_latest === null && state_assemblies_latest === null) {
     return null;
   }
-  const last_contested_label = pickLastContestedLabel(
+  const last_contested = pickLastContested(
     parliament_latest,
     state_assemblies_latest,
   );
   return {
     parliament_latest,
     state_assemblies_latest,
-    last_contested_label,
+    last_contested,
   };
 }
 

@@ -23,9 +23,17 @@ vi.mock("./parties", () => ({
   loadPartyMeta: vi.fn(),
 }));
 
-vi.mock("./party-current-strength", () => ({
-  loadPartyCurrentStrength: vi.fn(),
-}));
+vi.mock("./party-current-strength", async (importOriginal) => {
+  const actual =
+    await importOriginal<typeof import("./party-current-strength")>();
+  return {
+    loadPartyCurrentStrength: vi.fn(),
+    // pickLastContested is a pure struct-builder the detail loader
+    // re-runs after it enriches the assembly event_id; use the real one
+    // so the enrichment path is exercised end-to-end.
+    pickLastContested: actual.pickLastContested,
+  };
+});
 
 vi.mock("./party-alliance-context", () => ({
   loadPartyAllianceContext: vi.fn(),
@@ -56,6 +64,7 @@ vi.mock("./party-sources", async (importOriginal) => {
 });
 
 import { query, registerCsvFile } from "../duckdb";
+import { link } from "../links";
 import { loadPartyMeta, type PartyMeta } from "./parties";
 import { loadPartyCurrentStrength } from "./party-current-strength";
 import { loadPartyAllianceContext } from "./party-alliance-context";
@@ -832,17 +841,28 @@ describe("loadPartyDetail", () => {
         state_count: 1,
         latest_event_label: "Tamil Nadu State Assembly, Apr 2021",
         latest_event_sort_key: "2021-04",
+        latest_event_state_slug: "tamil-nadu",
+        latest_event_id: null,
       },
-      last_contested_label: "Parliament General Election, Jun 2024",
+      last_contested: {
+        prefix: "Parliament General Election,",
+        date_text: "Jun 2024",
+        href: link.nationalElection("general-2024"),
+      },
     });
     const out = await loadPartyDetail("parties.IN.DMK");
     expect(out).not.toBeNull();
     expect(out!.current_strength).not.toBeNull();
     expect(out!.current_strength!.parliament_latest!.seats_won).toBe(22);
     expect(out!.current_strength!.state_assemblies_latest!.state_count).toBe(1);
-    expect(out!.current_strength!.last_contested_label).toBe(
-      "Parliament General Election, Jun 2024",
-    );
+    // Parliament (2024-06) is more recent than the TN assembly
+    // (2021-04), so the re-derived "Last contested" struct points at the
+    // national event with a resolvable href (date token only).
+    expect(out!.current_strength!.last_contested).toEqual({
+      prefix: "Parliament General Election,",
+      date_text: "Jun 2024",
+      href: link.nationalElection("general-2024"),
+    });
     expect(mockedLoadPartyCurrentStrength).toHaveBeenCalledWith(
       "parties.IN.DMK",
       expect.objectContaining({ is_sentinel: false }),

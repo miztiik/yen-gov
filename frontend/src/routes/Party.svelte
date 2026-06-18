@@ -75,29 +75,27 @@
     };
   }
 
-  /** Pure: format the citizen-readable latest-of one-liner for ONE body
-   *  (e.g. "Parliament (2024): 99 of 543 seats won, 21.2% of votes -
-   *  down from the party's peak of 415 seats in 1984."). Returns null
-   *  when the history is empty so the consumer can skip the line
-   *  entirely.
+  /** Pure: format the standalone peak/low framing caption for ONE
+   *  body's seat history, rendered as a sub-caption directly under
+   *  that body's chart. Returns "" (empty) when there is no framing
+   *  to add - i.e. the history is empty, the party contested only one
+   *  cycle, or the latest cycle IS the all-time peak with no earlier
+   *  low sitting below it.
    *
-   *  Peak/low framing (PR-1 plan-doc 20260614, Hans H1 verbatim:
-   *  comma separators, named verbs, no glyphs):
-   *    - When the latest sits BELOW the all-time peak: surface the peak
-   *      as a "- down from the party's peak of X seats in Y" downbeat
-   *      citizen anchor.
-   *    - When the latest IS the all-time peak AND there is an earlier
-   *      low: surface the low as a "- up from the party's earlier low
-   *      of X in Y" upbeat citizen anchor.
-   *    - When the latest is the only cycle (or the series is flat at the
-   *      latest's value): no framing - the bare seats + share line
-   *      stands on its own. */
-  export function formatLatestSentence(
-    history: PartyHistoryPoint[],
-    total_seats: number,
-    body_label: string,
-  ): string | null {
-    if (history.length === 0) return null;
+   *  Narrowed in the party-ux follow-up from the prior full latest-of
+   *  one-liner: the floating per-body sentences were removed (the peak
+   *  is already surfaced in the header subline, the scorecard, and the
+   *  chart trophy header), so only the framing CLAUSE survives, lifted
+   *  to a standalone capitalised caption beside the chart. Framing
+   *  rules are Hans H1 verbatim from PR-1 plan-doc 20260614 (comma
+   *  separators, named verbs, no glyphs):
+   *    - latest sits BELOW the all-time peak ->
+   *      "Down from the party's peak of X seats in Y."
+   *    - latest IS the peak AND an earlier low sits below it ->
+   *      "Up from the party's earlier low of X in Y."
+   *    - otherwise -> "" (no caption). */
+  export function formatPeakFraming(history: PartyHistoryPoint[]): string {
+    if (history.length === 0) return "";
     const sorted = [...history].sort((a, b) => a.year - b.year);
     const latest = sorted[sorted.length - 1]!;
     // Find both the peak (max seats) and the low (min seats); ties
@@ -108,19 +106,13 @@
       if (p.seats > peak.seats) peak = p;
       if (p.seats < low.seats) low = p;
     }
-    const totalStr = total_seats > 0 ? ` of ${total_seats}` : "";
-    const seatsPart = `${latest.seats}${totalStr} seats won`;
-    const sharePart =
-      latest.vote_share_pct == null
-        ? ""
-        : `, ${latest.vote_share_pct.toFixed(1)}% of votes`;
-    let framing = "";
     if (peak.year !== latest.year && peak.seats > latest.seats) {
-      framing = ` - down from the party's peak of ${peak.seats} seats in ${peak.year}`;
-    } else if (low.year !== latest.year && low.seats < latest.seats) {
-      framing = ` - up from the party's earlier low of ${low.seats} in ${low.year}`;
+      return `Down from the party's peak of ${peak.seats} seats in ${peak.year}.`;
     }
-    return `${body_label} (${latest.year}): ${seatsPart}${sharePart}${framing}.`;
+    if (low.year !== latest.year && low.seats < latest.seats) {
+      return `Up from the party's earlier low of ${low.seats} in ${low.year}.`;
+    }
+    return "";
   }
 
   /** Avatar treatment - geometry is uniformly a circle; the shape
@@ -330,23 +322,17 @@
       : null,
   );
   const sentinel_line = $derived(meta ? sentinelFraming(meta.party_id) : null);
-  // LS body sub-line. Citizen-facing label is "Parliament" per the
-  // PR-1 plan-doc 20260614 Hans H1 verdict; the chart sub-section sets
-  // its own header text. We hardcode the body labels here so the test
-  // can pin the sentence shape without going through a label registry.
-  const ls_latest = $derived(
-    view_model
-      ? formatLatestSentence(view_model.ls_history, 543, "Parliament")
-      : null,
+  // Per-body peak/low framing caption, rendered as a sub-caption under
+  // each chart (sections 4 + 5). Empty string => no caption. Replaces
+  // the prior floating latest-of one-liners (party-ux follow-up): the
+  // peak is already surfaced in the header subline, the scorecard, and
+  // the chart trophy header, so only the framing CLAUSE survives, lifted
+  // beside the chart it describes.
+  const ls_framing = $derived(
+    view_model ? formatPeakFraming(view_model.ls_history) : "",
   );
-  // VS body sub-line. Total seats are state-specific (Tamil Nadu = 234,
-  // UP = 403, etc.); the v1 page uses 0 (no "of N" denominator) because
-  // a per-party state-Assembly bar mixes states. Future PR can split
-  // the bar by state and surface the per-state denominator.
-  const vs_latest = $derived(
-    view_model
-      ? formatLatestSentence(view_model.vs_history, 0, "State Assembly")
-      : null,
+  const vs_framing = $derived(
+    view_model ? formatPeakFraming(view_model.vs_history) : "",
   );
   const ls_peak = $derived(view_model?.totals.peak_ls_seats ?? 0);
   const ls_peak_year = $derived(view_model?.totals.peak_ls_year ?? 0);
@@ -643,21 +629,6 @@
     -->
     <div class="space-y-6 min-w-0">
 
-    <!-- (2) Latest-of one-liner per body. Hidden for sentinels until
-         a meaningful value lands. -->
-    {#if !meta.is_sentinel}
-      {#if ls_latest}
-        <p class="text-sm text-slate-700" data-testid="party-latest-ls">
-          {ls_latest}
-        </p>
-      {/if}
-      {#if vs_latest}
-        <p class="text-sm text-slate-700" data-testid="party-latest-vs">
-          {vs_latest}
-        </p>
-      {/if}
-    {/if}
-
     <!-- (3) KPI strip 2x2 -->
     {#if !meta.is_sentinel}
       <section
@@ -692,7 +663,10 @@
           class="rounded border border-slate-200 bg-white p-3 text-center"
           data-testid="party-kpi-cycles"
         >
-          <div class="text-xs text-slate-500">Elections contested</div>
+          <div class="inline-flex items-center justify-center gap-1.5 text-xs text-slate-500">
+            <TopicIcon name="vote" cls="w-4 h-4 text-slate-500 shrink-0" />
+            <span>Elections contested</span>
+          </div>
           <div class="text-xl font-bold tabular-nums text-slate-900">
             {kpis.elections_contested.toLocaleString()}
           </div>
@@ -701,7 +675,10 @@
           class="rounded border border-slate-200 bg-white p-3 text-center"
           data-testid="party-kpi-range"
         >
-          <div class="text-xs text-slate-500">Active</div>
+          <div class="inline-flex items-center justify-center gap-1.5 text-xs text-slate-500">
+            <TopicIcon name="calendar-range" cls="w-4 h-4 text-slate-500 shrink-0" />
+            <span>Active</span>
+          </div>
           <div class="text-xl font-bold tabular-nums text-slate-900">
             {kpis.active_range}
           </div>
@@ -740,6 +717,11 @@
           bar_format={(n) => `${n.toFixed(1)}%`}
           methodology_breaks={view_model.ls_methodology_breaks}
         />
+        {#if ls_framing}
+          <p class="text-[11px] text-slate-400" data-testid="party-ls-framing">
+            {ls_framing}
+          </p>
+        {/if}
         {#if view_model.ls_methodology_breaks.length > 0}
           <p
             class="text-[11px] text-slate-400"
@@ -778,6 +760,11 @@
           bar_y_label="Vote share %"
           bar_format={(n) => `${n.toFixed(1)}%`}
         />
+        {#if vs_framing}
+          <p class="text-[11px] text-slate-400" data-testid="party-vs-framing">
+            {vs_framing}
+          </p>
+        {/if}
       </section>
     {/if}
 
