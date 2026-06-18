@@ -2413,6 +2413,60 @@ def ingest_iced_coal_consumption(
     typer.echo(f"  skipped (unmapped states): {result.skipped_unmapped}")
 
 
+@app.command("ingest-iced-state-wise")
+def ingest_iced_state_wise(
+    staging_dir: Path = typer.Option(
+        ...,
+        "--staging-dir",
+        "-s",
+        help=(
+            "Directory holding the operator-staged ICED state-wise deep-dive "
+            "responses, one per fiscal year named <fy_label>.json (e.g. "
+            "2024-25.json). AES-encrypted; saved raw by tools/iced_stage.py and "
+            "decrypted here. No network."
+        ),
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Re-ingest the ICED state-wise single-value energy indicators.
+
+    Emits one ``datasets/data/datapoints/geo/<variable_id>.csv`` per target
+    (rooftop-solar-capacity-mw, electricity-sales-mu): the per-FY per-state
+    columns are accumulated across every staged fiscal year, ECI state codes
+    translate to LGD slugs, and fiscal-year periods reduce to integer years.
+    Graduates these orphan single-value series to LIVE re-ingest (Tier-B);
+    re-running with fresher staged responses adds new years.
+
+    installed-capacity-allocated-mw is deliberately NOT emitted: its on-disk
+    file is a dual-source historical merge (RBI Handbook + ICED), so a clean
+    ICED-only re-emit would truncate the RBI history. See the re-ingest module
+    docstring.
+    """
+    from yen_gov.sources.iced_state_wise.ingest import ingest_state_wise
+
+    result = ingest_state_wise(repo_root=root, staging_dir=staging_dir)
+    typer.echo("ingest-iced-state-wise: OK")
+    typer.echo(f"  fiscal years: {', '.join(result.fy_labels) or '(none)'}")
+    for target in result.targets:
+        typer.echo(f"  {target.variable_id}:")
+        typer.echo(
+            f"    output: {target.artifact_path.relative_to(root).as_posix()}"
+        )
+        typer.echo(f"    rows:   {target.row_count}")
+    typer.echo(f"  skipped (indicator x FY missing): {result.skipped_missing}")
+
+
 @app.command("seed-goals")
 def seed_goals_cmd(
     root: Path = typer.Option(
