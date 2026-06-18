@@ -308,20 +308,16 @@
   // sentinels (defence in depth) and for parties with no alliance
   // rows on file (Independent + new entrants).
   import PartyAllianceContext from "../lib/parties/PartyAllianceContext.svelte";
-  // PR-9: per-card publisher-pill footers replace the retired
-  // free-text coverage badges + bottom-of-page strip. Each `SourceList`
-  // self-suppresses on an empty `pills` array, so cards without
-  // resolved sources render nothing (no row, no whitespace).
-  import { SourceList } from "../lib/sources";
+  // Row C: the five inline per-card `SourceList` mounts + the
+  // standalone "About this page" link are retired in favour of ONE
+  // page-foot provenance block. `PartyProvenanceFooter` states each
+  // publisher once (ECI for the data cards, Wikipedia for alliance
+  // line-ups), keeps every name clickable (Holy Law #9), then renders
+  // the single "About this page" link (the `docsUrl()` seam moved into
+  // the footer with that link).
+  import PartyProvenanceFooter from "../lib/parties/PartyProvenanceFooter.svelte";
   import { stateNameFromEntityId } from "../lib/parties/party-detail-utils";
   import { formatLeaderSince } from "../lib/view-models/parties";
-  // PR-13 D13: quiet footer link to the page-coverage docs concept.
-  // No in-app `/docs/concepts/:slug` route exists; the canonical
-  // pattern is `docsUrl()` building a GitHub blob URL (same as
-  // `CountingMethodDoc.svelte` + `Psephlab.svelte`). The page itself
-  // lives at `docs/concepts/party-page-coverage.md` and consolidates
-  // the meta-disclaimers the page previously rendered inline.
-  import { docsUrl } from "../lib/repo";
 
   interface Props {
     params: { slug: string };
@@ -663,7 +659,6 @@
       current_strength={view_model.current_strength}
       is_sentinel={meta.is_sentinel}
     />
-    <SourceList pills={view_model.provenance.pills_per_card.current_strength} />
 
     <!-- PR-8: "Who they ride with" Alliance Context strip. Sits
          directly under the Current Strength strip and above the
@@ -675,7 +670,6 @@
       alliance_context={view_model.alliance_context}
       is_sentinel={meta.is_sentinel}
     />
-    <SourceList pills={view_model.provenance.pills_per_card.alliance_context} />
 
     <!--
       PR-6 layout: header sits full-width above. Wave-F F6 RIP'd
@@ -789,7 +783,6 @@
             hover to see what changed.
           </p>
         {/if}
-        <SourceList pills={view_model.provenance.pills_per_card.parliament} />
       </section>
     {/if}
 
@@ -815,7 +808,6 @@
           bar_y_label="Vote share %"
           bar_format={(n) => `${n.toFixed(1)}%`}
         />
-        <SourceList pills={view_model.provenance.pills_per_card.state_assembly} />
       </section>
     {/if}
 
@@ -893,7 +885,6 @@
             </ul>
           </div>
         {/if}
-        <SourceList pills={view_model.provenance.pills_per_card.strongholds} />
       </section>
     {/if}
 
@@ -917,22 +908,13 @@
       </p>
     {/if}
 
-    <!-- PR-13 D13: one quiet "About this page" link. Slate-400, no
-         italic, no chrome. Points at the GitHub-rendered concept doc
-         (no in-app `/docs/concepts/:slug` route exists - canonical
-         pattern is `docsUrl()` -> GitHub blob URL, mirroring
-         `CountingMethodDoc.svelte` + `Psephlab.svelte`). The doc
-         consolidates the meta-disclaimers the page previously
-         rendered inline (PR-9 retired 2 of 4; PR-11 retires the
-         remaining 2). -->
-    <p class="mt-8 text-sm text-slate-400">
-      <a
-        href={docsUrl("docs/concepts/party-page-coverage.md")}
-        target="_blank"
-        rel="noreferrer"
-        class="hover:underline"
-        data-testid="party-page-coverage-link"
-      >About this page -&gt;</a>
-    </p>
+    <!-- Row C: page-foot provenance block. ONE mapped sentence that
+         states each publisher once (ECI for the data cards, Wikipedia
+         for alliance line-ups), every name clickable (Holy Law #9),
+         followed by the single "About this page ->" link (lifted from
+         the retired standalone footer). Replaces the five inline
+         per-card SourceList pill rows. The sentence self-suppresses
+         when no publisher resolved; the About link always renders. -->
+    <PartyProvenanceFooter provenance={view_model.provenance} />
   {/if}
 </PageContainer>
