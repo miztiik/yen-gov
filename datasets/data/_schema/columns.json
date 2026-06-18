@@ -1,6 +1,6 @@
 {
   "$schema": "./columns.schema.json",
-  "$schema_version": "2.8",
+  "$schema_version": "2.9",
   "file_classes": {
     "datasets/data/variables.csv": {
       "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
@@ -337,6 +337,16 @@
         { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
         { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
         { "name": "fuel_type", "dtype": "string", "nullable": false, "pk": true, "enum": ["coal", "gas", "hydro", "nuclear", "renewable", "all"] },
+        { "name": "value", "dtype": "number", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
+    "datasets/data/datapoints/geo_by_product/*.csv": {
+      "notes": "Long-format datapoints faceted by product (the petroleum-product consumption dimension). Sibling to datasets/data/datapoints/geo/*.csv and datasets/data/datapoints/geo_by_fuel/*.csv: same LGD entity_id FK target + the same (entity_id, time) spine, PLUS a product dimension column that joins the PK. Mirrors the geo_by_fuel per-axis sibling pattern (v2.7, PR #1097) under the plan section 21.6 dimension-column branch: ONE file per measure (filename exactly <variable_id>.csv) carries all product members in long format instead of fanning out into per-product variable_ids. Composite PK (entity_id, time, product). product is a closed enum [diesel-hsd, kerosene, lpg, naphtha, others, petrol, petroleum-coke] - the seven refined-petroleum products the publisher (NITI Aayog India Climate & Energy Dashboard, Oil Product Consumption State-wise series) reports per state per fiscal year. UNLIKE geo_by_fuel there is NO published `all` total file on disk for this measure, so this class carries NO `all` member and readers MUST NOT synthesise one (the contract forbids a render-time sum-of-parts total). A measure is admissible in this class ONLY when product passes the four-gate facet test (docs/concepts/indicator-naming.md section 6 / plan F2): same concept/unit/normalisation, same publisher-fact, members partition a recognisable whole (total petroleum-product consumption), real citizen question. The facet axis + enum live HERE in columns.json so the frontend reader stays columns.json-only (no variables.csv dimension dispatch) per the Gregor contract ruling (TODO/20260616-geo-facet-dimension-column-plan.md). Spec: csv-column-contract.md section 3.3.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "product", "dtype": "string", "nullable": false, "pk": true, "enum": ["diesel-hsd", "kerosene", "lpg", "naphtha", "others", "petrol", "petroleum-coke"] },
         { "name": "value", "dtype": "number", "nullable": true },
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]

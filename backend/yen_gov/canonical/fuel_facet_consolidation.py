@@ -41,16 +41,35 @@ __all__ = [
     "GENERATION_FAMILIES",
     "RETIRED_FAMILIES",
     "ALL_FUEL_FACETED_FAMILIES",
+    "OIL_PRODUCT_FAMILIES",
     "consolidate_family_rows",
     "write_faceted_family",
 ]
 
 _GEO_DIR = "datasets/data/datapoints/geo"
-_GEO_BY_FUEL_FC = "datasets/data/datapoints/geo_by_fuel/*.csv"
-_GEO_BY_FUEL_DIR = "datasets/data/datapoints/geo_by_fuel"
 
-# The fuel member that carries the publisher's aggregate (NOT a sum of parts).
+# Each faceting axis writes to its own per-axis sibling file-class
+# datasets/data/datapoints/geo_by_<segment>/*.csv (blessed in columns.json).
+# The dataclass ``axis`` field is the dimension COLUMN name; this maps it to
+# the directory segment (fuel_type -> geo_by_fuel; product -> geo_by_product).
+_AXIS_TO_FACET_SEGMENT: dict[str, str] = {
+    "fuel_type": "fuel",
+    "product": "product",
+}
+
+# The aggregate member that carries the publisher's published total (NOT a sum
+# of parts). Only families with a parent total file on disk emit it.
 ALL_MEMBER = "all"
+
+
+def _facet_dir(axis: str) -> str:
+    """``datasets/data/datapoints/geo_by_<segment>`` for the given axis."""
+    return f"datasets/data/datapoints/geo_by_{_AXIS_TO_FACET_SEGMENT[axis]}"
+
+
+def _facet_file_class(axis: str) -> str:
+    """The columns.json file-class glob for the given axis."""
+    return f"{_facet_dir(axis)}/*.csv"
 
 
 @dataclass(frozen=True)
@@ -59,19 +78,23 @@ class FuelFamilySpec:
 
     Attributes:
         parent_id: the faceted measure's ``variable_id`` - also the output
-            filename stem (``geo_by_fuel/<parent_id>.csv``). Stays in
+            filename stem (``geo_by_<axis>/<parent_id>.csv``). Stays in
             ``variables.csv`` as the single faceted measure row.
         has_all_member: when True, ``geo/<parent_id>.csv`` exists on disk and
-            its rows fold in as the ``fuel_type = all`` aggregate member.
-        children: ordered ``(fuel_value, child_variable_id)`` pairs; each
+            its rows fold in as the ``<axis> = all`` aggregate member.
+        children: ordered ``(facet_value, child_variable_id)`` pairs; each
             ``geo/<child_variable_id>.csv`` is read and tagged
-            ``fuel_type = fuel_value``. ``fuel_value`` MUST be in the
-            ``geo_by_fuel`` enum (coal, gas, hydro, nuclear, renewable).
+            ``<axis> = facet_value``. ``facet_value`` MUST be in the file
+            class's enum for ``axis``.
+        axis: the dimension COLUMN name written into the faceted file and the
+            geo_by_<segment> directory selector. Defaults to ``"fuel_type"``
+            (the geo_by_fuel families); ``"product"`` selects geo_by_product.
     """
 
     parent_id: str
     has_all_member: bool
     children: tuple[tuple[str, str], ...]
+    axis: str = "fuel_type"
 
 
 def _read_geo_rows(root: Path, variable_id: str) -> list[dict[str, str]]:
@@ -95,7 +118,7 @@ def _read_geo_rows(root: Path, variable_id: str) -> list[dict[str, str]]:
 def consolidate_family_rows(root: Path, spec: FuelFamilySpec) -> list[dict[str, Any]]:
     """Build the faceted row list for one family (unsorted; write_csv sorts).
 
-    Each output row is ``{entity_id, time, fuel_type, value, source_id}`` with
+    Each output row is ``{entity_id, time, <axis>, value, source_id}`` with
     the per-row ``source_id`` preserved verbatim from the input (Holy Law #9).
     ``value`` is passed through as a string (empty -> None) and coerced by
     ``write_csv``; the writer's shortest-round-trippable float repr keeps the
@@ -104,28 +127,32 @@ def consolidate_family_rows(root: Path, spec: FuelFamilySpec) -> list[dict[str, 
     rows: list[dict[str, Any]] = []
     if spec.has_all_member:
         for r in _read_geo_rows(root, spec.parent_id):
-            rows.append(_facet_row(r, ALL_MEMBER))
-    for fuel_value, child_id in spec.children:
+            rows.append(_facet_row(r, ALL_MEMBER, spec.axis))
+    for facet_value, child_id in spec.children:
         for r in _read_geo_rows(root, child_id):
-            rows.append(_facet_row(r, fuel_value))
+            rows.append(_facet_row(r, facet_value, spec.axis))
     return rows
 
 
-def _facet_row(geo_row: dict[str, str], fuel_value: str) -> dict[str, Any]:
+def _facet_row(
+    geo_row: dict[str, str], facet_value: str, axis: str
+) -> dict[str, Any]:
     return {
         "entity_id": geo_row["entity_id"],
         "time": geo_row["time"],
-        "fuel_type": fuel_value,
+        axis: facet_value,
         "value": geo_row["value"] if geo_row["value"] != "" else None,
         "source_id": geo_row["source_id"],
     }
 
 
 def write_faceted_family(root: Path, spec: FuelFamilySpec) -> Path:
-    """Consolidate one family and write ``geo_by_fuel/<parent_id>.csv``."""
+    """Consolidate one family and write ``geo_by_<axis>/<parent_id>.csv``."""
     rows = consolidate_family_rows(root, spec)
-    out_path = root / _GEO_BY_FUEL_DIR / f"{spec.parent_id}.csv"
-    return write_csv(path=out_path, file_class=_GEO_BY_FUEL_FC, rows=rows)
+    out_path = root / _facet_dir(spec.axis) / f"{spec.parent_id}.csv"
+    return write_csv(
+        path=out_path, file_class=_facet_file_class(spec.axis), rows=rows
+    )
 
 
 # The 3 fuel-faceted installed-capacity families in scope for the geo-facet PR.
@@ -214,4 +241,33 @@ RETIRED_FAMILIES: tuple[FuelFamilySpec, ...] = (
 # Every fuel-faceted energy family the consolidate-fuel-facets CLI materialises.
 ALL_FUEL_FACETED_FAMILIES: tuple[FuelFamilySpec, ...] = (
     INSTALLED_CAPACITY_FAMILIES + GENERATION_FAMILIES + RETIRED_FAMILIES
+)
+
+
+# Path A (oil-product faceting): per-state petroleum-product consumption by
+# product. The 7 per-product geo/*.csv children fold into ONE faceted file
+# under the NEW per-axis sibling class geo_by_product/*.csv (axis="product";
+# closed enum of the 7 NITI Aayog ICED "Oil Product Consumption State-wise"
+# product slugs). State-only grain (no IN/country rows); there is NO parent
+# total file on disk -> has_all_member=False (no `all` member; the contract
+# forbids synthesising a published total). Same structural move as the
+# geo_by_fuel families (PR #1097 / D1 / D2) at a new axis + file-class,
+# materialised by the sibling consolidate-product-facets CLI. This is a
+# SEPARATE registry from ALL_FUEL_FACETED_FAMILIES (different axis + output
+# class), so it is intentionally NOT folded into that fuel-only tuple.
+OIL_PRODUCT_FAMILIES: tuple[FuelFamilySpec, ...] = (
+    FuelFamilySpec(
+        parent_id="oil-product-consumption-kt",
+        has_all_member=False,
+        children=(
+            ("diesel-hsd", "oil-product-consumption-kt-diesel-hsd"),
+            ("kerosene", "oil-product-consumption-kt-kerosene"),
+            ("lpg", "oil-product-consumption-kt-lpg"),
+            ("naphtha", "oil-product-consumption-kt-naphtha"),
+            ("others", "oil-product-consumption-kt-others"),
+            ("petrol", "oil-product-consumption-kt-petrol"),
+            ("petroleum-coke", "oil-product-consumption-kt-petroleum-coke"),
+        ),
+        axis="product",
+    ),
 )

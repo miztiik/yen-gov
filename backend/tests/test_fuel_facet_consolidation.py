@@ -15,6 +15,7 @@ from yen_gov.canonical.fuel_facet_consolidation import (
     ALL_FUEL_FACETED_FAMILIES,
     GENERATION_FAMILIES,
     INSTALLED_CAPACITY_FAMILIES,
+    OIL_PRODUCT_FAMILIES,
     RETIRED_FAMILIES,
     FuelFamilySpec,
     consolidate_family_rows,
@@ -172,3 +173,94 @@ def test_retired_consolidation_has_no_all_member(tmp_path):
     by_fuel = {r["fuel_type"]: r["value"] for r in rows}
     assert by_fuel == {"coal": "800", "gas": "120"}
     assert "all" not in by_fuel
+
+
+def test_fuel_family_spec_defaults_axis_to_fuel_type():
+    # Byte-identical guarantee for geo_by_fuel: the axis generalisation leaves
+    # every existing fuel spec on axis="fuel_type" (so the output dir, file
+    # class and dimension column are all unchanged).
+    assert (
+        FuelFamilySpec(parent_id="x", has_all_member=False, children=()).axis
+        == "fuel_type"
+    )
+    for fam in ALL_FUEL_FACETED_FAMILIES:
+        assert fam.axis == "fuel_type"
+
+
+def test_oil_product_family_is_registered_with_product_axis():
+    # Path A: per-state oil-product consumption faceted by `product`; no parent
+    # total file on disk -> no `all` member; NEW geo_by_product axis.
+    assert len(OIL_PRODUCT_FAMILIES) == 1
+    oil = OIL_PRODUCT_FAMILIES[0]
+    assert oil.parent_id == "oil-product-consumption-kt"
+    assert oil.axis == "product"
+    assert oil.has_all_member is False
+    assert [p for p, _ in oil.children] == [
+        "diesel-hsd",
+        "kerosene",
+        "lpg",
+        "naphtha",
+        "others",
+        "petrol",
+        "petroleum-coke",
+    ]
+    # Oil products are a SEPARATE registry from the fuel families (different
+    # axis + file-class); they are NOT in the fuel-only registry the
+    # consolidate-fuel-facets CLI iterates.
+    assert not (set(OIL_PRODUCT_FAMILIES) & set(ALL_FUEL_FACETED_FAMILIES))
+
+
+def test_product_consolidation_writes_geo_by_product_with_product_column(tmp_path):
+    geo = _geo(tmp_path)
+    _write_geo(
+        geo / "oil-product-consumption-kt-diesel-hsd.csv",
+        [("andhra-pradesh", "2020", "1000", "src-o")],
+    )
+    _write_geo(
+        geo / "oil-product-consumption-kt-lpg.csv",
+        [("andhra-pradesh", "2020", "500", "src-o")],
+    )
+    spec = FuelFamilySpec(
+        parent_id="oil-product-consumption-kt",
+        has_all_member=False,
+        children=(
+            ("diesel-hsd", "oil-product-consumption-kt-diesel-hsd"),
+            ("lpg", "oil-product-consumption-kt-lpg"),
+        ),
+        axis="product",
+    )
+    out = write_faceted_family(tmp_path, spec)
+    # Writes to the geo_by_product sibling dir, NOT geo_by_fuel.
+    assert out == (
+        tmp_path
+        / "datasets"
+        / "data"
+        / "datapoints"
+        / "geo_by_product"
+        / "oil-product-consumption-kt.csv"
+    )
+    header, data = _read_csv(out)
+    assert header == ["entity_id", "time", "product", "value", "source_id"]
+    # Sorted (entity_id, time, product): diesel-hsd precedes lpg; no `all` row.
+    assert [(r[0], r[2], r[3]) for r in data] == [
+        ("andhra-pradesh", "diesel-hsd", "1000"),
+        ("andhra-pradesh", "lpg", "500"),
+    ]
+    assert all(r[2] != "all" for r in data)
+
+
+def test_product_null_value_round_trips_as_empty(tmp_path):
+    geo = _geo(tmp_path)
+    _write_geo(
+        geo / "oil-product-consumption-kt-naphtha.csv",
+        [("goa", "2024", "", "src-o")],
+    )
+    spec = FuelFamilySpec(
+        parent_id="oil-product-consumption-kt",
+        has_all_member=False,
+        children=(("naphtha", "oil-product-consumption-kt-naphtha"),),
+        axis="product",
+    )
+    out = write_faceted_family(tmp_path, spec)
+    _header, data = _read_csv(out)
+    assert data == [["goa", "2024", "naphtha", "", "src-o"]]
