@@ -13,8 +13,8 @@
   across; a flip is a cross-ribbon coloured by the party it came from.
 
   Always-on headline (holds / flips / new) so the citizen gets the story
-  even without expanding the diagram. The Sankey is shown by default; a
-  "Hide seat flow" pill lets the citizen collapse it back to the headline.
+  even before the diagram. The Sankey renders unconditionally whenever a
+  prior election exists (Jony verdict 2026-06-18: always-on, no toggle).
   Caption is FACTUAL - no "approximate" / "estimate" language.
 
   No-prior: the first event of a body for a state has nothing to flow
@@ -55,10 +55,6 @@
     body_pretty,
     state_name,
   }: Props = $props();
-
-  // Seat flow is shown by default (the diagram IS the story); the toggle
-  // stays so a citizen can collapse it back to the headline if they want.
-  let expanded = $state(true);
 
   const model = $derived.by(() => {
     if (prev_winners.status === "ok") {
@@ -107,8 +103,10 @@
   }
 
   // ---- Layout ------------------------------------------------------------
-  const W = 620;
-  const H = 380;
+  // Landscape ratio (Jony verdict 2026-06-18): W / H = 2.53 (>= 2.2) so the
+  // rendered chart reads wider + shorter than the old 620x380 portrait box.
+  const W = 760;
+  const H = 300;
   const PAD_Y = 10;
   const COL_W = 14;
   const LEFT_X = 92;
@@ -258,111 +256,91 @@
       <span class="text-slate-400">of {model.total_seats} seats</span>
     </p>
 
-    <button
-      type="button"
-      class="inline-flex items-center gap-1 rounded-yen-pill border border-slate-300 px-3 py-1 text-xs font-medium text-slate-700 hover:bg-slate-100"
-      data-testid="state-event-seat-flow-toggle"
-      aria-expanded={expanded}
-      onclick={() => (expanded = !expanded)}
-    >{expanded ? "Hide seat flow" : "Show seat flow"}</button>
-
-    {#if expanded}
-      <div class="mt-2" data-testid="state-event-seat-flow-diagram">
-        <div
-          class="flex items-center justify-between text-[11px] font-medium uppercase tracking-wide text-slate-500"
-        >
-          <span>{prev_event_label ?? "Previous"}</span>
-          <span>{current_event_label}</span>
-        </div>
-        <svg
-          viewBox="0 0 {W} {H}"
-          class="h-auto w-full"
-          role="img"
-          aria-label="Seat flow from the previous election to this one"
-        >
-          {#each layout.ribbons as r, i (i)}
-            <path
-              d={r.path}
-              fill={r.colour}
-              opacity={hover_idx === null
-                ? r.is_hold
-                  ? 0.45
-                  : 0.3
-                : hover_idx === i
-                  ? 0.8
-                  : 0.12}
-              onmouseenter={() => (hover_idx = i)}
-              onmouseleave={() => (hover_idx = null)}
-            >
-              <title
-                >{r.from_label} &rarr; {r.to_label}: {r.seats} seat{r.seats === 1
-                  ? ""
-                  : "s"}{r.is_hold ? " (held)" : ""}</title
-              >
-            </path>
-          {/each}
-
-          {#each layout.left as b (b.key)}
-            <rect
-              x={LEFT_X}
-              y={b.y}
-              width={COL_W}
-              height={Math.max(1, b.h)}
-              fill={b.colour}
-            />
-            <text
-              x={LEFT_X - 6}
-              y={b.y + b.h / 2}
-              text-anchor="end"
-              dominant-baseline="middle"
-              font-size="11"
-              fill="#0f172a">{b.label}</text
-            >
-            <text
-              x={LEFT_X - 6}
-              y={b.y + b.h / 2 + 12}
-              text-anchor="end"
-              dominant-baseline="middle"
-              font-size="9"
-              fill="#64748b">{b.seats}</text
-            >
-          {/each}
-
-          {#each layout.right as b (b.key)}
-            <rect
-              x={RIGHT_X}
-              y={b.y}
-              width={COL_W}
-              height={Math.max(1, b.h)}
-              fill={b.colour}
-            />
-            <text
-              x={RIGHT_X + COL_W + 6}
-              y={b.y + b.h / 2}
-              text-anchor="start"
-              dominant-baseline="middle"
-              font-size="11"
-              fill="#0f172a">{b.label}</text
-            >
-            <text
-              x={RIGHT_X + COL_W + 6}
-              y={b.y + b.h / 2 + 12}
-              text-anchor="start"
-              dominant-baseline="middle"
-              font-size="9"
-              fill="#64748b">{b.seats}</text
-            >
-          {/each}
-        </svg>
-        <p
-          class="mt-1 text-[11px] italic text-slate-500"
-          data-testid="state-event-seat-flow-caption"
-        >
-          Each constituency's seat moved from its {prev_event_label ?? "prior"}
-          winner to its {current_event_label} winner. Ribbon width = number of
-          seats; a ribbon that returns to the same party is a hold.
-        </p>
+    <div class="mt-2" data-testid="state-event-seat-flow-diagram">
+      <div
+        class="flex items-center justify-between text-[11px] font-medium uppercase tracking-wide text-slate-500"
+      >
+        <span>{prev_event_label ?? "Previous"}</span>
+        <span>{current_event_label}</span>
       </div>
-    {/if}
+      <svg
+        viewBox="0 0 {W} {H}"
+        class="h-auto w-full"
+        role="img"
+        aria-label="Seat flow from the previous election to this one"
+      >
+        {#each layout.ribbons as r, i (i)}
+          <path
+            d={r.path}
+            fill={r.colour}
+            opacity={hover_idx === null
+              ? r.is_hold
+                ? 0.45
+                : 0.3
+              : hover_idx === i
+                ? 0.8
+                : 0.12}
+            onmouseenter={() => (hover_idx = i)}
+            onmouseleave={() => (hover_idx = null)}
+          >
+            <title
+              >{r.from_label} &rarr; {r.to_label}: {r.seats} seat{r.seats === 1
+                ? ""
+                : "s"}{r.is_hold ? " (held)" : ""}</title
+            >
+          </path>
+        {/each}
+
+        {#each layout.left as b (b.key)}
+          <rect
+            x={LEFT_X}
+            y={b.y}
+            width={COL_W}
+            height={Math.max(1, b.h)}
+            fill={b.colour}
+          />
+          <text
+            x={LEFT_X - 6}
+            y={b.y + b.h / 2}
+            text-anchor="end"
+            dominant-baseline="middle"
+            font-size="11"
+            fill="#0f172a"
+            >{b.label}<tspan dx="4" font-size="9" fill="#64748b"
+              >{b.seats}</tspan
+            ></text
+          >
+        {/each}
+
+        {#each layout.right as b (b.key)}
+          <rect
+            x={RIGHT_X}
+            y={b.y}
+            width={COL_W}
+            height={Math.max(1, b.h)}
+            fill={b.colour}
+          />
+          <text
+            x={RIGHT_X + COL_W + 6}
+            y={b.y + b.h / 2}
+            text-anchor="start"
+            dominant-baseline="middle"
+            font-size="11"
+            fill="#0f172a"
+            >{b.label}<tspan dx="4" font-size="9" fill="#64748b"
+              >{b.seats}</tspan
+            ></text
+          >
+        {/each}
+      </svg>
+      <p
+        class="mt-1 text-[11px] italic text-slate-500"
+        data-testid="state-event-seat-flow-caption"
+      >
+        Each constituency's seat moved from its {prev_event_label ?? "prior"}
+        winner to its {current_event_label} winner. Ribbon width = number of
+        seats; a ribbon that returns to the same party is a hold.
+      </p>
+    </div>
   {/if}
 </section>
