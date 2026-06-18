@@ -83,10 +83,8 @@
     computeFlipTrend,
     type FlipTrend,
   } from "../lib/elections/flip-trend-model";
-  import {
-    buildYearPickerOptions,
-    type YearPickerOption,
-  } from "../lib/elections/year-compare-picker-model";
+  import { buildTimeOrderedYearOptions } from "../lib/elections/year-compare-picker-model";
+  import YearDropdown from "../lib/elections/YearDropdown.svelte";
 
   interface Props {
     params: { state: string; fromEvent: string; toEvent: string };
@@ -121,13 +119,17 @@
   }
   const from_display = $derived(eventPretty(params.fromEvent));
   const to_display = $derived(eventPretty(params.toEvent));
+  const body_label = $derived(
+    bodyFromEvent(params.toEvent) === "pc" ? "Parliament" : "Assembly",
+  );
 
-  // ---- PR1 year pickers: every same-body sibling event, oldest-first.
-  // The citizen swaps either axis from these popovers without leaving the
-  // page (kills "comparison is hard-tied to one year"). winner_color_hex
-  // is null here - no event_summary mart is loaded on this surface, so
-  // the option underline falls back to the slate baseline. Empty until
-  // the catalogue resolves; the template falls back to plain badges then.
+  // ---- Compare-page year selectors (Jony + Citizen 2026-06-18) -------
+  // Two dropdowns ("Earlier" / "Later") let the citizen swap either side
+  // without leaving the page. Comparison ALWAYS flows forward in time:
+  // the Earlier selector disables years at/after Later and vice versa
+  // (buildTimeOrderedYearOptions), so a reverse pair can never be chosen
+  // and the same year is never on both sides. winner_color_hex is null
+  // here (no event_summary mart on this surface).
   const sibling_events = $derived.by(() => {
     const sc = state_code;
     if (!catalogue || !sc) return [];
@@ -139,15 +141,40 @@
         event_id: e.event_id,
         year_label: deriveYearLabel(e.event_id),
         winner_color_hex: null,
+        polled_on: e.polled_on,
       }));
   });
-  // From picker cannot pick the year already on the To axis, and vice
-  // versa (you cannot compare an election with itself).
-  const from_options = $derived(
-    buildYearPickerOptions(sibling_events, { excludeEventId: params.toEvent }),
+  const from_polled = $derived(
+    sibling_events.find((e) => e.event_id === params.fromEvent)?.polled_on ??
+      null,
   );
-  const to_options = $derived(
-    buildYearPickerOptions(sibling_events, { excludeEventId: params.fromEvent }),
+  const to_polled = $derived(
+    sibling_events.find((e) => e.event_id === params.toEvent)?.polled_on ?? null,
+  );
+  // Never allow a reverse-in-time comparison: if a hand-typed URL puts
+  // the later election first, normalise to from = earlier, to = later so
+  // the whole page reads oldest -> newest. (The dropdowns can never
+  // create a reverse pair, so this only bites hand-typed URLs.)
+  $effect(() => {
+    if (from_polled !== null && to_polled !== null && from_polled > to_polled) {
+      navigate(
+        link.compareElections(params.state, params.toEvent, params.fromEvent),
+        { replace: true },
+      );
+    }
+  });
+  // Post-normalisation params.fromEvent = EARLIER, params.toEvent = LATER.
+  const earlier_options = $derived(
+    buildTimeOrderedYearOptions(sibling_events, {
+      role: "earlier",
+      otherPolledOn: to_polled,
+    }),
+  );
+  const later_options = $derived(
+    buildTimeOrderedYearOptions(sibling_events, {
+      role: "later",
+      otherPolledOn: from_polled,
+    }),
   );
 
   // ---- Loader dispatch (parallel) -----------------------------------
@@ -534,83 +561,51 @@
     {/if}
   {/snippet}
 
-  {#snippet yearStrip(
-    opts: YearPickerOption[],
-    selectedId: string,
-    axisTestid: string,
-    onPick: (id: string) => void,
-  )}
-    <div class="flex gap-1.5 overflow-x-auto whitespace-nowrap py-0.5">
-      {#each opts as o (o.event_id)}
-        <button
-          type="button"
-          disabled={o.is_disabled}
-          onclick={() => onPick(o.event_id)}
-          data-testid={o.event_id === selectedId ? axisTestid : undefined}
-          class="shrink-0 rounded-yen-pill border px-2.5 py-1 text-xs font-medium tabular-nums transition-colors {o.event_id ===
-          selectedId
-            ? 'border-slate-900 bg-slate-900 text-white'
-            : o.is_disabled
-              ? 'border-slate-100 bg-slate-50 text-slate-300'
-              : 'border-slate-200 bg-white text-slate-500 hover:border-slate-300 hover:text-slate-900'}"
-        >
-          {o.year_label}
-        </button>
-      {/each}
-    </div>
-  {/snippet}
-
   <header class="space-y-2">
     <h1 class="text-2xl font-semibold text-slate-900">
       {state_name || params.state}
-      <span class="text-slate-500"> &middot; </span>
-      <span class="text-slate-700">{from_display} vs {to_display}</span>
+      <span class="font-normal text-slate-400"> &middot; {body_label} elections</span>
     </h1>
     {#if catalogue && sibling_events.length > 1}
-      <!-- Inline year-chip strips (Jony 2026-06-18): swap either axis
-           without a dropdown. Selected = solid dark; the year pinned on
-           the other axis is muted/disabled; others are tappable. -->
-      <div class="space-y-1">
-        <div class="flex items-center gap-2">
-          <span
-            class="w-9 shrink-0 text-[11px] font-medium uppercase tracking-wide text-slate-400"
-            >From</span
-          >
-          {@render yearStrip(
-            from_options,
-            params.fromEvent,
-            "compare-elections-from-badge",
-            (id) =>
-              navigate(link.compareElections(params.state, id, params.toEvent)),
-          )}
-        </div>
-        <div class="flex items-center gap-2">
-          <span
-            class="w-9 shrink-0 text-[11px] font-medium uppercase tracking-wide text-slate-400"
-            >To</span
-          >
-          {@render yearStrip(
-            to_options,
-            params.toEvent,
-            "compare-elections-to-badge",
-            (id) =>
-              navigate(
-                link.compareElections(params.state, params.fromEvent, id),
-              ),
-          )}
-        </div>
+      <!-- Title-as-control (Jony + Citizen 2026-06-18): two dropdowns,
+           forward-time only (Earlier disables >= Later, Later disables
+           <= Earlier), never the same year, any gap (N-5 vs N). No
+           "From/To" - the years self-label under faint Earlier/Later
+           eyebrows. -->
+      <div
+        class="flex items-end gap-3"
+        data-testid="compare-elections-year-controls"
+      >
+        <YearDropdown
+          label="Earlier"
+          testid="compare-elections-from-badge"
+          options={earlier_options}
+          selectedId={params.fromEvent}
+          onSelect={(id) =>
+            navigate(link.compareElections(params.state, id, params.toEvent))}
+        />
+        <span class="pb-2.5 text-sm text-slate-400">vs</span>
+        <YearDropdown
+          label="Later"
+          align="right"
+          testid="compare-elections-to-badge"
+          options={later_options}
+          selectedId={params.toEvent}
+          onSelect={(id) =>
+            navigate(link.compareElections(params.state, params.fromEvent, id))}
+        />
       </div>
     {:else}
       <div class="flex flex-wrap items-center gap-2 text-xs">
         <span
           class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
           data-testid="compare-elections-from-badge"
-        >From: {from_display}</span>
-        <span class="text-slate-400">&rarr;</span>
+        >{from_display}</span>
+        <span class="text-slate-400">vs</span>
         <span
           class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
           data-testid="compare-elections-to-badge"
-        >To: {to_display}</span>
+        >{to_display}</span>
       </div>
     {/if}
   </header>

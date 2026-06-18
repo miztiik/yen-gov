@@ -28,6 +28,11 @@ export interface YearPickerSourceEvent {
   /** Winner party colour hex for the 2px option underline; null falls
    *  back to the slate baseline in the component. */
   winner_color_hex: string | null;
+  /** ISO YYYY-MM-DD poll date - the time anchor the forward-time
+   *  builder (`buildTimeOrderedYearOptions`) compares on. Optional so
+   *  the older `buildYearPickerOptions` callers (which never read it)
+   *  need not supply it. */
+  polled_on?: string;
 }
 
 /** One selectable year in the picker popover. */
@@ -61,4 +66,40 @@ export function buildYearPickerOptions(
     is_disabled:
       opts.excludeEventId !== undefined && e.event_id === opts.excludeEventId,
   }));
+}
+
+/**
+ * Project options for ONE of the two compare-page year selectors with a
+ * FORWARD-TIME constraint (Jony + Citizen 2026-06-18): a comparison
+ * always reads oldest -> newest, never in reverse.
+ *
+ * For the `earlier` selector every event at/after the `later` selection
+ * is disabled; for the `later` selector every event at/before the
+ * `earlier` selection is disabled. This single rule bans BOTH a
+ * reverse-in-time pair AND the same year on both sides, while still
+ * allowing any GAP (adjacent years or N-5 vs N). Disabled options are
+ * greyed in place (never removed) so the list does not reflow under the
+ * thumb. Ordering is preserved (caller sorts oldest-first).
+ *
+ * `otherPolledOn` is the poll date of the year selected on the OTHER
+ * selector; null/undefined disables nothing (e.g. before both resolve).
+ */
+export function buildTimeOrderedYearOptions(
+  events: readonly YearPickerSourceEvent[],
+  opts: { role: "earlier" | "later"; otherPolledOn: string | null },
+): YearPickerOption[] {
+  const other = opts.otherPolledOn;
+  return events.map((e) => {
+    let is_disabled = false;
+    if (other && e.polled_on) {
+      is_disabled =
+        opts.role === "earlier" ? e.polled_on >= other : e.polled_on <= other;
+    }
+    return {
+      event_id: e.event_id,
+      year_label: e.year_label,
+      winner_color_hex: e.winner_color_hex,
+      is_disabled,
+    };
+  });
 }

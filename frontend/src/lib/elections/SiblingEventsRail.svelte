@@ -16,13 +16,12 @@
    - Active chip = filled `bg-slate-900 text-white` (the single
      spotlight); other chips are MUTED (`text-slate-500`) so the
      current year reads as in-focus. NO winner-colour underline
-     (Jony 2026-06-18: the citizen called the per-chip colours
-     unnecessary noise - one spotlight, monochrome).
-   - Compare is a TOGGLE, not a dropdown (Jony 2026-06-18): tap
-     "Compare" -> the rail enters compare mode (earlier chips become
-     tappable targets, a hint shows) -> tap an earlier year to compare
-     it against the current event. The rail the citizen already reads
-     IS the picker; no popover, no list.
+     (one spotlight, monochrome).
+   - The rail NAVIGATES years (tap a chip = go to that election).
+     COMPARING is a deliberate act offered as a soft, inviting CTA
+     BELOW the rail (Jony + Citizen 2026-06-18: not a right-parked
+     button, not a hidden tap-mode) - one ready "with {prior}" pairing
+     plus "or another year" -> the compare page's two dropdowns.
    - Mobile: `overflow-x-auto` + `scroll-snap-type: x mandatory` +
      `scroll-snap-align: center` per pill - thumb-flick lands the
      next year centered (IG-tray ergonomic).
@@ -34,8 +33,6 @@
 -->
 <script lang="ts">
   import type { SiblingEventsRailModel } from "./sibling-events-rail-model";
-  import { link } from "../links";
-  import { navigate } from "../url";
 
   interface Props {
     model: SiblingEventsRailModel;
@@ -44,33 +41,13 @@
 
   let nav_el: HTMLElement | undefined = $state();
 
-  // Compare mode (Jony 2026-06-18): tap "Compare", then tap an EARLIER
-  // year to compare the current event against it. Replaces the dropdown
-  // picker - a dropdown is the 1990 pattern we rejected; the rail the
-  // citizen already reads IS the picker. Comparison reads older -> current.
-  let compare_mode = $state(false);
-  const earlier_ids = $derived(
-    new Set(model.compare_options.map((o) => o.event_id)),
-  );
-  const has_earlier = $derived(model.compare_options.length > 0);
-  const current_year = $derived(
-    model.events.find((c) => c.is_current)?.year_label ?? "",
-  );
+  // Soft compare CTA (Jony + Citizen 2026-06-18): the rail NAVIGATES
+  // years (tap a chip = go to that election); COMPARING is a deliberate
+  // act offered as a gentle invitation below the rail, not a mode on the
+  // rail. `model.compare_href` is the prior-vs-current pairing; the
+  // compare page's two dropdowns let the citizen pick any other.
 
-  // In compare mode a chip click compares (earlier -> current) instead of
-  // navigating to that year's page; any click then exits the mode.
-  function onChipClick(ev_id: string, e: MouseEvent): void {
-    if (!compare_mode) return;
-    e.preventDefault();
-    if (earlier_ids.has(ev_id)) {
-      navigate(
-        link.compareElections(model.state_slug, ev_id, model.current_event_id),
-      );
-    }
-    compare_mode = false;
-  }
-
-  // PR2: edge-fade overflow affordance. The left/right fades signal
+  // Edge-fade overflow affordance. The left/right fades signal
   // "more years this way" ONLY when the rail actually overflows;
   // recomputed on scroll, on model change, and on viewport resize.
   let fade_left = $state(false);
@@ -122,16 +99,6 @@
     return () => window.removeEventListener("resize", onResize);
   });
 
-  // Esc leaves compare mode.
-  $effect(() => {
-    if (!compare_mode) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") compare_mode = false;
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  });
-
   const single_event = $derived(model.events.length === 1);
 </script>
 
@@ -150,7 +117,6 @@
           data-testid="sibling-events-rail"
         >
           {#each model.events as ev (ev.event_id)}
-            {@const targetable = compare_mode && earlier_ids.has(ev.event_id)}
             <a
               href={ev.href}
               aria-current={ev.is_current ? "page" : undefined}
@@ -159,14 +125,9 @@
                 ? "sibling-events-rail-current"
                 : "sibling-events-rail-chip"}
               title={ev.display}
-              onclick={(e) => onChipClick(ev.event_id, e)}
               class="inline-flex shrink-0 items-center rounded-yen-pill border px-3 py-1.5 text-sm font-medium tabular-nums transition-colors {ev.is_current
                 ? 'border-slate-900 bg-slate-900 text-white'
-                : compare_mode
-                  ? targetable
-                    ? 'border-slate-400 bg-white text-slate-900 hover:bg-slate-100'
-                    : 'border-slate-200 bg-white text-slate-300'
-                  : 'border-slate-200 bg-white text-slate-500 hover:border-slate-300 hover:text-slate-900'}"
+                : 'border-slate-200 bg-white text-slate-500 hover:border-slate-300 hover:text-slate-900'}"
               style="scroll-snap-align: center;"
             >
               {ev.year_label}
@@ -191,28 +152,33 @@
         {/if}
       </div>
 
-      {#if has_earlier}
-        <button
-          type="button"
-          onclick={() => (compare_mode = !compare_mode)}
-          aria-pressed={compare_mode}
-          data-testid="sibling-events-rail-compare-toggle"
-          class="shrink-0 rounded-yen-pill border px-3 py-1.5 text-sm font-medium transition-colors {compare_mode
-            ? 'border-slate-900 bg-slate-900 text-white hover:bg-slate-700'
-            : 'border-slate-300 bg-white text-slate-600 hover:bg-slate-100'}"
-        >
-          {compare_mode ? "Cancel" : "Compare"}
-        </button>
-      {/if}
     </div>
 
-    {#if compare_mode}
-      <p
-        class="px-0.5 text-xs text-slate-500"
-        data-testid="sibling-events-rail-compare-hint"
+    {#if model.compare_href && model.prior_year !== null}
+      <!-- Soft, inviting compare CTA (not parked on the right): one
+           ready pairing (vs the prior election) + an invitation to pick
+           another year on the compare page. The rail above stays
+           navigation-only (tap a year = go there). -->
+      <div
+        class="flex flex-wrap items-center gap-x-2 gap-y-1 px-0.5 text-sm"
+        data-testid="sibling-events-rail-compare-cta"
       >
-        Tap an earlier year to compare with {current_year}.
-      </p>
+        <span class="text-slate-500">See how this election compares</span>
+        <a
+          href={model.compare_href}
+          data-testid="sibling-events-rail-compare-ready"
+          class="inline-flex items-center rounded-yen-pill border border-slate-300 bg-white px-3 py-1 font-medium text-slate-800 transition-colors hover:border-slate-900 hover:bg-slate-900 hover:text-white"
+        >
+          with {model.prior_year}
+        </a>
+        <a
+          href={model.compare_href}
+          data-testid="sibling-events-rail-compare-another"
+          class="text-slate-500 underline-offset-2 transition-colors hover:text-slate-900 hover:underline"
+        >
+          or another year &rarr;
+        </a>
+      </div>
     {/if}
   </div>
 {/if}
