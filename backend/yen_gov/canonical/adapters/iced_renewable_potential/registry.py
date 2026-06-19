@@ -4,13 +4,14 @@ One :class:`RenewablePotentialSpec` per ICED potential feed. Adding a new
 feed (e.g. a future small-hydro or offshore-wind potential study) means
 appending one spec here; the parser, emitter, and CLI are unchanged.
 
-> **Provenance.** The ICED dashboard is the machine-readable access surface
-> (and the publisher of the harmonised series), so ``source_producer`` names
-> the NITI Aayog India Climate & Energy Dashboard, matching the rest of the
-> ICED indicator family. The underlying technical assessments are named in
-> each spec's ``concept_description`` (NISE for solar, NIWE for wind, MNRE /
-> the Biomass Atlas for bio-energy). ``source_id`` is DERIVED from the
-> (producer, title, vintage) triple, never hand-written.
+> **Provenance (D2, ingest plan Row 10/11).** The renewable-potential series
+> are ICED-harmonised modelled estimates with no single upstream issuing
+> authority, so they are KEPT under the org-led label NITI Aayog ICED
+> (``ICED_ORG_PRODUCER``), never the dashboard product name. The underlying
+> technical assessments are named in each spec's ``concept_description`` (NISE
+> for solar, NIWE for wind, MNRE / the Biomass Atlas for bio-energy).
+> ``source_id`` is DERIVED from the (producer, title, vintage) triple, never
+> hand-written.
 
 > **Scenarios are not facets.** Solar and wind each publish two scenario
 > variants (solar @3% vs @6.69% wasteland; wind @120m vs @150m AGL). These
@@ -22,13 +23,18 @@ appending one spec here; the parser, emitter, and CLI are unchanged.
 """
 from __future__ import annotations
 
+from yen_gov.canonical.iced_authority_map import ICED_ORG_PRODUCER
+
 from .parser import RenewablePotentialSpec
 
 __all__ = ["SHIPPED_SPECS", "spec_by_indicator_id"]
 
-# The ICED dashboard is the publisher / access surface for all three feeds
-# (matches the producer string used across the ICED indicator family).
-_ICED_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+# D2 (ingest plan Row 10): ICED is not a product-name producer. The renewable
+# potential series are ICED-harmonised modelled estimates with no single
+# upstream authority, so they are KEPT under the org-led label NITI Aayog ICED
+# (iced_authority_map decisions src-518795193989 / src-36e84f35548b /
+# src-c0a10bb04862).
+_ICED_PRODUCER = ICED_ORG_PRODUCER
 # Single assessment-year snapshot the operator stages. Bump when staging a
 # newer assessment; source_id re-derives, so the citation ledger tracks it.
 _ASSESSMENT_VINTAGE = "2025-26"

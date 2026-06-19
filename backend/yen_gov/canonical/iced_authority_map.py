@@ -42,6 +42,7 @@ __all__ = [
     "DECISIONS",
     "decision_for_source_id",
     "corrected_triple",
+    "corrected_source_id",
     "reattributed_authorities",
     "is_product_producer",
     "CorrectionResult",
@@ -360,6 +361,17 @@ def corrected_triple(
     if decision.authority is None:
         return (ICED_ORG_PRODUCER, title, vintage)
     return (decision.authority, title + VIA_ICED_SUFFIX, vintage)
+
+
+def corrected_source_id(producer: str, title: str, vintage: str) -> str:
+    """Return ``derive_source_id`` of the D2-corrected ``(producer, title, vintage)``.
+
+    The single seam an ICED adapter routes its citation through so a re-run
+    emits the corrected ``source_id`` that Row 10 wrote on disk (the map is the
+    one source of truth for the correction; the adapter never re-states it).
+    Equivalent to ``derive_source_id(*corrected_triple(...))``.
+    """
+    return derive_source_id(*corrected_triple(producer, title, vintage))
 
 
 @dataclass

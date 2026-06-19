@@ -11,7 +11,8 @@ emitted FACETED datapoints CSVs (geo_by_primary_source for primary supply;
 the 2-D geo_by_sector_fuel for final consumption) plus the upserted catalogue
 rows pass the canonical validator (FK closure; no real-corpus walk - CLAUDE
 anti-pattern). The two source rows reproduce the on-disk citation ledger
-(``src-170d3536d908`` / ``src-29ecbb6dce9d``) exactly, proving idempotency.
+(``src-1d5665f61d9f`` / ``src-c8210dc4af23``, the D2-corrected NITI Aayog ICED
+rows) exactly, proving idempotency.
 """
 from __future__ import annotations
 
@@ -36,8 +37,8 @@ from yen_gov.canonical.csv_validator import validate_csv
 # The two citation-ledger rows already on disk (CLAUDE.md section 12). The
 # ingest MUST reproduce these exactly from the (producer, title, vintage)
 # triple - a new id would orphan the FK and break idempotency.
-_PRIMARY_SOURCE_ID = "src-170d3536d908"
-_FINAL_SOURCE_ID = "src-29ecbb6dce9d"
+_PRIMARY_SOURCE_ID = "src-1d5665f61d9f"
+_FINAL_SOURCE_ID = "src-c8210dc4af23"
 
 
 # --------------------------------------------------------------------------- #

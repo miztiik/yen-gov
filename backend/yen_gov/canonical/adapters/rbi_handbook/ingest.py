@@ -21,15 +21,17 @@ produces a corpus the canonical validator accepts (datapoint filename ==
 """
 from __future__ import annotations
 
-import csv
 from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_columns import load_columns
-from yen_gov.canonical.csv_writer import write_csv
+from yen_gov.canonical.ingest.run_pipeline import (
+    Citation,
+    Observation,
+    run_pipeline,
+)
 
 from .parser import HbsTableSpec, parse_hbs_workbook
 from .registry import SHIPPED_SPECS
@@ -37,11 +39,6 @@ from .resolver import build_state_resolver
 
 __all__ = ["IngestResult", "IngestedTable", "ingest"]
 
-_DATAPOINTS_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
-_DATAPOINTS_REL_DIR = "datasets/data/datapoints/geo"
-_VARIABLES_REL = "datasets/data/variables.csv"
-_CONCEPTS_REL = "datasets/data/concepts.csv"
-_SOURCE_REL = "datasets/data/entities/source.csv"
 _GEO_REL = "datasets/data/entities/geo.csv"
 
 
@@ -95,15 +92,9 @@ def ingest(
     specs = tuple(specs) if specs is not None else SHIPPED_SPECS
     geo_csv = repo_root / _GEO_REL
     resolver = build_state_resolver(geo_csv)
-
     contract = load_columns()
-    out_dir = repo_root / _DATAPOINTS_REL_DIR
 
     tables: list[IngestedTable] = []
-    variable_rows: list[dict[str, Any]] = []
-    concept_rows: list[dict[str, Any]] = []
-    source_rows: list[dict[str, Any]] = []
-
     for spec in specs:
         workbook_path = staging_dir / spec.staging_filename
         if not workbook_path.exists():
@@ -115,124 +106,72 @@ def ingest(
         long_rows = parse_hbs_workbook(
             workbook_path.read_bytes(), spec, resolver
         )
-        source_id = derive_source_id(
-            spec.source_producer, spec.source_title, spec.source_vintage
-        )
-        datapoint_rows = [
-            {
-                "entity_id": r.entity_id,
-                "time": r.time,
-                "value": r.value,
-                "source_id": source_id,
-            }
-            for r in long_rows
-        ]
-        out_path = write_csv(
-            path=out_dir / f"{spec.indicator_id}.csv",
-            file_class=_DATAPOINTS_FILE_CLASS,
-            rows=datapoint_rows,
+        outcome = run_pipeline(
+            repo_root=repo_root,
+            indicator_id=spec.indicator_id,
+            observations=[
+                Observation(r.entity_id, r.time, r.value) for r in long_rows
+            ],
+            citation=Citation(
+                producer=spec.source_producer,
+                title=spec.source_title,
+                vintage=spec.source_vintage,
+                url=spec.source_url,
+            ),
+            datapoints_mode="replace",
+            variable_row_builder=_variable_row_builder(spec),
+            concept_row=_concept_row(spec),
             contract=contract,
-        )
-
-        times = [r.time for r in long_rows]
-        time_min, time_max = min(times), max(times)
-        entity_count = len({r.entity_id for r in long_rows})
-
-        variable_rows.append(
-            {
-                "indicator_id": spec.indicator_id,
-                "name": spec.name,
-                "concept_id": spec.concept_id,
-                "unit": spec.unit,
-                "derivation": None,
-                "topic": spec.topic,
-                "source_id": source_id,
-                "update_period_days": spec.update_period_days,
-                "time_min": time_min,
-                "time_max": time_max,
-                "entity_kinds": spec.entity_kinds,
-            }
-        )
-        concept_rows.append(
-            {
-                "concept_id": spec.concept_id,
-                "noun": spec.concept_noun,
-                "unit_canonical": spec.unit_canonical,
-                "normalisation": spec.normalisation,
-                "entity_kinds": spec.entity_kinds,
-                "description": spec.concept_description,
-            }
-        )
-        source_rows.append(
-            {
-                "source_id": source_id,
-                "producer": spec.source_producer,
-                "title": spec.source_title,
-                "vintage": spec.source_vintage,
-                "url": spec.source_url,
-            }
         )
         tables.append(
             IngestedTable(
                 indicator_id=spec.indicator_id,
-                output_path=out_path,
-                row_count=len(datapoint_rows),
-                entity_count=entity_count,
-                time_min=time_min,
-                time_max=time_max,
-                source_id=source_id,
+                output_path=outcome.output_path,
+                row_count=outcome.row_count,
+                entity_count=outcome.entity_count,
+                time_min=outcome.time_min,
+                time_max=outcome.time_max,
+                source_id=outcome.source_id,
             )
         )
-
-    _upsert_rows(repo_root, _VARIABLES_REL, variable_rows, contract=contract)
-    _upsert_rows(repo_root, _CONCEPTS_REL, concept_rows, contract=contract)
-    _upsert_rows(repo_root, _SOURCE_REL, source_rows, contract=contract)
 
     return IngestResult(tables=tuple(tables))
 
 
-def _upsert_rows(
-    repo_root: Path,
-    rel_path: str,
-    new_rows: list[dict[str, Any]],
-    *,
-    contract: Any,
-) -> Path:
-    """Merge ``new_rows`` into the catalogue CSV at ``rel_path`` by PK.
+def _variable_row_builder(
+    spec: HbsTableSpec,
+) -> Any:
+    """Return a ``(source_id, time_min, time_max) -> variables.csv row`` builder.
 
-    Reads the existing file (if any), overlays the new rows keyed by the
-    file class's primary key, and rewrites via the canonical writer
-    (which sorts by PK and skip-writes when nothing changed). Existing
-    rows are preserved verbatim; a re-ingest of the same edition is a
-    no-op.
+    The ``source_id`` + time bounds are only known after ``run_pipeline``
+    derives them, so the variables row is built lazily from the spec metadata.
     """
-    path = repo_root / rel_path
-    file_class = rel_path  # literal-path file classes key on the path itself
-    fc = contract.for_glob(file_class)
-    names = [c.name for c in fc.columns]
-    pk_names = [c.name for c in fc.pk_columns]
 
-    merged: dict[tuple[Any, ...], dict[str, Any]] = {}
-    if path.exists():
-        with path.open(encoding="utf-8", newline="") as fh:
-            for raw in csv.DictReader(fh):
-                row = {
-                    name: (raw.get(name) if (raw.get(name) or "") != "" else None)
-                    for name in names
-                }
-                merged[tuple(row[k] for k in pk_names)] = row
-    for row in new_rows:
-        key = tuple(_pk_value(row[k]) for k in pk_names)
-        merged[key] = {name: row.get(name) for name in names}
+    def build(source_id: str, time_min: int, time_max: int) -> dict[str, Any]:
+        return {
+            "indicator_id": spec.indicator_id,
+            "name": spec.name,
+            "concept_id": spec.concept_id,
+            "unit": spec.unit,
+            "derivation": None,
+            "topic": spec.topic,
+            "source_id": source_id,
+            "update_period_days": spec.update_period_days,
+            "time_min": time_min,
+            "time_max": time_max,
+            "entity_kinds": spec.entity_kinds,
+        }
 
-    return write_csv(
-        path=path,
-        file_class=file_class,
-        rows=list(merged.values()),
-        contract=contract,
-    )
+    return build
 
 
-def _pk_value(value: Any) -> Any:
-    """Normalise a PK value for keying (stringify so int/str match)."""
-    return str(value) if value is not None else None
+def _concept_row(spec: HbsTableSpec) -> dict[str, Any]:
+    """Build the ``concepts.csv`` row from the spec (no derived dependency)."""
+    return {
+        "concept_id": spec.concept_id,
+        "noun": spec.concept_noun,
+        "unit_canonical": spec.unit_canonical,
+        "normalisation": spec.normalisation,
+        "entity_kinds": spec.entity_kinds,
+        "description": spec.concept_description,
+    }

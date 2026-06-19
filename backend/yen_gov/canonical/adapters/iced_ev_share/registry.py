@@ -5,13 +5,12 @@ shape mirrors the renewable-potential adapter so a future VAHAN-derived feed
 (e.g. a vehicle-category-specific EV share) is one appended spec, no parser
 edit.
 
-> **Provenance.** The ICED dashboard is the machine-readable access surface
-> (and the publisher of the harmonised series); ``source_producer`` names the
-> NITI Aayog India Climate & Energy Dashboard, matching the rest of the ICED
-> indicator family. The underlying registration counts originate from the
-> Ministry of Road Transport & Highways VAHAN portal (named in the concept
-> description). ``source_id`` is DERIVED from the (producer, title, vintage)
-> triple, never hand-written.
+> **Provenance (D2, ingest plan Row 10/11).** The registration counts ICED
+> republishes originate from the Ministry of Road Transport & Highways VAHAN
+> portal, so this is a passthrough: ``source_producer`` names the MoRTH issuing
+> authority and the ICED access surface moves into the ``source_title`` (via
+> ``VIA_ICED_SUFFIX``). ``source_id`` is DERIVED from the (producer, title,
+> vintage) triple, never hand-written.
 
 > **Share, not absolute (Hans verdict).** The indicator is the EV SHARE of new
 > registrations, not the absolute EV count. Absolute counts just track market
@@ -19,13 +18,17 @@ edit.
 """
 from __future__ import annotations
 
+from yen_gov.canonical.iced_authority_map import VIA_ICED_SUFFIX
+
 from .parser import EvShareSpec
 
 __all__ = ["SHIPPED_SPECS", "spec_by_indicator_id"]
 
-# The ICED dashboard is the publisher / access surface (matches the producer
-# string used across the ICED indicator family).
-_ICED_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+# D2 (ingest plan Row 10): ICED republishes the MoRTH VAHAN registration counts
+# (a passthrough), so the producer is the issuing authority and the ICED access
+# surface moves into the title via VIA_ICED_SUFFIX (iced_authority_map decision
+# src-412af3a265c8).
+_ICED_PRODUCER = "Ministry of Road Transport and Highways"
 # Publisher edition tag the operator staged. Bump when staging a newer edition;
 # source_id re-derives, so the citation ledger tracks it.
 _FEED_VINTAGE = "2024-25"
@@ -61,7 +64,7 @@ SHIPPED_SPECS: tuple[EvShareSpec, ...] = (
             "Cells with zero total registrations are dropped."
         ),
         source_producer=_ICED_PRODUCER,
-        source_title="ICE vs EV (VAHAN) State-wise API",
+        source_title="ICE vs EV (VAHAN) State-wise API" + VIA_ICED_SUFFIX,
         source_vintage=_FEED_VINTAGE,
         source_url=_ICED_URL,
         staging_filename="ice_ev_vahan.json",

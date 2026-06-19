@@ -11,6 +11,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from yen_gov.canonical.iced_authority_map import ICED_ORG_PRODUCER
+
 __all__ = ["CoalFgdSpec", "SHIPPED_SPEC", "ASSESSMENT_YEAR"]
 
 # The FGD-retrofit status is a CURRENT snapshot (the feed carries no
@@ -21,7 +23,10 @@ __all__ = ["CoalFgdSpec", "SHIPPED_SPEC", "ASSESSMENT_YEAR"]
 # pulled from; the assessment year stamps when we recorded the status.
 ASSESSMENT_YEAR = 2026
 
-_ICED_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+# D2 (ingest plan Row 10): ICED is not a product-name producer. This endpoint
+# is a yen-gov geocode-derived (major-processing) statistic kept under the
+# org-led label NITI Aayog ICED (iced_authority_map decision src-85c67674901f).
+_ICED_PRODUCER = ICED_ORG_PRODUCER
 _ICED_URL = "https://iced.niti.gov.in"
 
 

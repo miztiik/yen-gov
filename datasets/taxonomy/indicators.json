@@ -4767,6 +4767,37 @@
         "justification": "First ingest through the 4-layer doctrine + ADR-0046 pre-flight gate; verdict mint_new (no existing concept scored ≥0.70 against (under-construction-capacity, GW, absolute, country)). Distinct concept from `all-india-installed-capacity` (commissioned + grid-synchronised stock) because pipeline capacity is a FORWARD-LOOKING flow measure of plants not yet on the grid; same fuel, different physical state -- not a facet collapse candidate per ADR-0044 concept-identity doctrine."
       },
       "url_slug": "under-construction-capacity-gw"
+    },
+    {
+      "indicator_id": "sdg-india-index-score",
+      "label_short": "SDG India Index",
+      "label_long": "SDG India Index composite score",
+      "description_short": "NITI Aayog SDG India Index composite score (0-100): a state/UT's distance to the 2030 Sustainable Development Goal targets.",
+      "description_long": "NITI Aayog's SDG India Index scores each state and UT from 0 to 100 on its distance to the 2030 SDG targets, aggregating the goal-wise scores NITI computes from a basket of official indicators. 100 means every tracked target is met; the national (India) figure is the population-weighted aggregate. The index is a governance / policy dashboard, not a direct outcome measure, and NITI revises the indicator basket and methodology each edition (2018, 2019-20, 2020-21, 2023-24), so a score is comparable across states within one edition but not cleanly across editions (hence comparability = comparable_across_states_snapshot_only).",
+      "unit": "score (0-100)",
+      "cadence": "ad_hoc",
+      "family": "governance",
+      "pillar": "people",
+      "topic_tags": [
+        "sdg",
+        "development"
+      ],
+      "value_kind": "index",
+      "direction": "higher_is_better",
+      "attribution_geography": "where_resident",
+      "comparability": "comparable_across_states_snapshot_only",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "default_entity_kind": "state",
+      "update_period_days": 365,
+      "concept_id": "sdg-india-index-score",
+      "meta": {
+        "justification": "First NITI SDG India Index ingest via the run_pipeline single-series pipeline; verdict mint_new (top concept-overlap score 0.388 < 0.70 against (SDG India Index score, score, index, state)). A composite policy-dashboard index distinct from every existing concept; not a grain or facet of another measure, so no facet-collapse per ADR-0044."
+      },
+      "url_slug": "sdg-india-index-score"
     }
   ]
 }

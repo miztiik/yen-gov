@@ -44,17 +44,19 @@ import csv
 import io
 from dataclasses import dataclass
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
-from yen_gov.canonical.citation import derive_source_id
-from yen_gov.canonical.csv_columns import load_columns
-from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.canonical.ingest.fetch import CacheKey
 from yen_gov.canonical.ingest.registry import (
     AdapterRunResult,
     OrchestrateConfig,
     YearResult,
     summarise_indicator_csv,
+)
+from yen_gov.canonical.ingest.run_pipeline import (
+    Citation,
+    Observation,
+    run_pipeline,
 )
 from yen_gov.canonical.ingest.spec import IndicatorSpec, SourceSpec
 
@@ -64,9 +66,6 @@ if TYPE_CHECKING:  # pragma: no cover - typing only
 __all__ = ["HEALTH_SPECS", "RbiHbsHealthAdapter"]
 
 _ADAPTER_SLUG = "rbi-hbs-health"
-_DATAPOINTS_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
-_DATAPOINTS_REL_DIR = "datasets/data/datapoints/geo"
-_SOURCE_REL = "datasets/data/entities/source.csv"
 _GEO_REL = "datasets/data/entities/geo.csv"
 
 # Default coverage window the cohort fetches (one per-year file each).
@@ -273,7 +272,6 @@ class RbiHbsHealthAdapter:
         spec = _spec_by_indicator(indicator_id)
         year = fetched.cache_key.year
         resolver = build_state_resolver(repo_root / _GEO_REL)
-        source_id = derive_source_id(_PRODUCER, _TITLE, _VINTAGE)
 
         reader = csv.DictReader(io.StringIO(fetched.raw_bytes.decode("utf-8")))
         if reader.fieldnames is None or spec.column not in reader.fieldnames:
@@ -281,7 +279,7 @@ class RbiHbsHealthAdapter:
                 f"{indicator_id}: column {spec.column!r} not found in "
                 f"health-{year}.csv (header={reader.fieldnames})"
             )
-        rows: list[dict[str, Any]] = []
+        observations: list[Observation] = []
         for raw in reader:
             cell = (raw.get(spec.column) or "").strip()
             if cell.lower() in _NA_MARKERS:
@@ -294,85 +292,27 @@ class RbiHbsHealthAdapter:
                     f"health-{year}.csv (no geo.csv match; fail loud, never "
                     "silently drop a row)"
                 )
-            rows.append(
-                {
-                    "entity_id": entity_id,
-                    "time": year,
-                    "value": float(cell),
-                    "source_id": source_id,
-                }
-            )
+            observations.append(Observation(entity_id, year, float(cell)))
 
-        contract = load_columns()
-        out_path = repo_root / _DATAPOINTS_REL_DIR / f"{indicator_id}.csv"
-        _upsert(
-            path=out_path,
-            file_class=_DATAPOINTS_FILE_CLASS,
-            new_rows=rows,
-            contract=contract,
-        )
-        _upsert(
-            path=repo_root / _SOURCE_REL,
-            file_class=_SOURCE_REL,
-            new_rows=[
-                {
-                    "source_id": source_id,
-                    "producer": _PRODUCER,
-                    "title": _TITLE,
-                    "vintage": _VINTAGE,
-                    "url": _URL,
-                }
-            ],
-            contract=contract,
+        # The shared single-series publish: derive source_id, UPSERT the year's
+        # rows into datapoints/geo/<id>.csv keyed by (entity_id, time), and
+        # upsert the source.csv citation row so the FK closes. No catalogue
+        # upsert -- the cohort's taxonomy registration is a deferred Hans + Max
+        # decision (see module docstring), so variables/concepts are skipped.
+        outcome = run_pipeline(
+            repo_root=repo_root,
+            indicator_id=indicator_id,
+            observations=observations,
+            citation=Citation(
+                producer=_PRODUCER, title=_TITLE, vintage=_VINTAGE, url=_URL
+            ),
+            datapoints_mode="upsert",
         )
 
         self.processed.append((indicator_id, year))
         return YearResult(
             indicator_id=indicator_id,
             year=year,
-            rows_written=len(rows),
-            source_id=source_id,
+            rows_written=outcome.row_count,
+            source_id=outcome.source_id,
         )
-
-
-def _upsert(
-    *,
-    path: Path,
-    file_class: str,
-    new_rows: list[dict[str, Any]],
-    contract: Any,
-) -> Path:
-    """Merge ``new_rows`` into the CSV at ``path`` by the file class's PK.
-
-    Reads any existing file, overlays the new rows keyed by the file class's PK,
-    and rewrites through the canonical writer (which sorts by PK and skip-writes
-    when nothing changed, so an unchanged year leaves a clean ``git status``).
-    """
-    fc = contract.for_glob(file_class)
-    names = [c.name for c in fc.columns]
-    pk_names = [c.name for c in fc.pk_columns]
-
-    merged: dict[tuple[Any, ...], dict[str, Any]] = {}
-    if path.exists():
-        with path.open(encoding="utf-8", newline="") as fh:
-            for raw in csv.DictReader(fh):
-                row = {
-                    name: (raw.get(name) if (raw.get(name) or "") != "" else None)
-                    for name in names
-                }
-                merged[tuple(_pk(row[k]) for k in pk_names)] = row
-    for row in new_rows:
-        key = tuple(_pk(row.get(k)) for k in pk_names)
-        merged[key] = {name: row.get(name) for name in names}
-
-    return write_csv(
-        path=path,
-        file_class=file_class,
-        rows=list(merged.values()),
-        contract=contract,
-    )
-
-
-def _pk(value: Any) -> Any:
-    """Stringify a PK value so int/str compare equal across read + write."""
-    return str(value) if value is not None else None

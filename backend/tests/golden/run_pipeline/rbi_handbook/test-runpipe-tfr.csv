@@ -1,0 +1,13 @@
+entity_id,time,value,source_id
+IN,2016,2.3,src-16c47bf6af24
+IN,2017,2.2,src-16c47bf6af24
+IN,2018,2,src-16c47bf6af24
+andhra-pradesh,2016,1.7,src-16c47bf6af24
+andhra-pradesh,2017,1.6,src-16c47bf6af24
+andhra-pradesh,2018,1.6,src-16c47bf6af24
+kerala,2016,1.8,src-16c47bf6af24
+kerala,2017,1.7,src-16c47bf6af24
+kerala,2018,1.7,src-16c47bf6af24
+odisha,2016,2.1,src-16c47bf6af24
+odisha,2017,2,src-16c47bf6af24
+odisha,2018,1.9,src-16c47bf6af24

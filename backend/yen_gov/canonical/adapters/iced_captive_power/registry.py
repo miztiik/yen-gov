@@ -12,23 +12,27 @@ unit.
 > - the emitter sums them into a single state total per measure. The industry
 > dimension is dropped.
 
-> **Provenance.** The ICED dashboard is the machine-readable access surface;
-> the underlying returns are the Central Electricity Authority's (CEA)
-> captive generating-plant survey. ``source_producer`` names the NITI Aayog
-> India Climate & Energy Dashboard to match the rest of the ICED indicator
-> family; the CEA lineage is named in each spec's ``concept_description`` /
-> derivation. ``source_id`` is DERIVED from the (producer, title, vintage)
-> triple, never hand-written.
+> **Provenance (D2, ingest plan Row 10/11).** The underlying returns are the
+> Central Electricity Authority's (CEA) captive generating-plant survey, so
+> this is a passthrough: ``source_producer`` names the CEA issuing authority
+> and the ICED access surface moves into the ``source_title`` (via
+> ``VIA_ICED_SUFFIX``). ``source_id`` is DERIVED from the (producer, title,
+> vintage) triple, never hand-written.
 """
 from __future__ import annotations
+
+from yen_gov.canonical.iced_authority_map import VIA_ICED_SUFFIX
 
 from .parser import CaptivePowerSpec
 
 __all__ = ["SHIPPED_SPECS", "spec_by_indicator_id"]
 
-# Shared across both measures (one source row for the pair).
-_ICED_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
-_SOURCE_TITLE = "Captive Power (industry-wise) State-wise API"
+# D2 (ingest plan Row 10): the underlying returns are the CEA captive-generating
+# plant survey (a passthrough), so the producer is the issuing authority and the
+# ICED access surface moves into the title via VIA_ICED_SUFFIX (iced_authority_map
+# decision src-3d0b1c141f6a). Shared across both measures (one source row).
+_ICED_PRODUCER = "Central Electricity Authority"
+_SOURCE_TITLE = "Captive Power (industry-wise) State-wise API" + VIA_ICED_SUFFIX
 # Access edition the operator stages. Bump when staging a newer edition;
 # source_id re-derives, so the citation ledger tracks it.
 _VINTAGE = "2024-25"

@@ -1,0 +1,2 @@
+indicator_id,name,concept_id,unit,derivation,topic,source_id,update_period_days,time_min,time_max,entity_kinds
+test-runpipe-tfr,Total fertility rate (run_pipeline oracle),total-fertility-rate-runpipe,children per woman,,health,src-16c47bf6af24,365,2016,2018,country state
