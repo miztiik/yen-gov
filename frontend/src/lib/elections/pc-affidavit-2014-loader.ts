@@ -22,6 +22,7 @@
 import { query, registerCsvFile } from "../duckdb";
 import { DATA_BASE } from "../paths";
 import { csvColumnsClause } from "../canonical/csv-columns";
+import { withElectionReadOpts } from "../canonical/election-read-opts";
 
 const CSV_PATH = "datasets/elections/parliament/election=2014/candidacies.csv";
 
@@ -100,7 +101,7 @@ async function loadUncached(
   const [clause] = await Promise.all([
     csvColumnsClause(CSV_PATH),
     registerCsvFile(url),
-  ]);
+  ]).then(([cols]) => [withElectionReadOpts(cols)]);
   const sql = `
     SELECT
       state,

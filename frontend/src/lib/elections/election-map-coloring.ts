@@ -41,13 +41,15 @@ export const NO_VALUE_FILL = "#e2e8f0"; // slate-200
 /** Opacity applied to units filtered OUT by the active party/margin filter. */
 export const DIMMED_OPACITY = 0.12;
 
-/** Sequential ramp endpoints (light → dark) for the continuous modes. */
-const RAMP: Record<Exclude<ColourMode, "winner">, [string, string]> = {
-  // amber-100 → amber-700
-  margin: ["#fef3c7", "#b45309"],
-  // sky-100 → sky-700
+/** Sequential ramp endpoints (light -> dark) for the genuinely
+ *  quantitative continuous modes. `margin` is deliberately NOT here:
+ *  margin mode preserves the winner's party hue and ramps lightness
+ *  within it (see `marginFill`), because a party-agnostic ramp throws
+ *  away the single most important fact on the map - who won. */
+const RAMP: Record<"turnout" | "age", [string, string]> = {
+  // sky-100 -> sky-700
   turnout: ["#e0f2fe", "#0369a1"],
-  // violet-100 → violet-700
+  // violet-100 -> violet-700
   age: ["#ede9fe", "#6d28d9"],
 };
 
@@ -74,6 +76,52 @@ export function lerpColor(from: string, to: string, t: number): string {
   const [r1, g1, b1] = hexToRgb(from);
   const [r2, g2, b2] = hexToRgb(to);
   return rgbToHex(r1 + (r2 - r1) * u, g1 + (g2 - g1) * u, b1 + (b2 - b1) * u);
+}
+
+/** Validate + normalise a `#rgb` / `#rrggbb` colour to lower-case
+ *  `#rrggbb`. Returns null for anything that is NOT a parseable hex (an
+ *  empty string, a CSS variable like `var(--party-neutral)`, an
+ *  `oklch(...)` string), so the margin ramp can fall back to the neutral
+ *  fill instead of letting `hexToRgb` emit a `#NaNNaNNaN`. */
+function normalizeHex(hex: string): string | null {
+  if (typeof hex !== "string") return null;
+  const h = hex.trim().replace(/^#/, "");
+  if (/^[0-9a-fA-F]{6}$/.test(h)) return `#${h.toLowerCase()}`;
+  if (/^[0-9a-fA-F]{3}$/.test(h)) {
+    return `#${h[0]}${h[0]}${h[1]}${h[1]}${h[2]}${h[2]}`.toLowerCase();
+  }
+  return null;
+}
+
+/** Cap (pp) for the margin lightness ramp. Wins at or above this read as
+ *  landslides and get the full-saturation party hue; below, the hue is
+ *  blended toward a pale tint. Mirrors the [0, 30]pp window used by the
+ *  winner-mode opacity ramp + `map-highlight-utils.marginOpacity`, so
+ *  both map surfaces tell the same close-vs-walkover story. */
+const MARGIN_CAP_PP = 30;
+
+/** How far the knife-edge (margin -> 0) end is blended toward white: a
+ *  pale-but-still-tinted party colour. Never pure white (the hue stays
+ *  legible) and never darker than the party hex itself (so a margin fill
+ *  can never resolve to black). */
+const MARGIN_PALE_MIX = 0.72;
+
+/** Margin-mode fill for one winner: the resolved party hue, lightened
+ *  toward white in inverse proportion to the margin. A knife-edge win is
+ *  pale; a landslide is the deep, saturated party colour. Returns
+ *  `NO_VALUE_FILL` when the margin is absent or the party hue cannot be
+ *  parsed - guarding against both `#NaNNaNNaN` and an accidental black. */
+export function marginFill(
+  partyHex: string,
+  margin_pct: number | null,
+): string {
+  if (margin_pct == null) return NO_VALUE_FILL;
+  const base = normalizeHex(partyHex);
+  if (base == null) return NO_VALUE_FILL;
+  const pale = lerpColor(base, "#ffffff", MARGIN_PALE_MIX);
+  const t =
+    Math.max(0, Math.min(MARGIN_CAP_PP, Math.abs(margin_pct))) / MARGIN_CAP_PP;
+  return lerpColor(pale, base, t);
 }
 
 /** The value a continuous mode reads off each winner row (null if absent). */
@@ -134,6 +182,18 @@ export function buildAcFills(
   if (mode === "winner") {
     for (const r of rows) {
       out[r.ac_eci_no] = partyFill(r.party_eci_code, r.party_short);
+    }
+    return out;
+  }
+
+  if (mode === "margin") {
+    // Party hue + margin-driven lightness (knife-edge pale, landslide
+    // deep). Preserves WHO won while still ranking BY HOW MUCH.
+    for (const r of rows) {
+      out[r.ac_eci_no] = marginFill(
+        partyFill(r.party_eci_code, r.party_short),
+        r.margin_pct,
+      );
     }
     return out;
   }
@@ -222,6 +282,15 @@ export function buildKeyedFills<T extends ColorableWinner>(
   const out: Record<string, string> = {};
   if (mode === "winner") {
     for (const r of rows) out[keyOf(r)] = partyFill(r.party_eci_code, r.party_short);
+    return out;
+  }
+  if (mode === "margin") {
+    for (const r of rows) {
+      out[keyOf(r)] = marginFill(
+        partyFill(r.party_eci_code, r.party_short),
+        r.margin_pct,
+      );
+    }
     return out;
   }
   const [from, to] = RAMP[mode];

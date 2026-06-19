@@ -27,6 +27,7 @@
 // promise). Subsequent loads short-circuit.
 
 import { csvColumnsClause } from "../canonical/csv-columns";
+import { withElectionReadOpts } from "../canonical/election-read-opts";
 import { fetchElectionEvents } from "../election-events";
 import {
   loadManifest,
@@ -111,8 +112,8 @@ async function buildCatalogue(): Promise<SemanticCatalogue> {
   // assembly states, so filter to entity_kind='ac' and take DISTINCT
   // state slug. Typed via csvColumnsClause so the F1.3a contract
   // (every read_csv carries an explicit columns={...} map) is honoured.
-  const electoralColumns = await csvColumnsClause(
-    `datasets/${electoralCsvRel}`,
+  const electoralColumns = withElectionReadOpts(
+    await csvColumnsClause(`datasets/${electoralCsvRel}`),
   );
   const sqlDistinctStates = `
     SELECT DISTINCT state AS state_slug

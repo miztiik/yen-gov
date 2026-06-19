@@ -335,6 +335,22 @@ describe("loadConstituencyResult - happy path", () => {
     // Filter shape: state slug + ECI eci_no.
     expect(sqls[0]).toContain("e.state = 'tamil-nadu'");
     expect(sqls[0]).toContain("e.eci_no = 1");
+
+    // Hardened election read options (fix/election-csv-read-hardening):
+    // the candidacies + summary reads pin the dialect sniffer off
+    // (auto_detect=false) and NULL-pad the 20-vs-24-column candidacies
+    // schema (null_padding=true).
+    expect(sqls[0]).toContain("auto_detect=false");
+    expect(sqls[0]).toContain("null_padding=true");
+    expect(sqls[1]).toContain("auto_detect=false");
+    expect(sqls[1]).toContain("null_padding=true");
+
+    // Sources query reads the 5-field CSV `sources` view's `url` column
+    // (the X1a rename of the legacy OWID `url_main`). The stale
+    // `s.url_main` predicate threw a DuckDB Binder Error once Query 1
+    // started succeeding post read-hardening.
+    expect(sqls[2]).toContain("s.url IS NOT NULL");
+    expect(sqls[2]).not.toContain("s.url_main IS NOT NULL");
   });
 });
 

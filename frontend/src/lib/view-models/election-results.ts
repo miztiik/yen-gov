@@ -59,26 +59,16 @@ import {
   electoralEntitiesPath,
   parliamentSummaryPath,
 } from "../canonical/election-csv-paths";
+import { withElectionReadOpts } from "../canonical/election-read-opts";
 import { ECI_TO_LGD_SLUG } from "../boundaries/sources";
 
-// Explicit DuckDB read options spliced onto every election `read_csv`
-// clause. The deployed DuckDB-WASM build's dialect sniffer mis-detects
-// the election CSVs (candidate-name / education / profession fields carry
-// commas and RFC-4180 doubled-quote escapes), so we pin the dialect and
-// keep the sniffer out of the path. `null_padding=true` lets the 20-column
-// candidacies files read against the forward-compatible 24-column schema
-// in columns.json - the 4 trailing affidavit columns
-// (criminal_cases_declared / total_assets_inr / total_liabilities_inr /
-// declared_election_expense_inr) are NULL-padded for the 923 events that
-// have no affidavit data ingested, while the 1 file that carries them
-// (parliament 2014) reads them natively.
-const ELECTION_CSV_READ_OPTS =
-  "header=true, auto_detect=false, null_padding=true, delim=',', quote='\"', escape='\"'";
-
-/** Append the explicit read options to a `columns={...}` clause. */
-function withReadOpts(columnsClause: string): string {
-  return `${columnsClause}, ${ELECTION_CSV_READ_OPTS}`;
-}
+// The hardened election read options (`auto_detect=false` +
+// `null_padding=true` + pinned dialect) live in ONE shared module now -
+// see `../canonical/election-read-opts` for the full per-flag rationale.
+// This loader was the original home of the pattern; every other election
+// reader (state-overview / explore / psephlab / constituency /
+// pc-affidavit-2014 / yenask) imports the SAME `withElectionReadOpts`
+// helper so the dialect contract cannot drift between readers.
 
 // Reverse lookup: LGD slug -> ECI code. The on-disk electoral.csv keys
 // `state` in LGD form; tile-layout / GeoJSON `unique_id` props key in
@@ -360,8 +350,8 @@ async function runNationalPcQuery(
     registerCsvFile(electoralUrl),
     registerCsvAsTable("elections.dim_parties"),
   ]).then(([sumCols, electoralCols]) => [
-    withReadOpts(sumCols),
-    withReadOpts(electoralCols),
+    withElectionReadOpts(sumCols),
+    withElectionReadOpts(electoralCols),
   ]);
 
   // One row per PC. LEFT JOIN dim_parties so an UNK winner_party_id
@@ -434,9 +424,9 @@ async function runStateAcQuery(
     registerCsvFile(electoralUrl),
     registerCsvAsTable("elections.dim_parties"),
   ]).then(([candCols, sumCols, electoralCols]) => [
-    withReadOpts(candCols),
-    withReadOpts(sumCols),
-    withReadOpts(electoralCols),
+    withElectionReadOpts(candCols),
+    withElectionReadOpts(sumCols),
+    withElectionReadOpts(electoralCols),
   ]);
 
   // One row per AC. Mirror of `loadStateAcWinners` SQL: winner-age via
@@ -512,9 +502,9 @@ async function runConstituencyQuery(
     registerCsvFile(electoralUrl),
     registerCsvAsTable("elections.dim_parties"),
   ]).then(([candCols, sumCols, electoralCols]) => [
-    withReadOpts(candCols),
-    withReadOpts(sumCols),
-    withReadOpts(electoralCols),
+    withElectionReadOpts(candCols),
+    withElectionReadOpts(sumCols),
+    withElectionReadOpts(electoralCols),
   ]);
 
   const eciLit = String(Number(eci_no));

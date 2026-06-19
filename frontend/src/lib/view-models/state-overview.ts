@@ -41,6 +41,7 @@ import {
   assemblySummaryPath,
   electoralEntitiesPath,
 } from "../canonical/election-csv-paths";
+import { withElectionReadOpts } from "../canonical/election-read-opts";
 import { electionStatePartition } from "../election-partitions";
 import type { PartyTotals, SourceRef } from "../data";
 import { dedupeToPills, type PublisherPill, type SourceRow } from "../sources";
@@ -200,6 +201,11 @@ async function runQueries(
     registerCsvFile(partyAlliancesUrl),
     registerCsvAsTable("elections.dim_parties"),
     registerCsvAsTable("taxonomy.sources"),
+  ]).then(([candCols, sumCols, electoralCols, partyAlliancesCols]) => [
+    withElectionReadOpts(candCols),
+    withElectionReadOpts(sumCols),
+    withElectionReadOpts(electoralCols),
+    withElectionReadOpts(partyAlliancesCols),
   ]);
 
   const evt = sqlString(event);
