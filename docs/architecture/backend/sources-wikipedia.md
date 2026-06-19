@@ -102,7 +102,7 @@ Acknowledged costs:
 
 - TN-only first slice can ship: districts.json + constituencies.json + everything ECI-derived. Other states unblocked by adding one URL-map entry.
 - Parser failures are loud — tests catch reservation-token surprises and missing rows in CI's live tests.
-- Zero coupling to `core.http.Fetcher`. The parser takes bytes; the orchestrator decides where they came from.
+- Zero coupling to any HTTP fetcher. The parser takes bytes; the orchestrator decides where they came from.
 
 Acknowledged costs:
 

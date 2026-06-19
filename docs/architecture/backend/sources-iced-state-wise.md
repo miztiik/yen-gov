@@ -4,6 +4,7 @@
 **CLI**: `python -m yen_gov ingest-iced-state-wise [--refresh] [--fy 2024-25 ...]`
 **Cache**: `.runtime/raw/iced/stateWiseDeepDive_<FY>.json` (raw encrypted bodies)
 **Outputs**: 13 indicators across `datasets/indicators/in/{energy,economy,demography}/`
+**Status**: RETIRED output path. The `datasets/indicators/in/**` JSON tree this source wrote to was retired in the long-format-CSV rip (it is empty on `main`); canonical data now lives at `datasets/data/datapoints/geo/<id>.csv` and new energy/economy ingest flows through the [ingest pipeline](../ingest/pipeline.md). The historical description below is kept as a receipt.
 
 ## What this ships
 
@@ -107,7 +108,7 @@ re-evaluate: drop a year's cache file, run the orchestrator with
 backend/yen_gov/sources/iced_state_wise/
   __init__.py       # doc-only, no re-exports
   parsers.py        # decrypt_cryptojs_openssl, extract_rows, ENTITY_MAP, IndicatorSpec
-  ingest.py         # INDICATOR_SPECS catalogue, HTTP fetch + cache, write_artifact wiring
+  ingest.py         # INDICATOR_SPECS catalogue, HTTP fetch + cache, canonical CSV emit wiring
 
 backend/tests/test_sources_iced_state_wise.py
                     # 24 pure tests, no network. AES round-trip via test-only encrypt helper.

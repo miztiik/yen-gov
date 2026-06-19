@@ -44,19 +44,19 @@ Status legend: `[ ]` PENDING, `[~]` IN-PROGRESS (claimed by a subagent), `[B]` B
 
 | Row | Title | Phase | Depends on | Status | PR |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Pydantic stage messages + `SourceSpec`/`IndicatorSpec` + catalogue FK + concept-compatibility (`price_basis`/`sampling_frame`) | A | - | [ ] | - |
-| 2 | Committed year-checkpoint receipt (raw-payload hash + staleness) + Tier-B gate | A | - | [ ] | - |
-| 3 | `ingest/paths.py` + one stage-tagged log stream + events->pydantic (hand-rolled serializer) + `fetch.skipped` + run_id | A | - | [ ] | - |
-| 7 | REPLACE manifest: `emit_manifest()` (no parquet scan) + delete `dim_acs_lgd_lift` dead emit (keep `load_lgd_lookup`) | C | - | [ ] | - |
-| 8 | Flip 3 ECI adapters (`eci_ls`, `eci_ae_panel`, backfill) to `write_csv` | C | - | [ ] | - |
-| 4 | `canonical/ingest/` orchestrator + registry + derived index + run-preamble + wire `rbi_handbook` (no extraction) + `run`/`status` CLI | B | 1, 3 | [ ] | - |
-| 5 | Automated Fetch hook + `cache_units_for` (plural) + delta-skip + resume + 2nd cold caller | B | 4, 2 | [ ] | - |
-| 6 | Enrich India-discontinuity gates + divergence gate + splice break-row gate + status-shows-provenance + auto pre-flight | B | 4, 1 | [ ] | - |
-| 9 | Delete `envelope.py` + `write_batch` + scan body + residual Parquet | C | 7, 8 | [ ] | - |
-| 10 | ICED authority-tracing (`docs/research/` table) + evidence-gated producer correction | D | 9 | [ ] | - |
-| 11 | Greenfield NITI SDG India Index (3rd single-series) -> extract+ratify `run_pipeline`; consolidate cold `sources/` adapters | D | 4, 5, 6 | [ ] | - |
-| 12 | `ingest clean` command + runtime-dir env override | E | 3 | [ ] | - |
-| 13 | Docs: `docs/architecture/ingest/pipeline.md` + `cli-ingest.md` + honesty doctrine; rewrite stale docs + CLAUDE.md | E | 1-12 | [ ] | - |
+| 1 | Pydantic stage messages + `SourceSpec`/`IndicatorSpec` + catalogue FK + concept-compatibility (`price_basis`/`sampling_frame`) | A | - | [x] | #1160 |
+| 2 | Committed year-checkpoint receipt (raw-payload hash + staleness) + Tier-B gate | A | - | [x] | #1163 |
+| 3 | `ingest/paths.py` + one stage-tagged log stream + events->pydantic (hand-rolled serializer) + `fetch.skipped` + run_id | A | - | [x] | #1162 |
+| 7 | REPLACE manifest: `emit_manifest()` (no parquet scan) + delete `dim_acs_lgd_lift` dead emit (keep `load_lgd_lookup`) | C | - | [x] | #1161 |
+| 8 | Flip 3 ECI adapters (`eci_ls`, `eci_ae_panel`, backfill) to `write_csv` | C | - | [x] | #1164 |
+| 4 | `canonical/ingest/` orchestrator + registry + derived index + run-preamble + wire `rbi_handbook` (no extraction) + `run`/`status` CLI | B | 1, 3 | [x] | #1165 |
+| 5 | Automated Fetch hook + `cache_units_for` (plural) + delta-skip + resume + 2nd cold caller | B | 4, 2 | [x] | #1167 |
+| 6 | Enrich India-discontinuity gates + divergence gate + splice break-row gate + status-shows-provenance + auto pre-flight | B | 4, 1 | [x] | #1170 |
+| 9 | Delete `envelope.py` + `write_batch` + scan body + residual Parquet | C | 7, 8 | [x] | #1166 |
+| 10 | ICED authority-tracing (`docs/research/` table) + evidence-gated producer correction | D | 9 | [x] | #1168 |
+| 11 | Greenfield NITI SDG India Index (3rd single-series) -> extract+ratify `run_pipeline`; consolidate cold `sources/` adapters | D | 4, 5, 6 | [x] | #1171 |
+| 12 | `ingest clean` command + runtime-dir env override | E | 3 | [x] | #1169 |
+| 13 | Docs: `docs/architecture/ingest/pipeline.md` + `cli-ingest.md` + honesty doctrine; rewrite stale docs + CLAUDE.md | E | 1-12 | [x] | this PR |
 
 Parallel start set (no unmet dependency): **Rows 1, 2, 3, 7, 8** run concurrently. Then 4 (after 1,3); 5 (after 4,2); 6 (after 4,1); 9 (after 7,8); 10 (after 9); 11 (after 4,5,6); 12 (after 3); 13 last.
 
@@ -184,3 +184,29 @@ identity:    concepts.json -> indicators.json -> variables.csv   (SOT; pipeline 
 - [datasets/taxonomy/concepts.json](../datasets/taxonomy/concepts.json) -> [indicators.json](../datasets/taxonomy/indicators.json) -> [variables.csv](../datasets/data/variables.csv) - the identity SOT.
 - [docs/concepts/ingest-fetch-enrich-separation.md](../docs/concepts/ingest-fetch-enrich-separation.md) - the doctrine Row 13 rewrites.
 - [CLAUDE.md](../CLAUDE.md) - the engineering contract (authority table section 0a).
+
+## Plan complete
+
+Closed 2026-06-19. All 13 rows merged (PR numbers in the Section 2 board). Distilled per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md):
+
+- The ingest subsystem (operator mental model, Fetch -> Enrich -> Publish + the run-preamble, orchestrator / registry / derived-index, committed year-checkpoint + resume, the honesty doctrine = divergence gate + splice break-row gate + the six India-discontinuity enrich gates) + the D1-D4 keep-receipts -> [docs/architecture/ingest/pipeline.md](../docs/architecture/ingest/pipeline.md) (NEW).
+- The CLI grammar (`ingest run` / `status` / `clean` + `pre-flight-ingest`) -> [docs/reference/cli-ingest.md](../docs/reference/cli-ingest.md) (NEW).
+- The three-stage doctrine -> [docs/concepts/ingest-fetch-enrich-separation.md](../docs/concepts/ingest-fetch-enrich-separation.md) (rewritten from the retired "Lift" four-layer doctrine).
+- The add-a-source cookbook (NITI SDG India Index worked example) -> [docs/how-to/add-a-new-data-source.md](../docs/how-to/add-a-new-data-source.md) (rewritten).
+- The binding D1-D4 doctrine + the Row-9 topology reconciliation (writer.py / envelope.py / write_batch deleted; manifest via emit_manifest; the "no network fetcher" absolute reconciled to PRODUCTION/CI-only) -> [CLAUDE.md](../CLAUDE.md) ("INGEST PIPELINE DOCTRINE").
+- The D1-D4 redirect rows -> [docs/reference/decision-index.md](../docs/reference/decision-index.md).
+
+### Deferred (recorded so a future agent does not rediscover)
+
+Carried from Section 6 + surfaced during execution:
+
+- **rbi-cohort taxonomy-registration gap (Row 4/5).** The `rbi_handbook` + `rbi_hbs_health` cohort indicators are not all registered in `concepts.json` -> `indicators.json` yet, so an orchestrated `ingest run --indicator <rbi-id>` only passes the registration FK once the taxonomy rows land. `niti_sdg_index` is the FIRST ingest indicator registered in the taxonomy SOT. Register the rbi cohort before driving it through the orchestrator unfixtured.
+- **Cold `sources/` consolidation (Row 11) is partial.** The single-series greenfield (`niti_sdg_index`) + the `run_pipeline` extraction shipped; the git-mv of every remaining cold `sources/` single-series adapter under `canonical/adapters/` is not fully swept. Finish the moves as each cold adapter is next touched.
+- **`--from` / `--to` stage-window flags not shipped.** Section 4's target architecture shows `ingest run --from enrich`; the flags were deferred (Row 5+). `run` always executes the full preamble -> Fetch -> Enrich -> Publish flow. Add the window flags when a re-enrich-from-cache need is real.
+- **final-energy is backend-only / orphan.** The single-axis indicator-allowlist descriptor cannot express the 2-D sector x fuel shape without double-counting; a 2-D descriptor type is future work.
+- **Pre-existing peak-adapter bug.** `backend/yen_gov/sources/iced_power/ingest.py` derives `source_id` `src-152167300b98`, absent from `datasets/data/entities/source.csv`; a separate follow-up, not in this plan's scope.
+- **CEA+ICED plan D1/D2** (generation faceting, retired-capacity) remain deferred by design.
+
+The YAGNI not-built list (Section 6) stands: no DAG engine, no garden tier, no endpoint crawler, no N-source splice engine, no reconciliation framework, no second checkpoint file, no plugin registry, no `rollback` / `audit.jsonl`, no `inventory` / `explain` / `discover` verbs.
+
+Plan-doc remains as the audit ledger; do not edit further. New ingest work edits the distilled docs directly.
