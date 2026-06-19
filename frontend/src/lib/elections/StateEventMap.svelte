@@ -8,18 +8,23 @@
                    (when ac_view='hex'), with Winner|Margin sub-toggle
                    and the Map|Equal-seats arm toggle (latter only when
                    the state has a persisted AC tile layout).
-    - PC branch  : StatePcMapD3 (when pc_delim_year != null) with the
-                   Winner|Margin sub-toggle, OR the pre-2009 LS
-                   placeholder card (when pc_delim_year == null).
+    - PC branch  : StatePcMapD3 (when pc_view='map') OR TileCartogram
+                   (when pc_view='hex'), with Winner|Margin sub-toggle
+                   and the Map|Equal-seats arm toggle (latter only when
+                   the state has a persisted per-state PC tile layout,
+                   i.e. >= MIN_PCS_FOR_STATE_LAYOUT seats); OR the
+                   pre-2009 LS placeholder card (when pc_delim_year ==
+                   null).
     - Caption + sub-threshold marker legend.
 
   The parent owns all derived data (ac_winners_shim, ac_fills_override,
   ac_opacities_override, pc_winners, pc_fills_override,
   pc_opacities_override, pc_boundary, pc_delim_year, ac_tile_layout,
-  ac_tile_rows, has_ac_equal_seats, ac_tile_layout_error) because those
+  ac_tile_rows, has_ac_equal_seats, ac_tile_layout_error, pc_tile_layout,
+  pc_tile_rows, has_pc_equal_seats, pc_tile_layout_error) because those
   derives are also consumed by sibling sections (top-parties mute
-  recede, scatter chip, etc.). `color_mode` and `ac_view` are exposed
-  as $bindable so the in-template buttons can flip them while the
+  recede, scatter chip, etc.). `color_mode`, `ac_view` and `pc_view` are
+  exposed as $bindable so the in-template buttons can flip them while the
   parent's override derivations continue to read the same proxy.
 
   R4 (the same plan-doc, Section 5) reorders this section above the
@@ -31,6 +36,8 @@
   state-event-map-mode-winner, state-event-map-mode-margin,
   state-event-map-view, state-event-map-geo, state-event-map-hex,
   state-event-map-placeholder, state-ac-map-legend, state-pc-map-legend.
+  Adds (PC equal-seats arm): state-event-pc-view, state-event-pc-map-geo,
+  state-event-pc-map-hex.
 -->
 <script lang="ts">
   import StateAcMapD3 from "../charts/StateAcMapD3.svelte";
@@ -75,11 +82,22 @@
     pc_boundary: BoundaryEntry;
     pc_fills_override: Record<string, string>;
     pc_opacities_override: Record<string, number>;
+    /** Equal-seats arm (per-state PC cartogram): null while the scope-doc
+     * fetch is in-flight, true/false once resolved. Mirrors
+     * has_ac_equal_seats. False for states below the seat threshold, so
+     * the PC page stays geographic-only. */
+    has_pc_equal_seats: boolean | null;
+    /** Per-state PC tile layout (null while not requested or in-flight). */
+    pc_tile_layout: TileLayoutRow[] | null;
+    pc_tile_layout_error: boolean;
+    pc_tile_rows: TileRow[];
+    onPcTileSelect: (unit_id: string) => void;
     /** State_slug for the PC map's name-slug join (delim=2008 only). */
     state_slug: string;
     /** Bindable UI state ---------------------------------------------- */
     color_mode: ColorMode;
     ac_view: AcView;
+    pc_view: AcView;
   }
 
   let {
@@ -99,9 +117,15 @@
     pc_boundary,
     pc_fills_override,
     pc_opacities_override,
+    has_pc_equal_seats,
+    pc_tile_layout,
+    pc_tile_layout_error,
+    pc_tile_rows,
+    onPcTileSelect,
     state_slug,
     color_mode = $bindable<ColorMode>("winner"),
     ac_view = $bindable<AcView>("map"),
+    pc_view = $bindable<AcView>("map"),
   }: Props = $props();
 </script>
 
@@ -256,55 +280,106 @@
         <h2 class="text-sm font-semibold text-slate-800">
           Constituencies
         </h2>
-        <div
-          class="inline-flex rounded border border-slate-200 bg-white p-0.5 text-xs"
-          data-testid="state-event-map-mode"
-        >
-          <button
-            type="button"
-            class={color_mode === "winner"
-              ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
-              : "px-2 py-0.5 text-slate-500"}
-            data-testid="state-event-map-mode-winner"
-            onclick={() => (color_mode = "winner")}
-          >Winner</button>
-          <button
-            type="button"
-            class={color_mode === "margin"
-              ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
-              : "px-2 py-0.5 text-slate-500"}
-            data-testid="state-event-map-mode-margin"
-            onclick={() => (color_mode = "margin")}
-          >Margin</button>
+        <div class="flex flex-wrap items-center gap-2">
+          <div
+            class="inline-flex rounded border border-slate-200 bg-white p-0.5 text-xs"
+            data-testid="state-event-map-mode"
+          >
+            <button
+              type="button"
+              class={color_mode === "winner"
+                ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
+                : "px-2 py-0.5 text-slate-500"}
+              data-testid="state-event-map-mode-winner"
+              onclick={() => (color_mode = "winner")}
+            >Winner</button>
+            <button
+              type="button"
+              class={color_mode === "margin"
+                ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
+                : "px-2 py-0.5 text-slate-500"}
+              data-testid="state-event-map-mode-margin"
+              onclick={() => (color_mode = "margin")}
+            >Margin</button>
+          </div>
+          {#if has_pc_equal_seats === true}
+            <div
+              class="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-sm"
+              data-testid="state-event-pc-view"
+            >
+              <button
+                type="button"
+                class="rounded-md px-3 py-1 transition-colors {pc_view === 'map'
+                  ? 'bg-white font-medium text-slate-900 shadow-sm'
+                  : 'text-slate-500 hover:text-slate-700'}"
+                data-view="map"
+                onclick={() => (pc_view = "map")}
+              >Map</button>
+              <button
+                type="button"
+                class="rounded-md px-3 py-1 transition-colors {pc_view === 'hex'
+                  ? 'bg-white font-medium text-slate-900 shadow-sm'
+                  : 'text-slate-500 hover:text-slate-700'}"
+                data-view="hex"
+                onclick={() => (pc_view = "hex")}
+              >Equal seats</button>
+            </div>
+          {/if}
         </div>
       </div>
-      <StatePcMapD3
-        state={state_code}
-        {state_slug}
-        rows={pc_winners}
-        event={event_id}
-        height="420px"
-        fillsOverride={pc_fills_override}
-        opacitiesOverride={pc_opacities_override}
-        boundary={pc_boundary}
-      />
+      {#if pc_view === "map"}
+        <div data-testid="state-event-pc-map-geo">
+          <StatePcMapD3
+            state={state_code}
+            {state_slug}
+            rows={pc_winners}
+            event={event_id}
+            height="420px"
+            fillsOverride={pc_fills_override}
+            opacitiesOverride={pc_opacities_override}
+            boundary={pc_boundary}
+          />
+        </div>
+      {:else}
+        <div data-testid="state-event-pc-map-hex">
+          {#if pc_tile_layout_error}
+            <div
+              class="rounded border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800"
+            >
+              Equal-seats layout couldn't load.
+            </div>
+          {:else if pc_tile_layout == null}
+            <p class="p-4 text-sm text-slate-500">
+              Loading equal-seats layout...
+            </p>
+          {:else}
+            <TileCartogram
+              tiles={pc_tile_rows}
+              height="420px"
+              onSelect={onPcTileSelect}
+            />
+          {/if}
+        </div>
+      {/if}
       <p class="text-xs text-slate-500">
         {color_mode === "winner"
           ? "Each constituency is filled with the winning party's colour."
           : "Each constituency is shaded by winning margin (darker = larger margin)."}
       </p>
-      <p
-        class="text-[11px] text-slate-500"
-        data-testid="state-pc-map-legend"
-      >
-        Circles mark dense urban constituencies whose polygon is too
-        small to render at this zoom. Equal-seats view available on
-        the
-        <a
-          class="text-sky-700 hover:underline"
-          href={link.nationalElection(event_id)}
-        >national {event_id} surface</a>.
-      </p>
+      {#if pc_view === "map"}
+        <p
+          class="text-[11px] text-slate-500"
+          data-testid="state-pc-map-legend"
+        >
+          Circles mark dense urban constituencies whose polygon is too
+          small to render at this zoom.{#if has_pc_equal_seats !== true}
+            Equal-seats view available on the
+            <a
+              class="text-sky-700 hover:underline"
+              href={link.nationalElection(event_id)}
+            >national {event_id} surface</a>.{/if}
+        </p>
+      {/if}
     </section>
   {/if}
 {/if}

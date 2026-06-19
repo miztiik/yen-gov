@@ -22,6 +22,10 @@ Usage:
   python tools/gen_election_tile_layouts.py --layout-kind ac --all-states
   # the national PC layout
   python tools/gen_election_tile_layouts.py --layout-kind pc --scope national
+  # one state's PC layout by ECI code
+  python tools/gen_election_tile_layouts.py --layout-kind pc --scope S04
+  # every PC state >= MIN_PCS_FOR_STATE_LAYOUT seats, plus national
+  python tools/gen_election_tile_layouts.py --layout-kind pc --all-states
 
 Exit codes: 0 ok, 1 soft failure (e.g. a scope skipped), 2 usage error.
 """
@@ -48,6 +52,7 @@ AC_TOPOJSON_PATH = (
 AC_TOPOJSON_OBJECT = "ac"
 AC_SOURCE_ID = "boundaries/electoral/delim=2024/ac/all.topojson"
 PC_PATH = REPO / "datasets" / "boundaries" / "electoral" / "delim=2024" / "pc" / "all.geojson"
+PC_SOURCE_ID = "boundaries/electoral/delim=2024/pc/all.geojson"
 
 # Bridge to the canonical schema-version helper so the two stamped envelopes
 # below never carry a hand-typed semver literal (CLAUDE.md section 11). The
@@ -65,6 +70,14 @@ SCOPES_SCHEMA_VERSION = schema_version("grapher-election-tile-scopes.schema.json
 DELIM_YEAR = 2008
 ROW_PITCH = math.sqrt(3) / 2  # pointy-top: vertical row pitch / horizontal pitch
 GRID_SLACK = 1.45  # spare cells so the greedy spiral rarely travels far
+
+# Per-state PC equal-seats layouts are only authored for states large enough
+# that an equal-area cartogram reads as more than a handful of disconnected
+# cells. Below this seat count a 1-3 cell grid conveys nothing the geographic
+# map doesn't, so small states stay geo-only (no per-state PC tile layout is
+# emitted, hence the state PC page never offers the equal-seats toggle). The
+# national PC scope still covers every seat regardless of this threshold.
+MIN_PCS_FOR_STATE_LAYOUT = 4
 
 # Boundary directory slug -> ECI state/UT code. Mirrors _LOCAL_NAME_TO_ECI in
 # backend/yen_gov/cli.py (hyphenated to match the boundary partition dirs).
@@ -377,13 +390,43 @@ def build_ac_scope(slug: str) -> list[dict]:
     return [_tile("ac", code, source_id, u) for u in units]
 
 
-def build_pc_scope() -> list[dict]:
-    """Build the national PC tile list from the delim-2024 boundary corpus."""
-    gj = json.loads(PC_PATH.read_text(encoding="utf-8"))
+_PC_FEATURES_CACHE: list[dict] | None = None
+
+
+def _pc_features() -> list[dict]:
+    """Read the delim-2024 PC boundary feature list ONCE (cached per run)."""
+    global _PC_FEATURES_CACHE
+    if _PC_FEATURES_CACHE is None:
+        _PC_FEATURES_CACHE = json.loads(PC_PATH.read_text(encoding="utf-8"))["features"]
+    return _PC_FEATURES_CACHE
+
+
+def pc_state_counts() -> dict[str, int]:
+    """ECI state/UT code -> number of PC features in the boundary corpus."""
+    counts: dict[str, int] = {}
+    for feat in _pc_features():
+        sc = str(feat["properties"]["state_ut_code"])
+        counts[sc] = counts.get(sc, 0) + 1
+    return counts
+
+
+def build_pc_scope(code: str | None = None) -> list[dict]:
+    """Build a PC tile list from the delim-2024 boundary corpus.
+
+    `code is None` builds the NATIONAL scope over every PC feature (the
+    original seed behaviour, byte-for-byte). A non-None ECI state/UT `code`
+    filters the corpus to that state's PC features, hexbins those alone, and
+    emits `scope=<code>`. The per-tile `unit_id` is `IN-PC-{DELIM_YEAR}-{sc}-
+    {ls}` in BOTH cases (already state-qualified), so a winners array joins
+    the national and per-state layouts identically.
+    """
+    scope = "national" if code is None else code
     units: list[dict] = []
-    for feat in gj["features"]:
+    for feat in _pc_features():
         props = feat["properties"]
         sc = str(props["state_ut_code"])
+        if code is not None and sc != code:
+            continue
         ls = int(props["ls_seat_code"])
         lon, lat, _ = feature_centroid(feat["geometry"])
         units.append(
@@ -396,8 +439,7 @@ def build_pc_scope() -> list[dict]:
             }
         )
     assign_hex_cells(units)
-    source_id = "boundaries/electoral/delim=2024/pc/all.geojson"
-    return [_tile("pc", "national", source_id, u) for u in units]
+    return [_tile("pc", scope, PC_SOURCE_ID, u) for u in units]
 
 
 def _tile(kind: str, scope: str, source_id: str, u: dict) -> dict:
@@ -492,17 +534,85 @@ def assert_no_overlap(tiles: list[dict], label: str) -> None:
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
+def _run_pc(
+    parser: argparse.ArgumentParser, args: argparse.Namespace, doc: dict
+) -> bool:
+    """Build the requested PC scope(s) into `doc`. Returns True on soft failure.
+
+      --all-states            : every PC state with >= MIN_PCS_FOR_STATE_LAYOUT
+                                seats, then the national scope (kept fresh in
+                                the same pass so both grains stay in lockstep).
+      --scope <CODE>          : one state's PC layout (skipped, soft-fail, when
+                                below the threshold).
+      --scope national / bare : the national PC layout only (unchanged seed).
+    """
+    counts = pc_state_counts()
+
+    if args.all_states:
+        eligible = sorted(
+            c for c, n in counts.items() if n >= MIN_PCS_FOR_STATE_LAYOUT
+        )
+        for code in eligible:
+            tiles = build_pc_scope(code)
+            assert_no_overlap(tiles, f"pc/{code}")
+            merge_scope(doc, "pc", code, tiles)
+            print(f"  [ok] pc/{code}: {len(tiles)} tiles")
+        national = build_pc_scope(None)
+        assert_no_overlap(national, "pc/national")
+        merge_scope(doc, "pc", "national", national)
+        print(f"  [ok] pc/national: {len(national)} tiles")
+        skipped = sorted(
+            c for c, n in counts.items() if n < MIN_PCS_FOR_STATE_LAYOUT
+        )
+        if skipped:
+            print(
+                f"  [skip] {len(skipped)} states below {MIN_PCS_FOR_STATE_LAYOUT}"
+                f" PCs (geo-only): {', '.join(skipped)}"
+            )
+        return False
+
+    scope = args.scope or "national"
+    if scope == "national":
+        tiles = build_pc_scope(None)
+        assert_no_overlap(tiles, "pc/national")
+        merge_scope(doc, "pc", "national", tiles)
+        print(f"  [ok] pc/national: {len(tiles)} tiles")
+        return False
+
+    code = scope
+    if code not in counts:
+        parser.error(f"unknown PC scope {code!r} (not present in the PC corpus)")
+    if counts[code] < MIN_PCS_FOR_STATE_LAYOUT:
+        print(
+            f"  [skip] pc/{code}: only {counts[code]} PCs"
+            f" (< {MIN_PCS_FOR_STATE_LAYOUT}); per-state PC layout not authored"
+        )
+        return True
+    tiles = build_pc_scope(code)
+    assert_no_overlap(tiles, f"pc/{code}")
+    merge_scope(doc, "pc", code, tiles)
+    print(f"  [ok] pc/{code}: {len(tiles)} tiles")
+    return False
+
+
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--layout-kind", choices=["ac", "pc"], required=True)
     parser.add_argument(
         "--scope",
-        help="ECI state/UT code (e.g. S13) for an AC scope, or 'national' for PC.",
+        help=(
+            "ECI state/UT code (e.g. S13) for one AC/PC scope, or 'national' "
+            "for the national PC layout."
+        ),
     )
     parser.add_argument(
         "--all-states",
         action="store_true",
-        help="Build every standard-schema AC state/UT (layout-kind ac only).",
+        help=(
+            "Build every covered scope: every standard-schema AC state/UT "
+            "(--layout-kind ac), or every PC state with >= "
+            f"{MIN_PCS_FOR_STATE_LAYOUT} seats plus national (--layout-kind pc)."
+        ),
     )
     args = parser.parse_args(argv)
 
@@ -510,10 +620,7 @@ def main(argv: list[str]) -> int:
     soft_fail = False
 
     if args.layout_kind == "pc":
-        tiles = build_pc_scope()
-        assert_no_overlap(tiles, "pc/national")
-        merge_scope(doc, "pc", "national", tiles)
-        print(f"  [ok] pc/national: {len(tiles)} tiles")
+        soft_fail = _run_pc(parser, args, doc) or soft_fail
 
     elif args.all_states:
         for slug in sorted(SLUG_TO_CODE):

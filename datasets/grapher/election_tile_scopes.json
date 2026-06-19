@@ -184,6 +184,138 @@
     },
     {
       "layout_kind": "pc",
+      "scope": "S01",
+      "delim_year": 2008,
+      "tile_count": 25
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S03",
+      "delim_year": 2008,
+      "tile_count": 14
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S04",
+      "delim_year": 2008,
+      "tile_count": 40
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S06",
+      "delim_year": 2008,
+      "tile_count": 26
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S07",
+      "delim_year": 2008,
+      "tile_count": 10
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S08",
+      "delim_year": 2008,
+      "tile_count": 4
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S10",
+      "delim_year": 2008,
+      "tile_count": 28
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S11",
+      "delim_year": 2008,
+      "tile_count": 20
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S12",
+      "delim_year": 2008,
+      "tile_count": 29
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S13",
+      "delim_year": 2008,
+      "tile_count": 48
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S18",
+      "delim_year": 2008,
+      "tile_count": 21
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S19",
+      "delim_year": 2008,
+      "tile_count": 13
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S20",
+      "delim_year": 2008,
+      "tile_count": 25
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S22",
+      "delim_year": 2008,
+      "tile_count": 39
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S24",
+      "delim_year": 2008,
+      "tile_count": 80
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S25",
+      "delim_year": 2008,
+      "tile_count": 42
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S26",
+      "delim_year": 2008,
+      "tile_count": 11
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S27",
+      "delim_year": 2008,
+      "tile_count": 14
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S28",
+      "delim_year": 2008,
+      "tile_count": 5
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "S29",
+      "delim_year": 2008,
+      "tile_count": 17
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "U05",
+      "delim_year": 2008,
+      "tile_count": 7
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "U08",
+      "delim_year": 2008,
+      "tile_count": 6
+    },
+    {
+      "layout_kind": "pc",
       "scope": "national",
       "delim_year": 2008,
       "tile_count": 545
