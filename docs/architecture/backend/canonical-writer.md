@@ -2,18 +2,18 @@
 
 **Last Updated**: 2026-06-06
 
-The canonical CSV writer is the sole entry point that persists observation rows into the long-format CSV store under `datasets/data/` (and `datasets/elections/**`). It is the write seam referenced by Holy Law #2 ("backend is the only writer to `datasets/`") and the contract surface every re-pointed ingest (B1.4-B1.6 waves) funnels through, replacing the historical `core/io.write_artifact` meadow-tier path.
+The canonical CSV writer is the sole entry point that persists observation rows into the long-format CSV store under `datasets/data/` (and `datasets/elections/**`). It is the write seam referenced by Holy Law #2 ("backend is the only writer to `datasets/`") and the contract surface every re-pointed ingest (B1.4-B1.6 waves) funnels through, replacing the historical `core/io` meadow-tier JSON write path.
 
 Distilled from sub-plan B1 (sub-rows B1.1..B1.7, PRs #629-B1.7-closure) on 2026-06-04.
 
-> The legacy Parquet writer at `backend/yen_gov/canonical/writer.py` (see [writer.md](writer.md)) survives in-tree until grandparent chunk B3 deletes it. Until then both writers coexist; new ingest re-points emit CSV via `csv_writer.write_csv`, never via the legacy `core/io.write_artifact` path.
+> The legacy Parquet writer at `backend/yen_gov/canonical/writer.py` (see [writer.md](writer.md)) and the legacy `core/io` JSON write path were BOTH deleted in the long-format-CSV rip (chunk B3 + the ingest-rip Row 9 teardown). `csv_writer.write_csv` is now the sole canonical writer.
 
 ## Purpose
 
 - Emit one row per observation into the canonical long-format CSV files under `datasets/data/datapoints/<class>/<variable_id>.csv` and per-election `datasets/elections/{assembly,parliament}/state=<key>/election=<id>/{candidacies,summary}.csv` per [csv-column-contract.md](../data/csv-column-contract.md).
 - Enforce the per-file-class column contract (`datasets/data/_schema/columns.json`) at write time: header order, dtype, nullability, deterministic sort, `__` ban, UTF-8 + LF + trailing newline + no BOM.
 - Enforce cross-file integrity at read time: FK existence (`source_id` to `entities/source.csv` per Holy Law #9; `concept_id` to `concepts.csv` per ADR-0044 one-indicator-per-concept; `entity_id` to declared entity file), closed-enum membership, datapoint-filename equals `<variable_id>.csv`.
-- Preserve the skip-write-if-equal optimisation from `core/io.write_artifact` (value-level row-list compare) so re-running ingest leaves a clean `git status`.
+- Preserve the skip-write-if-equal optimisation inherited from the legacy `core/io` write path (value-level row-list compare) so re-running ingest leaves a clean `git status`.
 
 ## Three-module surface
 
@@ -38,14 +38,14 @@ Inherited from CLAUDE.md Holy Laws #3, #6, #9:
 
 ## Re-point pattern for ingest callers
 
-The B1.4-B1.6 waves re-pointed ~17 surviving `core/io.write_artifact` call-sites onto `csv_writer.write_csv`. The uniform shape for any future re-point:
+The B1.4-B1.6 waves re-pointed ~17 surviving legacy `core/io` write-path call-sites onto `csv_writer.write_csv` (the legacy path was later deleted whole in chunk B3 + the ingest rip). The uniform shape for any future re-point:
 
 1. Identify the canonical CSV file class the meadow JSON corresponds to (see [csv-column-contract.md section 3](../data/csv-column-contract.md)).
 2. Build rows as `list[dict]` keyed by the declared columns; derive `source_id` via `backend.yen_gov.canonical.citation.derive_source_id` (never hand-author).
 3. Call `write_csv(path=datapoints/<class>/<variable_id>.csv, file_class=..., rows=...)`.
-4. During the B1 window the legacy `write_artifact` call MAY stay in place alongside the new CSV emit (whichever keeps the per-family gate green); deletion is deferred to grandparent chunk B3. Record the alongside choice in the sub-row's PR body.
+4. During the B1 window the legacy write call could stay in place alongside the new CSV emit (whichever kept the per-family gate green); the legacy path was deleted whole in chunk B3. The alongside choice was recorded in each sub-row's PR body.
 
-**Alongside-NEITHER carve-out.** When a `write_artifact` site emits operator state (e.g. `datasets/elections/_inventory.json`) or a per-election shape that is one of N inputs to a downstream aggregator (B2a-owned: `entities/*.csv`, per-election `candidacies.csv` / `summary.csv`), no canonical CSV file class fits. Leave the legacy call in place, record the rationale in the sub-row PR body + sub-plan addendum, and pass `docs-review` instead of `writer-unit` + `suite-green`. Precedents: B1.6.4 (#664), B1.6.5 (#666), B1.6.6 (#668), B1.6.7 (#669) - all four alongside-NEITHER under sub-plan B1.6, all emit operator inventory or downstream-aggregator shapes.
+**Alongside-NEITHER carve-out.** When a legacy write-path site emits operator state (e.g. `datasets/elections/_inventory.json`) or a per-election shape that is one of N inputs to a downstream aggregator (B2a-owned: `entities/*.csv`, per-election `candidacies.csv` / `summary.csv`), no canonical CSV file class fits. Leave the legacy call in place, record the rationale in the sub-row PR body + sub-plan addendum, and pass `docs-review` instead of `writer-unit` + `suite-green`. Precedents: B1.6.4 (#664), B1.6.5 (#666), B1.6.6 (#668), B1.6.7 (#669) - all four alongside-NEITHER under sub-plan B1.6, all emit operator inventory or downstream-aggregator shapes.
 
 ## Seed emitters (B2a, PRs #673-#688)
 
@@ -151,7 +151,7 @@ These surfaced during B1 execution and are recorded here so future agents do not
 - **Per-indicator facet columns** (column contract, CLAUDE.md section 10). Writer + validator both reject undeclared columns today. Both surfaces will relax together when the first facet ingest needs it.
 - **Wall-clock-in-content-columns detector** (CLAUDE.md section 10 anti-pattern). A defensible detector needs a content-column taxonomy that `columns.json` does not yet carry. Land alongside the first ingest that would benefit.
 - **Null-vs-empty-string distinction for string columns** (writer module docstring notes this). B1.2 emits `None` as the empty CSV field uniformly; a richer encoding will land if a downstream consumer needs to distinguish.
-- **Parquet writer + `core/io.write_artifact` deletion.** Both survive in-tree until grandparent chunk B3. New code MUST NOT call either; the import-allowlist pattern from PR-SYM-6f is the model for B3's enforcement test.
+- **Parquet writer + legacy `core/io` write-path deletion.** Both were deleted in the long-format-CSV rip (chunk B3 + the ingest-rip Row 9 teardown). New code MUST NOT reintroduce either; the import-allowlist pattern from PR-SYM-6f was the model for the enforcement test.
 
 ## See also
 

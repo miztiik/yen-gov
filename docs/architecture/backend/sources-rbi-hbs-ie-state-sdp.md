@@ -9,7 +9,7 @@
 
 `backend/yen_gov/sources/rbi_hbs_ie_state_sdp/` ingests cached Reserve Bank of India Handbook of Statistics on Indian Economy state SDP workbooks and writes the legacy folded economy indicator artifacts through the backend artifact writer.
 
-It replaces the retired `tools/rbi_hbs_ingest_state_gdp.py` script. The change is structural: the active producer now lives in `backend/`, uses the schema registry, and emits only the canonical long-format CSV under `datasets/data/datapoints/geo/` via `yen_gov.canonical.csv_writer.write_csv` (the legacy folded-indicator JSON write through `core.io.write_artifact` retired in B4-pt3, 2026-06-07).
+It replaces the retired `tools/rbi_hbs_ingest_state_gdp.py` script. The change is structural: the active producer now lives in `backend/`, uses the schema registry, and emits only the canonical long-format CSV under `datasets/data/datapoints/geo/` via `yen_gov.canonical.csv_writer.write_csv` (the legacy folded-indicator JSON write path retired in B4-pt3, 2026-06-07).
 
 ## Inputs
 

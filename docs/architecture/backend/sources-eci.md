@@ -193,7 +193,7 @@ Before writing a new throwaway recon script, use the maintained path:
 
 To register a new assembly event for ingest: confirm the Statistical Report `category_id`, add or update [`events.py`](../../../backend/yen_gov/sources/eci/events.py) with `event_id` and `has_partywise`, add cohort metadata under `datasets/events/in/eci/<event_id>/election.json` when the cohort is new, then hand-load the XLSX via `eci-statreport-emit-local` and the ingestion gate below. (Historical context: pre-G9 this workflow used `config/eci-pins.json` + `eci-statreport-emit`; both retired - see banner at top.)
 
-The catalog + download steps are exposed end-user as `python -m yen_gov eci-statreport <state> <year> [--download] [--skip-pdf]`. Without `--download` the command prints the resolved permalinks (useful for review before pulling 13 MB per state); with `--download` it fetches every XLSX and PDF through the standard `core.http.Fetcher` so on-disk placement under `.runtime/raw/eci/...` matches every other source. The CLI overrides the configured `user_agent` to bare `Mozilla/5.0` because Akamai (fronting `www.eci.gov.in`) blocks the project's default `yen-gov/0.1` UA.
+The catalog + download steps are exposed end-user as `python -m yen_gov eci-statreport <state> <year> [--download] [--skip-pdf]`. Without `--download` the command prints the resolved permalinks (useful for review before pulling 13 MB per state); with `--download` it fetches every XLSX and PDF through the standard HTTP fetcher so on-disk placement under `.runtime/raw/eci/...` matches every other source. The CLI overrides the configured `user_agent` to bare `Mozilla/5.0` because Akamai (fronting `www.eci.gov.in`) blocks the project's default `yen-gov/0.1` UA.
 
 Smoke-tested 2026-05-09: all four states (S22/S11/S25/S03) returned 14 documents each, 28 files per state, ≈3 MB per state.
 
@@ -240,7 +240,7 @@ Confirmed 2026-05-13 against all 15 hand-imports: Assam-2016=126, Kerala-2016=14
 
 #### Historical AE panel CSV path (`ingest-eci-ae-panel`)
 
-For state assembly panels that are already transcribed from ECI Statistical Reports, the canonical path is `python -m yen_gov ingest-eci-ae-panel <csv> --state <S##>`. The adapter reads the CSV as an operator input, filters to one ECI state code, and emits directly through the canonical `BatchEnvelope` writer. It does not create per-person JSON sidecars or legacy election-result JSON projections.
+For state assembly panels that are already transcribed from ECI Statistical Reports, the canonical path is `python -m yen_gov ingest-eci-ae-panel <csv> --state <S##>`. The adapter reads the CSV as an operator input, filters to one ECI state code, and emits directly through the canonical CSV writer (`csv_writer.write_csv`). It does not create per-person JSON sidecars or legacy election-result JSON projections.
 
 For the all-states AE panel at `datasets/ephemeral/All_States_AE.csv`, ingestion proceeds state-by-state, never across states in one write. The approved 2026-05-24 rollout admits only `DelimID=3` and `DelimID=4` rows: `DelimID=3` maps to the current pre-2008 `delim_year=1976` entity cycle, and `DelimID=4` maps to `delim_year=2008`. Operators must run the read-only preflight first:
 

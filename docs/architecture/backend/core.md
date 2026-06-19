@@ -4,7 +4,7 @@
 
 `backend/yen_gov/core/` is the upstream-agnostic foundation of the backend. It contains the pydantic models that mirror published schemas, the schema registry + evolution helpers, the event types emitted at each pipeline stage, and the structured logger. Nothing in `core/` knows that ECI or Wikipedia exist.
 
-This page covers two load-bearing decisions: pydantic models mirror schemas 1:1, and pipeline events are frozen pydantic models with a hand-rolled JSON-lines serializer. The legacy `http.py` (httpx + tenacity Fetcher) and `io.py` (`write_artifact` chokepoint) modules were retired in B4-pt2.4 / B4-pt3 (2026-06-06 / 2026-06-07): production runtime no longer fetches over the network, and canonical long-format CSV is emitted via `yen_gov.canonical.csv_writer.write_csv` against the per-file column contract under `datasets/data/_schema/columns.json`.
+This page covers two load-bearing decisions: pydantic models mirror schemas 1:1, and pipeline events are frozen pydantic models with a hand-rolled JSON-lines serializer. The legacy `http.py` (httpx + tenacity Fetcher) and `io.py` (the legacy JSON artifact chokepoint) modules were retired in B4-pt2.4 / B4-pt3 (2026-06-06 / 2026-06-07): production runtime no longer fetches over the network, and canonical long-format CSV is emitted via `yen_gov.canonical.csv_writer.write_csv` against the per-file column contract under `datasets/data/_schema/columns.json`.
 
 ## Modules
 
@@ -13,7 +13,7 @@ This page covers two load-bearing decisions: pydantic models mirror schemas 1:1,
 | [`models.py`](../../../backend/yen_gov/core/models.py) | Pydantic v2 `BaseModel` per `*.schema.json`. |
 | [`schema_registry.py`](../../../backend/yen_gov/core/schema_registry.py) | Reads `x-version` / `$id` from `datasets/schemas/*.schema.json` once at import; provides `schema_id(name)` + `schema_version(name)` so models and composers never hand-type schema metadata (CLAUDE.md section 11). |
 | [`schema_evolution.py`](../../../backend/yen_gov/core/schema_evolution.py) | Release-ledger helpers backing `datasets/schema-evolution.json` so validators can resolve an artifact by its declared schema version without guessing from git history (CLAUDE.md section 11). |
-| [`events.py`](../../../backend/yen_gov/core/events.py) | Frozen `@dataclass` events for the structured log + future monitoring layer. |
+| [`events.py`](../../../backend/yen_gov/core/events.py) | Frozen pydantic `BaseModel` events (hand-rolled JSON-lines serializer) for the structured log + future monitoring layer. |
 | [`logging.py`](../../../backend/yen_gov/core/logging.py) | Structured logger writing JSON-lines to `.runtime/logs/<run-id>/`. |
 
 ## Pydantic models mirror JSON Schemas 1:1
@@ -24,7 +24,7 @@ We hand-maintain both, with a strict 1:1 invariant enforced by per-model round-t
 
 - `core/models.py` defines one pydantic v2 `BaseModel` per `*.schema.json` file. Naming follows readability over schema-filename mechanical mapping (`result.constituency.schema.json` → `ConstituencyResult`), since some files *contain* a collection. The historical `state.schema.json` → `StatesCollection` mirror was retired in Phase C of the strangler-fig closeout (the state + UT roster now lives on `datasets/taxonomy/entities.json` and backend consumers read the JSON directly via `_load_states_from_entities`). Similarly the `district.schema.json` → `DistrictsCollection` mirror was retired in T.0c-iii Phase D.1 — see [ADR-0033](../../reference/decision-index.md).
 - The schema remains the **publication contract** (what external consumers and the validator use). The pydantic model is the **internal contract**.
-- Each top-level model carries its own `sources: list[SourceRef]` and exposes `.body_payload()` + `.sources_payload()` (the latter returns JSON-ready `list[dict[str, str]]` since B4-pt3 retired the `core.io.write_artifact` chokepoint). Models never write their own files; callers either stamp `$schema` / `$schema_version` / `sources` around the body themselves or - for canonical long-format data - emit via `yen_gov.canonical.csv_writer.write_csv` per the per-file CSV column contract under `datasets/data/_schema/columns.json`.
+- Each top-level model carries its own `sources: list[SourceRef]` and exposes `.body_payload()` + `.sources_payload()` (the latter returns JSON-ready `list[dict[str, str]]` since B4-pt3 retired the `core.io` artifact chokepoint). Models never write their own files; callers either stamp `$schema` / `$schema_version` / `sources` around the body themselves or - for canonical long-format data - emit via `yen_gov.canonical.csv_writer.write_csv` per the per-file CSV column contract under `datasets/data/_schema/columns.json`.
 - Tests in [`backend/tests/test_core_models.py`](../../../backend/tests/test_core_models.py) round-trip every model through in-memory `Draft202012Validator` against the actual schema file under `datasets/schemas/`. Drift fails CI.
 - One asymmetry deserves a name: schemas can mark a field both **required and nullable** (e.g. `result.constituency.others`). `_Artifact.body_payload` uses `exclude_none=True` by default; subclasses with required-and-nullable fields override and re-inject the explicit `null`. Today only `ConstituencyResult` does this.
 

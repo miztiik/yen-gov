@@ -1,235 +1,253 @@
 # Add a new data source
 
-Last Updated: 2026-05-27
+Last Updated: 2026-06-19
 
-> **Pipeline name**: The four-layer ingest workflow described here is called **the Lift pipeline** (the verb `lift` matches the existing `python -m yen_gov lift-<family>` CLI). When asked to "lift a new data source" or "run X through the Lift", read this cookbook first.
+Cookbook for adding a new upstream data source (REST endpoint, XLSX workbook,
+PDF, web scrape) to yen-gov via the `ingest` pipeline. The pipeline is
+addressed by INDICATOR; a source adapter feeds it. Terse by design:
+cross-links over duplication. The subsystem design is
+[docs/architecture/ingest/pipeline.md](../architecture/ingest/pipeline.md); the
+three-stage doctrine is
+[docs/concepts/ingest-fetch-enrich-separation.md](../concepts/ingest-fetch-enrich-separation.md);
+the CLI reference is [docs/reference/cli-ingest.md](../reference/cli-ingest.md).
 
-Cookbook for adding a new upstream data source (REST endpoint, XLSX
-workbook, PDF, web scrape) to yen-gov via the 4-layer ingest doctrine.
-Terse by design: cross-links over duplication.
+The worked example throughout is `niti_sdg_index` (the NITI Aayog SDG India
+Index) - the gold single-series greenfield adapter at
+[backend/yen_gov/canonical/adapters/niti_sdg_index/](../../backend/yen_gov/canonical/adapters/niti_sdg_index/).
 
 ## 1. When to use this guide
 
-- You want to ingest a NEW upstream data source -- one REST endpoint OR
-  one XLSX workbook OR one scrape target -- as its own PR.
-- Each upstream artifact lands as ITS OWN PR via the 4-layer pattern in
-  [docs/concepts/ingest-fetch-enrich-separation.md](../concepts/ingest-fetch-enrich-separation.md).
-
-Do NOT use this guide for:
-
-- Adding a new column / facet to an EXISTING canonical adapter -- edit
-  the adapter directly; no new family folder needed.
-- Schema work (bumping `datasets/schemas/*.schema.json` versions) --
-  that is ADR-grade; see [docs/reference/decision-index.md](../reference/decision-index.md)
-  for the full ADR redirect map (the legacy `docs/architecture/decisions/` tier was retired in D-DOC3.10 closure 2026-06-05; rationale + rejected alternatives live as `## Design rationale` + `## Rejected alternatives` sections inside subsystem and concept docs).
+- You want to ingest a NEW upstream data source -- one REST endpoint OR one
+  XLSX workbook OR one scrape target -- as a new adapter feeding one or more
+  indicators.
+- Adding a new fuel / facet / publisher to an EXISTING indicator is NOT this
+  guide -- that is an UPSERT into the existing series (see
+  [docs/concepts/ingest-fetch-enrich-separation.md](../concepts/ingest-fetch-enrich-separation.md)
+  "Enrich INTO the existing dataset").
+- Schema work (bumping `datasets/schemas/*.schema.json` versions) is separate;
+  rationale + rejected alternatives live as `## Design rationale` /
+  `## Rejected alternatives` sections inside subsystem and concept docs (see
+  [docs/reference/decision-index.md](../reference/decision-index.md)).
 
 ## 2. Prerequisites
 
-1. Read [docs/concepts/ingest-fetch-enrich-separation.md](../concepts/ingest-fetch-enrich-separation.md)
-   (the 4 layers: Fetch -> Parse -> Enrich -> Emit).
-2. Read [docs/agents/ingest-checklist.md](../agents/ingest-checklist.md)
-   (pre-flight agent checklist).
-3. Run `python -m yen_gov pre-flight-ingest --help` to see the gate.
-4. Check whether the source family already has an adapter under
-   `backend/yen_gov/sources/<family>/`. If yes, this guide is for ADDING
-   a new endpoint to that family. If no, you will create the family
-   folder fresh.
-5. Know the upstream cadence (for `update_period_days`) and have one
-   sample raw response or workbook download for shape recon.
+1. Read the three-stage doctrine
+   [docs/concepts/ingest-fetch-enrich-separation.md](../concepts/ingest-fetch-enrich-separation.md)
+   (Fetch -> Enrich -> Publish + the run-preamble).
+2. Read [docs/agents/ingest-checklist.md](../agents/ingest-checklist.md) (the
+   author-time agent checklist).
+3. Know the upstream cadence (for `update_period_days`) and have one sample
+   raw response or workbook for shape recon.
+4. Decide the SHAPE: single-series (one value per `(entity, time)` - most
+   sources) goes through the shared `run_pipeline`; faceted (per-fuel /
+   per-sector dimension columns) is the separate
+   `yen_gov.sources.iced_power.ingest_pipeline` strategy.
 
-## 3. Step 1 -- Write `proposal.json` + run pre-flight
+## 3. Step 1 -- Design the indicator + clear the gates
 
-Place the proposal at `TODO/<YYYYMMDD>-<slug>-ingest/proposal.json`.
-Use [TODO/20260527-iced-plant-pipeline-ingest/proposal.json](../../TODO/20260527-iced-plant-pipeline-ingest/proposal.json)
-as a literal worked example.
-
-Run the gate:
+Identity is what is MEASURED. Before any code, prove the fact is not already in
+canonical and that the proposed id is well formed.
 
 ```powershell
-$env:PYTHONPATH = "$pwd\backend"
+# Focused overlap probe (does an existing concept already measure this?)
+python -m yen_gov check-overlap --concept "SDG India Index score" --unit "score" --entity_kind "state"
+
+# The full author-time gate (batches the six mechanical checks)
 python -m yen_gov pre-flight-ingest `
   --proposal-file TODO/<slug>/proposal.json `
   --report TODO/<slug>/report.json
 ```
 
-Decision tree on `verdict` (see [docs/concepts/pre-flight-ingest.md](../concepts/pre-flight-ingest.md)
-and [ADR-0046](../architecture/backend/preflight.md#adr-0046-pre-flight-ingest-gate-contract)
-for exit-code semantics):
+Decision tree on `verdict` (see
+[docs/concepts/pre-flight-ingest.md](../concepts/pre-flight-ingest.md) and
+[ADR-0046](../architecture/backend/preflight.md#adr-0046-pre-flight-ingest-gate-contract)):
 
-- `mint_new` -- proceed; create new `indicator_id`.
-- `upsert` -- proceed; UPSERT rows into an existing indicator (no new id).
-- `add_facet` -- proceed; add a facet axis to an existing indicator.
-- `abort` -- STOP. Exit code 2. No override flag (Holy Law #5). Fix the
-  failing predicate or escalate; do NOT write code yet.
+- `mint_new` -- proceed; register a new concept + indicator (step 2).
+- `upsert` / `add_facet` -- STOP this guide; UPSERT into the existing indicator.
+- `abort` -- exit code 2, no override flag (Holy Law #5). Fix the proposal.
 
-Commit the proposal + report into the PR.
+Commit the `proposal.json` + `report.json` into the PR.
 
-## 4. Step 2 -- Scaffolding
+## 4. Step 2 -- Register the identity (catalogue SOT)
 
-Branch on the upstream shape. The Enrich + Emit layer is shared.
+The pipeline READS identity and never mints it, so the indicator + concept must
+exist in the catalogue SOT before an orchestrated run will pass the
+registration FK. The chain is `concepts.json -> indicators.json ->
+variables.csv`:
 
-### REST endpoint (new endpoint in an `iced_*` family or similar)
+- `datasets/taxonomy/concepts.json` -- the concept row: `(noun, unit_canonical,
+  normalisation, entity_kinds)`, plus `price_basis` (current/constant + base
+  year) for monetary concepts and `sampling_frame` for frame-bounded surveys.
+- `datasets/taxonomy/indicators.json` -- the indicator row: `indicator_id`
+  (`<measure>-<unit>-<facet>` kebab-case, NO grain prefix), `concept_id` FK,
+  `update_period_days`, `source_id`.
+- `datasets/data/variables.csv` + `datasets/data/concepts.csv` -- the compiled
+  catalogue rows the frontend + validator read.
 
-```
-backend/yen_gov/sources/<family>/
-  __init__.py
-  client.py                   # may already exist; reuse iced_common.client
-  fetch_<endpoint>.py         # NEW; mirror iced_power/fetch_pipeline.py
-  parsers.py                  # extend with parse_<endpoint>()
-backend/yen_gov/canonical/adapters/<family>/
-  <topic>.py                  # NEW; enrich + emit layer
-backend/tests/
-  test_sources_<family>_<endpoint>.py
-datasets/<family>/_meadow/<source>/<vintage>/
-  <endpoint>.json             # raw meadow snapshot (layer 1 output)
-```
+A single-series adapter does not hand-author these: `run_pipeline` UPSERTs the
+`variables.csv` + `concepts.csv` rows for you from a `variable_row_builder`
+callback + a `concept_row` dict (see `niti_sdg_index/ingest.py`
+`_variable_row_builder` / `_concept_row`). You author the `concepts.json` +
+`indicators.json` rows once, then `python -m yen_gov emit-taxonomy` compiles
+them.
 
-### XLSX workbook (e.g. new RBI workbook)
+## 5. Step 3 -- Author the typed specs
 
-```
-backend/yen_gov/sources/<source>/
-  urls.py                     # URL registry, env override, local cache
-  parsers.py                  # XLSX cell extraction
-  ingest.py                   # orchestrator
-backend/yen_gov/canonical/adapters/<family>/
-  <topic>.py                  # shared enrich + emit layer
-backend/tests/test_sources_<source>_*.py
-```
-
-See [docs/architecture/backend/sources-rbi-handbook.md](../architecture/backend/sources-rbi-handbook.md)
-for the reusable XLSX reference; `backend/yen_gov/canonical/adapters/rbi_handbook/`
-is the canonical, LGD-slug-keyed, config-driven implementation.
-
-## 5. Step 3 -- Imports to copy verbatim
-
-Every line below was grep-verified against `backend/yen_gov/` on
-2026-05-27. If you need an API not listed here, grep the codebase first;
-do not invent.
-
-Layer 1 (Fetch) -- REST:
+A `SourceSpec` is the PARENT (the adapter + the provenance quartet); its
+children are `IndicatorSpec` rows (the measurement tuple). No field repeats
+across the two levels. `source_id` is DERIVED from `(producer, title,
+vintage)`, never stored.
 
 ```python
-from yen_gov.sources.iced_common.client import IcedClient, API_HOST_DEFAULT
-from yen_gov.core.io import Source, write_artifact
+from yen_gov.canonical.ingest.spec import IndicatorSpec, SourceSpec
+
+SourceSpec(
+    adapter_slug="niti-sdg-index",
+    producer="NITI Aayog",          # the issuing authority that MEASURED it
+    title="SDG India Index and Dashboard",
+    vintage="2020-21",
+    url="https://sdgindiaindex.niti.gov.in",
+    indicators=(
+        IndicatorSpec(
+            indicator_id="sdg-india-index-score",
+            unit="score",            # the CANONICAL unit (matched vs the concept)
+            normalisation="index",
+            price_basis=None,        # set for monetary concepts only
+            sampling_frame=None,     # set for frame-bounded surveys only
+        ),
+    ),
+)
 ```
 
-Layer 1 (Fetch) -- generic HTTP (XLSX, PDF, datagov):
+Provenance doctrine (Holy Law #9): `producer` is the organisation that MEASURED
+the fact. NITI Aayog ORIGINATES the SDG India Index, so the producer is
+`"NITI Aayog"`. Where a source is a pure passthrough of an upstream authority
+(the ICED case), the producer is that upstream and the re-publisher moves into
+`title` -- decided per endpoint on cited evidence (D2; see
+[docs/architecture/ingest/pipeline.md](../architecture/ingest/pipeline.md)).
+
+## 6. Step 4 -- Implement the adapter
+
+### Single-series (most sources) -- via `run_pipeline`
+
+Thin: parse the staged/fetched payload, resolve labels to `entity_id`, hand the
+long-format observations to `run_pipeline`. Pattern from `niti_sdg_index/ingest.py`:
 
 ```python
-from yen_gov.core.http import Fetcher, FetchResult
-from yen_gov.core.io import Source, write_artifact
+from yen_gov.canonical.ingest.run_pipeline import Citation, run_pipeline
+
+observations = parse_sdg_index_csv(staged.read_bytes(), spec, resolver)
+outcome = run_pipeline(
+    repo_root=repo_root,
+    indicator_id=spec.indicator_id,
+    observations=observations,                # list[Observation(entity_id, time, value)]
+    citation=Citation(producer=..., title=..., vintage=..., url=...),
+    datapoints_mode="replace",                # "replace" (full series) or "upsert" (per-year)
+    variable_row_builder=_variable_row_builder(spec),
+    concept_row=_concept_row(spec),
+)
 ```
 
-Layer 2 (Parse) -- pure functions; no I/O imports beyond `json` /
-`openpyxl`. Tested in isolation against meadow fixtures.
+`run_pipeline` derives the `source_id`, emits the long-format
+`datapoints/geo/<id>.csv`, upserts the `source.csv` citation row, and upserts
+the catalogue rows. `datapoints_mode="replace"` for a full-workbook caller that
+owns every year; `"upsert"` for a per-year caller that emits one year and must
+leave the others intact (the `rbi_hbs_health` cohort).
 
-Layer 3 + 4 (Enrich + Emit) -- always:
+### Faceted (per-fuel / per-sector) -- separate strategy
 
-```python
-from yen_gov.canonical.citation import derive_source_id, lookup_source_id
-from yen_gov.canonical.writer import write_batch, WriteResult
-from yen_gov.canonical.state_lgd_resolver import load_state_lgd_to_eci_map
-from yen_gov.canonical.concept_registry import find_overlap
-```
+A source whose values carry a dimension column (fuel, sector) does NOT go
+through `run_pipeline`; it uses the faceted
+`yen_gov.sources.iced_power.ingest_pipeline`. Folding faceted into the
+single-series pipeline is explicit YAGNI (the two shapes are genuinely
+different).
 
-Taxonomy seed extensions (rare -- only if your source introduces a new
-source row, new concept, or new topic; otherwise the existing seeds
-absorb your indicator by FK):
+### Wire the adapter into the registry
 
-```python
-# backend/yen_gov/canonical/<family>_sources_seed.py
-from yen_gov.canonical.citation import derive_source_id
-```
+Implement the `Adapter` protocol (`adapter_slug`, `source_specs()`,
+`run_indicator(indicator_id, *, repo_root, config)`) and add the instance to
+`default_registry()` in
+[backend/yen_gov/canonical/ingest/registry.py](../../backend/yen_gov/canonical/ingest/registry.py).
+Add the three `Fetchable` members (`cache_units_for`, `spec_version`,
+`process_year`) ONLY if the source supports automated network fetch; an
+operator-staged source (RBI Handbook, SDG India Index) stays a plain `Adapter`.
+The orchestrator dispatches polymorphically and never branches on
+`adapter_slug`.
 
-## 6. Step 4 -- Wire into `lift-<family>` CLI
+## 7. Step 5 -- The honesty gates (what Enrich + Publish enforce)
 
-The lift command per family dispatches on a target-table-stem registry.
-See [docs/architecture/backend/lifting.md](../architecture/backend/lifting.md)
-and `cli.py` `@app.command("lift-energy")` for the reference shape.
+Your adapter's Enrich + Publish must satisfy the fail-loud preconditions (the
+engine raises if they are violated; do NOT silence them):
 
-Add your new fact-table stem to the family registry (e.g.
-`FAMILY_FACT_TABLE_STEMS` in `backend/yen_gov/canonical/adapters/<family>/__init__.py`)
-and wire the adapter callable. PR #420 is a worked example for energy.
+- **Six India-discontinuity ENRICH gates** -- bifurcation / state-lifespan,
+  code-authority (LGD/Census/ECI), fiscal-vs-calendar year, provisional-vs-
+  revised, price-basis, publisher-bounded-universe.
+- **Divergence gate (Publish)** -- a second `source_id` overwriting a cell
+  beyond the concept tolerance fails loud; record a `DivergenceResolution` to
+  override.
+- **Splice break-row gate (Publish)** -- a mid-series `source_id` change refuses
+  to publish without a `methodology_breaks` row at the seam year.
 
-## 7. Step 5 -- Run the lifecycle locally
+See [docs/architecture/ingest/pipeline.md](../architecture/ingest/pipeline.md)
+"The honesty doctrine" for the full rules.
+
+## 8. Step 6 -- Run the lifecycle locally + ship
 
 ```powershell
-$env:PYTHONPATH = "$pwd\backend"
-
-# Gate
+# Gate (re-run against the committed proposal)
 python -m yen_gov pre-flight-ingest --proposal-file TODO/<slug>/proposal.json --report TODO/<slug>/report.json
 
-# Layer 1 + 2 (per-family ingest module; iced_power/ingest.py style)
-python -m yen_gov.sources.<family>.fetch_<endpoint>     # or run the ingest module
+# Drive the indicator through the orchestrator (operator-staged sources need --staging-dir)
+python -m yen_gov ingest run --indicator <indicator-id> --staging-dir ./.staging/<slug> --root .
 
-# Layer 2 in isolation
-python -m pytest backend/tests/test_sources_<family>_<endpoint>.py -q
+# Coverage + per-source year spans + staleness
+python -m yen_gov ingest status --indicator <indicator-id> --root .
 
-# Layer 3 + 4 (canonical writer)
-python -m yen_gov lift-<family> --table <new_stem>
-
-# Taxonomy + completeness regen
-python -m yen_gov emit-taxonomy
-python tools/emit_indicators_completeness_index.py --write
-
-# Validator (Tier-A in pytest; Tier-B on demand)
+# Taxonomy compile + validator (Tier-A in pytest; Tier-B on demand)
+python -m yen_gov emit-taxonomy --root .
 python -m yen_gov validate --root .
 ```
 
-## 8. Step 6 -- Pre-flight re-run + ship
-
-- Re-run the gate against the committed `proposal.json`; verdict + exit
-  code should be clean.
-- Suggested commit cadence (4 commits, squash on merge):
-  1. Layer 1 (Fetch) + meadow snapshot
-  2. Layer 2 (Parse) + parser tests
-  3. Layer 3 + 4 (Enrich + Emit) + adapter tests + lift wiring
-  4. PR# stamp (plan-doc / handover-doc replaces `#_pending_`)
-- `gh pr create` then `gh pr merge <#> --squash --delete-branch`.
+Ship per [docs/how-to/ship-a-pr.md](ship-a-pr.md): tests at the appropriate
+tier, full suite green, `gh pr create` then `gh pr merge <#> --squash
+--delete-branch`.
 
 ## 9. Anti-patterns (Holy Law #5)
 
-- Do NOT hand-type a `source_id` -- use
-  `lookup_source_id()` / `derive_source_id()`.
-- Do NOT use `datetime.now()` anywhere in an observation row
-  (CLAUDE.md sec 10; [docs/concepts/data-provenance.md](../concepts/data-provenance.md)).
-- Do NOT prefix `state-` / `district-` / `national-` / `country-` on any
-  new `indicator_id` (ADR-0044). Grain lives on `entity_kind`.
-- Do NOT create a new parquet stem when the verdict is `upsert` or
-  `add_facet` -- UPSERT into the existing fact table.
-- Do NOT mint a new `indicator_id` when concept-overlap is >= 0.70 --
-  the gate will already say `upsert` or `add_facet`.
-- Do NOT skip pre-flight (the gate IS the protocol; ADR-0046).
-- Do NOT edit `backend/yen_gov/validate.py` or
-  `backend/yen_gov/preflight/predicates.py` to silence a failure --
-  fix the data or the proposal.
-- Do NOT create files under the retired
-  `datasets/indicators/in/<topic>/<id>.json` path (ADR-0041); new
-  meadow snapshots go to `datasets/<family>/_meadow/<source>/<vintage>/`.
+- Do NOT hand-type a `source_id` -- it is DERIVED from `(producer, title,
+  vintage)` by `derive_source_id` / `run_pipeline`.
+- Do NOT use `datetime.now()` in an observation row (CLAUDE.md section 10;
+  [docs/concepts/data-provenance.md](../concepts/data-provenance.md)).
+- Do NOT prefix `state-` / `district-` / `national-` / `country-` on a new
+  `indicator_id` ([ADR-0044](../concepts/indicator-naming.md#adr-0044-grain-over-entity));
+  grain lives on `entity_kind`.
+- Do NOT mint a new `indicator_id` for a new vintage / publisher / base-year --
+  UPSERT into the existing series.
+- Do NOT skip `pre-flight-ingest` (the gate IS the protocol; ADR-0046).
+- Do NOT silence a gate by editing `validate.py` / the enrich gates -- fix the
+  data or the proposal.
+- Do NOT fold a faceted source into `run_pipeline`, and do NOT reintroduce a
+  network fetcher in production -- automated fetch is the LOCAL pipeline only.
 
 ## 10. Worked examples
 
-- REST end-to-end (mint_new, country-aggregate facet):
-  PR #419 (Fetch + Parse) -> PR #420 (Enrich + Emit). Files:
-  `backend/yen_gov/sources/iced_power/fetch_pipeline.py`,
-  `backend/yen_gov/sources/iced_power/parsers.py`,
-  `backend/yen_gov/canonical/adapters/energy/capacity_pipeline.py`.
-- XLSX end-to-end (reusable, LGD-slug-keyed, config-driven): `backend/yen_gov/canonical/adapters/rbi_handbook/` plus
+- Single-series greenfield (operator-staged CSV -> `run_pipeline`):
+  [backend/yen_gov/canonical/adapters/niti_sdg_index/](../../backend/yen_gov/canonical/adapters/niti_sdg_index/)
+  (`ingest.py` parse + `run_pipeline`; `NitiSdgIndexAdapter` registry wiring).
+- Single-series XLSX (operator-staged workbook, multi-indicator source):
+  `backend/yen_gov/canonical/adapters/rbi_handbook/` plus
   [docs/architecture/backend/sources-rbi-handbook.md](../architecture/backend/sources-rbi-handbook.md).
+- Faceted (per-fuel dimension columns): `yen_gov.sources.iced_power.ingest_pipeline`.
 
 ## 11. See also
 
+- [docs/architecture/ingest/pipeline.md](../architecture/ingest/pipeline.md)
+- [docs/reference/cli-ingest.md](../reference/cli-ingest.md)
 - [docs/concepts/ingest-fetch-enrich-separation.md](../concepts/ingest-fetch-enrich-separation.md)
 - [docs/agents/ingest-checklist.md](../agents/ingest-checklist.md)
 - [docs/concepts/pre-flight-ingest.md](../concepts/pre-flight-ingest.md)
 - [docs/architecture/backend/preflight.md#adr-0046-pre-flight-ingest-gate-contract](../architecture/backend/preflight.md#adr-0046-pre-flight-ingest-gate-contract)
-- [docs/architecture/backend/preflight.md](../architecture/backend/preflight.md)
-- [docs/architecture/backend/overview.md](../architecture/backend/overview.md)
-- [docs/architecture/backend/pipeline.md](../architecture/backend/pipeline.md)
-- [docs/architecture/backend/lifting.md](../architecture/backend/lifting.md)
-- [docs/architecture/backend/writer.md](../architecture/backend/writer.md)
-- [docs/architecture/backend/core.md](../architecture/backend/core.md)
-- [docs/architecture/backend/sources-iced-api.md](../architecture/backend/sources-iced-api.md)
-- [docs/architecture/backend/sources-rbi.md](../architecture/backend/sources-rbi.md)
+- [docs/concepts/data-provenance.md](../concepts/data-provenance.md)
+- [docs/concepts/indicator-naming.md](../concepts/indicator-naming.md)
 - [TODO/_TEMPLATE-ingest-handover.md](../../TODO/_TEMPLATE-ingest-handover.md)
 - [CLAUDE.md](../../CLAUDE.md) sections 5, 10, 12

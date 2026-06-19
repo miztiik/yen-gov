@@ -1,6 +1,7 @@
 # Backend `pipeline/` — Composition & Orchestration
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-06-19
+**Status**: PARTLY SUPERSEDED. The live-fetch election orchestrator `pipeline/run.py` + the reference-scrape `pipeline/reference.py` were deleted in the long-format-CSV rip (the production network-fetch path retired); election ingestion now flows through the `ingest` engine + the `canonical/adapters/eci_*` adapters writing canonical CSV (see [docs/architecture/ingest/pipeline.md](../ingest/pipeline.md)). `pipeline/compose.py` survives. The historical orchestrator description below is kept as a receipt.
 
 `backend/yen_gov/pipeline/` is the glue between adapters and emitted artifacts. It owns the order of fetches, threads partywise→constituencywise data via `party_lookup`, aggregates per-AC results into a state-level `ResultSummary`, and is the entry point for the `yen-gov` CLI.
 
@@ -73,7 +74,7 @@ A party that won zero seats does not always appear in the partywise table (depen
 [`test_pipeline_run_live.py`](../../../backend/tests/test_pipeline_run_live.py) exercises the full pipeline against ONE TN AC (Gummidipoondi, #1):
 
 - 234 fetches per CI run is rude to ECI and slow.
-- The orchestrator's loop is trivial; what we actually need to know is that the wiring works (partywise → lookup → constituencywise → mapper → compose → write_artifact → schema validation). One AC exercises every link in the chain.
+- The orchestrator's loop is trivial; what we actually need to know is that the wiring works (partywise → lookup → constituencywise → mapper → compose → CSV emit → schema validation). One AC exercises every link in the chain.
 - The full slice is operator-driven via `yen-gov run AcGenMay2026 S22`. It runs once per election, not on every CI build.
 
 ## Orchestrator design rationale

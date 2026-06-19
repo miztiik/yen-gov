@@ -1,6 +1,6 @@
 # Decision Index
 
-**Last Updated**: 2026-06-12
+**Last Updated**: 2026-06-19
 **Status**: Active redirect contract. Historical `ADR-NNNN` references resolve here; numbers are never reused.
 
 ## Why this exists
@@ -119,6 +119,17 @@ Each archived ADR's body moves verbatim to `docs/archive/decisions/`. A one-line
 - ADR numbers MUST NOT be reused. This index is the permanent reservation list; an `ADR-NNNN` reference always means "the historical ADR with number NNNN" regardless of where the body now lives.
 - Receipt blocks (`## Rejected alternatives`) are append-only inside the destination doc. A fold-row MUST NOT delete an existing rejected-alternative entry; it adds the receipt being lifted.
 - Cross-references inside already archived working docs are not rewritten; they are frozen historical artifacts.
+
+## Ingest pipeline decisions (D1-D4)
+
+The `canonical/ingest/` engine's four bound decisions are NOT numbered ADRs (the ADR tier is retired); their keep-receipts live in the subsystem doc's `## Design rationale` section. Recorded here for the same redirect-resolution purpose this index serves for `ADR-NNNN`. Binding doctrine summary: [CLAUDE.md](../../CLAUDE.md) ("INGEST PIPELINE DOCTRINE"). CLI reference: [docs/reference/cli-ingest.md](cli-ingest.md).
+
+| Decision | Title | Target |
+| --- | --- | --- |
+| D1 | automated-fetch-local-pipeline-only | [docs/architecture/ingest/pipeline.md#d1---automated-fetch-reintroduced-local-pipeline-only](../architecture/ingest/pipeline.md#d1---automated-fetch-reintroduced-local-pipeline-only) |
+| D2 | iced-is-not-a-producer | [docs/architecture/ingest/pipeline.md#d2---iced-is-not-a-producer](../architecture/ingest/pipeline.md#d2---iced-is-not-a-producer) |
+| D3 | pydantic-at-in-process-boundaries | [docs/architecture/ingest/pipeline.md#d3---pydantic-mandatory-at-in-process-boundaries](../architecture/ingest/pipeline.md#d3---pydantic-mandatory-at-in-process-boundaries) |
+| D4 | committed-year-checkpoint-and-resume | [docs/architecture/ingest/pipeline.md#d4---committed-year-checkpoint--resume](../architecture/ingest/pipeline.md#d4---committed-year-checkpoint--resume) |
 
 ## See also
 
