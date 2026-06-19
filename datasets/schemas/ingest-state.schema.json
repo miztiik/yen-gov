@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./ingest-state.schema.json",
+  "title": "Ingest year-checkpoint receipt (per adapter)",
+  "description": "Committed per-adapter ingest checkpoint at datasets/_ops/ingest-state/<adapter_slug>.json (TODO/20260618-backend-ingest-pipeline-rip-replace-plan.md D4 + Row 2). Records, per year, the sha256 of the RAW fetched upstream payload, whether that year completed Fetch->Enrich->Publish, and the staleness clock last_checked. A re-run SKIPS a year iff its stored raw_sha256 equals the hash of the freshly fetched payload AND completed is true; a changed hash on an already-completed old year RE-OPENS it (a revised estimate); a failed run resumes from the last completed year. A skip STILL advances last_checked so staleness is never hidden. last_checked is the allowed control-plane wall-clock carve-out (CLAUDE.md datetime.now() anti-pattern + the manifest.json / _ops control-plane carve-out): it is operator telemetry, not observation provenance. Operator-axis state, not citizen-facing, not inventoried.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-19",
+      "description": "Initial per-adapter ingest year-checkpoint schema (Row 2 / D4). Per-year raw-payload sha256 + completed flag + last_checked staleness clock + optional provisional/revised estimate_status; spec_version stored so the delta engine can re-open all years on a spec bump (Row 5)."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "adapter_slug", "spec_version", "years"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "adapter_slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      "maxLength": 64,
+      "description": "The registered adapter slug this checkpoint belongs to. MUST equal the filename stem (enforced by tier_b_ingest_state_receipt)."
+    },
+    "spec_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The SourceSpec.spec_version this checkpoint was built under. A spec_version bump re-opens all years (the delta engine re-emits, Row 5); stored here so the orchestrator can detect the bump. Row 2 stores it; the skip predicate itself is raw-hash-only."
+    },
+    "years": {
+      "type": "array",
+      "description": "One entry per year touched by an ingest run. Year-unique within a receipt (enforced by tier_b_ingest_state_receipt).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["year", "raw_sha256", "completed", "last_checked"],
+        "properties": {
+          "year": {
+            "type": "integer",
+            "minimum": 1850,
+            "maximum": 2100,
+            "description": "Calendar year of the upstream payload slice. The checkpoint is addressed by year (the natural cache unit of every single-series source)."
+          },
+          "raw_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "description": "sha256 hexdigest of the RAW fetched upstream payload for this year (hash the bytes BEFORE any parse/canonicalisation). Equality with a freshly fetched payload's hash is the skip predicate; a changed hash re-opens the year."
+          },
+          "completed": {
+            "type": "boolean",
+            "description": "True iff this year cleared Fetch->Enrich->Publish. A failed mid-run leaves it false so --resume re-processes it; a skip requires completed=true."
+          },
+          "last_checked": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+            "description": "Control-plane ISO-8601 UTC 'Z' timestamp (the allowed datetime.now() carve-out for _ops control-plane state). Advanced on EVERY check including a skip, so staleness against update_period_days is never hidden."
+          },
+          "estimate_status": {
+            "type": "string",
+            "enum": ["provisional", "revised"],
+            "description": "Optional. Ties the provisional-vs-revised India-discontinuity gate to the checkpoint re-open: a 'provisional' year flips to 'revised' when the publisher restates it (its raw hash changes)."
+          }
+        }
+      }
+    }
+  }
+}
