@@ -4798,6 +4798,223 @@
         "justification": "First NITI SDG India Index ingest via the run_pipeline single-series pipeline; verdict mint_new (top concept-overlap score 0.388 < 0.70 against (SDG India Index score, score, index, state)). A composite policy-dashboard index distinct from every existing concept; not a grain or facet of another measure, so no facet-collapse per ADR-0044."
       },
       "url_slug": "sdg-india-index-score"
+    },
+    {
+      "indicator_id": "total-fertility-rate",
+      "label_short": "Total fertility rate",
+      "label_long": "Total fertility rate (children per woman)",
+      "description_short": "Average number of children a woman would bear at current age-specific fertility rates (SRS); about 2.1 is replacement level, and a value above or below marks a stage of the demographic transition rather than a governance score.",
+      "description_long": "The Sample Registration System total fertility rate is the average number of children a woman would bear if she experienced current age-specific fertility rates through her reproductive life. About 2.1 is replacement level; a value above or below is a stage of the demographic transition, not a ranking. Published per calendar year by the Office of the Registrar General (ORGI/SRS) and republished in the RBI Handbook of Statistics on Indian States.",
+      "unit": "children per woman",
+      "cadence": "annual_cy",
+      "family": "health",
+      "pillar": "people",
+      "topic_tags": [
+        "demography",
+        "fertility"
+      ],
+      "value_kind": "rate",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "default_entity_kind": "state",
+      "update_period_days": 365,
+      "concept_id": "total-fertility-rate",
+      "meta": {
+        "justification": "Derived from the rbi_handbook adapter spec (HbsTableSpec total-fertility-rate); verdict mint_new -- a distinct SRS vital-rate concept (children per woman, ratio) with no existing concept at >=0.70 overlap. Not a grain or facet of another measure."
+      },
+      "url_slug": "total-fertility-rate"
+    },
+    {
+      "indicator_id": "crude-birth-rate-per-1000",
+      "label_short": "Birth rate (per 1,000)",
+      "label_long": "Crude birth rate (live births per 1,000 population)",
+      "description_short": "Live births per 1,000 mid-year population in a calendar year (SRS). Falls naturally with development; read alongside fertility rather than as a standalone ranking.",
+      "description_long": "The crude birth rate is live births per 1,000 mid-year population in a calendar year, as estimated by the Sample Registration System. It falls naturally with development, so it is best read alongside the total fertility rate, not as a standalone ranking. Republished in the RBI Handbook of Statistics on Indian States.",
+      "unit": "per 1,000 population",
+      "cadence": "annual_cy",
+      "family": "demography",
+      "pillar": "people",
+      "topic_tags": [
+        "demography",
+        "vital_rates"
+      ],
+      "value_kind": "rate",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "default_entity_kind": "state",
+      "update_period_days": 365,
+      "concept_id": "crude-birth-rate",
+      "meta": {
+        "justification": "Derived from the rbi_handbook adapter spec (HbsTableSpec crude-birth-rate-per-1000); verdict mint_new -- a distinct SRS vital-rate concept (per 1,000 population, ratio) with no existing concept at >=0.70 overlap. Not a grain or facet of another measure."
+      },
+      "url_slug": "crude-birth-rate-per-1000"
+    },
+    {
+      "indicator_id": "crude-death-rate-per-1000",
+      "label_short": "Death rate (per 1,000)",
+      "label_long": "Crude death rate (deaths per 1,000 population)",
+      "description_short": "Deaths per 1,000 mid-year population in a calendar year (SRS). Not age-standardised, so an older population can show a higher rate despite better health; a naive 'lowest wins' ranking misleads.",
+      "description_long": "The crude death rate is deaths per 1,000 mid-year population in a calendar year (SRS). It is NOT age-standardised, so a state with an older population can show a higher crude death rate despite better health -- a naive 'lowest wins' ranking is misleading. Pair it with infant mortality and life expectancy. Republished in the RBI Handbook of Statistics on Indian States.",
+      "unit": "per 1,000 population",
+      "cadence": "annual_cy",
+      "family": "demography",
+      "pillar": "people",
+      "topic_tags": [
+        "demography",
+        "vital_rates"
+      ],
+      "value_kind": "rate",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "default_entity_kind": "state",
+      "update_period_days": 365,
+      "concept_id": "crude-death-rate",
+      "meta": {
+        "justification": "Derived from the rbi_handbook adapter spec (HbsTableSpec crude-death-rate-per-1000); verdict mint_new -- a distinct SRS vital-rate concept (per 1,000 population, ratio) with no existing concept at >=0.70 overlap. Direction neutral because the spec warns the crude (non-age-standardised) rate is not a ranking."
+      },
+      "url_slug": "crude-death-rate-per-1000"
+    },
+    {
+      "indicator_id": "infant-mortality-rate-per-1000",
+      "label_short": "Infant mortality rate",
+      "label_long": "Infant mortality rate (deaths per 1,000 live births)",
+      "description_short": "Infant (under-1) deaths per 1,000 live births in a calendar year (SRS). A core health-system outcome; lower is better and broadly comparable across states.",
+      "description_long": "The infant mortality rate is infant (under-1) deaths per 1,000 live births in a calendar year (SRS). It is a core health-system outcome -- lower is better -- and is broadly comparable across states and over time. Republished in the RBI Handbook of Statistics on Indian States.",
+      "unit": "per 1,000 live births",
+      "cadence": "annual_cy",
+      "family": "health",
+      "pillar": "people",
+      "topic_tags": [
+        "health",
+        "child_health"
+      ],
+      "value_kind": "rate",
+      "direction": "lower_is_better",
+      "attribution_geography": "where_resident",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "default_entity_kind": "state",
+      "update_period_days": 365,
+      "concept_id": "infant-mortality-rate",
+      "meta": {
+        "justification": "Derived from the rbi_handbook adapter spec (HbsTableSpec infant-mortality-rate-per-1000); verdict mint_new -- a distinct SRS vital-rate concept (per 1,000 live births, ratio) with no existing concept at >=0.70 overlap. Not a grain or facet of another measure."
+      },
+      "url_slug": "infant-mortality-rate-per-1000"
+    },
+    {
+      "indicator_id": "life-expectancy-at-birth-years",
+      "label_short": "Life expectancy at birth",
+      "label_long": "Life expectancy at birth (years)",
+      "description_short": "Average years a newborn would live at current age-specific mortality (SRS Abridged Life Tables). Published for overlapping multi-year windows, so a labelled year is a window-end estimate.",
+      "description_long": "Life expectancy at birth is the average number of years a newborn would live if current age-specific mortality held through life (SRS Abridged Life Tables). It is published for overlapping multi-year windows, so a point labelled 2020-2024 is a five-year-window estimate, not a single-year value; the window appears in the source vintage. The Total (not Male/Female) band is kept. Republished in the RBI Handbook of Statistics on Indian States.",
+      "unit": "years",
+      "cadence": "annual_cy",
+      "family": "health",
+      "pillar": "people",
+      "topic_tags": [
+        "health",
+        "mortality"
+      ],
+      "value_kind": "ratio",
+      "direction": "higher_is_better",
+      "attribution_geography": "where_resident",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "default_entity_kind": "state",
+      "update_period_days": 365,
+      "concept_id": "life-expectancy-at-birth",
+      "meta": {
+        "justification": "Derived from the rbi_handbook adapter spec (HbsTableSpec life-expectancy-at-birth-years); verdict mint_new -- a distinct SRS life-table concept (years, ratio) with no existing concept at >=0.70 overlap. value_kind ratio (a duration, not an event rate) mirrors the spec's least-wrong normalisation."
+      },
+      "url_slug": "life-expectancy-at-birth-years"
+    },
+    {
+      "indicator_id": "government-hospitals",
+      "label_short": "Government hospitals",
+      "label_long": "Government hospitals (count)",
+      "description_short": "Count of government (public) hospitals in a state in a given year (National Health Profile, CBHI). A measure of public health-system capacity, not population-normalised.",
+      "description_long": "Count of government (public) hospitals in a state in a given year, compiled in the National Health Profile by the Central Bureau of Health Intelligence (CBHI). It measures public health-system capacity and is not normalised for population, so it should not be ranked naively against larger states. Republished in the RBI Handbook of Statistics on Indian States.",
+      "unit": "hospitals",
+      "cadence": "annual_cy",
+      "family": "health",
+      "pillar": "people",
+      "topic_tags": [
+        "health",
+        "health_infrastructure"
+      ],
+      "value_kind": "count",
+      "direction": "higher_is_better",
+      "attribution_geography": "where_resident",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "default_entity_kind": "state",
+      "update_period_days": 365,
+      "concept_id": "government-hospitals",
+      "meta": {
+        "justification": "Derived from the rbi_hbs_health adapter spec (HealthIndicatorSpec government-hospitals); verdict mint_new -- a distinct health-infrastructure count concept (hospitals, absolute) with no existing concept at >=0.70 overlap. Not a grain or facet of another measure."
+      },
+      "url_slug": "government-hospitals"
+    },
+    {
+      "indicator_id": "hospital-beds",
+      "label_short": "Government hospital beds",
+      "label_long": "Government hospital beds (count)",
+      "description_short": "Count of beds in government (public) hospitals in a state in a given year (National Health Profile, CBHI). A measure of public inpatient capacity, not population-normalised.",
+      "description_long": "Count of beds in government (public) hospitals in a state in a given year, compiled in the National Health Profile by the Central Bureau of Health Intelligence (CBHI). It measures public inpatient capacity and is not normalised for population. Republished in the RBI Handbook of Statistics on Indian States.",
+      "unit": "beds",
+      "cadence": "annual_cy",
+      "family": "health",
+      "pillar": "people",
+      "topic_tags": [
+        "health",
+        "health_infrastructure"
+      ],
+      "value_kind": "count",
+      "direction": "higher_is_better",
+      "attribution_geography": "where_resident",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "default_entity_kind": "state",
+      "update_period_days": 365,
+      "concept_id": "hospital-beds",
+      "meta": {
+        "justification": "Derived from the rbi_hbs_health adapter spec (HealthIndicatorSpec hospital-beds); verdict mint_new -- a distinct health-infrastructure count concept (beds, absolute) with no existing concept at >=0.70 overlap. Not a grain or facet of another measure."
+      },
+      "url_slug": "hospital-beds"
     }
   ]
 }

@@ -1851,6 +1851,90 @@
       ],
       "description_short": "NITI Aayog SDG India Index composite score (0-100): a state/UT's distance to the 2030 SDG targets. 100 = all targets met. A policy-dashboard index, not a direct outcome; NITI revises the basket each edition, so scores compare across states within an edition, not across editions.",
       "sources": []
+    },
+    {
+      "concept_id": "total-fertility-rate",
+      "noun": "Total fertility rate",
+      "unit_canonical": "children per woman",
+      "normalisation": "ratio",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Average number of children a woman would bear if she experienced current age-specific fertility rates through her reproductive life. About 2.1 is replacement level; lower or higher is a stage of the demographic transition, not a governance score.",
+      "sources": []
+    },
+    {
+      "concept_id": "crude-birth-rate",
+      "noun": "Crude birth rate",
+      "unit_canonical": "per 1,000 population",
+      "normalisation": "ratio",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Live births per 1,000 mid-year population in a calendar year, as estimated by the Sample Registration System. Falls naturally with development; read alongside fertility, not as a standalone ranking.",
+      "sources": []
+    },
+    {
+      "concept_id": "crude-death-rate",
+      "noun": "Crude death rate",
+      "unit_canonical": "per 1,000 population",
+      "normalisation": "ratio",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Deaths per 1,000 mid-year population in a calendar year (SRS). NOT age-standardised: an older population can show a higher crude death rate despite better health, so a naive 'lowest wins' ranking is misleading. Pair with infant mortality and life expectancy.",
+      "sources": []
+    },
+    {
+      "concept_id": "infant-mortality-rate",
+      "noun": "Infant mortality rate",
+      "unit_canonical": "per 1,000 live births",
+      "normalisation": "ratio",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Infant (under-1) deaths per 1,000 live births in a calendar year (SRS). A core health-system outcome; lower is better and the measure is broadly comparable across states.",
+      "sources": []
+    },
+    {
+      "concept_id": "life-expectancy-at-birth",
+      "noun": "Life expectancy at birth",
+      "unit_canonical": "years",
+      "normalisation": "ratio",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Average years a newborn would live if current age-specific mortality held through life (SRS Abridged Life Tables). Published for overlapping multi-year windows, so a point labelled 2020-2024 is a five-year-window estimate, not a single-year value.",
+      "sources": []
+    },
+    {
+      "concept_id": "government-hospitals",
+      "noun": "Government hospitals",
+      "unit_canonical": "hospitals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Count of government (public) hospitals in a state in a given year, compiled in the National Health Profile (CBHI). A measure of public health-system capacity, not normalised for population.",
+      "sources": []
+    },
+    {
+      "concept_id": "hospital-beds",
+      "noun": "Government hospital beds",
+      "unit_canonical": "beds",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Count of beds in government (public) hospitals in a state in a given year (National Health Profile, CBHI). A measure of public inpatient capacity, not normalised for population.",
+      "sources": []
     }
   ]
 }
