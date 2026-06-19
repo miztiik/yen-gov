@@ -26,7 +26,8 @@ Two write surfaces:
   row order; only appends source_ids not already present).
 
 Both inputs are duck-typed (the module deliberately does NOT import the
-``envelope`` models, which Row 9 deletes): observation rows expose
+row models, which Row 9 deleted -- the builders now live in
+``canonical/row_models.py``): observation rows expose
 ``entity_id / year / period_label / period_seq / indicator_id / value_numeric /
 value_text / source_id / derivation``; source rows expose ``source_id /
 producer / title / vintage / url_main``.

@@ -1,37 +1,19 @@
-"""Canonical long-format store — write seam.
+"""Canonical long-format store.
 
 Per ADR-0030 + docs/architecture/data/canonical-store.md.
 
-Public surface:
+The Parquet-era ``BatchEnvelope`` -> ``write_batch`` write seam (``envelope.py``
++ ``writer.py``) was deleted in the ingest rip-replace (Row 9). The canonical
+store is now long-format CSV under ``datasets/data/``. The current homes:
 
-    from yen_gov.canonical import BatchEnvelope, write_batch
+* ``canonical/ingest/messages.py`` -- the long-format-CSV pipeline stage
+  messages (Fetch -> Enrich -> Publish).
+* ``canonical/csv_writer.py`` + ``canonical/csv_columns.py`` -- the typed CSV
+  write boundary + per-file column contract.
+* ``canonical/adapters/eci/electoral_csv.py`` -- the per-state electoral CSV
+  write seam; ``canonical/row_models.py`` -- the legacy row DTOs the ECI
+  electoral adapters + citation seeds still build.
 
-The writer is the SOLE producer of datasets/<family>/*.parquet,
-datasets/taxonomy/*.parquet, and datasets/manifest.json.
-
-D34: module layout pinned — writer.py, reader.py (frontend mirror), migration/,
-registry.py. No consolidator.py.
+The package no longer re-exports row types or a writer; import them from the
+submodule that owns them.
 """
-
-from __future__ import annotations
-
-from yen_gov.canonical.envelope import (
-    BatchEnvelope,
-    CandidacyRow,
-    ObservationRow,
-    PersonDimRow,
-    ReplacementSemantics,
-    SourceRow,
-)
-from yen_gov.canonical.writer import WriteResult, write_batch
-
-__all__ = [
-    "BatchEnvelope",
-    "CandidacyRow",
-    "ObservationRow",
-    "PersonDimRow",
-    "ReplacementSemantics",
-    "SourceRow",
-    "WriteResult",
-    "write_batch",
-]

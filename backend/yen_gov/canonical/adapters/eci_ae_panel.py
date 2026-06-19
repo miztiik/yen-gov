@@ -43,7 +43,7 @@ from yen_gov.canonical.adapters.eci.electoral_csv import (
     upsert_source_csv,
     write_electoral_results,
 )
-from yen_gov.canonical.envelope import (
+from yen_gov.canonical.row_models import (
     AcDimRow,
     CandidacyRow,
     ObservationRow,
@@ -715,41 +715,18 @@ def resolve_party(lookup: PartyLookup, row: PanelCandidate) -> str:
 
 
 def _existing_ac_totals(datasets_root: Path, state_code: str) -> dict[tuple[str, str], dict[str, int]]:
-    import duckdb
+    """No-op: the AC carry-over-totals lookup retired with the
+    ``elections/state=*/election_results.parquet`` shards (X1a-fu2-D).
 
-    election_dir = datasets_root / "elections"
-    glob = (election_dir / f"state=in_{state_code.lower()}" / "election_results.parquet").as_posix()
-    if not Path(glob.replace("*", "")).exists() and not (election_dir / f"state=in_{state_code.lower()}" / "election_results.parquet").is_file():
-        return {}
-    con = duckdb.connect(":memory:")
-    try:
-        rows = con.execute(
-            f"""
-            WITH winners AS (
-              SELECT period_label, entity_id AS ac_id, value_text AS winner_id
-              FROM read_parquet('{glob}')
-              WHERE indicator_id = 'ac-winner-candidate-id'
-            ), winner_votes AS (
-              SELECT period_label, entity_id AS candidate_id, CAST(value_numeric AS BIGINT) AS winner_votes
-              FROM read_parquet('{glob}')
-              WHERE indicator_id = 'candidate-votes-polled'
-            ), totals AS (
-              SELECT period_label, entity_id AS ac_id, CAST(value_numeric AS BIGINT) AS votes_polled
-              FROM read_parquet('{glob}')
-              WHERE indicator_id = 'ac-votes-polled'
-            )
-            SELECT w.period_label, w.ac_id, v.winner_votes, t.votes_polled
-            FROM winners w
-            LEFT JOIN winner_votes v ON v.period_label = w.period_label AND v.candidate_id = w.winner_id
-            LEFT JOIN totals t ON t.period_label = w.period_label AND t.ac_id = w.ac_id
-            """
-        ).fetchall()
-    finally:
-        con.close()
-    return {
-        (period_label, ac_id): {"winner_votes": int(winner_votes or 0), "votes_polled": int(votes_polled or 0)}
-        for period_label, ac_id, winner_votes, votes_polled in rows
-    }
+    Those parquets are gone, so the previous DuckDB parquet-read body always
+    short-circuited to ``{}`` in practice; the dead read was removed in the
+    ingest rip-replace (Row 9). Per-state observation facts now live in
+    ``data/datapoints/electoral/<slug>_election_results.csv`` and re-ingest
+    re-derives totals from the panel rows directly. The signature is kept so
+    the caller is untouched (and a future CSV-backed carry-over re-wire can
+    restore the lookup without touching the call site).
+    """
+    return {}
 
 
 def upsert_inventory_entries(*, repo_root: Path, events: Iterable[str], state_code: str, source_input: str, ingested_at: str, report: dict) -> Path:

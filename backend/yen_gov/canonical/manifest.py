@@ -5,10 +5,10 @@ frontend reads at startup.
 stamp: NO DuckDB, NO Parquet scan, NO directory walk. Every canonical Parquet
 table retired (CLAUDE.md X1a-fu2), so ``tables`` is ALWAYS empty and the
 manifest carries only the version stamp plus the append-only ``deprecations``
-ledger. This replaces the dead Parquet-scanning regen body that lived in
-``canonical/writer.py`` (``_regenerate_manifest``); that scan + its DuckDB
-table-describe helpers + ``write_batch`` are torn down wholesale in a later
-rip row.
+ledger. This replaces the dead Parquet-scanning regen body that lived in the
+now-deleted ``canonical/writer.py`` (``_regenerate_manifest``); that scan + its
+DuckDB table-describe helpers + the writer were torn down wholesale in the
+ingest rip-replace (Row 9).
 
 ``generated_at`` is a wall-clock stamp - permitted here by the CLAUDE.md
 section 11 control-plane carve-out (the manifest is read at startup by

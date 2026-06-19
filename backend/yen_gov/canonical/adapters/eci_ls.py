@@ -42,7 +42,7 @@ from yen_gov.canonical.adapters.eci.electoral_csv import (
     upsert_source_csv,
     write_electoral_results,
 )
-from yen_gov.canonical.envelope import (
+from yen_gov.canonical.row_models import (
     CandidacyRow,
     ObservationRow,
     PartyAllianceDimRow,

@@ -36,7 +36,7 @@ from yen_gov.canonical.adapters.eci.identity import (
     party_rollup_entity_id,
     state_rollup_entity_id,
 )
-from yen_gov.canonical.envelope import ObservationRow
+from yen_gov.canonical.row_models import ObservationRow
 
 
 @dataclass(frozen=True)
