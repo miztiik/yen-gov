@@ -1189,7 +1189,7 @@
       "methodology_vintage": "NITI Aayog ICED capacity-metatable rollup of CEA-published station-level capacity; harmonised across fiscal years 2015-16 onwards.",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
-      "source_id": "src-1240f07df0ac",
+      "source_id": "src-4f495cca1e69",
       "entity_kinds": [
         "state"
       ],
@@ -1219,7 +1219,7 @@
       "methodology_vintage": "NITI Aayog ICED state-wise deep-dive API for FY15-FY25 (fiscal years 2015-16 onwards); RBI Handbook of Statistics on Indian States, Table 140 (silver tier; republishes CEA originals) for the pre-FY15 splice (fiscal years 2004-05 to 2013-14). Per plan-doc 20260522 Â§3 Q-c Option 1 SPLICE: methodology break at FY15 (basis change + RBI portion carries no per-fuel breakdown).",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
-      "source_id": "src-bb1d7bec8b34",
+      "source_id": "src-df1b89624949",
       "methodology_break_ids": [
         "rbi-handbook-aggregate-no-fuel-split-pre-fy15"
       ],
@@ -1252,7 +1252,7 @@
       "dimension_values": {
         "fuel_type": "coal"
       },
-      "source_id": "src-bb1d7bec8b34",
+      "source_id": "src-df1b89624949",
       "entity_kinds": [
         "state"
       ],
@@ -1285,7 +1285,7 @@
       "dimension_values": {
         "fuel_type": "gas"
       },
-      "source_id": "src-bb1d7bec8b34",
+      "source_id": "src-df1b89624949",
       "entity_kinds": [
         "state"
       ],
@@ -1318,7 +1318,7 @@
       "dimension_values": {
         "fuel_type": "hydro"
       },
-      "source_id": "src-bb1d7bec8b34",
+      "source_id": "src-df1b89624949",
       "entity_kinds": [
         "state"
       ],
@@ -1351,7 +1351,7 @@
       "dimension_values": {
         "fuel_type": "nuclear"
       },
-      "source_id": "src-bb1d7bec8b34",
+      "source_id": "src-df1b89624949",
       "entity_kinds": [
         "state"
       ],
@@ -1384,7 +1384,7 @@
       "dimension_values": {
         "fuel_type": "renewable"
       },
-      "source_id": "src-bb1d7bec8b34",
+      "source_id": "src-df1b89624949",
       "entity_kinds": [
         "state"
       ],
@@ -1446,7 +1446,7 @@
       "methodology_vintage": "NITI Aayog ICED /v1/gen-metatable-data (CEA-sourced upstream).",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
-      "source_id": "src-ddbfadd51428",
+      "source_id": "src-90a0132fd807",
       "entity_kinds": [
         "state"
       ],
@@ -1476,7 +1476,7 @@
       "dimension_values": {
         "fuel_type": "coal"
       },
-      "source_id": "src-ddbfadd51428",
+      "source_id": "src-90a0132fd807",
       "entity_kinds": [
         "state"
       ],
@@ -1506,7 +1506,7 @@
       "dimension_values": {
         "fuel_type": "gas"
       },
-      "source_id": "src-ddbfadd51428",
+      "source_id": "src-90a0132fd807",
       "entity_kinds": [
         "state"
       ],
@@ -1536,7 +1536,7 @@
       "dimension_values": {
         "fuel_type": "hydro"
       },
-      "source_id": "src-ddbfadd51428",
+      "source_id": "src-90a0132fd807",
       "entity_kinds": [
         "state"
       ],
@@ -1566,7 +1566,7 @@
       "dimension_values": {
         "fuel_type": "nuclear"
       },
-      "source_id": "src-ddbfadd51428",
+      "source_id": "src-90a0132fd807",
       "entity_kinds": [
         "state"
       ],
@@ -1596,7 +1596,7 @@
       "dimension_values": {
         "fuel_type": "renewable"
       },
-      "source_id": "src-ddbfadd51428",
+      "source_id": "src-90a0132fd807",
       "entity_kinds": [
         "state"
       ],
@@ -1625,7 +1625,7 @@
       "methodology_vintage": "NITI Aayog ICED state-wise deep-dive; underlying figures from PFC State Distribution Utilities report. Includes intra-state imports â€” consumption can exceed in-state generation.",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
-      "source_id": "src-bb1d7bec8b34",
+      "source_id": "src-df1b89624949",
       "entity_kinds": [
         "state"
       ],
@@ -1655,7 +1655,7 @@
       "methodology_vintage": "NITI Aayog ICED state-wise deep-dive API row 'AT&C Losses'. Calculation method: PFC. Vintage updated annually with PFC report release (typically Q3 FY+1).",
       "revision_tier": "revised",
       "parent_indicator_id": null,
-      "source_id": "src-bb1d7bec8b34",
+      "source_id": "src-df1b89624949",
       "entity_kinds": [
         "state"
       ],
@@ -1745,7 +1745,7 @@
       "methodology_vintage": "ICED composition: state electricity sales (CEA) divided by state population (Census 2011 + linear projection).",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
-      "source_id": "src-bb1d7bec8b34",
+      "source_id": "src-df1b89624949",
       "entity_kinds": [
         "state"
       ],
@@ -1806,7 +1806,7 @@
       "dimension_values": {
         "efficiency_dimension": "billing"
       },
-      "source_id": "src-650b1c25d1f7",
+      "source_id": "src-6c5b40218b67",
       "entity_kinds": [
         "state"
       ],
@@ -1837,7 +1837,7 @@
       "dimension_values": {
         "efficiency_dimension": "collection"
       },
-      "source_id": "src-650b1c25d1f7",
+      "source_id": "src-6c5b40218b67",
       "entity_kinds": [
         "state"
       ],
@@ -1868,7 +1868,7 @@
       "dimension_values": {
         "efficiency_dimension": "td_loss"
       },
-      "source_id": "src-650b1c25d1f7",
+      "source_id": "src-6c5b40218b67",
       "entity_kinds": [
         "state"
       ],
@@ -1899,7 +1899,7 @@
       "methodology_vintage": "NITI Aayog ICED state-wise deep-dive row 'ACS-ARR (Electricity Sales) Gap'. Calculated by PFC from utility tariff orders + audited accounts.",
       "revision_tier": "revised",
       "parent_indicator_id": null,
-      "source_id": "src-bb1d7bec8b34",
+      "source_id": "src-df1b89624949",
       "entity_kinds": [
         "state"
       ],
@@ -1959,7 +1959,7 @@
       "dimension_values": {
         "rpo_segment": "solar"
       },
-      "source_id": "src-0ea63ed47704",
+      "source_id": "src-565b884e1837",
       "entity_kinds": [
         "state"
       ],
@@ -1989,7 +1989,7 @@
       "dimension_values": {
         "rpo_segment": "non_solar"
       },
-      "source_id": "src-0ea63ed47704",
+      "source_id": "src-565b884e1837",
       "entity_kinds": [
         "state"
       ],
@@ -2019,7 +2019,7 @@
       "dimension_values": {
         "rpo_segment": "total"
       },
-      "source_id": "src-0ea63ed47704",
+      "source_id": "src-565b884e1837",
       "entity_kinds": [
         "state"
       ],
@@ -2139,7 +2139,7 @@
       "methodology_vintage": "NITI Aayog ICED ``/energy/fuel-sources/coal/consumption-domestic-state`` (Coal Controller's Office / Ministry of Coal upstream). Aggregated by SUM of the 4 component grades (raw, washed, middlings, lignite); the precomputed ``TOTAL COAL`` rows are dropped to avoid double-counting.",
       "revision_tier": "revised",
       "parent_indicator_id": null,
-      "source_id": "src-c222a8e2cd61",
+      "source_id": "src-8641faf9816a",
       "entity_kinds": [
         "state"
       ],
@@ -2169,7 +2169,7 @@
       "methodology_vintage": "NITI Aayog ICED ``/energy/renewable/solar/rooftop/state``. Originating data: MNRE / state nodal agencies via the National Rooftop Solar Programme. ICED is the federal aggregator; not the issuing authority.",
       "revision_tier": "revised",
       "parent_indicator_id": null,
-      "source_id": "src-018bb42f9519",
+      "source_id": "src-e1f31092111c",
       "entity_kinds": [
         "state"
       ],
@@ -2199,7 +2199,7 @@
       "methodology_vintage": "NITI Aayog ICED ``/v1/retired-capacity-plants``. Originating data: Central Electricity Authority station-level retirement records. ICED is the federal aggregator; not the issuing authority.",
       "revision_tier": "revised",
       "parent_indicator_id": null,
-      "source_id": "src-fd152bd3c6c6",
+      "source_id": "src-02ecf33d72fe",
       "entity_kinds": [
         "country"
       ],
@@ -2229,7 +2229,7 @@
       "dimension_values": {
         "fuel_type": "coal"
       },
-      "source_id": "src-fd152bd3c6c6",
+      "source_id": "src-02ecf33d72fe",
       "entity_kinds": [
         "country"
       ],
@@ -2262,7 +2262,7 @@
       "dimension_values": {
         "fuel_type": "gas"
       },
-      "source_id": "src-fd152bd3c6c6",
+      "source_id": "src-02ecf33d72fe",
       "entity_kinds": [
         "country"
       ],
@@ -2295,7 +2295,7 @@
       "methodology_vintage": "NITI Aayog ICED ``/energy/fuel-sources/oil/consumptionStateProductTrend`` (PPAC / Ministry of Petroleum & Natural Gas upstream). Per-state per-product per-FY, FY11-FY25. The ``OTHERS`` state bucket and the national aggregate row (region == ``IN``) are dropped at ingest.",
       "revision_tier": "revised",
       "parent_indicator_id": null,
-      "source_id": "src-cba8334fedc5",
+      "source_id": "src-d9e9537f5a41",
       "entity_kinds": [
         "state"
       ],
@@ -2325,7 +2325,7 @@
       "dimension_values": {
         "oil_product": "diesel-hsd"
       },
-      "source_id": "src-cba8334fedc5",
+      "source_id": "src-d9e9537f5a41",
       "entity_kinds": [
         "state"
       ],
@@ -2355,7 +2355,7 @@
       "dimension_values": {
         "oil_product": "petrol"
       },
-      "source_id": "src-cba8334fedc5",
+      "source_id": "src-d9e9537f5a41",
       "entity_kinds": [
         "state"
       ],
@@ -2385,7 +2385,7 @@
       "dimension_values": {
         "oil_product": "lpg"
       },
-      "source_id": "src-cba8334fedc5",
+      "source_id": "src-d9e9537f5a41",
       "entity_kinds": [
         "state"
       ],
@@ -2415,7 +2415,7 @@
       "dimension_values": {
         "oil_product": "kerosene"
       },
-      "source_id": "src-cba8334fedc5",
+      "source_id": "src-d9e9537f5a41",
       "entity_kinds": [
         "state"
       ],
@@ -2445,7 +2445,7 @@
       "dimension_values": {
         "oil_product": "naphtha"
       },
-      "source_id": "src-cba8334fedc5",
+      "source_id": "src-d9e9537f5a41",
       "entity_kinds": [
         "state"
       ],
@@ -2475,7 +2475,7 @@
       "dimension_values": {
         "oil_product": "petroleum-coke"
       },
-      "source_id": "src-cba8334fedc5",
+      "source_id": "src-d9e9537f5a41",
       "entity_kinds": [
         "state"
       ],
@@ -2505,7 +2505,7 @@
       "dimension_values": {
         "oil_product": "others"
       },
-      "source_id": "src-cba8334fedc5",
+      "source_id": "src-d9e9537f5a41",
       "entity_kinds": [
         "state"
       ],
@@ -2535,7 +2535,7 @@
       "methodology_vintage": "NITI Aayog ICED ``/analytics/state-wise-deep-dive`` (primary-energy-supply national series). Originating data: MoSPI Energy Statistics India (annual edition). ICED is the federal aggregator; not the issuing authority.",
       "revision_tier": "revised",
       "parent_indicator_id": null,
-      "source_id": "src-170d3536d908",
+      "source_id": "src-1d5665f61d9f",
       "entity_kinds": [
         "country"
       ],
@@ -2565,7 +2565,7 @@
       "dimension_values": {
         "fuel_type": "coal"
       },
-      "source_id": "src-170d3536d908",
+      "source_id": "src-1d5665f61d9f",
       "entity_kinds": [
         "country"
       ],
@@ -2595,7 +2595,7 @@
       "dimension_values": {
         "fuel_type": "oil"
       },
-      "source_id": "src-170d3536d908",
+      "source_id": "src-1d5665f61d9f",
       "entity_kinds": [
         "country"
       ],
@@ -2625,7 +2625,7 @@
       "dimension_values": {
         "fuel_type": "gas"
       },
-      "source_id": "src-170d3536d908",
+      "source_id": "src-1d5665f61d9f",
       "entity_kinds": [
         "country"
       ],
@@ -2655,7 +2655,7 @@
       "dimension_values": {
         "fuel_type": "hydro"
       },
-      "source_id": "src-170d3536d908",
+      "source_id": "src-1d5665f61d9f",
       "entity_kinds": [
         "country"
       ],
@@ -2685,7 +2685,7 @@
       "dimension_values": {
         "fuel_type": "nuclear"
       },
-      "source_id": "src-170d3536d908",
+      "source_id": "src-1d5665f61d9f",
       "entity_kinds": [
         "country"
       ],
@@ -2715,7 +2715,7 @@
       "dimension_values": {
         "fuel_type": "renewable"
       },
-      "source_id": "src-170d3536d908",
+      "source_id": "src-1d5665f61d9f",
       "entity_kinds": [
         "country"
       ],
@@ -2742,7 +2742,7 @@
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
       "parent_indicator_id": null,
-      "source_id": "src-7eb929cbf2d8",
+      "source_id": "src-675123e13e1b",
       "entity_kinds": [
         "state"
       ],
@@ -2772,7 +2772,7 @@
       "dimension_values": {
         "fuel_type": "coal"
       },
-      "source_id": "src-7eb929cbf2d8",
+      "source_id": "src-675123e13e1b",
       "entity_kinds": [
         "state"
       ],
@@ -2802,7 +2802,7 @@
       "dimension_values": {
         "fuel_type": "gas"
       },
-      "source_id": "src-7eb929cbf2d8",
+      "source_id": "src-675123e13e1b",
       "entity_kinds": [
         "state"
       ],
@@ -2832,7 +2832,7 @@
       "dimension_values": {
         "fuel_type": "hydro"
       },
-      "source_id": "src-7eb929cbf2d8",
+      "source_id": "src-675123e13e1b",
       "entity_kinds": [
         "state"
       ],
@@ -2862,7 +2862,7 @@
       "dimension_values": {
         "fuel_type": "nuclear"
       },
-      "source_id": "src-7eb929cbf2d8",
+      "source_id": "src-675123e13e1b",
       "entity_kinds": [
         "state"
       ],
@@ -2892,7 +2892,7 @@
       "dimension_values": {
         "fuel_type": "small_hydro"
       },
-      "source_id": "src-7eb929cbf2d8",
+      "source_id": "src-675123e13e1b",
       "entity_kinds": [
         "state"
       ],
@@ -2922,7 +2922,7 @@
       "dimension_values": {
         "fuel_type": "solar"
       },
-      "source_id": "src-7eb929cbf2d8",
+      "source_id": "src-675123e13e1b",
       "entity_kinds": [
         "state"
       ],
@@ -2952,7 +2952,7 @@
       "dimension_values": {
         "fuel_type": "wind"
       },
-      "source_id": "src-7eb929cbf2d8",
+      "source_id": "src-675123e13e1b",
       "entity_kinds": [
         "state"
       ],
@@ -2982,7 +2982,7 @@
       "dimension_values": {
         "fuel_type": "biomass"
       },
-      "source_id": "src-7eb929cbf2d8",
+      "source_id": "src-675123e13e1b",
       "entity_kinds": [
         "state"
       ],
@@ -3009,7 +3009,7 @@
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": null,
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3039,7 +3039,7 @@
       "dimension_values": {
         "fuel_type": "coal"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3069,7 +3069,7 @@
       "dimension_values": {
         "fuel_type": "gas"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3099,7 +3099,7 @@
       "dimension_values": {
         "fuel_type": "diesel"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3129,7 +3129,7 @@
       "dimension_values": {
         "fuel_type": "hydro"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3159,7 +3159,7 @@
       "dimension_values": {
         "fuel_type": "nuclear"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3189,7 +3189,7 @@
       "dimension_values": {
         "fuel_type": "small_hydro"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3219,7 +3219,7 @@
       "dimension_values": {
         "fuel_type": "solar"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3249,7 +3249,7 @@
       "dimension_values": {
         "fuel_type": "wind"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3279,7 +3279,7 @@
       "dimension_values": {
         "fuel_type": "biomass"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3309,7 +3309,7 @@
       "dimension_values": {
         "fuel_type": "renewable_other"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3339,7 +3339,7 @@
       "dimension_values": {
         "fuel_type": "hybrid_bundled"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3369,7 +3369,7 @@
       "dimension_values": {
         "fuel_type": "trading_other"
       },
-      "source_id": "src-1401f8087b0d",
+      "source_id": "src-37e2face8fa3",
       "entity_kinds": [
         "state"
       ],
@@ -3396,7 +3396,7 @@
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "centre",
       "parent_indicator_id": null,
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3426,7 +3426,7 @@
       "dimension_values": {
         "sector_fuel_pair": "agriculture-electricity"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3456,7 +3456,7 @@
       "dimension_values": {
         "sector_fuel_pair": "agriculture-gas"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3486,7 +3486,7 @@
       "dimension_values": {
         "sector_fuel_pair": "agriculture-oil"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3516,7 +3516,7 @@
       "dimension_values": {
         "sector_fuel_pair": "cgd-and-others-gas"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3546,7 +3546,7 @@
       "dimension_values": {
         "sector_fuel_pair": "commercial-electricity"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3576,7 +3576,7 @@
       "dimension_values": {
         "sector_fuel_pair": "commercial-oil"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3606,7 +3606,7 @@
       "dimension_values": {
         "sector_fuel_pair": "industry-coal"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3636,7 +3636,7 @@
       "dimension_values": {
         "sector_fuel_pair": "industry-electricity"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3666,7 +3666,7 @@
       "dimension_values": {
         "sector_fuel_pair": "industry-gas"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3696,7 +3696,7 @@
       "dimension_values": {
         "sector_fuel_pair": "industry-oil"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3726,7 +3726,7 @@
       "dimension_values": {
         "sector_fuel_pair": "non-energy-gas"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3756,7 +3756,7 @@
       "dimension_values": {
         "sector_fuel_pair": "non-energy-oil"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3786,7 +3786,7 @@
       "dimension_values": {
         "sector_fuel_pair": "other-electricity"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3816,7 +3816,7 @@
       "dimension_values": {
         "sector_fuel_pair": "other-oil"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3846,7 +3846,7 @@
       "dimension_values": {
         "sector_fuel_pair": "residential-electricity"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3876,7 +3876,7 @@
       "dimension_values": {
         "sector_fuel_pair": "residential-oil"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3906,7 +3906,7 @@
       "dimension_values": {
         "sector_fuel_pair": "transport-electricity"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -3936,7 +3936,7 @@
       "dimension_values": {
         "sector_fuel_pair": "transport-oil"
       },
-      "source_id": "src-29ecbb6dce9d",
+      "source_id": "src-c8210dc4af23",
       "entity_kinds": [
         "country"
       ],
@@ -4756,7 +4756,7 @@
       "methodology_vintage": "ICED plantPipelineInfo endpoint snapshot 2026-05-27; monthly publisher cadence. Calendar-year expected-commissioning grain. AES-encrypted upstream envelope; IcedClient.get(..., decrypt=True). Status SUM-collapse over the 2 publisher facets at adapter time.",
       "revision_tier": "first_release",
       "parent_indicator_id": null,
-      "source_id": "src-e0b2a084d204",
+      "source_id": "src-f1998c3c1489",
       "entity_kinds": [
         "country"
       ],
