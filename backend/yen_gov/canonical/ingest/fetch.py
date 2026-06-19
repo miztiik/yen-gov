@@ -323,7 +323,18 @@ class FetchedCache:
         self.fetch_count = 0
 
     def get_or_fetch(self, cache_key: CacheKey) -> FetchedUnit:
-        """Return the cached unit for ``cache_key`` or fetch + cache it once."""
+        """Return the cached unit for ``cache_key`` or fetch + cache it once.
+
+        The FETCH-stage primitive. Beyond the in-memory run-scoped dedup it
+        LANDS the raw payload on disk at the claim-check path
+        (``.runtime/cache/ingest/<adapter_slug>/<staging_filename>``) for EVERY
+        fetch mode -- an ``auto`` fetch already writes there and an
+        ``operator_staged`` read is mirrored there too -- so a later
+        ``--from enrich`` stage window (:meth:`get_cached`) can re-enrich +
+        publish from that payload WITHOUT re-fetching. The on-disk claim-check
+        is the FETCH -> ENRICH stage boundary (plan section 4); Row 12's
+        ``clean`` sweeps it (it lives under ``.runtime/``).
+        """
         cached = self._cache.get(cache_key)
         if cached is not None:
             return cached
@@ -336,9 +347,54 @@ class FetchedCache:
             transport=self._transport,
             sleeper=self._sleeper,
         )
+        self._persist(cache_key, fetched.raw_bytes)
         self._cache[cache_key] = fetched
         self.fetch_count += 1
         return fetched
+
+    def get_cached(self, cache_key: CacheKey) -> FetchedUnit:
+        """Return the claim-check a prior FETCH landed, or FAIL LOUD.
+
+        The ENRICH-from-cache primitive for the ``--from enrich`` stage window:
+        it reads the raw bytes a prior FETCH persisted at the claim-check path
+        and NEVER touches the network or the staging dir. If no prior fetch
+        landed the unit it raises :class:`FetchError` ("no cached raw ...; run
+        fetch first") rather than silently re-fetching -- skipping FETCH means
+        the operator asserts the cache is already warm, so a cold cache is an
+        error, not a fallback.
+        """
+        cached = self._cache.get(cache_key)
+        if cached is not None:
+            return cached
+        cache_path = _cache_path(self._cache_dir, cache_key)
+        if not cache_path.is_file():
+            rel = (
+                f"{CACHE_DIR_REL}/{cache_key.adapter_slug}/"
+                f"{cache_key.staging_filename}"
+            )
+            raise FetchError(
+                f"no cached raw for {cache_key.unit_id!r}; run fetch first "
+                f"(expected {rel})"
+            )
+        fetched = FetchedUnit(
+            cache_key=cache_key,
+            raw_bytes=cache_path.read_bytes(),
+            raw_path=cache_path,
+        )
+        self._cache[cache_key] = fetched
+        return fetched
+
+    def _persist(self, cache_key: CacheKey, raw: bytes) -> None:
+        """Mirror a fetched unit's raw bytes to the claim-check cache path.
+
+        Idempotent: an ``auto`` ``fetch_unit`` already wrote this exact path, so
+        the re-write is a no-op-equivalent; an ``operator_staged`` read did not,
+        so this is what lands it. Either way FETCH leaves a uniform claim-check
+        the ENRICH-from-cache window reads.
+        """
+        cache_path = _cache_path(self._cache_dir, cache_key)
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        cache_path.write_bytes(raw)
 
 
 __all__ = [

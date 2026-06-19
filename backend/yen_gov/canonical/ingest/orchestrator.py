@@ -34,11 +34,12 @@ per-source year spans its gate requires.
 from __future__ import annotations
 
 import csv
+import enum
 import json
 from pathlib import Path
 from typing import TYPE_CHECKING, Callable, Iterable
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from yen_gov.canonical.ingest import state
 from yen_gov.canonical.ingest.catalogue_fk import check_indicator_registration
@@ -94,6 +95,79 @@ class IngestUsageError(IngestError):
 
 class RegistryConsistencyError(IngestError):
     """An adapter's ``source_specs`` disagree with its registry key."""
+
+
+# --------------------------------------------------------------------------- #
+# stage window (--from / --to)
+# --------------------------------------------------------------------------- #
+
+
+class Stage(str, enum.Enum):
+    """The three pure-filter stages, in pipeline order (plan section 3).
+
+    Spec-validate + checkpoint-diff is ``run``'s fail-loud PREAMBLE, NOT a
+    stage, so it runs regardless of the window. ``fetch`` lands the raw payload
+    in the claim-check cache; ``enrich`` + ``publish`` are the adapter's FUSED
+    ``process_year`` (an indicator's slice is parsed, gated, and UPSERT-published
+    as one atomic unit). The runtime cut-points are therefore before-fetch /
+    after-fetch / after-publish -- naming all three keeps the CLI vocabulary
+    faithful to the plan while the engine collapses enrich+publish.
+    """
+
+    fetch = "fetch"
+    enrich = "enrich"
+    publish = "publish"
+
+
+_STAGE_ORDER: tuple[Stage, ...] = (Stage.fetch, Stage.enrich, Stage.publish)
+
+
+class StageWindow(BaseModel):
+    """The ``[from_stage, to_stage]`` slice of the pipeline a ``run`` executes.
+
+    The default (``fetch`` -> ``publish``) is the full flow: behaviour is
+    byte-identical to a windowless run. ``from_stage`` must not come after
+    ``to_stage`` in :data:`_STAGE_ORDER` -- enforced here so a programmatic
+    caller cannot invert it (the CLI translates the failure into a clean
+    exit-2).
+
+    Because ``enrich`` + ``publish`` are fused in the adapter's
+    ``process_year``, the window collapses to two decisions:
+
+    * :attr:`runs_fetch` -- include FETCH (land/refresh the claim-check cache)?
+      True iff ``from_stage`` is ``fetch`` (the lowest stage).
+    * :attr:`runs_process` -- extend past FETCH into the fused enrich+publish?
+      True iff ``to_stage`` is not ``fetch``.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    from_stage: Stage = Stage.fetch
+    to_stage: Stage = Stage.publish
+
+    @model_validator(mode="after")
+    def _check_order(self) -> "StageWindow":
+        if _STAGE_ORDER.index(self.from_stage) > _STAGE_ORDER.index(self.to_stage):
+            raise ValueError(
+                f"--from {self.from_stage.value} must not be after --to "
+                f"{self.to_stage.value} (stage order: fetch -> enrich -> publish)"
+            )
+        return self
+
+    @property
+    def runs_fetch(self) -> bool:
+        """The window includes FETCH (the lowest stage)."""
+        return self.from_stage == Stage.fetch
+
+    @property
+    def runs_process(self) -> bool:
+        """The window extends past FETCH into the fused enrich+publish."""
+        return self.to_stage != Stage.fetch
+
+    @property
+    def is_full(self) -> bool:
+        """The default full flow (fetch -> publish); equivalent to no window."""
+        return self.from_stage == Stage.fetch and self.to_stage == Stage.publish
 
 
 # --------------------------------------------------------------------------- #
@@ -298,6 +372,7 @@ def orchestrate(
     logger: "StructuredLogger | None" = None,
     on_fanout: Callable[[str], None] | None = None,
     resume: bool = False,
+    stage_window: "StageWindow | None" = None,
     indicators: Iterable[dict] | None = None,
     concepts: Iterable[dict] | None = None,
     indicators_path: Path | None = None,
@@ -323,6 +398,16 @@ def orchestrate(
             affordance. A plain run is already idempotent (the skip predicate
             refuses to skip an incomplete year), so this only annotates the log;
             correctness is identical with or without it.
+        stage_window: the ``[from_stage, to_stage]`` slice to execute (default
+            ``None`` = the full ``fetch`` -> ``publish`` flow, byte-identical to
+            today). ``--to fetch`` warms the claim-check cache and stops before
+            enrich+publish (emitting no datapoints); ``--from enrich`` skips
+            FETCH and re-enriches + publishes from the cache a prior fetch
+            landed (FAILS LOUD if the cache is cold). The preamble + the
+            ``--resume`` / delta-skip behaviour run regardless of the window. A
+            non-default window against a NON-fetchable adapter is refused: its
+            ``run_indicator`` fuses fetch+enrich+publish with no cache seam to
+            stop at or resume from.
         indicators / concepts / indicators_path / concepts_path: catalogue
             overrides forwarded to ``catalogue_fk`` (tests inject fixtures so
             they never walk the real corpus; defaults read the taxonomy SOT).
@@ -347,6 +432,7 @@ def orchestrate(
     registry = dict(registry) if registry is not None else default_registry()
     index = build_indicator_index(registry)
     targets = _resolve_targets(index, indicator=indicator, adapter=adapter)
+    window = stage_window if stage_window is not None else StageWindow()
 
     # --- PREAMBLE (not a stage): validate the targeted specs against the
     # catalogue (the spec-validation half). The cache-unit listing + checkpoint
@@ -400,10 +486,19 @@ def orchestrate(
                 fetched_cache=fetched_cache,
                 logger=logger,
                 resume=resume,
+                stage_window=window,
             ):
                 _log_published(logger, res)
                 results.append(res)
         else:
+            if not window.is_full:
+                raise IngestUsageError(
+                    f"adapter {slug!r} is not fetchable: its run_indicator fuses "
+                    f"fetch+enrich+publish with no claim-check cache seam, so a "
+                    f"stage window (--from {window.from_stage.value} --to "
+                    f"{window.to_stage.value}) cannot be applied. Re-run it with "
+                    f"the full default window (omit --from/--to)."
+                )
             result = adapter_obj.run_indicator(
                 ind_id, repo_root=repo_root, config=config
             )
@@ -446,8 +541,9 @@ def _drive_fetchable_adapter(
     fetched_cache: FetchedCache,
     logger: "StructuredLogger | None",
     resume: bool,
+    stage_window: StageWindow,
 ) -> list[AdapterRunResult]:
-    """Drive one fetchable adapter through Fetch + the per-year delta loop.
+    """Drive one fetchable adapter through the [from, to] stage window.
 
     Fetches each per-year cache unit once (shared across the adapter's targeted
     indicators via ``fetched_cache``), SKIPS a year whose raw payload hash is
@@ -458,6 +554,17 @@ def _drive_fetchable_adapter(
     recorded -- a re-run (or ``--resume``) continues from the last completed
     year. Each per-year file backs every indicator that draws from it, so all
     of a year's indicators are sliced BEFORE the year is marked completed.
+
+    The ``stage_window`` selects which stages run per year:
+
+    * ``runs_fetch`` -> :meth:`FetchedCache.get_or_fetch` (network/staged read +
+      land the claim-check); else :meth:`FetchedCache.get_cached` (read the
+      claim-check a prior fetch landed, FAIL LOUD if cold).
+    * ``runs_process`` -> the adapter's fused enrich+publish ``process_year`` +
+      advance the checkpoint to ``completed``. A FETCH-only window
+      (``--to fetch``) warms the cache and stops here, NOT marking the year
+      completed (so a later ``--from enrich`` re-processes it) and emitting no
+      datapoints (so the run reports zero published indicators).
     """
     slug = adapter.adapter_slug
     checkpoint = state.load(slug, repo_root)
@@ -485,7 +592,11 @@ def _drive_fetchable_adapter(
     try:
         for year in sorted(units_by_year):
             unit, owners = units_by_year[year]
-            fetched = fetched_cache.get_or_fetch(unit)
+            # FETCH stage, or read the claim-check a prior fetch landed.
+            if stage_window.runs_fetch:
+                fetched = fetched_cache.get_or_fetch(unit)
+            else:
+                fetched = fetched_cache.get_cached(unit)
             if not spec_bumped and state.should_skip_year(
                 checkpoint, year, fetched.raw_bytes
             ):
@@ -500,6 +611,12 @@ def _drive_fetchable_adapter(
                     checkpoint, year=year, last_checked=state.now_iso_z()
                 )
                 continue
+            if not stage_window.runs_process:
+                # FETCH-only window (--to fetch): the claim-check is warm; stop
+                # before enrich+publish. The year is left NOT-completed so a
+                # later --from enrich re-processes it from the cache.
+                continue
+            # ENRICH + PUBLISH (the adapter's fused process_year).
             for indicator_id in owners:
                 adapter.process_year(
                     indicator_id,
@@ -518,6 +635,11 @@ def _drive_fetchable_adapter(
         checkpoint["spec_version"] = spec_ver
         state.write(checkpoint, repo_root)
 
+    if not stage_window.runs_process:
+        # FETCH-only: nothing was published this run, so there is no emitted
+        # datapoints CSV to summarise. The warm claim-check cache is the only
+        # artifact; the run honestly reports zero published indicators.
+        return []
     return [
         summarise_indicator_csv(repo_root, indicator_id, adapter_slug=slug)
         for indicator_id in indicators
@@ -922,6 +1044,8 @@ __all__ = [
     "PublishDecision",
     "RegistryConsistencyError",
     "SourceCoverage",
+    "Stage",
+    "StageWindow",
     "apply_publish_gates",
     "build_indicator_index",
     "compute_status",
