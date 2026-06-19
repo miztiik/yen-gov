@@ -38,6 +38,7 @@ electricity-generation-gwh-renewable,Renewable,renewable,GWh,,energy,src-ddbfadd
 electricity-requirement-mu,Power requirement,power-requirement,MU,,energy,src-f7ce9960caba,365,,,
 electricity-sales-mu,State electricity sales,state-electricity-sales,MU,,energy,src-bb1d7bec8b34,365,,,
 ev-share-of-registrations-pct,EV share of new vehicle registrations,ev-registration-share,%,"Per (state, year): 100 * sum(VAHAN new registrations with fuelCategory = 'Electric Vehicle') / sum(VAHAN new registrations across all fuelCategory), summed over all vehicle categories. Cells with zero total registrations are dropped.",energy,src-412af3a265c8,365,2000,2026,state
+final-energy-consumption-mtoe,"Final energy consumption, by sector and fuel",final-energy-consumption,mtoe,,energy,src-29ecbb6dce9d,365,2005,2024,country
 india-final-energy-consumption-mtoe,Final energy consumption,final-energy-consumption,mtoe,,energy,src-29ecbb6dce9d,365,,,
 india-final-energy-consumption-mtoe-agriculture-electricity,Agriculture (electricity),agriculture-electricity,mtoe,,energy,src-29ecbb6dce9d,365,,,
 india-final-energy-consumption-mtoe-agriculture-gas,Agriculture (gas),agriculture-gas,mtoe,,energy,src-29ecbb6dce9d,365,,,
@@ -153,6 +154,7 @@ power-purchase-share-pct-small-hydro,Small-hydro purchase share,small-hydro-purc
 power-purchase-share-pct-solar,Solar purchase share,solar-purchase-share,percent,,energy,src-1401f8087b0d,365,,,
 power-purchase-share-pct-trading-other,Trading & others share,trading-others-share,percent,,energy,src-1401f8087b0d,365,,,
 power-purchase-share-pct-wind,Wind purchase share,wind-purchase-share,percent,,energy,src-1401f8087b0d,365,,,
+primary-energy-supply-mtoe,"Total primary energy supply, by source",primary-energy-supply,mtoe,,energy,src-170d3536d908,365,2005,2024,country
 renewable-grid-capacity-mw,Renewable grid capacity,renewable-grid-capacity,MW,,energy,src-1f51c8d742bf,365,,,
 rooftop-solar-capacity-mw,Rooftop solar capacity,rooftop-solar-capacity,MW,,energy,src-018bb42f9519,365,,,
 rpo-compliance-pct,RPO compliance,rpo-compliance,%,,energy,,365,,,

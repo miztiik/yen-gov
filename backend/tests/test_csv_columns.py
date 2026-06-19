@@ -45,6 +45,13 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # the artifact's own self-declared $schema points at the sibling validator.
     raw = json.loads(COLUMNS_PATH.read_text(encoding="utf-8"))
     assert raw["$schema"] == "./columns.schema.json"
+    # 2.10 bump (NITI ICED national energy-balance ingest): ADDITIVE - TWO new
+    # faceted datapoint file-classes for the national (entity_id IN) energy
+    # balance: geo_by_primary_source/*.csv (single primary_source axis, 6-source
+    # closed enum incl oil, no `all` member) mirroring geo_by_product, and
+    # geo_by_sector_fuel/*.csv (the FIRST two-axis class: sector AND fuel both
+    # join the PK; 8-sector x 4-fuel sparse matrix). Metadata-only on the
+    # schema-of-schemas; no existing class changed.
     # 2.9 bump (Path A oil-product faceting): ADDITIVE - new per-axis sibling
     # file-class datasets/data/datapoints/geo_by_product/*.csv (product
     # dimension column; 7-product closed enum; no `all` member) mirroring
@@ -77,7 +84,7 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # (renamed period_label -> event_id, added state, dropped short_name).
     # 1.1 bump was the prior PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md
     # (10 nullable identity-metadata columns appended to parties.csv).
-    assert raw["$schema_version"] == "2.9"
+    assert raw["$schema_version"] == "2.10"
     assert len(contract.file_classes) >= 15
 
 
@@ -123,6 +130,36 @@ def test_datapoints_geo_core_columns_match_spec(contract):
     assert fc.column("source_id").nullable is False
     assert fc.column("source_id").fk == "datasets/data/entities/source.csv.source_id"
     assert fc.column("value").nullable is True
+
+
+def test_geo_by_primary_source_class_matches_spec(contract):
+    # 2.10: single-axis national TPES facet (primary_source); 6-source closed
+    # enum INCLUDING oil (absent from the electricity-only geo_by_fuel mix); no
+    # `all` member (no published total - synthesised sum-of-parts forbidden).
+    fc = contract.for_glob("datasets/data/datapoints/geo_by_primary_source/*.csv")
+    names = tuple(c.name for c in fc.columns)
+    assert names == ("entity_id", "time", "primary_source", "value", "source_id")
+    assert tuple(c.name for c in fc.pk_columns) == ("entity_id", "time", "primary_source")
+    assert fc.column("primary_source").enum == (
+        "coal", "gas", "hydro", "nuclear", "oil", "renewable",
+    )
+    assert fc.column("entity_id").fk == "datasets/data/entities/geo.csv.entity_id"
+    assert fc.column("value").nullable is True
+
+
+def test_geo_by_sector_fuel_class_matches_spec(contract):
+    # 2.10: the FIRST two-axis facet class - sector AND fuel both join the PK
+    # (the Final Energy Consumption sector x fuel matrix). Sparse; no `all`.
+    fc = contract.for_glob("datasets/data/datapoints/geo_by_sector_fuel/*.csv")
+    names = tuple(c.name for c in fc.columns)
+    assert names == ("entity_id", "time", "sector", "fuel", "value", "source_id")
+    assert tuple(c.name for c in fc.pk_columns) == ("entity_id", "time", "sector", "fuel")
+    assert fc.column("sector").enum == (
+        "agriculture", "cgd-and-others", "commercial", "industry",
+        "non-energy", "other", "residential", "transport",
+    )
+    assert fc.column("fuel").enum == ("coal", "electricity", "gas", "oil")
+    assert fc.column("source_id").fk == "datasets/data/entities/source.csv.source_id"
 
 
 def test_source_csv_has_exactly_five_columns_per_plan_section_7(contract):

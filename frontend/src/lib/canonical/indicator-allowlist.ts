@@ -741,6 +741,92 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- NITI ICED national primary energy supply (TPES) by source, mtoe, 2026-06-19 ---
+  // NITI Aayog ICED Source-wise Energy Supply national API: India's Total
+  // Primary Energy Supply in mtoe, faceted by the six primary sources (coal /
+  // oil / gas / hydro / nuclear / renewable). NATIONAL only (entity_id IN),
+  // fiscal years 2005-2024 (120 rows). Storage is the new single-axis faceted
+  // file-class geo_by_primary_source (columns.json 2.10); the six sources
+  // partition TPES additively but there is NO published `all` total row on
+  // disk, so the descriptor enumerates only the six real sources (no `all`
+  // member, matching geo_by_product). comparability =
+  // comparable_within_state_over_time (one national entity traced over time,
+  // NEVER ranked across entities) is rank-suppressing, so the grapher companion
+  // datasets/grapher/indicator_render.json carries the no_rank_table renderer
+  // rule for primary-energy-supply-mtoe (catalogue.parity gate). table_id is
+  // nominal (CSV-only; the read path is faceted_csv_path). The sibling Final
+  // Energy Consumption series is the 2-D geo_by_sector_fuel class, which the
+  // single-axis facet-multiplexed descriptor type cannot express, so it is
+  // intentionally NOT wired here (backend-only; see the adapter + the report).
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "energy/national_primary_energy_supply_by_source_mtoe",
+    canonical_parent_indicator_id: "primary-energy-supply-mtoe",
+    table_id: "energy.primary_energy_supply",
+    facet_axis_id: "primary_source",
+    faceted_csv_path:
+      "data/datapoints/geo_by_primary_source/primary-energy-supply-mtoe.csv",
+    facet_column: "primary_source",
+    facet_values: [
+      {
+        canonical_child_id: "primary-energy-supply-mtoe-coal",
+        facet_value: "coal",
+        legacy_facet_label: "Coal",
+      },
+      {
+        canonical_child_id: "primary-energy-supply-mtoe-oil",
+        facet_value: "oil",
+        legacy_facet_label: "Oil",
+      },
+      {
+        canonical_child_id: "primary-energy-supply-mtoe-gas",
+        facet_value: "gas",
+        legacy_facet_label: "Gas",
+      },
+      {
+        canonical_child_id: "primary-energy-supply-mtoe-hydro",
+        facet_value: "hydro",
+        legacy_facet_label: "Hydro",
+      },
+      {
+        canonical_child_id: "primary-energy-supply-mtoe-nuclear",
+        facet_value: "nuclear",
+        legacy_facet_label: "Nuclear",
+      },
+      {
+        canonical_child_id: "primary-energy-supply-mtoe-renewable",
+        facet_value: "renewable",
+        legacy_facet_label: "Renewables",
+      },
+    ],
+    meta: {
+      id: "primary-energy-supply-mtoe",
+      title: "India's primary energy supply, by source (mtoe)",
+      description:
+        "India's Total Primary Energy Supply (TPES) in million tonnes of oil equivalent, split by the six primary sources (coal, oil, gas, hydro, nuclear, renewables) as energy enters the economy - before conversion to electricity or fuels. The six sources sum to TPES, the denominator behind energy-intensity figures (energy per person, energy per unit of GDP). A national series only: the publisher does not split primary supply by state.",
+      entity_kind: "country",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "mtoe",
+      short_unit: "mtoe",
+      icon: "flame",
+      attribution_geography: "where_consumed",
+      comparability: "comparable_within_state_over_time",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NITI Aayog India Climate & Energy Dashboard, Source-wise Energy Supply national API (IEA / CEA / MoSPI energy-account lineage), fiscal years 2005-06 to 2024-25 (mtoe, verbatim).",
+      notes:
+        "Primary supply counts energy as it enters the economy - the coal / oil / gas burned across ALL uses (power, industry, transport, cooking), plus the primary energy embodied in hydro / nuclear / renewable electricity - distinct from final consumption (the delivered carriers used by end-use sectors). Coal and oil dominate India's mix; the renewable share is rising but small in primary-energy terms.",
+    },
+    caveats: [
+      "Primary energy, not electricity: coal here is all coal burned across the economy (power, steel, cement, ...), not just power-sector coal. Hydro / nuclear / renewable are the primary energy they supply, not installed capacity.",
+      "National series only - the publisher does not split TPES by state, so this cannot be ranked across states or drilled into a state page.",
+      "The six sources sum to TPES but no published total row exists; read a single source's mtoe as a share only by dividing by that year's six-source sum.",
+    ],
+  },
+
   // --- Captive power (industry-wise) state totals, ICED / CEA, 2026-06-18 ---
   // NITI Aayog ICED republishes the CEA captive generating-plant returns as a
   // single feed (state x industry x year, two measures). The backend adapter
