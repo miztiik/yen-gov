@@ -67,7 +67,9 @@ def _stage_tfr(repo_root: Path) -> Path:
 class TestDefaultRegistry:
     def test_contains_rbi_handbook(self):
         registry = default_registry()
-        assert set(registry) == {"rbi-handbook"}
+        # Row 5 appends the fetchable HBS health cohort (a new registry entry,
+        # never a new orchestrator slug-branch).
+        assert set(registry) == {"rbi-handbook", "rbi-hbs-health"}
         assert isinstance(registry["rbi-handbook"], RbiHandbookAdapter)
 
     def test_rbi_adapter_satisfies_protocol(self):

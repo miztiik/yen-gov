@@ -11,8 +11,9 @@ name="ingest")`` line, so the entry point is ``python -m yen_gov ingest
   staleness cadence.
 
 ``clean`` is Row 12 (it adds a verb to THIS sub-app). ``--from/--to`` stage
-windows and ``--resume`` are Row 5. The flags here are the stable Row-4
-grammar; later rows extend, never rename.
+windows are Row 5+. ``--resume`` (Row 5) continues from the committed
+checkpoint. The flags here are the stable Row-4 grammar; later rows extend,
+never rename.
 """
 
 from __future__ import annotations
@@ -66,12 +67,21 @@ def run_command(
         "-s",
         help=(
             "Directory of operator-staged source files (e.g. RBI Handbook "
-            "XLSX). Required for operator-staged adapters; automated fetch is "
-            "Row 5."
+            "XLSX, or a fetchable cohort's flaky-TLS fallback). Required for "
+            "operator-staged adapters."
         ),
         exists=True,
         file_okay=False,
         dir_okay=True,
+    ),
+    resume: bool = typer.Option(
+        False,
+        "--resume",
+        help=(
+            "Continue from the last completed checkpoint year (completed years "
+            "are skipped, remaining years processed). A plain run is already "
+            "idempotent with the same effect; this is the explicit affordance."
+        ),
     ),
 ) -> None:
     """Drive an indicator (or adapter scope) into the canonical CSV store.
@@ -98,6 +108,7 @@ def run_command(
             config=config,
             logger=logger,
             on_fanout=typer.echo,
+            resume=resume,
         )
     except (CatalogueError, IngestError, IngestConfigError, KeyError) as exc:
         typer.echo(f"ingest run: {exc}", err=True)
