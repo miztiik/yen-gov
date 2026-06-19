@@ -10,10 +10,13 @@ name="ingest")`` line, so the entry point is ``python -m yen_gov ingest
 * ``status`` -- per-indicator coverage + which source owns which years +
   staleness cadence.
 
-``clean`` is Row 12 (it adds a verb to THIS sub-app). ``--from/--to`` stage
-windows are Row 5+. ``--resume`` (Row 5) continues from the committed
-checkpoint. The flags here are the stable Row-4 grammar; later rows extend,
-never rename.
+``clean`` is Row 12 (it adds a verb to THIS sub-app). ``--from/--to`` run a
+stage window (``fetch`` -> ``enrich`` -> ``publish``): the default full window
+is byte-identical to a plain run, ``--to fetch`` warms the claim-check cache
+and stops before enrich+publish, and ``--from enrich`` re-enriches + publishes
+from the cache a prior fetch landed (no network). ``--resume`` (Row 5) continues
+from the committed checkpoint. The flags here are the stable Row-4 grammar
+plus the Section-3 stage window; later rows extend, never rename.
 """
 
 from __future__ import annotations
@@ -22,6 +25,7 @@ from pathlib import Path
 from typing import Optional
 
 import typer
+from pydantic import ValidationError
 
 from yen_gov.canonical.ingest.catalogue_fk import CatalogueError
 from yen_gov.canonical.ingest.cleanup import (
@@ -29,8 +33,11 @@ from yen_gov.canonical.ingest.cleanup import (
     DEFAULT_RETENTION_DAYS,
     clean,
 )
+from yen_gov.canonical.ingest.fetch import FetchError
 from yen_gov.canonical.ingest.orchestrator import (
     IngestError,
+    Stage,
+    StageWindow,
     compute_status,
     orchestrate,
 )
@@ -89,13 +96,46 @@ def run_command(
             "idempotent with the same effect; this is the explicit affordance."
         ),
     ),
+    from_stage: Stage = typer.Option(
+        Stage.fetch,
+        "--from",
+        case_sensitive=False,
+        help=(
+            "First stage to run (fetch|enrich|publish). --from enrich skips "
+            "FETCH and re-enriches + publishes from the cache a prior fetch "
+            "landed (fails loud if the cache is cold)."
+        ),
+    ),
+    to_stage: Stage = typer.Option(
+        Stage.publish,
+        "--to",
+        case_sensitive=False,
+        help=(
+            "Last stage to run (fetch|enrich|publish). --to fetch warms the "
+            "cache then stops (emits no datapoints). Must be >= --from in "
+            "stage order."
+        ),
+    ),
 ) -> None:
     """Drive an indicator (or adapter scope) into the canonical CSV store.
 
     ``ingest run --indicator total-fertility-rate`` resolves the owning
     adapter under the hood; ``--adapter rbi-handbook`` filters the scope (and,
-    given alone, runs every indicator that adapter owns).
+    given alone, runs every indicator that adapter owns). ``--from/--to`` run a
+    stage window: the default (``fetch`` -> ``publish``) is the full flow,
+    ``--to fetch`` warms the claim-check cache only, and ``--from enrich``
+    re-enriches + publishes from that cache without re-fetching.
     """
+    try:
+        window = StageWindow(from_stage=from_stage, to_stage=to_stage)
+    except ValidationError:
+        typer.echo(
+            f"ingest run: --from {from_stage.value} must not be after --to "
+            f"{to_stage.value} (stage order: fetch -> enrich -> publish)",
+            err=True,
+        )
+        raise typer.Exit(2)
+
     if indicator is None and adapter is None:
         typer.echo(
             "ingest run: specify --indicator (primary) and/or --adapter "
@@ -115,8 +155,9 @@ def run_command(
             logger=logger,
             on_fanout=typer.echo,
             resume=resume,
+            stage_window=window,
         )
-    except (CatalogueError, IngestError, IngestConfigError, KeyError) as exc:
+    except (CatalogueError, IngestError, IngestConfigError, FetchError, KeyError) as exc:
         typer.echo(f"ingest run: {exc}", err=True)
         raise typer.Exit(1)
     finally:
