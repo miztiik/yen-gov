@@ -34,6 +34,7 @@ per-source year spans its gate requires.
 from __future__ import annotations
 
 import csv
+import json
 from pathlib import Path
 from typing import TYPE_CHECKING, Callable, Iterable
 
@@ -41,7 +42,19 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from yen_gov.canonical.ingest import state
 from yen_gov.canonical.ingest.catalogue_fk import check_indicator_registration
+from yen_gov.canonical.ingest.divergence import DivergenceResolution, check_divergence
+from yen_gov.canonical.ingest.enrich_gates import (
+    EntityObservation,
+    check_bifurcation,
+    check_price_basis,
+    check_publisher_bounded_universe,
+)
 from yen_gov.canonical.ingest.fetch import CacheKey, FetchedCache
+from yen_gov.canonical.ingest.messages import (
+    CanonicalBatch,
+    CanonicalObservationRow,
+    ReplacementSemantics,
+)
 from yen_gov.canonical.ingest.registry import (
     Adapter,
     AdapterRunResult,
@@ -50,11 +63,17 @@ from yen_gov.canonical.ingest.registry import (
     default_registry,
     summarise_indicator_csv,
 )
-from yen_gov.canonical.ingest.spec import IndicatorSpec
+from yen_gov.canonical.ingest.spec import IndicatorSpec, PriceBasis
+from yen_gov.canonical.ingest.splice_guard import (
+    MethodologyBreak,
+    check_splice,
+    find_seams,
+    load_methodology_breaks,
+)
 from yen_gov.core.events import FetchSkipped, emit
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from collections.abc import Mapping
+    from collections.abc import Mapping, Sequence
 
     from yen_gov.core.logging import StructuredLogger
 
@@ -62,6 +81,7 @@ if TYPE_CHECKING:  # pragma: no cover - typing only
 _DATAPOINTS_GEO_REL = "datasets/data/datapoints/geo"
 _VARIABLES_REL = "datasets/data/variables.csv"
 _SOURCE_REL = "datasets/data/entities/source.csv"
+_INDICATORS_REL = "datasets/taxonomy/indicators.json"
 
 
 class IngestError(Exception):
@@ -116,6 +136,8 @@ class IndicatorStatus(BaseModel):
     update_period_days: int | None = None
     last_checked: str | None = None
     has_coverage: bool = False
+    seam_years: tuple[int, ...] = ()
+    is_spliced: bool = False
 
 
 # --------------------------------------------------------------------------- #
@@ -280,6 +302,8 @@ def orchestrate(
     concepts: Iterable[dict] | None = None,
     indicators_path: Path | None = None,
     concepts_path: Path | None = None,
+    methodology_breaks: Iterable["Mapping[str, object]"] | None = None,
+    methodology_breaks_path: Path | None = None,
 ) -> OrchestrateResult:
     """Drive the requested indicator (or adapter scope) into the canonical store.
 
@@ -302,6 +326,11 @@ def orchestrate(
         indicators / concepts / indicators_path / concepts_path: catalogue
             overrides forwarded to ``catalogue_fk`` (tests inject fixtures so
             they never walk the real corpus; defaults read the taxonomy SOT).
+        methodology_breaks / methodology_breaks_path: overrides for the
+            ``methodology_breaks`` table the publish-seam SPLICE gate consults
+            (Row 6). Loaded LAZILY -- only a driven indicator whose emitted
+            series actually changes ``source_id`` mid-series touches them, so a
+            single-source run never reads the breaks table.
 
     Returns:
         :class:`OrchestrateResult` with the fan-out line and one
@@ -311,6 +340,9 @@ def orchestrate(
         IngestUsageError: the scope is unresolvable.
         CatalogueFkError / ConceptCompatibilityError: a targeted indicator
             fails the registration FK or concept-compatibility check.
+        SpliceBreakRowError: a driven indicator's emitted series splices
+            sources mid-series with no covering ``methodology_breaks`` row (the
+            PUBLISH-seam provenance gate refuses such a run).
     """
     registry = dict(registry) if registry is not None else default_registry()
     index = build_indicator_index(registry)
@@ -377,6 +409,20 @@ def orchestrate(
             )
             _log_published(logger, result)
             results.append(result)
+
+    # PUBLISH-seam provenance gate (Row 6): refuse a run that emitted an
+    # unmarked splice. Read off the honest on-disk series of each driven
+    # indicator; a single-source series short-circuits before any catalogue or
+    # breaks read, so the as-is single-source adapters are unaffected.
+    _verify_published_provenance(
+        repo_root,
+        results,
+        logger=logger,
+        indicators=indicators,
+        indicators_path=indicators_path,
+        breaks=methodology_breaks,
+        breaks_path=methodology_breaks_path,
+    )
 
     return OrchestrateResult(
         indicator=indicator,
@@ -501,6 +547,242 @@ def _log_published(
 
 
 # --------------------------------------------------------------------------- #
+# PUBLISH seam: honesty gates (Row 6)
+# --------------------------------------------------------------------------- #
+#
+# Two wirings, both in this module so all publish-seam orchestration lives in
+# one place:
+#
+# * ``apply_publish_gates`` is the PRE-WRITE composite a CanonicalBatch-producing
+#   PUBLISH path calls: it runs the optional ENRICH gates checkable on a batch
+#   (price-basis / bifurcation / bounded-universe), the DIVERGENCE gate (batch
+#   vs what is on disk), then the SPLICE gate on the PROSPECTIVE merged series,
+#   and returns the validated rows to write. The Row-6 oracle drives this
+#   directly (refuse -> author break row -> publish one series, source_id intact;
+#   and a >tolerance overlap disagreement fails loud).
+# * ``_verify_published_provenance`` is the orchestrator's POST-EMIT guard for
+#   the as-is adapters (which write their own CSV and never hand us a batch):
+#   it reads each driven indicator's honest on-disk series and refuses a run
+#   that emitted an unmarked splice. A single-source series short-circuits in
+#   ``find_seams`` before any catalogue/breaks read, so the existing
+#   single-source adapters (and their byte-identity oracle) are untouched.
+
+
+class PublishDecision(BaseModel):
+    """The validated outcome of :func:`apply_publish_gates` (rows ready to write)."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    indicator_id: str = Field(min_length=1)
+    rows: tuple[CanonicalObservationRow, ...]
+    seam_years: tuple[int, ...] = ()
+    recorded_resolutions: tuple[DivergenceResolution, ...] = ()
+
+
+def _read_geo_dicts(repo_root: Path, indicator_id: str) -> list[dict]:
+    """Read an indicator's emitted geo datapoints as ``{entity_id,time,value,source_id}``.
+
+    The honest on-disk provenance projection both publish-seam gates reason
+    over. Absent file -> ``[]`` (nothing published yet, nothing to gate).
+    """
+    path = repo_root / _DATAPOINTS_GEO_REL / f"{indicator_id}.csv"
+    if not path.is_file():
+        return []
+    out: list[dict] = []
+    with path.open(encoding="utf-8", newline="") as fh:
+        for row in csv.DictReader(fh):
+            entity_id = (row.get("entity_id") or "").strip()
+            raw_time = (row.get("time") or "").strip()
+            if not entity_id or not raw_time:
+                continue
+            raw_value = (row.get("value") or "").strip()
+            out.append(
+                {
+                    "entity_id": entity_id,
+                    "time": int(raw_time),
+                    "value": float(raw_value) if raw_value else None,
+                    "source_id": (row.get("source_id") or "").strip(),
+                }
+            )
+    return out
+
+
+def _merge_rows(
+    existing: "Iterable[CanonicalObservationRow]",
+    batch_rows: "Iterable[CanonicalObservationRow]",
+    semantics: ReplacementSemantics,
+) -> list[CanonicalObservationRow]:
+    """Compute the prospective on-disk rows after PUBLISH reconciles the batch.
+
+    ``upsert`` matches on the geo PK ``(entity_id, time)`` -- a batch row
+    replaces the incumbent for its cell, others are kept; ``replace_partition``
+    discards the incumbent entirely. Sorted by ``(entity_id, time)`` for a
+    deterministic seam scan (``write_csv`` re-sorts by PK on emit).
+    """
+    if semantics == ReplacementSemantics.replace_partition:
+        merged = {(r.entity_id, r.time): r for r in batch_rows}
+    else:
+        merged = {(r.entity_id, r.time): r for r in existing}
+        for r in batch_rows:
+            merged[(r.entity_id, r.time)] = r
+    return [merged[k] for k in sorted(merged)]
+
+
+def _concept_price_basis(
+    concept: "Mapping[str, object] | None",
+) -> PriceBasis | None:
+    """Parse a concept row's ``price_basis`` dict into a comparable model (or None)."""
+    if concept is None:
+        return None
+    raw = concept.get("price_basis")
+    if not raw:
+        return None
+    return PriceBasis(basis=raw["basis"], base_year=raw.get("base_year"))  # type: ignore[index]
+
+
+def apply_publish_gates(
+    batch: CanonicalBatch,
+    *,
+    repo_root: Path,
+    existing_rows: "Iterable[CanonicalObservationRow] | None" = None,
+    concept: "Mapping[str, object] | None" = None,
+    methodology_break_ids: "Sequence[str] | None" = None,
+    breaks: "Iterable[Mapping[str, object]] | None" = None,
+    breaks_path: Path | None = None,
+    divergence_resolutions: Iterable[DivergenceResolution] = (),
+    incoming_price_basis: PriceBasis | None = None,
+    entity_kinds: "Mapping[str, str] | None" = None,
+    allowed_entities: "Sequence[str] | None" = None,
+) -> PublishDecision:
+    """Run the PUBLISH-seam honesty gates on a batch and return rows to write.
+
+    Order: the batch-checkable ENRICH gates (price-basis when a basis is given;
+    bifurcation when ``entity_kinds`` is given; bounded-universe when
+    ``allowed_entities`` is given), then the DIVERGENCE gate (batch vs
+    ``existing_rows`` -- read off disk when not supplied), then the SPLICE gate
+    on the merged series. Returns a :class:`PublishDecision` whose ``rows`` are
+    the validated, merged observation rows the caller writes via ``write_csv``.
+
+    Raises the gate's typed error (``PriceBasisError`` / ``BifurcationError`` /
+    ``PublisherBoundedUniverseError`` / ``DivergenceError`` /
+    ``SpliceBreakRowError``) on the first violation.
+    """
+    if existing_rows is None:
+        existing_models = [
+            CanonicalObservationRow(**d) for d in _read_geo_dicts(repo_root, batch.indicator_id)
+        ]
+    else:
+        existing_models = list(existing_rows)
+
+    if incoming_price_basis is not None:
+        check_price_basis(incoming_price_basis, _concept_price_basis(concept))
+    if entity_kinds is not None:
+        check_bifurcation(
+            EntityObservation(
+                entity_id=r.entity_id,
+                time=r.time,
+                entity_kind=entity_kinds.get(r.entity_id),
+            )
+            for r in batch.observation_rows
+        )
+    if allowed_entities is not None:
+        check_publisher_bounded_universe(
+            (r.entity_id for r in batch.observation_rows),
+            allowed_entities=allowed_entities,
+        )
+
+    applied = check_divergence(
+        batch.observation_rows,
+        existing_models,
+        concept=concept,
+        resolutions=divergence_resolutions,
+    )
+
+    merged = _merge_rows(
+        existing_models, batch.observation_rows, batch.replacement_semantics
+    )
+    breaks_map = load_methodology_breaks(breaks=breaks, breaks_path=breaks_path)
+    seam_years = check_splice(
+        merged,
+        indicator_id=batch.indicator_id,
+        methodology_break_ids=methodology_break_ids,
+        breaks=breaks_map,
+    )
+    return PublishDecision(
+        indicator_id=batch.indicator_id,
+        rows=tuple(merged),
+        seam_years=seam_years,
+        recorded_resolutions=applied,
+    )
+
+
+def _load_indicator_rows(
+    indicators: Iterable[dict] | None,
+    indicators_path: Path | None,
+    repo_root: Path,
+) -> list[dict]:
+    """Load the indicator catalogue rows (injected fixtures or the run's repo)."""
+    if indicators is not None:
+        return list(indicators)
+    path = indicators_path or (repo_root / _INDICATORS_REL)
+    if not path.is_file():
+        return []
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    rows = payload.get("indicators", [])
+    return rows if isinstance(rows, list) else []
+
+
+def _indicator_break_ids(indicator_id: str, indicator_rows: list[dict]) -> list[str]:
+    """Return an indicator's ``methodology_break_ids`` (or ``[]`` if undeclared)."""
+    for row in indicator_rows:
+        if row.get("indicator_id") == indicator_id:
+            ids = row.get("methodology_break_ids") or []
+            return [str(i) for i in ids] if isinstance(ids, list) else []
+    return []
+
+
+def _verify_published_provenance(
+    repo_root: Path,
+    results: list[AdapterRunResult],
+    *,
+    logger: "StructuredLogger | None",
+    indicators: Iterable[dict] | None,
+    indicators_path: Path | None,
+    breaks: "Iterable[Mapping[str, object]] | None",
+    breaks_path: Path | None,
+) -> None:
+    """Refuse a run whose emitted series splices sources without a break row.
+
+    For each distinct driven indicator: read its on-disk series; if no entity's
+    rows change ``source_id`` mid-series (the common single-source / disjoint
+    case) skip without any catalogue or breaks read; otherwise resolve the
+    indicator's ``methodology_break_ids`` + the breaks table and apply the
+    SPLICE gate, which raises :class:`SpliceBreakRowError` on an uncovered seam.
+    """
+    seen: set[str] = set()
+    breaks_map: "dict[str, MethodologyBreak] | None" = None
+    indicator_rows: list[dict] | None = None
+    for res in results:
+        indicator_id = res.indicator_id
+        if indicator_id in seen:
+            continue
+        seen.add(indicator_id)
+        rows = _read_geo_dicts(repo_root, indicator_id)
+        if len(rows) < 2 or not find_seams(rows):
+            continue
+        if breaks_map is None:
+            breaks_map = load_methodology_breaks(breaks=breaks, breaks_path=breaks_path)
+        if indicator_rows is None:
+            indicator_rows = _load_indicator_rows(indicators, indicators_path, repo_root)
+        check_splice(
+            rows,
+            indicator_id=indicator_id,
+            methodology_break_ids=_indicator_break_ids(indicator_id, indicator_rows),
+            breaks=breaks_map,
+        )
+
+
+# --------------------------------------------------------------------------- #
 # status
 # --------------------------------------------------------------------------- #
 
@@ -517,12 +799,17 @@ def compute_status(
     spans are read straight off the emitted ``geo/<id>.csv`` (its ``source_id``
     column is the honest record of which source supplied which observation);
     the cadence (``update_period_days``) comes from ``variables.csv`` and the
-    last-checked stamp from the committed checkpoint when one exists.
+    last-checked stamp from the committed checkpoint when one exists. The
+    ``seam_years`` (a mid-series ``source_id`` change in any entity) surface the
+    splice provenance Row 6 enforces -- read-only here (it RAISES nowhere), so
+    ``status`` can flag a spliced series without re-running PUBLISH.
     """
     registry = dict(registry) if registry is not None else default_registry()
     index = build_indicator_index(registry)
     adapters = tuple(sorted(index.get(indicator, [])))
     coverage = _read_coverage(repo_root, indicator)
+    seams = find_seams(_read_geo_dicts(repo_root, indicator))
+    seam_years = tuple(sorted({year for years in seams.values() for year in years}))
     return IndicatorStatus(
         indicator_id=indicator,
         adapters=adapters,
@@ -530,6 +817,8 @@ def compute_status(
         update_period_days=_read_update_period(repo_root, indicator),
         last_checked=_read_last_checked(repo_root, adapters),
         has_coverage=bool(coverage),
+        seam_years=seam_years,
+        is_spliced=bool(seam_years),
     )
 
 
@@ -630,8 +919,10 @@ __all__ = [
     "IngestError",
     "IngestUsageError",
     "OrchestrateResult",
+    "PublishDecision",
     "RegistryConsistencyError",
     "SourceCoverage",
+    "apply_publish_gates",
     "build_indicator_index",
     "compute_status",
     "orchestrate",
