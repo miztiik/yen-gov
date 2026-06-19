@@ -1,9 +1,13 @@
-"""Canonical ECI backfill — JSON corpus → Parquet via the canonical adapter.
+"""Canonical ECI backfill - JSON corpus -> per-state electoral CSV.
 
 Walks ``datasets/elections/<event>/<state>/results/*.json`` (the legacy per-AC
 artifacts emitted by the older `eci-statreport-emit*` commands), reconstructs
-the contest-scoping source for each AC, calls the canonical ECI adapter, and
-hands the resulting BatchEnvelope to ``canonical.writer.write_batch``.
+the contest-scoping source for each AC, builds the canonical observation rows,
+and UPSERTs them into the per-state long-format CSV
+``datasets/data/datapoints/electoral/<state_slug>_election_results.csv`` via
+``canonical.adapters.eci.electoral_csv.write_electoral_results`` (ingest
+rip-replace Row 8; the legacy envelope -> parquet write path retired). Source
+citations append to ``datasets/data/entities/source.csv``.
 
 This is the Phase 1.1 step-5 driver. It does NOT re-fetch from ECI; it reads
 the on-disk JSON corpus that prior live-emit runs have already produced.
@@ -18,7 +22,8 @@ Public API:
   artifacts the writers used to emit (TODO row ``1.8b-writers-b``).
 - :func:`backfill_elections` — driver that walks the on-disk corpus,
   delegates per-slice work to :func:`_process_slice` (thin disk-wrapper
-  around the primary API), and batches per-event into ``write_batch``.
+  around the primary API), and UPSERTs per-event into the per-state
+  electoral CSVs.
 
 Design notes (post ADR-0032 / P.0e citation-ledger pivot):
 
@@ -44,8 +49,9 @@ Design notes (post ADR-0032 / P.0e citation-ledger pivot):
   in the returned ``BackfillResult.unresolved_parties`` for operator triage.
   This is the documented compromise that lets candidate-* + ac-* rows ship
   complete; party-* rollups for UNK are computed but flagged in the result.
-- The driver uses a single in-memory BatchEnvelope per (event, state) slice
-  so the writer's UPSERT semantics keep re-runs idempotent.
+- The driver UPSERTs each event's observation rows into the per-state CSVs
+  on the logical key (entity_id, period_label, indicator_id), so re-runs are
+  idempotent.
 """
 
 from __future__ import annotations
@@ -63,24 +69,22 @@ from yen_gov.canonical.adapters.eci import (
     load_party_lookup,
     observations_from_constituency,
     parse_period_label,
-    party_alliance_dim_rows,
-    party_dim_rows,
     state_rollup_observations,
 )
 from yen_gov.canonical.party_resolver import UnknownPartyError
 from yen_gov.canonical.adapters.eci.rollups import ACContestSummary
 from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.adapters.eci.electoral_csv import (
+    upsert_source_csv,
+    write_electoral_results,
+)
 from yen_gov.canonical.envelope import (
     AcDimRow,
-    BatchEnvelope,
     CandidacyRow,
     ObservationRow,
-    PartyAllianceDimRow,
-    PartyDimRow,
     PersonDimRow,
     SourceRow,
 )
-from yen_gov.canonical.writer import WriteResult, write_batch
 from yen_gov.core.models import ConstituencyResult
 from yen_gov.pipeline.dim_acs_lgd_lift import load_lgd_lookup
 
@@ -109,18 +113,14 @@ class BackfillResult:
     states_processed: int = 0
     events_processed: int = 0
     unresolved_parties: dict[str, int] = field(default_factory=dict)
-    write_result: WriteResult | None = None
+    csv_paths: tuple[Path, ...] = ()
 
     @property
     def observation_rows_written(self) -> int:
-        if self.write_result is not None:
-            return self.write_result.observation_rows_written
         return sum(s.observation_rows_written for s in self.slices)
 
     @property
     def source_rows_written(self) -> int:
-        if self.write_result is not None:
-            return self.write_result.source_rows_written
         return sum(s.source_rows_written for s in self.slices)
 
     @property
@@ -141,16 +141,17 @@ def backfill_elections(
     on_event_written: "callable[[str, int, int, float], None] | None" = None,
     corpus_root: Path | None = None,
 ) -> BackfillResult:
-    """Walk the per-AC JSON corpus and emit one event per write_batch call.
+    """Walk the per-AC JSON corpus and UPSERT one event per CSV write batch.
 
     Per-event batching:
 
-    - Parse every (event, state) slice belonging to one event into a single
-      in-memory envelope, then call ``write_batch`` once for that event.
-    - Each event's rows are persisted to ``datasets/elections/election_results.parquet``
-      before the next event starts. If the run aborts mid-corpus, work done
-      so far is on disk; a re-run skips events whose observation_ids are
-      already present (UPSERT semantics make it a no-op).
+    - Parse every (event, state) slice belonging to one event into one
+      in-memory observation-row list, then UPSERT it once for that event.
+    - Each event's rows are persisted to the per-state CSVs under
+      ``datasets/data/datapoints/electoral/`` before the next event starts.
+      If the run aborts mid-corpus, work done so far is on disk; a re-run
+      UPSERTs on the logical key (entity_id, period_label, indicator_id) and
+      is a no-op for already-written rows.
     - ``on_slice`` fires after each (event, state) parse; ``on_event_written``
       fires after each successful event write with (event_id, n_obs, n_sources,
       duration_s) for live progress visibility.
@@ -162,15 +163,15 @@ def backfill_elections(
         events: optional allow-list of event_ids (e.g. ["AcGenMay2026"]).
         states: optional allow-list of state codes (e.g. ["S22"]).
         on_slice: callback invoked after each (event, state) slice is parsed.
-        on_write_start: callback invoked before each event's write_batch.
-        on_event_written: callback invoked after each event's write_batch.
+        on_write_start: callback invoked before each event's CSV write.
+        on_event_written: callback invoked after each event's CSV write.
         corpus_root: optional override for the per-AC JSON corpus directory
             (containing ``<event>/<state>/results/*.json``). Defaults to
             ``datasets_root / "elections"``. Lets the operator point the
             backfill at a restored snapshot under e.g.
             ``datasets/ephemeral/legacy-corpus/elections`` without polluting
-            the canonical write target. Write target is unchanged
-            (``datasets_root / "elections" / "election_results.parquet"``).
+            the canonical write target (the per-state CSVs under
+            ``datasets_root / "data" / "datapoints" / "electoral"``).
 
     Returns:
         BackfillResult summarising parsed-row counts, slice errors, and
@@ -193,10 +194,7 @@ def backfill_elections(
     result.events_processed = len(event_dirs)
     unresolved: dict[str, int] = defaultdict(int)
     seen_states: set[tuple[str, str]] = set()
-    total_obs_written = 0
-    total_src_written = 0
-    last_obs_written = 0
-    last_src_written = 0
+    csv_paths: dict[str, Path] = {}
 
     for event_dir in event_dirs:
         event_id = event_dir.name
@@ -208,9 +206,6 @@ def backfill_elections(
 
         event_obs: list[ObservationRow] = []
         event_sources: dict[str, SourceRow] = {}
-        event_person_dims: list[PersonDimRow] = []
-        event_candidacies: list[CandidacyRow] = []
-        event_ac_dims: dict[str, AcDimRow] = {}  # ac_id -> row (UPSERT-dedupe)
 
         state_dirs = sorted(
             p for p in event_dir.iterdir()
@@ -223,7 +218,7 @@ def backfill_elections(
             if not results_dir.is_dir():
                 continue
             try:
-                rows, sources, ac_count, slice_unresolved, person_dims, candidacies, ac_dims = _process_slice(
+                rows, sources, ac_count, slice_unresolved, _person_dims, _candidacies, _ac_dims = _process_slice(
                     results_dir=results_dir,
                     state_code=state_code,
                     period=period,
@@ -246,10 +241,6 @@ def backfill_elections(
             event_obs.extend(rows)
             for sid, srow in sources.items():
                 event_sources.setdefault(sid, srow)
-            event_person_dims.extend(person_dims)
-            event_candidacies.extend(candidacies)
-            for ad in ac_dims:
-                event_ac_dims.setdefault(ad.ac_id, ad)
             for short, n in slice_unresolved.items():
                 unresolved[short] += n
             seen_states.add((event_id, state_code))
@@ -271,53 +262,27 @@ def backfill_elections(
         if on_write_start is not None:
             on_write_start(len(event_obs), len(event_sources))
 
-        # Party dims are seeded once per event from the (event-wide) registry.
-        # The first source row of the event is used as the provenance pointer
-        # for the parties.json registry — UPSERT keeps later events idempotent.
-        first_source_id = sorted(event_sources.keys())[0] if event_sources else ""
-        party_dim_payload = (
-            [PartyDimRow(**r) for r in party_dim_rows(party_lookup, source_id=first_source_id)]
-            if first_source_id
-            else []
-        )
-        # Alliance dim mirrors party_dim: emit the full alliance_history roster
-        # on every envelope. Writer UPSERTs on composite PK (party_id,
-        # period_label), so multiple events re-emitting are idempotent.
-        party_alliance_payload = (
-            [
-                PartyAllianceDimRow(**r)
-                for r in party_alliance_dim_rows(party_lookup, source_id=first_source_id)
-            ]
-            if first_source_id
-            else []
-        )
-
-        envelope = BatchEnvelope(
-            target_family="elections",
-            schema_version="1.0",
-            source_rows=sorted(event_sources.values(), key=lambda s: s.source_id),
-            observation_rows=event_obs,
-            person_dim_rows=event_person_dims,
-            candidacy_rows=event_candidacies,
-            ac_dim_rows=list(event_ac_dims.values()),
-            party_dim_rows=party_dim_payload,
-            party_alliance_dim_rows=party_alliance_payload,
-        )
+        # Per-event write: UPSERT observation rows into the per-state
+        # electoral CSVs + additively append citation rows to source.csv.
+        # Mirrors the old envelope UPSERT semantics (read-merge-write per
+        # state) so re-running an event drops no pre-existing rows. Dim rows
+        # (party/person/candidacy/ac) are no longer persisted - their parquets
+        # retired in X1b / X1a-fu2 and the citizen store is the per-state CSV.
+        # (ingest rip-replace Row 8.)
         t0 = time.time()
         try:
-            wr = write_batch(envelope, datasets_root)
+            paths = write_electoral_results(
+                datasets_root=datasets_root, observation_rows=event_obs
+            )
+            upsert_source_csv(
+                datasets_root=datasets_root,
+                source_rows=list(event_sources.values()),
+            )
+            csv_paths.update(paths)
             dt = time.time() - t0
-            # wr.observation_rows_written is the CUMULATIVE parquet size
-            # after this event's UPSERT (not just this event's rows). Keep
-            # only the last value to avoid double-counting in totals.
-            last_obs_written = wr.observation_rows_written
-            last_src_written = wr.source_rows_written
-            total_obs_written += len(event_obs)
-            total_src_written += len(event_sources)
             if on_event_written is not None:
                 on_event_written(
-                    event_id, wr.observation_rows_written,
-                    wr.source_rows_written, dt,
+                    event_id, len(event_obs), len(event_sources), dt,
                 )
         except Exception as exc:
             log.exception("event %s write FAILED", event_id)
@@ -327,14 +292,7 @@ def backfill_elections(
 
     result.states_processed = len(seen_states)
     result.unresolved_parties = dict(unresolved)
-    result.write_result = WriteResult(
-        family="elections",
-        observations_path=datasets_root / "elections" / "observations.parquet",
-        sources_path=datasets_root / "taxonomy" / "sources.parquet",
-        manifest_path=datasets_root / "manifest.json",
-        observation_rows_written=last_obs_written,
-        source_rows_written=last_src_written,
-    )
+    result.csv_paths = tuple(csv_paths.values())
 
     return result
 

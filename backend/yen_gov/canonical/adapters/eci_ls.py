@@ -1,13 +1,14 @@
 """ECI Parliament (PC) constituency-wise results adapter / driver.
 
 Reads the frozen ECI Report-33 constituency-wise detailed-result CSV plus the
-Report-34 AC→PC crosswalk and emits canonical PC-grain Parquet rows through
-the shared BatchEnvelope writer.
-
-The PC rows share the existing ``datasets/elections/state=<key>/`` fact family
-(no ``grain=`` partition); the writer routes ``IN-PC-...`` entity_ids to the
-matching ``in_<state>`` shard alongside the AC rows. ``dim_pcs.parquet`` is the
-PC-grain dimension sibling of ``dim_acs.parquet``.
+Report-34 AC->PC crosswalk and emits canonical PC-grain observation rows to the
+per-state long-format CSV
+``datasets/data/datapoints/electoral/<state_slug>_election_results.csv`` via
+``canonical.adapters.eci.electoral_csv.write_electoral_results`` (ingest
+rip-replace Row 8; the legacy envelope -> parquet write path retired). Each PC
+row's ``IN-PC-...`` entity_id routes to its state's file alongside that state's
+AC rows; the UPSERT preserves pre-existing rows. Source citations append to
+``datasets/data/entities/source.csv``.
 """
 
 from __future__ import annotations
@@ -36,8 +37,12 @@ from yen_gov.canonical.adapters.eci.pc_observations import (
     persons_and_candidacies_from_pc,
 )
 from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.adapters.eci.electoral_csv import (
+    ElectoralBatch,
+    upsert_source_csv,
+    write_electoral_results,
+)
 from yen_gov.canonical.envelope import (
-    BatchEnvelope,
     CandidacyRow,
     ObservationRow,
     PartyAllianceDimRow,
@@ -46,7 +51,6 @@ from yen_gov.canonical.envelope import (
     PersonDimRow,
     SourceRow,
 )
-from yen_gov.canonical.writer import WriteResult, write_batch
 from yen_gov.sources.eci.ls_constituencywise import (
     PcCandidateRaw,
     PcResultRaw,
@@ -402,7 +406,8 @@ EVENT_BY_GE_YEAR: dict[int, PcGeEvent] = {
 
 @dataclass(frozen=True)
 class LsIngestResult:
-    write_result: WriteResult | None
+    observation_rows_written: int
+    csv_paths: tuple[Path, ...]
     event_id: str
     pc_count: int
     inventory_path: Path
@@ -520,10 +525,10 @@ def build_pc_envelope(
     crosswalk_path: Path,
     allow_unknown_parties: bool = False,
     event: PcGeEvent = LS_2024,
-) -> tuple[BatchEnvelope, int, dict[str, int]]:
-    """Parse the ECI Report-33 + Report-34 CSVs into a BatchEnvelope.
+) -> tuple[ElectoralBatch, int, dict[str, int]]:
+    """Parse the ECI Report-33 + Report-34 CSVs into an ElectoralBatch.
 
-    Returns ``(envelope, pc_count, unresolved_parties)``.
+    Returns ``(batch, pc_count, unresolved_parties)``.
     """
     results = parse_ls_constituencywise(
         csv_path,
@@ -545,8 +550,8 @@ def build_pc_envelope_from_tcpd(
     year: int,
     event: PcGeEvent,
     allow_unknown_parties: bool = False,
-) -> tuple[BatchEnvelope, int, dict[str, int]]:
-    """Parse one GE year from the TCPD All-States panel into a BatchEnvelope.
+) -> tuple[ElectoralBatch, int, dict[str, int]]:
+    """Parse one GE year from the TCPD All-States panel into an ElectoralBatch.
 
     The TCPD historical path (1999-2019); shares the envelope builder with the
     ECI Report-33 path so both produce byte-compatible canonical rows. Returns
@@ -573,8 +578,8 @@ def _envelope_from_results(
     datasets_root: Path,
     event: PcGeEvent,
     allow_unknown_parties: bool = False,
-) -> tuple[BatchEnvelope, int, dict[str, int]]:
-    """Build a canonical PC ``BatchEnvelope`` from parsed ``PcResultRaw`` rows.
+) -> tuple[ElectoralBatch, int, dict[str, int]]:
+    """Build a canonical PC ``ElectoralBatch`` from parsed ``PcResultRaw`` rows.
 
     Source-agnostic: the ECI Report-33 (2024) and TCPD panel (historical)
     parsers both feed this, so the canonical rows are identical regardless of
@@ -641,9 +646,7 @@ def _envelope_from_results(
     for state_summaries in by_state.values():
         observations.extend(parliament_rollup_observations(summaries=state_summaries))
 
-    envelope = BatchEnvelope(
-        target_family="elections",
-        schema_version="1.0",
+    batch = ElectoralBatch(
         source_rows=[source_row],
         observation_rows=observations,
         pc_dim_rows=pc_dims,
@@ -658,7 +661,7 @@ def _envelope_from_results(
             for r in party_alliance_dim_rows(base_lookup, source_id=source_row.source_id)
         ],
     )
-    return envelope, len(results), dict(sorted(unresolved.items()))
+    return batch, len(results), dict(sorted(unresolved.items()))
 
 
 def ingest_ls(
@@ -675,22 +678,26 @@ def ingest_ls(
     inventory_path = repo_root.joinpath(*INVENTORY_PATH_REL)
     if not force and _inventory_has_event(repo_root, event=event):
         return LsIngestResult(
-            write_result=None,
+            observation_rows_written=0,
+            csv_paths=(),
             event_id=event.period.period_label,
             pc_count=0,
             inventory_path=inventory_path,
             unresolved_parties={},
             skipped=True,
         )
-    envelope, pc_count, unresolved = build_pc_envelope(
+    batch, pc_count, unresolved = build_pc_envelope(
         datasets_root=datasets_root,
         csv_path=csv_path,
         crosswalk_path=crosswalk_path,
         allow_unknown_parties=allow_unknown_parties,
         event=event,
     )
-    write_result = write_batch(envelope, datasets_root)
-    states = sorted({row.state_code for row in envelope.pc_dim_rows})
+    csv_paths = write_electoral_results(
+        datasets_root=datasets_root, observation_rows=batch.observation_rows
+    )
+    upsert_source_csv(datasets_root=datasets_root, source_rows=batch.source_rows)
+    states = sorted({row.state_code for row in batch.pc_dim_rows})
     inventory_path = _upsert_inventory(
         repo_root=repo_root,
         states=states,
@@ -698,7 +705,8 @@ def ingest_ls(
         event=event,
     )
     return LsIngestResult(
-        write_result=write_result,
+        observation_rows_written=len(batch.observation_rows),
+        csv_paths=tuple(csv_paths.values()),
         event_id=event.period.period_label,
         pc_count=pc_count,
         inventory_path=inventory_path,
@@ -727,7 +735,8 @@ def ingest_ls_tcpd(
     inventory_path = repo_root.joinpath(*INVENTORY_PATH_REL)
     if not force and _inventory_has_event(repo_root, event=event):
         return LsIngestResult(
-            write_result=None,
+            observation_rows_written=0,
+            csv_paths=(),
             event_id=event.period.period_label,
             pc_count=0,
             inventory_path=inventory_path,
@@ -741,7 +750,10 @@ def ingest_ls_tcpd(
         event=event,
         allow_unknown_parties=allow_unknown_parties,
     )
-    write_result = write_batch(envelope, datasets_root)
+    csv_paths = write_electoral_results(
+        datasets_root=datasets_root, observation_rows=envelope.observation_rows
+    )
+    upsert_source_csv(datasets_root=datasets_root, source_rows=envelope.source_rows)
     states = sorted({row.state_code for row in envelope.pc_dim_rows})
     inventory_path = _upsert_inventory(
         repo_root=repo_root,
@@ -750,7 +762,8 @@ def ingest_ls_tcpd(
         event=event,
     )
     return LsIngestResult(
-        write_result=write_result,
+        observation_rows_written=len(envelope.observation_rows),
+        csv_paths=tuple(csv_paths.values()),
         event_id=event.period.period_label,
         pc_count=pc_count,
         inventory_path=inventory_path,
