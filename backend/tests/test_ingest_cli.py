@@ -84,6 +84,20 @@ class TestRunUsage:
         assert result.exit_code == 2
         assert "specify --indicator" in result.output
 
+    def test_resume_flag_is_accepted(self, tmp_path):
+        # --resume (Row 5) is part of the run grammar; the usage rule still
+        # applies, so a scopeless run with --resume exits 2 (not a parse error).
+        result = runner.invoke(
+            ingest_app, ["run", "--resume", "--root", str(tmp_path)]
+        )
+        assert result.exit_code == 2
+        assert "specify --indicator" in result.output
+
+    def test_run_help_lists_resume(self):
+        result = runner.invoke(ingest_app, ["run", "--help"])
+        assert result.exit_code == 0
+        assert "--resume" in result.output
+
 
 class TestStatusCli:
     def test_status_shows_per_source_year_spans(self, tmp_path):

@@ -41,13 +41,17 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from yen_gov.canonical.ingest import state
 from yen_gov.canonical.ingest.catalogue_fk import check_indicator_registration
+from yen_gov.canonical.ingest.fetch import CacheKey, FetchedCache
 from yen_gov.canonical.ingest.registry import (
     Adapter,
     AdapterRunResult,
+    FetchableAdapter,
     OrchestrateConfig,
     default_registry,
+    summarise_indicator_csv,
 )
 from yen_gov.canonical.ingest.spec import IndicatorSpec
+from yen_gov.core.events import FetchSkipped, emit
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
     from collections.abc import Mapping
@@ -271,6 +275,7 @@ def orchestrate(
     registry: "Mapping[str, Adapter] | None" = None,
     logger: "StructuredLogger | None" = None,
     on_fanout: Callable[[str], None] | None = None,
+    resume: bool = False,
     indicators: Iterable[dict] | None = None,
     concepts: Iterable[dict] | None = None,
     indicators_path: Path | None = None,
@@ -290,6 +295,10 @@ def orchestrate(
             publish lines are written to it when present.
         on_fanout: optional sink called with the fan-out line BEFORE any work
             (the CLI passes ``typer.echo`` so the echo precedes the output).
+        resume: the explicit "continue from the last completed checkpoint year"
+            affordance. A plain run is already idempotent (the skip predicate
+            refuses to skip an incomplete year), so this only annotates the log;
+            correctness is identical with or without it.
         indicators / concepts / indicators_path / concepts_path: catalogue
             overrides forwarded to ``catalogue_fk`` (tests inject fixtures so
             they never walk the real corpus; defaults read the taxonomy SOT).
@@ -308,8 +317,10 @@ def orchestrate(
     targets = _resolve_targets(index, indicator=indicator, adapter=adapter)
 
     # --- PREAMBLE (not a stage): validate the targeted specs against the
-    # catalogue (the spec-validation half). Cache-unit listing + checkpoint
-    # delta-diff are Row 5; the Row-4 work-list is "every target, no skipping".
+    # catalogue (the spec-validation half). The cache-unit listing + checkpoint
+    # delta-diff (Row 5) run INSIDE the per-adapter Fetch loop below, for
+    # adapters that declare the fetchable capability; a Row-4 adapter keeps the
+    # "every target, no skipping" behaviour.
     for slug, ind_id in targets:
         spec = _indicator_spec(registry, slug, ind_id)
         check_indicator_registration(
@@ -330,34 +341,162 @@ def orchestrate(
         logger.info("ingest.fanout", fanout_line)
 
     results: list[AdapterRunResult] = []
+    fetched_cache: FetchedCache | None = None
+    driven_fetchable: set[str] = set()
     for slug, ind_id in work_list:
-        # POLYMORPHIC dispatch -- the engine never knows which adapter this is.
+        # CAPABILITY dispatch -- the engine branches on the fetchable PROTOCOL,
+        # never on adapter_slug (the Row-4 gate). A fetchable adapter runs the
+        # Fetch + delta loop once for ALL its targeted indicators (so a shared
+        # cache unit is fetched once); a Row-4 adapter is driven as-is.
         adapter_obj = registry[slug]
-        result = adapter_obj.run_indicator(
-            ind_id, repo_root=repo_root, config=config
-        )
-        if logger is not None:
-            logger.info(
-                "ingest.published",
-                f"published {result.indicator_id} "
-                f"({result.row_count} rows) -> {result.output_ref}",
-                stage="publish",
-                indicator_id=result.indicator_id,
-                adapter_slug=result.adapter_slug,
-                rows=result.row_count,
-                entities=result.entity_count,
-                year_min=result.time_min,
-                year_max=result.time_max,
-                output=result.output_ref,
-                source_id=result.source_id,
+        if isinstance(adapter_obj, FetchableAdapter):
+            if slug in driven_fetchable:
+                continue
+            driven_fetchable.add(slug)
+            if fetched_cache is None:
+                fetched_cache = FetchedCache(
+                    repo_root=repo_root,
+                    staging_dir=config.staging_dir,
+                    logger=logger,
+                )
+            adapter_indicators = [i for s, i in work_list if s == slug]
+            for res in _drive_fetchable_adapter(
+                adapter_obj,
+                adapter_indicators,
+                repo_root=repo_root,
+                config=config,
+                fetched_cache=fetched_cache,
+                logger=logger,
+                resume=resume,
+            ):
+                _log_published(logger, res)
+                results.append(res)
+        else:
+            result = adapter_obj.run_indicator(
+                ind_id, repo_root=repo_root, config=config
             )
-        results.append(result)
+            _log_published(logger, result)
+            results.append(result)
 
     return OrchestrateResult(
         indicator=indicator,
         adapter=adapter,
         fanout_line=fanout_line,
         results=tuple(results),
+    )
+
+
+# --------------------------------------------------------------------------- #
+# fetchable Fetch + per-year delta loop (Row 5)
+# --------------------------------------------------------------------------- #
+
+
+def _drive_fetchable_adapter(
+    adapter: FetchableAdapter,
+    indicators: list[str],
+    *,
+    repo_root: Path,
+    config: OrchestrateConfig,
+    fetched_cache: FetchedCache,
+    logger: "StructuredLogger | None",
+    resume: bool,
+) -> list[AdapterRunResult]:
+    """Drive one fetchable adapter through Fetch + the per-year delta loop.
+
+    Fetches each per-year cache unit once (shared across the adapter's targeted
+    indicators via ``fetched_cache``), SKIPS a year whose raw payload hash is
+    unchanged (emitting ``fetch.skipped``, ticking the staleness clock, writing
+    zero new datapoint bytes), re-processes a changed or never-completed year,
+    and re-opens EVERY year on a ``spec_version`` bump. The checkpoint is
+    persisted in a ``finally`` so a mid-run failure leaves the completed years
+    recorded -- a re-run (or ``--resume``) continues from the last completed
+    year. Each per-year file backs every indicator that draws from it, so all
+    of a year's indicators are sliced BEFORE the year is marked completed.
+    """
+    slug = adapter.adapter_slug
+    checkpoint = state.load(slug, repo_root)
+    stored_spec = checkpoint.get("spec_version", "")
+    spec_ver = adapter.spec_version(indicators[0])
+    spec_bumped = bool(stored_spec) and stored_spec != spec_ver
+
+    if logger is not None and resume:
+        logger.info(
+            "ingest.resume",
+            f"resuming {slug} from its committed checkpoint",
+            stage="fetch",
+            adapter_slug=slug,
+        )
+
+    # {year -> (shared cache unit, indicators drawing from it)}: a per-year file
+    # is fetched once and every indicator that draws from it is sliced before
+    # the year is recorded, so two indicators sharing a unit fetch once.
+    units_by_year: dict[int, tuple[CacheKey, list[str]]] = {}
+    for indicator_id in indicators:
+        for unit in adapter.cache_units_for(indicator_id):
+            _, owners = units_by_year.setdefault(unit.year, (unit, []))
+            owners.append(indicator_id)
+
+    try:
+        for year in sorted(units_by_year):
+            unit, owners = units_by_year[year]
+            fetched = fetched_cache.get_or_fetch(unit)
+            if not spec_bumped and state.should_skip_year(
+                checkpoint, year, fetched.raw_bytes
+            ):
+                if logger is not None:
+                    emit(
+                        logger,
+                        FetchSkipped(year=year, reason="raw payload unchanged"),
+                        repo_root=repo_root,
+                        stage="fetch",
+                    )
+                checkpoint = state.touch_year(
+                    checkpoint, year=year, last_checked=state.now_iso_z()
+                )
+                continue
+            for indicator_id in owners:
+                adapter.process_year(
+                    indicator_id,
+                    fetched=fetched,
+                    repo_root=repo_root,
+                    config=config,
+                )
+            checkpoint = state.advance_year(
+                checkpoint,
+                year=year,
+                raw_payload=fetched.raw_bytes,
+                completed=True,
+                last_checked=state.now_iso_z(),
+            )
+    finally:
+        checkpoint["spec_version"] = spec_ver
+        state.write(checkpoint, repo_root)
+
+    return [
+        summarise_indicator_csv(repo_root, indicator_id, adapter_slug=slug)
+        for indicator_id in indicators
+    ]
+
+
+def _log_published(
+    logger: "StructuredLogger | None", result: AdapterRunResult
+) -> None:
+    """Emit the per-indicator ``ingest.published`` line (both dispatch paths)."""
+    if logger is None:
+        return
+    logger.info(
+        "ingest.published",
+        f"published {result.indicator_id} "
+        f"({result.row_count} rows) -> {result.output_ref}",
+        stage="publish",
+        indicator_id=result.indicator_id,
+        adapter_slug=result.adapter_slug,
+        rows=result.row_count,
+        entities=result.entity_count,
+        year_min=result.time_min,
+        year_max=result.time_max,
+        output=result.output_ref,
+        source_id=result.source_id,
     )
 
 

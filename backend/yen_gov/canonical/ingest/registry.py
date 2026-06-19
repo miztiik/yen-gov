@@ -37,11 +37,13 @@ so the module-load graph (and ``ingest --help``) stays free of openpyxl.
 
 from __future__ import annotations
 
+import csv
 from pathlib import Path
 from typing import TYPE_CHECKING, Protocol, runtime_checkable
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from yen_gov.canonical.ingest.fetch import CacheKey, FetchedUnit
 from yen_gov.canonical.ingest.paths import to_repo_relative_posix
 from yen_gov.canonical.ingest.spec import IndicatorSpec, SourceSpec
 
@@ -89,6 +91,24 @@ class AdapterRunResult(BaseModel):
     source_id: str = Field(pattern=r"^src-[a-z0-9]{12}$")
 
 
+class YearResult(BaseModel):
+    """One year's outcome after a fetchable adapter enriched + published it.
+
+    The typed value :meth:`FetchableAdapter.process_year` returns. The
+    orchestrator aggregates these across the years it actually processed (the
+    skipped years are NOT represented -- their absence is the point) to log a
+    faithful publish line; the final :class:`AdapterRunResult` is read back off
+    the emitted CSV so it reflects the full coverage, not just this run's slice.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    indicator_id: str = Field(pattern=r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$", max_length=60)
+    year: int = Field(ge=1850, le=2100)
+    rows_written: int = Field(ge=0)
+    source_id: str = Field(pattern=r"^src-[a-z0-9]{12}$")
+
+
 @runtime_checkable
 class Adapter(Protocol):
     """The polymorphic surface the orchestrator drives.
@@ -108,6 +128,47 @@ class Adapter(Protocol):
         self, indicator_id: str, *, repo_root: Path, config: OrchestrateConfig
     ) -> AdapterRunResult:
         """Drive the adapter's existing ingest for ``indicator_id`` and report."""
+        ...
+
+
+@runtime_checkable
+class FetchableAdapter(Adapter, Protocol):
+    """An :class:`Adapter` that supports automated Fetch + per-year delta (Row 5).
+
+    The orchestrator runs the Fetch + checkpoint loop for an adapter IFF it
+    ``isinstance(adapter, FetchableAdapter)`` -- a CAPABILITY check, never a
+    branch on ``adapter_slug`` (the critical Row-4 gate stays intact). A
+    non-fetchable adapter (e.g. ``rbi_handbook``) is driven by the Row-4
+    ``run_indicator`` path unchanged, so its byte-identity oracle is untouched.
+
+    The three added members are the minimum the delta loop needs:
+
+    * :meth:`cache_units_for` -- the per-year cache unit(s) an indicator draws
+      from (plural: an indicator may span >1 unit). Two indicators that share a
+      unit return EQUAL :class:`~yen_gov.canonical.ingest.fetch.CacheKey`s so the
+      run-scoped cache fetches it once.
+    * :meth:`spec_version` -- the build's spec version; a bump re-opens all years.
+    * :meth:`process_year` -- enrich + publish ONE year (an UPSERT, so a single
+      re-emitted year leaves the others intact), reporting a :class:`YearResult`.
+    """
+
+    def cache_units_for(self, indicator_id: str) -> tuple[CacheKey, ...]:
+        """Return the per-year cache unit(s) ``indicator_id`` draws from."""
+        ...
+
+    def spec_version(self, indicator_id: str) -> str:
+        """Return the build's spec version (a bump re-opens all years)."""
+        ...
+
+    def process_year(
+        self,
+        indicator_id: str,
+        *,
+        fetched: FetchedUnit,
+        repo_root: Path,
+        config: OrchestrateConfig,
+    ) -> YearResult:
+        """Enrich + publish ONE year for ``indicator_id`` (UPSERT) and report."""
         ...
 
 
@@ -227,6 +288,63 @@ def _rbi_source_specs(shipped: tuple) -> tuple[SourceSpec, ...]:
 
 
 # --------------------------------------------------------------------------- #
+# CSV summariser (shared by the fetchable run path + the orchestrator)
+# --------------------------------------------------------------------------- #
+
+_DATAPOINTS_GEO_REL = "datasets/data/datapoints/geo"
+
+
+def summarise_indicator_csv(
+    repo_root: Path,
+    indicator_id: str,
+    *,
+    adapter_slug: str,
+    geo_rel: str = _DATAPOINTS_GEO_REL,
+) -> AdapterRunResult:
+    """Read an indicator's emitted geo datapoints CSV into an AdapterRunResult.
+
+    The honest on-disk summary: a fetchable run reports the FULL coverage (every
+    year in the file), not just the years this run touched, so a run that
+    skipped every year still reports the real span. ``source_id`` is taken from
+    the file's ``source_id`` column (the recorded provenance), never re-derived.
+    """
+    path = repo_root / geo_rel / f"{indicator_id}.csv"
+    if not path.is_file():
+        raise IngestConfigError(
+            f"no datapoints emitted for {indicator_id!r} at "
+            f"{geo_rel}/{indicator_id}.csv"
+        )
+    times: list[int] = []
+    entities: set[str] = set()
+    source_id = ""
+    with path.open(encoding="utf-8", newline="") as fh:
+        for row in csv.DictReader(fh):
+            raw_time = (row.get("time") or "").strip()
+            entity = (row.get("entity_id") or "").strip()
+            sid = (row.get("source_id") or "").strip()
+            if raw_time:
+                times.append(int(raw_time))
+            if entity:
+                entities.add(entity)
+            if sid and not source_id:
+                source_id = sid
+    if not times:
+        raise IngestConfigError(
+            f"datapoints file for {indicator_id!r} has no rows to summarise"
+        )
+    return AdapterRunResult(
+        adapter_slug=adapter_slug,
+        indicator_id=indicator_id,
+        output_ref=to_repo_relative_posix(path, repo_root=repo_root),
+        row_count=len(times),
+        entity_count=len(entities),
+        time_min=min(times),
+        time_max=max(times),
+        source_id=source_id,
+    )
+
+
+# --------------------------------------------------------------------------- #
 # the default registry
 # --------------------------------------------------------------------------- #
 
@@ -239,7 +357,12 @@ def default_registry() -> dict[str, Adapter]:
     teaching the orchestrator a new slug. Each adapter's ``adapter_slug``
     attribute is the key, asserted to match.
     """
-    adapters: tuple[Adapter, ...] = (RbiHandbookAdapter(),)
+    # Function-local import: the cohort pulls the canonical CSV layer; keep it
+    # out of the module-load graph so importing the registry (and ``ingest
+    # --help``) stays light, and so registry <-> cohort have no import cycle.
+    from yen_gov.canonical.adapters.rbi_hbs_health import RbiHbsHealthAdapter
+
+    adapters: tuple[Adapter, ...] = (RbiHandbookAdapter(), RbiHbsHealthAdapter())
     registry: dict[str, Adapter] = {}
     for adapter in adapters:
         slug = adapter.adapter_slug
@@ -252,8 +375,11 @@ def default_registry() -> dict[str, Adapter]:
 __all__ = [
     "Adapter",
     "AdapterRunResult",
+    "FetchableAdapter",
     "IngestConfigError",
     "OrchestrateConfig",
     "RbiHandbookAdapter",
+    "YearResult",
     "default_registry",
+    "summarise_indicator_csv",
 ]
