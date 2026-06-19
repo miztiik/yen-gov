@@ -48,6 +48,11 @@ const pcBndPath = resolve(repoRoot, "datasets", "boundaries", "electoral", "deli
 // carries the 2008-delimitation seats for LS 2009-2019 + AE contests.
 const DELIM_YEAR = 2008;
 
+// Per-state PC equal-seats layouts are only authored for states with at
+// least this many seats (mirrors MIN_PCS_FOR_STATE_LAYOUT in
+// tools/gen_election_tile_layouts.py). Smaller states stay geo-only.
+const MIN_PCS_FOR_STATE_LAYOUT = 4;
+
 // Boundary partition slug -> ECI state/UT code (mirrors the generator's
 // SLUG_TO_CODE in tools/gen_election_tile_layouts.py).
 const SLUG_TO_CODE: Record<string, string> = {
@@ -153,6 +158,22 @@ function expectedPcUnitIds(): Set<string> {
   return ids;
 }
 
+// Group the boundary PC seats by their stamped `state_ut_code` (ECI code),
+// mirroring the generator's per-state filter so the per-state PC coverage
+// check runs over the SAME geometry the per-state cartograms are built from.
+function expectedPcUnitIdsByState(): Map<string, Set<string>> {
+  const gj = loadGeojson(pcBndPath);
+  const byState = new Map<string, Set<string>>();
+  for (const f of gj.features) {
+    const sc = String(f.properties.state_ut_code);
+    const ls = Number(f.properties.ls_seat_code);
+    const set = byState.get(sc) ?? new Set<string>();
+    set.add(`IN-PC-${DELIM_YEAR}-${sc}-${ls}`);
+    byState.set(sc, set);
+  }
+  return byState;
+}
+
 // Every state with a standard `ac_no` corpus in the national AC topojson =
 // the elected-assembly AC scopes the cartogram is REQUIRED to cover. J&K
 // (non-standard seat_id schema) is excluded via NON_STANDARD_AC_SLUGS; any
@@ -221,6 +242,45 @@ describe("election tile-layout coverage", () => {
     });
   });
 
+  // ---- Tier-2 PC: per-state PC scope coverage ------------------------------
+  // Per-state PC equal-seats layouts (feat/state-pc-equal-seats) cover every
+  // state with >= MIN_PCS_FOR_STATE_LAYOUT seats; below that threshold the
+  // state PC page stays geographic-only (no pc/<code> scope is emitted, so the
+  // equal-seats toggle never appears). Each covered scope's tile set MUST
+  // equal that state's boundary PC seat set; each below-threshold state MUST
+  // have NO per-state PC layout. The eligibility split is derived from the
+  // same boundary corpus the generator reads, so the test tracks the corpus.
+  describe("Tier-2: per-state PC scope coverage", () => {
+    const byState = expectedPcUnitIdsByState();
+    const eligible = [...byState.entries()]
+      .filter(([, ids]) => ids.size >= MIN_PCS_FOR_STATE_LAYOUT)
+      .map(([code]) => code)
+      .sort();
+    const ineligible = [...byState.entries()]
+      .filter(([, ids]) => ids.size < MIN_PCS_FOR_STATE_LAYOUT)
+      .map(([code]) => code)
+      .sort();
+
+    it("at least one eligible and one ineligible PC state exist", () => {
+      expect(eligible.length).toBeGreaterThan(0);
+      expect(ineligible.length).toBeGreaterThan(0);
+    });
+
+    it.each(eligible)("pc/%s tile set equals the boundary PC seat set", (code) => {
+      const got = new Set(
+        tilesFor(tiles, "pc", code, DELIM_YEAR).map((t) => t.unit_id),
+      );
+      const expected = byState.get(code) ?? new Set<string>();
+      expect(got.size).toBeGreaterThanOrEqual(MIN_PCS_FOR_STATE_LAYOUT);
+      expect([...expected].filter((id) => !got.has(id))).toEqual([]);
+      expect([...got].filter((id) => !expected.has(id))).toEqual([]);
+    });
+
+    it.each(ineligible)("pc/%s is geo-only (no per-state PC layout)", (code) => {
+      expect(tilesFor(tiles, "pc", code, DELIM_YEAR)).toEqual([]);
+    });
+  });
+
   // ---- Count pins (regression guard for the two seed layouts) --------------
   describe("count pins", () => {
     it("S13 AC ships 288 tiles", () => {
@@ -233,6 +293,14 @@ describe("election tile-layout coverage", () => {
       const expected = expectedPcUnitIds();
       expect([...expected].filter((id) => !got.has(id))).toEqual([]);
       expect([...got].filter((id) => !expected.has(id))).toEqual([]);
+    });
+    it("per-state PC scopes ship the expected seat counts", () => {
+      // Bihar 40, Tamil Nadu 39, Uttar Pradesh 80, Delhi 7, Himachal 4.
+      expect(tilesFor(tiles, "pc", "S04", DELIM_YEAR).length).toBe(40);
+      expect(tilesFor(tiles, "pc", "S22", DELIM_YEAR).length).toBe(39);
+      expect(tilesFor(tiles, "pc", "S24", DELIM_YEAR).length).toBe(80);
+      expect(tilesFor(tiles, "pc", "U05", DELIM_YEAR).length).toBe(7);
+      expect(tilesFor(tiles, "pc", "S08", DELIM_YEAR).length).toBe(4);
     });
   });
 });

@@ -833,6 +833,110 @@
     );
   }
 
+  // ---- PC Map | Equal seats toggle (per-state PC tile cartogram) ------
+  // Mirrors the AC equal-seats arm above. Only mounted on Parliament
+  // events whose state has a per-state PC tile layout (>= 4 PCs, see
+  // tools/gen_election_tile_layouts.py MIN_PCS_FOR_STATE_LAYOUT); small
+  // states (1-3 PCs) carry no per-state PC layout, so the toggle never
+  // appears and their PC page stays geographic-only. The national PC hex
+  // arm lives on NationalElection.svelte; this is its per-state sibling.
+  const TILE_PC_DELIM_YEAR = 2008; // per-state PC tile layout vintage on disk.
+  let pc_view = $state<AcView>("map");
+  let has_pc_equal_seats = $state<boolean | null>(null);
+  $effect(() => {
+    const sc = state_code;
+    if (!sc || body !== "pc") {
+      has_pc_equal_seats = false;
+      return;
+    }
+    fetchElectionTileScopes()
+      .then((doc) => {
+        if (state_code !== sc) return;
+        has_pc_equal_seats = hasLayoutForScope(doc, {
+          layout_kind: "pc",
+          scope: sc,
+          delim_year: TILE_PC_DELIM_YEAR,
+        });
+      })
+      .catch(() => {
+        if (state_code === sc) has_pc_equal_seats = false;
+      });
+  });
+
+  let pc_tile_layout = $state<TileLayoutRow[] | null>(null);
+  let pc_tile_layout_error = $state(false);
+  let pc_tile_layout_requested = false;
+  $effect(() => {
+    if (
+      pc_view !== "hex" ||
+      pc_tile_layout_requested ||
+      has_pc_equal_seats === false ||
+      !state_code
+    )
+      return;
+    const sc = state_code;
+    pc_tile_layout_requested = true;
+    fetchElectionTileLayouts()
+      .then((doc) => {
+        if (state_code !== sc) return;
+        pc_tile_layout = selectLayout(doc, {
+          layout_kind: "pc",
+          scope: sc,
+          delim_year: TILE_PC_DELIM_YEAR,
+        });
+      })
+      .catch(() => {
+        if (state_code === sc) pc_tile_layout_error = true;
+      });
+  });
+
+  // Map pc_winners -> the grain-agnostic TileWinnerInput keyed by the
+  // tile-layout unit_id `IN-PC-<delim>-<state>-<eci>` (mirrors the
+  // national PC hex arm in NationalElection.svelte).
+  const pc_hex_winners = $derived<TileWinnerInput[]>(
+    pc_winners.map((w) => ({
+      unit_id: `IN-PC-${TILE_PC_DELIM_YEAR}-${w.state_code}-${w.pc_eci_no}`,
+      party_key: w.party_eci_code,
+      party_short: w.party_short,
+      margin_pct: w.margin_pct,
+      party_id: w.party_id,
+      brand_colour_hex: w.brand_colour_hex,
+      brand_colour_confidence: w.brand_colour_confidence,
+    })),
+  );
+
+  const pc_raw_tile_rows = $derived<TileRow[]>(
+    pc_tile_layout == null ? [] : buildTileRows(pc_tile_layout, pc_hex_winners),
+  );
+
+  // Re-skin hex tiles for Margin-mode greyscale + party-mute recede -
+  // same shape as the AC arm above + NationalElection's PC arm. The
+  // tile's own winner_party_id + margin_pct (set by buildTileRows) drive
+  // both, so no unique_id round-trip is needed.
+  const pc_tile_rows = $derived<TileRow[]>(
+    pc_raw_tile_rows.map((t) => {
+      if (t.pending) return t;
+      const muted =
+        t.winner_party_id != null && hidden_pids.has(t.winner_party_id);
+      if (muted) return { ...t, fill: "#cbd5e1", opacity: 0.18 };
+      if (color_mode === "margin") {
+        return { ...t, fill: marginGrey(t.margin_pct ?? null) };
+      }
+      return t;
+    }),
+  );
+
+  function onPcTileSelect(unit_id: string): void {
+    // unit_id: "IN-PC-2008-S04-12" -> state=S04, eci=12.
+    const parts = unit_id.split("-");
+    const eci_no = Number(parts[parts.length - 1]);
+    const sc = parts[parts.length - 2];
+    if (!Number.isFinite(eci_no) || !state_code || !event_row) return;
+    const seat = winners.find((w) => w.eci_no === eci_no && w.state_code === sc);
+    if (!seat) return;
+    navigate(link.pc(params.state, event_row.event_id, slugify(seat.entity_name)));
+  }
+
   // ---- Constituency table rows (sorted by entity_name) ---------------
   interface SeatRow {
     entity_id: string;
@@ -1263,9 +1367,15 @@
             {pc_boundary}
             {pc_fills_override}
             {pc_opacities_override}
+            {has_pc_equal_seats}
+            {pc_tile_layout}
+            {pc_tile_layout_error}
+            {pc_tile_rows}
+            {onPcTileSelect}
             state_slug={params.state}
             bind:color_mode
             bind:ac_view
+            bind:pc_view
           />
         {/if}
       {/if}

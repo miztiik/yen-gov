@@ -315,6 +315,50 @@ test.describe("state event view (PR-W3b rebuild)", () => {
     });
   });
 
+  test("PC events: Map | Equal seats toggle mounts TileCartogram (per-state PC)", async ({
+    page,
+  }) => {
+    // feat/state-pc-equal-seats: Parliament events in states with >= 4 PCs
+    // now get a Map | Equal seats toggle, at parity with assembly events.
+    // Bihar general-2024 has 40 PCs and a per-state PC tile layout on disk
+    // so the toggle is offered; click "Equal seats" -> the hex container
+    // mounts (the geo container goes away).
+    await page.goto("/bihar/elections/general-2024");
+
+    // Map arm is the default; PC geo container visible.
+    await expect(page.getByTestId("state-event-pc-map-geo")).toBeVisible({
+      timeout: 30_000,
+    });
+
+    // Toggle visible (Bihar has a per-state PC tile layout) + offers two arms.
+    await expect(page.getByTestId("state-event-pc-view")).toBeVisible({
+      timeout: 30_000,
+    });
+    await page
+      .getByTestId("state-event-pc-view")
+      .getByRole("button", { name: "Equal seats" })
+      .click();
+
+    // Hex container mounts after the click.
+    await expect(page.getByTestId("state-event-pc-map-hex")).toBeVisible({
+      timeout: 30_000,
+    });
+  });
+
+  test("PC events: below-threshold state stays geo-only (no equal-seats toggle)", async ({
+    page,
+  }) => {
+    // Goa general-2024 has only 2 PCs (< MIN_PCS_FOR_STATE_LAYOUT), so no
+    // per-state PC tile layout is authored and the equal-seats toggle is
+    // NOT offered. The geographic PC map still renders - nothing regresses.
+    await page.goto("/goa/elections/general-2024");
+
+    await expect(page.getByTestId("state-pc-map-d3")).toBeVisible({
+      timeout: 30_000,
+    });
+    await expect(page.getByTestId("state-event-pc-view")).toHaveCount(0);
+  });
+
   test("alliance panel: Maharashtra assembly-2024 shows populated headline (Mahayuti / MVA)", async ({
     page,
   }) => {
