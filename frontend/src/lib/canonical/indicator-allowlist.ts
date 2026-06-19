@@ -949,6 +949,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       "A high captive total is ambiguous, not 'good' or 'bad': it can signal industrial strength, or industry self-generating because the public grid is unreliable or costly. Direction is deliberately neutral.",
       "Reported by the CEA in Million Units (MU); 1 MU = 1 GWh exactly, so the values are shown unchanged under the GWh label.",
       "Summed across 22 industry categories; the all-India aggregate row and the unsplittable combined 'Jammu and Kashmir and Ladakh' label are excluded.",
+    ],
+  },
   // --- Tier-B coal-FGD ingest (2026-06-18) ---
   // ICED coal-plant AQI-impact feed -> 1 NET-NEW state-grain share indicator
   // emitted to data/datapoints/geo/coal-capacity-fgd-share-pct.csv by
