@@ -33,6 +33,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, TextIO
 
+from yen_gov.core.runtime import resolve_runtime_dir
+
 
 _LEVELS = ("DEBUG", "INFO", "WARN", "ERROR")
 # The pipeline stages a log line may be tagged with. Kept as a structured
@@ -49,7 +51,10 @@ class StructuredLogger:
             canonical 'YYYYMMDD-xxxxxxxx' form; any single path segment (no
             path separator) is accepted. Used to group logs by invocation.
         runtime_root: parent of .runtime/. Logs land at
-            <runtime_root>/.runtime/logs/<run_id>/yen-gov.log.
+            <runtime_root>/.runtime/logs/<run_id>/yen-gov.log, unless
+            YEN_GOV_RUNTIME_DIR relocates the runtime base wholesale (see
+            core.runtime.resolve_runtime_dir) -- so the log stream and
+            `ingest clean` stay pointed at the same base.
         echo: if True, also write each line to stderr as compact JSON. Useful
             in interactive runs and CI.
     """
@@ -63,7 +68,7 @@ class StructuredLogger:
     ) -> None:
         if not run_id or "/" in run_id or "\\" in run_id:
             raise ValueError(f"run_id must be a single path segment, got {run_id!r}")
-        log_dir = runtime_root / ".runtime" / "logs" / run_id
+        log_dir = resolve_runtime_dir(runtime_root) / "logs" / run_id
         log_dir.mkdir(parents=True, exist_ok=True)
         self._path = log_dir / "yen-gov.log"
         self._fh: TextIO = self._path.open("a", encoding="utf-8")
