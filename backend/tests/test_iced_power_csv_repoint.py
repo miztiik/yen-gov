@@ -203,8 +203,8 @@ def test_peak_build_csv_variables_collapses_to_single_variable():
         source_id=source_id,
         variable_prefix=_CSV_VARIABLE_PREFIX_PEAK,
     )
-    assert set(by_variable.keys()) == {"peak-electricity-demand-mw"}
-    rows = by_variable["peak-electricity-demand-mw"]
+    assert set(by_variable.keys()) == {"peak-electricity-demand-iced-mw"}
+    rows = by_variable["peak-electricity-demand-iced-mw"]
     assert [(r["entity_id"], r["time"]) for r in rows] == [
         ("IN-S22", 2024),
         ("IN-S27", 2024),

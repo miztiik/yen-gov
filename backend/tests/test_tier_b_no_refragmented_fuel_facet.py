@@ -40,11 +40,11 @@ def test_noop_when_geo_dir_absent(tmp_path):
 
 
 def test_passes_on_allowed_single_value_files(tmp_path):
-    # allocated-mw is single-value (stays in geo/); a plain single-value
-    # indicator is fine.
+    # The publisher-split allocated files are single-value (stay in geo/); a
+    # plain single-value indicator is fine.
     _touch(
         tmp_path,
-        "installed-capacity-allocated-mw",
+        "installed-capacity-allocated-iced-mw",
         "literacy-rate-pct-total",
     )
     assert tier_b_no_refragmented_fuel_facet_csv(tmp_path) == []
@@ -91,7 +91,11 @@ def test_rejects_parent_single_file_form(tmp_path):
 
 
 def test_allocated_mw_not_false_positive(tmp_path):
-    # `installed-capacity-allocated-mw` must NOT be caught by the
+    # The publisher-split allocated files must NOT be caught by the
     # `installed-capacity-mw` prefix rule (different measure, stays single).
-    _touch(tmp_path, "installed-capacity-allocated-mw")
+    _touch(
+        tmp_path,
+        "installed-capacity-allocated-iced-mw",
+        "installed-capacity-statewise-total-rbi-mw",
+    )
     assert tier_b_no_refragmented_fuel_facet_csv(tmp_path) == []

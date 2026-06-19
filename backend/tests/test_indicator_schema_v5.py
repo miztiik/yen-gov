@@ -103,7 +103,7 @@ def test_legacy_slash_snake_indicator_ids_validate(
 @pytest.mark.parametrize(
     "indicator_id",
     [
-        "peak-electricity-demand-mw",
+        "peak-electricity-demand-rbi-mw",
         "rpo-compliance-pct",
     ],
 )

@@ -76,7 +76,7 @@
 import type { IndicatorMeta } from "../indicators";
 
 interface CanonicalIndicatorDescriptorBase {
-  /** Legacy catalogue artifact id (e.g. `energy/state_peak_electricity_demand_mw`). */
+  /** Legacy catalogue artifact id (e.g. `energy/state_peak_electricity_demand_rbi_mw`). */
   legacy_artifact_id: string;
   /** Manifest table id (e.g. `energy.energy_demand_supply`). The field
    *  stays named `table_id` rather than flipping to `csv_path` because it
@@ -217,22 +217,26 @@ export type CanonicalIndicatorDescriptor =
   | CanonicalFacetMultiplexedDescriptor;
 
 export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescriptor> = [
-  // C4.7 Phase B — peak electricity demand (RBI Handbook Table 142 FY13–FY24
-  // + NITI ICED state-wise deep-dive FY25 extension; 430 rows, 35 entities).
-  // See TODO/20260524-p1a-data-reacquisition-plan.md §3 C4.7 Phase A status.
+  // RBI/ICED publisher-split (2026-06-19, plan SC-1): the legacy blended
+  // peak-electricity-demand-mw descriptor combined two methodology-incompatible
+  // publishers on ONE series (RBI Handbook Table 142 FY2013-FY2024, 396 rows +
+  // NITI ICED state-wise deep-dive FY2025 snapshot, 34 rows). They are now two
+  // separate indicators sharing one concept (peak-demand); they MUST render as
+  // distinct series, never spliced on one trend line. See
+  // docs/architecture/data/energy-coverage.md section 8.
   {
     kind: "single",
-    legacy_artifact_id: "energy/state_peak_electricity_demand_mw",
-    canonical_indicator_id: "peak-electricity-demand-mw",
-    csv_path: "data/datapoints/geo/peak-electricity-demand-mw.csv",
+    legacy_artifact_id: "energy/state_peak_electricity_demand_rbi_mw",
+    canonical_indicator_id: "peak-electricity-demand-rbi-mw",
+    csv_path: "data/datapoints/geo/peak-electricity-demand-rbi-mw.csv",
     table_id: "energy.energy_demand_supply",
     // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
     meta: {
-      id: "peak-electricity-demand-mw",
-      title: "State-wise peak power demand (MW)",
+      id: "peak-electricity-demand-rbi-mw",
+      title: "State-wise peak power demand (RBI Handbook, MW)",
       description:
-        "Highest single-instant electricity demand observed in the state during the fiscal year (MW). 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre — typically a summer afternoon (north / west) or winter evening (Punjab, Delhi).",
+        "Highest single-instant electricity demand observed in the state during the fiscal year (MW), as published by the RBI Handbook of Statistics on Indian States (Table 142, FY2013-FY2024). 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre - typically a summer afternoon (north / west) or winter evening (Punjab, Delhi).",
       entity_kind: "state",
       time_grain: "fiscal_year",
       value_kind: "count",
@@ -245,14 +249,50 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       comparability: "comparable_across_states_and_time",
       implementing_authority: "joint",
       methodology_vintage:
-        "RBI Handbook of Statistics on Indian States 2024-25 edition, Table 142 (FY13–FY24). NITI Aayog ICED state-wise deep-dive (FY25 extension). Originating data: Central Electricity Authority, Ministry of Power.",
+        "RBI Handbook of Statistics on Indian States 2024-25 edition, Table 142 (FY2013-FY2024). Originating data: Central Electricity Authority, Ministry of Power.",
       notes:
-        "Read alongside Peak Supplied (peak-electricity-supplied-mw) — the gap is the unmet peak demand, more operationally critical than the energy-deficit % because shortages force load-shedding. RBI Handbook relabelled 'Surplus / Deficit' to 'Demand Not Met' from FY 2019-20 onwards; underlying definition is unchanged.",
+        "Read alongside Peak Supplied (peak-electricity-supplied-mw) - the gap is the unmet peak demand, more operationally critical than the energy-deficit % because shortages force load-shedding. RBI Handbook relabelled 'Surplus / Deficit' to 'Demand Not Met' from FY 2019-20 onwards; underlying definition is unchanged. This is the RBI Handbook half of the publisher-split peak measure; the NITI ICED FY2025 snapshot is the separate peak-electricity-demand-iced-mw - do not splice the two on one trend line.",
     },
     caveats: [
-      "Peak demand is the highest single-instant load observed — a one-hour summer evening spike, not an average. A state can have a high peak yet a moderate annual energy requirement.",
+      "Peak demand is the highest single-instant load observed - a one-hour summer evening spike, not an average. A state can have a high peak yet a moderate annual energy requirement.",
       "Read against peak-electricity-supplied-mw: the gap is unmet demand that forced load-shedding. A rising peak with a rising gap is a worse signal than a rising peak alone.",
-      "RBI Handbook relabelled 'Surplus/Deficit' to 'Demand Not Met' from FY 2019-20; the column name changes but the underlying definition does not — do not read the rename as a methodology break.",
+      "RBI Handbook relabelled 'Surplus/Deficit' to 'Demand Not Met' from FY 2019-20; the column name changes but the underlying definition does not - do not read the rename as a methodology break.",
+      "Publisher-split: this is the RBI Handbook Table 142 series (FY2013-FY2024). The single-year NITI ICED FY2025 snapshot is a separate indicator (peak-electricity-demand-iced-mw) with a different methodology - compare them side by side, never as one continuous line.",
+    ],
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_peak_electricity_demand_iced_mw",
+    canonical_indicator_id: "peak-electricity-demand-iced-mw",
+    csv_path: "data/datapoints/geo/peak-electricity-demand-iced-mw.csv",
+    table_id: "energy.energy_demand_supply",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
+    meta: {
+      id: "peak-electricity-demand-iced-mw",
+      title: "State-wise peak power demand (NITI ICED, MW)",
+      description:
+        "Highest single-instant electricity demand observed in the state (MW), from the NITI Aayog ICED state-wise deep-dive FY2025 snapshot. 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre - typically a summer afternoon (north / west) or winter evening (Punjab, Delhi).",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "MW",
+      short_unit: "MW",
+      icon: "activity",
+      attribution_geography: "where_administered",
+      comparability: "comparable_across_states_snapshot_only",
+      implementing_authority: "joint",
+      methodology_vintage:
+        "NITI Aayog ICED state-wise deep-dive, FY2025 snapshot. Originating data: Central Electricity Authority, Ministry of Power.",
+      notes:
+        "This is the NITI ICED half of the publisher-split peak measure - a single FY2025 snapshot. The multi-year RBI Handbook Table 142 series (FY2013-FY2024) is the separate peak-electricity-demand-rbi-mw; the two use incompatible methodology and must not be spliced on one trend line.",
+    },
+    caveats: [
+      "Peak demand is the highest single-instant load observed - a one-hour summer evening spike, not an average. A state can have a high peak yet a moderate annual energy requirement.",
+      "Single-year snapshot (FY2025): comparable across states for that year only, not a time series. For the long-arc trend use the RBI Handbook series peak-electricity-demand-rbi-mw.",
+      "Publisher-split: this NITI ICED snapshot and the RBI Handbook Table 142 series are separate indicators with different methodology - compare them side by side, never as one continuous line.",
     ],
   },
 
@@ -317,7 +357,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //   4. state_electricity_generation_by_source_gwh → electricity-generation-gwh (facet-multiplexed by fuel_type)
   //   5. state_installed_capacity_total_mw → Pattern B duplicate of
   //      state_installed_capacity_with_alloc_mw (already routes to
-  //      installed-capacity-allocated-mw via entry #7). PR #222
+  //      installed-capacity-allocated-iced-mw via entry #7). PR #222
   //      spliced both legacy shards into one canonical FY05-FY25 series;
   //      having two topics.json cards for the same data is citizen-noise.
   //      This PR PRUNES (5) from topics.json rather than aliasing it,
@@ -453,7 +493,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       methodology_vintage:
         "NITI Aayog ICED capacity-metatable rollup of CEA-published station-level capacity; harmonised across fiscal years 2015-16 onwards. Sub-fuels collapsed into 5 canonical buckets (coal / gas / hydro / nuclear / renewable) per indicator-naming.md.",
       notes:
-        "For the share-allocated counterpart (rights to output via central-sector PPAs), see installed-capacity-allocated-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs.",
+        "For the share-allocated counterpart (rights to output via central-sector PPAs), see installed-capacity-allocated-iced-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs.",
     },
     caveats: [
       "MW = nameplate peak, not energy delivered. Pair with 'Where your state's power comes from' on this page — a 1GW solar plant delivers energy like 200MW of coal would. Compare RUN, not just BUILT.",
@@ -560,10 +600,12 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //     mapping to `installed-capacity-mw-<fuel>` (1×1) would silently
   //     reduce visible data from 35 state rows to 1 national row and was rejected.
   //   * Shard #7 (`state_installed_capacity_with_alloc_mw.json`) carries FY15-FY25
-  //     (396 rows); the canonical `installed-capacity-allocated-mw` now
-  //     carries FY05-FY25 (770 rows) after PR #222 spliced the RBI Handbook
-  //     long-arc onto the ICED post-FY15 segment. INTENTIONAL time-window
-  //     extension — citizens see MORE data on the canonical path, not less.
+  //     (396 rows); the canonical `installed-capacity-allocated-iced-mw` now
+  //     carries that ICED FY15-FY25 segment. PR #222 had spliced the RBI
+  //     Handbook FY05-FY14 long-arc onto it (770-row blend), but the 2026-06-19
+  //     RBI/ICED publisher-split (plan SC-1) moved the RBI half to its own file
+  //     installed-capacity-statewise-total-rbi-mw - the publishers are no
+  //     longer blended on one series.
   //   * Shard #8 (`state_electricity_generation_mu.json`) uses publisher unit
   //     `MU` (million units); canonical `electricity-generation-gwh` uses
   //     `GWh`. 1 MU == 1 GWh numerically — the unit relabel is dimensionally
@@ -614,7 +656,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       methodology_vintage:
         "NITI Aayog ICED /energy/fuel-sources/coal/consumption-domestic-state (Coal Controller's Office / Ministry of Coal upstream). Aggregated by SUM of the 4 component grades (raw + washed + middlings + lignite); the precomputed TOTAL COAL rows are dropped to avoid double-counting.",
       notes:
-        "Read with installed-capacity-allocated-mw (coal facet) and electricity-generation-gwh (coal facet) on the same /t/energy page: a state with high coal consumption but low coal generation is using coal for industrial heat (steel/cement/sponge-iron) rather than power. attribution_geography = where_consumed, NOT where_mined — coal mined in Jharkhand and Odisha but burned in deficit states.",
+        "Read with installed-capacity-geographical-mw (coal facet) and electricity-generation-gwh (coal facet) on the same /t/energy page: a state with high coal consumption but low coal generation is using coal for industrial heat (steel/cement/sponge-iron) rather than power. attribution_geography = where_consumed, NOT where_mined — coal mined in Jharkhand and Odisha but burned in deficit states.",
     },
     // PR-Q (Row 6 P.1.C commit 1): Hans-curated caveats for the first canonical
     // fuel-consumption indicator. The 4-grade SUM methodology, the thermal-vs-

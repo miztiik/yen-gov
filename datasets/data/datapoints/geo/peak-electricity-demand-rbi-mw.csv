@@ -1,5 +1,4 @@
 entity_id,time,value,source_id
-IN,2025,245416,src-bb1d7bec8b34
 andhra-pradesh,2013,14072,src-99ac1fee8a50
 andhra-pradesh,2014,7144,src-99ac1fee8a50
 andhra-pradesh,2015,7400,src-99ac1fee8a50
@@ -12,7 +11,6 @@ andhra-pradesh,2021,11661,src-99ac1fee8a50
 andhra-pradesh,2022,13167,src-99ac1fee8a50
 andhra-pradesh,2023,13237,src-99ac1fee8a50
 andhra-pradesh,2024,13712,src-99ac1fee8a50
-andhra-pradesh,2025,14011,src-bb1d7bec8b34
 arunachal-pradesh,2013,125,src-99ac1fee8a50
 arunachal-pradesh,2014,139,src-99ac1fee8a50
 arunachal-pradesh,2015,139,src-99ac1fee8a50
@@ -25,7 +23,6 @@ arunachal-pradesh,2021,197,src-99ac1fee8a50
 arunachal-pradesh,2022,166,src-99ac1fee8a50
 arunachal-pradesh,2023,186,src-99ac1fee8a50
 arunachal-pradesh,2024,218,src-99ac1fee8a50
-arunachal-pradesh,2025,228,src-bb1d7bec8b34
 assam,2013,1329,src-99ac1fee8a50
 assam,2014,1450,src-99ac1fee8a50
 assam,2015,1491,src-99ac1fee8a50
@@ -38,7 +35,6 @@ assam,2021,2126,src-99ac1fee8a50
 assam,2022,2379,src-99ac1fee8a50
 assam,2023,2413,src-99ac1fee8a50
 assam,2024,2812,src-99ac1fee8a50
-assam,2025,2814,src-bb1d7bec8b34
 bihar,2013,2465,src-99ac1fee8a50
 bihar,2014,2994,src-99ac1fee8a50
 bihar,2015,3735,src-99ac1fee8a50
@@ -51,7 +47,6 @@ bihar,2021,7154,src-99ac1fee8a50
 bihar,2022,7852,src-99ac1fee8a50
 bihar,2023,8049,src-99ac1fee8a50
 bihar,2024,8078,src-99ac1fee8a50
-bihar,2025,8741,src-bb1d7bec8b34
 chandigarh,2013,345,src-99ac1fee8a50
 chandigarh,2014,367,src-99ac1fee8a50
 chandigarh,2015,342,src-99ac1fee8a50
@@ -64,7 +59,6 @@ chandigarh,2021,426,src-99ac1fee8a50
 chandigarh,2022,407,src-99ac1fee8a50
 chandigarh,2023,411,src-99ac1fee8a50
 chandigarh,2024,449,src-99ac1fee8a50
-chandigarh,2025,460,src-bb1d7bec8b34
 chhattisgarh,2013,3365,src-99ac1fee8a50
 chhattisgarh,2014,3817,src-99ac1fee8a50
 chhattisgarh,2015,3932,src-99ac1fee8a50
@@ -77,7 +71,6 @@ chhattisgarh,2021,4878,src-99ac1fee8a50
 chhattisgarh,2022,5339,src-99ac1fee8a50
 chhattisgarh,2023,6148,src-99ac1fee8a50
 chhattisgarh,2024,6511,src-99ac1fee8a50
-chhattisgarh,2025,6798,src-bb1d7bec8b34
 dadra-and-nagar-haveli-and-daman-and-diu,2013,322,src-99ac1fee8a50
 dadra-and-nagar-haveli-and-daman-and-diu,2014,301,src-99ac1fee8a50
 dadra-and-nagar-haveli-and-daman-and-diu,2015,307,src-99ac1fee8a50
@@ -86,7 +79,6 @@ dadra-and-nagar-haveli-and-daman-and-diu,2017,362,src-99ac1fee8a50
 dadra-and-nagar-haveli-and-daman-and-diu,2018,357,src-99ac1fee8a50
 dadra-and-nagar-haveli-and-daman-and-diu,2019,351,src-99ac1fee8a50
 dadra-and-nagar-haveli-and-daman-and-diu,2020,356,src-99ac1fee8a50
-dadra-and-nagar-haveli-and-daman-and-diu,2025,1416,src-bb1d7bec8b34
 delhi,2013,6035,src-99ac1fee8a50
 delhi,2014,6006,src-99ac1fee8a50
 delhi,2015,5846,src-99ac1fee8a50
@@ -99,7 +91,6 @@ delhi,2021,7323,src-99ac1fee8a50
 delhi,2022,7695,src-99ac1fee8a50
 delhi,2023,7437,src-99ac1fee8a50
 delhi,2024,8656,src-99ac1fee8a50
-delhi,2025,8408,src-bb1d7bec8b34
 goa,2013,529,src-99ac1fee8a50
 goa,2014,501,src-99ac1fee8a50
 goa,2015,583,src-99ac1fee8a50
@@ -112,7 +103,6 @@ goa,2021,650,src-99ac1fee8a50
 goa,2022,718,src-99ac1fee8a50
 goa,2023,776,src-99ac1fee8a50
 goa,2024,810,src-99ac1fee8a50
-goa,2025,864,src-bb1d7bec8b34
 gujarat,2013,12201,src-99ac1fee8a50
 gujarat,2014,13603,src-99ac1fee8a50
 gujarat,2015,14495,src-99ac1fee8a50
@@ -125,7 +115,6 @@ gujarat,2021,19451,src-99ac1fee8a50
 gujarat,2022,21464,src-99ac1fee8a50
 gujarat,2023,24829,src-99ac1fee8a50
 gujarat,2024,25588,src-99ac1fee8a50
-gujarat,2025,26457,src-bb1d7bec8b34
 haryana,2013,8114,src-99ac1fee8a50
 haryana,2014,9152,src-99ac1fee8a50
 haryana,2015,9113,src-99ac1fee8a50
@@ -138,7 +127,6 @@ haryana,2021,12120,src-99ac1fee8a50
 haryana,2022,12768,src-99ac1fee8a50
 haryana,2023,13088,src-99ac1fee8a50
 haryana,2024,14662,src-99ac1fee8a50
-haryana,2025,13998,src-bb1d7bec8b34
 himachal-pradesh,2013,1561,src-99ac1fee8a50
 himachal-pradesh,2014,1422,src-99ac1fee8a50
 himachal-pradesh,2015,1488,src-99ac1fee8a50
@@ -151,7 +139,6 @@ himachal-pradesh,2021,2030,src-99ac1fee8a50
 himachal-pradesh,2022,2071,src-99ac1fee8a50
 himachal-pradesh,2023,2181,src-99ac1fee8a50
 himachal-pradesh,2024,2273,src-99ac1fee8a50
-himachal-pradesh,2025,2302,src-bb1d7bec8b34
 jammu-and-kashmir,2013,2500,src-99ac1fee8a50
 jammu-and-kashmir,2014,2554,src-99ac1fee8a50
 jammu-and-kashmir,2015,2544,src-99ac1fee8a50
@@ -164,7 +151,6 @@ jammu-and-kashmir,2021,3460,src-99ac1fee8a50
 jammu-and-kashmir,2022,3670,src-99ac1fee8a50
 jammu-and-kashmir,2023,3181,src-99ac1fee8a50
 jammu-and-kashmir,2024,3236,src-99ac1fee8a50
-jammu-and-kashmir,2025,5050,src-bb1d7bec8b34
 jharkhand,2013,1111,src-99ac1fee8a50
 jharkhand,2014,1075,src-99ac1fee8a50
 jharkhand,2015,1153,src-99ac1fee8a50
@@ -177,7 +163,6 @@ jharkhand,2021,1850,src-99ac1fee8a50
 jharkhand,2022,2253,src-99ac1fee8a50
 jharkhand,2023,2193,src-99ac1fee8a50
 jharkhand,2024,2295,src-99ac1fee8a50
-jharkhand,2025,2406,src-bb1d7bec8b34
 karnataka,2013,9940,src-99ac1fee8a50
 karnataka,2014,10001,src-99ac1fee8a50
 karnataka,2015,10202,src-99ac1fee8a50
@@ -190,7 +175,6 @@ karnataka,2021,15463,src-99ac1fee8a50
 karnataka,2022,15543,src-99ac1fee8a50
 karnataka,2023,17212,src-99ac1fee8a50
 karnataka,2024,18398,src-99ac1fee8a50
-karnataka,2025,18655,src-bb1d7bec8b34
 kerala,2013,3671,src-99ac1fee8a50
 kerala,2014,3760,src-99ac1fee8a50
 kerala,2015,3977,src-99ac1fee8a50
@@ -203,7 +187,6 @@ kerala,2021,4600,src-99ac1fee8a50
 kerala,2022,4699,src-99ac1fee8a50
 kerala,2023,5284,src-99ac1fee8a50
 kerala,2024,5904,src-99ac1fee8a50
-kerala,2025,5861,src-bb1d7bec8b34
 lakshadweep,2013,9,src-99ac1fee8a50
 lakshadweep,2014,8,src-99ac1fee8a50
 lakshadweep,2015,8,src-99ac1fee8a50
@@ -227,7 +210,6 @@ madhya-pradesh,2021,15917,src-99ac1fee8a50
 madhya-pradesh,2022,17347,src-99ac1fee8a50
 madhya-pradesh,2023,18252,src-99ac1fee8a50
 madhya-pradesh,2024,19371,src-99ac1fee8a50
-madhya-pradesh,2025,19895,src-bb1d7bec8b34
 maharashtra,2013,19276,src-99ac1fee8a50
 maharashtra,2014,20147,src-99ac1fee8a50
 maharashtra,2015,20973,src-99ac1fee8a50
@@ -240,7 +222,6 @@ maharashtra,2021,26307,src-99ac1fee8a50
 maharashtra,2022,30935,src-99ac1fee8a50
 maharashtra,2023,31178,src-99ac1fee8a50
 maharashtra,2024,30675,src-99ac1fee8a50
-maharashtra,2025,32419,src-bb1d7bec8b34
 manipur,2013,134,src-99ac1fee8a50
 manipur,2014,150,src-99ac1fee8a50
 manipur,2015,168,src-99ac1fee8a50
@@ -253,7 +234,6 @@ manipur,2021,258,src-99ac1fee8a50
 manipur,2022,248,src-99ac1fee8a50
 manipur,2023,258,src-99ac1fee8a50
 manipur,2024,269,src-99ac1fee8a50
-manipur,2025,280,src-bb1d7bec8b34
 meghalaya,2013,343,src-99ac1fee8a50
 meghalaya,2014,370,src-99ac1fee8a50
 meghalaya,2015,400,src-99ac1fee8a50
@@ -266,7 +246,6 @@ meghalaya,2021,408,src-99ac1fee8a50
 meghalaya,2022,404,src-99ac1fee8a50
 meghalaya,2023,405,src-99ac1fee8a50
 meghalaya,2024,409,src-99ac1fee8a50
-meghalaya,2025,397,src-bb1d7bec8b34
 mizoram,2013,84,src-99ac1fee8a50
 mizoram,2014,90,src-99ac1fee8a50
 mizoram,2015,102,src-99ac1fee8a50
@@ -279,7 +258,6 @@ mizoram,2021,169,src-99ac1fee8a50
 mizoram,2022,159,src-99ac1fee8a50
 mizoram,2023,162,src-99ac1fee8a50
 mizoram,2024,168,src-99ac1fee8a50
-mizoram,2025,218,src-bb1d7bec8b34
 nagaland,2013,109,src-99ac1fee8a50
 nagaland,2014,140,src-99ac1fee8a50
 nagaland,2015,140,src-99ac1fee8a50
@@ -292,7 +270,6 @@ nagaland,2021,173,src-99ac1fee8a50
 nagaland,2022,168,src-99ac1fee8a50
 nagaland,2023,174,src-99ac1fee8a50
 nagaland,2024,189,src-99ac1fee8a50
-nagaland,2025,210,src-bb1d7bec8b34
 odisha,2013,3727,src-99ac1fee8a50
 odisha,2014,3920,src-99ac1fee8a50
 odisha,2015,4091,src-99ac1fee8a50
@@ -305,7 +282,6 @@ odisha,2021,5643,src-99ac1fee8a50
 odisha,2022,6566,src-99ac1fee8a50
 odisha,2023,6443,src-99ac1fee8a50
 odisha,2024,6905,src-99ac1fee8a50
-odisha,2025,7302,src-bb1d7bec8b34
 puducherry,2013,351,src-99ac1fee8a50
 puducherry,2014,389,src-99ac1fee8a50
 puducherry,2015,368,src-99ac1fee8a50
@@ -318,7 +294,6 @@ puducherry,2021,465,src-99ac1fee8a50
 puducherry,2022,501,src-99ac1fee8a50
 puducherry,2023,524,src-99ac1fee8a50
 puducherry,2024,549,src-99ac1fee8a50
-puducherry,2025,548,src-bb1d7bec8b34
 punjab,2013,10089,src-99ac1fee8a50
 punjab,2014,11534,src-99ac1fee8a50
 punjab,2015,10852,src-99ac1fee8a50
@@ -331,7 +306,6 @@ punjab,2021,13556,src-99ac1fee8a50
 punjab,2022,14311,src-99ac1fee8a50
 punjab,2023,15293,src-99ac1fee8a50
 punjab,2024,16058,src-99ac1fee8a50
-punjab,2025,17171,src-bb1d7bec8b34
 rajasthan,2013,10047,src-99ac1fee8a50
 rajasthan,2014,10642,src-99ac1fee8a50
 rajasthan,2015,10961,src-99ac1fee8a50
@@ -344,7 +318,6 @@ rajasthan,2021,15784,src-99ac1fee8a50
 rajasthan,2022,17399,src-99ac1fee8a50
 rajasthan,2023,18128,src-99ac1fee8a50
 rajasthan,2024,19165,src-99ac1fee8a50
-rajasthan,2025,19282,src-bb1d7bec8b34
 sikkim,2013,90,src-99ac1fee8a50
 sikkim,2014,83,src-99ac1fee8a50
 sikkim,2015,109,src-99ac1fee8a50
@@ -357,7 +330,6 @@ sikkim,2021,133,src-99ac1fee8a50
 sikkim,2022,124,src-99ac1fee8a50
 sikkim,2023,133,src-99ac1fee8a50
 sikkim,2024,138,src-99ac1fee8a50
-sikkim,2025,125,src-bb1d7bec8b34
 tamil-nadu,2013,13522,src-99ac1fee8a50
 tamil-nadu,2014,13707,src-99ac1fee8a50
 tamil-nadu,2015,14190,src-99ac1fee8a50
@@ -370,7 +342,6 @@ tamil-nadu,2021,16541,src-99ac1fee8a50
 tamil-nadu,2022,17306,src-99ac1fee8a50
 tamil-nadu,2023,19045,src-99ac1fee8a50
 tamil-nadu,2024,20784,src-99ac1fee8a50
-tamil-nadu,2025,20211,src-bb1d7bec8b34
 telangana,2014,7884,src-99ac1fee8a50
 telangana,2015,6854,src-99ac1fee8a50
 telangana,2016,9187,src-99ac1fee8a50
@@ -382,14 +353,12 @@ telangana,2021,14637,src-99ac1fee8a50
 telangana,2022,15031,src-99ac1fee8a50
 telangana,2023,15622,src-99ac1fee8a50
 telangana,2024,17162,src-99ac1fee8a50
-telangana,2025,18548,src-bb1d7bec8b34
 tripura,2013,254,src-99ac1fee8a50
 tripura,2014,310,src-99ac1fee8a50
 tripura,2015,300,src-99ac1fee8a50
 tripura,2016,284,src-99ac1fee8a50
 tripura,2017,342,src-99ac1fee8a50
 tripura,2018,298,src-99ac1fee8a50
-tripura,2025,3281,src-bb1d7bec8b34
 uttar-pradesh,2013,13089,src-99ac1fee8a50
 uttar-pradesh,2014,15670,src-99ac1fee8a50
 uttar-pradesh,2015,16988,src-99ac1fee8a50
@@ -402,7 +371,6 @@ uttar-pradesh,2021,24965,src-99ac1fee8a50
 uttar-pradesh,2022,27369,src-99ac1fee8a50
 uttar-pradesh,2023,28704,src-99ac1fee8a50
 uttar-pradesh,2024,30618,src-99ac1fee8a50
-uttar-pradesh,2025,30632,src-bb1d7bec8b34
 uttarakhand,2013,1826,src-99ac1fee8a50
 uttarakhand,2014,1930,src-99ac1fee8a50
 uttarakhand,2015,2034,src-99ac1fee8a50
@@ -415,7 +383,6 @@ uttarakhand,2021,2468,src-99ac1fee8a50
 uttarakhand,2022,2594,src-99ac1fee8a50
 uttarakhand,2023,2635,src-99ac1fee8a50
 uttarakhand,2024,2863,src-99ac1fee8a50
-uttarakhand,2025,2910,src-bb1d7bec8b34
 west-bengal,2013,7325,src-99ac1fee8a50
 west-bengal,2014,7544,src-99ac1fee8a50
 west-bengal,2015,7905,src-99ac1fee8a50
@@ -428,4 +395,3 @@ west-bengal,2021,9089,src-99ac1fee8a50
 west-bengal,2022,10125,src-99ac1fee8a50
 west-bengal,2023,11626,src-99ac1fee8a50
 west-bengal,2024,12645,src-99ac1fee8a50
-west-bengal,2025,13108,src-bb1d7bec8b34

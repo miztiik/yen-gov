@@ -213,9 +213,11 @@ DATAPOINTS_GEO_DIR = Path("datasets/data/datapoints/geo")
 # Measures that moved to the faceted geo_by_fuel/*.csv class in PR #1097. Both
 # their per-fuel child form (`<measure>-<fuel>.csv`) AND their parent
 # single-file form (`<measure>.csv`) under geo/ are re-fragmentation -- the
-# data lives in geo_by_fuel/<measure>.csv now. installed-capacity-allocated-mw
-# is deliberately ABSENT: it is single-value (no fuel children) and correctly
-# stays in geo/ (it fails the four-gate facet test).
+# data lives in geo_by_fuel/<measure>.csv now. The publisher-split allocated
+# files (installed-capacity-allocated-iced-mw,
+# installed-capacity-statewise-total-rbi-mw) are deliberately ABSENT: they are
+# single-value (no fuel children) and correctly stay in geo/ (they fail the
+# four-gate facet test).
 _FACETED_FUEL_MEASURES: frozenset[str] = frozenset(
     {
         "installed-capacity-geographical-mw",
@@ -1361,9 +1363,11 @@ def tier_b_no_refragmented_fuel_facet_csv(root: Path) -> list[Failure]:
     mw} -- is rejected; the data belongs in ``geo_by_fuel/<measure>.csv``.
 
     The check is **source-agnostic**: it catches re-fragmentation from any
-    producer (including the source adapters that emit the faceted shape).
-    ``installed-capacity-allocated-mw`` is intentionally NOT fenced: it is a
-    single-value measure (no fuel children) that correctly stays in ``geo/``.
+    producer (including the source adapters that emit the faceted shape). The
+    publisher-split allocated files (``installed-capacity-allocated-iced-mw``,
+    ``installed-capacity-statewise-total-rbi-mw``) are intentionally NOT fenced:
+    they are single-value measures (no fuel children) that correctly stay in
+    ``geo/``.
 
     Scope (plan R-H): installed-capacity only; the net-transfers estimate-stage
     fence is owned by the RBI agent and lands separately.

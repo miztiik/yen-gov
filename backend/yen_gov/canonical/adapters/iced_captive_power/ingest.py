@@ -216,9 +216,8 @@ def _upsert_rows(
 
     A self-contained copy of the rbi_handbook catalogue-merge helper: keeping
     it local makes this adapter purely additive (no edit to a sibling adapter,
-    no cross-adapter private import). It is a generic PK merge - distinct from
-    ``csv_writer.upsert_source_scoped`` (which is source-scoped and replaces an
-    incoming source's rows wholesale).
+    no cross-adapter private import). It is a generic PK merge: it overlays
+    incoming rows by PK and preserves every other existing row verbatim.
     """
     path = repo_root / rel_path
     file_class = rel_path  # literal-path file classes key on the path itself
