@@ -129,6 +129,15 @@ INDICATOR_CATALOGUE_JSON = Path("datasets/taxonomy/indicators.json")
 # that import the constant.
 _INDICATOR_ID_GRAIN_PREFIX_RE = _P.GRAIN_PREFIX_RE
 
+# Committed per-adapter ingest year-checkpoint receipts (Row 2 / plan D4 of
+# TODO/20260618-backend-ingest-pipeline-rip-replace-plan.md). One JSON per
+# adapter under this dir records each touched year's raw-payload sha256 +
+# completed flag + last_checked staleness clock. `tier_b_ingest_state_receipt`
+# validates them against `ingest-state.schema.json` and the cross-row invariants
+# (filename stem == adapter_slug, year-unique). Operator-axis _ops state.
+INGEST_STATE_DIR = Path("datasets/_ops/ingest-state")
+INGEST_STATE_SCHEMA = Path("datasets/schemas/ingest-state.schema.json")
+
 # Concept registry FK fence (PR-Z3b-tail3 2026-05-26 dark). Per guardrail #13
 # every indicator MUST FK to a row in `datasets/taxonomy/concepts.json` declaring
 # (noun, unit_canonical, normalisation, entity_kinds). Two indicators sharing the
@@ -1974,6 +1983,94 @@ def tier_b_party_page_mart_fresh(root: Path) -> list[Failure]:
     ]
 
 
+def tier_b_ingest_state_receipt(root: Path) -> list[Failure]:
+    """Validate committed ingest year-checkpoint receipts (Row 2 / plan D4).
+
+    Walks ``datasets/_ops/ingest-state/*.json`` and, for each receipt:
+
+    * schema-validates it against ``ingest-state.schema.json`` (this enforces the
+      raw_sha256 64-hex pattern, the year integer range, the ``completed`` bool,
+      the ``last_checked`` ``...Z`` shape, and the required fields), then
+    * enforces the cross-row invariants the schema cannot express:
+      ``adapter_slug`` equals the filename stem, and every ``year`` is unique
+      within the receipt.
+
+    No-ops when the checkpoint dir is absent (the common case before any adapter
+    has run). Per the CLAUDE.md anti-pattern this never walks the real corpus
+    from a pytest test -- the Tier-B tests inject a ``tmp_path`` root.
+    """
+    failures: list[Failure] = []
+    state_dir = root / INGEST_STATE_DIR
+    if not state_dir.is_dir():
+        return failures
+
+    schema_path = root / INGEST_STATE_SCHEMA
+    schema_rel = INGEST_STATE_SCHEMA.as_posix()
+    if not schema_path.is_file():
+        return [
+            Failure(
+                schema_rel,
+                "B",
+                "ingest-state schema is missing but checkpoint receipts exist; "
+                "tier_b_ingest_state_receipt cannot validate them.",
+            )
+        ]
+    try:
+        schema = _load_json(schema_path)
+    except json.JSONDecodeError as exc:
+        return [Failure(schema_rel, "B", f"ingest-state schema is invalid JSON: {exc.msg}")]
+    validator = Draft202012Validator(schema)
+
+    for path in sorted(state_dir.glob("*.json")):
+        rel = _posix(path, root)
+        try:
+            data = _load_json(path)
+        except json.JSONDecodeError as exc:
+            failures.append(Failure(rel, "B", f"invalid JSON: {exc.msg} (line {exc.lineno})"))
+            continue
+        if not isinstance(data, dict):
+            failures.append(Failure(rel, "B", "top-level must be a JSON object"))
+            continue
+
+        for err in sorted(validator.iter_errors(data), key=lambda e: list(e.absolute_path)):
+            where = "/".join(str(x) for x in err.absolute_path) or "(root)"
+            failures.append(Failure(rel, "B", f"{where}: {err.message}"))
+
+        adapter_slug = data.get("adapter_slug")
+        if isinstance(adapter_slug, str) and adapter_slug != path.stem:
+            failures.append(
+                Failure(
+                    rel,
+                    "B",
+                    f"adapter_slug {adapter_slug!r} does not match the filename stem "
+                    f"{path.stem!r}; one checkpoint file per adapter, named "
+                    f"<adapter_slug>.json.",
+                )
+            )
+
+        years = data.get("years")
+        if isinstance(years, list):
+            seen: set[int] = set()
+            for entry in years:
+                if not isinstance(entry, dict):
+                    continue
+                year = entry.get("year")
+                if not isinstance(year, int):
+                    continue
+                if year in seen:
+                    failures.append(
+                        Failure(
+                            rel,
+                            "B",
+                            f"duplicate year {year}: a checkpoint records each year at "
+                            f"most once (the year is the cache unit's primary key).",
+                        )
+                    )
+                seen.add(year)
+
+    return failures
+
+
 def run(root: Path) -> list[Failure]:
     """Run Tier A then Tier B against a repo root."""
     schemas, parse_failures = load_schemas(root / SCHEMAS_SUBDIR)
@@ -1996,4 +2093,5 @@ def run(root: Path) -> list[Failure]:
         + tier_b_indicator_id_no_grain_prefix(root)
         + tier_b_indicator_url_slug_unique(root)
         + tier_b_party_page_mart_fresh(root)
+        + tier_b_ingest_state_receipt(root)
     )
