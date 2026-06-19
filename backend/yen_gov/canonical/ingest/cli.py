@@ -24,6 +24,11 @@ from typing import Optional
 import typer
 
 from yen_gov.canonical.ingest.catalogue_fk import CatalogueError
+from yen_gov.canonical.ingest.cleanup import (
+    CleanupError,
+    DEFAULT_RETENTION_DAYS,
+    clean,
+)
 from yen_gov.canonical.ingest.orchestrator import (
     IngestError,
     compute_status,
@@ -31,6 +36,7 @@ from yen_gov.canonical.ingest.orchestrator import (
 )
 from yen_gov.canonical.ingest.registry import IngestConfigError, OrchestrateConfig
 from yen_gov.core.logging import StructuredLogger, new_run_id
+from yen_gov.core.runtime import resolve_runtime_dir
 
 ingest_app = typer.Typer(
     help="Drive upstream sources into the canonical store (Fetch -> Enrich -> Publish).",
@@ -164,6 +170,62 @@ def status_command(
             f"    {cov.source_id} ({who}): {cov.year_min}-{cov.year_max} "
             f"({cov.observation_count} observations)"
         )
+
+
+@ingest_app.command("clean")
+def clean_command(
+    days: int = typer.Option(
+        DEFAULT_RETENTION_DAYS,
+        "--days",
+        help="Remove ingest ephemera (logs, fetch cache) older than N days.",
+    ),
+    force: bool = typer.Option(
+        False,
+        "--force",
+        help=(
+            f"Permit --days below the {DEFAULT_RETENTION_DAYS}-day retention "
+            "floor (an aggressive sweep)."
+        ),
+    ),
+    dry_run: bool = typer.Option(
+        False,
+        "--dry-run",
+        help="List what would be removed; mutate nothing.",
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (the YEN_GOV_RUNTIME_DIR override wins when set).",
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+) -> None:
+    """Sweep stale ingest ephemera under the runtime base (.runtime/ by default).
+
+    Removes ``logs/<run_id>`` + ``cache/ingest/<adapter>`` entries older than
+    ``--days`` (default 90). The committed year-checkpoint under
+    ``datasets/_ops/ingest-state/`` is durable state and is NEVER touched. Set
+    ``YEN_GOV_RUNTIME_DIR`` to sweep a relocated runtime base.
+    """
+    runtime_dir = resolve_runtime_dir(root)
+    try:
+        report = clean(
+            days=days, force=force, dry_run=dry_run, runtime_dir=runtime_dir
+        )
+    except CleanupError as exc:
+        typer.echo(f"ingest clean: {exc}", err=True)
+        raise typer.Exit(2)
+
+    verb = "would remove" if report.dry_run else "removed"
+    for rel in report.removed:
+        typer.echo(f"  {verb}: {rel}")
+    suffix = "entry" if report.count == 1 else "entries"
+    typer.echo(
+        f"ingest clean: {verb} {report.count} {suffix} under "
+        f"{Path(runtime_dir).as_posix()}"
+    )
 
 
 __all__ = ["ingest_app"]
