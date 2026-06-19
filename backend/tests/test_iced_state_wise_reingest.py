@@ -9,15 +9,14 @@ reduces ``YYYY-04`` fiscal-year periods to integer years, and emits one
 only. The triples reproduce the on-disk source_ids so a re-emit is idempotent
 with the committed files.
 
-SCOPE: three targets - two single-source ICED indicators
-(rooftop-solar-capacity-mw, electricity-sales-mu) plus the ICED portion of the
-DUAL-SOURCE installed-capacity-allocated-mw file (RBI Handbook Table 140 for
-FY2004-2014 [src-3d1d55f8a94b] + ICED State-wise Deep Dive for FY2015+
-[src-bb1d7bec8b34]). The allocated target emits via the merge-preserving
-``upsert_source_scoped`` path, which replaces ONLY the ICED rows and preserves
-the RBI history byte-identical, so an ICED-only re-emit can never truncate the
-RBI rows. See ``yen_gov.sources.iced_state_wise.ingest`` (multi-FY re-ingest
-section).
+SCOPE: three single-source targets - rooftop-solar-capacity-mw,
+electricity-sales-mu, and installed-capacity-allocated-iced-mw (the ICED half
+of the publisher-split allocated measure). Each target owns its whole file, so
+the re-ingest emits via plain ``write_csv``. The RBI Handbook Table 140
+statewise-total half of the legacy blended installed-capacity-allocated-mw is a
+separate file (installed-capacity-statewise-total-rbi-mw.csv) after the
+2026-06-19 RBI/ICED publisher-split (plan SC-1) and has no live emitter. See
+``yen_gov.sources.iced_state_wise.ingest`` (multi-FY re-ingest section).
 
 Mirrors ``test_iced_coal_consumption_reingest.py``.
 """
@@ -31,7 +30,6 @@ import pytest
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_validator import validate_csv
-from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.sources.iced_state_wise.ingest import (
     _CSV_FILE_CLASS,
     _CSV_SOURCE_PRODUCER,
@@ -46,18 +44,15 @@ from yen_gov.sources.iced_state_wise.parsers import extract_rows
 _ROOFTOP_SOURCE_ID = "src-018bb42f9519"
 _SALES_SOURCE_ID = "src-bb1d7bec8b34"
 # Allocated shares the ICED "State-wise Deep Dive API" citation triple with
-# sales, so it reproduces the SAME source_id (the ICED half of the dual-source
-# on-disk file).
+# sales, so it reproduces the SAME source_id. After the 2026-06-19 RBI/ICED
+# publisher-split (plan SC-1) the allocated target is a single-source ICED-only
+# file; the RBI Handbook Table 140 statewise-total half is a separate file.
 _ALLOC_SOURCE_ID = "src-bb1d7bec8b34"
-# The RBI Handbook Table 140 half of the dual-source allocated file. Produced
-# on disk by ingest-rbi-hbs (the deleted energy RBI adapter); carried here as
-# the binding on-disk other-source id.
-_RBI_ALLOC_SOURCE_ID = "src-3d1d55f8a94b"
 
 # On-disk filenames (== variable_id) for the three included targets.
 _ROOFTOP_VAR = "rooftop-solar-capacity-mw"
 _SALES_VAR = "electricity-sales-mu"
-_ALLOC_VAR = "installed-capacity-allocated-mw"
+_ALLOC_VAR = "installed-capacity-allocated-iced-mw"
 
 # The allocated indicator's API key carries a sub-dict {"data": [...]} parallel
 # to `states` (api_key_subkey="data"); copied VERBATIM from the catalogue spec.
@@ -89,7 +84,7 @@ def _source_id(variable_id: str) -> str:
     )
 
 
-def _stage_fk_targets(repo_root: Path, *, include_rbi_alloc: bool = False) -> None:
+def _stage_fk_targets(repo_root: Path) -> None:
     entities = repo_root / "datasets" / "data" / "entities"
     entities.mkdir(parents=True, exist_ok=True)
     (entities / "geo.csv").write_text(_GEO_CSV, encoding="utf-8")
@@ -104,16 +99,6 @@ def _stage_fk_targets(repo_root: Path, *, include_rbi_alloc: bool = False) -> No
         lines.append(
             f"{sid},{_CSV_SOURCE_PRODUCER},{target.source_title},"
             f"{target.source_vintage},"
-        )
-    if include_rbi_alloc:
-        # The RBI Handbook half of installed-capacity-allocated-mw. The id is
-        # the binding on-disk value; the title is ASCII-normalised here (the
-        # on-disk citation carries a unicode dash). The FK check only verifies
-        # the source_id exists, not the triple hash.
-        lines.append(
-            f"{_RBI_ALLOC_SOURCE_ID},Reserve Bank of India,"
-            "Handbook of Statistics on Indian States - Table 140: State-wise "
-            "Installed Capacity of Power,2024-25,"
         )
     (entities / "source.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -159,8 +144,8 @@ def test_targets_map_to_on_disk_filenames():
     # The registry's variable_ids are the EXACT on-disk geo/*.csv filenames.
     got = {t.variable_id for t in _STATE_WISE_TARGETS}
     assert got == {_ROOFTOP_VAR, _SALES_VAR, _ALLOC_VAR}
-    # installed-capacity-allocated-mw is now INCLUDED (dual-source on disk;
-    # emitted via the merge-preserving upsert_source_scoped path).
+    # installed-capacity-allocated-iced-mw is the ICED-only half of the
+    # publisher-split allocated measure, emitted via plain write_csv.
     assert _ALLOC_VAR in got
 
 
@@ -263,39 +248,13 @@ def test_missing_indicator_in_one_fy_is_skipped_not_fatal(tmp_path: Path):
     assert sales.row_count == 6
 
 
-def test_allocated_emit_preserves_rbi_history(tmp_path: Path):
-    # The dual-source installed-capacity-allocated-mw file: pre-seed synthetic
-    # RBI Handbook rows (src-3d1d55f8a94b, FY2004-2014), then re-ingest the ICED
-    # allocated portion. The merge-preserving upsert_source_scoped emit must
-    # replace ONLY the ICED rows and preserve the RBI rows byte-identical.
-    _stage_fk_targets(tmp_path, include_rbi_alloc=True)
-
-    geo_dir = tmp_path / "datasets/data/datapoints/geo"
-    geo_dir.mkdir(parents=True, exist_ok=True)
-    alloc_path = geo_dir / f"{_ALLOC_VAR}.csv"
-
-    # Synthetic RBI history: maharashtra + tamil-nadu, FY2004-2014 (no national
-    # IN row, mirroring the on-disk RBI allocated coverage). Seeded through the
-    # canonical writer so "byte-identical" preservation is well-defined.
-    rbi_rows = [
-        {
-            "entity_id": ent,
-            "time": year,
-            "value": float(1000 + year),
-            "source_id": _RBI_ALLOC_SOURCE_ID,
-        }
-        for ent in ("maharashtra", "tamil-nadu")
-        for year in range(2004, 2015)
-    ]
-    write_csv(path=alloc_path, file_class=_CSV_FILE_CLASS, rows=rbi_rows)
-    rbi_lines_before = [
-        ln
-        for ln in alloc_path.read_text(encoding="utf-8").splitlines()[1:]
-        if ln.endswith(f",{_RBI_ALLOC_SOURCE_ID}")
-    ]
-    assert len(rbi_lines_before) == 22  # 2 states x 11 FYs
-
-    # Stage two ICED FYs (FY2015+) that carry the allocated capacity sub-dict.
+def test_allocated_target_emits_single_source_iced_file(tmp_path: Path):
+    # After the 2026-06-19 RBI/ICED publisher-split (plan SC-1) the allocated
+    # target owns the ICED-only file installed-capacity-allocated-iced-mw.csv
+    # outright (plain write_csv, no merge-preserving upsert). Every emitted row
+    # carries the single ICED source_id; the RBI Handbook half lives in a
+    # separate file this re-ingest never touches.
+    _stage_fk_targets(tmp_path)
     staging = tmp_path / "staging"
     staging.mkdir(parents=True, exist_ok=True)
     (staging / "2015-16.json").write_text(
@@ -315,7 +274,7 @@ def test_allocated_emit_preserves_rbi_history(tmp_path: Path):
 
     ingest_state_wise(repo_root=tmp_path, staging_dir=staging)
 
-    # source_id reproduction (explicit, per the task).
+    # source_id reproduction (explicit, per the task): unchanged ICED triple.
     derived = derive_source_id(
         _CSV_SOURCE_PRODUCER,
         _target(_ALLOC_VAR).source_title,
@@ -323,28 +282,10 @@ def test_allocated_emit_preserves_rbi_history(tmp_path: Path):
     )
     assert derived == _ALLOC_SOURCE_ID == "src-bb1d7bec8b34"
 
-    text = alloc_path.read_text(encoding="utf-8")
-    parsed = list(csv.DictReader(text.splitlines()))
-    by_source: dict[str, list[dict]] = {}
-    for r in parsed:
-        by_source.setdefault(r["source_id"], []).append(r)
-
-    # 1) RBI rows survive byte-identical.
-    rbi_lines_after = [
-        ln for ln in text.splitlines()[1:]
-        if ln.endswith(f",{_RBI_ALLOC_SOURCE_ID}")
-    ]
-    assert rbi_lines_after == rbi_lines_before
-    assert len(by_source[_RBI_ALLOC_SOURCE_ID]) == 22
-
-    # 2) New ICED allocated rows present (src-bb1d7bec8b34): 3 entities x 2 FYs.
-    iced_rows = by_source[_ALLOC_SOURCE_ID]
-    assert len(iced_rows) == 6
-    assert {r["entity_id"] for r in iced_rows} == {
-        "IN", "maharashtra", "tamil-nadu",
-    }
-    assert {int(r["time"]) for r in iced_rows} == {2015, 2016}
-
-    # 3) Both sources coexist; the merged file FK-closes under the validator.
-    assert set(by_source) == {_RBI_ALLOC_SOURCE_ID, _ALLOC_SOURCE_ID}
+    alloc_path = tmp_path / "datasets/data/datapoints/geo" / f"{_ALLOC_VAR}.csv"
+    parsed = list(csv.DictReader(alloc_path.read_text(encoding="utf-8").splitlines()))
+    # 3 entities x 2 FYs = 6 rows; the file is single-source ICED only.
+    assert len(parsed) == 6
+    assert {r["source_id"] for r in parsed} == {_ALLOC_SOURCE_ID}
+    assert {int(r["time"]) for r in parsed} == {2015, 2016}
     validate_csv(path=alloc_path, file_class=_CSV_FILE_CLASS, repo_root=tmp_path)

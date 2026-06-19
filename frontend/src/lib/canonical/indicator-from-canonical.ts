@@ -829,7 +829,7 @@ export async function loadIndicatorIfCanonical(
   return loadIndicatorFromCanonical(descriptor);
 }
 
-/** Derive the catalogue artifact id (e.g. ``energy/state_peak_electricity_demand_mw``)
+/** Derive the catalogue artifact id (e.g. ``energy/state_peak_electricity_demand_rbi_mw``)
  *  from a DATA_BASE-relative path of the form ``/indicators/in/<topic>/<id>.json``.
  *  Returns the empty string for paths that don't match the legacy shape — the
  *  caller will then short-circuit straight to the legacy fetcher. */

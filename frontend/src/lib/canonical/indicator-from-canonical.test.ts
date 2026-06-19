@@ -132,10 +132,11 @@ beforeEach(() => {
   ]);
 });
 
-// Test fixture mirrors the on-disk shape of the C4.7 Phase A canonical row.
-// Pre-loaded into the descriptor lookup; one real entry today (peak demand).
+// Test fixture mirrors the on-disk shape of a canonical row. Pre-loaded into
+// the descriptor lookup; uses the RBI Handbook half of the publisher-split
+// peak-demand measure (the multi-year series).
 const PEAK_DEMAND_DESCRIPTOR: CanonicalIndicatorDescriptor = getCanonicalDescriptor(
-  "energy/state_peak_electricity_demand_mw",
+  "energy/state_peak_electricity_demand_rbi_mw",
 )!;
 
 // Row 7 (2026-06-10): the Row-7 energy prune (32 -> 10 descriptors)
@@ -159,7 +160,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   });
 
   it("treats the seed peak-demand artifact as canonical-backed", () => {
-    expect(isCanonicalBacked("energy/state_peak_electricity_demand_mw")).toBe(true);
+    expect(isCanonicalBacked("energy/state_peak_electricity_demand_rbi_mw")).toBe(true);
   });
 
   it("treats unrelated artifacts as legacy-backed (false)", () => {
@@ -172,13 +173,13 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   });
 
   it("resolves the descriptor for the seed artifact and null otherwise", () => {
-    const d = getCanonicalDescriptor("energy/state_peak_electricity_demand_mw");
+    const d = getCanonicalDescriptor("energy/state_peak_electricity_demand_rbi_mw");
     expect(d).not.toBeNull();
     // Seed descriptor is the kind:"single" shape — narrow before accessing
     // the single-variant canonical_indicator_id field.
     expect(d!.kind).toBe("single");
     if (d!.kind === "single") {
-      expect(d!.canonical_indicator_id).toBe("peak-electricity-demand-mw");
+      expect(d!.canonical_indicator_id).toBe("peak-electricity-demand-rbi-mw");
     }
     expect(d!.table_id).toBe("energy.energy_demand_supply");
     expect(getCanonicalDescriptor("nope")).toBeNull();
@@ -230,11 +231,11 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   // These tests pin the AUTHORED INTENT, not the verbatim text — so cosmetic
   // copy-editing (punctuation, em-dash polishing) does NOT break them, but
   // a wholesale rewrite or deletion does.
-  it("PR-H peak-demand descriptor carries the 3 Hans-curated caveats", () => {
-    const d = getCanonicalDescriptor("energy/state_peak_electricity_demand_mw");
+  it("PR-H peak-demand descriptor carries 4 caveats (3 Hans-curated + publisher-split)", () => {
+    const d = getCanonicalDescriptor("energy/state_peak_electricity_demand_rbi_mw");
     expect(d).not.toBeNull();
     expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
+    expect(d!.caveats!.length).toBe(4);
     // 1: instantaneous-vs-average misread (Rosling 'Size' instinct guard).
     expect(d!.caveats![0]).toMatch(/highest single-instant load/i);
     // 2: supplied-gap framing (load-shedding signal).
@@ -755,8 +756,9 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     // renders a defensive empty-state) and the `renderer_override` field
     // survives on these descriptors as a historical opt-in marker.
     const WAVE_3_LEGACY_IDS = [
-      // energy (10 descriptors)
-      "energy/state_peak_electricity_demand_mw",
+      // energy (11 descriptors)
+      "energy/state_peak_electricity_demand_rbi_mw",
+      "energy/state_peak_electricity_demand_iced_mw",
       "energy/state_per_capita_electricity_consumption_kwh",
       "energy/state_atc_losses_pct",
       "energy/state_installed_capacity_by_source_mw",
@@ -794,7 +796,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
       // prices (1 descriptor)
       "prices/cpi_inflation_pct",
     ] as const;
-    expect(WAVE_3_LEGACY_IDS.length).toBe(31);
+    expect(WAVE_3_LEGACY_IDS.length).toBe(32);
     for (const legacy_id of WAVE_3_LEGACY_IDS) {
       const d = getCanonicalDescriptor(legacy_id);
       expect(d, `descriptor ${legacy_id} missing from allowlist`).not.toBeNull();
@@ -805,7 +807,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     }
   });
 
-  it("G29 pilot + G30 wave-2 + G30 wave-3 — exactly 37 descriptors carry renderer_override = geo-choropleth-f2b (enumerated lockdown)", () => {
+  it("G29 pilot + G30 wave-2 + G30 wave-3 — exactly 38 descriptors carry renderer_override = geo-choropleth-f2b (enumerated lockdown)", () => {
     const flipped = CANONICAL_BACKED_INDICATORS.filter(
       (d) => d.renderer_override !== undefined,
     );
@@ -819,8 +821,9 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
       "environment/state_so2_annual_mean_ug_m3",
       "environment/state_no2_annual_mean_ug_m3",
       // G30 wave-3 (PR #855 + Row-7 prune 2026-06-10) - state-grain welfare descriptors after the 22-descriptor energy prune
-      // energy (10)
-      "energy/state_peak_electricity_demand_mw",
+      // energy (11)
+      "energy/state_peak_electricity_demand_rbi_mw",
+      "energy/state_peak_electricity_demand_iced_mw",
       "energy/state_per_capita_electricity_consumption_kwh",
       "energy/state_atc_losses_pct",
       "energy/state_installed_capacity_by_source_mw",
@@ -858,7 +861,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
       // prices (1)
       "prices/cpi_inflation_pct",
     ]);
-    expect(expected_legacy_ids.size).toBe(37);
+    expect(expected_legacy_ids.size).toBe(38);
     const actual_legacy_ids = new Set<string>(
       flipped.map((d) => d.legacy_artifact_id),
     );
@@ -1316,7 +1319,7 @@ describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (R2 CSV loader)"
     // The legacy `registerTable(table_id)` call is bypassed (and the
     // parquet shard is never fetched).
     const csvUrls = mockedRegisterCsvFile.mock.calls.map((c) => c[0]);
-    expect(csvUrls.some((u) => u.includes("peak-electricity-demand-mw.csv"))).toBe(true);
+    expect(csvUrls.some((u) => u.includes("peak-electricity-demand-rbi-mw.csv"))).toBe(true);
     const csvAsTableIds = mockedRegisterCsvAsTable.mock.calls.map((c) => c[0]);
     expect(csvAsTableIds).toContain("taxonomy.sources");
     // Parquet path is NOT touched on the CSV branch.
@@ -1332,7 +1335,7 @@ describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (R2 CSV loader)"
     // R2 contract: per-indicator CSV — indicator_id is encoded by the
     // filename so the SQL has no WHERE clause on it.
     expect(firstSql).toMatch(/FROM\s+read_csv\(/);
-    expect(firstSql).toMatch(/peak-electricity-demand-mw\.csv/);
+    expect(firstSql).toMatch(/peak-electricity-demand-rbi-mw\.csv/);
     expect(firstSql).toMatch(/columns=\{/);
     expect(firstSql).not.toMatch(/indicator_id\s*=/);
   });
@@ -1397,17 +1400,17 @@ describe("loadIndicatorIfCanonical — single dispatch entry-point", () => {
           url: "https://example/",
         },
       ]);
-    const out = await loadIndicatorIfCanonical("energy/state_peak_electricity_demand_mw");
+    const out = await loadIndicatorIfCanonical("energy/state_peak_electricity_demand_rbi_mw");
     expect(out).not.toBeNull();
-    expect(out!.indicator.id).toBe("peak-electricity-demand-mw");
+    expect(out!.indicator.id).toBe("peak-electricity-demand-rbi-mw");
     expect(out!.rows[0].entity_id).toBe("S22");
   });
 });
 
 describe("legacyArtifactIdFromPath — DATA_BASE path → catalogue artifact id", () => {
   it("extracts <topic>/<id> from a well-formed legacy path", () => {
-    expect(legacyArtifactIdFromPath("/indicators/in/energy/state_peak_electricity_demand_mw.json"))
-      .toBe("energy/state_peak_electricity_demand_mw");
+    expect(legacyArtifactIdFromPath("/indicators/in/energy/state_peak_electricity_demand_rbi_mw.json"))
+      .toBe("energy/state_peak_electricity_demand_rbi_mw");
     expect(legacyArtifactIdFromPath("/indicators/in/demography/state_population_lakhs.json"))
       .toBe("demography/state_population_lakhs");
   });
@@ -1436,8 +1439,8 @@ describe("loadIndicator — universal entry-point (Phase B-extension)", () => {
           url: "https://example/",
         },
       ]);
-    const out = await loadIndicator("/indicators/in/energy/state_peak_electricity_demand_mw.json");
-    expect(out.indicator.id).toBe("peak-electricity-demand-mw");
+    const out = await loadIndicator("/indicators/in/energy/state_peak_electricity_demand_rbi_mw.json");
+    expect(out.indicator.id).toBe("peak-electricity-demand-rbi-mw");
     expect(out.rows[0].entity_id).toBe("S22");
     expect(mockedFetch).not.toHaveBeenCalled();
   });
@@ -2339,7 +2342,7 @@ describe("G31b - national reference rows (opportunistic sibling-CSV load)", () =
   });
 
   it("does not attempt a sibling fetch when has_national_reference is absent", async () => {
-    // peak-electricity-demand-mw is canonical-backed but the descriptor
+    // peak-electricity-demand-rbi-mw is canonical-backed but the descriptor
     // does NOT set has_national_reference. Only two queries fire: base
     // obs + source ledger.
     mockedQuery
@@ -2347,9 +2350,9 @@ describe("G31b - national reference rows (opportunistic sibling-CSV load)", () =
         { entity_id: "tamil-nadu", time: 2025, value: 20211, source_id: "src-iced" },
       ])
       .mockResolvedValueOnce([]);
-    const out = await loadIndicatorIfCanonical("energy/state_peak_electricity_demand_mw");
+    const out = await loadIndicatorIfCanonical("energy/state_peak_electricity_demand_rbi_mw");
     expect(out).not.toBeNull();
-    expect(out!.indicator.id).toBe("peak-electricity-demand-mw");
+    expect(out!.indicator.id).toBe("peak-electricity-demand-rbi-mw");
     expect(indicatorArtifactNationalReference(out!)).toBeUndefined();
     expect(mockedQuery).toHaveBeenCalledTimes(2);
   });

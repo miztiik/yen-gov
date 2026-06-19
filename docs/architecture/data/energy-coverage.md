@@ -1,6 +1,6 @@
 # Energy coverage matrix (ICED + CEA + RBI)
 
-**Last Updated:** 2026-06-18 (dual-source merge-preserving write discipline + allocated ICED re-ingest landed; section 8 added)
+**Last Updated:** 2026-06-19 (RBI/ICED publisher-split: the two dual-source blends split per-publisher; upsert_source_scoped retired; section 8 rewritten)
 **Tracked by:** this doc is the receipt; the staging tool [tools/iced_stage.py](../../../tools/iced_stage.py) reads the same feed list and its run-log records each download.
 
 This document answers: **for the energy indicator category, what ICED / CEA / RBI data yen-gov already HAS (with year coverage), what we do NOT yet have (the agreed download targets), and -- crucially -- which of it can actually be (re)ingested today versus needs an adapter built first.**
@@ -67,10 +67,12 @@ Year coverage is the min..max `time` actually present in each datapoint CSV. Gra
 | peak-electricity-supplied-mw | 2013-2024 | ORPHAN |
 | per-capita-electricity-availability-kwh | 2004-2024 | ORPHAN |
 | renewable-grid-capacity-mw | 2007-2024 | ORPHAN |
-| installed-capacity-allocated-mw (ICED+RBI) | 2004-2025 | DUAL-SOURCE -- ICED half (FY2015+) re-ingestable via `ingest-iced-state-wise`; RBI half (FY2004-2014) orphan. See section 8. |
-| peak-electricity-demand-mw (ICED+RBI) | 2013-2025 | LIVE (`ingest-iced-peak-demand`, snapshot only) |
+| installed-capacity-allocated-iced-mw (ICED) | 2015-2025 | LIVE (`ingest-iced-state-wise`); ICED half of the publisher-split allocated measure. See section 8. |
+| installed-capacity-statewise-total-rbi-mw (RBI) | 2004-2014 | ORPHAN (RBI Handbook Table 140; no live emitter). See section 8. |
+| peak-electricity-demand-iced-mw (ICED) | 2025 | LIVE (`ingest-iced-peak-demand`, FY2025 snapshot). See section 8. |
+| peak-electricity-demand-rbi-mw (RBI) | 2013-2024 | ORPHAN (RBI Handbook Table 142; no live emitter). See section 8. |
 
-Totals: 70 energy datapoint files at the survey (ICED 60, RBI 5, CEA 2, ICED/RBI 2, derived 1). **4 LIVE re-ingest CLIs, 66 ORPHAN.** After D1/D2 the per-fuel generation (6) + retired (2) `geo/` files folded into 2 faceted `geo_by_fuel/` files (net ~64 files); the LIVE/ORPHAN split (a re-ingest-CLI count, not a file count) is unchanged -- faceting changes shape, not the ability to add new years.
+Totals: 72 energy datapoint files at the survey (ICED 62, RBI 7, CEA 2, derived 1) after the 2026-06-19 RBI/ICED publisher-split turned the 2 dual-source blends into 4 single-source files. **4 LIVE re-ingest CLIs, 68 ORPHAN.** After D1/D2 the per-fuel generation (6) + retired (2) `geo/` files folded into 2 faceted `geo_by_fuel/` files; the LIVE/ORPHAN split (a re-ingest-CLI count, not a file count) is unchanged -- faceting changes shape, not the ability to add new years.
 
 ## 3. Faceting debt -- CLEARED
 
@@ -134,24 +136,43 @@ A "full refresh" of the LIVE feeds, end to end:
 
 For the orphan families (Tier B) and the 7 new feeds (section 4), staging works today but a full refresh waits on the per-family adapter rebuild.
 
-## 8. Dual-source indicators and the merge-preserving write discipline
+## 8. The RBI/ICED publisher-split (2026-06-19)
 
-A few canonical `geo/<id>.csv` files are **dual-source**: their rows are contributed by more than one publisher, split cleanly by period. The reference case is `installed-capacity-allocated-mw` (installed capacity including allocated shares):
+Two canonical `geo/<id>.csv` files were historically **dual-source blends**: their
+rows came from two methodology-incompatible publishers, split cleanly by period.
+The reference case was `installed-capacity-allocated-mw` (installed capacity
+including allocated shares); the second was `peak-electricity-demand-mw`.
 
-| Period | Source | source_id | Rows |
-| --- | --- | --- | ---: |
-| FY2004-2014 | RBI Handbook Table 140 (State-wise Installed Capacity of Power) | `src-3d1d55f8a94b` | 374 (36 states, no national IN) |
-| FY2015-2025 | ICED NITI "State-wise Deep Dive API" | `src-bb1d7bec8b34` | 396 (36 states + IN) |
+On 2026-06-19 the user ratified (plan TODO/20260618-iced-7-feeds-and-rbi-iced-split-plan.md
+SC-1) a **publisher-split**: each blend was split into two single-source files,
+one per publisher. Showing two methodology-incompatible publishers as one trend
+line is dishonest; the split makes each series a distinct indicator that shares
+the measure's concept but renders as its own series, never spliced.
 
-It stays **one OWID variable in one file** -- the publisher split is recorded per row via `source_id` (provenance is a FK, never part of identity; CLAUDE.md section 12 + the "never mint a new id for a new publisher" anti-pattern). Splitting the indicator by publisher would violate the one-concept rule, so the two publishers share a single fact table.
+| Old blended file | ICED-only file | RBI-only file |
+| --- | --- | --- |
+| `installed-capacity-allocated-mw` (770 rows) | `installed-capacity-allocated-iced-mw` (396 rows, `src-bb1d7bec8b34`, NITI "State-wise Deep Dive API", FY2015-2025) | `installed-capacity-statewise-total-rbi-mw` (374 rows, `src-3d1d55f8a94b`, RBI Handbook Table 140, FY2004-2014) |
+| `peak-electricity-demand-mw` (430 rows) | `peak-electricity-demand-iced-mw` (34 rows, `src-bb1d7bec8b34`, NITI ICED, FY2025 snapshot) | `peak-electricity-demand-rbi-mw` (396 rows, `src-99ac1fee8a50`, RBI Handbook Table 142, FY2013-2024) |
 
-**The write discipline.** Each source re-ingests **independently and source-scoped** via [`upsert_source_scoped`](../../../backend/yen_gov/canonical/csv_writer.py):
+**One concept, two indicators.** Each pair shares one `concept_id`
+(`capacity-allocated-to-state-2` for allocated, `peak-demand` for peak); the
+publisher-incompatibility justification is recorded in each variable row's
+`derivation` field. This is the deliberate, signed-off exception to the
+"never mint a new id for a new publisher" anti-pattern (CLAUDE.md section 10):
+permitted only when the publishers are methodology-incompatible and the split is
+a named plan-doc decision.
 
-- the ICED half is produced by `ingest-iced-state-wise` (the multi-FY state-wise re-ingest), which re-emits ONLY the `src-bb1d7bec8b34` rows;
-- the RBI half is produced by `ingest-rbi-hbs`, which owns the `src-3d1d55f8a94b` rows.
+**Each file is now single-source**, so the re-ingest writers use plain `write_csv`:
 
-`upsert_source_scoped(path, file_class, new_rows, source_id)` reads the existing file, **drops only the rows whose `source_id` equals the incoming source**, keeps every other source's rows verbatim, and writes the merged set. So re-emitting one source can **never truncate** the other -- an ICED-only re-ingest preserves the RBI Handbook history byte-identical, and an RBI re-ingest preserves the ICED years. A plain `write_csv` (full accumulate-then-rewrite) would truncate whichever source the current run did not re-emit; that is why the ICED allocated target was initially excluded from the Path-C re-ingest and is now included only through this seam.
+- `installed-capacity-allocated-iced-mw` is produced by `ingest-iced-state-wise`;
+- `peak-electricity-demand-iced-mw` is produced by `ingest-iced-peak-demand`;
+- the two RBI-only files are orphan historical lifts (RBI Handbook Tables 140 +
+  142) with no live emitter.
 
-**Cross-source independence is enforced, not assumed.** If an incoming row's PK `(entity_id, time)` collides with a preserved other-source row, `upsert_source_scoped` **fails loud** (`ValueError`) rather than letting one publisher silently overwrite another. For the allocated file the keyspaces are disjoint (RBI <= 2014, ICED >= 2015) so the guard never fires in practice -- it is the structural contract that keeps the two publishers' rows from ever being combined or silently overwritten. An incoming row that claims a different `source_id` than the call names is likewise rejected as a programming error.
-
-This is the canonical write discipline for any future multi-source single-value file: reach for `upsert_source_scoped` (not `write_csv`) whenever a `geo/<id>.csv` carries rows from more than one `source_id`.
+The previous `upsert_source_scoped` merge-preserving write helper -- which let one
+file carry two publishers by re-emitting one source in place -- is **retired**
+(deleted from [`csv_writer.py`](../../../backend/yen_gov/canonical/csv_writer.py)):
+with the blends split, no canonical file carries more than one `source_id`, so the
+source-scoped merge has no caller. Any future multi-source single-value need is a
+methodology-incompatible publisher-split (two ids, one concept), not a blended
+file.

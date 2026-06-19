@@ -55,7 +55,7 @@ _CSV_VARIABLE_PREFIX_GEN = "electricity-generation-snapshot-gwh"
 _CSV_SOURCE_TITLE_PEAK = (
     "State peak electricity demand snapshot (powerStatistics) API"
 )
-_CSV_VARIABLE_PREFIX_PEAK = "peak-electricity-demand-mw"
+_CSV_VARIABLE_PREFIX_PEAK = "peak-electricity-demand-iced-mw"
 
 _CSV_SOURCE_TITLE_RETIRED = (
     "India thermal capacity retired by source (retired-capacity-plants) API"
@@ -582,10 +582,12 @@ def ingest_capacity(
 # Peak-demand entity-key fix (Row 4: single-value geo CSV, ECI -> LGD slug)
 # ---------------------------------------------------------------------------
 #
-# Per plan ruling R-G the ICED peak-demand series stays a single-value
-# geo/peak-electricity-demand-mw.csv; the only fix is re-pointing its entity
-# output through the ECI -> LGD-slug translation so the rows FK-close against
-# entities/geo.csv (the parser emits ECI st_codes; geo.csv keys on slugs).
+# The ICED peak-demand series is a single-value geo/<id>.csv; this re-points
+# its entity output through the ECI -> LGD-slug translation so the rows
+# FK-close against entities/geo.csv (the parser emits ECI st_codes; geo.csv
+# keys on slugs). After the 2026-06-19 RBI/ICED publisher-split (plan SC-1) the
+# ICED half is its own file geo/peak-electricity-demand-iced-mw.csv (the RBI
+# Handbook Table 142 half is the separate geo/peak-electricity-demand-rbi-mw.csv).
 
 
 @dataclass(frozen=True)
@@ -632,8 +634,9 @@ def ingest_peak(
     AES-encrypted on the wire, so the staged blob is the CryptoJS envelope;
     ``decrypt=True`` (default) makes ``load_iced_response`` decrypt it before
     parsing (an already-plain file still loads). Emits the single-value file
-    ``datasets/data/datapoints/geo/peak-electricity-demand-mw.csv`` with
-    LGD-slug ``entity_id`` rows.
+    ``datasets/data/datapoints/geo/peak-electricity-demand-iced-mw.csv`` (the
+    ICED half of the publisher-split peak-demand measure) with LGD-slug
+    ``entity_id`` rows.
     """
     decoded = load_iced_response(
         raw_json_path.read_bytes(), decrypt=decrypt

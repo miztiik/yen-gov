@@ -2352,10 +2352,11 @@ def ingest_iced_peak_demand(
 ) -> None:
     """Ingest the ICED peak-demand series into the single-value store.
 
-    Emits ``datasets/data/datapoints/geo/peak-electricity-demand-mw.csv`` with
-    LGD-slug ``entity_id`` rows. Peak demand stays single-value (no fuel
-    facet); the Row 4 fix re-points the entity output through the ECI -> LGD
-    slug translation so the rows FK-close against entities/geo.csv.
+    Emits ``datasets/data/datapoints/geo/peak-electricity-demand-iced-mw.csv``
+    (the ICED half of the publisher-split peak-demand measure) with LGD-slug
+    ``entity_id`` rows. Peak demand stays single-value (no fuel facet); the
+    entity output is re-pointed through the ECI -> LGD slug translation so the
+    rows FK-close against entities/geo.csv.
     """
     from yen_gov.sources.iced_power.ingest import ingest_peak
 
@@ -2480,16 +2481,18 @@ def ingest_iced_state_wise(
     """Re-ingest the ICED state-wise single-value energy indicators.
 
     Emits one ``datasets/data/datapoints/geo/<variable_id>.csv`` per target
-    (rooftop-solar-capacity-mw, electricity-sales-mu): the per-FY per-state
-    columns are accumulated across every staged fiscal year, ECI state codes
-    translate to LGD slugs, and fiscal-year periods reduce to integer years.
-    Graduates these orphan single-value series to LIVE re-ingest (Tier-B);
-    re-running with fresher staged responses adds new years.
+    (rooftop-solar-capacity-mw, electricity-sales-mu,
+    installed-capacity-allocated-iced-mw): the per-FY per-state columns are
+    accumulated across every staged fiscal year, ECI state codes translate to
+    LGD slugs, and fiscal-year periods reduce to integer years. Each target is
+    single-source, emitted via plain write_csv. Graduates these orphan
+    single-value series to LIVE re-ingest (Tier-B); re-running with fresher
+    staged responses adds new years.
 
-    installed-capacity-allocated-mw is deliberately NOT emitted: its on-disk
-    file is a dual-source historical merge (RBI Handbook + ICED), so a clean
-    ICED-only re-emit would truncate the RBI history. See the re-ingest module
-    docstring.
+    The RBI Handbook Table 140 statewise-total half of the legacy blended
+    installed-capacity-allocated-mw is a separate file
+    (installed-capacity-statewise-total-rbi-mw.csv) after the 2026-06-19 RBI/
+    ICED publisher-split (plan SC-1); this re-ingest owns only the ICED half.
     """
     from yen_gov.sources.iced_state_wise.ingest import ingest_state_wise
 

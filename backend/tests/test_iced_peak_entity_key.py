@@ -1,10 +1,10 @@
-"""Row 4 gate: ICED peak-demand entity-key fix (ECI st_code -> LGD slug).
+"""ICED peak-demand entity-key fix (ECI st_code -> LGD slug).
 
-Plan TODO/20260617-cea-iced-faceted-ingestion-plan.md, ruling R-G: the ICED
-peak-demand series stays a single-value ``geo/peak-electricity-demand-mw.csv``;
-the only fix is re-pointing its entity output through the ECI -> LGD-slug
-translation so the rows FK-close against ``entities/geo.csv`` (the parser
-emits ECI st_codes; geo.csv keys on slugs).
+The ICED peak-demand series is a single-value
+``geo/peak-electricity-demand-iced-mw.csv`` (the ICED half of the publisher-
+split peak-demand measure, per plan SC-1); the entity output is re-pointed
+through the ECI -> LGD-slug translation so the rows FK-close against
+``entities/geo.csv`` (the parser emits ECI st_codes; geo.csv keys on slugs).
 
 No mocks (Holy Law #7); ``tmp_path`` fixtures only. FK targets (geo.csv +
 source.csv) are staged in ``tmp_path``.
@@ -66,8 +66,8 @@ def _parsed_peak_rows() -> list[dict[str, object]]:
 def test_build_peak_translates_eci_to_slug():
     sid = _peak_source_id()
     by_variable = build_peak_rows(_parsed_peak_rows(), source_id=sid)
-    assert set(by_variable) == {"peak-electricity-demand-mw"}
-    rows = by_variable["peak-electricity-demand-mw"]
+    assert set(by_variable) == {"peak-electricity-demand-iced-mw"}
+    rows = by_variable["peak-electricity-demand-iced-mw"]
     assert {r["entity_id"] for r in rows} == {"tamil-nadu", "jharkhand"}
     assert all(r["time"] == 2023 for r in rows)
     assert all(r["source_id"] == sid for r in rows)
@@ -93,7 +93,7 @@ def test_peak_emit_validates(tmp_path: Path):
 
     assert len(written) == 1
     out = written[0]
-    assert out == tmp_path / _CSV_OUT_REL_DIR / "peak-electricity-demand-mw.csv"
+    assert out == tmp_path / _CSV_OUT_REL_DIR / "peak-electricity-demand-iced-mw.csv"
     assert out.read_text(encoding="utf-8").splitlines()[0] == (
         "entity_id,time,value,source_id"
     )
@@ -115,9 +115,9 @@ def test_ingest_peak_end_to_end_emits_slug_keyed_rows(tmp_path: Path):
 
     result = ingest_peak(repo_root=tmp_path, raw_json_path=raw_path)
 
-    assert result.variable_id == "peak-electricity-demand-mw"
+    assert result.variable_id == "peak-electricity-demand-iced-mw"
     assert result.row_count == 3
-    out = tmp_path / _CSV_OUT_REL_DIR / "peak-electricity-demand-mw.csv"
+    out = tmp_path / _CSV_OUT_REL_DIR / "peak-electricity-demand-iced-mw.csv"
     text = out.read_text(encoding="utf-8")
     assert "tamil-nadu" in text and "jharkhand" in text
     # "All India" passes through to the IN country rollup.

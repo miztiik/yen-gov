@@ -67,7 +67,7 @@ india-primary-energy-supply-mtoe-renewable,Renewables,renewables,mtoe,,energy,sr
 india-thermal-capacity-retired-mw,Thermal capacity retired,thermal-capacity-retired,MW,,energy,src-fd152bd3c6c6,365,,,
 india-thermal-capacity-retired-mw-coal,Coal,coal-mw-retired,MW,,energy,src-fd152bd3c6c6,365,,,
 india-thermal-capacity-retired-mw-gas,Gas,gas-mw-retired,MW,,energy,src-fd152bd3c6c6,365,,,
-installed-capacity-allocated-mw,Capacity allocated to state,capacity-allocated-to-state-2,MW,,energy,src-bb1d7bec8b34,365,,,
+installed-capacity-allocated-iced-mw,Capacity allocated to state (NITI ICED),capacity-allocated-to-state-2,MW,"NITI Aayog ICED State-wise Deep Dive API; allocated-shares methodology, FY2015 onwards. Publisher-split from the legacy blended installed-capacity-allocated-mw: the ICED allocated-shares series and the RBI Handbook Table 140 statewise-total series use incompatible sampling frames and definitions, so splicing them on one trend line would be dishonest. Signed-off split per TODO/20260618-iced-7-feeds-and-rbi-iced-split-plan.md SC-1; shares concept capacity-allocated-to-state-2 with the RBI half installed-capacity-statewise-total-rbi-mw.",energy,src-bb1d7bec8b34,365,2015,2025,state
 installed-capacity-allocated-mw-coal,Coal,coal-mw-allocated,MW,,energy,src-bb1d7bec8b34,365,,,
 installed-capacity-allocated-mw-gas,Gas,gas-mw-allocated,MW,,energy,src-bb1d7bec8b34,365,,,
 installed-capacity-allocated-mw-hydro,Hydro,hydro-mw-allocated,MW,,energy,src-bb1d7bec8b34,365,,,
@@ -76,6 +76,7 @@ installed-capacity-allocated-mw-renewable,Renewable,renewable-mw-allocated,MW,,e
 installed-capacity-geographical-mw,Capacity sited in state,capacity-sited-in-state,MW,,energy,src-1240f07df0ac,365,,,
 installed-capacity-mw,All-India installed capacity,all-india-installed-capacity,MW,,energy,src-092a5dc7af3f,30,,,
 installed-capacity-snapshot-mw,Capacity snapshot (CEA),capacity-snapshot-cea,MW,,energy,src-092a5dc7af3f,30,,,
+installed-capacity-statewise-total-rbi-mw,State-wise installed capacity (RBI Handbook Table 140),capacity-allocated-to-state-2,MW,"Reserve Bank of India Handbook of Statistics on Indian States, Table 140 (State-wise Installed Capacity of Power), FY2004-2014. Publisher-split from the legacy blended installed-capacity-allocated-mw: incompatible with the NITI ICED allocated-shares series (different definition and revision discipline), so shown as a separate indicator rather than spliced. Signed-off split per TODO/20260618-iced-7-feeds-and-rbi-iced-split-plan.md SC-1; shares concept capacity-allocated-to-state-2 with the ICED half installed-capacity-allocated-iced-mw.",energy,src-3d1d55f8a94b,365,2004,2014,state
 livestock-naip-iv-calves-born,Calves born,calves-born,calves,,agriculture,src-93a2a72db482,365,,,
 livestock-naip-iv-farmers-benefitted,Farmers benefitted,farmers-benefitted,farmers,,agriculture,src-93a2a72db482,365,,,
 livestock-naip-iv-inseminations,AI events,ai-events,events,,agriculture,src-93a2a72db482,365,,,
@@ -127,7 +128,8 @@ pc-turnout-pct,Turnout,turnout-pc,%,,elections,,1825,,,
 pc-votes-polled,Votes polled,votes-polled-pc,votes,,elections,,1825,,,
 pc-winner-candidate-id,Winner,winner-pc,entity_id,,elections,,1825,,,
 pc-winner-party-id,Winning party,winning-party-pc,entity_id,,elections,,1825,,,
-peak-electricity-demand-mw,Peak demand,peak-demand,MW,,energy,src-99ac1fee8a50,365,,,
+peak-electricity-demand-iced-mw,Peak demand (NITI ICED snapshot),peak-demand,MW,"NITI Aayog ICED State-wise Deep Dive API; FY2025 peak-demand snapshot. Publisher-split from the legacy blended peak-electricity-demand-mw: incompatible with the RBI Handbook Table 142 multi-year series, so shown as a separate indicator rather than spliced. Signed-off split per TODO/20260618-iced-7-feeds-and-rbi-iced-split-plan.md SC-1; shares concept peak-demand with the RBI half peak-electricity-demand-rbi-mw.",energy,src-bb1d7bec8b34,365,2025,2025,state
+peak-electricity-demand-rbi-mw,Peak demand (RBI Handbook Table 142),peak-demand,MW,"Reserve Bank of India Handbook of Statistics on Indian States, Table 142 (State-wise peak power demand), FY2013-2024. Publisher-split from the legacy blended peak-electricity-demand-mw: the RBI Handbook multi-year series and the NITI ICED snapshot use incompatible methodology, so shown as a separate indicator rather than spliced. Signed-off split per TODO/20260618-iced-7-feeds-and-rbi-iced-split-plan.md SC-1; shares concept peak-demand with the ICED half peak-electricity-demand-iced-mw.",energy,src-99ac1fee8a50,365,2013,2024,state
 peak-electricity-supplied-mw,Peak supplied,peak-supplied,MW,,energy,src-9c02616a7166,365,,,
 per-capita-electricity-availability-kwh,Per-capita availability,per-capita-availability-2,kWh per person per year,,energy,src-9a38005d8713,365,,,
 per-capita-electricity-consumption-kwh,Per-capita consumption,per-capita-consumption-2,kWh per person per year,,energy,src-bb1d7bec8b34,365,,,
