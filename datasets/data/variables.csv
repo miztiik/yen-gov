@@ -20,6 +20,7 @@ candidate-vote-share-pct,Vote share,vote-share-candidate,%,,elections,,365,,,
 candidate-votes-polled,Candidate votes,candidate-votes,votes,,elections,,365,,,
 captive-power-capacity-mw,Captive power capacity,captive-power-capacity,MW,Sum of self-reported captive power capacity (MW) across all 22 industry categories per state and year; the industry dimension is dropped. stateWise rows only (the national fuel-mix 'sourceWise' rows are ignored).,energy,src-3d0b1c141f6a,365,2005,2023,state
 captive-power-generation-gwh,Captive power generation,captive-power-generation,GWh,"Sum of self-reported captive power generation across all 22 industry categories per state and year; the industry dimension is dropped. The CEA reports in Million Units (1 MU = 1 GWh), emitted unchanged as GWh. stateWise rows only (the national fuel-mix 'sourceWise' rows are ignored).",energy,src-3d0b1c141f6a,365,2005,2023,state
+coal-capacity-fgd-share-pct,Operating coal capacity fitted with FGD (SO2 scrubbers),coal-fgd-compliance-share,%,"Each coal unit geocoded to its state by point-in-polygon over the LGD state boundaries (datasets/boundaries/in/states/all.geojson; ray-casting, with a bounded coastal-boundary snap for plants just outside the simplified coastline). Per state, share = 100 x (sum capacity of operating coal units with FGD installed) / (sum capacity of all operating coal units). Operating = commissioningGroup 'operational'; FGD installed = fgdGroup 'FGD installed'.",energy,src-85c67674901f,365,2026,2026,state
 coal-consumption-mt,Coal consumption,coal-consumption,Mt,,energy,src-c222a8e2cd61,365,,,
 distribution-efficiency-pct,Distribution efficiency,distribution-efficiency,%,,energy,,365,,,
 distribution-efficiency-pct-billing,Billing efficiency,billing-efficiency,%,,energy,src-650b1c25d1f7,365,,,
@@ -164,6 +165,7 @@ rpo-compliance-pct-non-solar,Non-solar RPO,non-solar-rpo,%,,energy,src-0ea63ed47
 rpo-compliance-pct-solar,Solar RPO,solar-rpo,%,,energy,src-0ea63ed47704,365,,,
 rpo-compliance-pct-total,Total RPO,total-rpo,%,,energy,src-0ea63ed47704,365,,,
 solar-potential-mw,Solar power potential,solar-energy-potential,MW,,energy,src-518795193989,365,2025,2025,country state
+substation-capacity-commissioned-mva,Transmission substation capacity commissioned (MVA),substation-capacity-commissioned,MVA,"Sum of nameplate substation capacity (MVA) commissioned each fiscal year, grouped by governing voltage class (the highest winding voltage of each asset, bucketed into hvdc / 765kv / 400kv / 220kv / other). National only - the feed has no per-state attribution.",energy,src-d9484e65a17e,365,2015,2026,country
 turnout-pct,State turnout,state-turnout,%,,elections,,365,,,
 under-construction-capacity-gw,Under-construction capacity (pipeline),under-construction-capacity,GW,,energy,src-e0b2a084d204,30,,,
 votes-polled,State votes,state-votes,votes,,elections,,365,,,

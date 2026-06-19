@@ -951,6 +951,135 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       "Summed across 22 industry categories; the all-India aggregate row and the unsplittable combined 'Jammu and Kashmir and Ladakh' label are excluded.",
     ],
   },
+  // --- Tier-B coal-FGD ingest (2026-06-18) ---
+  // ICED coal-plant AQI-impact feed -> 1 NET-NEW state-grain share indicator
+  // emitted to data/datapoints/geo/coal-capacity-fgd-share-pct.csv by
+  // backend/yen_gov/canonical/adapters/iced_coal_fgd. A SNAPSHOT (FGD-retrofit
+  // status is current, not a time series) stamped at one assessment year
+  // (2026). Each coal UNIT carries coordinates but no state field, so the
+  // adapter GEOCODES every unit to its LGD state by point-in-polygon over
+  // datasets/boundaries/in/states (ray-casting, with a bounded coastal-
+  // boundary snap for the handful of coastal plants just outside the
+  // simplified coastline). Per state, share = operating coal capacity with
+  // FGD installed / total operating coal capacity. A geocode-derived
+  // (major-processing) statistic. table_id is nominal (CSV-only descriptor -
+  // csv_path is the live read path; there is no parquet stem).
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_coal_fgd_share_pct",
+    canonical_indicator_id: "coal-capacity-fgd-share-pct",
+    csv_path: "data/datapoints/geo/coal-capacity-fgd-share-pct.csv",
+    table_id: "energy.coal_fgd",
+    meta: {
+      id: "coal-capacity-fgd-share-pct",
+      title: "Operating coal capacity fitted with FGD / SO2 scrubbers (% share)",
+      description:
+        "Share of a state's OPERATING coal-power capacity fitted with FGD (flue-gas desulphurisation - the SO2 'scrubber' the 2015 emission norms require). More scrubbed capacity = less sulphur dioxide in the air the state breathes. The numerator is operating coal units whose FGD is installed; the denominator is all operating coal units. India's FGD-retrofit programme runs years behind schedule, so most coal states still sit in single digits or at zero - a low number is the honest reality of the rollout, not a data gap.",
+      entity_kind: "state",
+      time_grain: "year",
+      value_kind: "share",
+      direction: "higher_is_better",
+      scale_hint: "linear",
+      unit: "%",
+      short_unit: "%",
+      icon: "factory",
+      attribution_geography: "where_produced",
+      comparability: "comparable_across_states_snapshot_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NITI Aayog ICED 'Coal Plant AQI Impact List' (2024-25 edition), recorded as a 2026 snapshot. FGD status from the feed's fgdGroup field ('FGD installed' = scrubbed); operating fleet = commissioningGroup 'operational'. Each plant geocoded to its state by point-in-polygon over datasets/boundaries/in/states (ray-casting; a bounded nearest-boundary snap places coastal plants just outside the simplified coastline). A geocode-derived, major-processing statistic.",
+      notes:
+        "A current snapshot of FGD-retrofit status, not a time series - the SO2 norm post-dates most plants, so units are retrofitted one by one over years. CFBC boilers (a different in-furnace SO2 control, not a flue-gas scrubber) and unverified 'claims to be SO2 compliant' are deliberately NOT counted as installed FGD.",
+    },
+    caveats: [
+      "Plants geocoded to state by coordinates (point-in-polygon). A handful of coastal plants that fall just outside the simplified coastline are snapped to the nearest state boundary.",
+      "FGD status is a current snapshot - plants retrofit over time, so a state's share rises as units are scrubbed.",
+      "Share of the OPERATING coal fleet only; retired and under-construction units are excluded. CFBC boilers and unverified SO2-compliance claims are not counted as installed FGD.",
+    ],
+  },
+
+  // --- Tier-B transmission-substation ingest (2026-06-18) --- facet-multiplexed
+  // ICED 'Transmission Substation List' (national asset inventory) -> ONE
+  // NET-NEW country-grain faceted indicator emitted to
+  // data/datapoints/geo_by_voltage/substation-capacity-commissioned-mva.csv by
+  // backend/yen_gov/canonical/adapters/iced_transmission_substations. The feed
+  // carries NO state field, so this is NATIONAL-only (entity_id "IN") - a grid
+  // build-out series (substation MVA commissioned per fiscal year), NOT
+  // installed generation capacity. The analytical detail lives on the
+  // voltage_class facet axis (the EHV transmission tiers), read from the one
+  // faceted file via faceted_csv_path + facet_column (the geo_by_voltage
+  // dimension-column path). table_id is nominal (CSV-only descriptor; there is
+  // no parquet stem). comparability = comparable_within_state_over_time: a
+  // single-entity time series is comparable over years but carries no
+  // cross-entity rank (canShowRank suppresses the meaningless one-row rank
+  // table); the grapher companion row in indicator_render.json carries the
+  // matching no_rank_table renderer rule. implementing_authority = "joint"
+  // (central PGCIL / CTUIL plus the state transmission utilities both build
+  // substations).
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "energy/national_transmission_substation_capacity_mva",
+    canonical_parent_indicator_id: "substation-capacity-commissioned-mva",
+    table_id: "energy.transmission_substations",
+    facet_axis_id: "voltage_class",
+    faceted_csv_path:
+      "data/datapoints/geo_by_voltage/substation-capacity-commissioned-mva.csv",
+    facet_column: "voltage_class",
+    facet_values: [
+      {
+        canonical_child_id: "substation-capacity-commissioned-mva-hvdc",
+        facet_value: "hvdc",
+        legacy_facet_label: "HVDC",
+      },
+      {
+        canonical_child_id: "substation-capacity-commissioned-mva-765kv",
+        facet_value: "765kv",
+        legacy_facet_label: "765 kV",
+      },
+      {
+        canonical_child_id: "substation-capacity-commissioned-mva-400kv",
+        facet_value: "400kv",
+        legacy_facet_label: "400 kV",
+      },
+      {
+        canonical_child_id: "substation-capacity-commissioned-mva-220kv",
+        facet_value: "220kv",
+        legacy_facet_label: "220 kV",
+      },
+      {
+        canonical_child_id: "substation-capacity-commissioned-mva-other",
+        facet_value: "other",
+        legacy_facet_label: "Other / unclassified",
+      },
+    ],
+    meta: {
+      id: "substation-capacity-commissioned-mva",
+      title: "Transmission substation capacity commissioned (MVA)",
+      description:
+        "Total nameplate transmission-substation capacity (MVA) commissioned across India each fiscal year, broken out by voltage class. This is GRID BUILD-OUT - how much high-voltage switching and transformation capacity the country adds each year - NOT installed generation capacity (MW) and NOT line length. The source (NITI Aayog ICED Transmission Substation List) is a national asset inventory with no state field, so this series is national-only and cannot be attributed to states.",
+      entity_kind: "country",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "MVA",
+      short_unit: "MVA",
+      icon: "zap",
+      attribution_geography: "where_produced",
+      comparability: "comparable_within_state_over_time",
+      implementing_authority: "joint",
+      methodology_vintage:
+        "NITI Aayog India Climate & Energy Dashboard 'Transmission Substation List' (national asset inventory), 2024-25 snapshot. Each asset's nameplate capacity (MVA) is summed by completion fiscal year and governing voltage class - the highest winding voltage of the asset bucketed into hvdc / 765kv / 400kv / 220kv / other. No state attribution exists in the source.",
+      notes:
+        "A national grid build-out indicator (annual flow of additions, not a cumulative stock). Pair with installed-capacity (generation MW) to distinguish grid expansion from generation expansion.",
+    },
+    caveats: [
+      "National only. The ICED substation feed carries no state field, so capacity cannot be attributed to states - read this as a country-level grid build-out trend, not a per-state comparison.",
+      "Voltage class is derived from each asset's governing (highest) winding voltage: hvdc = the +-320 / +-500 / +-800 kV DC terminals; 765 / 400 / 220 kV are the AC transmission tiers; 'other' collects the ~1% of rows whose voltage field was mis-populated upstream with an agency name.",
+      "Substation MVA is transformation / switching capacity at grid nodes, NOT generation (MW) and NOT line length. 'Commissioned per year' is an annual flow of additions; sum across years for cumulative build-out.",
+      "A handful of assets with no completion year or no reported capacity are dropped (not silently zero-filled).",
+    ],
+  },
 
   // --- PR-R (Row 6 P.1.C 2/9, rooftop solar capacity lift, 2026-05-25) ---
   // ICED `/energy/renewable/solar/rooftop/state` -> 321 obs rows (states x

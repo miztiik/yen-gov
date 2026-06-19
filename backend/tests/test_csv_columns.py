@@ -45,6 +45,12 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # the artifact's own self-declared $schema points at the sibling validator.
     raw = json.loads(COLUMNS_PATH.read_text(encoding="utf-8"))
     assert raw["$schema"] == "./columns.schema.json"
+    # 2.11 bump (ICED transmission-substation faceted ingest): ADDITIVE - new
+    # per-axis sibling file-class datasets/data/datapoints/geo_by_voltage/*.csv
+    # (voltage_class dimension column; 5-bucket closed enum hvdc/765kv/400kv/
+    # 220kv/other; no `all` member) mirroring geo_by_fuel (v2.7) / geo_by_product
+    # (v2.9). Seeds one NATIONAL-only measure (substation-capacity-commissioned-mva).
+    # Metadata-only on the schema-of-schemas; no existing class changed.
     # 2.10 bump (NITI ICED national energy-balance ingest): ADDITIVE - TWO new
     # faceted datapoint file-classes for the national (entity_id IN) energy
     # balance: geo_by_primary_source/*.csv (single primary_source axis, 6-source
@@ -84,7 +90,7 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # (renamed period_label -> event_id, added state, dropped short_name).
     # 1.1 bump was the prior PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md
     # (10 nullable identity-metadata columns appended to parties.csv).
-    assert raw["$schema_version"] == "2.10"
+    assert raw["$schema_version"] == "2.11"
     assert len(contract.file_classes) >= 15
 
 

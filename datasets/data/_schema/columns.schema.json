@@ -3,7 +3,7 @@
   "$id": "./columns.schema.json",
   "title": "CSV column contract (schema-of-schemas)",
   "description": "Validates datasets/data/_schema/columns.json - the one machine-readable home for the per-file-class CSV column contract. Spec: docs/architecture/data/csv-column-contract.md (D-DOC0). Consumed by the backend write-time validator (B1.3), the frontend typed-read codegen (F1), and the cross-format drift test.",
-  "x-version": "2.10",
+  "x-version": "2.11",
   "x-changelog": [
     {
       "version": "1.0",
@@ -69,6 +69,11 @@
       "version": "2.10",
       "date": "2026-06-19",
       "description": "Companion bump for columns.json $schema_version 2.9 -> 2.10 (NITI ICED national energy-balance ingest; mirrors the geo_by_fuel / geo_by_product per-axis sibling pattern of v2.7 / v2.9). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: TWO new faceted datapoint file-classes for the national (entity_id = IN) energy balance. (1) datasets/data/datapoints/geo_by_primary_source/*.csv - long-format faceted by primary_source, the Total Primary Energy Supply (TPES) dimension. 5 columns: composite PK (entity_id, time, primary_source); primary_source closed enum [coal, gas, hydro, nuclear, oil, renewable] (the six primary sources the NITI Aayog India Climate & Energy Dashboard Source-wise Energy Supply national API reports; adds oil, which is absent from the electricity-only geo_by_fuel mix); value nullable; source_id FK source.csv; entity_id FK geo.csv. NO `all` member (no published total row; synthesised sum-of-parts forbidden, same as geo_by_product). (2) datasets/data/datapoints/geo_by_sector_fuel/*.csv - the FIRST genuinely TWO-axis facet class, long-format faceted by BOTH sector AND fuel (the Final Energy Consumption sector x fuel matrix). 6 columns: composite PK (entity_id, time, sector, fuel); sector closed enum [agriculture, cgd-and-others, commercial, industry, non-energy, other, residential, transport] (eight demand sectors); fuel closed enum [coal, electricity, gas, oil] (four delivered carriers - electricity appears here as a delivered carrier, not a primary source); value nullable; source_id FK source.csv; entity_id FK geo.csv. The matrix is SPARSE (absent (sector, fuel, year) cells are missing rows, never zeros); NO `all`/marginal total member on either axis (synthesised marginals forbidden). The single-axis frontend facet-multiplexed allowlist descriptor cannot express two independent facet axes, so geo_by_sector_fuel is read-complete for backend/DuckDB consumers but is not yet wired to the per-card facet picker (a 2-D-aware descriptor type is future work). Existing file-classes unchanged in shape."
+    },
+    {
+      "version": "2.11",
+      "date": "2026-06-19",
+      "description": "Companion bump for columns.json $schema_version 2.10 -> 2.11 (ICED transmission-substation faceted ingest; the third per-axis sibling under the plan section 21.6 dimension-column branch, geo_by_<axis>/*.csv). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: NEW file-class datasets/data/datapoints/geo_by_voltage/*.csv for long-format datapoints faceted by voltage_class (the transmission-substation voltage-tier dimension). 5 columns: composite PK (entity_id, time, voltage_class); voltage_class closed enum [hvdc, 765kv, 400kv, 220kv, other] (India's EHV transmission tiers keyed on each asset's governing / highest winding voltage; hvdc = the +-320 / +-500 / +-800 kV DC terminals; other = the residual bucket for rows with no parseable voltage or a sub-220 kV winding); value nullable; source_id FK source.csv; entity_id FK geo.csv. Seeds with one NATIONAL-ONLY measure (substation-capacity-commissioned-mva, NITI Aayog India Climate & Energy Dashboard Transmission Substation List API; the feed has no state attribution, so the only entity_id is the country IN). UNLIKE geo_by_fuel this class carries NO `all` member - there is no published per-class total, and the contract forbids synthesising a sum-of-parts total. Existing file-classes unchanged in shape."
     }
   ],
   "type": "object",
