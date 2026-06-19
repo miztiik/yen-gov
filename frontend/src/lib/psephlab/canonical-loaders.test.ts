@@ -288,6 +288,14 @@ describe("loadActuals - SQL composition", () => {
     expect(candSql).toContain("read_csv(");
     expect(candSql).not.toContain("read_parquet(");
 
+    // Hardened election read options (fix/election-csv-read-hardening):
+    // both queries pin the dialect sniffer off (auto_detect=false) and
+    // NULL-pad the 20-vs-24-column candidacies schema (null_padding=true).
+    expect(acSql).toContain("auto_detect=false");
+    expect(acSql).toContain("null_padding=true");
+    expect(candSql).toContain("auto_detect=false");
+    expect(candSql).toContain("null_padding=true");
+
     // Per-(state, year) URL substituted into both.
     expect(acSql).toContain(
       "/elections/assembly/state=tamil-nadu/election=2026/summary.csv",

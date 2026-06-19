@@ -8,6 +8,7 @@ import {
   buildAcOpacities,
   hasModeCoverage,
   lerpColor,
+  marginFill,
   matchesFilters,
   mirrorLgdKeys,
 } from "./election-map-coloring";
@@ -41,6 +42,52 @@ describe("lerpColor", () => {
   });
   it("interpolates the midpoint", () => {
     expect(lerpColor("#000000", "#ffffff", 0.5)).toBe("#808080");
+  });
+});
+
+describe("marginFill", () => {
+  it("a landslide (margin >= cap) is the full-saturation party hue", () => {
+    expect(marginFill("#1f77b4", 30)).toBe("#1f77b4");
+    expect(marginFill("#1f77b4", 80)).toBe("#1f77b4"); // clamped at the cap
+  });
+
+  it("a knife-edge win is a pale tint of the SAME hue, never white/black", () => {
+    const pale = marginFill("#1f77b4", 0);
+    expect(pale).toMatch(/^#[0-9a-f]{6}$/);
+    expect(pale).not.toBe("#1f77b4"); // lighter than the deep hue
+    expect(pale).not.toBe("#ffffff"); // still tinted, hue stays legible
+    expect(pale).not.toBe("#000000"); // never black
+  });
+
+  it("ramps monotonically toward the party hue as the margin grows", () => {
+    const knife = marginFill("#1f77b4", 0);
+    const mid = marginFill("#1f77b4", 15);
+    const land = marginFill("#1f77b4", 30);
+    expect(new Set([knife, mid, land]).size).toBe(3); // three distinct steps
+    expect(land).toBe("#1f77b4");
+  });
+
+  it("returns the neutral fill when the margin is absent", () => {
+    expect(marginFill("#1f77b4", null)).toBe(NO_VALUE_FILL);
+  });
+
+  it("guards degenerate party hues -> neutral, never #NaNNaNNaN", () => {
+    expect(marginFill("", 10)).toBe(NO_VALUE_FILL);
+    expect(marginFill("var(--party-neutral)", 10)).toBe(NO_VALUE_FILL);
+    expect(marginFill("oklch(0.6 0.1 240)", 10)).toBe(NO_VALUE_FILL);
+    expect(marginFill("not-a-colour", 10)).toBe(NO_VALUE_FILL);
+  });
+
+  it("normalises 3-digit shorthand hexes", () => {
+    expect(marginFill("#f00", 30)).toBe("#ff0000");
+  });
+
+  it("never emits black or #NaNNaNNaN across the margin range", () => {
+    for (let m = 0; m <= 60; m += 3) {
+      const fill = marginFill("#1f77b4", m);
+      expect(fill).toMatch(/^#[0-9a-f]{6}$/);
+      expect(fill).not.toBe("#000000");
+    }
   });
 });
 
@@ -102,6 +149,27 @@ describe("buildAcFills", () => {
     expect(fills[1]).toBe("#e0f2fe"); // ramp start (min)
     expect(fills[2]).toBe("#0369a1"); // ramp end (max)
     expect(fills[3]).toBe(NO_VALUE_FILL);
+  });
+
+  it("margin mode tints the winner's party hue by margin (no amber, no black)", () => {
+    const rows = [
+      w({ ac_eci_no: 1, party_eci_code: "INC", margin_pct: 30 }), // landslide
+      w({ ac_eci_no: 2, party_eci_code: "INC", margin_pct: 1 }), // knife-edge
+      w({ ac_eci_no: 3, party_eci_code: "BJP", margin_pct: null }), // no value
+    ];
+    const fills = buildAcFills(rows, "margin", partyFill);
+    // landslide = the full resolved party hue (INC -> #1f77b4)
+    expect(fills[1]).toBe("#1f77b4");
+    // knife-edge = a paler tint of the SAME hue: not the deep hue, a
+    // valid hex, never black
+    expect(fills[2]).not.toBe("#1f77b4");
+    expect(fills[2]).toMatch(/^#[0-9a-f]{6}$/);
+    expect(fills[2]).not.toBe("#000000");
+    // null margin -> neutral
+    expect(fills[3]).toBe(NO_VALUE_FILL);
+    // the retired bespoke amber ramp endpoints never appear
+    expect(Object.values(fills)).not.toContain("#fef3c7");
+    expect(Object.values(fills)).not.toContain("#b45309");
   });
 });
 

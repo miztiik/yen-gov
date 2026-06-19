@@ -157,6 +157,11 @@ describe("buildExploreViews", () => {
       expect(sql).toContain("read_csv(");
       expect(sql).not.toContain("read_parquet(");
       expect(sql).toContain("columns={MOCKED}");
+      // Hardened election read options (fix/election-csv-read-hardening):
+      // pin the dialect sniffer off + NULL-pad the 20-vs-24-column
+      // candidacies schema on every election read.
+      expect(sql).toContain("auto_detect=false");
+      expect(sql).toContain("null_padding=true");
       expect(sql).toContain(
         "/elections/assembly/state=tamil-nadu/election=2021/",
       );

@@ -38,6 +38,7 @@ import {
   assemblySummaryPath,
   electoralEntitiesPath,
 } from "../canonical/election-csv-paths";
+import { withElectionReadOpts } from "../canonical/election-read-opts";
 import { electionStatePartition } from "../election-partitions";
 import { loadAlliances } from "./alliances";
 import type { AcTally, CandidateTally, Tallies } from "./types";
@@ -215,6 +216,10 @@ export function loadActuals(event: string, state: string): Promise<Tallies> {
       registerCsvFile(sumUrl),
       registerCsvFile(electoralUrl),
       registerCsvAsTable("elections.dim_parties"),
+    ]).then(([candCols, sumCols, electoralCols]) => [
+      withElectionReadOpts(candCols),
+      withElectionReadOpts(sumCols),
+      withElectionReadOpts(electoralCols),
     ]);
 
     // candidacies + summary carry the LGD state slug as their `state`

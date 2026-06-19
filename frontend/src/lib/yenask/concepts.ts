@@ -46,6 +46,7 @@ import {
   electoralEntitiesPath,
   eventYear,
 } from "../canonical/election-csv-paths";
+import { withElectionReadOpts } from "../canonical/election-read-opts";
 
 // ---------- SQL helpers ----------------------------------------------------
 
@@ -100,6 +101,10 @@ async function buildCsvBundle(
     csvColumnsClause(candPath),
     csvColumnsClause(sumPath),
     csvColumnsClause(electoralPath),
+  ]).then(([candCols, sumCols, electoralCols]) => [
+    withElectionReadOpts(candCols),
+    withElectionReadOpts(sumCols),
+    withElectionReadOpts(electoralCols),
   ]);
   return {
     candPath,

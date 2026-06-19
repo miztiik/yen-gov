@@ -396,6 +396,17 @@ describe("loadStateOverview - happy path", () => {
     expect(sqls[5]).not.toContain("dim_acs");
     expect(sqls[5]).not.toContain("dim_persons");
     expect(sqls[5]).not.toContain("election_results");
+
+    // Hardened election read options (fix/election-csv-read-hardening):
+    // every election read_csv carries auto_detect=false (the DuckDB-WASM
+    // dialect sniffer stays out of the path) AND null_padding=true (the
+    // 20-column candidacies.csv files read against the 24-column
+    // forward-compatible schema). sqls[4] is the `FROM sources` view
+    // query (no read_csv), so it is excluded.
+    for (const i of [0, 1, 2, 3, 5]) {
+      expect(sqls[i]).toContain("auto_detect=false");
+      expect(sqls[i]).toContain("null_padding=true");
+    }
   });
 });
 

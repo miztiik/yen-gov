@@ -55,6 +55,7 @@ import {
   assemblySummaryPath,
   electoralEntitiesPath,
 } from "../canonical/election-csv-paths";
+import { withElectionReadOpts } from "../canonical/election-read-opts";
 import { electionStatePartition } from "../election-partitions";
 
 function sqlString(s: string): string {
@@ -92,6 +93,10 @@ export async function buildExploreViews(
     registerCsvFile(sumUrl),
     registerCsvFile(electoralUrl),
     registerCsvAsTable("elections.dim_parties"),
+  ]).then(([candCols, sumCols, electoralCols]) => [
+    withElectionReadOpts(candCols),
+    withElectionReadOpts(sumCols),
+    withElectionReadOpts(electoralCols),
   ]);
 
   const slug = electionStatePartition(state_code);

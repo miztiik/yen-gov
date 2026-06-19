@@ -67,6 +67,7 @@ import {
   assemblySummaryPath,
   electoralEntitiesPath,
 } from "../../canonical/election-csv-paths";
+import { withElectionReadOpts } from "../../canonical/election-read-opts";
 import type {
   CandidateResult,
   ConstituencyResult,
@@ -205,6 +206,10 @@ async function runQueries(
     registerCsvFile(electoralUrl),
     registerCsvAsTable("elections.dim_parties"),
     registerCsvAsTable("taxonomy.sources"),
+  ]).then(([candCols, sumCols, electoralCols]) => [
+    withElectionReadOpts(candCols),
+    withElectionReadOpts(sumCols),
+    withElectionReadOpts(electoralCols),
   ]);
 
   const slugLit = sqlString(slug);
@@ -280,12 +285,13 @@ async function runQueries(
   // Query 3: rich v2.0 citation rows for every source_id this contest
   // touched (candidacies + summary). X1a flipped `sources` to the
   // CSV-backed view (source.csv carries the binding 5-field shape per
-  // plan O3); the `url_main` column is the only field the legacy v1
-  // SourceList renders, so the existing url-only projection works
-  // unchanged. The retired v2 fields (license / confidence_tier /
-  // verification_method / citation_full / notes) are NULL via the
-  // view; state-overview's pills surface degrades to the 5-field
-  // shape automatically.
+  // plan O3); the citizen-facing landing URL lives on the `url` column
+  // (the X1a rename of the legacy OWID `url_main`), aliased back to
+  // `url_main` here so the `SourceJoinRow` shape + the v1 SourceList
+  // projection stay unchanged. The retired v2 fields (license /
+  // confidence_tier / verification_method / citation_full / notes) are
+  // gone from the 5-field view; state-overview's pills surface degrades
+  // to the 5-field shape automatically.
 
   const sourceIds = new Set<string>();
   for (const r of candidates) {
@@ -297,12 +303,12 @@ async function runQueries(
   if (sourceIds.size > 0) {
     const idList = [...sourceIds].map(sqlString).join(", ");
     sources = await query<SourceJoinRow>(`
-      SELECT DISTINCT s.url_main
+      SELECT DISTINCT s.url AS url_main
       FROM sources s
       WHERE s.source_id IN (${idList})
-        AND s.url_main IS NOT NULL
-        AND s.url_main <> ''
-      ORDER BY s.url_main
+        AND s.url IS NOT NULL
+        AND s.url <> ''
+      ORDER BY s.url
     `);
   }
 
