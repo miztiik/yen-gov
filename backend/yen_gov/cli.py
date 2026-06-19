@@ -329,10 +329,10 @@ def emit_taxonomy(
     from yen_gov.canonical.party_alliances_csv import (
         emit as _emit_party_alliances_csv,
     )
+    from yen_gov.canonical.manifest import emit_manifest
     from yen_gov.canonical.reingest.governments_term_shape import (
         emit as _emit_governments_term_shape,
     )
-    from yen_gov.canonical.writer import _regenerate_manifest
 
     real_taxonomy_dir = root / "datasets" / "taxonomy"
     real_taxonomy_dir.mkdir(parents=True, exist_ok=True)
@@ -520,14 +520,14 @@ def emit_taxonomy(
                 f"{list(am_result.unresolved_source_urls)}"
             )
 
-        _regenerate_manifest(root / "datasets", dry_run=dry_run)
+        emit_manifest(root / "datasets", dry_run=dry_run)
 
         if dry_run:
             # Byte-compare every file generated in the tempdir mirror against
             # its real counterpart and log a per-file UNCHANGED|CHANGED|NEW
-            # summary. The manifest is regenerated against the real datasets/
-            # tree (so it sees the real on-disk parquets, not the tempdir
-            # copies), and ``_regenerate_manifest`` itself honours dry_run.
+            # summary. The manifest is a no-scan version+deprecations stamp
+            # (``canonical/manifest.py::emit_manifest``); it honours dry_run
+            # (computes the bytes, byte-compares, writes nothing).
             for tmp_file in sorted(
                 p for p in td_root.rglob("*") if p.is_file()
             ):

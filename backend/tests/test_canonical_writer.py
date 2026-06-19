@@ -313,28 +313,19 @@ def test_parquet_kv_metadata_carries_writer_contract_keys(tmp_path: Path) -> Non
 # ---------------------------------------------------------------------------
 
 
-def test_manifest_regenerates_with_correct_table_entries(tmp_path: Path) -> None:
+def test_manifest_regenerates_as_no_scan_stamp(tmp_path: Path) -> None:
+    # Row 7 (manifest replace): write_batch's manifest regen no longer scans
+    # the datasets tree. The canonical Parquet store retired (CLAUDE.md
+    # X1a-fu2), so manifest.json is a no-scan version+deprecations stamp with
+    # ``tables: []`` regardless of which parquet write_batch just emitted. The
+    # emitter contract is covered exhaustively in test_manifest_emit.py.
     _seed_taxonomy(tmp_path)
     write_batch(_envelope([_obs()]), tmp_path)
     manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
 
     assert manifest["$schema"] == "./schemas/manifest.schema.json"
     assert manifest["manifest_version"] == "1.0"
-    table_ids = {t["table_id"] for t in manifest["tables"]}
-    assert "test.observations" in table_ids
-    # Post-B3 (2026-06-06): taxonomy.sources retired in X1b (#814);
-    # the manifest no longer emits an entry for it.
-    assert "taxonomy.sources" not in table_ids
-
-    test_table = next(t for t in manifest["tables"] if t["table_id"] == "test.observations")
-    assert test_table["family"] == "test"
-    assert test_table["format"] == "parquet"
-    assert test_table["schema_version"] == schema_version("observation.schema.json")
-    assert test_table["table_name"] == "observations"
-    assert test_table["kind"] == "observations"
-    assert test_table["files"][0]["path"] == "test/observations.parquet"
-    assert test_table["files"][0]["row_count"] == 1
-    assert test_table["row_count_total"] == 1
+    assert manifest["tables"] == []
 
 
 def test_manifest_schema_version_is_current(tmp_path: Path) -> None:
@@ -367,31 +358,6 @@ def test_manifest_carries_known_deprecations(tmp_path: Path) -> None:
         and d.get("deprecated_at") == "2026-05-18"
         for d in deprecations
     ), f"expected elections rename entry in deprecations[], got {deprecations!r}"
-
-
-def test_manifest_kind_for_taxonomy_table(tmp_path: Path) -> None:
-    """taxonomy/*.parquet entries carry kind="taxonomy" regardless of stem —
-    the family wins (canonical-store.md §2a: taxonomy exception, flat names).
-
-    Post-B3 (2026-06-06): use the surviving taxonomy/entities.parquet as
-    the witness because taxonomy/sources.parquet was retired in X1b
-    (#814). entities.parquet still exists on disk (entities_seed.py
-    survives) and the seeded fixture corpus carries it via the test
-    helper's pre-seeded entities.json.
-    """
-    _seed_taxonomy(tmp_path)
-    # Manually compile entities.parquet so the manifest can pick it up.
-    from yen_gov.canonical.entities_seed import compile_to_parquet as _compile_entities
-    _compile_entities(
-        tmp_path / "taxonomy" / "entities.json",
-        tmp_path / "taxonomy" / "entities.parquet",
-    )
-    write_batch(_envelope([_obs()]), tmp_path)
-    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
-    entities_table = next(t for t in manifest["tables"] if t["table_id"] == "taxonomy.entities")
-    assert entities_table["family"] == "taxonomy"
-    assert entities_table["table_name"] == "entities"
-    assert entities_table["kind"] == "taxonomy"
 
 
 def test_manifest_path_is_posix_no_backslashes(tmp_path: Path) -> None:
@@ -484,16 +450,3 @@ def test_dim_party_alliances_composite_pk_upserts(tmp_path: Path) -> None:
         ("parties.IN.DMK", "AcGenApr2021", "UPA"),
         ("parties.IN.DMK", "AcGenMay2026", "SPA-corrected"),
     ]
-
-
-def test_dim_party_alliances_appear_in_manifest(tmp_path: Path) -> None:
-    _seed_taxonomy(tmp_path)
-    write_batch(_alliance_envelope(), tmp_path)
-    manifest = __import__("json").loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
-    table_ids = {t["table_id"] for t in manifest["tables"]}
-    assert "elections.dim_party_alliances" in table_ids
-    row = next(t for t in manifest["tables"] if t["table_id"] == "elections.dim_party_alliances")
-    assert row["format"] == "parquet"
-    assert row["table_name"] == "dim_party_alliances"
-    assert row["kind"] == "dim"
-    assert row["row_count_total"] == 1
