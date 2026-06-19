@@ -19,7 +19,7 @@ from yen_gov.pipeline.compose import (
     party_lookup_from_partywise,
     reconcile_winners_against_partywise,
 )
-from yen_gov.sources.eci.partywise import PartyRow, PartywiseSnapshot
+from yen_gov.canonical.adapters.eci_sources.partywise import PartyRow, PartywiseSnapshot
 
 
 def _src(url: str = "https://results.eci.gov.in/x.htm") -> SourceRef:

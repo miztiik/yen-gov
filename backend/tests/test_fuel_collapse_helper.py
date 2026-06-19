@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.iced_common.fuel_collapse import (
+from yen_gov.canonical.adapters.iced_common.fuel_collapse import (
     CANONICAL_FUELS,
     SUB_FUEL_TO_CANONICAL,
     UnknownFuelLabelError,

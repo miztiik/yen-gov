@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.iced_common import parser_kit
+from yen_gov.canonical.adapters.iced_common import parser_kit
 
 
 # ---------------------------------------------------------------------------

@@ -31,7 +31,7 @@ silently emitted. The power-region codes (SR/NER/ER/WR/NR) live in the
 
 No network: reads operator-staged response bytes only (parent plan section
 21.4). Decryption is the shared CryptoJS-OpenSSL path in
-``yen_gov.sources.iced_common.crypto``.
+``yen_gov.canonical.adapters.iced_common.crypto``.
 """
 from __future__ import annotations
 
@@ -39,7 +39,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from yen_gov.canonical.adapters.rbi_handbook import StateResolver
-from yen_gov.sources.iced_common import load_iced_response
+from yen_gov.canonical.adapters.iced_common import load_iced_response
 
 __all__ = [
     "PotentialRow",

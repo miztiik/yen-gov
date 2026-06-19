@@ -22,7 +22,7 @@ import csv
 from pathlib import Path
 
 from yen_gov.canonical.citation import derive_source_id
-from yen_gov.sources.iced_state_wise.ingest import (
+from yen_gov.canonical.adapters.iced_state_wise.ingest import (
     _CSV_FILE_CLASS,
     _CSV_INDICATOR_EMIT,
     _CSV_OUT_REL_DIR,
@@ -184,7 +184,7 @@ def test_emit_table_covers_every_indicator_spec():
     # triple and a kebab variable prefix. Adding a new INDICATOR_SPECS
     # row without a _CSV_INDICATOR_EMIT entry would silently skip CSV
     # emission at runtime; this test fails fast.
-    from yen_gov.sources.iced_state_wise.ingest import INDICATOR_SPECS
+    from yen_gov.canonical.adapters.iced_state_wise.ingest import INDICATOR_SPECS
 
     declared = {m.spec.indicator_id for m in INDICATOR_SPECS}
     mapped = set(_CSV_INDICATOR_EMIT.keys())

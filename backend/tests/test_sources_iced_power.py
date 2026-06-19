@@ -10,8 +10,8 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.iced_common import ICEDShapeError
-from yen_gov.sources.iced_power.parsers import (
+from yen_gov.canonical.adapters.iced_common import ICEDShapeError
+from yen_gov.canonical.adapters.iced_power.parsers import (
     parse_capacity_metatable,
     parse_plant_pipeline_info,
     parse_power_statistics,

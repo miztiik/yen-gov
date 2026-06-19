@@ -200,7 +200,7 @@ def test_election_events_catalogue_matches_backend_registry():
     each catalogue row, so both surfaces are treated as equivalent.
     """
     # local imports: keep the stdlib-only top of file
-    from yen_gov.sources.eci.events import EVENTS, EVENTS_BY_MONTH
+    from yen_gov.canonical.adapters.eci_sources.events import EVENTS, EVENTS_BY_MONTH
     from yen_gov.canonical.adapters.eci_ls import LS_2024_EVENT
 
     catalogue = _load_json(ELECTION_EVENTS_PATH)

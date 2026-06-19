@@ -17,7 +17,7 @@ import pytest
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_validator import validate_csv
-from yen_gov.sources.iced_fuel.ingest import (
+from yen_gov.canonical.adapters.iced_fuel.ingest import (
     _COAL_REINGEST_TITLE,
     _COAL_REINGEST_VINTAGE,
     _CSV_FILE_CLASS,
@@ -26,7 +26,7 @@ from yen_gov.sources.iced_fuel.ingest import (
     build_coal_consumption_rows,
     ingest_coal_consumption,
 )
-from yen_gov.sources.iced_fuel.parsers import parse_coal_consumption_state
+from yen_gov.canonical.adapters.iced_fuel.parsers import parse_coal_consumption_state
 
 # Minimal geo.csv FK target: the two state slugs the fixture resolves to
 # (S01 -> andhra-pradesh, S13 -> maharashtra) plus the national rollup.

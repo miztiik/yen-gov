@@ -19,7 +19,7 @@ import csv
 from pathlib import Path
 
 from yen_gov.canonical.citation import derive_source_id
-from yen_gov.sources.rbi_appendix_deficits.ingest import (
+from yen_gov.canonical.adapters.rbi_appendix_deficits.ingest import (
     _CSV_FILE_CLASS,
     _CSV_OUT_REL_DIR,
     _CSV_SOURCE_PRODUCER,
@@ -31,7 +31,7 @@ from yen_gov.sources.rbi_appendix_deficits.ingest import (
     build_csv_variables,
     emit_csv_variables,
 )
-from yen_gov.sources.rbi_appendix_deficits.parsers import (
+from yen_gov.canonical.adapters.rbi_appendix_deficits.parsers import (
     SHIPPED_SPECS,
     DeficitSpec,
     ParsedIndicator,

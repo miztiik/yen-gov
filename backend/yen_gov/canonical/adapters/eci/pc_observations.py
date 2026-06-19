@@ -24,7 +24,7 @@ from yen_gov.canonical.adapters.eci.identity import (
 )
 from yen_gov.canonical.party_resolver import PartyLookup
 from yen_gov.canonical.row_models import ObservationRow
-from yen_gov.sources.eci.ls_constituencywise import PcCandidateRaw, PcResultRaw
+from yen_gov.canonical.adapters.eci_sources.ls_constituencywise import PcCandidateRaw, PcResultRaw
 
 _INDEPENDENT_ALIASES = {"independent", "ind", "ind.", "independents"}
 

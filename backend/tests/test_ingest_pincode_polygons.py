@@ -38,7 +38,7 @@ from yen_gov.canonical.boundary_layers_seed import (
     BOUNDARY_SOURCE_ID_BY_NICKNAME,
     BOUNDARY_SOURCES,
 )
-from yen_gov.sources.datagovin_ogd.ingest_pincode_polygons import (
+from yen_gov.canonical.adapters.datagovin_ogd.ingest_pincode_polygons import (
     COORD_PRECISION_DIGITS,
     PINCODE_POLYGONS_SOURCE_ID,
     IngestResult,

@@ -16,7 +16,7 @@ import pytest
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 
-from yen_gov.sources.iced_state_wise.parsers import (
+from yen_gov.canonical.adapters.iced_state_wise.parsers import (
     ENTITY_MAP,
     ICEDShapeError,
     IndicatorSpec,

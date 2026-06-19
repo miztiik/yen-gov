@@ -1,4 +1,4 @@
-"""Tests for backend.yen_gov.sources.wikidata.party_leadership.
+"""Tests for backend.yen_gov.canonical.adapters.wikidata.party_leadership.
 
 PR-7 of TODO/20260613-party-deferred-followups-plan.md (Max 2a / 2d / 2e
 verdicts). Hand-authored mini-fixtures inside the test file (no on-disk
@@ -12,7 +12,7 @@ import csv
 import json
 from pathlib import Path
 
-from yen_gov.sources.wikidata.party_leadership import (
+from yen_gov.canonical.adapters.wikidata.party_leadership import (
     WikidataLeadershipRow,
     parse_sparql_fixture,
     write_leadership_csv,
@@ -384,7 +384,7 @@ def test_write_leadership_csv_upserts_on_pk(tmp_path: Path) -> None:
 
 
 def test_wikipedia_url_to_article_title_strips_prefix() -> None:
-    from yen_gov.sources.wikidata.party_leadership import (
+    from yen_gov.canonical.adapters.wikidata.party_leadership import (
         _wikipedia_url_to_article_title,
     )
 
@@ -414,7 +414,7 @@ def test_resolve_qids_caches_to_disk_and_skips_already_known(
 ) -> None:
     """Live-resolution helper writes the QID map atomically and re-runs
     skip parties whose Q-id is already cached."""
-    from yen_gov.sources.wikidata import party_leadership as pl
+    from yen_gov.canonical.adapters.wikidata import party_leadership as pl
 
     cache_path = tmp_path / "qid-cache.json"
 
@@ -464,7 +464,7 @@ def test_resolve_qids_skips_404_and_missing_wikibase_item(
     silently — they do NOT abort the run nor poison the cache."""
     import urllib.error
 
-    from yen_gov.sources.wikidata import party_leadership as pl
+    from yen_gov.canonical.adapters.wikidata import party_leadership as pl
 
     cache_path = tmp_path / "qid-cache.json"
 
@@ -499,7 +499,7 @@ def test_fetch_sparql_snapshot_posts_query_and_writes_pretty_json(
     """The SPARQL POST helper builds a VALUES clause from the qids,
     submits via the stubbed HTTP layer, and writes the JSON snapshot in
     deterministic pretty form."""
-    from yen_gov.sources.wikidata import party_leadership as pl
+    from yen_gov.canonical.adapters.wikidata import party_leadership as pl
 
     captured: dict[str, object] = {}
 

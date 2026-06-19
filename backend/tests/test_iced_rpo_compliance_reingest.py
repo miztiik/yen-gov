@@ -20,7 +20,7 @@ import pytest
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_validator import validate_csv
-from yen_gov.sources.iced_discom.ingest import (
+from yen_gov.canonical.adapters.iced_discom.ingest import (
     _CSV_FILE_CLASS,
     _CSV_SOURCE_PRODUCER,
     _CSV_VARIABLE_PREFIX_RPO,
@@ -29,7 +29,7 @@ from yen_gov.sources.iced_discom.ingest import (
     build_rpo_compliance_variables,
     ingest_rpo_compliance,
 )
-from yen_gov.sources.iced_discom.parsers import parse_rpo
+from yen_gov.canonical.adapters.iced_discom.parsers import parse_rpo
 
 # Minimal geo.csv FK target: the two state slugs the fixture resolves to
 # (S01 -> andhra-pradesh, S13 -> maharashtra) plus the national rollup.

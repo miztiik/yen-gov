@@ -38,7 +38,7 @@ never be silently dropped - a quiet coverage gap would lie to the citizen).
 
 No network: reads operator-staged response bytes only (parent plan section
 21.4). Decryption is the shared CryptoJS-OpenSSL path in
-``yen_gov.sources.iced_common.crypto`` (a plain-JSON staged fixture parses
+``yen_gov.canonical.adapters.iced_common.crypto`` (a plain-JSON staged fixture parses
 without AES via ``load_iced_response(..., decrypt=True)``).
 """
 from __future__ import annotations
@@ -46,7 +46,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from yen_gov.sources.iced_common import load_iced_response
+from yen_gov.canonical.adapters.iced_common import load_iced_response
 
 __all__ = [
     "FinalConsumptionRow",

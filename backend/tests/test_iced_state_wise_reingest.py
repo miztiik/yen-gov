@@ -16,7 +16,7 @@ the re-ingest emits via plain ``write_csv``. The RBI Handbook Table 140
 statewise-total half of the legacy blended installed-capacity-allocated-mw is a
 separate file (installed-capacity-statewise-total-rbi-mw.csv) after the
 2026-06-19 RBI/ICED publisher-split (plan SC-1) and has no live emitter. See
-``yen_gov.sources.iced_state_wise.ingest`` (multi-FY re-ingest section).
+``yen_gov.canonical.adapters.iced_state_wise.ingest`` (multi-FY re-ingest section).
 
 Mirrors ``test_iced_coal_consumption_reingest.py``.
 """
@@ -30,14 +30,14 @@ import pytest
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_validator import validate_csv
-from yen_gov.sources.iced_state_wise.ingest import (
+from yen_gov.canonical.adapters.iced_state_wise.ingest import (
     _CSV_FILE_CLASS,
     _CSV_SOURCE_PRODUCER,
     _STATE_WISE_TARGETS,
     build_state_wise_rows,
     ingest_state_wise,
 )
-from yen_gov.sources.iced_state_wise.parsers import extract_rows
+from yen_gov.canonical.adapters.iced_state_wise.parsers import extract_rows
 
 # On-disk source_ids the re-ingest reproduces (verified against
 # datasets/data/datapoints/geo/<id>.csv + datasets/data/entities/source.csv).

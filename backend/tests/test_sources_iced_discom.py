@@ -3,8 +3,8 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.iced_common import ICEDShapeError
-from yen_gov.sources.iced_discom.parsers import (
+from yen_gov.canonical.adapters.iced_common import ICEDShapeError
+from yen_gov.canonical.adapters.iced_discom.parsers import (
     OPPERF_CATEGORIES,
     parse_opperf_states,
     parse_rpo,

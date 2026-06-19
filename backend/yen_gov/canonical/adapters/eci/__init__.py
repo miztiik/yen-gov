@@ -1,6 +1,6 @@
 """ECI adapter — canonical emitter for ECI per-AC + per-state-party results.
 
-Wraps the existing parsers under ``yen_gov.sources.eci.*``. The parsers already
+Wraps the existing parsers under ``yen_gov.canonical.adapters.eci_sources.*``. The parsers already
 do the hard HTML work; this adapter:
 
   1. Takes a parsed ConstituencyResult (one AC contest) plus event/state context.

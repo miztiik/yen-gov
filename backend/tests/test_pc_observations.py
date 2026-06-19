@@ -19,7 +19,7 @@ from yen_gov.canonical.adapters.eci.pc_observations import (
     dim_rows_from_pc,
     observations_from_pc,
 )
-from yen_gov.sources.eci.ls_constituencywise import (
+from yen_gov.canonical.adapters.eci_sources.ls_constituencywise import (
     LsConstituencywiseError,
     parse_ls_constituencywise,
 )
@@ -176,7 +176,7 @@ def test_crosswalk_conflict_raises(tmp_path: Path):
         ("Tamil Nadu", 4, "Chennai South"),
         ("Tamil Nadu", 5, "Chennai South"),
     ])
-    from yen_gov.sources.eci.ls_constituencywise import parse_pc_crosswalk
+    from yen_gov.canonical.adapters.eci_sources.ls_constituencywise import parse_pc_crosswalk
     with pytest.raises(LsConstituencywiseError, match="conflicting PC NO"):
         parse_pc_crosswalk(r34)
 

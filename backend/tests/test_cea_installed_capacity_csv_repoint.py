@@ -24,7 +24,7 @@ import pytest
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_validator import validate_csv
-from yen_gov.sources.cea_installed_capacity.ingest import (
+from yen_gov.canonical.adapters.cea_installed_capacity.ingest import (
     _CSV_FILE_CLASS,
     _CSV_SOURCE_PRODUCER,
     _CSV_SOURCE_TITLE,
@@ -38,7 +38,7 @@ from yen_gov.sources.cea_installed_capacity.ingest import (
     emit_faceted,
     merge_upsert,
 )
-from yen_gov.sources.cea_installed_capacity.parsers import (
+from yen_gov.canonical.adapters.cea_installed_capacity.parsers import (
     SHIPPED_COLUMNS,
     ParsedRow,
     ParsedWorkbook,

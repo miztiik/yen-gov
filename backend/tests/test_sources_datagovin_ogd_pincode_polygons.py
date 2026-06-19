@@ -27,7 +27,7 @@ from pathlib import Path
 
 import pytest
 
-from yen_gov.sources.datagovin_ogd.pincode_polygons import (
+from yen_gov.canonical.adapters.datagovin_ogd.pincode_polygons import (
     _MAX_SKIPPED_REASONS_RETAINED,
     ParsedPincodePolygons,
     PincodePolygon,

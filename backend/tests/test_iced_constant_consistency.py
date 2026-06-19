@@ -12,9 +12,9 @@ Bounded (9 specs across 6 adapters); reads the citation ledger once. Not a
 corpus walk (CLAUDE.md anti-pattern) -- it reads ONE committed contract file and
 checks a fixed, small set of ids.
 
-The faceted ``yen_gov.sources.iced_power`` ingest pipeline is deliberately OUT
+The faceted ``yen_gov.canonical.adapters.iced_power`` ingest pipeline is deliberately OUT
 of scope (its source_id is a pre-existing, separately-flagged deferral; ingest
-plan section 6), and the cold ``yen_gov.sources.iced_*`` adapters are out of
+plan section 6), and the cold ``yen_gov.canonical.adapters.iced_*`` adapters are out of
 scope too: their titles never matched source.csv (a pre-existing mismatch
 unrelated to Row 10), so they carry no Row-10 decision to reconcile against.
 """

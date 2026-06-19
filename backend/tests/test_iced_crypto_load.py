@@ -10,8 +10,8 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.iced_common import crypto
-from yen_gov.sources.iced_common.crypto import load_iced_response
+from yen_gov.canonical.adapters.iced_common import crypto
+from yen_gov.canonical.adapters.iced_common.crypto import load_iced_response
 
 
 def test_plain_json_list_str_and_bytes():
