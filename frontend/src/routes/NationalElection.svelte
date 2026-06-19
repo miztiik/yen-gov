@@ -132,6 +132,14 @@
       (result.status === "ok" && winners.length === 0),
   );
 
+  // While the heavy national PC winners query (543 PCs) is in flight the
+  // tile layout (a small JSON) has usually already loaded, so the
+  // Equal-seats arm's buildTileRows would paint an all-grey "pending" grid
+  // until winners arrive. Gate that arm on this flag so it shows the same
+  // "Loading equal-seats layout..." placeholder as the still-loading layout
+  // instead of flashing grey.
+  const equal_seats_loading = $derived(result.status === "loading");
+
   // ---- Sibling parliament events (prev/next nav + turnout delta) ------
   // One read of the event_summary mart powers the year-chip rail at the
   // top of the page AND the turnout gain/loss pill in the KPI strip. The
@@ -1000,7 +1008,7 @@
             >
               Equal-seats layout couldn't load.
             </div>
-          {:else if tile_layout == null}
+          {:else if tile_layout == null || equal_seats_loading}
             <p class="p-4 text-sm text-slate-500">Loading equal-seats layout...</p>
           {:else}
             <TileCartogram
