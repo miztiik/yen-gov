@@ -1,6 +1,6 @@
 {
   "$schema": "./columns.schema.json",
-  "$schema_version": "2.9",
+  "$schema_version": "2.10",
   "file_classes": {
     "datasets/data/variables.csv": {
       "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
@@ -347,6 +347,27 @@
         { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
         { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
         { "name": "product", "dtype": "string", "nullable": false, "pk": true, "enum": ["diesel-hsd", "kerosene", "lpg", "naphtha", "others", "petrol", "petroleum-coke"] },
+        { "name": "value", "dtype": "number", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
+    "datasets/data/datapoints/geo_by_primary_source/*.csv": {
+      "notes": "Long-format datapoints faceted by primary_source (the primary-energy-supply dimension). Sibling to datasets/data/datapoints/geo/*.csv, geo_by_fuel/*.csv and geo_by_product/*.csv: same LGD entity_id FK target + the same (entity_id, time) spine, PLUS a primary_source dimension column that joins the PK. Mirrors the geo_by_fuel / geo_by_product per-axis sibling pattern (v2.7 / v2.9) under the plan section 21.6 dimension-column branch: ONE file per measure (filename exactly <variable_id>.csv) carries all source members in long format instead of fanning out into per-source variable_ids. Composite PK (entity_id, time, primary_source). primary_source is a closed enum [coal, gas, hydro, nuclear, oil, renewable] - the six primary energy sources the publisher (NITI Aayog India Climate & Energy Dashboard, Source-wise Energy Supply national API) reports in its Total Primary Energy Supply (TPES) balance per fiscal year. The six members partition TPES additively (TPES is by definition the sum of the primary supplies), but UNLIKE geo_by_fuel there is NO published `all` total row on disk, so this class carries NO `all` member and readers MUST NOT synthesise one (the contract forbids a render-time sum-of-parts total; same rule as geo_by_product). Distinct from geo_by_fuel (which carries the electricity-sector fuel buckets coal/gas/hydro/nuclear/renewable + an `all` total): this class adds oil (a primary energy source absent from the electricity-only fuel mix) and models the national energy-balance supply side, not installed capacity. A measure is admissible in this class ONLY when primary_source passes the four-gate facet test (docs/concepts/indicator-naming.md section 6 / plan F2): same concept/unit/normalisation, same publisher-fact, members partition a recognisable whole (TPES), real citizen question (India's energy mix and its shift over time). The facet axis + enum live HERE in columns.json so the frontend reader stays columns.json-only (no variables.csv dimension dispatch) per the Gregor contract ruling (TODO/20260616-geo-facet-dimension-column-plan.md). Spec: csv-column-contract.md section 3.3.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "primary_source", "dtype": "string", "nullable": false, "pk": true, "enum": ["coal", "gas", "hydro", "nuclear", "oil", "renewable"] },
+        { "name": "value", "dtype": "number", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
+    "datasets/data/datapoints/geo_by_sector_fuel/*.csv": {
+      "notes": "Long-format datapoints faceted by TWO dimensions - sector and fuel - the final-energy-consumption composite axis. Sibling to datasets/data/datapoints/geo/*.csv and the single-axis geo_by_<axis>/*.csv classes (geo_by_fuel, geo_by_product, geo_by_primary_source): same LGD entity_id FK target + the same (entity_id, time) spine, PLUS two dimension columns (sector AND fuel) that BOTH join the PK. This is the first genuinely two-axis facet class (the single-axis siblings carry one dimension column); it exists because the publisher's Final Energy Consumption national balance (NITI Aayog India Climate & Energy Dashboard, Sector-wise Energy Consumption API) is reported as a sector x fuel matrix per fiscal year and neither axis alone is the fact. Composite PK (entity_id, time, sector, fuel). sector is a closed enum [agriculture, cgd-and-others, commercial, industry, non-energy, other, residential, transport] (the eight demand sectors the publisher reports); fuel is a closed enum [coal, electricity, gas, oil] (the four delivered energy carriers - note final consumption is by DELIVERED carrier, so electricity appears as a carrier here whereas geo_by_primary_source / geo_by_fuel carry the primary sources that generate it). The matrix is SPARSE (not every sector consumes every fuel), so a missing (sector, fuel, year) cell is simply an absent row, never a zero. There is NO published `all`/total member on either axis and readers MUST NOT synthesise a marginal total at read time (same rule as geo_by_product). The single-axis frontend facet-multiplexed allowlist descriptor cannot express two independent facet axes; a 2-D-aware descriptor type is future work, so this class is read-complete for backend/DuckDB consumers but is not yet wired into the per-card facet picker. A measure is admissible ONLY when BOTH axes pass the four-gate facet test (docs/concepts/indicator-naming.md section 6 / plan F2): same concept/unit/normalisation, same publisher-fact, members partition a recognisable whole (total final energy consumption), real citizen question. The facet axes + enums live HERE in columns.json so the reader stays columns.json-only (Gregor contract ruling, TODO/20260616-geo-facet-dimension-column-plan.md). Spec: csv-column-contract.md section 3.3.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "sector", "dtype": "string", "nullable": false, "pk": true, "enum": ["agriculture", "cgd-and-others", "commercial", "industry", "non-energy", "other", "residential", "transport"] },
+        { "name": "fuel", "dtype": "string", "nullable": false, "pk": true, "enum": ["coal", "electricity", "gas", "oil"] },
         { "name": "value", "dtype": "number", "nullable": true },
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]

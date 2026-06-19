@@ -29,6 +29,12 @@
       ]
     },
     {
+      "indicator_id": "primary-energy-supply-mtoe",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
       "indicator_id": "economy/gdp_inr_crore",
       "chart_types": [
         "stacked-trend"

@@ -2751,6 +2751,98 @@ def ingest_iced_ev_share(
     typer.echo(f"  total rows written: {result.total_rows}")
 
 
+@app.command("ingest-iced-primary-energy")
+def ingest_iced_primary_energy(
+    staging_dir: Path = typer.Option(
+        ...,
+        "--staging-dir",
+        "-s",
+        help=(
+            "Directory holding the operator-staged ICED Source-wise Energy "
+            "Supply response (source_wise_energy_supply.json). AES-encrypted; "
+            "saved raw by tools/iced_stage.py and decrypted here. No network."
+        ),
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Ingest the ICED national Source-wise Energy Supply feed.
+
+    Emits ``datasets/data/datapoints/geo_by_primary_source/primary-energy-supply-mtoe.csv``:
+    India's Total Primary Energy Supply (TPES) in mtoe, faceted by the six
+    primary sources (coal / oil / gas / hydro / nuclear / renewable), one row
+    per (year, source). National only (entity_id IN). Upserts the variables /
+    concepts / source catalogue rows. Idempotent: re-running the same staged
+    feed is a no-op.
+    """
+    from yen_gov.canonical.adapters.iced_national_energy import ingest_primary
+
+    result = ingest_primary(repo_root=root, staging_dir=staging_dir)
+    typer.echo("ingest-iced-primary-energy: OK")
+    typer.echo(f"  {result.indicator_id}:")
+    typer.echo(f"    output:  {result.output_path.relative_to(root).as_posix()}")
+    typer.echo(f"    rows:    {result.row_count}")
+    typer.echo(f"    year:    {result.time_min}-{result.time_max}")
+    typer.echo(f"    facets:  {result.facet_summary}")
+    typer.echo(f"    source:  {result.source_id}")
+
+
+@app.command("ingest-iced-final-energy")
+def ingest_iced_final_energy(
+    staging_dir: Path = typer.Option(
+        ...,
+        "--staging-dir",
+        "-s",
+        help=(
+            "Directory holding the operator-staged ICED Sector-wise Energy "
+            "Consumption response (sector_wise_energy_consumption.json). "
+            "AES-encrypted; saved raw by tools/iced_stage.py and decrypted "
+            "here. No network."
+        ),
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Ingest the ICED national Sector-wise Energy Consumption feed.
+
+    Emits ``datasets/data/datapoints/geo_by_sector_fuel/final-energy-consumption-mtoe.csv``:
+    India's final energy consumption in mtoe, faceted by BOTH demand sector
+    (8 members) AND delivered fuel (4 members), one row per (year, sector,
+    fuel). The sector x fuel matrix is sparse. National only (entity_id IN).
+    Upserts the variables / concepts / source catalogue rows. Idempotent.
+    """
+    from yen_gov.canonical.adapters.iced_national_energy import ingest_final
+
+    result = ingest_final(repo_root=root, staging_dir=staging_dir)
+    typer.echo("ingest-iced-final-energy: OK")
+    typer.echo(f"  {result.indicator_id}:")
+    typer.echo(f"    output:  {result.output_path.relative_to(root).as_posix()}")
+    typer.echo(f"    rows:    {result.row_count}")
+    typer.echo(f"    year:    {result.time_min}-{result.time_max}")
+    typer.echo(f"    facets:  {result.facet_summary}")
+    typer.echo(f"    source:  {result.source_id}")
+
+
 @app.command("ingest-iced-plant-load-factor")
 def ingest_iced_plant_load_factor(
     json_path: Path = typer.Argument(
