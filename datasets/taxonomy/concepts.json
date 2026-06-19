@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/concepts.schema.json",
-  "$schema_version": "1.1",
+  "$schema_version": "1.2",
   "concepts": [
     {
       "concept_id": "acs-arr-gap",
@@ -11,7 +11,8 @@
         "state"
       ],
       "description_short": "Average Cost of Supply minus Average Revenue Realised, per unit of electricity sold. Positive = the utility loses money on every unit it sells (closed by tariff hike, loss reduction, or state subsidy). Zero is the UDAY/RDSS policy goal.",
-      "sources": []
+      "sources": [],
+      "price_basis": { "basis": "current", "base_year": null }
     },
     {
       "concept_id": "agriculture-electricity",
@@ -111,7 +112,8 @@
         "state"
       ],
       "description_short": "Number of buffaloes tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual buffaloes population.",
-      "sources": []
+      "sources": [],
+      "sampling_frame": "ndlm-pashu-aadhaar-tag-register"
     },
     {
       "concept_id": "candidate-votes",
@@ -189,7 +191,8 @@
         "state"
       ],
       "description_short": "Number of cattle tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual cattle population.",
-      "sources": []
+      "sources": [],
+      "sampling_frame": "ndlm-pashu-aadhaar-tag-register"
     },
     {
       "concept_id": "cgd-and-others-gas",
@@ -377,7 +380,8 @@
         "state"
       ],
       "description_short": "Number of donkeys tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual donkeys population.",
-      "sources": []
+      "sources": [],
+      "sampling_frame": "ndlm-pashu-aadhaar-tag-register"
     },
     {
       "concept_id": "effective-candidates",
@@ -499,7 +503,8 @@
         "state"
       ],
       "description_short": "Number of goats tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual goats population.",
-      "sources": []
+      "sources": [],
+      "sampling_frame": "ndlm-pashu-aadhaar-tag-register"
     },
     {
       "concept_id": "horse",
@@ -511,7 +516,8 @@
         "state"
       ],
       "description_short": "Number of horses tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual horses population.",
-      "sources": []
+      "sources": [],
+      "sampling_frame": "ndlm-pashu-aadhaar-tag-register"
     },
     {
       "concept_id": "hybrid-bundled-share",
@@ -736,7 +742,8 @@
         "state"
       ],
       "description_short": "Number of mithun tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual mithun population.",
-      "sources": []
+      "sources": [],
+      "sampling_frame": "ndlm-pashu-aadhaar-tag-register"
     },
     {
       "concept_id": "mule",
@@ -748,7 +755,8 @@
         "state"
       ],
       "description_short": "Number of mules tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual mules population.",
-      "sources": []
+      "sources": [],
+      "sampling_frame": "ndlm-pashu-aadhaar-tag-register"
     },
     {
       "concept_id": "naphtha",
@@ -1003,7 +1011,8 @@
         "state"
       ],
       "description_short": "Count of animals issued a 12-digit Pashu Aadhaar tag in each district. Tagged count, NOT actual population.",
-      "sources": []
+      "sources": [],
+      "sampling_frame": "ndlm-pashu-aadhaar-tag-register"
     },
     {
       "concept_id": "peak-demand",
@@ -1103,7 +1112,8 @@
         "state"
       ],
       "description_short": "Number of pigs tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual pigs population.",
-      "sources": []
+      "sources": [],
+      "sampling_frame": "ndlm-pashu-aadhaar-tag-register"
     },
     {
       "concept_id": "plant-load-factor",
@@ -1292,7 +1302,8 @@
         "state"
       ],
       "description_short": "Number of sheep tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual sheep population.",
-      "sources": []
+      "sources": [],
+      "sampling_frame": "ndlm-pashu-aadhaar-tag-register"
     },
     {
       "concept_id": "small-1-0-1-99-ha",
@@ -1602,7 +1613,8 @@
         "state"
       ],
       "description_short": "Number of yaks tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual yaks population.",
-      "sources": []
+      "sources": [],
+      "sampling_frame": "ndlm-pashu-aadhaar-tag-register"
     },
     {
       "concept_id": "winning-party-ac",

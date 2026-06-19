@@ -3,7 +3,7 @@
   "$id": "./concepts.schema.json",
   "title": "Concept registry (canonical)",
   "description": "Hand-authored concept registry (taxonomy/concepts.json). One row per (noun, unit_canonical, normalisation) triple — the citizen-readable fact a concept_id stands for. Every indicator in datasets/taxonomy/indicators.json MUST FK to a concept_id (enforced post-PR-Z3b via Tier-B tier_b_one_indicator_per_concept). Two indicators sharing the same (concept_id, entity_kind) tuple is the proliferation signal that PR-Z3b rejects. Ships in PR-Z3a (this file + concepts.json seed + find_overlap() helper); the indicator-catalogue concept_id FK + CLI + Tier-B + CI gate ship in PR-Z3b (docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §2 PR-Z3, guardrails #13-#18).",
-  "x-version": "1.1",
+  "x-version": "1.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -14,6 +14,11 @@
       "version": "1.1",
       "date": "2026-05-31",
       "description": "PR-A2 Parliament PC ingest (TODO/20260531-uk-style-elections-experience-plan.md). ADDITIVE MINOR: widen the entity_kinds[].items enum from {country,state,district,ac,party,candidate} to add 'pc' (parliamentary constituency / Parliament grain). Nothing removed/narrowed. Unlocks the 13 per-grain PC sibling concepts (Model C, Gregor 2026-06-01) -- each entity_kinds:[pc] -- mirroring the deliberate per-grain split precedent (winning-party-ac / winning-party-state). v1.0 rows validate unchanged under v1.1; consumer datasets/taxonomy/concepts.json stamp bumped 1.0 -> 1.1."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-06-19",
+      "description": "Row 1 of the ingest rip-and-replace plan (TODO/20260618-backend-ingest-pipeline-rip-replace-plan.md). ADDITIVE MINOR: two optional nullable properties consumed by canonical/ingest/catalogue_fk for concept-compatibility. price_basis = {basis: current|constant, base_year: integer|null} | null records whether a monetary concept is in current (nominal) or constant (real) prices so the Enrich price-basis gate (Row 6) can refuse a constant-price UPSERT into a current-price cell. sampling_frame = string | null records the statistical frame a count/estimate is drawn from (administrative tag register vs complete census) so two methodology-incompatible publishers are never silently spliced. Both default-absent => all v1.1 rows validate unchanged under v1.2; consumer datasets/taxonomy/concepts.json stamp bumped 1.1 -> 1.2. Populated per the Hans + Max ruling: price_basis on the one monetary concept acs-arr-gap (current); sampling_frame on the 11 NDLM Pashu Aadhaar animal tag-register concepts; all other 152 concepts stay null."
     }
   ],
   "type": "object",
@@ -81,6 +86,26 @@
             "type": "array",
             "description": "Hand-authored taxonomy per ADR-0002 — concepts are nouns, not series. Empty by convention; per-indicator provenance lives on the observation row's source_id (CLAUDE.md §12).",
             "items": { "type": "string" }
+          },
+          "price_basis": {
+            "description": "Optional. Whether a monetary concept is reported in CURRENT (nominal) or CONSTANT (real) prices. null (default) for non-monetary concepts (counts, ratios, physical quantities). When present, base_year is the constant-price reference year (null for current prices). Consumed by canonical/ingest/catalogue_fk concept-compatibility + the Enrich price-basis gate so a constant-price UPSERT can never overwrite a current-price cell. Additive in v1.2 (ingest plan Row 1).",
+            "oneOf": [
+              { "type": "null" },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["basis", "base_year"],
+                "properties": {
+                  "basis": { "type": "string", "enum": ["current", "constant"] },
+                  "base_year": { "type": ["integer", "null"] }
+                }
+              }
+            ]
+          },
+          "sampling_frame": {
+            "description": "Optional. The statistical frame a count or estimate is drawn from -- e.g. an administrative tag register vs a complete census enumeration -- so two methodology-incompatible publishers are never silently spliced. null (default) for operationally-metered or fully-administrative measures with no sampling distinction. Consumed by canonical/ingest/catalogue_fk concept-compatibility. Additive in v1.2 (ingest plan Row 1).",
+            "type": ["string", "null"],
+            "minLength": 1
           }
         }
       }
