@@ -164,6 +164,7 @@ rpo-compliance-pct,RPO compliance,rpo-compliance,%,,energy,,365,,,
 rpo-compliance-pct-non-solar,Non-solar RPO,non-solar-rpo,%,,energy,src-565b884e1837,365,,,
 rpo-compliance-pct-solar,Solar RPO,solar-rpo,%,,energy,src-565b884e1837,365,,,
 rpo-compliance-pct-total,Total RPO,total-rpo,%,,energy,src-565b884e1837,365,,,
+sdg-india-index-score,SDG India Index composite score,sdg-india-index-score,score,,,src-94e2fcbafa1c,365,2021,2021,country state
 solar-potential-mw,Solar power potential,solar-energy-potential,MW,,energy,src-fc9a94d76e37,365,2025,2025,country state
 substation-capacity-commissioned-mva,Transmission substation capacity commissioned (MVA),substation-capacity-commissioned,MVA,"Sum of nameplate substation capacity (MVA) commissioned each fiscal year, grouped by governing voltage class (the highest winding voltage of each asset, bucketed into hvdc / 765kv / 400kv / 220kv / other). National only - the feed has no per-state attribution.",energy,src-148d6082f3c8,365,2015,2026,country
 turnout-pct,State turnout,state-turnout,%,,elections,,365,,,

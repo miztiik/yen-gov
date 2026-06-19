@@ -129,6 +129,7 @@ residential-electricity,Residential (electricity),mtoe,absolute,country,"Final e
 residential-oil,Residential (oil),mtoe,absolute,country,"Final energy consumed in the residential sector via oil, in mtoe per fiscal year."
 rooftop-solar-capacity,Rooftop solar capacity,MW,absolute,state,Cumulative installed rooftop solar PV capacity in megawatts. Building-mounted (residential + commercial + industrial + public) only; utility-scale solar is separate and lives under installed-capacity-snapshot-mw (renewable facet).
 rpo-compliance,RPO compliance,%,share,state,"Compute-on-read parent: the three citizen-readable segments of state RPO compliance â€” solar, non-solar, and combined-target. Each measures share of the regulatory RPO target met, expressed as compliance Ã· target Ã— 100."
+sdg-india-index-score,SDG India Index score,score,index,country state,"NITI Aayog SDG India Index composite score (0-100): a state/UT's distance to the 2030 SDG targets. A policy-dashboard index, not a direct outcome measure."
 seats-won,Seats won,ACs,absolute,party,Number of ACs the party won in this state election.
 semi-medium-2-0-3-99-ha,Semi-medium (2.0-3.99 Ha),owners,absolute,district state,"Owners in the semi-medium bracket (2.0-3.99 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households."
 sheep,Sheep,animals,absolute,district state,"Number of sheep tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual sheep population."
