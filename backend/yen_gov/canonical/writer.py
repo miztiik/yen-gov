@@ -43,7 +43,6 @@ import re
 import subprocess
 import tempfile
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
 from pathlib import Path
 
 import duckdb
@@ -226,168 +225,6 @@ def _state_partition_sql() -> str:
 
 
 _STATE_PARTITION_SQL = _state_partition_sql()
-
-
-# Append-only ledger of dataset path renames / relocations the writer stamps
-# into ``datasets/manifest.json`` under the ``deprecations`` array introduced
-# in ``manifest.schema.json`` v1.2. Surfaces the legacy URL so archived
-# embeds, cached fetches, and downstream tooling can resolve the canonical
-# successor programmatically (the frontend loader also emits a one-shot
-# ``console.warn`` when it sees the legacy marker).
-#
-# Each entry: ``old_path`` (POSIX relative under ``datasets/``), ``new_path``
-# (MUST match an entry the writer just emitted to ``tables[].files[].path``),
-# ``deprecated_at`` (ISO 8601 date), optional ``removed_at`` (set on the
-# release where the legacy file is deleted from disk).
-#
-# Add a row whenever a citizen-facing artifact moves; never delete a row
-# (citizen URLs that linked to the old path keep working as long as the
-# successor entry stays here). See ``datasets/CHANGELOG.md`` for the
-# human-readable narrative.
-_DEPRECATIONS: list[dict[str, str]] = [
-    {
-        "old_path": "elections/observations.parquet",
-        "new_path": "elections/election_results.parquet",
-        "deprecated_at": "2026-05-18",
-    },
-    {
-        "old_path": "elections/dim_candidates.parquet",
-        "new_path": "elections/dim_persons.parquet",
-        "deprecated_at": "2026-05-23",
-    },
-    # X1b parquet-delete (2026-06-06, PR #814) - 9 reader-flipped parquets
-    # whose deprecation rows previously lived only as hand-edits in
-    # datasets/manifest.json and would have been clobbered by the next
-    # _regenerate_manifest run. Lifted into the source list during
-    # X1a-fu2-C (2026-06-07) so the manifest is idempotent again.
-    {
-        "old_path": "elections/dim_parties.parquet",
-        "new_path": "data/entities/parties.csv",
-        "deprecated_at": "2026-06-06",
-    },
-    {
-        "old_path": "elections/dim_pcs.parquet",
-        "new_path": "data/entities/electoral.csv",
-        "deprecated_at": "2026-06-06",
-    },
-    {
-        "old_path": "elections/dim_persons.parquet",
-        "new_path": "elections/assembly/candidacies.csv",
-        "deprecated_at": "2026-06-06",
-    },
-    {
-        "old_path": "taxonomy/ac_crosswalk.parquet",
-        "new_path": "data/entities/ac_crosswalk.csv",
-        "deprecated_at": "2026-06-06",
-    },
-    {
-        "old_path": "taxonomy/persons.parquet",
-        "new_path": "elections/assembly/candidacies.csv",
-        "deprecated_at": "2026-06-06",
-    },
-    {
-        "old_path": "taxonomy/sources.parquet",
-        "new_path": "data/entities/source.csv",
-        "deprecated_at": "2026-06-06",
-    },
-    {
-        "old_path": "taxonomy/methodology_breaks.parquet",
-        "new_path": "data/methodology_breaks.csv",
-        "deprecated_at": "2026-06-06",
-    },
-    {
-        "old_path": "elections/dim_acs.parquet",
-        "new_path": "data/entities/electoral.csv",
-        "deprecated_at": "2026-06-06",
-    },
-    {
-        "old_path": "elections/elections_candidacies.parquet",
-        "new_path": "elections/assembly/candidacies.csv",
-        "deprecated_at": "2026-06-06",
-    },
-    # X1a-fu2-C (2026-06-07) - dim_party_alliances parquet retired in the
-    # same PR; CSV transcoded via canonical/party_alliances_csv.py.
-    {
-        "old_path": "elections/dim_party_alliances.parquet",
-        "new_path": "data/entities/party_alliances.csv",
-        "deprecated_at": "2026-06-07",
-    },
-    # X1a-fu2-D (2026-06-07) - elections/state=*/election_results.parquet
-    # (36 shards, 1.79M rows) retired in a mechanical rip-and-replace. One
-    # CSV per state under data/datapoints/electoral/<slug>_election_results.csv;
-    # 9-column SELECT * mirroring the parquet contract (entity_id, year,
-    # period_label, period_seq, indicator_id, value_numeric, value_text,
-    # source_id, derivation). The 3 frontend readers (composition-bar
-    # adapter, election-seats-trend, india-leading-parties) flipped to
-    # inline read_csv with hand-built columns={...} clauses. old_path /
-    # new_path below are the canonical-identity strings (the actual files
-    # are per-state-slug); the schema's pattern rejects `*` in deprecation
-    # paths so we cite the family-stem instead.
-    {
-        "old_path": "elections/election_results.parquet",
-        "new_path": "data/datapoints/electoral/election_results.csv",
-        "deprecated_at": "2026-06-07",
-    },
-    # G8 (2026-06-08) - datasets/reference/in/pincodes/pincode-directory.parquet
-    # (165627 rows, 3.7 MB) retired as part of the mechanical
-    # ``datasets/reference/`` reshape (plan-doc section 9 + section 21.2
-    # "CSV everywhere, no parquet"). Transcoded in place via DuckDB
-    # ``COPY (SELECT * FROM read_parquet(...)) TO ... (HEADER, DELIMITER ',')``;
-    # post-move row count == pre-move row count (165627). The sole backend
-    # reader (``ingest_pincode_polygons.py::_build_pincode_to_state_lookup``)
-    # flipped to typed ``read_csv(columns={'pincode': 'VARCHAR', 'statename':
-    # 'VARCHAR'}, ...)`` per plan-doc section 21.2 typed-read mandate. No
-    # frontend reader exists (verified via grep). Writer rewrite (parquet
-    # emit -> direct CSV emit + the 9 parquet-shaped tests in
-    # test_ingest_pincode.py) deferred to a G8-followup PR to keep this
-    # change mechanical.
-    {
-        "old_path": "reference/in/pincodes/pincode-directory.parquet",
-        "new_path": "data/entities/pincode.csv",
-        "deprecated_at": "2026-06-08",
-    },
-    # G8-finish (2026-06-08) - the six surviving members of the
-    # ``datasets/reference/lgd/`` parsed-snapshot family relocate as part
-    # of the FULL ``datasets/reference/`` tier retirement (plan-doc
-    # section 9 ``reference/`` row + section 21.2 one-format CSV mandate).
-    # The five CSV snapshot masters move into the canonical entities tier
-    # at ``datasets/data/entities/lgd/``; the JSON parse-receipt becomes
-    # operator state under ``datasets/_ops/``. Sole writer
-    # (``tools/lgd/parse_lgd_export.py``) + the 3 backend canonical seeds
-    # (``state_codes_csv.py``, ``electoral_csv_from_snapshot.py``,
-    # ``electoral_district_membership_csv.py``) + 2 runners are repointed
-    # in the same commit.
-    {
-        "old_path": "reference/lgd/states.csv",
-        "new_path": "data/entities/lgd/states.csv",
-        "deprecated_at": "2026-06-08",
-    },
-    {
-        "old_path": "reference/lgd/districts.csv",
-        "new_path": "data/entities/lgd/districts.csv",
-        "deprecated_at": "2026-06-08",
-    },
-    {
-        "old_path": "reference/lgd/subdistricts.csv",
-        "new_path": "data/entities/lgd/subdistricts.csv",
-        "deprecated_at": "2026-06-08",
-    },
-    {
-        "old_path": "reference/lgd/constituencies.csv",
-        "new_path": "data/entities/lgd/constituencies.csv",
-        "deprecated_at": "2026-06-08",
-    },
-    {
-        "old_path": "reference/lgd/constituency_district_membership.csv",
-        "new_path": "data/entities/lgd/constituency_district_membership.csv",
-        "deprecated_at": "2026-06-08",
-    },
-    {
-        "old_path": "reference/lgd/parse-receipt.json",
-        "new_path": "_ops/lgd-parse-receipt.json",
-        "deprecated_at": "2026-06-08",
-    },
-]
 
 
 class WriterError(Exception):
@@ -1136,122 +973,23 @@ def _writer_version() -> str:
 
 
 def _regenerate_manifest(datasets_root: Path, *, dry_run: bool = False) -> Path:
-    """Re-enumerate every Parquet table under datasets/, regenerate
-    manifest.json, write atomically.
+    """Write ``datasets/manifest.json`` via the no-scan ``emit_manifest``.
 
-    Boundary entries (per §12.3 step 6) are not yet emitted — Phase 0.14
-    defines the _manifest_fragment.json mechanism. For now boundary entries
-    are omitted; the loader handles their absence as "no boundaries
-    available yet" per the Phase 0.11 failure-state contract.
+    Thin shim. The Parquet-scanning regen body retired in the manifest-replace
+    rip row: every canonical Parquet table is gone, so the scan always
+    produced ``tables: []`` and the real manifest emission moved to
+    ``canonical/manifest.py``. ``write_batch`` keeps calling this entry point
+    so its contract is unchanged.
+
+    ROW 9: delete this shim together with ``write_batch`` and the now-orphaned
+    ``_describe_parquet_table`` / ``_describe_partitioned_table`` /
+    ``_classify_kind`` / ``_fact_table_stem*`` / ``_partition_cols`` /
+    ``_dim_schema_file`` / ``_taxonomy_schema_file`` table-describe helpers,
+    which were only ever reached from the deleted scan.
     """
-    tables: list[dict] = []
+    from yen_gov.canonical.manifest import emit_manifest
 
-    # Iterate over family directories (one fact-table per family, per-family
-    # stem from FAMILY_FACT_TABLE_STEM). PR-O.1 (1.8b-i) generalised the
-    # earlier hardcoded "observations.parquet" glob — the stem is now
-    # citizen-honest per family (elections → election_results, etc.).
-    #
-    # Phase 0 closeout (TODO §0e.10 lock B) added Hive-partitioned families
-    # via ``FAMILY_FACT_PARTITION_BY``. When a family is partitioned the
-    # fact-table lives at ``<family>/<col>=<val>/<stem>.parquet`` (one file
-    # per partition) and the manifest entry carries ``partition_columns``
-    # plus per-file ``partition_values`` per manifest schema v1.2.
-    for family_dir in sorted(p for p in datasets_root.iterdir() if p.is_dir()):
-        family = family_dir.name
-        if family in {"taxonomy", "boundaries", "_old", "_test", "ephemeral", "schemas"}:
-            continue
-        stem = _fact_table_stem(family)
-        partition_cols = _partition_cols(family)
-        if partition_cols:
-            # Partitioned: glob <col>=*/<stem>.parquet. Today only single-
-            # column ``state`` partitioning is supported; the glob will be
-            # generalised when a second axis (e.g. year) earns its way in.
-            partition_files = sorted(
-                family_dir.glob(f"{partition_cols[0]}=*/{stem}.parquet")
-            )
-            if not partition_files:
-                continue
-            tables.append(_describe_partitioned_table(
-                datasets_root=datasets_root,
-                family=family,
-                stem=stem,
-                files=partition_files,
-                partition_cols=partition_cols,
-                row_schema_file="observation.schema.json",
-            ))
-            continue
-        # Non-partitioned: a family may have ONE or MANY fact-table
-        # parquets (per ``FAMILY_FACT_TABLE_STEMS``). Emit one manifest
-        # entry per stem-on-disk; absent stems (e.g. ``energy_fuel_consumption``
-        # before P.1.C lifts) are silently skipped.
-        for one_stem in _fact_table_stems_all(family):
-            fact_path = family_dir / f"{one_stem}.parquet"
-            if not fact_path.is_file():
-                continue
-            tables.append(_describe_parquet_table(
-                datasets_root=datasets_root,
-                parquet_path=fact_path,
-                table_id=f"{family}.{one_stem}",
-                family=family,
-                row_schema_file="observation.schema.json",
-            ))
-
-    # Dimension siblings: datasets/<family>/dim_*.parquet
-    for parquet_path in sorted(datasets_root.glob("*/dim_*.parquet")):
-        family = parquet_path.parent.name
-        if family in {"taxonomy", "boundaries", "_old", "ephemeral", "schemas"}:
-            continue
-        stem = parquet_path.stem  # e.g. "dim_party_alliances"
-        schema_file = _dim_schema_file(stem)
-        if schema_file is None:
-            continue
-        tables.append(_describe_parquet_table(
-            datasets_root=datasets_root,
-            parquet_path=parquet_path,
-            table_id=f"{family}.{stem}",
-            family=family,
-            row_schema_file=schema_file,
-        ))
-
-    # Post-B3 (2026-06-06): the family-local wide-table loop was removed
-    # because its only entry (`(elections, candidacy)` -> elections_candidacies)
-    # retired in X1b (#814). When a future X1b follow-up introduces a new
-    # family-local wide table, re-add the loop with the surviving entries.
-
-    taxonomy_dir = datasets_root / "taxonomy"
-    for parquet_path in sorted(taxonomy_dir.glob("*.parquet")):
-        stem = parquet_path.stem
-        schema_file = _taxonomy_schema_file(stem)
-        if schema_file is None:
-            continue
-        tables.append(_describe_parquet_table(
-            datasets_root=datasets_root,
-            parquet_path=parquet_path,
-            table_id=f"taxonomy.{stem}",
-            family="taxonomy",
-            row_schema_file=schema_file,
-        ))
-
-    manifest = {
-        "$schema": "./schemas/manifest.schema.json",
-        "$schema_version": schema_version("manifest.schema.json"),
-        "manifest_version": "1.0",
-        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "tables": tables,
-        "deprecations": _DEPRECATIONS,
-    }
-
-    manifest_path = datasets_root / "manifest.json"
-    with tempfile.NamedTemporaryFile(
-        mode="w", encoding="utf-8", dir=datasets_root, delete=False, suffix=".tmp"
-    ) as tmp:
-        json.dump(manifest, tmp, indent=2)
-        tmp.write("\n")
-        tmp_path = Path(tmp.name)
-    _atomic_emit_or_dryrun(
-        tmp_path, manifest_path, "manifest", len(tables), dry_run=dry_run
-    )
-    return manifest_path
+    return emit_manifest(datasets_root, dry_run=dry_run)
 
 
 def _describe_parquet_table(
