@@ -49,9 +49,9 @@ def test_sqlite_emitter_module_does_not_exist() -> None:
 
 def test_pipeline_modules_do_not_import_sqlite3() -> None:
     """No ``pipeline/*.py`` module may import ``sqlite3``. The live-fetch
-    flow writes ONLY to the canonical Parquet store via
-    ``yen_gov.canonical.writer.write_batch`` (PR-O.3b-main); an sqlite3
-    import signals a per-state SQLite emit path is being revived."""
+    flow writes ONLY to the canonical long-format CSV store under
+    ``datasets/data/`` (PR-O.3b-main); an sqlite3 import signals a per-state
+    SQLite emit path is being revived."""
     offenders: list[str] = []
     for py in PIPELINE_DIR.rglob("*.py"):
         text = py.read_text(encoding="utf-8")
@@ -59,8 +59,8 @@ def test_pipeline_modules_do_not_import_sqlite3() -> None:
             offenders.append(py.relative_to(REPO_ROOT).as_posix())
     assert not offenders, (
         f"Pipeline modules imported sqlite3: {offenders}. The live-fetch "
-        "pipeline writes only to the canonical Parquet store via "
-        "write_batch (PR-O.3b-main, PR-R.3). Reintroducing sqlite3 here "
+        "pipeline writes only to the canonical long-format CSV store under "
+        "datasets/data/ (PR-O.3b-main, PR-R.3). Reintroducing sqlite3 here "
         "violates TODO row 1.8e."
     )
 

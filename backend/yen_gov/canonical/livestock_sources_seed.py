@@ -51,7 +51,7 @@ DAHD authority + vintage decisions (Hans + Max pin):
 from __future__ import annotations
 
 from yen_gov.canonical.citation import derive_source_id
-from yen_gov.canonical.envelope import SourceRow
+from yen_gov.canonical.row_models import SourceRow
 
 __all__ = [
     "LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE",

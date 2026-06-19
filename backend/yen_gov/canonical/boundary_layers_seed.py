@@ -87,7 +87,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.canonical.envelope import SourceRow
+from yen_gov.canonical.row_models import SourceRow
 from yen_gov.core.schema_registry import schema_id, schema_version
 
 # File-class key used by the canonical CSV writer (datasets/data/_schema/columns.json).

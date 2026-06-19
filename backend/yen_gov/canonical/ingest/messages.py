@@ -12,12 +12,12 @@ upstream cell BEFORE entity/unit/period resolution.
 
 Per the engineering contract (plan D3) pydantic is mandatory for every
 in-process boundary type. These mirror the style of
-``yen_gov.canonical.envelope`` (``ConfigDict(extra="forbid")`` + ``Field``
+``yen_gov.canonical.row_models`` (``ConfigDict(extra="forbid")`` + ``Field``
 constraints) but DELIBERATELY do not reuse it:
 
 * ``CanonicalSourceRow`` is the FIVE-field ``source.csv`` shape
   ``(source_id, producer, title, vintage, url)`` -- NOT the retired
-  11-field ``envelope.SourceRow`` (license / confidence_tier / ... were
+  11-field ``row_models.SourceRow`` (license / confidence_tier / ... were
   dropped from the on-disk citation ledger; CLAUDE.md section 12).
 * ``CanonicalObservationRow`` mirrors the NON-FACET
   ``datasets/data/datapoints/geo/*.csv`` column set
@@ -28,7 +28,7 @@ constraints) but DELIBERATELY do not reuse it:
 
 Ruling (Gregor + Hans + Max, Row 1 debate): the canonical observation shape
 binds to ``columns.json`` (the data-shape SOT, CLAUDE.md Holy Law #3), not
-to the legacy ``envelope.ObservationRow`` 6-tuple
+to the legacy ``row_models.ObservationRow`` 6-tuple
 ``(entity_id, year, period_label, indicator_id, value_numeric, source_id)``
 that the long-format CSV rip retired. ``period_label`` and the per-row
 ``indicator_id`` are gone; ``year`` is the integer column ``time``.

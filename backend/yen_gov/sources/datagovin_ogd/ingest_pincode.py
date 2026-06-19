@@ -50,7 +50,7 @@ from pathlib import Path
 import duckdb
 
 from yen_gov.canonical.citation import derive_source_id
-from yen_gov.canonical.envelope import SourceRow
+from yen_gov.canonical.row_models import SourceRow
 from yen_gov.sources.datagovin_ogd.pincode_directory import (
     ParsedPincodeDirectory,
     parse_pincode_directory,

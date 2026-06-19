@@ -8,7 +8,7 @@ do the hard HTML work; this adapter:
      docs/architecture/data/canonical-store.md §3a.
   3. Emits per-candidate + materialised per-AC ObservationRows per
      docs/architecture/data/elections-indicators.md.
-  4. Returns rows ready to bundle into a BatchEnvelope.
+  4. Returns rows ready to write via the canonical CSV seam (eci.electoral_csv).
 
 Per-state rollups (party-* and state-* indicators) are computed in
 ``rollups.py`` after all AC or PC contests for the state are emitted.

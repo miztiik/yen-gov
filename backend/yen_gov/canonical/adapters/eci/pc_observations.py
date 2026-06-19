@@ -23,7 +23,7 @@ from yen_gov.canonical.adapters.eci.identity import (
     pc_entity_id,
 )
 from yen_gov.canonical.party_resolver import PartyLookup
-from yen_gov.canonical.envelope import ObservationRow
+from yen_gov.canonical.row_models import ObservationRow
 from yen_gov.sources.eci.ls_constituencywise import PcCandidateRaw, PcResultRaw
 
 _INDEPENDENT_ALIASES = {"independent", "ind", "ind.", "independents"}
@@ -71,8 +71,8 @@ def observations_from_pc(
         nota_introduced_year: year before which pc-nota-* must be null.
 
     Returns:
-        Flat list of ObservationRow instances (observation_id auto-derived
-        when the row is added to a BatchEnvelope).
+        Flat list of ObservationRow instances (observation_id is the optional
+        derived hash of the logical key; dropped at electoral-CSV write time).
     """
     rows: list[ObservationRow] = []
     pc_id = pc_entity_id(result.state_code, delim_year, result.pc_no)
