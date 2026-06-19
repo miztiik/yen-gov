@@ -1,9 +1,13 @@
 """ECI Assembly Election panel CSV adapter.
 
-Reads frozen ECI Statistical Report transcriptions and emits canonical
-Parquet rows through the shared BatchEnvelope writer. The adapter is generic
-by `(state_code, csv_path)`; state-specific differences live in input data,
-not in branchy adapter logic.
+Reads frozen ECI Statistical Report transcriptions and emits canonical AC-grain
+observation rows to the per-state long-format CSV
+``datasets/data/datapoints/electoral/<state_slug>_election_results.csv`` via
+``canonical.adapters.eci.electoral_csv.write_electoral_results`` (ingest
+rip-replace Row 8; the legacy envelope -> parquet write path retired). Source
+citations append to ``datasets/data/entities/source.csv``. The adapter is
+generic by `(state_code, csv_path)`; state-specific differences live in input
+data, not in branchy adapter logic.
 """
 
 from __future__ import annotations
@@ -34,9 +38,13 @@ from yen_gov.canonical.party_resolver import (
 from yen_gov.canonical.adapters.eci.rollups import ACContestSummary, state_rollup_observations
 from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.adapters.eci.electoral_csv import (
+    ElectoralBatch,
+    upsert_source_csv,
+    write_electoral_results,
+)
 from yen_gov.canonical.envelope import (
     AcDimRow,
-    BatchEnvelope,
     CandidacyRow,
     ObservationRow,
     PartyAllianceDimRow,
@@ -44,7 +52,6 @@ from yen_gov.canonical.envelope import (
     PersonDimRow,
     SourceRow,
 )
-from yen_gov.canonical.writer import WriteResult, write_batch
 from yen_gov.sources.eci.events import event_id_for as registered_event_id_for
 
 MONTH_ABBR = {
@@ -104,7 +111,8 @@ class PanelCandidate:
 
 @dataclass(frozen=True)
 class PanelIngestResult:
-    write_result: WriteResult | None
+    observation_rows_written: int
+    csv_paths: tuple[Path, ...]
     events: tuple[str, ...]
     report_path: Path
     inventory_path: Path
@@ -222,7 +230,7 @@ def build_envelope(
     state_code: str,
     filters: PanelFilters | None = None,
     allow_unknown_parties: bool = False,
-) -> tuple[BatchEnvelope, tuple[str, ...], dict]:
+) -> tuple[ElectoralBatch, tuple[str, ...], dict]:
     filters = filters or PanelFilters()
     panel_rows = parse_panel_csv(csv_path, state_code=state_code, datasets_root=datasets_root, filters=filters)
     unresolved_parties: Counter[str] = Counter()
@@ -378,9 +386,7 @@ def build_envelope(
         })
 
     first_source_id = sorted(sources)[0]
-    envelope = BatchEnvelope(
-        target_family="elections",
-        schema_version="1.0",
+    envelope = ElectoralBatch(
         source_rows=sorted(sources.values(), key=lambda s: s.source_id),
         observation_rows=observations,
         person_dim_rows=persons,
@@ -530,13 +536,17 @@ def ingest_panel(
         source_input=SOURCE_INPUT_ID,
     ):
         return PanelIngestResult(
-            write_result=None,
+            observation_rows_written=0,
+            csv_paths=(),
             events=events,
             report_path=Path(),
             inventory_path=inventory_path,
             skipped=True,
         )
-    write_result = write_batch(envelope, datasets_root)
+    csv_paths = write_electoral_results(
+        datasets_root=datasets_root, observation_rows=envelope.observation_rows
+    )
+    upsert_source_csv(datasets_root=datasets_root, source_rows=envelope.source_rows)
     report_path = write_discrepancy_report(repo_root=repo_root, state_code=state_code, report=report)
     inventory_path = upsert_inventory_entries(
         repo_root=repo_root,
@@ -547,7 +557,8 @@ def ingest_panel(
         report=report,
     )
     return PanelIngestResult(
-        write_result=write_result,
+        observation_rows_written=len(envelope.observation_rows),
+        csv_paths=tuple(csv_paths.values()),
         events=events,
         report_path=report_path,
         inventory_path=inventory_path,

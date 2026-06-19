@@ -1020,12 +1020,10 @@ def ingest_eci_ae_panel(
             f"{len(result.events)} events for state={state}. Pass --force to re-ingest."
         )
         return
-    assert result.write_result is not None
     typer.echo(
         "ingest-eci-ae-panel: wrote "
-        f"{result.write_result.observation_rows_written} election observation rows, "
-        f"{result.write_result.dim_rows_written.get('dim_persons', 0)} person rows, "
-        f"{result.write_result.dim_rows_written.get('elections_candidacies', 0)} candidacy rows"
+        f"{result.observation_rows_written} election observation rows "
+        f"across {len(result.csv_paths)} per-state CSV(s)"
     )
     typer.echo(f"ingest-eci-ae-panel: events={','.join(result.events)}")
     typer.echo(f"ingest-eci-ae-panel: report={result.report_path.as_posix()}")
@@ -1086,13 +1084,11 @@ def ingest_eci_ls(
             f"event {result.event_id}. Pass --force to re-ingest."
         )
         return
-    assert result.write_result is not None
     typer.echo(
         "ingest-eci-ls: wrote "
-        f"{result.write_result.observation_rows_written} observation rows "
-        "(total across rewritten state shards, including pre-existing AC rows), "
-        f"{result.write_result.dim_rows_written.get('dim_pcs', 0)} dim_pcs rows "
-        f"across {result.pc_count} PCs"
+        f"{result.observation_rows_written} observation rows "
+        f"across {len(result.csv_paths)} per-state CSV(s) "
+        f"(UPSERT preserves pre-existing rows), {result.pc_count} PCs"
     )
     if result.unresolved_parties:
         typer.echo(
@@ -1163,13 +1159,11 @@ def ingest_ls_ge_tcpd_cmd(
             f"event {result.event_id}. Pass --force to re-ingest."
         )
         return
-    assert result.write_result is not None
     typer.echo(
         "ingest-ls-ge-tcpd: wrote "
-        f"{result.write_result.observation_rows_written} observation rows "
-        "(total across rewritten state shards, including pre-existing rows), "
-        f"{result.write_result.dim_rows_written.get('dim_pcs', 0)} dim_pcs rows "
-        f"across {result.pc_count} PCs"
+        f"{result.observation_rows_written} observation rows "
+        f"across {len(result.csv_paths)} per-state CSV(s) "
+        f"(UPSERT preserves pre-existing rows), {result.pc_count} PCs"
     )
     if result.unresolved_parties:
         typer.echo(
@@ -1380,11 +1374,11 @@ def canonical_backfill_eci(
         file_okay=False, dir_okay=True, exists=False,
     ),
 ) -> None:
-    """Backfill datasets/elections/election_results.parquet from per-AC JSON corpus.
+    """Backfill per-state datasets/data/datapoints/electoral/*.csv from per-AC JSON corpus.
 
-    Phase 1.1 step 5. Each (event, state) slice is one atomic UPSERT; a
-    failure in one slice is recorded and the run continues. Progress is
-    printed live per slice so long runs are observable.
+    Each (event, state) slice is one atomic UPSERT into the per-state
+    election-results CSV; a failure in one slice is recorded and the run
+    continues. Progress is printed live per slice so long runs are observable.
     """
     from yen_gov.pipeline.canonical_eci_backfill import (
         SliceResult,
