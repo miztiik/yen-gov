@@ -360,9 +360,14 @@ def default_registry() -> dict[str, Adapter]:
     # Function-local import: the cohort pulls the canonical CSV layer; keep it
     # out of the module-load graph so importing the registry (and ``ingest
     # --help``) stays light, and so registry <-> cohort have no import cycle.
+    from yen_gov.canonical.adapters.niti_sdg_index import NitiSdgIndexAdapter
     from yen_gov.canonical.adapters.rbi_hbs_health import RbiHbsHealthAdapter
 
-    adapters: tuple[Adapter, ...] = (RbiHandbookAdapter(), RbiHbsHealthAdapter())
+    adapters: tuple[Adapter, ...] = (
+        RbiHandbookAdapter(),
+        RbiHbsHealthAdapter(),
+        NitiSdgIndexAdapter(),
+    )
     registry: dict[str, Adapter] = {}
     for adapter in adapters:
         slug = adapter.adapter_slug

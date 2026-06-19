@@ -5,11 +5,11 @@ inventory feed. The feed is a single national asset list (no state field), so
 the indicator is country-grain only; the analytical detail lives on the
 ``voltage_class`` facet axis rather than a geography axis.
 
-> **Provenance.** The ICED dashboard is the machine-readable access surface
-> (and publisher of the harmonised series), so ``source_producer`` names the
-> NITI Aayog India Climate & Energy Dashboard, matching the rest of the ICED
-> indicator family. ``source_id`` is DERIVED from the (producer, title,
-> vintage) triple, never hand-written.
+> **Provenance (D2, ingest plan Row 10/11).** The substation list is an
+> ICED-derived rollup (sum of MVA by voltage class) that names no single
+> upstream issuing authority, so it is KEPT under the org-led label NITI Aayog
+> ICED (``ICED_ORG_PRODUCER``), never the dashboard product name. ``source_id``
+> is DERIVED from the (producer, title, vintage) triple, never hand-written.
 
 > **National grain is honest, not a shortcut.** The upstream feed has no state
 > attribution, so attributing a substation to a state would be invention. The
@@ -18,13 +18,17 @@ the indicator is country-grain only; the analytical detail lives on the
 """
 from __future__ import annotations
 
+from yen_gov.canonical.iced_authority_map import ICED_ORG_PRODUCER
+
 from .parser import VOLTAGE_CLASSES, TransmissionSubstationSpec
 
 __all__ = ["SHIPPED_SPEC"]
 
-# The ICED dashboard is the publisher / access surface (matches the producer
-# string used across the ICED indicator family).
-_ICED_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+# D2 (ingest plan Row 10): ICED is not a product-name producer. The substation
+# list is an ICED-derived rollup (sum of MVA by voltage class) with no single
+# upstream authority, so it is KEPT under the org-led label NITI Aayog ICED
+# (iced_authority_map decision src-d9484e65a17e).
+_ICED_PRODUCER = ICED_ORG_PRODUCER
 # Dashboard snapshot edition the operator stages. Bump when staging a newer
 # snapshot; source_id re-derives, so the citation ledger tracks it.
 _SNAPSHOT_VINTAGE = "2024-25"

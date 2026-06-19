@@ -1839,6 +1839,18 @@
       ],
       "description_short": "Power generation capacity in active construction (post-financial-close, pre-commissioning), by expected commission calendar-year. Distinct from commissioned installed capacity and from retired capacity; this measures FUTURE additions not yet generating.",
       "sources": []
+    },
+    {
+      "concept_id": "sdg-india-index-score",
+      "noun": "SDG India Index score",
+      "unit_canonical": "score",
+      "normalisation": "index",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "NITI Aayog SDG India Index composite score (0-100): a state/UT's distance to the 2030 SDG targets. 100 = all targets met. A policy-dashboard index, not a direct outcome; NITI revises the basket each edition, so scores compare across states within an edition, not across editions.",
+      "sources": []
     }
   ]
 }

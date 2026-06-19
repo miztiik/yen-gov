@@ -1,0 +1,63 @@
+{
+  "checks": [
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "upsert into 'sdg-india-index-score' (score=1.0)",
+      "name": "concept_overlap",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/owid-alignment.md",
+      "evidence": "concept_id='sdg-india-index-score' resolves in registry",
+      "name": "concept_fk",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/architecture/decisions/0044-grain-over-entity.md",
+      "evidence": "proposed_id='sdg-india-index-score' carries no grain prefix",
+      "name": "grain_prefix",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "update_period_days=365 (positive int)",
+      "name": "update_period_days",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "justification length=430",
+      "name": "justification",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/architecture/decisions/0032-sources-citation-ledger.md",
+      "evidence": "source_id (or absence) matches derive_source_id output",
+      "name": "source_id_derivation",
+      "status": "pass"
+    }
+  ],
+  "generated_at": "preflight:sha256:9c066c09e4efb189",
+  "input_echo": {
+    "concept": "SDG India Index score",
+    "concept_id": "sdg-india-index-score",
+    "entity_kind": "state",
+    "family": "governance",
+    "justification": "NITI Aayog SDG India Index composite score: a state/UT 0-100 distance-to-2030-SDG-targets policy-dashboard index. Registered as its own concept (sdg-india-index-score), distinct from every existing concept (top non-self overlap 0.39 < 0.70 against (SDG India Index score, score, index, state)); not a grain or facet of another measure, so no facet-collapse per ADR-0044. Ingested as the third single-series caller of run_pipeline.",
+    "normalisation": "index",
+    "proposed_id": "sdg-india-index-score",
+    "source_producer": "NITI Aayog",
+    "source_title": "SDG India Index and Dashboard",
+    "source_vintage": "2020-21",
+    "unit": "score",
+    "update_period_days": 365
+  },
+  "recommended_action": {
+    "kind": "upsert",
+    "rationale": "concept overlap 1.0 >= 0.85 with 'sdg-india-index-score'; UPSERT (new vintage / publisher of same fact)",
+    "target_indicator_id": "sdg-india-index-score",
+    "target_parquet_path": "datasets/governance/governance_<role>.parquet"
+  },
+  "schema_version": "1.0",
+  "verdict": "upsert"
+}

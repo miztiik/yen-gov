@@ -5,15 +5,16 @@ side (Total Primary Energy Supply by source) and the Sector-wise Energy
 Consumption side (final consumption by sector x fuel). Each spec carries the
 closed-enum slug map(s), the catalogue rows (variables.csv + concepts.csv), and
 the citation triple (source.csv). ``source_id`` is DERIVED from the (producer,
-title, vintage) triple, never hand-written; the two titles below reproduce the
-existing on-disk source rows ``src-170d3536d908`` and ``src-29ecbb6dce9d``.
+title, vintage) triple, never hand-written; the two specs below reproduce the
+on-disk source rows ``src-1d5665f61d9f`` and ``src-c8210dc4af23`` (the
+D2-corrected NITI Aayog ICED rows; see the Provenance note).
 
-> **Provenance.** The ICED dashboard is the machine-readable access surface
-> (and publisher of the harmonised national balance), so ``source_producer``
-> names the NITI Aayog India Climate & Energy Dashboard, matching the rest of
-> the ICED indicator family. The underlying balance follows the
-> IEA/CEA/MoSPI energy-account methodology; ICED is the harmonised access
-> surface.
+> **Provenance (D2, ingest plan Row 10/11).** ICED is NOT a product-name
+> producer: it ORIGINATES the harmonised national energy balance (IEA/CEA/MoSPI
+> energy-account methodology), so ``source_producer`` names the org-led label
+> NITI Aayog ICED (``ICED_ORG_PRODUCER``), not the dashboard product name.
+> ``source_id`` is DERIVED from the (producer, title, vintage) triple, never
+> hand-written.
 
 > **Closed enums.** Both feeds report fixed vocabularies (six primary sources;
 > eight demand sectors x four delivered carriers). The slug maps below ARE the
@@ -23,12 +24,17 @@ existing on-disk source rows ``src-170d3536d908`` and ``src-29ecbb6dce9d``.
 """
 from __future__ import annotations
 
+from yen_gov.canonical.iced_authority_map import ICED_ORG_PRODUCER
+
 from .parser import FinalEnergySpec, PrimaryEnergySpec
 
 __all__ = ["FINAL_ENERGY_SPEC", "PRIMARY_ENERGY_SPEC"]
 
-# Publisher / access surface for both feeds (matches the ICED family string).
-_ICED_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+# D2 (ingest plan Row 10): ICED is not a product-name producer. ICED originates
+# the harmonised national energy balance (IEA/CEA/MoSPI accounts), so both
+# feeds are KEPT under the org-led label NITI Aayog ICED (iced_authority_map
+# decisions src-170d3536d908 / src-29ecbb6dce9d).
+_ICED_PRODUCER = ICED_ORG_PRODUCER
 # Latest fiscal year carried by the feeds today; the API edition tag. Bump when
 # staging a newer edition; source_id re-derives so the citation ledger tracks it.
 _VINTAGE = "2024-25"

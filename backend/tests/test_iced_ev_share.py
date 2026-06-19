@@ -333,10 +333,13 @@ class TestIngest:
         expected = derive_source_id(
             spec.source_producer, spec.source_title, spec.source_vintage
         )
-        # The task pins the exact citation triple.
+        # D2 (ingest plan Row 10/11): the producer is the MoRTH issuing
+        # authority (a passthrough) and the ICED access surface moves into the
+        # title; the corrected source_id is what is now on disk.
         assert expected == derive_source_id(
-            "NITI Aayog India Climate & Energy Dashboard",
-            "ICE vs EV (VAHAN) State-wise API",
+            "Ministry of Road Transport and Highways",
+            "ICE vs EV (VAHAN) State-wise API"
+            " [republished via NITI Aayog India Climate & Energy Dashboard]",
             "2024-25",
         )
         assert feed.source_id == expected

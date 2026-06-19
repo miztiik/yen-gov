@@ -330,9 +330,12 @@ class TestIngest:
     def test_source_ids_are_derived_and_shared(self, tmp_path):
         _write_geo(tmp_path)
         result = ingest(repo_root=tmp_path, staging_dir=self._stage(tmp_path))
+        # D2 (ingest plan Row 10/11): producer is the CEA issuing authority (a
+        # passthrough); the ICED access surface moves into the title.
         expected = derive_source_id(
-            "NITI Aayog India Climate & Energy Dashboard",
-            "Captive Power (industry-wise) State-wise API",
+            "Central Electricity Authority",
+            "Captive Power (industry-wise) State-wise API"
+            " [republished via NITI Aayog India Climate & Energy Dashboard]",
             "2024-25",
         )
         # Both measures share ONE derived source_id.

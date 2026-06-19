@@ -1,0 +1,14 @@
+{
+  "proposed_id": "sdg-india-index-score",
+  "family": "governance",
+  "concept": "SDG India Index score",
+  "concept_id": "sdg-india-index-score",
+  "unit": "score",
+  "normalisation": "index",
+  "entity_kind": "state",
+  "source_producer": "NITI Aayog",
+  "source_title": "SDG India Index and Dashboard",
+  "source_vintage": "2020-21",
+  "update_period_days": 365,
+  "justification": "NITI Aayog SDG India Index composite score: a state/UT 0-100 distance-to-2030-SDG-targets policy-dashboard index. Registered as its own concept (sdg-india-index-score), distinct from every existing concept (top non-self overlap 0.39 < 0.70 against (SDG India Index score, score, index, state)); not a grain or facet of another measure, so no facet-collapse per ADR-0044. Ingested as the third single-series caller of run_pipeline."
+}

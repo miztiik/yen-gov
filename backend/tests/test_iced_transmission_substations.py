@@ -308,8 +308,10 @@ class TestIngest:
     def test_source_id_is_derived(self, tmp_path):
         _write_geo(tmp_path)
         result = ingest(repo_root=tmp_path, staging_dir=_stage(tmp_path))
+        # D2 (ingest plan Row 10/11): KEPT under the org-led label NITI Aayog
+        # ICED (the derived substation rollup names no single upstream).
         expected = derive_source_id(
-            "NITI Aayog India Climate & Energy Dashboard",
+            "NITI Aayog ICED",
             "Transmission Substation List API",
             "2024-25",
         )
