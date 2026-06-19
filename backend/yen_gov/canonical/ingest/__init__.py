@@ -9,8 +9,9 @@ Row 1 ships the foundational, author-time surface:
 * ``catalogue_fk`` -- the registration-time FK + concept-compatibility
   checks that keep the pipeline from minting identity.
 
-Later rows add the orchestrator, registry, derived index, fetch, the
-enrich/publish honesty gates, and the ``ingest`` CLI.
+Row 4 adds the orchestrator, the adapter registry + derived index, and the
+``ingest`` CLI sub-app. Later rows add fetch (Row 5) and the enrich/publish
+honesty gates (Row 6).
 """
 
 from __future__ import annotations
@@ -29,9 +30,30 @@ from yen_gov.canonical.ingest.messages import (
     RawRecord,
     ReplacementSemantics,
 )
+from yen_gov.canonical.ingest.orchestrator import (
+    IndicatorStatus,
+    IngestError,
+    IngestUsageError,
+    OrchestrateResult,
+    RegistryConsistencyError,
+    SourceCoverage,
+    build_indicator_index,
+    compute_status,
+    orchestrate,
+)
+from yen_gov.canonical.ingest.registry import (
+    Adapter,
+    AdapterRunResult,
+    IngestConfigError,
+    OrchestrateConfig,
+    RbiHandbookAdapter,
+    default_registry,
+)
 from yen_gov.canonical.ingest.spec import IndicatorSpec, PriceBasis, SourceSpec
 
 __all__ = [
+    "Adapter",
+    "AdapterRunResult",
     "CanonicalBatch",
     "CanonicalObservationRow",
     "CanonicalSourceRow",
@@ -40,9 +62,22 @@ __all__ = [
     "ClaimCheck",
     "ConceptCompatibilityError",
     "IndicatorSpec",
+    "IndicatorStatus",
+    "IngestConfigError",
+    "IngestError",
+    "IngestUsageError",
+    "OrchestrateConfig",
+    "OrchestrateResult",
     "PriceBasis",
     "RawRecord",
+    "RbiHandbookAdapter",
+    "RegistryConsistencyError",
     "ReplacementSemantics",
+    "SourceCoverage",
     "SourceSpec",
+    "build_indicator_index",
     "check_indicator_registration",
+    "compute_status",
+    "default_registry",
+    "orchestrate",
 ]

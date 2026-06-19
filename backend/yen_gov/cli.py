@@ -9,6 +9,7 @@ from pathlib import Path
 
 import typer
 
+from yen_gov.canonical.ingest.cli import ingest_app
 from yen_gov.sources.eci.events import event_info_for
 from yen_gov.sources.eci.statistical_report_detailed import (
     parse_detailed_results,
@@ -30,6 +31,7 @@ _TOP_N_DEFAULT = 5
 _COLLAPSE_OTHERS_DEFAULT = True
 
 app = typer.Typer(help="yen-gov pipeline CLI", no_args_is_help=True)
+app.add_typer(ingest_app, name="ingest")
 
 
 @app.callback()
