@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pytest
 
-from yen_gov.core.logging import StructuredLogger
+from yen_gov.core.logging import StructuredLogger, new_run_id
 
 
 def _read_lines(path: Path) -> list[dict]:
@@ -80,3 +81,39 @@ def test_echo_to_stderr(tmp_path: Path, capsys):
     rec = json.loads(line)
     assert rec["event"] == "e"
     assert rec["k"] == "v"
+
+
+def test_stage_tag_present_when_passed(tmp_path: Path):
+    with StructuredLogger(run_id="r", runtime_root=tmp_path, echo=False) as log:
+        log.info("fetch.started", "go", stage="fetch", url="https://x")
+    rec = _read_lines(log.path)[0]
+    assert rec["stage"] == "fetch"
+    # One stream: stage is a structured field after the four structural ones.
+    assert list(rec)[:5] == ["ts", "level", "event", "msg", "stage"]
+
+
+def test_stage_absent_when_not_passed(tmp_path: Path):
+    with StructuredLogger(run_id="r", runtime_root=tmp_path, echo=False) as log:
+        log.info("fetch.started", "go")
+    rec = _read_lines(log.path)[0]
+    assert "stage" not in rec
+
+
+def test_rejects_unknown_stage(tmp_path: Path):
+    with StructuredLogger(run_id="r", runtime_root=tmp_path, echo=False) as log:
+        with pytest.raises(ValueError, match="stage"):
+            log.info("e", "m", stage="bogus")
+
+
+def test_new_run_id_format():
+    rid = new_run_id()
+    assert re.fullmatch(r"\d{8}-[0-9a-f]{8}", rid), rid
+    # No path separator, so it is a valid StructuredLogger run_id.
+    assert "/" not in rid and "\\" not in rid
+
+
+def test_new_run_id_accepted_by_logger(tmp_path: Path):
+    rid = new_run_id()
+    with StructuredLogger(run_id=rid, runtime_root=tmp_path, echo=False) as log:
+        log.info("e", "m")
+    assert (tmp_path / ".runtime" / "logs" / rid / "yen-gov.log").exists()

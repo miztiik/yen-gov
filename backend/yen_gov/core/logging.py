@@ -6,6 +6,9 @@ Every line is one JSON object. Fields:
   level  - DEBUG | INFO | WARN | ERROR
   event  - short stable event name (e.g. "fetch.started", "artifact.written")
   msg    - human-readable line
+  stage  - optional pipeline stage tag (fetch | enrich | publish); present
+           only when the caller passes one, so a whole run stays one
+           stage-tagged stream rather than five separate files
   ...    - any extra structured fields the caller passed
 
 Two reasons for JSON-per-line over plain text:
@@ -24,6 +27,7 @@ before commit. Logs through this module are durable and structured.
 from __future__ import annotations
 
 import json
+import secrets
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -31,14 +35,19 @@ from typing import Any, TextIO
 
 
 _LEVELS = ("DEBUG", "INFO", "WARN", "ERROR")
+# The pipeline stages a log line may be tagged with. Kept as a structured
+# field (not a free-text prefix) so one stream stays machine-readable without
+# re-parsing the message text.
+_STAGES = ("fetch", "enrich", "publish")
 
 
 class StructuredLogger:
     """Append-only JSON-lines logger.
 
     Args:
-        run_id: identifier for this pipeline run (typically a timestamp slug
-            like '2026-05-08T143000Z'). Used to group logs by invocation.
+        run_id: identifier for this pipeline run. `new_run_id()` mints the
+            canonical 'YYYYMMDD-xxxxxxxx' form; any single path segment (no
+            path separator) is accepted. Used to group logs by invocation.
         runtime_root: parent of .runtime/. Logs land at
             <runtime_root>/.runtime/logs/<run_id>/yen-gov.log.
         echo: if True, also write each line to stderr as compact JSON. Useful
@@ -76,17 +85,21 @@ class StructuredLogger:
     def __exit__(self, *exc: Any) -> None:
         self.close()
 
-    def log(self, level: str, event: str, msg: str, **extra: Any) -> None:
+    def log(self, level: str, event: str, msg: str, *, stage: str | None = None, **extra: Any) -> None:
         if level not in _LEVELS:
             raise ValueError(f"level must be one of {_LEVELS}, got {level!r}")
         if not event:
             raise ValueError("event is required")
+        if stage is not None and stage not in _STAGES:
+            raise ValueError(f"stage must be one of {_STAGES} or None, got {stage!r}")
         record: dict[str, Any] = {
             "ts": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
             "level": level,
             "event": event,
             "msg": msg,
         }
+        if stage is not None:
+            record["stage"] = stage
         # Caller's extra fields cannot shadow the structural ones above.
         for k, v in extra.items():
             if k in record:
@@ -98,14 +111,28 @@ class StructuredLogger:
         if self._echo:
             print(line, file=sys.stderr)
 
-    def info(self, event: str, msg: str, **extra: Any) -> None:
-        self.log("INFO", event, msg, **extra)
+    def info(self, event: str, msg: str, *, stage: str | None = None, **extra: Any) -> None:
+        self.log("INFO", event, msg, stage=stage, **extra)
 
-    def warn(self, event: str, msg: str, **extra: Any) -> None:
-        self.log("WARN", event, msg, **extra)
+    def warn(self, event: str, msg: str, *, stage: str | None = None, **extra: Any) -> None:
+        self.log("WARN", event, msg, stage=stage, **extra)
 
-    def error(self, event: str, msg: str, **extra: Any) -> None:
-        self.log("ERROR", event, msg, **extra)
+    def error(self, event: str, msg: str, *, stage: str | None = None, **extra: Any) -> None:
+        self.log("ERROR", event, msg, stage=stage, **extra)
 
-    def debug(self, event: str, msg: str, **extra: Any) -> None:
-        self.log("DEBUG", event, msg, **extra)
+    def debug(self, event: str, msg: str, *, stage: str | None = None, **extra: Any) -> None:
+        self.log("DEBUG", event, msg, stage=stage, **extra)
+
+
+def new_run_id() -> str:
+    """Mint a run id of the form ``YYYYMMDD-xxxxxxxx`` (UTC date + 8 hex chars).
+
+    The date prefix groups a day's runs; the random suffix disambiguates
+    concurrent or repeated runs. Wall-clock here is operational telemetry (a
+    run handle), not data-row provenance, so ``datetime.now()`` is the correct
+    clock under the CLAUDE.md control-plane carve-out - the same clock the log
+    ``ts`` field already uses. The result carries no path separator, so it
+    satisfies the StructuredLogger run_id contract.
+    """
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
+    return f"{stamp}-{secrets.token_hex(4)}"
