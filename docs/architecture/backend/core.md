@@ -1,10 +1,10 @@
 # Backend `core/` — Reusable Infrastructure
 
-**Last Updated**: 2026-06-08
+**Last Updated**: 2026-06-19
 
 `backend/yen_gov/core/` is the upstream-agnostic foundation of the backend. It contains the pydantic models that mirror published schemas, the schema registry + evolution helpers, the event types emitted at each pipeline stage, and the structured logger. Nothing in `core/` knows that ECI or Wikipedia exist.
 
-This page covers two load-bearing decisions: pydantic models mirror schemas 1:1, and pipeline events are frozen dataclasses (not pydantic). The legacy `http.py` (httpx + tenacity Fetcher) and `io.py` (`write_artifact` chokepoint) modules were retired in B4-pt2.4 / B4-pt3 (2026-06-06 / 2026-06-07): production runtime no longer fetches over the network, and canonical long-format CSV is emitted via `yen_gov.canonical.csv_writer.write_csv` against the per-file column contract under `datasets/data/_schema/columns.json`.
+This page covers two load-bearing decisions: pydantic models mirror schemas 1:1, and pipeline events are frozen pydantic models with a hand-rolled JSON-lines serializer. The legacy `http.py` (httpx + tenacity Fetcher) and `io.py` (`write_artifact` chokepoint) modules were retired in B4-pt2.4 / B4-pt3 (2026-06-06 / 2026-06-07): production runtime no longer fetches over the network, and canonical long-format CSV is emitted via `yen_gov.canonical.csv_writer.write_csv` against the per-file column contract under `datasets/data/_schema/columns.json`.
 
 ## Modules
 
@@ -45,26 +45,27 @@ Pydantic models can technically express things JSON Schema can't (custom validat
 - **Generate JSON Schema from pydantic (`model.model_json_schema()`)**. Rejected: pydantic-generated schemas drift from JSON Schema 2020-12 idioms (extra `definitions`, `anyOf` for nullables instead of `type: ["string", "null"]`). The published schema would become an awkward auto-emit.
 - **Skip pydantic, use TypedDict**. Rejected: no runtime validation, no parsing of dates/timestamps, no nested model recursion ergonomics.
 
-## Pipeline events are frozen dataclasses, not pydantic
+## Pipeline events are frozen pydantic models
 
 Pipeline stages (fetch, parse, validate, emit) announce what they're doing for the structured JSON-lines log under `.runtime/logs/` and (eventually) for a FastAPI monitoring wrapper. We feed them through typed event classes, not free-form `logger.info("fetch.started", ...)` calls.
 
-- Each event class is a `@dataclass(frozen=True)` subclass of an internal `_Event` base in `core/events.py`.
-- It declares `event_name: ClassVar[str]` (the stable string a log-tailing UI greps on) and `level: ClassVar[str]` (`INFO` / `WARN` / `ERROR`).
-- `_Event.to_extra()` flattens fields into JSON-safe scalars: `Path → POSIX string` (CLAUDE.md §2), `datetime → RFC 3339 with Z`, primitives passthrough, anything else `repr()`'d.
-- A module-level `emit(logger, event)` helper routes to the right level method.
-- `ALL_EVENT_NAMES` pins the public surface; a test asserts it stays in sync with declared classes so renames are caught in CI.
+- Each event class is a `pydantic.BaseModel` subclass of an internal `_Event` base in `core/events.py`, frozen via `ConfigDict(frozen=True, extra="forbid")`.
+- It declares `event_name: ClassVar[str]` (the stable string a log-tailing UI greps on) and `level: ClassVar[str]` (`INFO` / `WARN` / `ERROR`). `ClassVar`s are not pydantic fields, so they never reach the serialised surface.
+- `_Event.to_extra(*, repo_root=None)` flattens model fields into JSON-safe scalars: `Path -> repo-relative POSIX` via the single path-emit seam `canonical/ingest/paths.py` when a `repo_root` is in scope, else `.as_posix()`; `datetime -> RFC 3339 with Z`; primitives passthrough; anything else `repr()`'d.
+- A module-level `emit(logger, event, *, repo_root=None, stage=None)` helper routes to the right level method, forwards `repo_root` for path relativisation, and tags the line with the owning stage (`fetch` / `enrich` / `publish`).
+- `ALL_EVENT_NAMES` pins the public surface (12 events, including `fetch.skipped`); a test asserts it stays in sync with declared classes so renames are caught in CI.
 
 ### Design rationale
 
-Events are ephemeral, never serialised as artifacts, never schema-validated. Pydantic's parsing/coercion is dead weight. Adding an `Event` schema under `datasets/schemas/` would conflate "data we publish" with "instrumentation we emit." Frozen dataclasses cost ~100 lines of scaffolding and pay for themselves the first time we rename an event.
+Per the ingest pipeline plan's D3, every in-process boundary type is one typed pydantic model - the events included - so there is a single typing idiom across stage messages, specs, and instrumentation. The events keep a HAND-ROLLED `to_extra` serializer rather than `model_dump(mode="json")`: on Windows the latter serialises `Path` through `str()` (a backslash path) and renders a tz-aware `datetime` as `+00:00` not `Z`, both of which would break the repo-relative-POSIX + `Z`-timestamp log contract (CLAUDE.md section 2). The serializer routes `Path` through the path-emit seam and `datetime` to an RFC 3339 `Z` string, so the log line honours the path/timestamp contract regardless of host OS.
 
-The cost is two "typed object" idioms in one codebase (Pydantic for artifacts, dataclass for events). They have different lifetimes and different consumers; mixing them deliberately keeps the right tool in the right place.
+Events are still ephemeral - never serialised as artifacts, never schema-validated under `datasets/schemas/`. `extra="forbid"` rejects an unknown field at construction; `frozen=True` makes each event immutable and hashable.
 
 ### Alternatives considered
 
-- **Pydantic events.** Rejected: dead-weight validation; conflates publication and instrumentation surfaces.
-- **Free-form `logger.info("fetch.started", ...)` everywhere.** Rejected: no compile-time check that `fetch.started` is spelled the same in 12 call sites; no enforced field shape.
+- **Frozen dataclass events (the prior design).** Rejected under D3: a second typed-object idiom alongside pydantic for every other boundary; and the old `to_extra` emitted `Path.as_posix()` = the full drive-qualified path, which leaked `C:\...` into log lines (a CLAUDE.md section 2 violation the conversion fixes).
+- **`model_dump(mode="json")` instead of the hand-rolled serializer.** Rejected: backslash paths + `+00:00` timestamps on Windows break the log contract.
+- **Free-form `logger.info("fetch.started", ...)` everywhere.** Rejected: no compile-time check that `fetch.started` is spelled the same in every call site; no enforced field shape.
 - **`enum.Enum` of event names + free-form kwargs.** Rejected: pins names but not field shapes; still allows `bytes_downloaded` in one site and `bytes` in another.
 - **OpenTelemetry.** Out of scope for a local pipeline writing to a single log file. Revisit if the FastAPI monitoring layer ever needs distributed tracing.
 
