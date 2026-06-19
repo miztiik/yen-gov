@@ -18,7 +18,7 @@ import csv
 from pathlib import Path
 
 from yen_gov.canonical.citation import derive_source_id
-from yen_gov.sources.iced_macro.ingest import (
+from yen_gov.canonical.adapters.iced_macro.ingest import (
     _CSV_FILE_CLASS,
     _CSV_OUT_REL_DIR,
     _CSV_SOURCE_PRODUCER,

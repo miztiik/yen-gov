@@ -3,8 +3,8 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.iced_common import ICEDShapeError
-from yen_gov.sources.iced_macro.parsers import (
+from yen_gov.canonical.adapters.iced_common import ICEDShapeError
+from yen_gov.canonical.adapters.iced_macro.parsers import (
     parse_balance_trendline,
     parse_gdp_trend,
     parse_gva_trend_national_constant,

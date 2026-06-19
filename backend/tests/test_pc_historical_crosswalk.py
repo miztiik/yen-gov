@@ -36,7 +36,7 @@ from yen_gov.canonical.adapters.eci.pc_crosswalk import (
     resolve_pc,
 )
 from yen_gov.core.schema_registry import schema_version
-from yen_gov.sources.eci.ls_constituencywise import load_state_code_lookup
+from yen_gov.canonical.adapters.eci_sources.ls_constituencywise import load_state_code_lookup
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DATASETS = REPO_ROOT / "datasets"

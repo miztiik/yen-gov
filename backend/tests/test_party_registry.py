@@ -17,7 +17,7 @@ from yen_gov.pipeline.compose import (
     load_eci_party_registry,
     parties_snapshot_from_section3,
 )
-from yen_gov.sources.eci.section3 import ParticipatingParty
+from yen_gov.canonical.adapters.eci_sources.section3 import ParticipatingParty
 
 
 def _write_taxonomy(path: Path, *, parties: list[dict]) -> None:

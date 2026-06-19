@@ -32,7 +32,7 @@ import csv
 from dataclasses import dataclass
 from pathlib import Path
 
-from yen_gov.sources.eci.ls_constituencywise import _norm, load_state_code_lookup
+from yen_gov.canonical.adapters.eci_sources.ls_constituencywise import _norm, load_state_code_lookup
 
 CROSSWALK_RELPATH = "data/entities/pc_historical_crosswalk.csv"
 

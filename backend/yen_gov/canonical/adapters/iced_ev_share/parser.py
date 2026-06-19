@@ -41,7 +41,7 @@ total registrations are 0/empty is dropped (no share is defined).
 
 No network: reads operator-staged response bytes only (parent plan section
 21.4). Decryption is the shared CryptoJS-OpenSSL path in
-``yen_gov.sources.iced_common`` via :func:`load_iced_response`; a plain-JSON
+``yen_gov.canonical.adapters.iced_common`` via :func:`load_iced_response`; a plain-JSON
 body (test fixtures) is parsed directly without AES.
 """
 from __future__ import annotations
@@ -50,7 +50,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from yen_gov.canonical.adapters.rbi_handbook import StateResolver
-from yen_gov.sources.iced_common import load_iced_response
+from yen_gov.canonical.adapters.iced_common import load_iced_response
 
 __all__ = [
     "EvShareRow",

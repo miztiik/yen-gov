@@ -21,7 +21,7 @@ from pathlib import Path
 
 import pytest
 
-from yen_gov.sources.eci.statistical_report_detailed import parse_detailed_results
+from yen_gov.canonical.adapters.eci_sources.statistical_report_detailed import parse_detailed_results
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -103,7 +103,7 @@ def test_null_token_treated_as_missing() -> None:
     string to float: 'NULL'`` and blocked ingest of Meghalaya / Nagaland
     2018 Statistical Reports until a follow-up fix landed.
     """
-    from yen_gov.sources.eci.statistical_report_detailed import (
+    from yen_gov.canonical.adapters.eci_sources.statistical_report_detailed import (
         _to_float,
         _to_float_or_none,
         _to_int,

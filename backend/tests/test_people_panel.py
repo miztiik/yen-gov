@@ -7,7 +7,7 @@ from textwrap import dedent
 
 import pytest
 
-from yen_gov.sources.eci.people_panel import (
+from yen_gov.canonical.adapters.eci_sources.people_panel import (
     is_nota,
     normalise_constituency_type,
     normalise_education,

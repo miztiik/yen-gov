@@ -3,8 +3,8 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.iced_common import ICEDShapeError
-from yen_gov.sources.iced_fuel.parsers import (
+from yen_gov.canonical.adapters.iced_common import ICEDShapeError
+from yen_gov.canonical.adapters.iced_fuel.parsers import (
     parse_coal_consumption_state,
     parse_oil_consumption_state,
     parse_ppa_share,

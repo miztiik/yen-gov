@@ -17,7 +17,7 @@ import csv
 from pathlib import Path
 
 from yen_gov.canonical.citation import derive_source_id
-from yen_gov.sources.india_geodata.power_plants import (
+from yen_gov.canonical.adapters.india_geodata.power_plants import (
     _CSV_FILE_CLASS,
     _CSV_NATIONAL_ENTITY_ID,
     _CSV_OUT_REL_DIR,

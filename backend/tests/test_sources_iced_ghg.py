@@ -3,8 +3,8 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.iced_common import ICEDShapeError
-from yen_gov.sources.iced_ghg.parsers import parse_ghg_subsector
+from yen_gov.canonical.adapters.iced_common import ICEDShapeError
+from yen_gov.canonical.adapters.iced_ghg.parsers import parse_ghg_subsector
 
 
 def test_subsector_emits_one_row_per_sector_subsector_year():

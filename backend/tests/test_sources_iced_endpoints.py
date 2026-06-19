@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.iced_common.endpoints import (
+from yen_gov.canonical.adapters.iced_common.endpoints import (
     ENDPOINT_CATALOGUE,
     by_name,
     parameter_free,

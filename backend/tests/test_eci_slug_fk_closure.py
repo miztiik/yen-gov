@@ -28,7 +28,7 @@ import csv
 from pathlib import Path
 
 from yen_gov.canonical.adapters.eci.state_slug import _load, eci_to_lgd_slug
-from yen_gov.sources.iced_common import ENTITY_MAP
+from yen_gov.canonical.adapters.iced_common import ENTITY_MAP
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 

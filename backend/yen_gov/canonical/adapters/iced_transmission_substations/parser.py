@@ -23,7 +23,7 @@ geo_by_fuel / geo_by_product dimension-column pattern).
 
 No network: reads operator-staged response bytes only (parent plan section
 21.4). Decryption is the shared CryptoJS-OpenSSL path in
-``yen_gov.sources.iced_common.crypto`` - a plain-JSON staged body parses
+``yen_gov.canonical.adapters.iced_common.crypto`` - a plain-JSON staged body parses
 straight through (the loader only AES-decrypts a CryptoJS envelope).
 """
 from __future__ import annotations
@@ -32,7 +32,7 @@ import re
 from dataclasses import dataclass
 from typing import Any
 
-from yen_gov.sources.iced_common import load_iced_response
+from yen_gov.canonical.adapters.iced_common import load_iced_response
 
 __all__ = [
     "ParseStats",

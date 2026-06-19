@@ -34,7 +34,7 @@ import duckdb
 import pytest
 
 from yen_gov.canonical.citation import derive_source_id
-from yen_gov.sources.datagovin_ogd.ingest_pincode import (
+from yen_gov.canonical.adapters.datagovin_ogd.ingest_pincode import (
     PINCODE_OUTPUT_COLUMNS,
     PINCODE_SOURCE_ID,
     PRODUCER,

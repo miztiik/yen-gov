@@ -17,7 +17,7 @@ from pathlib import Path
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_validator import validate_csv
-from yen_gov.sources.iced_power.ingest import (
+from yen_gov.canonical.adapters.iced_power.ingest import (
     _CSV_FILE_CLASS,
     _CSV_OUT_REL_DIR,
     _CSV_SOURCE_PRODUCER,

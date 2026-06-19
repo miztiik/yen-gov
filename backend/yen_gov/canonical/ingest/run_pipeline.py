@@ -9,7 +9,7 @@ single-series callers: ``rbi_handbook`` (full-workbook REPLACE), the
 ``niti_sdg_index`` adapter.
 
 It is the SINGLE-SERIES strategy ONLY. The faceted
-``yen_gov.sources.iced_power`` ``ingest_pipeline`` (per-fuel / per-sector
+``yen_gov.canonical.adapters.iced_power`` ``ingest_pipeline`` (per-fuel / per-sector
 dimension columns) is a SEPARATE strategy and is deliberately NOT folded in
 here (plan section 3: "``run_pipeline`` is scoped single-series ... the existing
 faceted ``iced_power.ingest_pipeline`` stays a separate strategy").

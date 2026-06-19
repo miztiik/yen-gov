@@ -10,7 +10,7 @@ from pathlib import Path
 
 import pytest
 
-from yen_gov.sources.eci.section3 import parse_section3_parties
+from yen_gov.canonical.adapters.eci_sources.section3 import parse_section3_parties
 
 ASSAM_2026_XLSX = (
     Path(__file__).resolve().parents[2]

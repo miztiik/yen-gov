@@ -18,7 +18,7 @@ import csv
 from pathlib import Path
 
 from yen_gov.canonical.citation import derive_source_id
-from yen_gov.sources.iced_air_quality.ingest import (
+from yen_gov.canonical.adapters.iced_air_quality.ingest import (
     _CSV_FILE_CLASS as FGD_FILE_CLASS,
     _CSV_OUT_REL_DIR as FGD_OUT_REL_DIR,
     _CSV_SOURCE_PRODUCER as FGD_PRODUCER,
@@ -29,7 +29,7 @@ from yen_gov.sources.iced_air_quality.ingest import (
     _period_to_year_int as fgd_period_to_year,
     build_csv_rows_fgd,
 )
-from yen_gov.sources.iced_air_quality.markers_ingest import (
+from yen_gov.canonical.adapters.iced_air_quality.markers_ingest import (
     NO2_INDICATOR_ID,
     PM10_INDICATOR_ID,
     PM25_INDICATOR_ID,

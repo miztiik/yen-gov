@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.wikipedia.constituencies import (
+from yen_gov.canonical.adapters.wikipedia.constituencies import (
     _norm, _resolve_district_id, build_district_lookup,
 )
 

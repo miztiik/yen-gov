@@ -12,7 +12,7 @@ from pathlib import Path
 
 import pytest
 
-from yen_gov.sources.iced_air_quality.markers_parsers import (
+from yen_gov.canonical.adapters.iced_air_quality.markers_parsers import (
     COVID_GAP_YEAR,
     NO2_FIELD,
     PM10_FIELD,
@@ -21,7 +21,7 @@ from yen_gov.sources.iced_air_quality.markers_parsers import (
     aggregate_state_year_mean,
     emit_indicator_rows,
 )
-from yen_gov.sources.iced_common import ICEDShapeError
+from yen_gov.canonical.adapters.iced_common import ICEDShapeError
 
 FIXTURE = (
     Path(__file__).parent
@@ -109,7 +109,7 @@ def test_pm25_nulls_dropped_not_zeroed(markers: dict) -> None:
     parser output matches. If the parser accidentally coerced null → 0,
     the parser mean would be lower than the hand mean.
     """
-    from yen_gov.sources.iced_common import ENTITY_MAP
+    from yen_gov.canonical.adapters.iced_common import ENTITY_MAP
     null_tokens = {None, "N.A.", "N.A", "NA", "n.a.", "na", "-", "", "..", "...", "*"}
     bucket: dict[tuple[str, int], list[float]] = defaultdict(list)
     for row in markers["data"]:

@@ -22,7 +22,7 @@ import io
 import pytest
 from openpyxl import Workbook
 
-from yen_gov.sources.cea_installed_capacity.parsers import (
+from yen_gov.canonical.adapters.cea_installed_capacity.parsers import (
     SHIPPED_COLUMNS,
     _coerce,
     _normalise_state_label,

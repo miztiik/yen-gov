@@ -5,7 +5,7 @@ ingest rip-replace (Row 9 deleted the ``BatchEnvelope`` -> ``write_batch``
 Parquet seam):
 
     source adapter (here)
-        | uses existing parsers from yen_gov.sources.*
+        | uses existing parsers from yen_gov.canonical.adapters.*
         | produces ObservationRow[] + SourceRow[] (canonical/row_models.py)
         v
     canonical CSV write seam

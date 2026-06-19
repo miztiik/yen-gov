@@ -15,7 +15,7 @@ import pytest
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_validator import validate_csv
-from yen_gov.sources.iced_power.ingest import (
+from yen_gov.canonical.adapters.iced_power.ingest import (
     _CSV_FILE_CLASS,
     _CSV_SOURCE_PRODUCER,
     _PIPELINE_TITLE,
@@ -63,7 +63,7 @@ def test_source_id_reproduces_on_disk():
 
 
 def test_build_pipeline_rows_sums_statuses_per_year():
-    from yen_gov.sources.iced_power.parsers import parse_plant_pipeline_info
+    from yen_gov.canonical.adapters.iced_power.parsers import parse_plant_pipeline_info
 
     parsed = parse_plant_pipeline_info(_pipeline_response())
     by_variable = build_pipeline_rows(parsed, source_id="src-x")

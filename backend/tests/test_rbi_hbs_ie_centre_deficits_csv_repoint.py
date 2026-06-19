@@ -18,12 +18,12 @@ import csv
 from pathlib import Path
 
 from yen_gov.canonical.citation import derive_source_id
-from yen_gov.sources.rbi_appendix_deficits.parsers import (
+from yen_gov.canonical.adapters.rbi_appendix_deficits.parsers import (
     DeficitSpec,
     ParsedIndicator,
     ParsedRow,
 )
-from yen_gov.sources.rbi_hbs_ie_centre_deficits.ingest import (
+from yen_gov.canonical.adapters.rbi_hbs_ie_centre_deficits.ingest import (
     _CSV_FILE_CLASS,
     _CSV_OUT_REL_DIR,
     _CSV_SOURCE_PRODUCER,
@@ -91,7 +91,7 @@ def test_indicator_variable_id_map_covers_all_shipped_specs():
     # Trip-wire: if a new spec lands without a variable_id, the
     # ingest will KeyError; this guard makes the gap visible at test
     # time instead of at first ingest run.
-    from yen_gov.sources.rbi_hbs_ie_centre_deficits.ingest import SHIPPED_SPECS
+    from yen_gov.canonical.adapters.rbi_hbs_ie_centre_deficits.ingest import SHIPPED_SPECS
 
     assert {s.indicator_id for s in SHIPPED_SPECS} == set(
         _INDICATOR_TO_VARIABLE_ID.keys()

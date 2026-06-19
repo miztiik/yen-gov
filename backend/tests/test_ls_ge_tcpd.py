@@ -37,7 +37,7 @@ from yen_gov.canonical.adapters.eci_ls import (
     LS_2019,
     build_pc_envelope_from_tcpd,
 )
-from yen_gov.sources.eci.ls_ge_tcpd import (
+from yen_gov.canonical.adapters.eci_sources.ls_ge_tcpd import (
     LsGeTcpdError,
     TCPD_STATE_NAME_ALIASES,
     parse_ls_ge_tcpd,

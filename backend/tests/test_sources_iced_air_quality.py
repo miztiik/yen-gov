@@ -1,4 +1,4 @@
-"""Pure-parser tests for ``yen_gov.sources.iced_air_quality.parsers``.
+"""Pure-parser tests for ``yen_gov.canonical.adapters.iced_air_quality.parsers``.
 
 No network, no mocks — backed by the real decrypted ICED response
 captured live on 2026-05-15 and committed under
@@ -13,13 +13,13 @@ from pathlib import Path
 
 import pytest
 
-from yen_gov.sources.iced_air_quality.parsers import (
+from yen_gov.canonical.adapters.iced_air_quality.parsers import (
     FGD_INSTALLED_STATUS,
     ParsedRow,
     emit_indicator_rows,
     extract_state_rows,
 )
-from yen_gov.sources.iced_common import ICEDShapeError, ENTITY_MAP
+from yen_gov.canonical.adapters.iced_common import ICEDShapeError, ENTITY_MAP
 
 
 FIXTURE_DIR = Path(__file__).parent / "fixtures" / "iced_air_quality"

@@ -20,7 +20,7 @@ import io
 import pytest
 from openpyxl import Workbook
 
-from yen_gov.sources.rbi_appendix_national.parsers import (
+from yen_gov.canonical.adapters.rbi_appendix_national.parsers import (
     AppendixSpec,
     RBIAppendixShapeError,
     SHIPPED_SPECS,

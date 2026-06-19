@@ -61,7 +61,7 @@ numerator and denominator).
 
 No network: reads operator-staged response bytes only (parent plan section
 21.4). Decryption is the shared CryptoJS-OpenSSL path in
-``yen_gov.sources.iced_common.crypto`` (a plain-JSON body parses straight
+``yen_gov.canonical.adapters.iced_common.crypto`` (a plain-JSON body parses straight
 through, so synthetic test fixtures need no AES).
 """
 from __future__ import annotations
@@ -69,7 +69,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from yen_gov.sources.iced_common import load_iced_response
+from yen_gov.canonical.adapters.iced_common import load_iced_response
 
 __all__ = [
     "CoalUnit",

@@ -3,8 +3,8 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.iced_common import ICEDShapeError
-from yen_gov.sources.iced_metatable.parsers import (
+from yen_gov.canonical.adapters.iced_common import ICEDShapeError
+from yen_gov.canonical.adapters.iced_metatable.parsers import (
     parse_co_emission_metatable,
     parse_gen_metatable,
     parse_plf_metatable,

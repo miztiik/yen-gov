@@ -51,12 +51,12 @@ from yen_gov.canonical.row_models import (
     PersonDimRow,
     SourceRow,
 )
-from yen_gov.sources.eci.ls_constituencywise import (
+from yen_gov.canonical.adapters.eci_sources.ls_constituencywise import (
     PcCandidateRaw,
     PcResultRaw,
     parse_ls_constituencywise,
 )
-from yen_gov.sources.eci.ls_ge_tcpd import parse_ls_ge_tcpd
+from yen_gov.canonical.adapters.eci_sources.ls_ge_tcpd import parse_ls_ge_tcpd
 from yen_gov.canonical.adapters.eci.pc_crosswalk import load_crosswalk_and_lookup
 
 # ECI Section 158 RPA deposit-forfeiture cutoff (1/6 of valid votes) — same

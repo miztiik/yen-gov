@@ -10,8 +10,8 @@ from pathlib import Path
 import typer
 
 from yen_gov.canonical.ingest.cli import ingest_app
-from yen_gov.sources.eci.events import event_info_for
-from yen_gov.sources.eci.statistical_report_detailed import (
+from yen_gov.canonical.adapters.eci_sources.events import event_info_for
+from yen_gov.canonical.adapters.eci_sources.statistical_report_detailed import (
     parse_detailed_results,
     to_constituency_results,
 )
@@ -671,7 +671,7 @@ def ingest_cea_installed_capacity(
     Thermal dropped per plan R-C); ECI state codes translate to LGD slugs.
     Local file only -- no network.
     """
-    from yen_gov.sources.cea_installed_capacity.ingest import ingest as ingest_cea
+    from yen_gov.canonical.adapters.cea_installed_capacity.ingest import ingest as ingest_cea
 
     result = ingest_cea(repo_root=root, workbook_path=xlsx)
     typer.echo("ingest-cea-installed-capacity: OK")
@@ -2312,7 +2312,7 @@ def ingest_iced_capacity(
     wind -> renewable; oil-gas -> gas) per plan R-D; a publisher total maps
     to the `all` aggregate; ECI state codes translate to LGD slugs.
     """
-    from yen_gov.sources.iced_power.ingest import ingest_capacity
+    from yen_gov.canonical.adapters.iced_power.ingest import ingest_capacity
 
     result = ingest_capacity(repo_root=root, raw_json_path=json_path)
     typer.echo("ingest-iced-capacity: OK")
@@ -2354,7 +2354,7 @@ def ingest_iced_peak_demand(
     entity output is re-pointed through the ECI -> LGD slug translation so the
     rows FK-close against entities/geo.csv.
     """
-    from yen_gov.sources.iced_power.ingest import ingest_peak
+    from yen_gov.canonical.adapters.iced_power.ingest import ingest_peak
 
     result = ingest_peak(repo_root=root, raw_json_path=json_path)
     typer.echo("ingest-iced-peak-demand: OK")
@@ -2396,7 +2396,7 @@ def ingest_iced_pipeline(
     Graduates this orphan series to LIVE re-ingest (Tier-B); re-running with a
     fresher staged response adds new years.
     """
-    from yen_gov.sources.iced_power.ingest import ingest_pipeline
+    from yen_gov.canonical.adapters.iced_power.ingest import ingest_pipeline
 
     result = ingest_pipeline(repo_root=root, raw_json_path=json_path)
     typer.echo("ingest-iced-pipeline: OK")
@@ -2438,7 +2438,7 @@ def ingest_iced_coal_consumption(
     re-ingest (Tier-B); re-running with a fresher staged response adds new
     years.
     """
-    from yen_gov.sources.iced_fuel.ingest import ingest_coal_consumption
+    from yen_gov.canonical.adapters.iced_fuel.ingest import ingest_coal_consumption
 
     result = ingest_coal_consumption(repo_root=root, raw_json_path=json_path)
     typer.echo("ingest-iced-coal-consumption: OK")
@@ -2490,7 +2490,7 @@ def ingest_iced_state_wise(
     (installed-capacity-statewise-total-rbi-mw.csv) after the 2026-06-19 RBI/
     ICED publisher-split (plan SC-1); this re-ingest owns only the ICED half.
     """
-    from yen_gov.sources.iced_state_wise.ingest import ingest_state_wise
+    from yen_gov.canonical.adapters.iced_state_wise.ingest import ingest_state_wise
 
     result = ingest_state_wise(repo_root=root, staging_dir=staging_dir)
     typer.echo("ingest-iced-state-wise: OK")
@@ -3002,7 +3002,7 @@ def ingest_iced_plant_load_factor(
     percentage/multi-facet family to LIVE re-ingest (Tier-B); re-running with
     a fresher staged response adds new years.
     """
-    from yen_gov.sources.iced_metatable.ingest import ingest_plant_load_factor
+    from yen_gov.canonical.adapters.iced_metatable.ingest import ingest_plant_load_factor
 
     result = ingest_plant_load_factor(repo_root=root, raw_json_path=json_path)
     typer.echo("ingest-iced-plant-load-factor: OK")
@@ -3047,7 +3047,7 @@ def ingest_iced_power_purchase_share(
     percentage/multi-facet family to LIVE re-ingest (Tier-B); re-running with
     a fresher staged response adds new years.
     """
-    from yen_gov.sources.iced_fuel.ingest import ingest_power_purchase_share
+    from yen_gov.canonical.adapters.iced_fuel.ingest import ingest_power_purchase_share
 
     result = ingest_power_purchase_share(repo_root=root, raw_json_path=json_path)
     typer.echo("ingest-iced-power-purchase-share: OK")
@@ -3091,7 +3091,7 @@ def ingest_iced_rpo_compliance(
     re-ingest (Tier-B); re-running with a fresher staged response adds new
     years.
     """
-    from yen_gov.sources.iced_discom.ingest import ingest_rpo_compliance
+    from yen_gov.canonical.adapters.iced_discom.ingest import ingest_rpo_compliance
 
     result = ingest_rpo_compliance(repo_root=root, raw_json_path=json_path)
     typer.echo("ingest-iced-rpo-compliance: OK")

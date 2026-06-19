@@ -19,7 +19,7 @@ import pytest
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_validator import validate_csv
-from yen_gov.sources.iced_metatable.ingest import (
+from yen_gov.canonical.adapters.iced_metatable.ingest import (
     _CSV_FILE_CLASS,
     _CSV_SOURCE_PRODUCER,
     _CSV_VARIABLE_PREFIX_PLF,
@@ -28,7 +28,7 @@ from yen_gov.sources.iced_metatable.ingest import (
     build_plant_load_factor_variables,
     ingest_plant_load_factor,
 )
-from yen_gov.sources.iced_metatable.parsers import parse_plf_metatable
+from yen_gov.canonical.adapters.iced_metatable.parsers import parse_plf_metatable
 
 # Minimal geo.csv FK target: the two state slugs the fixture resolves to
 # (S01 -> andhra-pradesh, S13 -> maharashtra) plus the national rollup.

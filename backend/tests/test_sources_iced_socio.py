@@ -10,12 +10,12 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.iced_socio.parsers import (
+from yen_gov.canonical.adapters.iced_socio.parsers import (
     parse_ghg_economy_wide,
     parse_per_capita_consumption,
     parse_per_capita_income,
 )
-from yen_gov.sources.iced_common import ICEDShapeError
+from yen_gov.canonical.adapters.iced_common import ICEDShapeError
 
 
 # ---------------------------------------------------------------------------

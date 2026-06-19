@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import pytest
 
-from yen_gov.sources.datagovin_ogd.pincode_directory import (
+from yen_gov.canonical.adapters.datagovin_ogd.pincode_directory import (
     ParsedPincodeDirectory,
     PincodeDirectoryShapeError,
     parse_pincode_directory,

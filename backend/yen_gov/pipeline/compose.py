@@ -28,9 +28,9 @@ from yen_gov.core.models import (
     SourceRef,
     SummaryTotals,
 )
-from yen_gov.sources.eci.partywise import PartywiseSnapshot
-from yen_gov.sources.eci.section3 import ParticipatingParty
-from yen_gov.sources.eci.statistical_report_detailed import DetailedResultsRaw
+from yen_gov.canonical.adapters.eci_sources.partywise import PartywiseSnapshot
+from yen_gov.canonical.adapters.eci_sources.section3 import ParticipatingParty
+from yen_gov.canonical.adapters.eci_sources.statistical_report_detailed import DetailedResultsRaw
 
 
 def party_lookup_from_partywise(

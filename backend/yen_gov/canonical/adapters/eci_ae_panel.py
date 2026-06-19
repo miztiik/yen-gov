@@ -52,7 +52,7 @@ from yen_gov.canonical.row_models import (
     PersonDimRow,
     SourceRow,
 )
-from yen_gov.sources.eci.events import event_id_for as registered_event_id_for
+from yen_gov.canonical.adapters.eci_sources.events import event_id_for as registered_event_id_for
 
 MONTH_ABBR = {
     1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr", 5: "May", 6: "Jun",

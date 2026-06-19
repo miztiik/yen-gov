@@ -1,4 +1,4 @@
-"""Pure-parser tests for ``yen_gov.sources.rbi_appendix_deficits.parsers``.
+"""Pure-parser tests for ``yen_gov.canonical.adapters.rbi_appendix_deficits.parsers``.
 
 No fixture files; we build minimal in-memory workbooks with openpyxl
 that mirror the shape of RBI's ``AppT1_MajorDeficitIndicators_<YYYY>.xlsx``:
@@ -12,7 +12,7 @@ import io
 import pytest
 from openpyxl import Workbook
 
-from yen_gov.sources.rbi_appendix_deficits.parsers import (
+from yen_gov.canonical.adapters.rbi_appendix_deficits.parsers import (
     DeficitSpec,
     RBIAppT1ShapeError,
     SHIPPED_SPECS,
