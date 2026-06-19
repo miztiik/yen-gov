@@ -2071,6 +2071,85 @@ def tier_b_ingest_state_receipt(root: Path) -> list[Failure]:
     return failures
 
 
+def tier_b_source_producer_not_a_product(root: Path) -> list[Failure]:
+    """D2 / ingest plan Row 10: producers are organisations, FKs resolve.
+
+    Two corpus invariants behind the ICED authority correction:
+
+    * **producer-not-a-product** - every ``producer`` in
+      ``datasets/data/entities/source.csv`` is an issuing-authority
+      organisation, never a product/dashboard name. The forbidden tokens
+      (``dashboard``, ``portal``, ``database``, ...) live in
+      ``iced_authority_map.PRODUCT_PRODUCER_TOKENS``; the organisation-led
+      label ``NITI Aayog ICED`` passes. This is the steady-state guard that the
+      D2 producer correction (Row 10) stays applied.
+    * **no dangling source_id** - every ``source_id`` referenced by a datapoint
+      CSV under ``datasets/data/datapoints/`` resolves to a row in
+      ``source.csv`` (the citation-ledger FK, CLAUDE.md section 12).
+
+    No-ops when ``source.csv`` is absent. Per the CLAUDE.md anti-pattern the
+    Tier-B test injects a ``tmp_path`` root; this never walks the real corpus
+    from a pytest test. See docs/research/iced-authority-tracing.md.
+    """
+    # Function-local import keeps validate.py's module-load graph free of the
+    # canonical store layer (no cycle exists; the predicate + token list are the
+    # single source of truth for "is this producer a product name").
+    from yen_gov.canonical.iced_authority_map import is_product_producer
+
+    failures: list[Failure] = []
+    source_csv = root / "datasets" / "data" / "entities" / "source.csv"
+    if not source_csv.is_file():
+        return failures
+    rel_src = _posix(source_csv, root)
+
+    with source_csv.open(encoding="utf-8", newline="") as fh:
+        src_rows = list(csv.DictReader(fh))
+
+    known_ids: set[str] = set()
+    for row in src_rows:
+        sid = (row.get("source_id") or "").strip()
+        producer = (row.get("producer") or "").strip()
+        if sid:
+            known_ids.add(sid)
+        if producer and is_product_producer(producer):
+            failures.append(
+                Failure(
+                    rel_src,
+                    "B",
+                    f"producer {producer!r} (source_id {sid!r}) reads as a "
+                    f"product/dashboard name, not an issuing-authority organisation. "
+                    f"Per D2 (ingest plan Row 10) reattribute the row to its upstream "
+                    f"authority, or use the organisation-led label. See "
+                    f"docs/research/iced-authority-tracing.md.",
+                )
+            )
+
+    datapoints_dir = root / "datasets" / "data" / "datapoints"
+    if datapoints_dir.is_dir():
+        for path in sorted(datapoints_dir.rglob("*.csv")):
+            with path.open(encoding="utf-8", newline="") as fh:
+                reader = csv.DictReader(fh)
+                if "source_id" not in (reader.fieldnames or []):
+                    continue
+                dangling: set[str] = set()
+                for row in reader:
+                    sid = (row.get("source_id") or "").strip()
+                    if sid and sid not in known_ids:
+                        dangling.add(sid)
+            for sid in sorted(dangling):
+                failures.append(
+                    Failure(
+                        _posix(path, root),
+                        "B",
+                        f"datapoint source_id {sid!r} does not resolve to a row in "
+                        f"{rel_src} (dangling FK). Every observation row's source_id "
+                        f"must FK to the citation ledger (CLAUDE.md section 12).",
+                    )
+                )
+
+    return failures
+
+
 def run(root: Path) -> list[Failure]:
     """Run Tier A then Tier B against a repo root."""
     schemas, parse_failures = load_schemas(root / SCHEMAS_SUBDIR)
@@ -2094,4 +2173,5 @@ def run(root: Path) -> list[Failure]:
         + tier_b_indicator_url_slug_unique(root)
         + tier_b_party_page_mart_fresh(root)
         + tier_b_ingest_state_receipt(root)
+        + tier_b_source_producer_not_a_product(root)
     )
