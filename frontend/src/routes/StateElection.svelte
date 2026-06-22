@@ -104,8 +104,13 @@
   } from "../lib/elections/event-summary-loader";
   import {
     loadAcEnrichment,
+    loadAcEntities,
+    buildPcGrouping,
     type AcEnrichment,
+    type AcEntity,
+    type PcGrouping,
   } from "../lib/elections/constituency-district-loader";
+  import type { GroupHeaderResult } from "../lib/elections/constituency-list-tokens";
   import ElectionSeizuresCard from "../lib/elections/ElectionSeizuresCard.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
@@ -998,17 +1003,83 @@
       .catch((e) => (ac_enrichment_error = String(e)));
   });
 
-  // ---- Constituency table rows. Assembly (body === "ac") rows are
-  // enriched with district + reservation + eci_no and sorted by eci_no
-  // (ballot order) so the list groups by district. Parliament/general
-  // (body === "pc") rows keep the by-name sort with no enrichment - PC
-  // grouping is Row 5; this scope leaves general mode unregressed.
+  // ---- AC entity list (Row 5 of the same plan). One cached read of
+  // electoral.csv (joined to membership + LGD districts) gives every AC's
+  // {name, parent_pc_id, state, delim_year, district, reservation, eci_no}
+  // so the state GENERAL page can group its list PC -> AC -> District. Only
+  // loaded for parliament events; assembly uses ac_enrichment above.
+  let ac_entities = $state<AcEntity[] | null>(null);
+  let ac_entities_error = $state<string | null>(null);
+  $effect(() => {
+    if (body !== "pc") return;
+    if (ac_entities !== null || ac_entities_error !== null) return;
+    loadAcEntities()
+      .then((e) => (ac_entities = e))
+      .catch((e) => (ac_entities_error = String(e)));
+  });
+
+  // ---- Parliament PC -> AC grouping (Row 5). For a general event the seat
+  // list groups by PC: each PC winner is a GROUP HEADER (its MP result) and
+  // the LEAVES are that PC's child ACs (electoral.csv `parent` linkage),
+  // each tagged with its LGD district. buildPcGrouping restricts to this
+  // state + the live delimitation (winners[0].delim_year) and stamps each
+  // AC's parent PC name (or null -> the component's "Other" path). Null in
+  // assembly mode so the assembly branch (Row 4) is untouched.
+  const pc_grouping = $derived.by<PcGrouping | null>(() => {
+    if (body !== "pc") return null;
+    const ents = ac_entities;
+    if (!ents || winners.length === 0) return null;
+    return buildPcGrouping(
+      winners.map((w) => ({ entity_id: w.entity_id, name: w.entity_name })),
+      ents,
+      params.state,
+      winners[0]?.delim_year ?? null,
+    );
+  });
+
+  // PC-mode group headers keyed by PC name (the leaf `pc_group`). Each
+  // carries the PC's Lok Sabha (MP) result - party chip + brand colour +
+  // share + margin + child-AC count + PC reservation. Passed to the SAME
+  // StateEventConstituencyList component; null/absent in assembly mode (the
+  // component then renders every group in assembly mode, unchanged).
+  const group_headers = $derived.by<Record<string, GroupHeaderResult> | null>(
+    () => {
+      const grouping = pc_grouping;
+      if (body !== "pc" || !grouping) return null;
+      const counts = grouping.childCountByPcId;
+      const out: Record<string, GroupHeaderResult> = {};
+      for (const w of winners) {
+        const pid = partyIdFor(w);
+        out[w.entity_name] = {
+          chip: w.party_short ?? "UNK",
+          color: fillForParty(pid, w),
+          share: w.vote_share_pct,
+          margin: w.margin_pct,
+          child_count: counts.get(w.entity_id) ?? 0,
+          reservation: w.reservation,
+        };
+      }
+      return out;
+    },
+  );
+
+  // ---- Constituency table rows. Assembly (body === "ac"): one row per AC
+  // winner, enriched with district + reservation + eci_no and sorted by
+  // eci_no (ballot order) so the list groups by district (Row 4).
+  // Parliament/general (body === "pc"): one row per CHILD AC of each PC
+  // (Row 5), carrying `pc_group` (parent PC name) + its district; the PC MP
+  // result rides on `group_headers`, NOT on these leaves (general elections
+  // have no AC-level winner). PC mode renders the leaf as navigation + a
+  // district label only, so its neutral winner_* fields are never shown.
   interface SeatRow {
     entity_id: string;
     entity_name: string;
     district: string | null;
     eci_no: number | null;
     reservation: string | null;
+    /** Parliament-mode grouping override: the parent PC name. Set on PC
+     *  leaves (Row 5); absent in assembly mode (groups by district). */
+    pc_group?: string | null;
     winner_party_short: string;
     winner_party_id: string;
     winner_color: string;
@@ -1017,13 +1088,49 @@
     href: string;
   }
   const seat_rows = $derived.by<SeatRow[]>(() => {
-    const out: SeatRow[] = [];
     const slug_st = params.state;
     const ev = event_row?.event_id ?? params.event;
-    const is_assembly = body === "ac";
-    // Only assembly seats carry district/reservation/eci_no; the loader
-    // is keyed by AC electoral_id (PC winners never match it).
-    const enrich = is_assembly ? ac_enrichment : null;
+
+    if (body !== "ac") {
+      // Parliament/general (Row 5): the LEAVES are each PC's child ACs. The
+      // PC MP results feed `group_headers`; the leaves carry NO MP result.
+      // The AC leaf links to its OWN drill-down (link.ac with no event ->
+      // /<state>/ac/<ac>, which resolves the AC to its default assembly
+      // context, NOT the non-existent AC-under-general page).
+      const grouping = pc_grouping;
+      if (!grouping) return [];
+      const leaves: SeatRow[] = grouping.leaves.map((leaf) => ({
+        entity_id: leaf.entity_id,
+        entity_name: leaf.name,
+        district: leaf.district_name,
+        eci_no: leaf.eci_no,
+        reservation: leaf.reservation,
+        pc_group: leaf.pc_group,
+        winner_party_short: "",
+        winner_party_id: "",
+        winner_color: "#cbd5e1",
+        winner_share_pct: null,
+        margin_pct: null,
+        href: link.ac(slug_st, leaf.name),
+      }));
+      // Ballot order: eci_no ascending; null serials sink to the end,
+      // tie-broken by name. The component re-sorts within each group, but a
+      // stable global pre-sort keeps any ungrouped "Other" leaves tidy.
+      leaves.sort((a, b) => {
+        const ea = a.eci_no ?? Number.POSITIVE_INFINITY;
+        const eb = b.eci_no ?? Number.POSITIVE_INFINITY;
+        if (ea !== eb) return ea - eb;
+        return a.entity_name.localeCompare(b.entity_name, "en", {
+          sensitivity: "base",
+        });
+      });
+      return leaves;
+    }
+
+    // Assembly (body === "ac"): unchanged Row-4 behavior - one row per AC
+    // winner, enriched + ballot-ordered.
+    const out: SeatRow[] = [];
+    const enrich = ac_enrichment;
     for (const w of winners) {
       const pid = partyIdFor(w);
       const name_slug = slugify(w.entity_name);
@@ -1034,7 +1141,7 @@
         district: meta?.district_name ?? null,
         // Prefer the result row's own ballot serial (reliable summary
         // value); fall back to electoral.csv via the loader.
-        eci_no: is_assembly ? (w.eci_no ?? meta?.eci_no ?? null) : null,
+        eci_no: w.eci_no ?? meta?.eci_no ?? null,
         reservation: meta?.reservation ?? null,
         winner_party_short: w.party_short ?? "UNK",
         winner_party_id: pid,
@@ -1044,24 +1151,16 @@
         href: link.pc(slug_st, ev, name_slug),
       });
     }
-    if (is_assembly) {
-      // Ballot order: eci_no ascending; null serials sink to the end,
-      // tie-broken by name for stability.
-      out.sort((a, b) => {
-        const ea = a.eci_no ?? Number.POSITIVE_INFINITY;
-        const eb = b.eci_no ?? Number.POSITIVE_INFINITY;
-        if (ea !== eb) return ea - eb;
-        return a.entity_name.localeCompare(b.entity_name, "en", {
-          sensitivity: "base",
-        });
+    // Ballot order: eci_no ascending; null serials sink to the end,
+    // tie-broken by name for stability.
+    out.sort((a, b) => {
+      const ea = a.eci_no ?? Number.POSITIVE_INFINITY;
+      const eb = b.eci_no ?? Number.POSITIVE_INFINITY;
+      if (ea !== eb) return ea - eb;
+      return a.entity_name.localeCompare(b.entity_name, "en", {
+        sensitivity: "base",
       });
-    } else {
-      out.sort((a, b) =>
-        a.entity_name.localeCompare(b.entity_name, "en", {
-          sensitivity: "base",
-        }),
-      );
-    }
+    });
     return out;
   });
 
@@ -1617,6 +1716,7 @@
         {seat_rows}
         {fmtInt}
         {fmtPct}
+        {group_headers}
       />
     {/if}
   {/if}
