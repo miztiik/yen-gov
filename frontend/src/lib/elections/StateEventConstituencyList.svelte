@@ -10,22 +10,22 @@
    - District-grouped folded list: each row [district][N constituencies]
      [winner-party-mix dot-strip]; tap expands inline. ALL districts
      collapsed on first paint (mobile + desktop).
-   - The Compare CTA stays as the LAST row of the section chrome,
-     rendered as a slate-700 link (NOT a button).
    - The flat 288-row table is RETIRED on this surface; it was carrying
      no narrative beyond what the grouped fold offers (the per-AC
      drill-down route remains the path for citizens who want the row).
 
+  The trailing "Compare with <prior event>" CTA was REMOVED 2026-06-22 as
+  redundant: the SiblingEventsRail above the map already offers the
+  compare affordance ("See how this election compares with <prior year>").
+
   Preserves data-testids: state-event-constituency-table /
   state-event-constituency-table-loading / state-event-constituency-row /
-  state-event-constituency-link / state-event-compare-cta. R4 ADDS:
+  state-event-constituency-link. R4 ADDS:
   state-event-constituency-search,
   state-event-constituency-district-row,
   state-event-constituency-district-toggle.
 -->
 <script lang="ts">
-  import type { ElectionEventRow } from "../election-events";
-
   export interface SeatRow {
     entity_id: string;
     entity_name: string;
@@ -50,8 +50,6 @@
   interface Props {
     loading: boolean;
     seat_rows: readonly SeatRow[];
-    previous_same_body: ElectionEventRow | null;
-    compare_href: string | null;
     fmtInt: (n: number | null) => string;
     fmtPct: (n: number | null) => string;
   }
@@ -59,8 +57,6 @@
   let {
     loading,
     seat_rows,
-    previous_same_body,
-    compare_href,
     fmtInt,
     fmtPct,
   }: Props = $props();
@@ -272,16 +268,3 @@
     {/if}
   {/if}
 </section>
-
-<!-- Compare CTA - R4: rendered as a slate-700 link (not a button)
-     per the Jony verdict; lives as the last row of this section's
-     chrome rather than as a separate <nav>. -->
-{#if compare_href && previous_same_body}
-  <div class="pt-1 text-sm">
-    <a
-      class="text-slate-700 underline-offset-2 hover:text-slate-900 hover:underline"
-      href={compare_href}
-      data-testid="state-event-compare-cta"
-    >Compare with {previous_same_body.display}</a>
-  </div>
-{/if}
