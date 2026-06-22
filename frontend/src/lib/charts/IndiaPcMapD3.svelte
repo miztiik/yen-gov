@@ -60,7 +60,7 @@
   } from "geojson";
 
   import { DATA_BASE } from "../paths";
-  import { INDIA_PC, type BoundaryEntry } from "../boundaries/sources";
+  import { INDIA_PC, INDIA_PC_BY_NAME, type BoundaryEntry } from "../boundaries/sources";
   import { renderTooltipCard } from "../boundaries/tooltip-card";
   import { symbolAssetUrl } from "../boundaries/symbol-asset";
   import {
@@ -85,6 +85,8 @@
     type IslandMarker,
   } from "./india-party-map-helpers";
   import { rewindCollectionForD3 } from "./geo-rewind";
+  import MapCoverageNote from "./MapCoverageNote.svelte";
+  import { computeCoverage, delimVintageFromPath } from "./map-coverage";
 
   /**
    * One PC winner row, pre-shaped by the route for the join. The
@@ -291,7 +293,23 @@
     projection_path ? `${projection_path.w}/${projection_path.h}` : "640/480",
   );
 
-  // Lakshadweep collapses to a ~2-3 px dot at the national fit; paint a
+  // ---- Coverage caption (honesty layer) ----------------------------
+  // matched = rendered PCs that bind a winner; total = rendered PCs. The
+  // caption auto-hides when matched === total (full coverage). Vintage is
+  // read from the geometry path's `delim=` marker, never hardcoded.
+  const coverage = $derived(
+    !collection
+      ? null
+      : computeCoverage(
+          collection.features.map((f) => featureUid(f.properties ?? undefined)),
+          (k) => row_by_uid.has(String(k)),
+        ),
+  );
+  const geometry_year = $derived(delimVintageFromPath(GEOMETRY_PATH));
+  // Old-election signal: the route swaps in the name-slug boundary
+  // (INDIA_PC_BY_NAME) only for pre-2024 LS events; the numeric default
+  // (INDIA_PC) means a current-vintage map, where the caption stays hidden.
+  const on_old_geometry = $derived(boundary.id === INDIA_PC_BY_NAME.id);
   // small clickable square at its centroid so the island PC stays citizen-
   // visible. Scoped by name to the one far-flung seat - no mainland PC is
   // ever marked.
@@ -582,3 +600,10 @@
     </div>
   {/if}
 </div>
+
+<MapCoverageNote
+  {coverage}
+  unit="constituencies"
+  geometryYear={geometry_year}
+  onOldGeometry={on_old_geometry}
+/>
