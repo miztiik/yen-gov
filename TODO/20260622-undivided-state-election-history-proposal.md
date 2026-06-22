@@ -1,159 +1,202 @@
-# Proposal: surfacing undivided-state election history (Andhra Pradesh / Telangana, and every bifurcation)
+# Proposal: surfacing undivided-state election history, generalized to every state and UT
 
-**Last Updated**: 2026-06-22
+**Last Updated**: 2026-06-23
 **Doc class**: proposal (working-doc under `TODO/`, non-authoritative per CLAUDE.md section 3). Captures a Max + Jony opinion for user ratification before any code lands.
-**Status**: PROPOSAL - awaiting sign-off. No code changes in this PR.
+**Status**: PROPOSAL (rev 2) - awaiting sign-off. No code in this PR.
 **Authority**: data shape = Hans + Max (CLAUDE.md section 0a); UX = Jony + Citizen; contract/wiring = Gregor. User approval supersedes.
-**Cites**: [docs/concepts/entity-bifurcation-rendering.md](../docs/concepts/entity-bifurcation-rendering.md), [docs/architecture/frontend/map.md](../docs/architecture/frontend/map.md), [docs/architecture/frontend/url-grammar.md](../docs/architecture/frontend/url-grammar.md), [datasets/taxonomy/state_formation_events.json](../datasets/taxonomy/state_formation_events.json), [datasets/taxonomy/methodology_breaks.json](../datasets/taxonomy/methodology_breaks.json), [datasets/taxonomy/election_events.json](../datasets/taxonomy/election_events.json).
+**Cites**: [docs/concepts/entity-bifurcation-rendering.md](../docs/concepts/entity-bifurcation-rendering.md), [docs/architecture/frontend/map.md](../docs/architecture/frontend/map.md), [datasets/taxonomy/state_formation_events.json](../datasets/taxonomy/state_formation_events.json), [datasets/taxonomy/methodology_breaks.json](../datasets/taxonomy/methodology_breaks.json), [datasets/data/entities/boundary_layer.csv](../datasets/data/entities/boundary_layer.csv), [datasets/taxonomy/election_events.json](../datasets/taxonomy/election_events.json).
+
+> **Rev 2 (2026-06-23)** answers the user's review: (1) the 14-event state/national breakdown + the missing-count arithmetic; (2) adopts the USER's caption wording (the verbose Jony copy is dropped); (3) generalizes the whole design to ALL states and UTs and ALL years (delimitation is universal, e.g. 1962 vs 2024); (4) an enumerated changes -> PR -> problem table; (5) confirms the caption goes INSIDE the map card per the user's mockup.
 
 ---
 
 ## 0. TL;DR (the opinion)
 
-The citizen-reported symptom ("Andhra Pradesh hides its older elections; neither AP nor Telangana shows the undivided-state assemblies") is really **three separate problems wearing one coat**. Solve them in order; do not bundle:
+The citizen-reported symptom is three separate problems. Solve them in order; do not bundle:
 
-1. **A data gap, not a display bug (for assembly).** Pre-2014 undivided-AP **assembly** results are a *documented deferral* - they are not in the store at all. AP **parliament** data already goes back to 1962. So nothing is being "hidden"; the assembly rows do not yet exist. **Max: ingest them** (TCPD Lok Dhaba, cheap, reuses the shipped adapter). This alone lifts `/t/elections/assemblies` from "Andhra Pradesh - 3 ON RECORD" to ~15.
+1. **A data gap (assembly), not a display bug.** Pre-2014 undivided-AP **assembly** results are a documented deferral - not in the store. AP **parliament** data already runs back to 1962. So nothing is "hidden"; the rows do not exist yet. Ingest them (TCPD Lok Dhaba) -> AP assemblies go from 3 to ~15.
+2. **A missing honesty caption (universal, shippable now).** Every old election rendered on today's geometry has seats that do not match - not just AP, every state, because boundaries are redrawn at each delimitation (1962 used the 1951 Order; 2024 uses 2008). One small primitive - **`MapCoverageNote`, using the USER's wording** - turns silently-grey seats into `217 of 542 constituencies matched ...`.
+3. **The bifurcation render (the real design call).** Undivided-AP events live under residual **`IN-S01` only**. The trap Max caught: if we draw them on the post-2014 AP-only map, the caption lies "175 of 175 - full coverage" while dropping the ~119 now-Telangana seats out of the denominator. The fix: render undivided events on the **union of parent + successor geometry** ("the territory of the time"), driven by `state_formation_events.json`, marked with **one dashed present-day border + one neutral label** - never per-seat hatching.
 
-2. **A missing honesty layer (shippable now, on parliament).** AP parliament 2009/2014/2019 *already* paint on today's geometry by name-slug join, with unmatched seats silently grey. The fix is one small caption primitive - **Jony's `MapCoverageNote`** - that turns silent grey into "38 of 42 seats placed". This ships independently of (1).
-
-3. **An attribution + overlay question (the actual design call).** Where do undivided-AP events live, and how does the map show territory that is now Telangana? **Both personas converge:** under residual **`IN-S01` only** (never Telangana), rendered as **"the territory of the time"** (the seats that genuinely voted), marked with **one dashed present-day border + one `Telangana - formed 2014` label** - and **explicitly NOT** the user's "overlay/hatch the now-Telangana districts" decoration, which both personas reject as clutter and as a quiet misrepresentation.
-
-The "generic module depending on context" the user asked for is **two reusable pieces**, both reading reference data that already exists - no new schema, no hardcoded per-state map.
+The "generic module depending on context" = **one text caption primitive + one map-overlay driven by reference data that already exists** (no new schema, no hardcoded per-state map). It generalizes across PC / AC / district and across every state, UT, and bifurcation.
 
 ---
 
 ## 1. The citizen problem
 
-- `https://miztiik.github.io/yen-gov/andhra-pradesh` -> Election dropdown lists 14 events: 3 assembly (2014/2019/2024) + 11 parliament (1962..2024). The pre-2014 assembly era is absent.
-- `https://miztiik.github.io/yen-gov/t/elections/assemblies` -> "Andhra Pradesh - Latest 2024 - 3 ON RECORD" and "Telangana - 3 events". Undivided-AP assemblies appear under neither.
-- Citizen mental model (median civic-curious Indian): "Andhra Pradesh is ~70 years of assembly history, not 10." The page silently amputates everything before 2014.
-
-User's instinct (intent, paraphrased): Andhra Pradesh was the parent state and kept the name, so older events belong in its history; when shown, overlay the now-Telangana district info over the Telangana districts, with a caveat under the map like *"x of y pc/ac/districts matched - older years use {year-slug} boundaries - coverage drops with each delimitation"*; build a generic context-aware module and reuse it.
+- `/andhra-pradesh` -> Election dropdown lists 14 events; the pre-2014 assembly era is absent.
+- `/t/elections/assemblies` -> "Andhra Pradesh - 3 ON RECORD" and "Telangana - 3 events". Undivided-AP assemblies appear under neither.
+- Citizen mental model: "Andhra Pradesh is ~70 years of assembly history, not 10."
 
 ---
 
-## 2. Verified facts (root cause)
+## 2. Clarification: the 14 Andhra Pradesh events (answers "how many state vs national?")
+
+The 14 on `/andhra-pradesh` are **3 state (assembly) + 11 national (parliament)**:
+
+| Kind | Count | Years |
+| --- | :---: | --- |
+| **State** - Assembly (`kind: assembly`) | **3** | 2014, 2019, 2024 |
+| **National** - Parliament (`kind: parliament`) | **11** | 2024, 2019, 2014, 2009, 2004, 1999, 1998, 1996, 1991, 1989, 1962 |
+
+(Source: [election_events.json](../datasets/taxonomy/election_events.json) `states.S01`, lines 6-176.)
+
+**Why the topic page shows only 3 (answers "how many of the 14 get added?")**: `/t/elections/assemblies` counts **assembly events only**. The 11 parliament events are a different `kind` and surface on the sibling **`/t/elections/general`** page (where Andhra Pradesh is a state-slice of each national general election). So **none of the other 11 "move" into the assembly count - they were never assembly events.** The 14 split cleanly: 3 -> assemblies page, 11 -> general page. Nothing is lost between the two pages.
+
+**What IS missing** (the "obviously something is missing"): the **pre-2014 undivided-AP assembly elections** - roughly 12 (1955, 1962, 1967, 1972, 1978, 1983, 1985, 1989, 1994, 1999, 2004, 2009; Telangana-region voters were part of every one). These are not in the 14 and not in the store (deferred). The arithmetic:
+
+| State | Assemblies today | After ingest | Why |
+| --- | :---: | :---: | --- |
+| Andhra Pradesh (`IN-S01`) | 3 | **~15** | residual entity inherits the undivided history (kept the name + ECI code) |
+| Telangana (`IN-S29`) | 3 | **3** | formed 2014; no pre-formation rows (no backcast) |
+
+(Secondary gap, out of headline scope: AP's national list also has holes - it jumps 1962 -> 1989, missing 1967/71/77/80/84 and 1952/57. Same fix shape if pursued.)
+
+---
+
+## 3. Verified facts (root cause)
 
 | Fact | Evidence |
 | --- | --- |
-| AP `IN-S01` catalogue = 3 assembly + 11 parliament. | [datasets/taxonomy/election_events.json](../datasets/taxonomy/election_events.json) `states.S01`. |
-| Pre-2014 undivided-AP assembly is a **documented deferral**. | The `assembly-2014` note: *"Residual Andhra Pradesh phase ... pre-2014 undivided Andhra Pradesh rows remain deferred."* |
-| AP **parliament** results exist back to 1962. | `andhra-pradesh_election_results.csv` carries `LsGenFeb1962` period labels. |
-| Telangana `IN-S29` assembly correctly starts 2014 (`entity_valid_from: 2014`). | catalogue `states.S29`. |
-| Other states carry deep assembly history already (Arunachal S02 from 1978). | catalogue. So the catalogue format + UI already support deep history; AP is special only because of the deferral. |
-| The split is modelled but not wired to surfacing. | [datasets/taxonomy/state_formation_events.json](../datasets/taxonomy/state_formation_events.json): `{parent_state_ids:[S01], successor_state_ids:[S01,S29], event_date:2014-06-02, parent_window_start_year:1956}`. |
-| Only `delim=2024` geometry exists (175 AP ACs + 119 TG ACs). No undivided-AP 294-AC polygon family. | [datasets/data/entities/boundary_layer.csv](../datasets/data/entities/boundary_layer.csv); on-disk `boundaries/electoral/delim=2024/`. |
-| The "N ON RECORD" count is a pure row-count of `event_summary.csv` (scope=state). | `assembly-elections-model.ts`. So the count is honest; it just has 3 rows to count. |
+| Pre-2014 undivided-AP assembly is a **documented deferral**. | `assembly-2014` note: "pre-2014 undivided Andhra Pradesh rows remain deferred." |
+| AP **parliament** results exist back to 1962; assembly only 2014+. | `andhra-pradesh_election_results.csv` (`LsGenFeb1962` present). |
+| The split is modelled but unwired to surfacing. | [state_formation_events.json](../datasets/taxonomy/state_formation_events.json): `{parent:[S01], successors:[S01,S29], event_date:2014-06-02}`. |
+| Only `delim=2024` geometry exists; old elections name-slug-join it; unmatched seats already render grey. | [boundary_layer.csv](../datasets/data/entities/boundary_layer.csv); `StatePcMapD3`/`StateAcMapD3`. |
+| The PC delimitation eras are on disk (PC only). | [methodology_breaks.json](../datasets/taxonomy/methodology_breaks.json): `lspc-delim-1967` (1951-Order 1952-62; 1962 Commission 1967-71), `lspc-delim-1976` (frozen 1977-2004), `lspc-delim-2008` (2009-2024). No AC rows, no per-state rows. |
+| `matched`/`unmatched` is already computed render-time. | [frontend/src/lib/elections/seat-flow-model.ts](../frontend/src/lib/elections/seat-flow-model.ts). |
+| The map card already has a caption slot. | [frontend/src/lib/elections/StateEventMap.svelte](../frontend/src/lib/elections/StateEventMap.svelte) `text-[11px] text-slate-500`, inside the map `<section>`, below the legend. |
 
-**Two corrections to assumptions found during exploration:**
-
-- The concept doc [entity-bifurcation-rendering.md](../docs/concepts/entity-bifurcation-rendering.md) (dated 2026-05-22) **locks the bifurcation principles** (residual-id under `IN-S01`, grey the successor pre-formation, banner disclosure, never backcast) - but it covers the **indicator** surfaces (TimeSeriesLine, IndicatorChoropleth, IndicatorRanked) under the *old* `/india/<state>/<indicator>` URL grammar. It does **not** cover the **election** constituency maps that this proposal is about.
-- The `LINEAGE_MAP` / `frontend/src/lib/entity-lineage.ts` that the concept doc references as "hardcoded today" **does not exist in the codebase**. It was specified but never built. So there is no working bifurcation renderer to "just wire up"; the principles are sound but the election-side implementation is genuinely new.
-
-**Net:** the bifurcation *doctrine* is decided and binding; the election-surface *implementation* is the new work; the assembly *data* is a separate ingest.
+**Two assumption corrections** carried from rev 1: the concept doc [entity-bifurcation-rendering.md](../docs/concepts/entity-bifurcation-rendering.md) locks the bifurcation *principles* but covers the **indicator** surfaces under the old `/india/` URLs - not the election maps; and the `LINEAGE_MAP` / `entity-lineage.ts` it references **was never built**. The principles are binding; the election implementation is new.
 
 ---
 
-## 3. Max's verdict (data shape - Hans + Max authority)
+## 4. The design, generalized to ALL states and UTs (answers "solve for all states and UT")
 
-- **A. Attribution.** Pre-2014 undivided-AP rows live under **`IN-S01` only. Never under both. Never under `IN-S29`.** This is the residual-id case already locked in the concept doc. `IN-S01` is the same NIC/ISO/LGD code the Indian state itself preserved through the 2014 Reorganisation Act; the honest read of an `IN-S01` 2009 row is "the territory `IN-S01` measured in 2009" = combined AP. Telangana (`entity_valid_from: 2014`) carries no pre-formation rows - no backcast, no zero, no NULL-as-data. **Double-counting risk: none by construction** (only S01 carries the row). OWID precedent: successors get fresh ids, predecessor retires; yen-gov's *named, signed-off* divergence is to reuse `IN-S01` for the residual and carry lineage in the renderer. Do not re-litigate (concept-doc Q-3).
-- **B. Ingest now.** **Yes - acquire the deferred pre-2014 undivided-AP assembly data.** High value, low cost. The blocker was never the source - it was the historical-entity decision, which is now made (item A). Recommended source: **TCPD Lok Dhaba `All_States_AE.csv` (DelimID 1-3)** - the *same* file the post-2014 slice already uses, so ingest is incremental. ECI Statistical Reports are GOLD but PDF-only pre-2014 (sustained hand-digitisation is out of scope). Each backfilled row carries a `source_id` FK (Holy Law #9) and a `processing_note` for the segment/delimitation context.
-- **C. The caveat is render-time; the break is the data receipt.** Keep two distinct breaks from being conflated: the **reorganisation break** (2014, territory) is carried by `entity_valid_from/to` + lineage; the **delimitation break** (1967/1976/2008, constituencies redrawn) is carried by [methodology_breaks.json](../datasets/taxonomy/methodology_breaks.json) `lspc-delim-*` rows ("per-constituency not comparable across this break; per-state aggregate is"). The live "x of y matched" is the join-cardinality of (current polygons) intersect (that year's result rows) - a pure read-time function. **Do not store the match-count** (it would freeze one geometry assumption into the data layer; violates methodology-stable comparability).
-- **D. Reject "paint modern TG geometry as a stand-in" on the *national* choropleth.** Painting 2024 TG district shapes as a proxy for undivided-AP geometry is dishonest twice: it implies Telangana existed and was measured separately before it did, and it back-projects a 2024 boundary onto a 1999 measurement. The honest national surface is the locked banner + greyed successor polygon.
-- **E. The context contract already exists.** Do not invent new fields: `entity_valid_from/to` (entities), `parent_state_ids/successor_state_ids/event_date/parent_window_start_year` ([state_formation_events.json](../datasets/taxonomy/state_formation_events.json)), and the delimitation break rows. This already generalises to MP/Chhattisgarh-2000, UP/Uttarakhand-2000, Bihar/Jharkhand-2000, AP/Telangana-2014, J&K/Ladakh-2019. The YAGNI gate to promote the (never-built) hardcoded lineage map to read `state_formation_events.json` **has fired** (5 cases on disk) - so reading the existing JSON is now doctrine-mandated, not speculative.
+The honesty caption is **about delimitation/boundary coverage, which is universal** - every state's every old election, drawn on current geometry, has a coverage shortfall. Bifurcation is one extra axis layered on top. There are **four coverage-drop axes**; one caption honestly covers two, and a second guard is needed for the other two:
 
-**Max's biggest risk:** scope-creep from "ingest deep AP history" (do it) into "build a per-year historical-geometry overlay engine" (do not). There is no undivided-AP 294-AC polygon family; if a reviewer lets "overlay the now-Telangana districts" survive into the build as a *fabricated polygon set*, we ship a chart that lies.
+| # | Axis | Source of truth | Single caption honest? |
+| --- | --- | --- | :---: |
+| a | PC delimitation redraws (national: 1951 / 1962 / 1971-frozen / 2008) | `methodology_breaks` (present, PC) | yes |
+| b | AC delimitation redraws (per-state; Assam-2023, J&K-2022 specials) | `methodology_breaks` (absent for AC) | yes (number); "why" receipt missing |
+| c | Bifurcations (AP/TG-2014, J&K/Ladakh-2019, MP/CG, BR/JH, UP/UK-2000, Goa-1987) | `state_formation_events` (present) | **no - needs the guard** |
+| d | Entity did not exist in the older year (TG, CG, JH, UK, Ladakh, Goa) | `state_formation_events` | **no - needs the guard** |
 
----
+### 4.1 The coverage caption - the USER's wording (adopted)
 
-## 4. Jony's verdict (UX - Jony + Citizen authority)
+Jony's earlier verbose copy is **dropped**. The caption is the user's line, parameterized by `{unit}` so it serves PC, AC, and district:
 
-- **A. Placement: YES, NO on the word "overlay."** AP is the continuing legal entity; Telangana was formed from it. The parent keeps the history. An undivided-2009 event belongs in AP's dropdown - but labelled **"undivided Andhra Pradesh"**, never today's AP. The reductionist correction: you are not "overlaying Telangana onto AP", you are **rendering the territory of the time** - the union of today's AP + TG seats - because that *is* the undivided electorate. Those TG seats genuinely voted; they get the winner colour like any other seat. Nothing is "overlaid."
-- **B. The caveat caption - kill the jargon.** "delimitation", "matched", "{year-slug}", "pc/ac" are developer words. The line must say, in citizen terms, *we drew an old election on today's map, and some seats could not be placed.* Use counts not percentages ("38 of 42" beats "90%"). Variants:
-  - Full match, current vintage: **render nothing** (do not caption the normal case).
-  - Partial / old-on-today's-map: *"Shown on today's map - 38 of 42 seats placed. This older election used different boundaries, so a few seats can't be shown."* + when a bifurcation is in frame, append: *"Includes areas now in Telangana (formed 2014)."*
-  - No geometry: the caption does not appear; the placeholder/tile fallback replaces the map.
-- **C. The generic module: `MapCoverageNote.svelte`.** A caption sibling to `MarginLegend` / `MapHighlightLegend` / `MapTooltip`. Props: `{ matched:number, total:number, unit:"seats"|"constituencies"|"districts", on_old_geometry:boolean, bifurcation?:{ child_label:string; formed_year:number } | null }`. Pure presentation - it does NOT fetch, join, or touch the SVG; the map already computes matched/total and feeds it up. Three render states (nothing / coverage line / coverage + bifurcation clause). It deliberately does NOT render a no-geometry branch (that is a different DOM shape - the placeholder card), an unmatched-seat table, per-seat reasons, or any colour.
-- **D. The overlay visual - two fills, not three.** Matched and coloured (winner colour at margin opacity) vs unmatched/no-result (existing slate-200, one legend line "Grey - no result on file for this seat"). **"Now-another-state" is NOT a third fill** - those seats had results, so they are coloured. The only marks for the split are **one dashed present-day border + one `Telangana - formed 2014` label**. No hatching, no opacity tier, no pattern. Colour stays one signal.
-- **E. Failure state (results but no geometry, e.g. pre-2009 parliament).** Never show an empty map when the results exist. The repo already ships `TileCartogram` (equal-seats hex). Reuse it: results-as-tiles beats results-as-nothing. If even tiles are out of scope, keep the placeholder card but drop the apology and promote the results table directly beneath.
+```
+{matched} of {total} {unit} matched &middot; older years use {geometry_year} boundaries &mdash; coverage drops with each delimitation
+```
 
-**Jony's single removal:** the per-seat "overlay/hatch the now-Telangana districts" decoration. Colour those seats like any other; let one thin dashed present-day border + one `Telangana - formed 2014` label carry the entire "this is now another state" message.
+Rendered (the user's mockup, a national PC choropleth of an old general election):
 
----
+> `217 of 542 constituencies matched &middot; older years use 2019 boundaries &mdash; coverage drops with each delimitation`
 
-## 5. Reconciliation - the one subtlety that matters
+- `{matched}` / `{total}`: **emergent, computed render-time, never stored** (Max; already shipped in `seat-flow-model.ts`). `total` = features in the rendered layer for the state/UT; `matched` = those that bind a result after the join.
+- `{geometry_year}`: **read from `boundary_layer.csv.delimitation_vintage`** of the layer actually rendered (never a hardcoded `"2024"`, Holy Law #6). Semantics = "the snapshot edition the citizen is looking at" (the honest token; "1976" would assert boundaries we do not hold).
+- `{unit}` in {`constituencies` (PC + AC), `districts`}.
 
-Max says "grey the successor"; Jony says "colour the seats." These are **not in conflict** - they are about **two different maps**:
+**One word needs your nod (Jony's flag):** "delimitation" is an electoral term and does not describe a *district* boundary change. To keep ONE caption across constituencies + districts, the last clause could become unit-neutral: `coverage drops as boundaries are redrawn`. Keep "delimitation" verbatim if the caption stays constituency-only; switch to "boundaries are redrawn" if it must also caption district choropleths. **Decision D-5 below.**
 
-| Surface | Pre-2014 undivided-AP behaviour | Owner |
-| --- | --- | --- |
-| **National state choropleth** (`IndiaPartyMap`, Home / national views) - one polygon per *state* | Telangana was not a state -> **grey the Telangana polygon**; colour `IN-S01` with the combined value; banner. (Concept-doc section 3.2, already doctrine.) | Max's rule |
-| **State constituency map** (`StateAcMapD3` / `StatePcMapD3`, the `/andhra-pradesh/elections/<event>` page) - one polygon per *constituency* | Those constituencies genuinely voted in the undivided election -> **colour the matched seats** (incl. the now-Telangana ones), grey the unmatched, mark the split with one dashed border + label, caption the coverage. | Jony's rule |
+### 4.2 The three render states (answers the 1962 example)
 
-The honesty in Jony's surface comes from the **caption + the methodology-break receipt**, exactly as Max requires - NOT from pretending the modern 2024 polygon set is the historical one. We reuse the existing safe-by-construction name-slug join (already shipping for parliament): matched seats coloured, unmatched grey. We do **not** fabricate a 294-AC undivided-AP polygon family (Max's tar pit). This two-surface split is the load-bearing reconciliation of the proposal.
+The splitter is a `floor` threshold on the same emergent `matched` count (a render-policy config constant - Jony + Citizen, not data):
 
----
+1. **Partial match** (`matched > floor`, e.g. an old general on 2008-era geometry) -> render the map, grey the unmatched, show the caption.
+2. **No usable geometry** (`matched == 0` or `< floor`; e.g. **1962 LS used the 1951 Order - no 1951 geometry on disk**) -> a near-all-grey map is dishonest (reads "no data" when the truth is "no map"); fall back to the existing table / `TileCartogram`, caption: `No boundary map for this year &ndash; {unit} shown below.`
+3. **No results at all** (the deferred pre-2014 AP assembly set, until ingest) -> "not yet available" empty state.
 
-## 6. Recommended approach (the generic, context-aware module)
+### 4.3 The bifurcation trap and its fix (Max's single biggest risk)
 
-The user's "generic module depending on context, reuse it" resolves to **two reusable pieces, both reading reference data that already exists** (Holy Law #6 - no hardcoded per-state map):
+Because the caption counts **map units**, drawing undivided-AP 1999 on the post-2014 AP-only geometry (175 ACs) makes all 175 bind -> caption reads **"175 of 175 matched - full coverage"** while the ~119 now-Telangana result rows have **no polygon and never enter the denominator**. The caption says "complete" while hiding 40% of the contest. The successor side fails opposite: a Telangana viewer pre-2014 would see "0 of 119", which looks like a delimitation drop but is really "this state did not exist".
 
-### 6.1 `MapCoverageNote.svelte` - the honesty caption (ship first)
+**Fix (driven by `state_formation_events.json`, no new table):**
+- **Parent / residual side** (undivided event under `IN-S01`): render on the **union of today's parent + successor geometry** (AP 175 + TG 119 = 294) - "the territory of the time" - so the denominator includes the seceded seats and the caption is honest. Mark the split with **one dashed present-day border + one neutral label** (e.g. the successor's name + formed-year), no per-seat hatching.
+- **Successor side** (`IN-S29` before formation): an **existence-guard fires before the caption** - no "0 of 119" map; instead a one-line redirect ("part of the parent before the formation date; see the parent"). This is the same guard for axis (d) - states/UTs that did not exist yet.
 
-- Jony's contract from section 4C. Pure presentation; the map emits `{ matched, total }` upward (it already knows them).
-- Mounts in the existing caption slot under `StateEventMap` (the `text-xs text-slate-500` line). Renders nothing on the normal full-match current-vintage case.
-- **Immediate payoff:** lights up on AP parliament 2009/2014/2019 today (those already name-slug join with silent grey seats) - independent of any data ingest.
+### 4.4 Placement - INSIDE the map card (answers "shall we do the same as the screenshot?")
 
-### 6.2 A bifurcation reader over existing reference data - the "context"
-
-- The `bifurcation` prop and the present-day-border + label come from a small typed reader over [datasets/taxonomy/state_formation_events.json](../datasets/taxonomy/state_formation_events.json) (parent/successor/date) + `entity_valid_from/to`. This is the doctrine-mandated promotion of the never-built `LINEAGE_MAP` directly onto the existing JSON (skip the hardcoded TS map; the YAGNI gate has fired with 5 cases).
-- Because every Indian bifurcation is the same shape (child formed from parent, parent keeps the name), this reader generalises for free to MP/CG, BR/JH, UP/UK, AP/TG, J&K/Ladakh. AC maps, PC maps, and district choropleths all feed the same `{matched,total,unit}` tuple, so the caption is built once and every bifurcation lights up.
-- The "territory of the time" render (colour the now-successor seats on the undivided event, plus the dashed present border + label) is added inside `StateAcMapD3` / `StatePcMapD3`, reusing the existing name-slug join and `geo-rewind`. No new geometry files.
-
-### 6.3 The data ingest (separate workstream)
-
-- Ingest pre-2014 undivided-AP assembly from TCPD Lok Dhaba `All_States_AE.csv` (DelimID 1-3) under residual `IN-S01`, per Max section 3B. Pre-2014 rows label as "Andhra Pradesh (combined - includes Telangana before 2014)" per concept-doc section 3.3. This is what flips `/t/elections/assemblies` from 3 to ~15 and populates the older slots in the `/andhra-pradesh` dropdown. Telangana correctly stays at 3.
+**Yes.** The caption sits **inside the map's box/div, directly below the legend**, muted `text-[11px] text-slate-500` - exactly the user's mockup and exactly the existing slot in `StateEventMap.svelte`. Same slot for AC / PC / district. Two carve-outs: the **no-geometry** line lives inside the placeholder / tile card (there is no map div), and the **equal-seats hex** view renders nothing (tiles are complete by construction - no grey seats to explain).
 
 ---
 
-## 7. Scope - PR split (do not merge into one)
+## 5. The reusable module (the "generic module depending on context")
 
-| PR | Title | Depends on | Lights up | Risk |
-| --- | --- | --- | --- | --- |
-| **A** | `MapCoverageNote` honesty caption | none | AP/all-state **parliament** 2009-2019 maps gain "N of M seats placed" | Low - one presentation primitive over an existing join |
-| **B** | Bifurcation reader + "territory of the time" render + dashed-border/label | A | Undivided events render the full electorate with the split marked | Medium - touches the two state map components |
-| **C** | Ingest pre-2014 undivided-AP assembly (TCPD, DelimID 1-3) under `IN-S01` | none (parallel to A/B) | `/t/elections/assemblies` 3 -> ~15; dropdown older slots populate | Medium - data acquisition + provenance |
-| **D** | Extend [entity-bifurcation-rendering.md](../docs/concepts/entity-bifurcation-rendering.md) to the election surfaces; fix the stale `/india/` URLs and the non-existent `entity-lineage.ts` reference | A, B | doctrine matches code | Low - docs |
+Two pieces, both reading reference data that already exists - this is the generalization the user asked for:
 
-Ship A first (pure win, no data dependency). C can run fully in parallel. B and D follow.
+- **`MapCoverageNote.svelte`** - pure text caption. Props `{ matched, total, unit, geometry_year }`. Branches: `matched === total` -> render nothing; `geometry_year == null` -> the no-geometry line; else the partial line. It does NOT fetch, join, or touch the SVG (the map already computes the numbers and passes them up). Serves PC, AC, and district unchanged.
+- **The bifurcation overlay** - the union render + dashed border + neutral label + the successor existence-guard. Driven by a typed reader over [state_formation_events.json](../datasets/taxonomy/state_formation_events.json) (the doctrine-mandated promotion of the never-built `LINEAGE_MAP` directly onto the existing JSON; the YAGNI gate fired at 5 cases). `successor_label` is a MAP prop, **not** a caption prop - keeping the text primitive free of map concerns is what lets it serve all three map types. Generalizes free to MP/CG, BR/JH, UP/UK, AP/TG, J&K/Ladakh.
+
+No new schema. One data-layer change only: a **one-line semantic pin** on `boundary_layer.csv.delimitation_vintage` ("snapshot edition the citizen sees", so a later agent does not "correct" 2024 to the 2008 order-year). One known generalization gap: admin/district layers carry an **empty** `delimitation_vintage` (districts are notified, not delimited) - the district `{geometry_year}` token needs either an analogous snapshot-vintage populated on admin layers or a different provenance field (**decision D-6**).
+
+---
+
+## 6. What changed this round (Max + Jony, rev 2)
+
+- **Adopted the user's caption wording**; dropped Jony's verbose "This older election used different boundaries... Includes areas now in Telangana" (rejected as verbose + AP-specific + non-generalizing).
+- **Generalized to all states/UT/years**: the caption is cause-agnostic (reports the symptom, not the cause), so it honestly covers PC + AC delimitation drops everywhere. **1962** is the worked failure case (no 1951 geometry -> table/tile fallback).
+- **Caught the parent/residual asymmetry** (Max): map-unit counting hides seceded territory; fixed by the union render + the `state_formation_events` existence-guard.
+- **Confirmed placement** inside the map card (Jony), and that the count line **is** the grey legend (drop any separate grey swatch).
+- **Bifurcation = one line**: the successor is shown once on the map (border + label), never repeated in the caption text. No "Telangana" string in copy.
+
+---
+
+## 7. Enumerated changes -> PRs -> problems solved (answers "how many PR / what problems")
+
+**5 PRs.** PR-A is shippable immediately and independently; PR-C runs fully in parallel; B/D/E follow.
+
+| PR | Change (enumerated) | Surface / files | Problem it solves |
+| --- | --- | --- | --- |
+| **A** | 1. New `MapCoverageNote.svelte` (props `{matched,total,unit,geometry_year}`). 2. Mount in the existing caption slot in `StateEventMap`. 3. Pass the already-computed `matched`/`total` up from `StateAcMapD3` / `StatePcMapD3`. 4. Read `{geometry_year}` from `boundary_layer.csv.delimitation_vintage`. | `frontend/src/lib/elections/` + `frontend/src/lib/charts/` | **Silent grey seats.** Every old election on current geometry (e.g. AP/all-state parliament 2009-2019) gains an honest "N of M matched" line. Universal, no data dependency. |
+| **B** | 5. Typed reader over `state_formation_events.json`. 6. Union-of-parent+successor geometry render for undivided events under the residual entity. 7. One dashed present-day border + one neutral label. 8. Successor existence-guard (redirect, no "0 of N" map). | `frontend/src/lib/charts/` + a small lineage reader | **The bifurcation trap.** Parent map no longer lies "175 of 175"; successor no longer shows a false "0 of 119". Generalizes to all 5+ bifurcations. |
+| **C** | 9. Ingest pre-2014 undivided-AP assembly from TCPD Lok Dhaba `All_States_AE.csv` (DelimID 1-3) under `IN-S01`, each row with `source_id` FK + `processing_note`. 10. Catalogue rows + `event_summary` mart refresh. | `backend/` + `datasets/` | **The data gap.** `/t/elections/assemblies` 3 -> ~15; the `/andhra-pradesh` dropdown's older slots populate. Telangana stays 3. |
+| **D** | 11. Author AC + per-state delimitation rows in `methodology_breaks.json` (Assam-2023, J&K-2022, AC-2008 ...). 12. One-line semantic pin on `boundary_layer.csv.delimitation_vintage`. | `datasets/taxonomy/` + `datasets/data/entities/` | **The "why" receipt.** Makes the caption's causal clause auditable for AC (today only PC is); pins the `{geometry_year}` semantics. |
+| **E** | 13. Extend [entity-bifurcation-rendering.md](../docs/concepts/entity-bifurcation-rendering.md) to the election surfaces; fix the stale `/india/` URLs and the non-existent `entity-lineage.ts` reference. | `docs/` | **Doc-vs-code drift.** Doctrine matches the shipped election rendering. |
+
+**Minimum viable for the citizen report**: PR-A (universal honesty) + PR-C (the AP data). PR-B makes the undivided maps correct; D/E are the durable-receipt + docs tail.
 
 ---
 
 ## 8. Decisions needed before build (sign-off surface)
 
-1. **Ratify attribution** (Hans + Max): pre-2014 undivided-AP events under `IN-S01` only; Telangana stays post-2014. (Personas: already doctrine; this is a confirm.)
-2. **Approve the ingest** (Hans + Max + user priority): acquire pre-2014 undivided-AP assembly from TCPD Lok Dhaba. Is the single-state deep backfill worth the slot now?
-3. **Ratify "render nothing on the normal case"** (Jony + Citizen): the caption is silent unless coverage is partial or geometry is old. Confirm we do not want an always-on "100% placed" line.
-4. **Confirm the removal** (user): drop the per-seat "overlay/hatch the now-Telangana districts" decoration in favour of one dashed border + one label. This is a deliberate narrowing of the user's stated idea and needs explicit OK.
-5. **Banner/caption voice** (Hans): final wording pass on the citizen copy in section 4B (concept-doc Q-4 voice pass is still open).
+1. **D-1 Attribution** (Hans + Max): undivided-AP events under `IN-S01` only; Telangana stays post-2014. (Already doctrine - confirm.)
+2. **D-2 Ingest** (Hans + Max + user priority): acquire pre-2014 undivided-AP assembly from TCPD Lok Dhaba now?
+3. **D-3 Union render** (Jony + user): for undivided events, render the union of parent+successor geometry with one dashed border + one neutral label (NOT per-seat hatching, NOT a parent-only map that hides the seceded seats). Confirm.
+4. **D-4 Silent on full match** (Jony + Citizen): the caption renders nothing when every seat matches on current geometry. Confirm (no always-on "100%" line).
+5. **D-5 The word "delimitation"** (user): keep verbatim for constituency maps, or switch the last clause to unit-neutral "coverage drops as boundaries are redrawn" so the same line also serves district choropleths? (This touches your ratified wording, so it needs an explicit call - STOP-AND-SURFACE.)
+6. **D-6 District `{geometry_year}`** (Gregor + Max): admin layers carry empty `delimitation_vintage`; populate a snapshot-vintage on district layers, or accept a different provenance token there?
+7. **D-7 Voice pass** (Hans): final wording of the no-geometry + existence-guard lines.
 
 ---
 
-## 9. What this proposal does NOT do
+## 9. Next step
 
-- Does **not** fabricate an undivided-AP 294-AC historical polygon family (no such data; Max's tar pit).
-- Does **not** backcast, zero-fill, or duplicate any undivided-AP row onto Telangana `IN-S29`.
-- Does **not** store the match-count as data (render-time only).
-- Does **not** add per-seat hatching/opacity tiers (colour is one signal; grey is the one second signal).
-- Does **not** change the URL grammar or the `event_summary` mart schema.
-- Does **not** raise a11y (project non-goal, CLAUDE.md section 0).
+1. You ratify the decisions above (at minimum D-2, D-3, D-5).
+2. Ship **PR-A** first - the `MapCoverageNote` caption is a pure presentation primitive over numbers the maps already compute; it lights up the honesty line on every old election immediately, with zero data or geometry dependency. It is the safest, highest-signal first move and validates the wording in the live UI (CLAUDE.md section 13).
+3. Kick off **PR-C** (ingest) in parallel - independent of the frontend.
+4. Then **PR-B** (union render + guard), then **D/E**.
+
+If you approve, I will turn this proposal into an execution-ready plan-doc (per the `prepare-plan` skill) with per-PR DoD, test tiers, and the smoke loop - then implement PR-A.
 
 ---
 
-## 10. See also
+## 10. What this proposal does NOT do
 
-- [docs/concepts/entity-bifurcation-rendering.md](../docs/concepts/entity-bifurcation-rendering.md) - the bifurcation principles (indicator surfaces today; section 7 PR-D extends to elections).
+- Does **not** fabricate a historical undivided-AP 294-AC polygon family - it reuses the union of today's parent+successor polygons via the existing name-slug join.
+- Does **not** backcast, zero-fill, or duplicate any undivided row onto Telangana `IN-S29`.
+- Does **not** store the match-count (render-time only).
+- Does **not** add per-seat hatching/opacity tiers - colour is one signal; grey + the count line is the one second signal.
+- Does **not** add a new `delimitation_events` table (over-engineering; the "why" goes in existing `methodology_breaks.json`).
+- Does **not** name a successor state in caption text - the map carries that once.
+- Does **not** raise a11y (project non-goal).
+
+---
+
+## 11. See also
+
+- [docs/concepts/entity-bifurcation-rendering.md](../docs/concepts/entity-bifurcation-rendering.md) - bifurcation principles (PR-E extends them to elections).
 - [docs/architecture/frontend/map.md](../docs/architecture/frontend/map.md) - d3-geo choropleths, delimitation join, geo-rewind.
-- [docs/architecture/frontend/url-grammar.md](../docs/architecture/frontend/url-grammar.md) - locked state-event URL grammar.
-- [datasets/taxonomy/state_formation_events.json](../datasets/taxonomy/state_formation_events.json) - the bifurcation context the module reads.
-- [datasets/taxonomy/methodology_breaks.json](../datasets/taxonomy/methodology_breaks.json) - the delimitation break receipts.
+- [datasets/taxonomy/state_formation_events.json](../datasets/taxonomy/state_formation_events.json) - drives the union render + existence-guard.
+- [datasets/taxonomy/methodology_breaks.json](../datasets/taxonomy/methodology_breaks.json) - the delimitation "why" receipts (PC today; AC in PR-D).
+- [datasets/data/entities/boundary_layer.csv](../datasets/data/entities/boundary_layer.csv) - carries `delimitation_vintage` (the `{geometry_year}` token).
