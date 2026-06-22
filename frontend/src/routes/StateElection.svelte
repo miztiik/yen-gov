@@ -97,6 +97,10 @@
     loadEventSummary,
     type EventSummaryRow,
   } from "../lib/elections/event-summary-loader";
+  import {
+    loadAcEnrichment,
+    type AcEnrichment,
+  } from "../lib/elections/constituency-district-loader";
   import ElectionSeizuresCard from "../lib/elections/ElectionSeizuresCard.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
@@ -937,10 +941,33 @@
     navigate(link.pc(params.state, event_row.event_id, slugify(seat.entity_name)));
   }
 
-  // ---- Constituency table rows (sorted by entity_name) ---------------
+  // ---- AC district + reservation enrichment (Row 4 of
+  // TODO/20260622-election-constituency-grouping-plan.md). One cached
+  // read of the canonical entity CSVs joins each AC electoral_id to its
+  // primary LGD district name + reservation + ballot serial, so the
+  // constituency list can GROUP assembly seats by district. Defaults to
+  // null until the map resolves, so the list renders immediately. Reused
+  // by Rows 5 (parliament leaves) + 6 (landing page).
+  let ac_enrichment = $state<Map<string, AcEnrichment> | null>(null);
+  let ac_enrichment_error = $state<string | null>(null);
+  $effect(() => {
+    if (ac_enrichment !== null || ac_enrichment_error !== null) return;
+    loadAcEnrichment()
+      .then((m) => (ac_enrichment = m))
+      .catch((e) => (ac_enrichment_error = String(e)));
+  });
+
+  // ---- Constituency table rows. Assembly (body === "ac") rows are
+  // enriched with district + reservation + eci_no and sorted by eci_no
+  // (ballot order) so the list groups by district. Parliament/general
+  // (body === "pc") rows keep the by-name sort with no enrichment - PC
+  // grouping is Row 5; this scope leaves general mode unregressed.
   interface SeatRow {
     entity_id: string;
     entity_name: string;
+    district: string | null;
+    eci_no: number | null;
+    reservation: string | null;
     winner_party_short: string;
     winner_party_id: string;
     winner_color: string;
@@ -952,12 +979,22 @@
     const out: SeatRow[] = [];
     const slug_st = params.state;
     const ev = event_row?.event_id ?? params.event;
+    const is_assembly = body === "ac";
+    // Only assembly seats carry district/reservation/eci_no; the loader
+    // is keyed by AC electoral_id (PC winners never match it).
+    const enrich = is_assembly ? ac_enrichment : null;
     for (const w of winners) {
       const pid = partyIdFor(w);
       const name_slug = slugify(w.entity_name);
+      const meta = enrich?.get(w.entity_id) ?? null;
       out.push({
         entity_id: w.entity_id,
         entity_name: w.entity_name,
+        district: meta?.district_name ?? null,
+        // Prefer the result row's own ballot serial (reliable summary
+        // value); fall back to electoral.csv via the loader.
+        eci_no: is_assembly ? (w.eci_no ?? meta?.eci_no ?? null) : null,
+        reservation: meta?.reservation ?? null,
         winner_party_short: w.party_short ?? "UNK",
         winner_party_id: pid,
         winner_color: fillForParty(pid, w),
@@ -966,9 +1003,24 @@
         href: link.pc(slug_st, ev, name_slug),
       });
     }
-    out.sort((a, b) =>
-      a.entity_name.localeCompare(b.entity_name, "en", { sensitivity: "base" }),
-    );
+    if (is_assembly) {
+      // Ballot order: eci_no ascending; null serials sink to the end,
+      // tie-broken by name for stability.
+      out.sort((a, b) => {
+        const ea = a.eci_no ?? Number.POSITIVE_INFINITY;
+        const eb = b.eci_no ?? Number.POSITIVE_INFINITY;
+        if (ea !== eb) return ea - eb;
+        return a.entity_name.localeCompare(b.entity_name, "en", {
+          sensitivity: "base",
+        });
+      });
+    } else {
+      out.sort((a, b) =>
+        a.entity_name.localeCompare(b.entity_name, "en", {
+          sensitivity: "base",
+        }),
+      );
+    }
     return out;
   });
 
