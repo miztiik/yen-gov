@@ -75,6 +75,36 @@ test.describe("elections routes (PR-E4: General + Assembly)", () => {
       page.getByTestId("general-elections-year-link-general-2024"),
     ).toHaveAttribute("href", "/t/elections/general-2024");
 
+    // Windowed seat-composition chart + its draggable range slider render
+    // above the table. The slider defaults to the latest 3 cycles.
+    const stackWindow = page.locator(
+      '[data-component="general-elections-stack-window"]',
+    );
+    await expect(stackWindow).toBeVisible({ timeout: 30_000 });
+    const slider = page.locator('[data-component="election-window-slider"]');
+    await expect(slider).toBeVisible();
+    await expect(slider).toHaveAttribute("data-size", "3");
+    // 1..3 bars visible (default window is the latest 3 cycles).
+    const bars = stackWindow.locator("g[data-event-id]");
+    const barCount = await bars.count();
+    expect(
+      barCount,
+      `expected 1..3 windowed bars, got ${barCount}`,
+    ).toBeGreaterThanOrEqual(1);
+    expect(barCount).toBeLessThanOrEqual(3);
+
+    // Mandate verdict + seat-swing cells surface on a row.
+    await expect(
+      page.getByTestId("general-elections-mandate-general-2024"),
+    ).toBeVisible();
+    await expect(
+      page.getByTestId("general-elections-swing-general-2024"),
+    ).toBeVisible();
+
+    // Provenance footer (Holy Law #9) renders the source line.
+    const bodyTextSource = await page.locator("body").innerText();
+    expect(bodyTextSource).toContain("Source:");
+
     // No firehose-era text leaks
     const bodyText = await page.locator("body").innerText();
     expect(bodyText.toLowerCase()).not.toContain("firehose");
