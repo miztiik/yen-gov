@@ -9,6 +9,7 @@
 
   import type { ConstituencyEntry } from "../lib/data";
   import type { District } from "../lib/view-models/districts";
+  import { slugify } from "../lib/slug";
 
   /** One KPI tile spec consumed by the grid. `icon_name` is the
    *  TopicIcon registry key (kebab-case filename under public/icons/
@@ -119,6 +120,130 @@
     }
     return tiles;
   }
+
+  // -------------------------------------------------------------------------
+  // Row 6 (TODO/20260622-election-constituency-grouping-plan.md): landing-page
+  // district grouping via the UNIVERSAL membership source (entity_id ->
+  // district_name) instead of the inline boundaries_sot `district_id`, which
+  // exists for only 5 of 31 jurisdictions. Pure + script-module so the oracle
+  // unit-tests exercise the SAME code the page runs (no mocks).
+  //
+  // Why a NAME bridge (not eci_no / entity_id): the landing list comes from
+  // `boundaries_sot/<S>/constituencies.json`, which carries the AUTHORITATIVE
+  // ECI `eci_no` + reservation but no `entity_id`; canonical `electoral.csv`
+  // carries the district edge (via `electoral_district_membership.csv`) on the
+  // `IN-AC-<delim>-<state>-<serial>` entity_id form, whose own `eci_no` is the
+  // documented-unreliable one (so it can NOT be the join key). The only field
+  // the two sources share is the constituency NAME, so the district is joined
+  // through `slug(name) -> entity_id -> district_name`.
+  // -------------------------------------------------------------------------
+
+  /** One district fold in the landing-page constituency list. */
+  export interface AcDistrictGroup {
+    /** Stable group key: slug of the district name, or "" for the trailing
+     *  "Other" bucket (so the existing `{g.id || "-"}` chrome still works). */
+    id: string;
+    /** District display name, or "Other constituencies" for the unmapped
+     *  bucket. */
+    name: string;
+    /** True ONLY for the trailing unmapped bucket. */
+    is_other: boolean;
+    acs: ConstituencyEntry[];
+  }
+
+  /**
+   * Build a `slug(constituency name) -> district display name` index for ONE
+   * state, by joining that state's AC entity rows (`entity_id` + `name` from
+   * electoral.csv) to the universal membership enrichment (`entity_id ->
+   * district_name` from `loadAcEnrichment()`).
+   *
+   * Only district-bearing rows contribute: an AC whose enrichment has a null
+   * `district_name` (the `...-eci<NN>` ballot-number alias rows, or a
+   * re-delimited AC with no membership edge yet) is skipped, so it never
+   * shadows the real `...-<serial>` edge that carries the district. The key is
+   * the slug of the NAME because that is the only field the landing list and
+   * the canonical store share (see the block comment above).
+   */
+  export function buildAcNameDistrictIndex(
+    stateAcs: readonly { entity_id: string; name: string }[],
+    enrichment: ReadonlyMap<string, { district_name: string | null }>,
+  ): Map<string, string> {
+    const index = new Map<string, string>();
+    for (const ac of stateAcs) {
+      const district = enrichment.get(ac.entity_id)?.district_name;
+      if (!district) continue;
+      const key = slugify(ac.name);
+      if (key) index.set(key, district);
+    }
+    return index;
+  }
+
+  /**
+   * Resolve one constituency's district display name. PRIMARY = the universal
+   * name index (covers all 31 jurisdictions); FALLBACK = the legacy inline
+   * `district_id` (present in only 5 boundaries_sot files) resolved through
+   * the district name map, so the already-grouped states never regress while
+   * the universal index loads or for names that do not join. Returns null when
+   * neither resolves => the constituency lands in the trailing "Other" bucket.
+   */
+  export function districtNameForConstituency(
+    ac: ConstituencyEntry,
+    index: ReadonlyMap<string, string> | null,
+    legacyName: ReadonlyMap<string, string>,
+  ): string | null {
+    const universal = index?.get(slugify(ac.name));
+    if (universal) return universal;
+    if (ac.district_id) return legacyName.get(ac.district_id) ?? ac.district_id;
+    return null;
+  }
+
+  /**
+   * Group a state's constituencies by district. `districtName(ac)` returns the
+   * resolved district display name or null; a null lands the constituency in a
+   * single trailing "Other" bucket (never dropped - plan 7.2 / CLAUDE.md).
+   * `query` is the case-insensitive name OR exact-`eci_no` search; districts
+   * with zero matches drop out. Groups sort by AC count desc (name tiebreak)
+   * with the "Other" bucket always last; ACs within a group sort by ballot
+   * order (`eci_no` asc).
+   */
+  export function groupConstituenciesByDistrict(
+    acs: readonly ConstituencyEntry[],
+    query: string,
+    districtName: (ac: ConstituencyEntry) => string | null,
+  ): AcDistrictGroup[] {
+    const q = query.trim().toLowerCase();
+    const match = q
+      ? (ac: ConstituencyEntry) =>
+          ac.name.toLowerCase().includes(q) || String(ac.eci_no) === q
+      : () => true;
+
+    const OTHER_KEY = "\u0000other";
+    const groups = new Map<string, { name: string; acs: ConstituencyEntry[] }>();
+    for (const ac of acs) {
+      if (!match(ac)) continue;
+      const name = districtName(ac);
+      const key = name ?? OTHER_KEY;
+      const g = groups.get(key) ?? { name: name ?? "Other constituencies", acs: [] };
+      g.acs.push(ac);
+      groups.set(key, g);
+    }
+
+    const out: AcDistrictGroup[] = [];
+    for (const [key, g] of groups) {
+      const is_other = key === OTHER_KEY;
+      out.push({
+        id: is_other ? "" : slugify(g.name),
+        name: g.name,
+        is_other,
+        acs: g.acs.slice().sort((a, b) => a.eci_no - b.eci_no),
+      });
+    }
+    out.sort((a, b) => {
+      if (a.is_other !== b.is_other) return a.is_other ? 1 : -1;
+      return b.acs.length - a.acs.length || a.name.localeCompare(b.name);
+    });
+    return out;
+  }
 </script>
 
 <script lang="ts">
@@ -128,6 +253,25 @@
   // them here too would duplicate-identifier under svelte-check.
   import { fetchConstituencies } from "../lib/data";
   import { loadDistricts } from "../lib/view-models/districts";
+  // Row 6: universal AC->district membership (shared, READ-ONLY loader from
+  // Row 4) + the shared list tokens (rose SC/ST badge + RdYlBu margin band)
+  // so the landing list speaks the SAME visual language as the event page.
+  import {
+    loadAcEnrichment,
+    type AcEnrichment,
+  } from "../lib/elections/constituency-district-loader";
+  import ReservationBadge from "../lib/elections/ReservationBadge.svelte";
+  import { marginBand } from "../lib/elections/constituency-list-tokens";
+  // Typed DuckDB-WASM read seam for the per-state AC name bridge (the loader
+  // exposes entity_id->district but not the AC name, so this reads
+  // electoral.csv's entity_id+name for the current state only).
+  import { query, registerCsvFile } from "../lib/duckdb";
+  import { csvColumnsClause } from "../lib/canonical/csv-columns";
+  import {
+    electoralEntitiesPath,
+    ENTITIES_ELECTORAL_GLOB,
+  } from "../lib/canonical/election-csv-paths";
+  import { DATA_BASE } from "../lib/paths";
   // PR-F (Phase 1.3b): StateOverview reads state-hub data through the
   // canonical Parquet store via DuckDB-WASM (view-models/state-overview.ts),
   // replacing the per-shard result.summary.json fetch. PR-G (Phase 1.3c)
@@ -300,6 +444,15 @@
   // visible regression that read as if the state were broken.
   let acs_status = $state<"loading" | "ready" | "failed">("loading");
   let districts = $state<District[] | null>(null);
+  // Row 6 district-grouping inputs. `ac_enrichment` is the global entity_id ->
+  // {district_name,...} membership map (cached singleton, shared with the
+  // event page); `state_ac_entities` is THIS state's AC (entity_id, name) rows
+  // from electoral.csv - the NAME bridge from the boundaries_sot list to the
+  // membership edge that carries the district. Both null until resolved;
+  // grouping falls back to the legacy inline district_id meanwhile so first
+  // paint is never blocked.
+  let ac_enrichment = $state<Map<string, AcEnrichment> | null>(null);
+  let state_ac_entities = $state<{ entity_id: string; name: string }[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
 
   // Indicator sections on the state hub are now data-driven (P2.4 of the
@@ -356,6 +509,7 @@
     acs = null;
     acs_status = "loading";
     districts = null;
+    state_ac_entities = null;
     const sc = state_code;
     const ev = event;
     if (!sc) return; // wait for slug → code resolution
@@ -401,9 +555,60 @@
       d => { if (state_code === sc) districts = d; },
       () => { if (state_code === sc) districts = null; },
     );
+    // Row 6: this state's AC (entity_id, name) rows - the NAME bridge to the
+    // universal district membership (see `by_district`). Scoped to the state's
+    // canonical slug so AC names never collide across states. Non-fatal on
+    // failure (grouping falls back to the legacy inline district_id).
+    const slug_for_acs = states.slug(sc);
+    if (/^[a-z0-9-]+$/.test(slug_for_acs)) {
+      loadStateAcEntities(slug_for_acs).then(
+        rows => { if (state_code === sc) state_ac_entities = rows; },
+        () => { if (state_code === sc) state_ac_entities = []; },
+      );
+    } else {
+      state_ac_entities = [];
+    }
     // Awaited only to keep the existing fire-and-forget shape; per-promise
     // handlers above already mutated `acs`/`districts`/`acs_status`.
     void Promise.all([acs_p, districts_p]);
+  });
+
+  // Universal AC->district membership map (loaded once per session; the loader
+  // is a cached singleton). Drives `by_district` so EVERY state's
+  // constituencies group, not just the 5 with an inline district_id.
+  $effect(() => {
+    if (ac_enrichment !== null) return;
+    loadAcEnrichment()
+      .then(m => { ac_enrichment = m; })
+      .catch(() => { /* non-fatal: grouping falls back to district_id */ });
+  });
+
+  // Read THIS state's AC entity rows (entity_id + name) from canonical
+  // electoral.csv via the typed DuckDB-WASM seam (header + explicit columns,
+  // sniffer pinned off per the deploy-bug note in the loader). `entity_kind =
+  // 'ac'` spans every delimitation, but only rows that carry a membership
+  // district survive the join in `buildAcNameDistrictIndex`. `stateSlug` is
+  // regex-validated by the caller, so the interpolation is injection-safe.
+  async function loadStateAcEntities(
+    stateSlug: string,
+  ): Promise<{ entity_id: string; name: string }[]> {
+    const url = `${DATA_BASE}/${electoralEntitiesPath().replace(/^datasets\//, "")}`;
+    await registerCsvFile(url);
+    const cols = await csvColumnsClause(ENTITIES_ELECTORAL_GLOB);
+    return query<{ entity_id: string; name: string }>(
+      `SELECT entity_id, name
+         FROM read_csv('${url}', ${cols}, header=true, auto_detect=false)
+        WHERE entity_kind = 'ac' AND state = '${stateSlug}'`,
+    );
+  }
+
+  // slug(AC name) -> district display name for THIS state, joined from the
+  // universal membership map. Null until BOTH inputs resolve; `by_district`
+  // then falls back to the legacy inline district_id (5 states) so the first
+  // paint is never blocked.
+  const name_district_index = $derived.by<Map<string, string> | null>(() => {
+    if (!state_ac_entities || !ac_enrichment) return null;
+    return buildAcNameDistrictIndex(state_ac_entities, ac_enrichment);
   });
 
   // Map<eci_no, AcWinner> derived from the view-model. Keeps the template
@@ -640,38 +845,22 @@
     summary ? summary.party_totals.filter(p => p.seats_won === 0).length : 0,
   );
 
-  // Group ACs by district_id, then sort districts by AC count (descending).
-  // ACs without a district_id fall under a synthetic '—' bucket so the count
-  // surface is honest rather than silently dropping rows. When `ac_query`
-  // is set, ACs are filtered by case-insensitive match on name OR by exact
-  // eci_no string match; districts with zero matches are dropped from the
-  // listing entirely.
-  const by_district = $derived.by(() => {
+  // Group ACs by district. PRIMARY source = the universal membership map
+  // (slug(name) -> district, covers all 31 jurisdictions); FALLBACK = the
+  // legacy inline `district_id` (present only in 5 boundaries_sot files) so
+  // the already-grouped states never regress while the universal index loads
+  // or for the ~5-18% of names that do not join. Unmatched ACs land in a
+  // trailing "Other" bucket - never dropped (plan 7.2). The pure grouping +
+  // search/sort lives in `groupConstituenciesByDistrict` (script-module,
+  // unit-tested). When `name_district_index` is null (still loading), the
+  // resolver falls straight through to district_id, preserving the existing
+  // first-paint behaviour.
+  const by_district = $derived.by<AcDistrictGroup[]>(() => {
     if (!acs) return [];
-    const q = ac_query.trim().toLowerCase();
-    const filter = q
-      ? (ac: ConstituencyEntry) =>
-          ac.name.toLowerCase().includes(q) || String(ac.eci_no) === q
-      : () => true;
-    const name_by_id = new Map((districts ?? []).map(d => [d.id, d.name]));
-    const groups = new Map<string, ConstituencyEntry[]>();
-    for (const ac of acs) {
-      if (!filter(ac)) continue;
-      const k = ac.district_id ?? "";
-      const arr = groups.get(k) ?? [];
-      arr.push(ac);
-      groups.set(k, arr);
-    }
-    const out: { id: string; name: string; acs: ConstituencyEntry[] }[] = [];
-    for (const [id, group] of groups) {
-      out.push({
-        id,
-        name: id ? (name_by_id.get(id) ?? id) : "(unmapped)",
-        acs: group.sort((a, b) => a.eci_no - b.eci_no),
-      });
-    }
-    out.sort((a, b) => b.acs.length - a.acs.length || a.name.localeCompare(b.name));
-    return out;
+    const legacy_name = new Map((districts ?? []).map(d => [d.id, d.name]));
+    return groupConstituenciesByDistrict(acs, ac_query, ac =>
+      districtNameForConstituency(ac, name_district_index, legacy_name),
+    );
   });
 
   const total_filtered_acs = $derived(
@@ -1269,15 +1458,14 @@
                         <span class="inline-block w-2 h-2 flex-shrink-0"></span>
                       {/if}
                       <span class="truncate">{ac.name}</span>
-                      {#if ac.reservation !== "GEN"}
-                        <span class="text-xs text-rose-600">[{ac.reservation}]</span>
-                      {/if}
+                      <ReservationBadge reservation={ac.reservation} />
                       {#if w}
-                        <!-- Margin colour follows the same RdYlBu band as
-                             the legend above (red < 5, orange < 10, blue
-                             ≥ 10). Inline hex so the per-row swatch and
-                             the legend chip can never drift apart. -->
-                        {@const mc = w.margin_pct < 5 ? "#d7191c" : w.margin_pct < 10 ? "#fdae61" : "#2c7bb6"}
+                        <!-- Margin colour follows the same RdYlBu band as the
+                             legend above (red < 5, orange < 10, blue >= 10).
+                             Sourced from the shared `marginBand` token so the
+                             landing list, the legend chip and the event-page
+                             list can never drift apart. -->
+                        {@const mc = marginBand(w.margin_pct)?.hex ?? "#2c7bb6"}
                         <span
                           class="ml-auto text-[10px] tabular-nums font-semibold"
                           style:color={mc}
