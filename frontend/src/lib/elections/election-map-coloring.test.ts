@@ -1,266 +1,222 @@
 import { describe, expect, it } from "vitest";
-import type { AcWinner } from "../view-models/state-overview";
-import { DEFAULT_ELECTION_FILTERS } from "../election-filters";
 import {
-  DIMMED_OPACITY,
-  NO_VALUE_FILL,
-  buildAcFills,
-  buildAcOpacities,
-  hasModeCoverage,
-  lerpColor,
-  marginFill,
-  matchesFilters,
-  mirrorLgdKeys,
+  MARGIN_CAP_PP,
+  MARGIN_FILL_OPACITY,
+  MARGIN_PENDING_FILL,
+  circularHueDistance,
+  deconflictPalette,
+  marginLegendStops,
+  marginShade,
+  resolveWinnerBaseColours,
+  type PaletteEntry,
 } from "./election-map-coloring";
 
-function w(partial: Partial<AcWinner> & { ac_eci_no: number }): AcWinner {
-  return {
-    ac_name: `AC ${partial.ac_eci_no}`,
-    party_id: "parties.IN.BJP",
-    party_eci_code: "BJP",
-    party_short: "BJP",
-    margin_pct: 10,
-    turnout_pct: null,
-    winner_age: null,
-    brand_colour_hex: null,
-    brand_colour_confidence: null,
-    ...partial,
-  };
+/** Perceived luminance proxy (sum of channels) - higher = lighter. */
+function lum(hex: string): number {
+  const h = hex.replace("#", "");
+  return (
+    parseInt(h.slice(0, 2), 16) +
+    parseInt(h.slice(2, 4), 16) +
+    parseInt(h.slice(4, 6), 16)
+  );
+}
+function hue(hex: string): number {
+  const h = hex.replace("#", "");
+  const r = parseInt(h.slice(0, 2), 16) / 255;
+  const g = parseInt(h.slice(2, 4), 16) / 255;
+  const b = parseInt(h.slice(4, 6), 16) / 255;
+  const max = Math.max(r, g, b),
+    min = Math.min(r, g, b),
+    d = max - min;
+  if (d < 1e-6) return 0;
+  let x: number;
+  if (max === r) x = ((g - b) / d) % 6;
+  else if (max === g) x = (b - r) / d + 2;
+  else x = (r - g) / d + 4;
+  x *= 60;
+  return x < 0 ? x + 360 : x;
 }
 
-const partyFill = (code: string | null, short: string) =>
-  code === "INC" || short === "INC" ? "#1f77b4" : "#ff7f0e";
+const BJP = "#ea580c"; // anchor saffron
+const INC = "#1d4ed8"; // anchor blue
 
-describe("lerpColor", () => {
-  it("returns endpoints at t=0 and t=1", () => {
-    expect(lerpColor("#000000", "#ffffff", 0)).toBe("#000000");
-    expect(lerpColor("#000000", "#ffffff", 1)).toBe("#ffffff");
-  });
-  it("clamps t outside [0,1]", () => {
-    expect(lerpColor("#000000", "#ffffff", -5)).toBe("#000000");
-    expect(lerpColor("#000000", "#ffffff", 5)).toBe("#ffffff");
-  });
-  it("interpolates the midpoint", () => {
-    expect(lerpColor("#000000", "#ffffff", 0.5)).toBe("#808080");
-  });
-});
-
-describe("marginFill", () => {
-  it("a landslide (margin >= cap) is the full-saturation party hue", () => {
-    expect(marginFill("#1f77b4", 30)).toBe("#1f77b4");
-    expect(marginFill("#1f77b4", 80)).toBe("#1f77b4"); // clamped at the cap
+describe("marginShade", () => {
+  it("returns the FULL party hue at a landslide (margin >= cap)", () => {
+    expect(marginShade(BJP, MARGIN_CAP_PP)).toBe(BJP);
+    expect(marginShade(BJP, 80)).toBe(BJP); // clamped at the cap
+    expect(marginShade(INC, 30)).toBe(INC);
   });
 
-  it("a knife-edge win is a pale tint of the SAME hue, never white/black", () => {
-    const pale = marginFill("#1f77b4", 0);
+  it("a knife-edge win is a pale tint of the SAME hue (not white, not grey)", () => {
+    const pale = marginShade(BJP, 0);
     expect(pale).toMatch(/^#[0-9a-f]{6}$/);
-    expect(pale).not.toBe("#1f77b4"); // lighter than the deep hue
-    expect(pale).not.toBe("#ffffff"); // still tinted, hue stays legible
-    expect(pale).not.toBe("#000000"); // never black
+    expect(lum(pale)).toBeGreaterThan(lum(BJP)); // lighter than full hue
+    expect(pale).not.toBe("#ffffff");
+    // hue preserved within a few degrees (still recognisably saffron)
+    expect(circularHueDistance(hue(pale), hue(BJP))).toBeLessThan(12);
   });
 
-  it("ramps monotonically toward the party hue as the margin grows", () => {
-    const knife = marginFill("#1f77b4", 0);
-    const mid = marginFill("#1f77b4", 15);
-    const land = marginFill("#1f77b4", 30);
-    expect(new Set([knife, mid, land]).size).toBe(3); // three distinct steps
-    expect(land).toBe("#1f77b4");
+  it("ramps monotonically darker toward the party hue as the margin grows", () => {
+    const knife = marginShade(INC, 0);
+    const mid = marginShade(INC, 15);
+    const land = marginShade(INC, 30);
+    expect(new Set([knife, mid, land]).size).toBe(3);
+    expect(lum(knife)).toBeGreaterThan(lum(mid));
+    expect(lum(mid)).toBeGreaterThan(lum(land));
+    expect(land).toBe(INC);
   });
 
-  it("returns the neutral fill when the margin is absent", () => {
-    expect(marginFill("#1f77b4", null)).toBe(NO_VALUE_FILL);
+  it("keeps the party hue stable across the whole ramp", () => {
+    for (let m = 0; m <= 30; m += 5) {
+      expect(circularHueDistance(hue(marginShade(INC, m)), hue(INC))).toBeLessThan(12);
+    }
   });
 
-  it("guards degenerate party hues -> neutral, never #NaNNaNNaN", () => {
-    expect(marginFill("", 10)).toBe(NO_VALUE_FILL);
-    expect(marginFill("var(--party-neutral)", 10)).toBe(NO_VALUE_FILL);
-    expect(marginFill("oklch(0.6 0.1 240)", 10)).toBe(NO_VALUE_FILL);
-    expect(marginFill("not-a-colour", 10)).toBe(NO_VALUE_FILL);
+  it("treats margin as a magnitude (sign does not matter)", () => {
+    expect(marginShade(BJP, -4)).toBe(marginShade(BJP, 4));
+    expect(marginShade(BJP, -30)).toBe(marginShade(BJP, 30));
   });
 
-  it("normalises 3-digit shorthand hexes", () => {
-    expect(marginFill("#f00", 30)).toBe("#ff0000");
+  it("returns the off-ramp pending slate for null / undefined / NaN margin", () => {
+    expect(marginShade(BJP, null)).toBe(MARGIN_PENDING_FILL);
+    expect(marginShade(BJP, undefined)).toBe(MARGIN_PENDING_FILL);
+    expect(marginShade(BJP, Number.NaN)).toBe(MARGIN_PENDING_FILL);
   });
 
-  it("never emits black or #NaNNaNNaN across the margin range", () => {
+  it("guards a degenerate party hex -> pending, never #NaNNaNNaN / black", () => {
+    expect(marginShade("", 10)).toBe(MARGIN_PENDING_FILL);
+    expect(marginShade("var(--party-neutral)", 10)).toBe(MARGIN_PENDING_FILL);
+    expect(marginShade("oklch(0.6 0.1 240)", 10)).toBe(MARGIN_PENDING_FILL);
     for (let m = 0; m <= 60; m += 3) {
-      const fill = marginFill("#1f77b4", m);
-      expect(fill).toMatch(/^#[0-9a-f]{6}$/);
-      expect(fill).not.toBe("#000000");
-    }
-  });
-});
-
-describe("hasModeCoverage", () => {
-  const rows = [
-    w({ ac_eci_no: 1, winner_age: 50 }),
-    w({ ac_eci_no: 2, winner_age: 60 }),
-    w({ ac_eci_no: 3, winner_age: null }),
-  ];
-  it("winner mode is always available", () => {
-    expect(hasModeCoverage([], "winner")).toBe(true);
-  });
-  it("false for empty rows on a continuous mode", () => {
-    expect(hasModeCoverage([], "age")).toBe(false);
-  });
-  it("gates below the 80% default threshold", () => {
-    // 2/3 ≈ 0.67 < 0.8
-    expect(hasModeCoverage(rows, "age")).toBe(false);
-  });
-  it("passes when above the threshold", () => {
-    expect(hasModeCoverage(rows, "age", 0.6)).toBe(true);
-  });
-});
-
-describe("matchesFilters", () => {
-  it("matches all under the default filter", () => {
-    expect(matchesFilters(w({ ac_eci_no: 1 }), DEFAULT_ELECTION_FILTERS)).toBe(true);
-  });
-  it("dims a party not in the party set", () => {
-    const f = { ...DEFAULT_ELECTION_FILTERS, parties: ["INC"] };
-    expect(matchesFilters(w({ ac_eci_no: 1, party_eci_code: "BJP" }), f)).toBe(false);
-    expect(matchesFilters(w({ ac_eci_no: 2, party_eci_code: "INC" }), f)).toBe(true);
-  });
-  it("applies the margin band", () => {
-    const f = { ...DEFAULT_ELECTION_FILTERS, margin: "lt2" as const };
-    expect(matchesFilters(w({ ac_eci_no: 1, margin_pct: 1 }), f)).toBe(true);
-    expect(matchesFilters(w({ ac_eci_no: 2, margin_pct: 25 }), f)).toBe(false);
-  });
-});
-
-describe("buildAcFills", () => {
-  it("winner mode uses the party resolver", () => {
-    const rows = [
-      w({ ac_eci_no: 1, party_eci_code: "BJP" }),
-      w({ ac_eci_no: 2, party_eci_code: "INC" }),
-    ];
-    const fills = buildAcFills(rows, "winner", partyFill);
-    expect(fills[1]).toBe("#ff7f0e");
-    expect(fills[2]).toBe("#1f77b4");
-  });
-
-  it("continuous mode ramps min→max and neutralises nulls", () => {
-    const rows = [
-      w({ ac_eci_no: 1, turnout_pct: 50 }),
-      w({ ac_eci_no: 2, turnout_pct: 70 }),
-      w({ ac_eci_no: 3, turnout_pct: null }),
-    ];
-    const fills = buildAcFills(rows, "turnout", partyFill);
-    expect(fills[1]).toBe("#e0f2fe"); // ramp start (min)
-    expect(fills[2]).toBe("#0369a1"); // ramp end (max)
-    expect(fills[3]).toBe(NO_VALUE_FILL);
-  });
-
-  it("margin mode tints the winner's party hue by margin (no amber, no black)", () => {
-    const rows = [
-      w({ ac_eci_no: 1, party_eci_code: "INC", margin_pct: 30 }), // landslide
-      w({ ac_eci_no: 2, party_eci_code: "INC", margin_pct: 1 }), // knife-edge
-      w({ ac_eci_no: 3, party_eci_code: "BJP", margin_pct: null }), // no value
-    ];
-    const fills = buildAcFills(rows, "margin", partyFill);
-    // landslide = the full resolved party hue (INC -> #1f77b4)
-    expect(fills[1]).toBe("#1f77b4");
-    // knife-edge = a paler tint of the SAME hue: not the deep hue, a
-    // valid hex, never black
-    expect(fills[2]).not.toBe("#1f77b4");
-    expect(fills[2]).toMatch(/^#[0-9a-f]{6}$/);
-    expect(fills[2]).not.toBe("#000000");
-    // null margin -> neutral
-    expect(fills[3]).toBe(NO_VALUE_FILL);
-    // the retired bespoke amber ramp endpoints never appear
-    expect(Object.values(fills)).not.toContain("#fef3c7");
-    expect(Object.values(fills)).not.toContain("#b45309");
-  });
-});
-
-describe("buildAcOpacities", () => {
-  it("winner mode keeps the margin-based base for matching units", () => {
-    const rows = [w({ ac_eci_no: 1, margin_pct: 30 })];
-    const op = buildAcOpacities(rows, "winner", DEFAULT_ELECTION_FILTERS);
-    expect(op[1]).toBeCloseTo(0.95, 5);
-  });
-
-  it("dims units filtered out by party", () => {
-    const rows = [
-      w({ ac_eci_no: 1, party_eci_code: "BJP" }),
-      w({ ac_eci_no: 2, party_eci_code: "INC" }),
-    ];
-    const f = { ...DEFAULT_ELECTION_FILTERS, parties: ["INC"] };
-    const op = buildAcOpacities(rows, "winner", f);
-    expect(op[1]).toBe(DIMMED_OPACITY);
-    expect(op[2]).toBeGreaterThan(DIMMED_OPACITY);
-  });
-
-  it("continuous mode keeps matching units near-opaque", () => {
-    const rows = [w({ ac_eci_no: 1, turnout_pct: 60 })];
-    const op = buildAcOpacities(rows, "turnout", DEFAULT_ELECTION_FILTERS);
-    expect(op[1]).toBe(0.9);
-  });
-});
-
-// Row B2 (ADR-0049) — the parity oracle for the canonical lgd_ac_id join.
-// mirrorLgdKeys must make the choropleth resolve to the SAME value whether
-// maplibre matches a polygon on its eci_no (legacy) or its lgd_ac_id
-// (canonical). These are the behavioural net: a regression here would
-// silently recolour or blank covered constituencies post-migration.
-describe("mirrorLgdKeys", () => {
-  it("returns the base unchanged when the lookup is null (pre-load window)", () => {
-    const base = { 1: "#aaa", 2: "#bbb" };
-    expect(mirrorLgdKeys(base, null)).toBe(base);
-  });
-
-  it("returns the base unchanged when the lookup is empty (uncovered state)", () => {
-    const base = { 1: "#aaa", 2: "#bbb" };
-    expect(mirrorLgdKeys(base, new Map())).toBe(base);
-  });
-
-  it("mirrors each eci_no value under its lgd_ac_id, preserving the eci keys", () => {
-    const base = { 1: "#aaa", 2: "#bbb" };
-    const lookup = new Map<number, number>([
-      [1, 22001],
-      [2, 22002],
-    ]);
-    const out = mirrorLgdKeys(base, lookup);
-    // eci keys retained (hex cartogram + label paths still match)
-    expect(out[1]).toBe("#aaa");
-    expect(out[2]).toBe("#bbb");
-    // lgd keys added with the SAME value (the canonical-join parity)
-    expect(out[22001]).toBe("#aaa");
-    expect(out[22002]).toBe("#bbb");
-  });
-
-  it("byte-identical parity: every covered AC resolves equal on both keys", () => {
-    const rows = [
-      w({ ac_eci_no: 1, party_short: "BJP" }),
-      w({ ac_eci_no: 2, party_short: "INC", party_eci_code: "INC" }),
-      w({ ac_eci_no: 3, party_short: "BJP" }),
-    ];
-    const base = buildAcFills(rows, "winner", partyFill);
-    const lookup = new Map<number, number>([
-      [1, 22001],
-      [2, 22002],
-      [3, 22003],
-    ]);
-    const out = mirrorLgdKeys(base, lookup);
-    for (const [eci, lgd] of lookup) {
-      expect(out[lgd]).toBe(base[eci]);
+      const f = marginShade(BJP, m);
+      expect(f).toMatch(/^#[0-9a-f]{6}$/);
+      expect(f).not.toBe("#000000");
     }
   });
 
-  it("does not invent a key for an AC the crosswalk omits (uncovered seat)", () => {
-    const base = { 1: "#aaa", 2: "#bbb" };
-    // only AC 1 is mapped; AC 2 has no lgd_ac_id
-    const lookup = new Map<number, number>([[1, 22001]]);
-    const out = mirrorLgdKeys(base, lookup);
-    expect(out[22001]).toBe("#aaa");
-    expect(Object.keys(out).sort()).toEqual(["1", "2", "22001"]);
+  it("normalises a 3-digit shorthand hex at the deep end", () => {
+    expect(marginShade("#f00", 30)).toBe("#ff0000");
   });
 
-  it("skips the mirror when lgd_ac_id equals eci_no (no self-collision)", () => {
-    const base = { 5: "#ccc" };
-    const lookup = new Map<number, number>([[5, 5]]);
-    const out = mirrorLgdKeys(base, lookup);
-    expect(Object.keys(out)).toEqual(["5"]);
+  it("keeps a sane flat opacity constant", () => {
+    expect(MARGIN_FILL_OPACITY).toBeGreaterThan(0.8);
+    expect(MARGIN_FILL_OPACITY).toBeLessThanOrEqual(1);
   });
 });
 
+describe("deconflictPalette", () => {
+  const anchor = (id: string, hex: string): PaletteEntry => ({
+    party_id: id,
+    hex,
+    source: "anchor",
+  });
+  const fallback = (id: string, hex: string): PaletteEntry => ({
+    party_id: id,
+    hex,
+    source: "fallback",
+  });
+
+  it("never mutates identity (anchor / brand) colours", () => {
+    const out = deconflictPalette([
+      anchor("BJP", BJP),
+      anchor("INC", INC),
+      { party_id: "X", hex: "#7a3cc4", source: "brand" },
+    ]);
+    expect(out.get("BJP")).toBe(BJP);
+    expect(out.get("INC")).toBe(INC);
+    expect(out.get("X")).toBe("#7a3cc4");
+  });
+
+  it("does NOT move two identity reds even when they collide (identity wins)", () => {
+    const out = deconflictPalette([
+      anchor("DMK", "#dc2626"),
+      anchor("CPI", "#b91c1c"),
+    ]);
+    expect(out.get("DMK")).toBe("#dc2626");
+    expect(out.get("CPI")).toBe("#b91c1c");
+  });
+
+  it("nudges a LOWER-ranked fallback party off a colliding higher-ranked hue", () => {
+    // both teal-ish (~175 deg); the second (lower-ranked) is fallback and yields
+    const teal = "#15b8a6";
+    const out = deconflictPalette([
+      anchor("BIG", teal),
+      fallback("small", teal),
+    ]);
+    expect(out.get("BIG")).toBe(teal); // identity, fixed
+    const moved = out.get("small")!;
+    expect(moved).not.toBe(teal);
+    expect(circularHueDistance(hue(moved), hue(teal))).toBeGreaterThanOrEqual(20);
+  });
+
+  it("nudges a fallback party OUT of an anchor's reserved hue band", () => {
+    // ~33 deg sits in the saffron reserved band [25,45]; a fallback there must move
+    const out = deconflictPalette([fallback("minor", "#e2902a")]);
+    const moved = out.get("minor")!;
+    const h = hue(moved);
+    const inSaffron = h >= 25 && h <= 45;
+    expect(inSaffron).toBe(false);
+  });
+
+  it("leaves a lone non-colliding fallback untouched", () => {
+    const out = deconflictPalette([fallback("solo", "#06b6d4")]); // cyan ~191, free band
+    expect(out.get("solo")).toBe("#06b6d4");
+  });
+});
+
+describe("resolveWinnerBaseColours", () => {
+  it("resolves anchored winners to their iconic colours", () => {
+    const base = resolveWinnerBaseColours([
+      { party_id: "parties.IN.BJP" },
+      { party_id: "parties.IN.INC" },
+    ]);
+    expect(base.get("parties.IN.BJP")).toBe(BJP);
+    expect(base.get("parties.IN.INC")).toBe(INC);
+  });
+
+  it("ranks by seats so the bigger party keeps first pick (deterministic)", () => {
+    // one INC seat, three BJP seats -> BJP ranked first; both anchored so both
+    // keep their colour regardless, but the call must be stable + complete
+    const base = resolveWinnerBaseColours([
+      { party_id: "parties.IN.INC" },
+      { party_id: "parties.IN.BJP" },
+      { party_id: "parties.IN.BJP" },
+      { party_id: "parties.IN.BJP" },
+    ]);
+    expect(base.size).toBe(2);
+    expect(base.get("parties.IN.BJP")).toBe(BJP);
+    expect(base.get("parties.IN.INC")).toBe(INC);
+  });
+
+  it("honours a high-confidence brand colour as identity", () => {
+    const base = resolveWinnerBaseColours([
+      {
+        party_id: "parties.IN.SOMEREG",
+        brand_colour_hex: "#0ea5e9",
+        brand_colour_confidence: "high",
+      },
+    ]);
+    expect(base.get("parties.IN.SOMEREG")).toBe("#0ea5e9");
+  });
+});
+
+describe("marginLegendStops", () => {
+  it("returns four labelled competitiveness bands plus a pending row", () => {
+    const stops = marginLegendStops();
+    expect(stops).toHaveLength(5);
+    for (const s of stops) {
+      expect(s.label.length).toBeGreaterThan(0);
+      expect(s.hex).toMatch(/^#[0-9a-f]{6}$/);
+    }
+    expect(stops.filter((s) => s.pending)).toHaveLength(1);
+    expect(stops[4].pending).toBe(true);
+    expect(stops[4].hex).toBe(MARGIN_PENDING_FILL);
+  });
+
+  it("orders the four demonstrative bands light -> dark", () => {
+    const ramp = marginLegendStops().filter((s) => !s.pending);
+    for (let i = 1; i < ramp.length; i++) {
+      expect(lum(ramp[i - 1].hex)).toBeGreaterThan(lum(ramp[i].hex));
+    }
+  });
+});

@@ -1,60 +1,87 @@
-// election-map-coloring — pure recolour/dim helpers for the PR-B8 filter rail.
+// election-map-coloring - the SINGLE source of truth for "Margin" mode colour
+// on every election map surface.
 //
-// The filter rail does NOT add a bespoke widget; it recolours the SAME
-// choropleth/cartogram and dims the units that fall outside the active
-// party/margin filter. All of that geometry-free decision logic lives here
-// so it can be unit-tested without a map or a browser, and reused by both
-// the state arm (StateAcMap) and — eventually — the national arm.
+// Doctrine (user decision 2026-06-22, overriding the earlier party-agnostic
+// ramp): Margin mode shades WITHIN the winning party's own colour. A seat keeps
+// its party hue; the DEPTH of that hue encodes the winning margin - pale = won
+// by a whisker (knife-edge), deep/saturated = safe seat (landslide). So the
+// citizen reads who-won AND how-safe from one fill.
 //
-// Output is keyed by `ac_eci_no` to match StateAcMap's `fills` / `opacities`
-// Record shape, so the caller can thread these straight in as overrides.
+// Two pieces:
+//   1. `marginShade(partyHex, margin_pp)` - ramps a resolved party colour from
+//      a pale tint (knife-edge) to its full hue (landslide), in gamma-correct
+//      linear-sRGB space so the lightening stays clean. The pale end is BOUNDED
+//      (never near-white) so the hue - and thus the party - stays identifiable
+//      even on the closest races.
+//   2. `resolveWinnerBaseColours(winners)` - resolves the per-party base colour
+//      for the set of winners present, ranked by seats won, and de-conflicts
+//      COLLISIONS: if a decorative (fallback-tier) minor party's hue clashes
+//      with a higher-ranked party already placed (or lands in an anchor's
+//      reserved band), the LOWER-ranked party is nudged to a free hue. Iconic
+//      anchor colours (BJP saffron, INC blue, ...) and editorial brand colours
+//      are IDENTITY and are NEVER mutated (resolver contract); only the
+//      decorative fallback tier yields.
+//
+// ALL FOUR surfaces - national map, national equal-seats, assembly map,
+// assembly equal-seats (plus the state-PC map/hex) - shade via `marginShade`
+// off the same `resolveWinnerBaseColours` palette, so the colour is identical
+// and there is zero drift.
+//
+// Decision + rationale: docs/architecture/frontend/colours.md.
 
-import type { AcWinner } from "../view-models/state-overview";
 import {
-  matchesMarginBand,
-  type ColourMode,
-  type ElectionFilters,
-} from "../election-filters";
+  getPartyColor,
+  ANCHOR_RESERVED_HUE_RANGES,
+  type PartyRowForResolver,
+} from "../colors/resolver";
 
-/**
- * Minimal structural shape the recolour/dim logic reads. Both `AcWinner`
- * (state arm) and `NationalPcWinner` (national arm) satisfy it, so the
- * decision helpers below work for either grain without re-implementation.
- */
-export interface ColorableWinner {
-  party_eci_code: string | null;
-  party_short: string;
-  margin_pct: number | null;
-  turnout_pct?: number | null;
-  winner_age?: number | null;
-}
+// ---------------------------------------------------------------------------
+// Tunables
+// ---------------------------------------------------------------------------
 
-/** Resolver for a party's hex fill (injected so this module stays store-free). */
-export type PartyFill = (
-  eci_code: string | null,
-  short: string,
-) => string;
+/** Margin (pp) at/above which a win reads as a "safe seat" - the full-hue deep
+ *  end of the ramp. Mirrors the [0, 30]pp window the winner-mode opacity ramp
+ *  and `map-highlight-utils.marginOpacity` use, so every surface tells the same
+ *  close-vs-walkover story. */
+export const MARGIN_CAP_PP = 30;
 
-/** Neutral fill for units with no value in the active continuous mode. */
-export const NO_VALUE_FILL = "#e2e8f0"; // slate-200
+/** Fill for a unit whose winning margin is unknown / results pending. A calm
+ *  slate-200 that is deliberately NOT a party tint, so "no data" can never be
+ *  mistaken for a pale knife-edge win. */
+export const MARGIN_PENDING_FILL = "#e2e8f0"; // slate-200
 
-/** Opacity applied to units filtered OUT by the active party/margin filter. */
-export const DIMMED_OPACITY = 0.12;
+/** Constant fill-opacity for Margin mode. The margin magnitude is carried
+ *  entirely by the fill's depth, so opacity stays high + FLAT - no second
+ *  (opacity) ramp that would double-fade close races into the white page. */
+export const MARGIN_FILL_OPACITY = 0.92;
 
-/** Sequential ramp endpoints (light -> dark) for the genuinely
- *  quantitative continuous modes. `margin` is deliberately NOT here:
- *  margin mode preserves the winner's party hue and ramps lightness
- *  within it (see `marginFill`), because a party-agnostic ramp throws
- *  away the single most important fact on the map - who won. */
-const RAMP: Record<"turnout" | "age", [string, string]> = {
-  // sky-100 -> sky-700
-  turnout: ["#e0f2fe", "#0369a1"],
-  // violet-100 -> violet-700
-  age: ["#ede9fe", "#6d28d9"],
-};
+/** Lightness (HSL, 0..1) at a knife-edge win - a single pale level shared by
+ *  every party so "how close" reads consistently across hues. The full-margin
+ *  end uses the party colour's own lightness. */
+const MARGIN_SHADE_PALE_L = 0.86;
 
-function hexToRgb(hex: string): [number, number, number] {
-  const h = hex.replace("#", "");
+/** Fraction of the party colour's own saturation kept at a knife-edge win.
+ *  Below 1 so the pale end is a gentle tint, but high enough that the hue -
+ *  and thus the party - stays unmistakable (and two similar hues stay apart). */
+const MARGIN_SHADE_PALE_S_FRAC = 0.5;
+
+/** Two hues closer than this (degrees) read as "the same colour" at a glance;
+ *  the de-conflictor treats that as a collision. */
+const HUE_COLLISION_SEP_DEG = 22;
+
+// ---------------------------------------------------------------------------
+// Low-level colour helpers (sRGB <-> linear, hex, HSL, hue)
+// ---------------------------------------------------------------------------
+
+/** Parse `#rgb` / `#rrggbb` to `[r,g,b]` 0..255, or null when unparseable
+ *  (empty string, CSS var, `oklch(...)`, ...). */
+function hexToRgb(hex: string): [number, number, number] | null {
+  if (typeof hex !== "string") return null;
+  let h = hex.trim().replace(/^#/, "");
+  if (/^[0-9a-fA-F]{3}$/.test(h)) {
+    h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+  }
+  if (!/^[0-9a-fA-F]{6}$/.test(h)) return null;
   return [
     parseInt(h.slice(0, 2), 16),
     parseInt(h.slice(2, 4), 16),
@@ -62,272 +89,279 @@ function hexToRgb(hex: string): [number, number, number] {
   ];
 }
 
+function clamp255(n: number): number {
+  return Math.max(0, Math.min(255, Math.round(n)));
+}
+
 function rgbToHex(r: number, g: number, b: number): string {
-  const c = (n: number) =>
-    Math.round(Math.max(0, Math.min(255, n)))
-      .toString(16)
-      .padStart(2, "0");
+  const c = (n: number) => clamp255(n).toString(16).padStart(2, "0");
   return `#${c(r)}${c(g)}${c(b)}`;
 }
 
-/** Linear interpolate two hex colours; t clamped to [0,1]. */
-export function lerpColor(from: string, to: string, t: number): string {
-  const u = Math.max(0, Math.min(1, t));
-  const [r1, g1, b1] = hexToRgb(from);
-  const [r2, g2, b2] = hexToRgb(to);
-  return rgbToHex(r1 + (r2 - r1) * u, g1 + (g2 - g1) * u, b1 + (b2 - b1) * u);
+/** Hue in [0,360) for an `[r,g,b]`, or null for an achromatic (grey) colour -
+ *  greys carry no hue and so can never "collide". */
+function rgbToHue([r, g, b]: [number, number, number]): number | null {
+  const rn = r / 255,
+    gn = g / 255,
+    bn = b / 255;
+  const max = Math.max(rn, gn, bn),
+    min = Math.min(rn, gn, bn);
+  const d = max - min;
+  if (d < 1e-6) return null;
+  let h: number;
+  if (max === rn) h = ((gn - bn) / d) % 6;
+  else if (max === gn) h = (bn - rn) / d + 2;
+  else h = (rn - gn) / d + 4;
+  h *= 60;
+  return h < 0 ? h + 360 : h;
 }
 
-/** Validate + normalise a `#rgb` / `#rrggbb` colour to lower-case
- *  `#rrggbb`. Returns null for anything that is NOT a parseable hex (an
- *  empty string, a CSS variable like `var(--party-neutral)`, an
- *  `oklch(...)` string), so the margin ramp can fall back to the neutral
- *  fill instead of letting `hexToRgb` emit a `#NaNNaNNaN`. */
-function normalizeHex(hex: string): string | null {
-  if (typeof hex !== "string") return null;
-  const h = hex.trim().replace(/^#/, "");
-  if (/^[0-9a-fA-F]{6}$/.test(h)) return `#${h.toLowerCase()}`;
-  if (/^[0-9a-fA-F]{3}$/.test(h)) {
-    return `#${h[0]}${h[0]}${h[1]}${h[1]}${h[2]}${h[2]}`.toLowerCase();
-  }
-  return null;
+function rgbToHsl([r, g, b]: [number, number, number]): {
+  h: number;
+  s: number;
+  l: number;
+} {
+  const rn = r / 255,
+    gn = g / 255,
+    bn = b / 255;
+  const max = Math.max(rn, gn, bn),
+    min = Math.min(rn, gn, bn);
+  const l = (max + min) / 2;
+  const d = max - min;
+  if (d < 1e-6) return { h: 0, s: 0, l };
+  const s = d / (1 - Math.abs(2 * l - 1));
+  let h: number;
+  if (max === rn) h = ((gn - bn) / d) % 6;
+  else if (max === gn) h = (bn - rn) / d + 2;
+  else h = (rn - gn) / d + 4;
+  h = h * 60;
+  if (h < 0) h += 360;
+  return { h, s, l };
 }
 
-/** Cap (pp) for the margin lightness ramp. Wins at or above this read as
- *  landslides and get the full-saturation party hue; below, the hue is
- *  blended toward a pale tint. Mirrors the [0, 30]pp window used by the
- *  winner-mode opacity ramp + `map-highlight-utils.marginOpacity`, so
- *  both map surfaces tell the same close-vs-walkover story. */
-const MARGIN_CAP_PP = 30;
-
-/** How far the knife-edge (margin -> 0) end is blended toward white: a
- *  pale-but-still-tinted party colour. Never pure white (the hue stays
- *  legible) and never darker than the party hex itself (so a margin fill
- *  can never resolve to black). */
-const MARGIN_PALE_MIX = 0.72;
-
-/** Margin-mode fill for one winner: the resolved party hue, lightened
- *  toward white in inverse proportion to the margin. A knife-edge win is
- *  pale; a landslide is the deep, saturated party colour. Returns
- *  `NO_VALUE_FILL` when the margin is absent or the party hue cannot be
- *  parsed - guarding against both `#NaNNaNNaN` and an accidental black. */
-export function marginFill(
-  partyHex: string,
-  margin_pct: number | null,
-): string {
-  if (margin_pct == null) return NO_VALUE_FILL;
-  const base = normalizeHex(partyHex);
-  if (base == null) return NO_VALUE_FILL;
-  const pale = lerpColor(base, "#ffffff", MARGIN_PALE_MIX);
-  const t =
-    Math.max(0, Math.min(MARGIN_CAP_PP, Math.abs(margin_pct))) / MARGIN_CAP_PP;
-  return lerpColor(pale, base, t);
+function hslToRgb(h: number, s: number, l: number): [number, number, number] {
+  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const hp = (((h % 360) + 360) % 360) / 60;
+  const x = c * (1 - Math.abs((hp % 2) - 1));
+  let r = 0,
+    g = 0,
+    b = 0;
+  if (hp < 1) [r, g, b] = [c, x, 0];
+  else if (hp < 2) [r, g, b] = [x, c, 0];
+  else if (hp < 3) [r, g, b] = [0, c, x];
+  else if (hp < 4) [r, g, b] = [0, x, c];
+  else if (hp < 5) [r, g, b] = [x, 0, c];
+  else [r, g, b] = [c, 0, x];
+  const m = l - c / 2;
+  return [(r + m) * 255, (g + m) * 255, (b + m) * 255];
 }
 
-/** The value a continuous mode reads off each winner row (null if absent). */
-function valueFor(row: ColorableWinner, mode: ColourMode): number | null {
-  switch (mode) {
-    case "margin":
-      return row.margin_pct == null ? null : Math.abs(row.margin_pct);
-    case "turnout":
-      return row.turnout_pct ?? null;
-    case "age":
-      return row.winner_age ?? null;
-    case "winner":
-    default:
-      return null;
-  }
+/** Circular distance between two hues, 0..180. */
+export function circularHueDistance(a: number, b: number): number {
+  const d = Math.abs(a - b) % 360;
+  return Math.min(d, 360 - d);
 }
 
-/**
- * True when enough winners carry a value for `mode` to justify offering it.
- * Winner mode is always available; turnout/age are affidavit/condition-gated
- * (Max's coverage verdict) — default threshold 0.8 (80% populated).
- */
-export function hasModeCoverage(
-  rows: ColorableWinner[],
-  mode: ColourMode,
-  threshold = 0.8,
+function hueInReserved(
+  h: number,
+  ranges: ReadonlyArray<readonly [number, number]>,
 ): boolean {
-  if (mode === "winner") return true;
-  if (rows.length === 0) return false;
-  const present = rows.filter((r) => valueFor(r, mode) != null).length;
-  return present / rows.length >= threshold;
+  for (const [lo, hi] of ranges) {
+    if (lo <= hi ? h >= lo && h <= hi : h >= lo || h <= hi) return true;
+  }
+  return false;
 }
 
-/** True when a winner row passes BOTH the party and margin filters. */
-export function matchesFilters(
-  row: ColorableWinner,
-  filters: ElectionFilters,
-): boolean {
-  if (filters.parties.length > 0) {
-    const code = row.party_eci_code ?? row.party_short;
-    if (!filters.parties.includes(code)) return false;
-  }
-  return matchesMarginBand(row.margin_pct, filters.margin);
-}
+// ---------------------------------------------------------------------------
+// 1. Party-hue depth ramp
+// ---------------------------------------------------------------------------
 
 /**
- * Per-AC fills keyed by `ac_eci_no`.
- *  - winner mode → party palette (via the injected resolver)
- *  - continuous  → sequential ramp over the populated value domain; units
- *    with no value get the neutral NO_VALUE_FILL.
- */
-export function buildAcFills(
-  rows: AcWinner[],
-  mode: ColourMode,
-  partyFill: PartyFill,
-): Record<number, string> {
-  const out: Record<number, string> = {};
-  if (mode === "winner") {
-    for (const r of rows) {
-      out[r.ac_eci_no] = partyFill(r.party_eci_code, r.party_short);
-    }
-    return out;
-  }
-
-  if (mode === "margin") {
-    // Party hue + margin-driven lightness (knife-edge pale, landslide
-    // deep). Preserves WHO won while still ranking BY HOW MUCH.
-    for (const r of rows) {
-      out[r.ac_eci_no] = marginFill(
-        partyFill(r.party_eci_code, r.party_short),
-        r.margin_pct,
-      );
-    }
-    return out;
-  }
-
-  const [from, to] = RAMP[mode];
-  const vals = rows
-    .map((r) => valueFor(r, mode))
-    .filter((v): v is number => v != null);
-  const min = vals.length ? Math.min(...vals) : 0;
-  const max = vals.length ? Math.max(...vals) : 1;
-  const span = max - min || 1;
-  for (const r of rows) {
-    const v = valueFor(r, mode);
-    out[r.ac_eci_no] = v == null ? NO_VALUE_FILL : lerpColor(from, to, (v - min) / span);
-  }
-  return out;
-}
-
-/**
- * Row B2 (ADR-0049) — dual-key a per-AC fills/opacities map so the maplibre
- * choropleth can join boundary features on the canonical `lgd_ac_id` while
- * the eci_no keys stay live for the hex cartogram + the citizen-facing label
- * paths. For every eci_no key in `base`, mirror its value under that AC's
- * `lgd_ac_id` (from `lookup`). lgd_ac_id is `State_LGD * 1000 + ac_no`
- * (>= 1000), so it never collides with an eci_no (1..~403) inside one state.
+ * Margin-shaded fill for ONE seat: the winning party's hue, lightened toward a
+ * pale tint in inverse proportion to the margin. Knife-edge -> a pale (but
+ * still identifiable) tint of the party hue; landslide -> the full party hue.
+ * The ramp is computed in HSL with the HUE HELD EXACTLY CONSTANT (only
+ * lightness + saturation move), so a pale BJP seat stays unmistakably saffron
+ * and a pale INC seat stays unmistakably blue.
  *
- * Returns `base` unchanged when `lookup` is null/empty (the crosswalk load
- * has not resolved yet, or the state is uncovered) — that, paired with the
- * choropleth's `canonical_join` gate flipping in the SAME reactive tick,
- * keeps the pre-load render identical to the post-load render (no flash).
+ * `margin_pct` is treated as a magnitude (|signed|). Returns
+ * `MARGIN_PENDING_FILL` when the margin is null/undefined/NaN or the party hex
+ * cannot be parsed - guarding against both `#NaNNaNNaN` and an accidental black.
  */
-export function mirrorLgdKeys<V>(
-  base: Record<number, V>,
-  lookup: Map<number, number> | null,
-): Record<number, V> {
-  if (!lookup || lookup.size === 0) return base;
-  const out: Record<number, V> = { ...base };
-  for (const [k, v] of Object.entries(base)) {
-    const eci = Number(k);
-    const lgd = lookup.get(eci);
-    if (lgd != null && lgd !== eci) out[lgd] = v;
+export function marginShade(
+  partyHex: string,
+  margin_pct: number | null | undefined,
+): string {
+  if (margin_pct == null || !Number.isFinite(margin_pct)) {
+    return MARGIN_PENDING_FILL;
   }
-  return out;
+  const rgb = hexToRgb(partyHex);
+  if (!rgb) return MARGIN_PENDING_FILL;
+
+  const t = Math.min(MARGIN_CAP_PP, Math.abs(margin_pct)) / MARGIN_CAP_PP;
+  // At t=1 return the party hue exactly (no HSL round-trip drift).
+  if (t >= 1) return rgbToHex(rgb[0], rgb[1], rgb[2]);
+
+  const { h, s, l } = rgbToHsl(rgb);
+  const lt = l * t + MARGIN_SHADE_PALE_L * (1 - t);
+  const st = s * (MARGIN_SHADE_PALE_S_FRAC + (1 - MARGIN_SHADE_PALE_S_FRAC) * t);
+  const [r, g, b] = hslToRgb(h, st, lt);
+  return rgbToHex(r, g, b);
+}
+
+// ---------------------------------------------------------------------------
+// 2. Seat-ranked palette with fallback-collision de-confliction
+// ---------------------------------------------------------------------------
+
+/** A resolved party entry the de-conflictor reasons over. `source` decides
+ *  whether the colour is IDENTITY (anchor / brand - never moved) or DECORATION
+ *  (fallback - may be nudged when it collides). */
+export interface PaletteEntry {
+  party_id: string;
+  hex: string;
+  source: "anchor" | "brand" | "fallback";
 }
 
 /**
- * Per-AC opacities keyed by `ac_eci_no`.
- *  - units filtered OUT → DIMMED_OPACITY
- *  - winner mode, kept  → margin-based base (matches StateAcMap's formula)
- *  - continuous, kept   → near-opaque (value is carried by the fill)
+ * Resolve final base colours for a set of party entries, given in PRIORITY
+ * order (highest seats/votes first). Walks the list once:
+ *  - anchor / brand entries keep their colour verbatim (identity), and their
+ *    hue is recorded as "taken".
+ *  - a fallback entry whose hue clashes with an already-taken hue (within
+ *    `HUE_COLLISION_SEP_DEG`) OR sits inside an anchor's reserved band is
+ *    rotated to the nearest free hue (keeping its own saturation/lightness),
+ *    so the LOWER-ranked party is the one that yields. If nothing is free it
+ *    keeps its original colour (graceful).
+ *
+ * Pure + deterministic; unit-tested directly with crafted colliding entries.
  */
-export function buildAcOpacities(
-  rows: AcWinner[],
-  mode: ColourMode,
-  filters: ElectionFilters,
-): Record<number, number> {
-  const out: Record<number, number> = {};
-  for (const r of rows) {
-    if (!matchesFilters(r, filters)) {
-      out[r.ac_eci_no] = DIMMED_OPACITY;
-      continue;
+export function deconflictPalette(
+  rankedEntries: readonly PaletteEntry[],
+): Map<string, string> {
+  const out = new Map<string, string>();
+  const used: number[] = [];
+
+  const clashes = (h: number) =>
+    used.some((u) => circularHueDistance(h, u) < HUE_COLLISION_SEP_DEG);
+
+  for (const e of rankedEntries) {
+    if (out.has(e.party_id)) continue;
+    const rgb = hexToRgb(e.hex);
+    let hex = rgb ? rgbToHex(rgb[0], rgb[1], rgb[2]) : e.hex;
+    let hue = rgb ? rgbToHue(rgb) : null;
+
+    const needsMove =
+      e.source === "fallback" &&
+      hue != null &&
+      rgb != null &&
+      (clashes(hue) || hueInReserved(hue, ANCHOR_RESERVED_HUE_RANGES));
+
+    if (needsMove && rgb != null && hue != null) {
+      const { s, l } = rgbToHsl(rgb);
+      if (s > 0.05) {
+        for (let step = 13; step < 360; step += 13) {
+          const cand = (hue + step) % 360;
+          if (
+            !clashes(cand) &&
+            !hueInReserved(cand, ANCHOR_RESERVED_HUE_RANGES)
+          ) {
+            const [r, g, b] = hslToRgb(cand, s, l);
+            hex = rgbToHex(r, g, b);
+            hue = cand;
+            break;
+          }
+        }
+      }
     }
-    if (mode === "winner") {
-      const m = Math.max(0, Math.min(30, r.margin_pct ?? 0));
-      out[r.ac_eci_no] = 0.35 + (m / 30) * 0.6;
-    } else {
-      out[r.ac_eci_no] = 0.9;
-    }
+
+    if (hue != null) used.push(hue);
+    out.set(e.party_id, hex);
   }
   return out;
 }
 
-// ─── National (PC) arm ────────────────────────────────────────────────
-// Same recolour/dim logic as the AC builders, but keyed by an arbitrary
-// string the caller selects (the choropleth keys by `join_key`, the hex
-// cartogram keys by `unit_id`), so one set of helpers serves both national
-// presentations without a second palette/threshold implementation.
+/** Minimal winner shape `resolveWinnerBaseColours` reads - one row per WON
+ *  seat (so seats-per-party is just an occurrence count). */
+export interface WinnerForPalette {
+  party_id: string;
+  brand_colour_hex?: string | null;
+  brand_colour_confidence?: "high" | "medium" | "low" | null;
+}
 
-/** Per-unit fills keyed by `keyOf(row)` (string). See `buildAcFills`. */
-export function buildKeyedFills<T extends ColorableWinner>(
-  rows: T[],
-  mode: ColourMode,
-  partyFill: PartyFill,
-  keyOf: (row: T) => string,
-): Record<string, string> {
-  const out: Record<string, string> = {};
-  if (mode === "winner") {
-    for (const r of rows) out[keyOf(r)] = partyFill(r.party_eci_code, r.party_short);
-    return out;
-  }
-  if (mode === "margin") {
-    for (const r of rows) {
-      out[keyOf(r)] = marginFill(
-        partyFill(r.party_eci_code, r.party_short),
-        r.margin_pct,
+/**
+ * Resolve the de-conflicted base colour for every winning party in `winners`,
+ * ranked by seats won (desc; ties broken by party_id for determinism). Returns
+ * `party_id -> #rrggbb`. Pair with `marginShade` to paint each seat:
+ *
+ *   const base = resolveWinnerBaseColours(winners);
+ *   const fill = marginShade(base.get(row.party_id) ?? FALLBACK, row.margin_pct);
+ */
+export function resolveWinnerBaseColours(
+  winners: readonly WinnerForPalette[],
+): Map<string, string> {
+  const seats = new Map<string, number>();
+  const rowFor = new Map<string, PartyRowForResolver | null>();
+  for (const w of winners) {
+    seats.set(w.party_id, (seats.get(w.party_id) ?? 0) + 1);
+    if (!rowFor.has(w.party_id)) {
+      rowFor.set(
+        w.party_id,
+        w.brand_colour_hex
+          ? {
+              party_id: w.party_id,
+              brand_colour: {
+                hex: w.brand_colour_hex,
+                confidence: w.brand_colour_confidence ?? "medium",
+              },
+            }
+          : null,
       );
     }
-    return out;
   }
-  const [from, to] = RAMP[mode];
-  const vals = rows
-    .map((r) => valueFor(r, mode))
-    .filter((v): v is number => v != null);
-  const min = vals.length ? Math.min(...vals) : 0;
-  const max = vals.length ? Math.max(...vals) : 1;
-  const span = max - min || 1;
-  for (const r of rows) {
-    const v = valueFor(r, mode);
-    out[keyOf(r)] =
-      v == null ? NO_VALUE_FILL : lerpColor(from, to, (v - min) / span);
-  }
-  return out;
+
+  const rankedPids = [...seats.keys()].sort((a, b) => {
+    const d = (seats.get(b) ?? 0) - (seats.get(a) ?? 0);
+    return d !== 0 ? d : a < b ? -1 : a > b ? 1 : 0;
+  });
+
+  const entries: PaletteEntry[] = rankedPids.map((pid) => {
+    const resolved = getPartyColor(pid, rowFor.get(pid) ?? null);
+    return { party_id: pid, hex: resolved.hex, source: resolved.source };
+  });
+
+  return deconflictPalette(entries);
 }
 
-/** Per-unit opacities keyed by `keyOf(row)` (string). See `buildAcOpacities`. */
-export function buildKeyedOpacities<T extends ColorableWinner>(
-  rows: T[],
-  mode: ColourMode,
-  filters: ElectionFilters,
-  keyOf: (row: T) => string,
-): Record<string, number> {
-  const out: Record<string, number> = {};
-  for (const r of rows) {
-    const key = keyOf(r);
-    if (!matchesFilters(r, filters)) {
-      out[key] = DIMMED_OPACITY;
-      continue;
-    }
-    if (mode === "winner") {
-      const m = Math.max(0, Math.min(30, r.margin_pct ?? 0));
-      out[key] = 0.35 + (m / 30) * 0.6;
-    } else {
-      out[key] = 0.9;
-    }
-  }
-  return out;
+// ---------------------------------------------------------------------------
+// 3. Legend
+// ---------------------------------------------------------------------------
+
+/** Demonstrative neutral base for the legend's depth ramp. Slate-600 - clearly
+ *  NOT a party colour, so the legend can show the pale->deep axis without
+ *  implying any party owns it (the map's real seats use party hues). */
+const LEGEND_DEMO_HEX = "#475569"; // slate-600
+
+/** One labelled stop on the Margin-mode legend strip. Colour is ALWAYS paired
+ *  with a pp label (house rule: colour is never the only signal). */
+export interface MarginLegendStop {
+  /** Citizen-readable band, e.g. "Knife-edge <5pp". */
+  label: string;
+  /** Demonstrative swatch (neutral base shaded at the band midpoint). */
+  hex: string;
+  /** True for the "results pending / no data" row (off-ramp slate). */
+  pending?: boolean;
+}
+
+/** Ordered legend stops for the Margin-mode strip: four competitiveness bands
+ *  (pale -> deep) demonstrated on a neutral base, plus a distinct "Results
+ *  pending" row. The map's real seats carry their winning party's hue at the
+ *  same depths. */
+export function marginLegendStops(): MarginLegendStop[] {
+  return [
+    { label: "Knife-edge <5pp", hex: marginShade(LEGEND_DEMO_HEX, 2.5) },
+    { label: "Close 5-10pp", hex: marginShade(LEGEND_DEMO_HEX, 7.5) },
+    { label: "Clear 10-20pp", hex: marginShade(LEGEND_DEMO_HEX, 15) },
+    { label: "Safe 20pp+", hex: marginShade(LEGEND_DEMO_HEX, 25) },
+    { label: "Results pending", hex: MARGIN_PENDING_FILL, pending: true },
+  ];
 }

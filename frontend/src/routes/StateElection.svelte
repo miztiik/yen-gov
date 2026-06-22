@@ -84,6 +84,11 @@
   import StateEventConstituencyList from "../lib/elections/StateEventConstituencyList.svelte";
   import StateEventHero from "../lib/elections/StateEventHero.svelte";
   import StateEventMap from "../lib/elections/StateEventMap.svelte";
+  import {
+    marginShade,
+    resolveWinnerBaseColours,
+    MARGIN_FILL_OPACITY,
+  } from "../lib/elections/election-map-coloring";
   import StateEventPartyComposite from "../lib/elections/StateEventPartyComposite.svelte";
   import SiblingEventsRail from "../lib/elections/SiblingEventsRail.svelte";
   import StateEventCrossEventSankey from "../lib/elections/StateEventCrossEventSankey.svelte";
@@ -511,26 +516,28 @@
   // Reuse the existing AC choropleth for assembly events. AcWinner is the
   // legacy shape the map consumes; map W2b rows -> AcWinner one-to-one.
   // For Winner mode (default): fill = party colour.
-  // For Margin mode: fill = greyscale shade by |margin_pct| (darker =
-  // larger margin). The shim overrides the per-row brand_colour_hex
-  // so the existing StateAcMap colour-by-brand pathway renders Margin
-  // without a deeper component change.
+  // For Margin mode: fill = the winning party's hue paled by |margin_pct|
+  // (marginShade: pale = knife-edge, full hue = safe), off the seat-ranked,
+  // collision-de-conflicted `ac_base` palette. The shim overrides the per-row
+  // brand_colour_hex so the existing StateAcMap colour-by-brand pathway
+  // renders Margin without a deeper component change.
   type ColorMode = "winner" | "margin";
   let color_mode = $state<ColorMode>("winner");
 
-  function marginGrey(pct: number | null): string {
-    if (pct == null) return "#cbd5e1"; // slate-300 fallback
-    // 0% margin -> very light slate; 30%+ margin -> dark slate. Clamp.
-    const v = Math.min(1, Math.max(0, pct / 30));
-    // Linear blend between slate-200 (#e2e8f0) and slate-700 (#334155).
-    const lerp = (a: number, b: number): number =>
-      Math.round(a + (b - a) * v);
-    const r = lerp(0xe2, 0x33);
-    const g = lerp(0xe8, 0x41);
-    const b2 = lerp(0xf0, 0x55);
-    const toHex = (n: number): string => n.toString(16).padStart(2, "0");
-    return `#${toHex(r)}${toHex(g)}${toHex(b2)}`;
-  }
+  // Seat-ranked, collision-de-conflicted base colour per winning party (AC arm)
+  // for the Margin-mode shading. Identity (anchor/brand) colours are fixed;
+  // only decorative minor parties are nudged when two hues clash.
+  const ac_base = $derived.by<Map<string, string>>(() =>
+    body !== "ac"
+      ? new Map()
+      : resolveWinnerBaseColours(
+          winners.map((w) => ({
+            party_id: partyIdFor(w),
+            brand_colour_hex: w.brand_colour_hex,
+            brand_colour_confidence: w.brand_colour_confidence,
+          })),
+        ),
+  );
 
   const ac_winners_shim = $derived<AcWinner[]>(
     body !== "ac"
@@ -539,7 +546,7 @@
           const pid = partyIdFor(w);
           const winner_hex =
             color_mode === "margin"
-              ? marginGrey(w.margin_pct)
+              ? marginShade(ac_base.get(pid) ?? fillForParty(pid, w), w.margin_pct)
               : fillForParty(pid, w);
           return {
             ac_eci_no: w.eci_no,
@@ -697,21 +704,40 @@
       const pid = partyIdFor(w);
       if (hidden_pids.has(pid)) {
         out[w.eci_no] = 0.18;
+      } else if (color_mode === "margin") {
+        // Magnitude is carried by the marginShade lightness, so hold opacity
+        // flat + high (no second ramp fading close races into the page).
+        out[w.eci_no] = MARGIN_FILL_OPACITY;
       }
     }
     return out;
   });
 
+  // Seat-ranked, collision-de-conflicted base colour per winning party (PC arm)
+  // for the Margin-mode shading. Same rule as `ac_base`.
+  const pc_base = $derived.by<Map<string, string>>(() =>
+    resolveWinnerBaseColours(
+      pc_winners.map((w) => ({
+        party_id: w.party_id,
+        brand_colour_hex: w.brand_colour_hex,
+        brand_colour_confidence: w.brand_colour_confidence,
+      })),
+    ),
+  );
+
   // Per-PC override map (keyed by unique_id): muted-party recede + the
-  // Winner|Margin shim's margin-grey for non-muted PCs when color_mode
-  // is "margin".
+  // Winner|Margin shim's party-hue margin shading (marginShade) for non-muted
+  // PCs when color_mode is "margin".
   const pc_fills_override = $derived.by<Record<string, string>>(() => {
     const out: Record<string, string> = {};
     for (const w of pc_winners) {
       if (hidden_pids.has(w.party_id)) {
         out[w.unique_id] = "#cbd5e1";
       } else if (color_mode === "margin") {
-        out[w.unique_id] = marginGrey(w.margin_pct);
+        out[w.unique_id] = marginShade(
+          pc_base.get(w.party_id) ?? "#94a3b8",
+          w.margin_pct,
+        );
       }
     }
     return out;
@@ -721,6 +747,8 @@
     for (const w of pc_winners) {
       if (hidden_pids.has(w.party_id)) {
         out[w.unique_id] = 0.18;
+      } else if (color_mode === "margin") {
+        out[w.unique_id] = MARGIN_FILL_OPACITY;
       }
     }
     return out;
@@ -802,9 +830,9 @@
       : buildTileRows(ac_tile_layout, ac_hex_winners),
   );
 
-  // Re-skin hex tiles for Margin-mode greyscale + party-mute recede -
-  // same shape as ElectionMap. The unit_id ends in `...-<eci_no>` so
-  // we recover eci_no via the trailing segment.
+  // Re-skin hex tiles for the Margin-mode party-hue shading + party-mute
+  // recede. The unit_id ends in `...-<eci_no>` so we recover eci_no via the
+  // trailing segment.
   const ac_tile_rows = $derived<TileRow[]>(
     ac_raw_tile_rows.map((t) => {
       if (t.pending) return t;
@@ -813,7 +841,14 @@
         t.winner_party_id != null && hidden_pids.has(t.winner_party_id);
       if (muted) return { ...t, fill: "#cbd5e1", opacity: 0.18 };
       if (color_mode === "margin") {
-        return { ...t, fill: marginGrey(t.margin_pct ?? null) };
+        const base =
+          (t.winner_party_id != null ? ac_base.get(t.winner_party_id) : null) ??
+          t.fill;
+        return {
+          ...t,
+          fill: marginShade(base, t.margin_pct ?? null),
+          opacity: MARGIN_FILL_OPACITY,
+        };
       }
       if (Number.isFinite(eci_no) && ac_fills_override[eci_no]) {
         return { ...t, fill: ac_fills_override[eci_no] };
@@ -909,10 +944,9 @@
     pc_tile_layout == null ? [] : buildTileRows(pc_tile_layout, pc_hex_winners),
   );
 
-  // Re-skin hex tiles for Margin-mode greyscale + party-mute recede -
-  // same shape as the AC arm above + NationalElection's PC arm. The
-  // tile's own winner_party_id + margin_pct (set by buildTileRows) drive
-  // both, so no unique_id round-trip is needed.
+  // Re-skin hex tiles for the Margin-mode party-hue shading + party-mute
+  // recede - same shape as the AC arm above + NationalElection's PC arm. The
+  // tile's own winner_party_id + margin_pct (set by buildTileRows) drive both.
   const pc_tile_rows = $derived<TileRow[]>(
     pc_raw_tile_rows.map((t) => {
       if (t.pending) return t;
@@ -920,7 +954,14 @@
         t.winner_party_id != null && hidden_pids.has(t.winner_party_id);
       if (muted) return { ...t, fill: "#cbd5e1", opacity: 0.18 };
       if (color_mode === "margin") {
-        return { ...t, fill: marginGrey(t.margin_pct ?? null) };
+        const base =
+          (t.winner_party_id != null ? pc_base.get(t.winner_party_id) : null) ??
+          t.fill;
+        return {
+          ...t,
+          fill: marginShade(base, t.margin_pct ?? null),
+          opacity: MARGIN_FILL_OPACITY,
+        };
       }
       return t;
     }),

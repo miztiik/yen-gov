@@ -118,6 +118,24 @@ Tempting answer: "just hand-pick a Tableau-style palette of 30 distinct hex code
 2. **Perceptual uniformity at variable lightness**. Hover states, highlighted-row states, and "this party's row in a sub-chart" states all need lighter/darker variants of the same colour. sRGB lightening of `#fa8b3e` drifts toward yellow; OkLCh lightening of the same swatch stays saffron.
 3. **Long tail**. Indian elections have hundreds of registered parties, and the long tail genuinely matters in by-election charts. A perceptual generator handles the long tail; a hand-picked palette runs out at ~12.
 
+## Election "Margin" mode shading
+
+The election maps have a `Winner | Margin` toggle. Winner mode fills each seat
+with the winning party's colour at full strength. Margin mode keeps that SAME
+party colour but encodes the winning margin as the DEPTH of the hue: a seat won
+by a whisker is a pale tint of the party colour, a safe seat is the full
+saturated party colour. So Margin mode answers who-won AND how-safe in one fill.
+
+- **One function, four surfaces.** [`election-map-coloring.ts`](../../../frontend/src/lib/elections/election-map-coloring.ts) `marginShade(partyHex, margin_pp)` is the single source of truth. National map, national equal-seats, assembly map, assembly equal-seats (plus the state-PC map/hex) all shade through it off the same `resolveWinnerBaseColours` palette, so the colour is identical and cannot drift.
+- **Hue held exactly constant.** `marginShade` ramps in HSL: only lightness + saturation move with the margin, the hue is fixed, so a pale BJP seat stays unmistakably saffron and a pale INC seat stays unmistakably blue. Window is `|margin|` in `[0, 30]`pp; `>= 30`pp returns the party hue exactly. The pale end is bounded (a knife-edge win keeps ~half the party saturation at a shared pale lightness) so the closest races stay identifiable, never a near-white wash.
+- **Collision handling, lower-seat-yields.** `resolveWinnerBaseColours(winners)` resolves each winning party's base colour ranked by seats won and de-conflicts hue collisions: if a decorative (fallback-tier) minor party's hue clashes with a higher-ranked party already placed, or lands inside an anchor's reserved band, the LOWER-ranked party is nudged to a free hue. Iconic anchor colours (BJP saffron, INC blue, ...) and editorial brand colours are IDENTITY and are NEVER mutated (per the resolver contract) - two identity reds keep both reds; only the decorative tier yields. This is a deliberate boundary: recolouring an iconic party because another red is on the map would break civic recognition, which costs more than the residual ambiguity between two minor reds (whose labels carry the meaning anyway).
+- **Fill carries the magnitude; opacity stays flat.** Because lightness already encodes the margin, opacity is held high + constant (`MARGIN_FILL_OPACITY`) in Margin mode - no second opacity ramp that would double-fade close races into the white page.
+- **"No data" is never a party tint.** Unknown / pending margins use the off-ramp slate-200 (`MARGIN_PENDING_FILL`), so "results pending" is never mistaken for a pale knife-edge win; a muted-party cell recedes to the `--party-neutral` slate.
+- **Legend.** [`MarginLegend.svelte`](../../../frontend/src/lib/elections/MarginLegend.svelte) shows the pale->deep depth axis on a NEUTRAL demonstrative base (so it implies no single party), pairing each band with a pp label (house rule: colour is never the only signal). The real seats carry their winning party's hue at the same depths.
+
+
+This replaced two earlier per-route duplicates - `marginRamp` (National: an HSL-250 ramp that read grey and clashed with INC) and `marginGrey` (State: a literal slate greyscale that read as "missing data") - and retired the dead `ElectionMap.svelte` wrapper plus its unused `buildAcFills` experiment.
+
 ## Files
 
 | File | Role |
@@ -133,6 +151,7 @@ Tempting answer: "just hand-pick a Tableau-style palette of 30 distinct hex code
 
 ## Decisions log
 
+- **2026-06-22 - Election "Margin" mode = party-hue depth shading (user decision, overriding the persona call).** Jony (UX authority) first recommended a party-AGNOSTIC single indigo ramp (Option A), reasoning that Winner mode already carries party identity and a separate Margin view earns its place by being cross-party comparable. The repo owner overrode this in favour of party-DERIVED shading (the One Rule: user supersedes every agent): each seat keeps its winning party's colour, paled toward a knife-edge and deepened toward a safe seat, so the political texture is preserved. Implemented as `marginShade` (HSL ramp, hue held exact) off the seat-ranked, collision-de-conflicted `resolveWinnerBaseColours` palette, across all four election-map surfaces, with a neutral-demonstrative `MarginLegend`. Collision rule honours the resolver's identity contract: anchor/brand colours are never mutated; only decorative fallback-tier minors are nudged, lower-seat-yields. Retired the per-route `marginRamp` (HSL-250) and `marginGrey` (slate greyscale) duplicates and the dead `ElectionMap.svelte`. Trade-off accepted: Margin and Winner views look related (both party-coloured), distinguished by Winner = full strength vs Margin = margin-paled depth. See "Election 'Margin' mode shading" above.
 - **2026-05-14 — Generic dimension anchors layered above the party path.** New facetted indicators (energy by fuel, expenditure by head, …) need mnemonic colours that are NOT party hex (coal=slate, renewable=emerald). Rather than fork the resolver, we keep `partyColour` untouched (its 15 vitest cases stay green) and add a thin layer: `categoryColour(code, inUse, dimension, overrides)` delegates `dimension==="party"` to `partyColour` and otherwise consults `dimensionAnchors(dim)` → algorithmic OkLCh fallback. The dimension table is registry-style (`registerDimensionAnchors`) so late-loading dimensions can plug in without editing the resolver. Wired into `StackedTrend.svelte` via the `dimension` prop carried on the catalogue v1.2 artifact entry. Why dimension-anchored, not arbitrary? — citizens reading "coal" and "renewable" expect specific colour associations; algorithmic palette would shuffle them across pages.
 
 - **2026-05-08 — OkLCh adopted over HSL.** HSL's "saturation" is non-perceptual (HSL-pure-blue and HSL-pure-yellow have wildly different luminance and chroma). OkLCh's L is genuinely linear; this is what lets us share the same module between party colours and indicator ramps without two different lightness conventions.

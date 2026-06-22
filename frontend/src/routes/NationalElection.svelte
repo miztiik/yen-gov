@@ -78,7 +78,12 @@
   import type { PartyTotals } from "../lib/data";
   import PageContainer from "../lib/layout/PageContainer.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
-  import { rampHue } from "../lib/colors/palettes";
+  import {
+    marginShade,
+    resolveWinnerBaseColours,
+    MARGIN_FILL_OPACITY,
+  } from "../lib/elections/election-map-coloring";
+  import MarginLegend from "../lib/elections/MarginLegend.svelte";
   import {
     buildPartyKeyToPid,
     hiddenPidSet,
@@ -438,21 +443,6 @@
   type ColorMode = "winner" | "margin";
   let color_mode = $state<ColorMode>("winner");
 
-  // Winning-margin sequential ramp. Margin is a MAGNITUDE (0..~40 pp) so it
-  // gets the neutral directional ramp hue (indigo, themeable via the
-  // `--ramp-neutral` token) rather than a party or diverging palette:
-  // a pale tint = razor-thin margin, deep indigo = landslide. Replaces the
-  // earlier slate-grey lerp which read as "missing data" rather than
-  // "safe seat" and looked washed-out on the hex cartogram.
-  function marginRamp(pct: number | null): string {
-    if (pct == null) return "#e2e8f0"; // slate-200: genuinely unknown margin
-    const t = Math.min(1, Math.max(0, Math.abs(pct) / 30));
-    const hue = rampHue("neutral");
-    const sat = Math.round(40 + t * 42); // 40% -> 82%
-    const light = Math.round(90 - t * 52); // 90% -> 38%
-    return `hsl(${hue}, ${sat}%, ${light}%)`;
-  }
-
   // ---- TODO/20260612 Row F: PartyBar click-to-mute -------------------
   // hidden_parties keys are `party_eci_code ?? party_short` - same
   // convention used by PartyBar / Psephlab / StateOverview. Hiding is
@@ -566,16 +556,26 @@
     return out;
   });
 
-  // PC map per-uid overrides: mute by party_id, and margin-mode greys.
-  // Both wins via the IndiaPcMapD3 `fillsOverride` / `opacitiesOverride`
-  // precedence path.
+  // Seat-ranked, collision-de-conflicted base colour per winning party for the
+  // Margin-mode shading. Identity colours (anchor/brand) are fixed; only
+  // decorative minor parties are nudged when two hues clash (lower-seat yields).
+  const pc_base = $derived.by<Map<string, string>>(() =>
+    resolveWinnerBaseColours(pc_winners),
+  );
+
+  // PC map per-uid overrides: mute by party_id, and the Margin-mode shading
+  // (each seat = its winning party's hue, paled toward a knife-edge). Both win
+  // via the IndiaPcMapD3 `fillsOverride` / `opacitiesOverride` precedence path.
   const pc_fills_override = $derived.by<Record<string, string>>(() => {
     const out: Record<string, string> = {};
     for (const w of pc_winners) {
       if (hidden_pids.has(w.party_id)) {
         out[w.unique_id] = "#cbd5e1"; // slate-300 recede
       } else if (color_mode === "margin") {
-        out[w.unique_id] = marginRamp(w.margin_pct);
+        out[w.unique_id] = marginShade(
+          pc_base.get(w.party_id) ?? "#94a3b8",
+          w.margin_pct,
+        );
       }
     }
     return out;
@@ -585,6 +585,10 @@
     for (const w of pc_winners) {
       if (hidden_pids.has(w.party_id)) {
         out[w.unique_id] = 0.18; // recede opacity (matches RECEDE_OPACITY)
+      } else if (color_mode === "margin") {
+        // Magnitude is carried by the fill's lightness, so hold opacity flat
+        // and high (no second ramp that would fade close races into the page).
+        out[w.unique_id] = MARGIN_FILL_OPACITY;
       }
     }
     return out;
@@ -641,8 +645,9 @@
     tile_layout == null ? [] : buildTileRows(tile_layout, hex_winners),
   );
 
-  // Re-skin tiles for Margin-mode greyscale + party-mute recede - same
-  // pattern ElectionMap uses for the AC hex arm.
+  // Re-skin tiles for the Margin-mode party-hue shading + party-mute recede.
+  // The fill is the winner's party hue paled by margin (marginShade); opacity
+  // stays flat + high in Margin mode so close races don't fade into the page.
   const tile_rows = $derived<TileRow[]>(
     raw_tile_rows.map((t) => {
       if (t.pending) return t;
@@ -656,7 +661,14 @@
         return { ...t, fill: "#cbd5e1", opacity: 0.18 };
       }
       if (color_mode === "margin") {
-        return { ...t, fill: marginRamp(t.margin_pct ?? null) };
+        const base =
+          (t.winner_party_id != null ? pc_base.get(t.winner_party_id) : null) ??
+          t.fill;
+        return {
+          ...t,
+          fill: marginShade(base, t.margin_pct ?? null),
+          opacity: MARGIN_FILL_OPACITY,
+        };
       }
       // back-compat: also honour pc_fills_override if it was computed
       // for any reason (defensive belt-and-braces against future
@@ -981,11 +993,13 @@
           />
         </div>
       {:else if map_view === "constituencies"}
-        <p class="text-xs text-slate-500">
-          {color_mode === "winner"
-            ? "Each constituency is filled with the winning party's colour."
-            : "Each constituency is shaded by winning margin (darker = larger margin)."}
-        </p>
+        {#if color_mode === "winner"}
+          <p class="text-xs text-slate-500">
+            Each constituency is filled with the winning party's colour.
+          </p>
+        {:else}
+          <MarginLegend />
+        {/if}
         <div data-testid="national-event-map-pc">
           <IndiaPcMapD3
             rows={pc_winners}
@@ -996,11 +1010,13 @@
           />
         </div>
       {:else}
-        <p class="text-xs text-slate-500">
-          {color_mode === "winner"
-            ? "Each hexagon is one seat in Parliament, coloured by the winning party."
-            : "Each hexagon is one seat in Parliament, shaded by winning margin (darker = larger margin)."}
-        </p>
+        {#if color_mode === "winner"}
+          <p class="text-xs text-slate-500">
+            Each hexagon is one seat in Parliament, coloured by the winning party.
+          </p>
+        {:else}
+          <MarginLegend />
+        {/if}
         <div data-testid="national-event-map-hex">
           {#if tile_layout_error}
             <div

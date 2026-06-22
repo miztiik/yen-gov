@@ -45,6 +45,7 @@
     type PcWinnerRow,
   } from "../charts/StatePcMapD3.svelte";
   import TileCartogram from "../charts/TileCartogram.svelte";
+  import MarginLegend from "./MarginLegend.svelte";
   import { link } from "../links";
   import type {
     TileLayoutRow,
@@ -223,11 +224,13 @@
         {/if}
       </div>
     {/if}
-    <p class="text-xs text-slate-500">
-      {color_mode === "winner"
-        ? "Each constituency is filled with the winning party's colour."
-        : "Each constituency is shaded by winning margin (darker = larger margin)."}
-    </p>
+    {#if color_mode === "winner"}
+      <p class="text-xs text-slate-500">
+        Each constituency is filled with the winning party's colour.
+      </p>
+    {:else}
+      <MarginLegend />
+    {/if}
     {#if ac_view === "map"}
       <!-- TODO/20260612 Row C: sub-threshold marker legend - the
            StateAcMapD3 component overlays circular markers for ACs
@@ -367,11 +370,13 @@
           {/if}
         </div>
       {/if}
-      <p class="text-xs text-slate-500">
-        {color_mode === "winner"
-          ? "Each constituency is filled with the winning party's colour."
-          : "Each constituency is shaded by winning margin (darker = larger margin)."}
-      </p>
+      {#if color_mode === "winner"}
+        <p class="text-xs text-slate-500">
+          Each constituency is filled with the winning party's colour.
+        </p>
+      {:else}
+        <MarginLegend />
+      {/if}
       {#if pc_view === "map"}
         <p
           class="text-[11px] text-slate-500"
