@@ -3,7 +3,7 @@
   //
   // ONE legend component drives BOTH StateAcMap (maplibre choropleth)
   // and TileCartogram (SVG hex cartogram). The parent orchestrator
-  // (e.g. `ElectionMap.svelte`) holds the shared $state for
+  // (e.g. `StateEventMap.svelte`) holds the shared $state for
   // `{ mode, selected_party_id, min_margin }`, renders THIS legend
   // ONCE, and then threads the three knobs down to both map surfaces
   // as props. There is no per-map widget; the legend-drift contract

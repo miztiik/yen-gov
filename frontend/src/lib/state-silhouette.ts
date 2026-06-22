@@ -1,8 +1,8 @@
 // State silhouette loader (parent plan section 25.4 E3).
 //
-// Shared by `StateAcMap.svelte` (district choropleth, maplibre) and
-// `ElectionMap.svelte` (which feeds `TileCartogram.svelte`'s hex
-// silhouette layer). Returns the one state Feature drawn behind /
+// Shared by `StateAcMap.svelte` (district choropleth, maplibre) and the
+// `TileCartogram.svelte` hex silhouette layer (fed by the state-event map
+// arms). Returns the one state Feature drawn behind /
 // above the per-state map so the citizen instantly recognises which
 // state they are looking at.
 //
