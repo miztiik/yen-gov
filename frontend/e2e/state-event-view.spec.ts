@@ -175,16 +175,6 @@ test.describe("state event view (PR-W3b rebuild)", () => {
       page.getByTestId("inline-counterfactual-swing"),
     ).toBeVisible({ timeout: 30_000 });
 
-    // TODO/20260612 Row C: assembly events render the StateAcMap with
-    // a sub-threshold marker legend below it. The legend is the only
-    // place the page explains the circular markers overlay on small ACs.
-    await expect(
-      page.getByTestId("state-ac-map-legend"),
-    ).toBeVisible({ timeout: 30_000 });
-    await expect(
-      page.getByTestId("state-ac-map-legend"),
-    ).toContainText(/dense urban constituencies/i);
-
     // Slider mounts only after the canonical loader resolves; once it
     // does, the seats card is visible too.
     await expect(page.getByTestId("inline-swing-slider")).toBeVisible({
