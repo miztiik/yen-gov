@@ -31,9 +31,13 @@
   All testable logic lives in ./constituency-list-tokens (one code path,
   exercised by StateEventConstituencyList.test.ts).
 
+  The trailing "Compare with <prior event>" CTA was REMOVED 2026-06-22 as
+  redundant: the SiblingEventsRail above the map already offers the
+  compare affordance ("See how this election compares with <prior year>").
+
   Preserves data-testids: state-event-constituency-table /
   state-event-constituency-table-loading / state-event-constituency-row /
-  state-event-constituency-link / state-event-compare-cta /
+  state-event-constituency-link /
   state-event-constituency-search / state-event-constituency-district-row
   / state-event-constituency-district-toggle. ADDS:
   state-event-constituency-reserved-filter,
@@ -42,7 +46,6 @@
   state-event-constituency-strip-label.
 -->
 <script lang="ts">
-  import type { ElectionEventRow } from "../election-events";
   import TopicIcon from "../TopicIcon.svelte";
   import ReservationBadge from "./ReservationBadge.svelte";
   import {
@@ -87,8 +90,6 @@
   interface Props {
     loading: boolean;
     seat_rows: readonly SeatRow[];
-    previous_same_body: ElectionEventRow | null;
-    compare_href: string | null;
     fmtInt: (n: number | null) => string;
     fmtPct: (n: number | null) => string;
   }
@@ -96,8 +97,6 @@
   let {
     loading,
     seat_rows,
-    previous_same_body,
-    compare_href,
     fmtInt,
     fmtPct,
   }: Props = $props();
@@ -401,16 +400,3 @@
     {/if}
   {/if}
 </section>
-
-<!-- Compare CTA - R4: rendered as a slate-700 link (not a button)
-     per the Jony verdict; lives as the last row of this section's
-     chrome rather than as a separate <nav>. -->
-{#if compare_href && previous_same_body}
-  <div class="pt-1 text-sm">
-    <a
-      class="text-slate-700 underline-offset-2 hover:text-slate-900 hover:underline"
-      href={compare_href}
-      data-testid="state-event-compare-cta"
-    >Compare with {previous_same_body.display}</a>
-  </div>
-{/if}
