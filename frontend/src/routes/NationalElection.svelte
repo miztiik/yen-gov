@@ -99,6 +99,25 @@
     loadEventSummary,
     type EventSummaryRow,
   } from "../lib/elections/event-summary-loader";
+  // Row 7 (TODO/20260622-election-constituency-grouping-plan.md): national
+  // constituency list - an outer State accordion wrapping the SAME PC-mode
+  // StateEventConstituencyList per expanded state.
+  import StateEventConstituencyList from "../lib/elections/StateEventConstituencyList.svelte";
+  import {
+    loadAcEntities,
+    buildNationalStateGroups,
+    filterNationalBranches,
+    type AcEntity,
+    type NationalBranchView,
+    type NationalFilterPc,
+  } from "../lib/elections/constituency-district-loader";
+  import {
+    buildPartyStrip,
+    type GroupHeaderResult,
+    type PartyStrip,
+    type ReservationKind,
+  } from "../lib/elections/constituency-list-tokens";
+  import { loadStates } from "../lib/view-models/states";
 
   // Events that have an MCC-period seizures CSV ingested under
   // `datasets/elections/parliament/election=<year>/mcc_seizures.csv`.
@@ -759,6 +778,241 @@
       `${link.stateElection(d.state_slug, d.event_id)}/${d.constituency_slug}`,
     );
   }
+
+  // ====================================================================
+  // Row 7: national constituency list (State -> PC -> AC -> District).
+  // TODO/20260622-election-constituency-grouping-plan.md.
+  //
+  // OUTER accordion: the ~36 states/UTs as the top-level groups, collapsed
+  // at first paint (ZERO PC/AC DOM mounted - constraint #1). Expanding a
+  // state LAZY-MOUNTS the SAME PC-mode StateEventConstituencyList for that
+  // state ({#if open} = mount-on-expand, unmount-on-collapse - constraint
+  // #2). ONE national search + Reserved filter (below) owns the controls;
+  // each inner list runs with hide_controls so there is no per-state search
+  // bar (constraint #3 + #4). ALL data-shaping reuses the Row 5 pure helpers
+  // buildPcGrouping/loadAcEntities/buildNationalStateGroups (constraint #5);
+  // this is render-only state selection.
+  // ====================================================================
+
+  // Cached AC entity list (name + parent PC + district + reservation + eci);
+  // loaded once when the national PC winners arrive.
+  let ac_entities_nat = $state<AcEntity[] | null>(null);
+  let ac_entities_nat_error = $state<string | null>(null);
+  $effect(() => {
+    if (winners.length === 0) return;
+    if (ac_entities_nat !== null || ac_entities_nat_error !== null) return;
+    loadAcEntities()
+      .then((e) => (ac_entities_nat = e))
+      .catch((e) => (ac_entities_nat_error = String(e)));
+  });
+
+  // State display names (ECI code -> "Tamil Nadu"); loaded once, cached.
+  let state_name_by_code = $state<Map<string, string>>(new Map());
+  $effect(() => {
+    loadStates()
+      .then((rows) => {
+        const m = new Map<string, string>();
+        for (const r of rows) m.set(r.eci_code, r.display_name);
+        state_name_by_code = m;
+      })
+      .catch(() => {});
+  });
+  function slugToName(slug: string): string {
+    return slug
+      .split("-")
+      .map((p) => (p.length === 0 ? p : p[0].toUpperCase() + p.slice(1)))
+      .join(" ")
+      .replace(/\bAnd\b/g, "and");
+  }
+  function stateNameFor(code: string, slug: string): string {
+    return state_name_by_code.get(code) ?? slugToName(slug);
+  }
+
+  // Live delimitation for the AC->PC join (uniform across the event); mirrors
+  // the state general page (StateElection Row 5).
+  const nat_delim_year = $derived(winners[0]?.delim_year ?? null);
+
+  // Winner row by PC entity_id (powers the per-state group headers + the outer
+  // glance strip).
+  const winner_by_id = $derived.by<Map<string, ElectionResultRow>>(() => {
+    const m = new Map<string, ElectionResultRow>();
+    for (const w of winners) m.set(w.entity_id, w);
+    return m;
+  });
+
+  // Per-state PC -> AC grouping (REUSES buildPcGrouping per state). Empty until
+  // the AC entities resolve.
+  const nat_state_groups = $derived.by(() => {
+    const ents = ac_entities_nat;
+    if (!ents || winners.length === 0) return [];
+    return buildNationalStateGroups(
+      winners.map((w) => ({
+        entity_id: w.entity_id,
+        entity_name: w.entity_name,
+        state_code: w.state_code,
+        state_slug: w.state_slug,
+      })),
+      ents,
+      nat_delim_year,
+    );
+  });
+
+  // National search + Reserved filter (the ONE pair the outer accordion owns).
+  let nat_search_q = $state("");
+  let nat_reserved = $state<ReservationKind | "All">("All");
+  const NAT_RESERVED_OPTIONS: ReadonlyArray<{
+    value: ReservationKind | "All";
+    label: string;
+  }> = [
+    { value: "All", label: "All" },
+    { value: "GEN", label: "GEN" },
+    { value: "SC", label: "SC" },
+    { value: "ST", label: "ST" },
+  ];
+
+  // Manually-expanded states (in addition to the search auto-expanded ones).
+  let nat_expanded = $state<Set<string>>(new Set());
+  function toggleNatState(code: string): void {
+    const next = new Set(nat_expanded);
+    if (next.has(code)) next.delete(code);
+    else next.add(code);
+    nat_expanded = next;
+  }
+
+  // Reset the search + fold when the citizen navigates to another event.
+  $effect(() => {
+    void event;
+    nat_search_q = "";
+    nat_reserved = "All";
+    nat_expanded = new Set();
+  });
+
+  // Branch inputs (resolve state name + per-PC reservation) for the filter.
+  const nat_branch_inputs = $derived.by(() =>
+    nat_state_groups.map((g) => ({
+      state_code: g.state_code,
+      state_slug: g.state_slug,
+      state_name: stateNameFor(g.state_code, g.state_slug),
+      pcs: g.pcs.map<NationalFilterPc>((p) => ({
+        entity_id: p.entity_id,
+        name: p.name,
+        reservation: winner_by_id.get(p.entity_id)?.reservation ?? null,
+      })),
+      leaves: g.leaves,
+    })),
+  );
+
+  // Visible branches after the ONE national search + Reserved filter.
+  const nat_branches = $derived<NationalBranchView[]>(
+    filterNationalBranches(nat_branch_inputs, nat_search_q, nat_reserved),
+  );
+
+  // Global count line ("N seats across M states").
+  const nat_count_line = $derived.by<string>(() => {
+    const states = nat_branches.length;
+    let pcs = 0;
+    for (const b of nat_branches) pcs += b.pcs.length;
+    const s = `${states} ${states === 1 ? "state" : "states"}`;
+    const p = `${pcs} ${pcs === 1 ? "seat" : "seats"}`;
+    return `${p} across ${s}`;
+  });
+
+  function isNatExpanded(code: string, auto: boolean): boolean {
+    return auto || nat_expanded.has(code);
+  }
+
+  // Header-chip colour for a PC winner: the resolved per-party base colour
+  // (shared with the maps), falling back to the row's brand hex.
+  function natColorForPid(pid: string, w: ElectionResultRow): string {
+    return pc_base.get(pid) ?? w.brand_colour_hex ?? "#94a3b8";
+  }
+
+  // Per-branch group headers (PC name -> Lok Sabha MP result). Built from the
+  // winner row; child_count reflects the (possibly filtered) visible leaves.
+  function natHeadersFor(
+    branch: NationalBranchView,
+  ): Record<string, GroupHeaderResult> {
+    const childCount = new Map<string, number>();
+    for (const l of branch.leaves) {
+      if (l.pc_group != null) {
+        childCount.set(l.pc_group, (childCount.get(l.pc_group) ?? 0) + 1);
+      }
+    }
+    const out: Record<string, GroupHeaderResult> = {};
+    for (const pc of branch.pcs) {
+      const w = winner_by_id.get(pc.entity_id);
+      if (!w) continue;
+      const pid = partyIdFor(w);
+      out[pc.name] = {
+        chip: w.party_short ?? "UNK",
+        color: natColorForPid(pid, w),
+        share: w.vote_share_pct,
+        margin: w.margin_pct,
+        child_count: childCount.get(pc.name) ?? 0,
+        reservation: w.reservation,
+      };
+    }
+    return out;
+  }
+
+  // Per-branch PC-mode seat rows (child AC leaves). The MP result rides on the
+  // group header, NOT the leaf (mirrors StateElection Row 5); the leaf links to
+  // its own AC drill-down + shows its district label.
+  interface NatSeatRow {
+    entity_id: string;
+    entity_name: string;
+    district: string | null;
+    eci_no: number | null;
+    reservation: string | null;
+    pc_group: string | null;
+    winner_party_short: string;
+    winner_party_id: string;
+    winner_color: string;
+    winner_share_pct: number | null;
+    margin_pct: number | null;
+    href: string;
+  }
+  function natSeatRowsFor(branch: NationalBranchView): NatSeatRow[] {
+    const rows = branch.leaves.map<NatSeatRow>((leaf) => ({
+      entity_id: leaf.entity_id,
+      entity_name: leaf.name,
+      district: leaf.district_name,
+      eci_no: leaf.eci_no,
+      reservation: leaf.reservation,
+      pc_group: leaf.pc_group,
+      winner_party_short: "",
+      winner_party_id: "",
+      winner_color: "#cbd5e1",
+      winner_share_pct: null,
+      margin_pct: null,
+      href: link.ac(branch.state_slug, leaf.name),
+    }));
+    rows.sort((a, b) => {
+      const ea = a.eci_no ?? Number.POSITIVE_INFINITY;
+      const eb = b.eci_no ?? Number.POSITIVE_INFINITY;
+      if (ea !== eb) return ea - eb;
+      return a.entity_name.localeCompare(b.entity_name, "en", {
+        sensitivity: "base",
+      });
+    });
+    return rows;
+  }
+
+  // Per-branch outer-row glance strip (which party won how many of the state's
+  // PCs) - reuses the Row 2 proportional-strip token.
+  function natStripFor(branch: NationalBranchView): PartyStrip {
+    return buildPartyStrip(
+      branch.pcs.map((pc) => {
+        const w = winner_by_id.get(pc.entity_id);
+        const pid = w ? partyIdFor(w) : "";
+        return {
+          winner_party_short: w?.party_short ?? "UNK",
+          winner_party_id: pid,
+          winner_color: w ? natColorForPid(pid, w) : "#cbd5e1",
+        };
+      }),
+    );
+  }
 </script>
 <PageContainer width="wide">
   <header class="space-y-2">
@@ -1151,5 +1405,160 @@
         lock_body={true}
       />
     </section>
+
+    <!-- Row 7 (TODO/20260622-election-constituency-grouping-plan.md):
+         national constituency list. OUTER accordion = states/UTs (collapsed
+         at first paint - ZERO PC/AC DOM mounted); expanding a state
+         LAZY-MOUNTS the SAME PC-mode StateEventConstituencyList for that
+         state (State -> PC -> AC -> District). ONE national search + Reserved
+         filter owns the controls; each inner list runs with hide_controls so
+         there is no per-state search bar. -->
+    {#if winners.length > 0}
+      <section
+        class="space-y-2"
+        data-testid="national-event-constituency-list"
+      >
+        <h2 class="text-sm font-semibold text-slate-800">
+          Constituencies by state
+        </h2>
+        {#if ac_entities_nat_error}
+          <p class="text-xs text-slate-500">
+            Constituency details couldn't load.
+          </p>
+        {:else if ac_entities_nat == null || nat_state_groups.length === 0}
+          <p
+            class="text-xs text-slate-500"
+            data-testid="national-event-constituency-loading"
+          >Loading constituencies...</p>
+        {:else}
+          <!-- Sticky national controls: ONE search (magnifier glyph) + ONE
+               Reserved filter across every state. -->
+          <div
+            class="sticky top-0 z-10 -mx-1 space-y-1.5 bg-white/95 px-1 py-1 backdrop-blur"
+          >
+            <label class="relative block">
+              <span class="sr-only"
+                >Search by state, constituency, or assembly segment</span
+              >
+              <span
+                class="pointer-events-none absolute inset-y-0 left-2 flex items-center"
+              >
+                <TopicIcon
+                  name="search"
+                  cls="h-4 w-4 shrink-0 text-slate-400"
+                />
+              </span>
+              <input
+                type="search"
+                placeholder="Search state / constituency..."
+                class="w-full rounded border border-slate-300 py-1.5 pl-8 pr-3 text-sm placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                data-testid="national-event-constituency-search"
+                bind:value={nat_search_q}
+              />
+            </label>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div
+                class="flex items-center gap-1 text-xs"
+                data-testid="national-event-constituency-reserved-filter"
+              >
+                <span class="text-slate-500">Reserved:</span>
+                {#each NAT_RESERVED_OPTIONS as opt (opt.value)}
+                  <button
+                    type="button"
+                    class={`rounded px-1.5 py-0.5 font-medium ${
+                      nat_reserved === opt.value
+                        ? "bg-slate-800 text-white"
+                        : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    }`}
+                    data-testid="national-event-constituency-reserved-option"
+                    data-value={opt.value}
+                    aria-pressed={nat_reserved === opt.value}
+                    onclick={() => (nat_reserved = opt.value)}
+                  >{opt.label}</button>
+                {/each}
+              </div>
+              <p
+                class="text-xs tabular-nums text-slate-500"
+                data-testid="national-event-constituency-count"
+              >{nat_count_line}</p>
+            </div>
+          </div>
+
+          {#if nat_branches.length === 0}
+            <p class="text-xs text-slate-500">
+              No constituencies match
+              <code class="rounded bg-slate-100 px-1">{nat_search_q}</code>.
+            </p>
+          {:else}
+            <ul class="divide-y border-y">
+              {#each nat_branches as branch (branch.state_code)}
+                {@const open = isNatExpanded(branch.state_code, branch.auto_expand)}
+                {@const strip = natStripFor(branch)}
+                <li data-testid="national-event-constituency-state-row">
+                  <button
+                    type="button"
+                    class="flex w-full items-center justify-between gap-3 px-2 py-2 text-left text-sm hover:bg-slate-50"
+                    data-testid="national-event-constituency-state-toggle"
+                    aria-expanded={open}
+                    onclick={() => toggleNatState(branch.state_code)}
+                  >
+                    <span class="flex min-w-0 items-center gap-2">
+                      <TopicIcon
+                        name={open ? "chevron-down" : "chevron-right"}
+                        cls="h-4 w-4 shrink-0 text-slate-400"
+                      />
+                      <span class="truncate font-medium text-slate-800"
+                        >{branch.state_name}</span
+                      >
+                      <span
+                        class="shrink-0 text-xs tabular-nums text-slate-400"
+                        >{branch.pcs.length}
+                        {branch.pcs.length === 1 ? "seat" : "seats"}</span
+                      >
+                    </span>
+                    {#if strip.segments.length > 0}
+                      <span
+                        class="flex min-w-0 max-w-[55%] items-center gap-2"
+                      >
+                        <span
+                          class="hidden h-2.5 min-w-[60px] flex-1 overflow-hidden rounded-full sm:flex"
+                          aria-hidden="true"
+                        >
+                          {#each strip.segments as seg (seg.party_id)}
+                            <span
+                              style={`width:${seg.pct}%;background:${seg.color}`}
+                              title={`${seg.party_short} ${seg.count}`}
+                            ></span>
+                          {/each}
+                        </span>
+                        <span
+                          class="shrink-0 text-xs font-medium tabular-nums text-slate-600"
+                          >{strip.leader_label}</span
+                        >
+                      </span>
+                    {/if}
+                  </button>
+                  {#if open}
+                    <div
+                      class="px-2 pb-3"
+                      data-testid="national-event-constituency-state-panel"
+                    >
+                      <StateEventConstituencyList
+                        loading={false}
+                        seat_rows={natSeatRowsFor(branch)}
+                        group_headers={natHeadersFor(branch)}
+                        {fmtInt}
+                        {fmtPct}
+                        hide_controls={true}
+                      />
+                    </div>
+                  {/if}
+                </li>
+              {/each}
+            </ul>
+          {/if}
+        {/if}
+      </section>
+    {/if}
   {/if}
 </PageContainer>
