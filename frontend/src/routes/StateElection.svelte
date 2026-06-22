@@ -972,9 +972,9 @@
     return out;
   });
 
-  // ---- Previous-event link (W4b CTA target) --------------------------
-  // For "compare with previous same-body event": find the event before
-  // the active one of the same kind.
+  // ---- Previous same-body event (seat-swing / counterfactual baseline)
+  // For the seat-swing projection: find the event before the active one
+  // of the same kind.
   const previous_same_body = $derived.by<ElectionEventRow | null>(() => {
     const cat = catalogue;
     const sc = state_code;
@@ -989,13 +989,6 @@
     const idx = all.findIndex((e) => e.event_id === ev.event_id);
     if (idx <= 0) return null;
     return all[idx - 1];
-  });
-
-  const compare_href = $derived.by<string | null>(() => {
-    const ev = event_row;
-    const prev = previous_same_body;
-    if (!ev || !prev) return null;
-    return `/compare/elections/${params.state}/${encodeURIComponent(prev.event_id)}/${encodeURIComponent(ev.event_id)}`;
   });
 
   // ---- R4 (TODO/20260615-state-election-event-page-redesign-plan.md):
@@ -1518,19 +1511,17 @@
         </section>
       {/if}
 
-      <!-- Constituency table + Compare CTA. R3 of
+      <!-- Constituency table. R3 of
            TODO/20260615-state-election-event-page-redesign-plan.md
            (2026-06-15): extracted to StateEventConstituencyList as a
            Beck two-hat structural-only refactor; the section's
            data-testids and DOM shape were preserved verbatim. R4
-           rebuilds the inside (district-grouped fold + sticky search +
-           Compare CTA as a slate-link last row) - the testids stay
-           verbatim so all prior e2e assertions still pass. -->
+           rebuilds the inside (district-grouped fold + sticky search) -
+           the testids stay verbatim so all prior e2e assertions still
+           pass. -->
       <StateEventConstituencyList
         {loading}
         {seat_rows}
-        {previous_same_body}
-        {compare_href}
         {fmtInt}
         {fmtPct}
       />
