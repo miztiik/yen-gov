@@ -98,12 +98,20 @@ describe("TopicIcon helpers", () => {
       // replaced with an `<img src="/brands/wikipedia.svg">` mount of
       // the CC BY-SA puzzle-globe; the W-glyph survives here for the
       // sole remaining consumer (`GallagherDisproportionality.svelte`).
+      // Row 2 (2026-06-22) added `arrow-up-down` (sort toggle),
+      // `chevron-down` (open-fold twisty), and `search` (name-search
+      // magnifier) for the rebuilt constituency list; see
+      // TODO/20260622-election-constituency-grouping-plan.md.
       expect(names).toEqual([
         "activity",
         // PR4 (2026-06-17): the Flips KPI card on the election compare
         // page (CompareElections.svelte) uses this Lucide arrow-left-right
         // glyph. See TODO/20260617-election-compare-ux-overhaul-plan.md.
         "arrow-left-right",
+        // Row 2 (2026-06-22): the constituency-list sort control toggles
+        // ballot order <-> by-margin with this Lucide arrow-up-down glyph.
+        // See TODO/20260622-election-constituency-grouping-plan.md.
+        "arrow-up-down",
         "bar-chart",
         // Row B (2026-06-18): the "Active" KPI tile on the party page
         // labels its election-span range with this Lucide calendar-range
@@ -111,6 +119,10 @@ describe("TopicIcon helpers", () => {
         "calendar-range",
         "car",
         "check",
+        // Row 2 (2026-06-22): the constituency-list expand/collapse twisty
+        // renders chevron-down when a district fold is open (chevron-right
+        // when collapsed). See TODO/20260622-election-constituency-grouping-plan.md.
+        "chevron-down",
         "chevron-right",
         "cloud",
         "compass",
@@ -122,6 +134,10 @@ describe("TopicIcon helpers", () => {
         "heart-pulse",
         "info",
         "landmark",
+        // Row 2 (2026-06-22): the constituency-list name search uses this
+        // Lucide search (magnifier) glyph. See
+        // TODO/20260622-election-constituency-grouping-plan.md.
+        "search",
         "settings",
         "shield",
         "sun",
