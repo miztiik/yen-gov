@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { buildKpiTiles, NO_ASSEMBLY_UT_SLUGS } from "./StateOverview.svelte";
+import {
+  buildKpiTiles,
+  NO_ASSEMBLY_UT_SLUGS,
+  buildAcNameDistrictIndex,
+  districtNameForConstituency,
+  groupConstituenciesByDistrict,
+} from "./StateOverview.svelte";
+import { slugify } from "../lib/slug";
 import type { ConstituencyEntry } from "../lib/data";
 import type { District } from "../lib/view-models/districts";
 
@@ -96,5 +103,154 @@ describe("NO_ASSEMBLY_UT_SLUGS", () => {
     for (const s of ["tamil-nadu", "karnataka", "kerala", "uttar-pradesh", "sikkim", "goa"]) {
       expect(NO_ASSEMBLY_UT_SLUGS.has(s)).toBe(false);
     }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Row 6 - landing-page district grouping via the universal membership source.
+//
+// Bounded Andhra Pradesh fixture. AP's boundaries_sot constituencies.json has
+// NO inline district_id (only 5 states do), so before Row 6 the landing list
+// was flat. The enrichment map is keyed by entity_id with the district on the
+// `...-<serial>` form; the `...-eci<NN>` ballot-alias row carries a NULL
+// district and must be skipped (it must never shadow the real edge). The
+// landing list shares only the NAME with the canonical store, so the join is
+// `slug(name) -> entity_id -> district_name`.
+// ---------------------------------------------------------------------------
+
+const AP_ENRICHMENT = new Map<string, { district_name: string | null }>([
+  ["IN-AC-2008-andhra-pradesh-3166", { district_name: "Dr B R Ambedkar Konaseema" }],
+  ["IN-AC-2008-andhra-pradesh-3169", { district_name: "East Godavari" }],
+  ["IN-AC-2008-andhra-pradesh-3175", { district_name: "East Godavari" }],
+  // Ballot-number alias row: authoritative eci_no but NO membership edge.
+  ["IN-AC-2008-andhra-pradesh-eci44", { district_name: null }],
+]);
+
+const AP_STATE_ACS: { entity_id: string; name: string }[] = [
+  { entity_id: "IN-AC-2008-andhra-pradesh-3166", name: "Amalapuram" },
+  { entity_id: "IN-AC-2008-andhra-pradesh-3169", name: "Mandapeta" },
+  { entity_id: "IN-AC-2008-andhra-pradesh-3175", name: "Rajanagaram" },
+  // UPPERCASE alias of Amalapuram with a null district - must be skipped.
+  { entity_id: "IN-AC-2008-andhra-pradesh-eci44", name: "AMALAPURAM" },
+];
+
+function cons(
+  eci_no: number,
+  name: string,
+  reservation: "GEN" | "SC" | "ST" = "GEN",
+  district_id?: string,
+): ConstituencyEntry {
+  return district_id ? { eci_no, name, reservation, district_id } : { eci_no, name, reservation };
+}
+
+describe("buildAcNameDistrictIndex (Row 6 universal membership join)", () => {
+  it("resolves slug(name) -> district from the enrichment", () => {
+    const idx = buildAcNameDistrictIndex(AP_STATE_ACS, AP_ENRICHMENT);
+    expect(idx.get("amalapuram")).toBe("Dr B R Ambedkar Konaseema");
+    expect(idx.get("mandapeta")).toBe("East Godavari");
+    expect(idx.get("rajanagaram")).toBe("East Godavari");
+  });
+
+  it("skips null-district alias rows so they never shadow the real edge", () => {
+    const idx = buildAcNameDistrictIndex(AP_STATE_ACS, AP_ENRICHMENT);
+    // The `-eci44` alias (null district, UPPERCASE "AMALAPURAM") slugs to the
+    // same "amalapuram" key but must NOT overwrite the `-3166` edge to null.
+    expect(idx.get("amalapuram")).toBe("Dr B R Ambedkar Konaseema");
+    expect(idx.size).toBe(3);
+  });
+
+  it("ignores AC entity_ids absent from the enrichment", () => {
+    const idx = buildAcNameDistrictIndex(
+      [{ entity_id: "IN-AC-2008-andhra-pradesh-9999", name: "Ghost" }],
+      AP_ENRICHMENT,
+    );
+    expect(idx.size).toBe(0);
+  });
+});
+
+describe("districtNameForConstituency (Row 6 resolver: universal then legacy)", () => {
+  const idx = buildAcNameDistrictIndex(AP_STATE_ACS, AP_ENRICHMENT);
+  const legacy = new Map<string, string>([["LEG", "Legacy District"]]);
+
+  it("prefers the universal index over the legacy district_id", () => {
+    const ac = cons(44, "Amalapuram", "SC", "LEG");
+    expect(districtNameForConstituency(ac, idx, legacy)).toBe("Dr B R Ambedkar Konaseema");
+  });
+
+  it("falls back to the legacy district_id name when universal misses", () => {
+    // Non-regression for the 5 boundaries_sot states that carry district_id.
+    const ac = cons(70, "Unjoined Seat", "GEN", "LEG");
+    expect(districtNameForConstituency(ac, idx, legacy)).toBe("Legacy District");
+  });
+
+  it("falls back to the raw district_id when the legacy name map misses", () => {
+    const ac = cons(70, "Unjoined Seat", "GEN", "ZZ");
+    expect(districtNameForConstituency(ac, idx, legacy)).toBe("ZZ");
+  });
+
+  it("returns null (=> Other bucket) when neither resolves, incl. null index", () => {
+    expect(districtNameForConstituency(cons(71, "No District"), idx, new Map())).toBeNull();
+    expect(districtNameForConstituency(cons(71, "No District"), null, new Map())).toBeNull();
+  });
+});
+
+describe("groupConstituenciesByDistrict (Row 6 landing grouping ORACLE)", () => {
+  const idx = buildAcNameDistrictIndex(AP_STATE_ACS, AP_ENRICHMENT);
+  const resolve = (ac: ConstituencyEntry) => idx.get(slugify(ac.name)) ?? null;
+
+  // The landing list as it arrives from constituencies.json: AUTHORITATIVE
+  // eci_no, no district_id. One AC ("Unmapped Seat") has no membership edge.
+  const AP_ACS: ConstituencyEntry[] = [
+    cons(44, "Amalapuram", "SC"),
+    cons(48, "Mandapeta"),
+    cons(50, "Rajanagaram"),
+    cons(99, "Unmapped Seat"),
+  ];
+
+  it("groups AP from the membership source, covering EVERY AC (none dropped)", () => {
+    const groups = groupConstituenciesByDistrict(AP_ACS, "", resolve);
+    const total = groups.reduce((s, g) => s + g.acs.length, 0);
+    expect(total).toBe(AP_ACS.length);
+  });
+
+  it("yields more than one distinct district (AP is no longer a flat list)", () => {
+    const groups = groupConstituenciesByDistrict(AP_ACS, "", resolve);
+    const mapped = groups.filter(g => !g.is_other);
+    expect(mapped.length).toBeGreaterThan(1);
+    expect(new Set(mapped.map(g => g.name)).size).toBeGreaterThan(1);
+  });
+
+  it("keeps unmapped ACs in a single trailing Other bucket", () => {
+    const groups = groupConstituenciesByDistrict(AP_ACS, "", resolve);
+    const other = groups.filter(g => g.is_other);
+    expect(other).toHaveLength(1);
+    expect(other[0].acs.map(a => a.name)).toEqual(["Unmapped Seat"]);
+    expect(groups[groups.length - 1].is_other).toBe(true);
+  });
+
+  it("sorts groups by AC count desc (Other last) and ACs by ballot order", () => {
+    const groups = groupConstituenciesByDistrict(AP_ACS, "", resolve);
+    expect(groups.map(g => g.name)).toEqual([
+      "East Godavari", // 2 ACs
+      "Dr B R Ambedkar Konaseema", // 1 AC
+      "Other constituencies", // 1 AC, forced last
+    ]);
+    const eg = groups.find(g => g.name === "East Godavari")!;
+    expect(eg.acs.map(a => a.eci_no)).toEqual([48, 50]);
+  });
+
+  it("applies the name / eci_no search filter and drops empty districts", () => {
+    const byName = groupConstituenciesByDistrict(AP_ACS, "amala", resolve);
+    expect(byName).toHaveLength(1);
+    expect(byName[0].name).toBe("Dr B R Ambedkar Konaseema");
+    expect(byName[0].acs.map(a => a.name)).toEqual(["Amalapuram"]);
+
+    const byNumber = groupConstituenciesByDistrict(AP_ACS, "99", resolve);
+    expect(byNumber).toHaveLength(1);
+    expect(byNumber[0].is_other).toBe(true);
+  });
+
+  it("returns no groups when nothing matches the search", () => {
+    expect(groupConstituenciesByDistrict(AP_ACS, "no-such-seat", resolve)).toEqual([]);
   });
 });
