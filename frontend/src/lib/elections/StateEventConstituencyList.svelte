@@ -31,6 +31,18 @@
   All testable logic lives in ./constituency-list-tokens (one code path,
   exercised by StateEventConstituencyList.test.ts).
 
+  Row 3 (Wave 2) adds an OPTIONAL parliament/PC mode to this SAME component
+  (schema-is-the-design-system: ONE component, switched by DATA presence).
+  When the `group_headers` prop carries an entry for a group's key, that
+  group renders in PC mode: the GROUP HEADER shows the PC's parliament (MP)
+  result (party chip + share + margin band + child-AC count) and the leaves
+  render as navigation + their own LGD district label, with NO per-AC result
+  chip. Groups WITHOUT a header entry stay in assembly mode (proportional
+  party strip + per-leaf result chips) - 100% unchanged. The grouping key is
+  the leaf `pc_group` (PC name) when present, else `district` (see
+  buildGroups + groupKeyOf in the token module); `district` stays the leaf's
+  own LGD district in both modes so a PC-mode leaf can show it inline.
+
   The trailing "Compare with <prior event>" CTA was REMOVED 2026-06-22 as
   redundant: the SiblingEventsRail above the map already offers the
   compare affordance ("See how this election compares with <prior year>").
@@ -43,19 +55,21 @@
   state-event-constituency-reserved-filter,
   state-event-constituency-reserved-option,
   state-event-constituency-sort, state-event-constituency-count,
-  state-event-constituency-strip-label.
+  state-event-constituency-strip-label. Row 3 ADDS (PC mode):
+  state-event-constituency-pc-header, state-event-constituency-pc-leaves,
+  state-event-constituency-leaf-district.
 -->
 <script lang="ts">
   import TopicIcon from "../TopicIcon.svelte";
   import ReservationBadge from "./ReservationBadge.svelte";
   import {
     applyFilters,
-    buildPartyStrip,
+    buildGroups,
     distinctDistrictCount,
     formatCountLine,
     marginBand,
-    sortLeaves,
-    type PartyStrip,
+    type ConstituencyGroup,
+    type GroupHeaderResult,
     type ReservationKind,
     type SortMode,
   } from "./constituency-list-tokens";
@@ -79,6 +93,12 @@
      *  the Reserved filter; "GEN" (or null / undefined) renders no
      *  badge. Populated by the STATE-lane loader (Row 4). */
     reservation?: string | null;
+    /** Parliament/PC-mode grouping override (Row 3). When present (general
+     *  events: the leaf is an AC and this is its parent PC name) the leaf
+     *  groups under this PC instead of `district`, and the PC's result is
+     *  supplied separately via the `group_headers` prop. Absent in assembly
+     *  mode. Populated by the STATE-lane loader (Row 5). */
+    pc_group?: string | null;
     winner_party_short: string;
     winner_party_id: string;
     winner_color: string;
@@ -92,6 +112,13 @@
     seat_rows: readonly SeatRow[];
     fmtInt: (n: number | null) => string;
     fmtPct: (n: number | null) => string;
+    /** OPTIONAL parliament/PC mode (Row 3). Keyed by group key (the leaf
+     *  `pc_group` in PC mode); when a group's key has an entry here that
+     *  group renders the PC result (party chip + share + margin band + child
+     *  AC count) in its HEADER and its leaves as navigation + district label
+     *  (no per-AC result chip). Absent / null / empty -> assembly mode
+     *  (unchanged). Populated by the STATE-lane loader (Row 5). */
+    group_headers?: Record<string, GroupHeaderResult> | null;
   }
 
   let {
@@ -99,6 +126,7 @@
     seat_rows,
     fmtInt,
     fmtPct,
+    group_headers = null,
   }: Props = $props();
 
   type ReservedFilter = ReservationKind | "All";
@@ -160,31 +188,13 @@
     formatCountLine(filtered.length, distinctDistrictCount(filtered)),
   );
 
-  interface DistrictGroup {
-    district: string;
-    rows: SeatRow[];
-    strip: PartyStrip;
-  }
-
-  const groups = $derived.by<DistrictGroup[]>(() => {
-    const by_district = new Map<string, SeatRow[]>();
-    for (const r of filtered) {
-      const d = r.district ?? "All constituencies";
-      const list = by_district.get(d);
-      if (list) list.push(r);
-      else by_district.set(d, [r]);
-    }
-    const out: DistrictGroup[] = [];
-    for (const [district, rows] of by_district) {
-      out.push({
-        district,
-        rows: sortLeaves(rows, sort_mode),
-        strip: buildPartyStrip(rows),
-      });
-    }
-    out.sort((a, b) => a.district.localeCompare(b.district, "en"));
-    return out;
-  });
+  // Group the filtered leaves, attaching either an assembly-mode party strip
+  // or a PC-mode header result per group (buildGroups switches on whether
+  // group_headers carries an entry for the group key). ONE code path, shared
+  // with StateEventConstituencyList.test.ts.
+  const groups = $derived.by<ConstituencyGroup<SeatRow>[]>(() =>
+    buildGroups(filtered, sort_mode, group_headers),
+  );
 
   // When a search query OR a Reserved filter is active, auto-expand every
   // group so the citizen sees the matches without an extra tap.
@@ -196,11 +206,14 @@
     return force_expand_all || expanded.has(d);
   }
 
-  // Single-group special case: exactly one group AND no active filter ->
-  // treat as auto-expanded so the citizen does not have to tap once to
-  // see the only data. The fold shape still ships for when district data
-  // lands (Row 4).
-  const single_group = $derived(groups.length === 1 && !force_expand_all);
+  // Single-group special case: exactly one ASSEMBLY group AND no active
+  // filter -> treat as auto-expanded so the citizen does not have to tap
+  // once to see the only data. The fold shape still ships for when district
+  // data lands (Row 4). A PC-mode group always keeps its toggle + result
+  // header visible, so it never collapses into this single-group path.
+  const single_group = $derived(
+    groups.length === 1 && !force_expand_all && groups[0]?.mode !== "pc",
+  );
 </script>
 
 <!-- Constituency table -->
@@ -287,8 +300,8 @@
       </p>
     {:else}
       <ul class="divide-y border-y">
-        {#each groups as g (g.district)}
-          {@const open = isExpanded(g.district) || single_group}
+        {#each groups as g (g.group_key)}
+          {@const open = isExpanded(g.group_key) || single_group}
           <li data-testid="state-event-constituency-district-row">
             {#if !single_group}
               <button
@@ -296,42 +309,114 @@
                 class="flex w-full items-center justify-between gap-3 px-2 py-2 text-left text-sm hover:bg-slate-50"
                 data-testid="state-event-constituency-district-toggle"
                 aria-expanded={open}
-                onclick={() => toggleDistrict(g.district)}
+                onclick={() => toggleDistrict(g.group_key)}
               >
                 <span class="flex min-w-0 items-center gap-2">
                   <TopicIcon
                     name={open ? "chevron-down" : "chevron-right"}
                     cls="h-4 w-4 shrink-0 text-slate-400"
                   />
-                  <span class="truncate font-medium text-slate-800">{g.district}</span>
-                  <span class="shrink-0 text-xs tabular-nums text-slate-500">
-                    {fmtInt(g.rows.length)}
-                  </span>
+                  <span class="truncate font-medium text-slate-800">{g.group_key}</span>
+                  {#if g.mode === "pc" && g.header_result}
+                    <ReservationBadge
+                      reservation={g.header_result.reservation}
+                      cls="shrink-0 align-middle"
+                    />
+                    <span class="shrink-0 text-xs tabular-nums text-slate-500">
+                      {fmtInt(g.header_result.child_count)}
+                    </span>
+                  {:else}
+                    <span class="shrink-0 text-xs tabular-nums text-slate-500">
+                      {fmtInt(g.rows.length)}
+                    </span>
+                  {/if}
                 </span>
-                <span class="flex min-w-0 items-center gap-2">
-                  <!-- Proportional segmented party strip: one segment per
-                       winning party, width proportional to seats won. -->
+                {#if g.mode === "pc" && g.header_result}
+                  {@const hband = marginBand(g.header_result.margin)}
+                  <!-- PC mode: the GROUP HEADER carries the PC's parliament
+                       (MP) result - party chip + share + margin band - in
+                       place of the assembly proportional party strip. -->
                   <span
-                    aria-hidden="true"
-                    class="flex h-2.5 w-16 overflow-hidden rounded-sm border border-slate-200 sm:w-24"
+                    class="flex min-w-0 items-center gap-2"
+                    data-testid="state-event-constituency-pc-header"
                   >
-                    {#each g.strip.segments as seg (seg.party_id)}
+                    <span
+                      class="inline-block rounded px-1.5 py-0.5 text-xs font-medium text-white"
+                      style={`background-color:${g.header_result.color};`}
+                    >{g.header_result.chip}</span>
+                    <span class="hidden shrink-0 text-xs tabular-nums text-slate-600 sm:inline">
+                      {fmtPct(g.header_result.share)}
+                    </span>
+                    <span class="inline-flex shrink-0 items-center justify-end gap-1 tabular-nums">
+                      {#if hband}
+                        <span
+                          aria-hidden="true"
+                          class="inline-block h-2 w-2 rounded-sm"
+                          style={`background-color:${hband.hex};`}
+                          title={hband.label}
+                        ></span>
+                      {/if}
                       <span
-                        class="h-full"
-                        style={`width:${seg.pct}%;background-color:${seg.color};`}
-                        title={`${seg.party_short} ${seg.count}`}
-                      ></span>
-                    {/each}
+                        class="text-xs font-semibold"
+                        style={hband ? `color:${hband.hex};` : ""}
+                      >{fmtPct(g.header_result.margin)}</span>
+                    </span>
                   </span>
-                  <span
-                    class="shrink-0 text-xs font-semibold tabular-nums text-slate-700"
-                    data-testid="state-event-constituency-strip-label"
-                  >{g.strip.leader_label}</span>
-                </span>
+                {:else if g.strip}
+                  <span class="flex min-w-0 items-center gap-2">
+                    <!-- Proportional segmented party strip: one segment per
+                         winning party, width proportional to seats won. -->
+                    <span
+                      aria-hidden="true"
+                      class="flex h-2.5 w-16 overflow-hidden rounded-sm border border-slate-200 sm:w-24"
+                    >
+                      {#each g.strip.segments as seg (seg.party_id)}
+                        <span
+                          class="h-full"
+                          style={`width:${seg.pct}%;background-color:${seg.color};`}
+                          title={`${seg.party_short} ${seg.count}`}
+                        ></span>
+                      {/each}
+                    </span>
+                    <span
+                      class="shrink-0 text-xs font-semibold tabular-nums text-slate-700"
+                      data-testid="state-event-constituency-strip-label"
+                    >{g.strip.leader_label}</span>
+                  </span>
+                {/if}
               </button>
             {/if}
 
             {#if open}
+              {#if g.mode === "pc"}
+                <!-- PC mode: leaves render as navigation + a district label
+                     only (no per-AC result chip, no per-leaf strip cell).
+                     Each leaf is a child AC of this PC, tagged with its LGD
+                     district. -->
+                <ul class="divide-y" data-testid="state-event-constituency-pc-leaves">
+                  {#each g.rows as r (r.entity_id)}
+                    <li
+                      class="flex items-center justify-between gap-3 py-2 pl-6 pr-2 text-sm hover:bg-slate-50"
+                      data-testid="state-event-constituency-row"
+                    >
+                      <span class="flex min-w-0 items-center gap-1">
+                        <a
+                          class="truncate text-sky-700 hover:underline"
+                          href={r.href}
+                          data-testid="state-event-constituency-link"
+                        >{r.entity_name}</a>
+                        <ReservationBadge reservation={r.reservation} cls="shrink-0 align-middle" />
+                      </span>
+                      {#if r.district}
+                        <span
+                          class="shrink-0 truncate text-xs text-slate-500"
+                          data-testid="state-event-constituency-leaf-district"
+                        >-&gt; {r.district}</span>
+                      {/if}
+                    </li>
+                  {/each}
+                </ul>
+              {:else}
               <table class="w-full text-sm">
                 <thead class="text-left text-xs uppercase text-slate-500">
                   <tr>
@@ -393,6 +478,7 @@
                   {/each}
                 </tbody>
               </table>
+              {/if}
             {/if}
           </li>
         {/each}

@@ -253,3 +253,120 @@ export function formatCountLine(constituencies: number, districts: number): stri
   const d = `${districts} ${districts === 1 ? "district" : "districts"}`;
   return `${c} in ${d}`;
 }
+
+// ---------------------------------------------------------------------------
+// Group assembly - assembly mode (party strip) vs PC mode (header result).
+// ---------------------------------------------------------------------------
+//
+// Row 3 of TODO/20260622-election-constituency-grouping-plan.md adds an
+// OPTIONAL parliament/PC mode to the SAME component (schema-is-the-design-
+// system: ONE component, behaviour switched by DATA presence). A group is in
+// PC mode IFF the caller supplies a `GroupHeaderResult` for that group's key
+// in the `group_headers` map; otherwise the group is in assembly mode and
+// behaves exactly as before (a proportional party strip in the header + per-
+// leaf result chips on the leaves).
+//
+// Grouping key (see `groupKeyOf`): a leaf groups under `pc_group` when present
+// (parliament: the leaf is an AC and `pc_group` is its parent PC name), else
+// under `district` (assembly: the leaf is an AC grouped by its LGD district),
+// else the shared "All constituencies" fallback. Keeping `district` as the
+// leaf's OWN LGD district in BOTH modes lets a PC-mode leaf render its district
+// label inline ("-> Krishna") while the group header carries the PC result.
+
+/** The parliament/PC group-header result: the Lok Sabha (MP) outcome for a PC,
+ *  rendered in the GROUP HEADER (never on the leaves). Supplied per group via
+ *  `buildGroups`' `group_headers` map (keyed by the group key). MUST carry a
+ *  party chip, a vote share, a margin, and a child-AC count; `color` +
+ *  `reservation` are yen-gov additions so the header chip paints in the
+ *  winner's brand colour and shows the PC's SC/ST badge - matching the
+ *  assembly-mode leaf chip + Appendix Mode 2 mock. */
+export interface GroupHeaderResult {
+  /** Winning party short label shown in the header chip (e.g. "TDP"). Never
+   *  colour-only - the chip ALWAYS shows this text. */
+  readonly chip: string;
+  /** Winning party brand colour - the header chip background. */
+  readonly color: string;
+  /** Winner vote share in percentage points (0..100), or null when unknown. */
+  readonly share: number | null;
+  /** Winner margin in percentage points (0..100), or null; drives the shared
+   *  marginBand() swatch in the header. */
+  readonly margin: number | null;
+  /** Count of child ACs under this PC (the "N segments" count in the mock). */
+  readonly child_count: number;
+  /** Optional PC-level reservation ("SC"/"ST") -> rose badge in the header;
+   *  GEN / null / undefined renders nothing. */
+  readonly reservation?: string | null;
+}
+
+/** The minimal leaf shape `buildGroups` keys on: the winner trio for the
+ *  assembly strip (StripInput), the sort keys (SortableLeaf), plus the two
+ *  grouping fields. `SeatRow` satisfies this structurally. */
+export interface GroupableLeaf extends StripInput, SortableLeaf {
+  /** The leaf's own LGD district name. In assembly mode this is the group
+   *  key; in PC mode it is shown inline on the leaf. */
+  readonly district?: string | null;
+  /** Parliament-mode grouping override: the parent PC name. When present the
+   *  leaf groups under this instead of `district`. Absent in assembly mode. */
+  readonly pc_group?: string | null;
+}
+
+export interface ConstituencyGroup<T> {
+  /** The group label (PC name in PC mode, LGD district in assembly mode, or
+   *  the "All constituencies" fallback). Also the fold/expand key. */
+  readonly group_key: string;
+  /** Leaves in this group, sorted per the active SortMode. */
+  readonly rows: T[];
+  /** "pc" iff a GroupHeaderResult was supplied for this group key, else
+   *  "assembly". The renderer switches the header (result vs strip) and the
+   *  leaves (district label vs result chip) on this single flag. */
+  readonly mode: "pc" | "assembly";
+  /** PC-mode group-header result; null in assembly mode. */
+  readonly header_result: GroupHeaderResult | null;
+  /** Assembly-mode proportional party strip; null in PC mode. */
+  readonly strip: PartyStrip | null;
+}
+
+/** The single source of truth for a leaf's group key: `pc_group` (parliament)
+ *  -> `district` (assembly) -> the shared fallback. */
+export function groupKeyOf(
+  leaf: GroupableLeaf,
+  fallback = "All constituencies",
+): string {
+  return leaf.pc_group ?? leaf.district ?? fallback;
+}
+
+/**
+ * Groups leaves into ordered ConstituencyGroups, attaching either an
+ * assembly-mode party strip OR a PC-mode header result per group. PC mode is
+ * selected PER GROUP by the presence of a `group_headers[group_key]` entry, so
+ * one component instance can render assembly groups and PC groups from DATA
+ * alone (schema-is-the-design-system). Groups are sorted by their key (locale
+ * "en"); leaves are sorted by the given SortMode. Pure - never mutates input.
+ */
+export function buildGroups<T extends GroupableLeaf>(
+  rows: readonly T[],
+  sort_mode: SortMode,
+  group_headers?: Record<string, GroupHeaderResult> | null,
+  fallback = "All constituencies",
+): ConstituencyGroup<T>[] {
+  const by_key = new Map<string, T[]>();
+  for (const r of rows) {
+    const key = groupKeyOf(r, fallback);
+    const list = by_key.get(key);
+    if (list) list.push(r);
+    else by_key.set(key, [r]);
+  }
+  const out: ConstituencyGroup<T>[] = [];
+  for (const [group_key, groupRows] of by_key) {
+    const header = group_headers?.[group_key] ?? null;
+    out.push({
+      group_key,
+      rows: sortLeaves(groupRows, sort_mode),
+      mode: header ? "pc" : "assembly",
+      header_result: header,
+      strip: header ? null : buildPartyStrip(groupRows),
+    });
+  }
+  out.sort((a, b) => a.group_key.localeCompare(b.group_key, "en"));
+  return out;
+}

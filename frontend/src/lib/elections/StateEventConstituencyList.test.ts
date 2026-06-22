@@ -10,6 +10,7 @@
 import { describe, it, expect } from "vitest";
 
 import {
+  buildGroups,
   buildPartyStrip,
   marginBand,
   reservationKind,
@@ -18,6 +19,7 @@ import {
   distinctDistrictCount,
   formatCountLine,
   STRIP_OTHER_COLOR,
+  type GroupHeaderResult,
   type StripInput,
 } from "./constituency-list-tokens";
 
@@ -208,5 +210,134 @@ describe("sortLeaves - ballot order vs by-margin", () => {
       leaf({ entity_id: "z", entity_name: "Z", eci_no: 1, margin_pct: 5 }),
     ];
     expect(sortLeaves(mixed, "ballot").map((r) => r.entity_id)).toEqual(["z", "y", "x"]);
+  });
+});
+
+// A leaf satisfying GroupableLeaf (what buildGroups keys on): the winner trio
+// for the assembly strip + margin/eci for sorting + district/pc_group for the
+// grouping key. SeatRow satisfies this structurally.
+interface GLeaf {
+  entity_id: string;
+  entity_name: string;
+  district?: string | null;
+  pc_group?: string | null;
+  reservation?: string | null;
+  eci_no?: number | null;
+  margin_pct: number | null;
+  winner_party_short: string;
+  winner_party_id: string;
+  winner_color: string;
+}
+
+function gleaf(over: Partial<GLeaf> & { entity_name: string }): GLeaf {
+  return {
+    entity_id: over.entity_id ?? over.entity_name,
+    entity_name: over.entity_name,
+    district: over.district,
+    pc_group: over.pc_group,
+    reservation: over.reservation,
+    eci_no: over.eci_no,
+    margin_pct: over.margin_pct ?? null,
+    winner_party_short: over.winner_party_short ?? "TDP",
+    winner_party_id: over.winner_party_id ?? "TDP",
+    winner_color: over.winner_color ?? "#fdd835",
+  };
+}
+
+describe("buildGroups - assembly mode (strip) vs PC mode (header result)", () => {
+  it("ORACLE: PC mode - header_result present -> group header carries the result, leaves carry district labels, NO strip", () => {
+    // Three child ACs under PC "Vijayawada", each with its own LGD district.
+    const rows: GLeaf[] = [
+      gleaf({ entity_name: "Vijayawada West", pc_group: "Vijayawada", district: "Krishna", eci_no: 1 }),
+      gleaf({ entity_name: "Mylavaram", pc_group: "Vijayawada", district: "NTR", eci_no: 2 }),
+      gleaf({ entity_name: "Nandigama", pc_group: "Vijayawada", district: "NTR", reservation: "SC", eci_no: 3 }),
+    ];
+    const header: GroupHeaderResult = {
+      chip: "TDP",
+      color: "#fdd835",
+      share: 54.2,
+      margin: 11.0,
+      child_count: 3,
+      reservation: null,
+    };
+    const groups = buildGroups(rows, "ballot", { Vijayawada: header });
+
+    expect(groups).toHaveLength(1);
+    const g = groups[0];
+    expect(g.group_key).toBe("Vijayawada");
+    expect(g.mode).toBe("pc");
+    // The GROUP HEADER shows the result (chip + share + margin band + child
+    // count) - the renderer reads it straight off header_result.
+    expect(g.header_result).toEqual(header);
+    expect(g.header_result?.chip).toBe("TDP");
+    expect(g.header_result?.share).toBe(54.2);
+    expect(marginBand(g.header_result?.margin ?? null)?.key).toBe("comfortable");
+    expect(g.header_result?.child_count).toBe(3);
+    // PC mode shows NO assembly party strip (the strip is the assembly glance;
+    // PC mode shows the single MP result instead).
+    expect(g.strip).toBeNull();
+    // The leaves render as navigation + a DISTRICT LABEL (their own LGD
+    // district), in ballot order, with NO per-AC result chip - the renderer
+    // switches the leaf shape on g.mode === "pc".
+    expect(g.rows.map((r) => r.entity_name)).toEqual(["Vijayawada West", "Mylavaram", "Nandigama"]);
+    expect(g.rows.map((r) => r.district)).toEqual(["Krishna", "NTR", "NTR"]);
+  });
+
+  it("ORACLE: assembly mode unchanged - no group_headers -> party strip + null header (leaves keep result chips)", () => {
+    // Three ACs in one district; assembly mode (no group_headers supplied).
+    const rows: GLeaf[] = [
+      gleaf({ entity_name: "Tadikonda", district: "Guntur", winner_party_short: "YSRCP", winner_party_id: "YSRCP", winner_color: "#1565c0", margin_pct: 2.1, eci_no: 163 }),
+      gleaf({ entity_name: "Mangalagiri", district: "Guntur", winner_party_short: "TDP", winner_party_id: "TDP", winner_color: "#fdd835", margin_pct: 7.4, eci_no: 164 }),
+      gleaf({ entity_name: "Ponnur", district: "Guntur", winner_party_short: "TDP", winner_party_id: "TDP", winner_color: "#fdd835", margin_pct: 12.6, eci_no: 165 }),
+    ];
+    const groups = buildGroups(rows, "ballot");
+
+    expect(groups).toHaveLength(1);
+    const g = groups[0];
+    expect(g.group_key).toBe("Guntur");
+    expect(g.mode).toBe("assembly");
+    // Assembly mode renders the proportional party strip in the header and
+    // keeps the per-leaf result table (g.mode !== "pc"), so the leaves still
+    // show their result chips exactly as before Row 3.
+    expect(g.header_result).toBeNull();
+    expect(g.strip).not.toBeNull();
+    expect(g.strip?.leader_label).toBe("TDP 2/3");
+    expect(g.strip?.segments.map((s) => s.party_short)).toEqual(["TDP", "YSRCP"]);
+    // The leaf data the assembly table renders (winner chip + share + margin)
+    // is intact on every row.
+    expect(g.rows.map((r) => r.winner_party_short)).toContain("YSRCP");
+  });
+
+  it("keys on pc_group, else district, else the shared fallback; sorts groups + applies PC mode only where a header exists", () => {
+    const rows: GLeaf[] = [
+      gleaf({ entity_name: "AC-b", pc_group: "PC-Z", district: "D2", eci_no: 5 }),
+      gleaf({ entity_name: "AC-a", pc_group: "PC-A", district: "D1", eci_no: 9 }),
+      gleaf({ entity_name: "AC-c", district: "D-only", eci_no: 1 }),
+      gleaf({ entity_name: "AC-d", eci_no: 2 }),
+    ];
+    const header: GroupHeaderResult = { chip: "X", color: "#000000", share: null, margin: null, child_count: 1 };
+    const groups = buildGroups(rows, "ballot", { "PC-A": header });
+
+    // Group keys: pc_group overrides district overrides the fallback; sorted
+    // by key (locale "en").
+    expect(groups.map((g) => g.group_key)).toEqual(["All constituencies", "D-only", "PC-A", "PC-Z"]);
+    // ONLY the group with a header entry is PC mode; everything else stays
+    // assembly mode (mixed lists degrade gracefully).
+    expect(groups.find((g) => g.group_key === "PC-A")?.mode).toBe("pc");
+    expect(groups.find((g) => g.group_key === "PC-Z")?.mode).toBe("assembly");
+    expect(groups.find((g) => g.group_key === "D-only")?.mode).toBe("assembly");
+    expect(groups.find((g) => g.group_key === "All constituencies")?.mode).toBe("assembly");
+  });
+
+  it("PC-mode leaves re-sort by margin when the sort mode flips (shared sortLeaves path)", () => {
+    const rows: GLeaf[] = [
+      gleaf({ entity_name: "AC-hi", pc_group: "PC", district: "D", eci_no: 1, margin_pct: 12 }),
+      gleaf({ entity_name: "AC-lo", pc_group: "PC", district: "D", eci_no: 2, margin_pct: 2 }),
+    ];
+    const header: GroupHeaderResult = { chip: "Y", color: "#111111", share: 50, margin: 10, child_count: 2 };
+    const ballot = buildGroups(rows, "ballot", { PC: header });
+    const margin = buildGroups(rows, "margin", { PC: header });
+    expect(ballot[0].rows.map((r) => r.eci_no)).toEqual([1, 2]);
+    expect(margin[0].rows.map((r) => r.margin_pct)).toEqual([2, 12]);
   });
 });
