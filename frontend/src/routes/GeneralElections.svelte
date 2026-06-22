@@ -7,10 +7,11 @@
    - GeneralSeatsWindow: a windowed seat-composition chart (1-3 cycles
      visible) with a draggable range slider, mounted above the table.
    - Table columns: Year (link) | Leading party (pill + "N of M" seats +
-     seat-share bar with a majority tick + mandate tag) | Turnout
-     (plain %) | Swing (leading-slot seat change vs the prior cycle,
-     green-up / red-down glyph) | Margin (lead over the runner-up,
-     hidden < 640px) | Runners-up (hidden < 768px)
+     mandate tag) | Turnout (plain %) | Seat swing (leading-slot seat
+     change vs the prior cycle, green-up / red-down glyph) | Lead (over
+     the runner-up, hidden < 640px) | Runners-up (hidden < 768px)
+   - The majority story lives in the mandate tag (text) and the chart's
+     per-cycle majority line; the table no longer repeats it as a bar.
    - One SourceList provenance footer (Holy Law #9) covers both the
      chart and the table - every national row cites the same source_id.
    - The standalone "Seats" column was removed: it duplicated the
@@ -63,24 +64,6 @@
     if (n > 0)
       return { text: `+${n}`, color: "text-emerald-600", glyph: "\u25B2" };
     return { text: `${n}`, color: "text-rose-600", glyph: "\u25BC" };
-  }
-
-  function seatShareWidth(seats_won: number, seats_contested: number): string {
-    if (seats_contested <= 0) return "0%";
-    const pct = Math.min(100, Math.max(0, (seats_won / seats_contested) * 100));
-    return `${pct.toFixed(1)}%`;
-  }
-
-  function majorityLeft(
-    majority_mark: number,
-    seats_contested: number,
-  ): string {
-    if (seats_contested <= 0) return "50%";
-    const pct = Math.min(
-      100,
-      Math.max(0, (majority_mark / seats_contested) * 100),
-    );
-    return `${pct.toFixed(1)}%`;
   }
 </script>
 
@@ -170,30 +153,6 @@
                     data-testid={`general-elections-seats-${r.event_id}`}
                   >
                     {r.seats_won} of {r.seats_contested}
-                  </span>
-                  <!-- Seat-share bar with a majority tick. Width encodes
-                       the leading-party seat share; the vertical tick
-                       marks the single-party majority for that cycle (it
-                       moves because the house size varies). Hidden < 640px. -->
-                  <span
-                    class="relative hidden sm:block w-32 h-1.5 rounded bg-slate-200"
-                  >
-                    <span
-                      class="block h-full rounded"
-                      style:background-color={r.leading.color}
-                      style:width={seatShareWidth(
-                        r.seats_won,
-                        r.seats_contested,
-                      )}
-                    ></span>
-                    <span
-                      class="absolute -top-px -bottom-px w-px bg-slate-500"
-                      style:left={majorityLeft(
-                        r.majority_mark,
-                        r.seats_contested,
-                      )}
-                      title={`Majority: ${r.majority_mark}`}
-                    ></span>
                   </span>
                   <span
                     class="text-[10px] font-medium {r.mandate.majority
