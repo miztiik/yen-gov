@@ -92,6 +92,11 @@
     pc_tile_layout_error: boolean;
     pc_tile_rows: TileRow[];
     onPcTileSelect: (unit_id: string) => void;
+    /** True while the winners loader is in flight. Gates BOTH equal-seats
+     *  arms to the "Loading..." placeholder so a mid-load buildTileRows pass
+     *  never paints an all-grey "pending" hex grid (mirrors the national PC
+     *  guard, PR #1179). */
+    equal_seats_loading: boolean;
     /** State_slug for the PC map's name-slug join (delim=2008 only). */
     state_slug: string;
     /** Bindable UI state ---------------------------------------------- */
@@ -122,6 +127,7 @@
     pc_tile_layout_error,
     pc_tile_rows,
     onPcTileSelect,
+    equal_seats_loading,
     state_slug,
     color_mode = $bindable<ColorMode>("winner"),
     ac_view = $bindable<AcView>("map"),
@@ -204,7 +210,7 @@
           >
             Equal-seats layout couldn't load.
           </div>
-        {:else if ac_tile_layout == null}
+        {:else if ac_tile_layout == null || equal_seats_loading}
           <p class="p-4 text-sm text-slate-500">
             Loading equal-seats layout...
           </p>
@@ -348,7 +354,7 @@
             >
               Equal-seats layout couldn't load.
             </div>
-          {:else if pc_tile_layout == null}
+          {:else if pc_tile_layout == null || equal_seats_loading}
             <p class="p-4 text-sm text-slate-500">
               Loading equal-seats layout...
             </p>

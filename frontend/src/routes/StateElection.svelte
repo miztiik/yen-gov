@@ -1372,6 +1372,7 @@
             {pc_tile_layout_error}
             {pc_tile_rows}
             {onPcTileSelect}
+            equal_seats_loading={loading}
             state_slug={params.state}
             bind:color_mode
             bind:ac_view
