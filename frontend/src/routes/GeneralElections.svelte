@@ -1,40 +1,49 @@
 <!--
-  GeneralElections - the redesigned `/t/elections` route mounted by
-  PR-E4 of TODO/20260615-elections-redesign-plan.md. Replaces the
-  315-row lazy-hydration firehose with a 6-11 row Parliament-cycle
-  table per the user-mandated rip-and-replace doctrine (Section 0.2).
+  GeneralElections - the redesigned `/t/elections` route.
 
-  Render contract per Section 0.1 Jony verdict + Section 2 E4:
+  Render contract (2026-06-22 redesign, user-approved, Jony consult):
    - Tab strip above the H1 (ElectionsRouteTabs)
    - H1 "General elections"
-   - Table columns: Year (link) | Leading party pill | Vote-share bar |
-     Turnout | Delta (green-up / red-down arrow) | Runners-up
-   - Year text IS the click affordance (no separate chevron column)
-   - Inline vote-share bar = plain Tailwind div (closed-set faithful)
-   - Mobile contract: 4 columns at < 640px (Year | Leading party + seats |
-     Turnout + delta | Runners-up hidden); vote-share bar hidden
+   - GeneralSeatsWindow: a windowed seat-composition chart (1-3 cycles
+     visible) with a draggable range slider, mounted above the table.
+   - Table columns: Year (link) | Leading party (pill + "N of M" seats +
+     seat-share bar with a majority tick + mandate tag) | Turnout
+     (plain %) | Swing (leading-slot seat change vs the prior cycle,
+     green-up / red-down glyph) | Margin (lead over the runner-up,
+     hidden < 640px) | Runners-up (hidden < 768px)
+   - One SourceList provenance footer (Holy Law #9) covers both the
+     chart and the table - every national row cites the same source_id.
+   - The standalone "Seats" column was removed: it duplicated the
+     "N of M" already shown under the leading-party pill.
 
-  Data: loadGeneralElections() from view-models/general-elections-model
-  (PR-E3) reads datasets/data/marts/elections/event_summary.csv shipped
-  by PR-E2 and joins parties.csv for color + short name.
-
-  Per Hans: leading_party_id is the canonical party_id with most seats
-  (alliance attribution may land later writer-side; renderer unchanged).
+  Data: loadGeneralElections() reads datasets/data/marts/elections/
+  event_summary.csv (scope='national') and joins parties.csv for colour +
+  short name; loadGeneralElectionsSources() resolves the cited source_ids
+  into publisher pills from datasets/data/entities/source.csv.
 -->
 <script lang="ts">
   import ElectionsRouteTabs from "../lib/elections/ElectionsRouteTabs.svelte";
+  import GeneralSeatsWindow from "../lib/elections/GeneralSeatsWindow.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
+  import { SourceList } from "../lib/sources";
+  import type { PublisherPill } from "../lib/sources";
   import {
     loadGeneralElections,
+    loadGeneralElectionsSources,
     type GeneralElectionRowViewModel,
   } from "../lib/view-models/general-elections-model";
 
   let rows = $state<GeneralElectionRowViewModel[] | null>(null);
+  let sourcePills = $state<PublisherPill[]>([]);
   let err = $state<string | null>(null);
 
   loadGeneralElections()
-    .then((r) => {
+    .then(async (r) => {
+      const pills = await loadGeneralElectionsSources(
+        r.map((x) => x.source_id),
+      );
       rows = r;
+      sourcePills = pills;
     })
     .catch((e: unknown) => {
       err = e instanceof Error ? e.message : String(e);
@@ -44,29 +53,33 @@
     return n == null ? "-" : `${n.toFixed(1)}%`;
   }
 
-  function fmtDelta(n: number | null): {
+  function fmtSwing(n: number | null): {
     text: string;
     color: string;
     glyph: string;
   } {
     if (n == null) return { text: "-", color: "text-slate-300", glyph: "" };
-    if (n === 0) return { text: "0pp", color: "text-slate-500", glyph: "" };
+    if (n === 0) return { text: "0", color: "text-slate-500", glyph: "" };
     if (n > 0)
-      return {
-        text: `+${n.toFixed(1)}pp`,
-        color: "text-emerald-600",
-        glyph: "\u25B2",
-      };
-    return {
-      text: `${n.toFixed(1)}pp`,
-      color: "text-rose-600",
-      glyph: "\u25BC",
-    };
+      return { text: `+${n}`, color: "text-emerald-600", glyph: "\u25B2" };
+    return { text: `${n}`, color: "text-rose-600", glyph: "\u25BC" };
   }
 
-  function voteShareWidth(seats_won: number, seats_contested: number): string {
+  function seatShareWidth(seats_won: number, seats_contested: number): string {
     if (seats_contested <= 0) return "0%";
     const pct = Math.min(100, Math.max(0, (seats_won / seats_contested) * 100));
+    return `${pct.toFixed(1)}%`;
+  }
+
+  function majorityLeft(
+    majority_mark: number,
+    seats_contested: number,
+  ): string {
+    if (seats_contested <= 0) return "50%";
+    const pct = Math.min(
+      100,
+      Math.max(0, (majority_mark / seats_contested) * 100),
+    );
     return `${pct.toFixed(1)}%`;
   }
 </script>
@@ -94,6 +107,10 @@
       Loading...
     </div>
   {:else}
+    <!-- Windowed seat-composition chart: 1-3 cycles visible with a
+         draggable range slider. Defaults to the latest 3 cycles. -->
+    <GeneralSeatsWindow rows={rows} />
+
     <div class="overflow-x-auto rounded border border-slate-200 bg-white">
       <table
         class="w-full text-left text-sm"
@@ -105,15 +122,15 @@
           <tr>
             <th class="px-3 py-2">Year</th>
             <th class="px-3 py-2">Leading party</th>
-            <th class="px-3 py-2 hidden sm:table-cell">Seats</th>
             <th class="px-3 py-2">Turnout</th>
-            <th class="px-3 py-2">Delta</th>
+            <th class="px-3 py-2">Seat swing</th>
+            <th class="px-3 py-2 hidden sm:table-cell">Lead</th>
             <th class="px-3 py-2 hidden md:table-cell">Runners-up</th>
           </tr>
         </thead>
         <tbody>
           {#each rows as r (r.event_id)}
-            {@const delta = fmtDelta(r.turnout_delta_pp)}
+            {@const swing = fmtSwing(r.seat_swing)}
             <tr
               class="border-t border-slate-100 odd:bg-white even:bg-slate-50 hover:bg-sky-50"
               data-testid={`general-elections-row-${r.event_id}`}
@@ -154,37 +171,60 @@
                   >
                     {r.seats_won} of {r.seats_contested}
                   </span>
-                  <!-- Inline vote-share bar (PR-E4 spec): plain Tailwind
-                       div, closed-set faithful per docs/concepts/
-                       schema-is-the-design-system.md. Width encodes
-                       the leading-party seat share. Hidden < 640px. -->
-                  <span class="hidden sm:block w-32 h-1.5 rounded bg-slate-200">
+                  <!-- Seat-share bar with a majority tick. Width encodes
+                       the leading-party seat share; the vertical tick
+                       marks the single-party majority for that cycle (it
+                       moves because the house size varies). Hidden < 640px. -->
+                  <span
+                    class="relative hidden sm:block w-32 h-1.5 rounded bg-slate-200"
+                  >
                     <span
                       class="block h-full rounded"
                       style:background-color={r.leading.color}
-                      style:width={voteShareWidth(
+                      style:width={seatShareWidth(
                         r.seats_won,
                         r.seats_contested,
                       )}
                     ></span>
+                    <span
+                      class="absolute -top-px -bottom-px w-px bg-slate-500"
+                      style:left={majorityLeft(
+                        r.majority_mark,
+                        r.seats_contested,
+                      )}
+                      title={`Majority: ${r.majority_mark}`}
+                    ></span>
+                  </span>
+                  <span
+                    class="text-[10px] font-medium {r.mandate.majority
+                      ? 'text-emerald-700'
+                      : 'text-slate-500'}"
+                    data-testid={`general-elections-mandate-${r.event_id}`}
+                  >
+                    {r.mandate.label}
                   </span>
                 </div>
               </td>
-              <td class="px-3 py-2 align-top text-slate-700 hidden sm:table-cell">
-                <span class="font-mono text-xs">
-                  {r.seats_won}/{r.seats_contested}
+              <td class="px-3 py-2 align-top text-slate-700">
+                <span class="font-mono text-xs">{fmtPct(r.turnout_pct)}</span>
+              </td>
+              <td class="px-3 py-2 align-top {swing.color}">
+                <span
+                  class="font-mono text-xs"
+                  data-testid={`general-elections-swing-${r.event_id}`}
+                >
+                  {swing.glyph}
+                  {swing.text}
                 </span>
               </td>
-              <td class="px-3 py-2 align-top text-slate-700">
-                <span class="font-mono text-xs"
-                  >{fmtPct(r.turnout_pct)}</span
+              <td
+                class="px-3 py-2 align-top text-slate-700 hidden sm:table-cell"
+              >
+                <span
+                  class="font-mono text-xs"
+                  data-testid={`general-elections-margin-${r.event_id}`}
                 >
-              </td>
-              <td class="px-3 py-2 align-top {delta.color}">
-                <span class="font-mono text-xs"
-                  data-testid={`general-elections-delta-${r.event_id}`}>
-                  <span aria-hidden="true">{delta.glyph}</span>
-                  {delta.text}
+                  +{r.margin}
                 </span>
               </td>
               <td class="px-3 py-2 align-top hidden md:table-cell">
@@ -216,5 +256,9 @@
         </tbody>
       </table>
     </div>
+
+    {#if sourcePills.length > 0}
+      <SourceList pills={sourcePills} />
+    {/if}
   {/if}
 </PageContainer>
