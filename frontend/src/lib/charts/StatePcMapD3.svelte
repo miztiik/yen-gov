@@ -49,7 +49,7 @@
   } from "geojson";
 
   import { DATA_BASE } from "../paths";
-  import { INDIA_PC, type BoundaryEntry } from "../boundaries/sources";
+  import { INDIA_PC, INDIA_PC_BY_NAME, type BoundaryEntry } from "../boundaries/sources";
   import { renderTooltipCard } from "../boundaries/tooltip-card";
   import { symbolAssetUrl } from "../boundaries/symbol-asset";
   import {
@@ -70,6 +70,8 @@
     type PcCellPaint,
   } from "./india-pc-map-helpers";
   import { rewindCollectionForD3 } from "./geo-rewind";
+  import MapCoverageNote from "./MapCoverageNote.svelte";
+  import { computeCoverage, delimVintageFromPath } from "./map-coverage";
 
   /** Per-PC winner row, pre-shaped by the route for the join. Mirrors
    *  the IndiaPcMapD3 shape verbatim so the route can reuse the same
@@ -306,6 +308,24 @@
     projection_path ? `${projection_path.w}/${projection_path.h}` : "640/480",
   );
 
+  // ---- Coverage caption (honesty layer) ----------------------------
+  // matched = rendered PCs that bind a winner; total = rendered PCs. The
+  // caption auto-hides when matched === total (full coverage). Vintage is
+  // read from the geometry path's `delim=` marker, never hardcoded.
+  const coverage = $derived(
+    state_features.length === 0
+      ? null
+      : computeCoverage(
+          state_features.map((f) => featureUid(f.properties ?? undefined)),
+          (k) => row_by_uid.has(String(k)),
+        ),
+  );
+  const geometry_year = $derived(delimVintageFromPath(GEOMETRY_PATH));
+  // Old-election signal: the route swaps in the name-slug boundary
+  // (INDIA_PC_BY_NAME) only for pre-2024 LS events; the numeric default
+  // (INDIA_PC) means a current-vintage map, where the caption stays hidden.
+  const on_old_geometry = $derived(boundary.id === INDIA_PC_BY_NAME.id);
+
   const cell_paint = $derived.by<Map<string, PcCellPaint>>(() => {
     const cell_rows: PcCellRow[] = [];
     for (const r of input_rows ?? []) {
@@ -540,3 +560,10 @@
     </div>
   {/if}
 </div>
+
+<MapCoverageNote
+  {coverage}
+  unit="constituencies"
+  geometryYear={geometry_year}
+  onOldGeometry={on_old_geometry}
+/>
