@@ -30,7 +30,7 @@
   Preserves data-testids: state-event-map, state-event-map-mode,
   state-event-map-mode-winner, state-event-map-mode-margin,
   state-event-map-view, state-event-map-geo, state-event-map-hex,
-  state-event-map-placeholder, state-ac-map-legend, state-pc-map-legend.
+  state-event-map-placeholder, state-pc-map-legend.
 -->
 <script lang="ts">
   import StateAcMapD3 from "../charts/StateAcMapD3.svelte";
@@ -198,20 +198,6 @@
         ? "Each constituency is filled with the winning party's colour."
         : "Each constituency is shaded by winning margin (darker = larger margin)."}
     </p>
-    {#if ac_view === "map"}
-      <!-- TODO/20260612 Row C: sub-threshold marker legend - the
-           StateAcMapD3 component overlays circular markers for ACs
-           whose bbox is too small to render as a polygon at this
-           zoom. Without this caption citizens read the circles as
-           an unexplained second symbology. -->
-      <p
-        class="text-[11px] text-slate-500"
-        data-testid="state-ac-map-legend"
-      >
-        Circles mark dense urban constituencies whose polygon is too
-        small to render at this zoom.
-      </p>
-    {/if}
   </section>
 {:else if body === "pc"}
   <!-- TODO/20260612 Row D: PC choropleth via StatePcMapD3, filtering
@@ -297,9 +283,7 @@
         class="text-[11px] text-slate-500"
         data-testid="state-pc-map-legend"
       >
-        Circles mark dense urban constituencies whose polygon is too
-        small to render at this zoom. Equal-seats view available on
-        the
+        Equal-seats view available on the
         <a
           class="text-sky-700 hover:underline"
           href={link.nationalElection(event_id)}
