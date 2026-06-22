@@ -119,6 +119,15 @@
      *  (no per-AC result chip). Absent / null / empty -> assembly mode
      *  (unchanged). Populated by the STATE-lane loader (Row 5). */
     group_headers?: Record<string, GroupHeaderResult> | null;
+    /** OPTIONAL embedded mode (Row 7 - national outer accordion). When true,
+     *  HIDE this component's OWN search box, Reserved filter, sort control,
+     *  count line, and the "Constituencies (N)" heading, because the
+     *  embedding page (the national list) owns ONE shared search + Reserved
+     *  filter across all states. Every existing consumer omits this
+     *  (default false) -> the controls render exactly as before. This is
+     *  additive CHROME-VISIBILITY only: the grouping + fold + leaf rendering
+     *  are 100% unchanged. */
+    hide_controls?: boolean;
   }
 
   let {
@@ -127,6 +136,7 @@
     fmtInt,
     fmtPct,
     group_headers = null,
+    hide_controls = false,
   }: Props = $props();
 
   type ReservedFilter = ReservationKind | "All";
@@ -221,11 +231,13 @@
   class="space-y-2"
   data-testid="state-event-constituency-table"
 >
-  <div class="flex flex-wrap items-baseline justify-between gap-2">
-    <h2 class="text-sm font-semibold text-slate-800">
-      Constituencies ({loading ? "-" : fmtInt(seat_rows.length)})
-    </h2>
-  </div>
+  {#if !hide_controls}
+    <div class="flex flex-wrap items-baseline justify-between gap-2">
+      <h2 class="text-sm font-semibold text-slate-800">
+        Constituencies ({loading ? "-" : fmtInt(seat_rows.length)})
+      </h2>
+    </div>
+  {/if}
   {#if loading}
     <p
       class="text-xs text-slate-500"
@@ -234,6 +246,7 @@
   {:else if seat_rows.length === 0}
     <p class="text-xs text-slate-500">No constituency rows yet.</p>
   {:else}
+    {#if !hide_controls}
     <!-- Sticky controls: search (magnifier glyph) + Reserved filter +
          sort toggle + count line. Sticky to this section's scroll
          boundary, NOT the viewport top. -->
@@ -292,6 +305,7 @@
         data-testid="state-event-constituency-count"
       >{count_line}</p>
     </div>
+    {/if}
 
     {#if groups.length === 0}
       <p class="text-xs text-slate-500">

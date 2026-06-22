@@ -41,6 +41,7 @@
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { query, registerCsvFile } from "../duckdb";
 import { DATA_BASE } from "../paths";
+import { reservationKind, type ReservationKind } from "./constituency-list-tokens";
 
 // ---- File-class keys (columns.json) + dev/prod URLs (/data/<rel>) -----
 
@@ -493,4 +494,204 @@ export async function loadAcEntities(): Promise<AcEntity[]> {
     acEntitiesPromise = null;
   });
   return acEntitiesPromise;
+}
+
+// ===========================================================================
+// Row 7 - national outer accordion (State -> PC -> AC -> District).
+// TODO/20260622-election-constituency-grouping-plan.md.
+// ===========================================================================
+//
+// The NATIONAL general page (`/t/elections/general-*`, NationalElection.svelte)
+// wraps the state general list with an OUTER STATE level: the top-level groups
+// are the ~36 states/UTs; expanding a state lazy-mounts the SAME PC-mode
+// StateEventConstituencyList for that state (State -> PC -> AC -> District).
+//
+// These two PURE helpers do the render-only state selection the outer accordion
+// needs - NO new data-shaping. `buildNationalStateGroups` buckets the national
+// PC winners by state and calls the EXISTING `buildPcGrouping` per state (so the
+// per-state PC -> AC -> District structure is byte-identical to the state page),
+// and `filterNationalBranches` runs the ONE national search + Reserved filter
+// across state / PC / AC names, returning only the matching branches with an
+// auto-expand flag. Both are exercised by national-constituency-list.test.ts
+// with bounded (1-2 state) fixtures - never the full corpus.
+
+/** Minimal national PC winner shape `buildNationalStateGroups` keys on: the
+ *  PC's canonical entity_id + display name (the group key) and which state it
+ *  belongs to. A parliament `ElectionResultRow` satisfies this structurally. */
+export interface NationalPcWinner {
+  entity_id: string;
+  entity_name: string;
+  state_code: string;
+  state_slug: string;
+}
+
+/** One state branch of the national list: the state's PC winners + the
+ *  `buildPcGrouping` output (child AC leaves + per-PC child counts). */
+export interface NationalStateGroup {
+  state_code: string;
+  state_slug: string;
+  /** PC refs (entity_id + name) for this state, in winner order. */
+  pcs: PcRef[];
+  /** Child AC leaves for this state (from `buildPcGrouping`). */
+  leaves: PcLeafEntity[];
+  /** Child-AC count per PC entity_id (orphan leaves not counted). */
+  childCountByPcId: Map<string, number>;
+}
+
+/**
+ * Bucket national PC winners by state and run `buildPcGrouping` per state.
+ * Pure + deterministic; REUSES `buildPcGrouping` (no new data-shaping) so each
+ * state's PC -> AC -> District structure is identical to its own general page.
+ * Returned sorted by state_slug for a stable order (the component resolves the
+ * display name + presentation order). Never mutates input.
+ */
+export function buildNationalStateGroups(
+  winners: readonly NationalPcWinner[],
+  acEntities: readonly AcEntity[],
+  delimYear: number | null,
+): NationalStateGroup[] {
+  const byState = new Map<
+    string,
+    { code: string; slug: string; pcs: PcRef[] }
+  >();
+  for (const w of winners) {
+    let bucket = byState.get(w.state_slug);
+    if (!bucket) {
+      bucket = { code: w.state_code, slug: w.state_slug, pcs: [] };
+      byState.set(w.state_slug, bucket);
+    }
+    bucket.pcs.push({ entity_id: w.entity_id, name: w.entity_name });
+  }
+  const out: NationalStateGroup[] = [];
+  for (const bucket of byState.values()) {
+    const grouping = buildPcGrouping(
+      bucket.pcs,
+      acEntities,
+      bucket.slug,
+      delimYear,
+    );
+    out.push({
+      state_code: bucket.code,
+      state_slug: bucket.slug,
+      pcs: bucket.pcs,
+      leaves: grouping.leaves,
+      childCountByPcId: grouping.childCountByPcId,
+    });
+  }
+  out.sort((a, b) => a.state_slug.localeCompare(b.state_slug, "en"));
+  return out;
+}
+
+/** One PC the national search filter keys on: the PC's canonical id + name
+ *  (searchable) + its parliament (Lok Sabha) reservation (GEN/SC/ST) so the
+ *  Reserved filter narrows to SC/ST parliament seats. */
+export interface NationalFilterPc {
+  entity_id: string;
+  name: string;
+  reservation: string | null;
+}
+
+/** Input branch for `filterNationalBranches`: one state, its PCs (with
+ *  reservation), its child AC leaves, and the resolved display name (the
+ *  state-name search target). */
+export interface NationalBranchInput {
+  state_code: string;
+  state_slug: string;
+  state_name: string;
+  pcs: readonly NationalFilterPc[];
+  leaves: readonly PcLeafEntity[];
+}
+
+/** A branch selected for rendering: the (optionally filtered) PCs + leaves and
+ *  whether the outer state row should auto-expand (search/filter active and
+ *  matched). With no active query/filter every branch is returned with full
+ *  pcs + leaves and `auto_expand=false` (first paint: all states collapsed). */
+export interface NationalBranchView {
+  state_code: string;
+  state_slug: string;
+  state_name: string;
+  pcs: NationalFilterPc[];
+  leaves: PcLeafEntity[];
+  auto_expand: boolean;
+}
+
+/**
+ * Run the ONE national search + Reserved filter across state / PC / AC names.
+ * Pure + deterministic. Granularity is the PC (the parliament seat): a PC is
+ * KEPT when - after the Reserved (GEN/SC/ST) filter passes on the PC - the
+ * search query is empty, OR the state name matches, OR the PC name matches, OR
+ * any of the PC's child ACs match; a kept PC carries ALL its child ACs so the
+ * citizen sees the full seat composition. Re-delimitation orphan leaves
+ * (pc_group=null) are matched directly on their own name + reservation so they
+ * are never dropped (plan 7.2). A branch is returned ONLY when it has at least
+ * one visible leaf, and then with `auto_expand=true`, so the national search
+ * auto-expands ONLY the matching state branches. With no active query/filter
+ * ALL branches are returned (full content, collapsed). Never mutates input.
+ */
+export function filterNationalBranches(
+  branches: readonly NationalBranchInput[],
+  query: string,
+  reserved: ReservationKind | "All",
+): NationalBranchView[] {
+  const q = query.trim().toLowerCase();
+  const active = q.length > 0 || reserved !== "All";
+
+  if (!active) {
+    return branches.map((br) => ({
+      state_code: br.state_code,
+      state_slug: br.state_slug,
+      state_name: br.state_name,
+      pcs: [...br.pcs],
+      leaves: [...br.leaves],
+      auto_expand: false,
+    }));
+  }
+
+  const out: NationalBranchView[] = [];
+  for (const br of branches) {
+    const stateMatch = q.length > 0 && br.state_name.toLowerCase().includes(q);
+
+    // PCs kept after the PC-level Reserved filter + the name search.
+    const keptPcNames = new Set<string>();
+    const keptPcs: NationalFilterPc[] = [];
+    for (const pc of br.pcs) {
+      if (reserved !== "All" && reservationKind(pc.reservation) !== reserved) {
+        continue;
+      }
+      let keep =
+        q.length === 0 || stateMatch || pc.name.toLowerCase().includes(q);
+      if (!keep) {
+        keep = br.leaves.some(
+          (l) => l.pc_group === pc.name && l.name.toLowerCase().includes(q),
+        );
+      }
+      if (keep) {
+        keptPcNames.add(pc.name);
+        keptPcs.push(pc);
+      }
+    }
+
+    // Leaves: a child AC rides on its kept PC; an orphan (pc_group=null) is
+    // matched on its own name + reservation so the "Other" bucket survives.
+    const keptLeaves = br.leaves.filter((l) => {
+      if (l.pc_group != null) return keptPcNames.has(l.pc_group);
+      if (reserved !== "All" && reservationKind(l.reservation) !== reserved) {
+        return false;
+      }
+      if (q.length === 0) return true;
+      if (stateMatch) return true;
+      return l.name.toLowerCase().includes(q);
+    });
+
+    if (keptLeaves.length === 0) continue;
+    out.push({
+      state_code: br.state_code,
+      state_slug: br.state_slug,
+      state_name: br.state_name,
+      pcs: keptPcs,
+      leaves: keptLeaves,
+      auto_expand: true,
+    });
+  }
+  return out;
 }
