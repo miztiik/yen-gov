@@ -2,11 +2,14 @@ import { describe, expect, it } from "vitest";
 import {
   buildKpiTiles,
   NO_ASSEMBLY_UT_SLUGS,
-  buildAcNameDistrictIndex,
   districtNameForConstituency,
   groupConstituenciesByDistrict,
 } from "./StateOverview.svelte";
-import { slugify } from "../lib/slug";
+import {
+  buildAcNameIndex,
+  resolveAcByName,
+  type AcEntity,
+} from "../lib/elections/constituency-district-loader";
 import type { ConstituencyEntry } from "../lib/data";
 import type { District } from "../lib/view-models/districts";
 
@@ -107,31 +110,24 @@ describe("NO_ASSEMBLY_UT_SLUGS", () => {
 });
 
 // ---------------------------------------------------------------------------
-// Row 6 - landing-page district grouping via the universal membership source.
+// Row 6 - landing-page district grouping via the SHARED name bridge.
 //
 // Bounded Andhra Pradesh fixture. AP's boundaries_sot constituencies.json has
 // NO inline district_id (only 5 states do), so before Row 6 the landing list
-// was flat. The enrichment map is keyed by entity_id with the district on the
-// `...-<serial>` form; the `...-eci<NN>` ballot-alias row carries a NULL
-// district and must be skipped (it must never shadow the real edge). The
-// landing list shares only the NAME with the canonical store, so the join is
-// `slug(name) -> entity_id -> district_name`.
+// was flat. The landing list shares only the NAME with the canonical store,
+// so the district is joined through the shared `(state, slug(name))` index
+// (`buildAcNameIndex` / `resolveAcByName`, the SAME seam the assembly event
+// page uses; its own unit oracle lives in constituency-district-loader.test).
+// The `...-eci<NN>` ballot-alias row carries a NULL district and must never
+// shadow the real `...-<serial>` edge that holds the district.
 // ---------------------------------------------------------------------------
 
-const AP_ENRICHMENT = new Map<string, { district_name: string | null }>([
-  ["IN-AC-2008-andhra-pradesh-3166", { district_name: "Dr B R Ambedkar Konaseema" }],
-  ["IN-AC-2008-andhra-pradesh-3169", { district_name: "East Godavari" }],
-  ["IN-AC-2008-andhra-pradesh-3175", { district_name: "East Godavari" }],
-  // Ballot-number alias row: authoritative eci_no but NO membership edge.
-  ["IN-AC-2008-andhra-pradesh-eci44", { district_name: null }],
-]);
-
-const AP_STATE_ACS: { entity_id: string; name: string }[] = [
-  { entity_id: "IN-AC-2008-andhra-pradesh-3166", name: "Amalapuram" },
-  { entity_id: "IN-AC-2008-andhra-pradesh-3169", name: "Mandapeta" },
-  { entity_id: "IN-AC-2008-andhra-pradesh-3175", name: "Rajanagaram" },
-  // UPPERCASE alias of Amalapuram with a null district - must be skipped.
-  { entity_id: "IN-AC-2008-andhra-pradesh-eci44", name: "AMALAPURAM" },
+const AP_ENTITIES: AcEntity[] = [
+  { entity_id: "IN-AC-2008-andhra-pradesh-3166", name: "Amalapuram", parent_pc_id: null, state: "andhra-pradesh", delim_year: 2008, district_name: "Dr B R Ambedkar Konaseema", reservation: "SC", eci_no: 163 },
+  { entity_id: "IN-AC-2008-andhra-pradesh-3169", name: "Mandapeta", parent_pc_id: null, state: "andhra-pradesh", delim_year: 2008, district_name: "East Godavari", reservation: "GEN", eci_no: 165 },
+  { entity_id: "IN-AC-2008-andhra-pradesh-3175", name: "Rajanagaram", parent_pc_id: null, state: "andhra-pradesh", delim_year: 2008, district_name: "East Godavari", reservation: "GEN", eci_no: 170 },
+  // UPPERCASE district-less alias of Amalapuram - must never shadow the edge.
+  { entity_id: "IN-AC-2008-andhra-pradesh-eci44", name: "AMALAPURAM", parent_pc_id: null, state: "andhra-pradesh", delim_year: 2008, district_name: null, reservation: "SC", eci_no: 44 },
 ];
 
 function cons(
@@ -143,60 +139,40 @@ function cons(
   return district_id ? { eci_no, name, reservation, district_id } : { eci_no, name, reservation };
 }
 
-describe("buildAcNameDistrictIndex (Row 6 universal membership join)", () => {
-  it("resolves slug(name) -> district from the enrichment", () => {
-    const idx = buildAcNameDistrictIndex(AP_STATE_ACS, AP_ENRICHMENT);
-    expect(idx.get("amalapuram")).toBe("Dr B R Ambedkar Konaseema");
-    expect(idx.get("mandapeta")).toBe("East Godavari");
-    expect(idx.get("rajanagaram")).toBe("East Godavari");
-  });
-
-  it("skips null-district alias rows so they never shadow the real edge", () => {
-    const idx = buildAcNameDistrictIndex(AP_STATE_ACS, AP_ENRICHMENT);
-    // The `-eci44` alias (null district, UPPERCASE "AMALAPURAM") slugs to the
-    // same "amalapuram" key but must NOT overwrite the `-3166` edge to null.
-    expect(idx.get("amalapuram")).toBe("Dr B R Ambedkar Konaseema");
-    expect(idx.size).toBe(3);
-  });
-
-  it("ignores AC entity_ids absent from the enrichment", () => {
-    const idx = buildAcNameDistrictIndex(
-      [{ entity_id: "IN-AC-2008-andhra-pradesh-9999", name: "Ghost" }],
-      AP_ENRICHMENT,
-    );
-    expect(idx.size).toBe(0);
-  });
-});
 
 describe("districtNameForConstituency (Row 6 resolver: universal then legacy)", () => {
-  const idx = buildAcNameDistrictIndex(AP_STATE_ACS, AP_ENRICHMENT);
+  const idx = buildAcNameIndex(AP_ENTITIES);
+  const ST = "andhra-pradesh";
   const legacy = new Map<string, string>([["LEG", "Legacy District"]]);
 
   it("prefers the universal index over the legacy district_id", () => {
     const ac = cons(44, "Amalapuram", "SC", "LEG");
-    expect(districtNameForConstituency(ac, idx, legacy)).toBe("Dr B R Ambedkar Konaseema");
+    expect(districtNameForConstituency(ac, idx, ST, legacy)).toBe("Dr B R Ambedkar Konaseema");
   });
 
   it("falls back to the legacy district_id name when universal misses", () => {
     // Non-regression for the 5 boundaries_sot states that carry district_id.
     const ac = cons(70, "Unjoined Seat", "GEN", "LEG");
-    expect(districtNameForConstituency(ac, idx, legacy)).toBe("Legacy District");
+    expect(districtNameForConstituency(ac, idx, ST, legacy)).toBe("Legacy District");
   });
 
   it("falls back to the raw district_id when the legacy name map misses", () => {
     const ac = cons(70, "Unjoined Seat", "GEN", "ZZ");
-    expect(districtNameForConstituency(ac, idx, legacy)).toBe("ZZ");
+    expect(districtNameForConstituency(ac, idx, ST, legacy)).toBe("ZZ");
   });
 
-  it("returns null (=> Other bucket) when neither resolves, incl. null index", () => {
-    expect(districtNameForConstituency(cons(71, "No District"), idx, new Map())).toBeNull();
-    expect(districtNameForConstituency(cons(71, "No District"), null, new Map())).toBeNull();
+  it("returns null (=> Other bucket) when neither resolves, incl. null index/state", () => {
+    expect(districtNameForConstituency(cons(71, "No District"), idx, ST, new Map())).toBeNull();
+    expect(districtNameForConstituency(cons(71, "No District"), null, ST, new Map())).toBeNull();
+    // A null state also disables the universal lookup -> legacy / null only.
+    expect(districtNameForConstituency(cons(44, "Amalapuram"), idx, null, new Map())).toBeNull();
   });
 });
 
 describe("groupConstituenciesByDistrict (Row 6 landing grouping ORACLE)", () => {
-  const idx = buildAcNameDistrictIndex(AP_STATE_ACS, AP_ENRICHMENT);
-  const resolve = (ac: ConstituencyEntry) => idx.get(slugify(ac.name)) ?? null;
+  const idx = buildAcNameIndex(AP_ENTITIES);
+  const resolve = (ac: ConstituencyEntry) =>
+    resolveAcByName(idx, "andhra-pradesh", ac.name)?.district_name ?? null;
 
   // The landing list as it arrives from constituencies.json: AUTHORITATIVE
   // eci_no, no district_id. One AC ("Unmapped Seat") has no membership edge.

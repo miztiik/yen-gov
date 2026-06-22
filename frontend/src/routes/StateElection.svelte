@@ -106,8 +106,11 @@
     loadAcEnrichment,
     loadAcEntities,
     buildPcGrouping,
+    buildAcNameIndex,
+    resolveAcByName,
     type AcEnrichment,
     type AcEntity,
+    type AcNameInfo,
     type PcGrouping,
   } from "../lib/elections/constituency-district-loader";
   import type { GroupHeaderResult } from "../lib/elections/constituency-list-tokens";
@@ -1006,16 +1009,34 @@
   // ---- AC entity list (Row 5 of the same plan). One cached read of
   // electoral.csv (joined to membership + LGD districts) gives every AC's
   // {name, parent_pc_id, state, delim_year, district, reservation, eci_no}
-  // so the state GENERAL page can group its list PC -> AC -> District. Only
-  // loaded for parliament events; assembly uses ac_enrichment above.
+  // so the state GENERAL page can group its list PC -> AC -> District, AND
+  // the assembly page can name-bridge results-scheme winners to their
+  // canonical district. Loaded for BOTH bodies (the loader is a cached
+  // singleton).
   let ac_entities = $state<AcEntity[] | null>(null);
   let ac_entities_error = $state<string | null>(null);
   $effect(() => {
-    if (body !== "pc") return;
+    if (!body) return;
     if (ac_entities !== null || ac_entities_error !== null) return;
     loadAcEntities()
       .then((e) => (ac_entities = e))
       .catch((e) => (ac_entities_error = String(e)));
+  });
+
+  // ---- AC name bridge (assembly). Assembly RESULT winners carry the
+  // results-scheme entity_id (IN-S<NN>-AC-<delim>-<eci_no>) which does NOT
+  // match the canonical electoral_id the district edge is keyed on, so the
+  // entity_id join (ac_enrichment) misses most seats. The reliable bridge is
+  // the AC NAME: index the canonical AcEntity rows by (state, slug(name)) so a
+  // winner whose entity_id misses falls back to a name lookup. Null in
+  // parliament mode (the PC join is native via `parent`, no bridge needed).
+  const ac_state_slug = $derived(
+    state_code ? states.slug(state_code) : params.state,
+  );
+  const ac_name_index = $derived.by<Map<string, AcNameInfo> | null>(() => {
+    if (body !== "ac") return null;
+    const ents = ac_entities;
+    return ents ? buildAcNameIndex(ents) : null;
   });
 
   // ---- Parliament PC -> AC grouping (Row 5). For a general event the seat
@@ -1127,14 +1148,23 @@
       return leaves;
     }
 
-    // Assembly (body === "ac"): unchanged Row-4 behavior - one row per AC
-    // winner, enriched + ballot-ordered.
+    // Assembly (body === "ac"): one row per AC winner, enriched + ballot-
+    // ordered. Resolve enrichment by entity_id FIRST (exact); on a miss -
+    // the common case, since results winners carry the results-scheme id
+    // that does not match the canonical electoral_id - FALL BACK to the
+    // (state, name) bridge so the seat still groups by district.
     const out: SeatRow[] = [];
     const enrich = ac_enrichment;
+    const name_index = ac_name_index;
     for (const w of winners) {
       const pid = partyIdFor(w);
       const name_slug = slugify(w.entity_name);
-      const meta = enrich?.get(w.entity_id) ?? null;
+      const meta: AcEnrichment | AcNameInfo | null =
+        enrich?.get(w.entity_id) ??
+        (name_index
+          ? resolveAcByName(name_index, ac_state_slug, w.entity_name)
+          : null) ??
+        null;
       out.push({
         entity_id: w.entity_id,
         entity_name: w.entity_name,

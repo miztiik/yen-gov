@@ -41,6 +41,7 @@
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { query, registerCsvFile } from "../duckdb";
 import { DATA_BASE } from "../paths";
+import { slugify } from "../slug";
 import { reservationKind, type ReservationKind } from "./constituency-list-tokens";
 
 // ---- File-class keys (columns.json) + dev/prod URLs (/data/<rel>) -----
@@ -335,6 +336,88 @@ export function buildAcEntities(
     reservation: e.reservation ?? null,
     eci_no: e.eci_no ?? null,
   }));
+}
+
+// ===========================================================================
+// Name bridge - results-id scheme mismatch
+// (fix/assembly-district-name-join).
+// ===========================================================================
+//
+// Assembly RESULT winners carry the RESULTS-scheme entity_id
+// `IN-S<NN>-AC-<delim>-<eci_no>` (state code + ballot serial). The canonical
+// district edge (electoral_district_membership.csv) + `loadAcEnrichment` are
+// keyed on the CANONICAL electoral_id `IN-AC-<delim>-<state>-<serial>`, so an
+// entity_id join misses for every results-scheme winner. The ECI ballot
+// `eci_no` is the documented-unreliable field (electoral.csv's serial for an
+// AC differs from its ballot number), so it can NOT bridge the two schemes
+// either. The ONLY reliable shared field is the AC NAME.
+//
+// `buildAcNameIndex` keys the canonical `AcEntity[]` by `(state, slug(name))`
+// so a winner whose entity_id misses the canonical enrichment falls back to a
+// name lookup. The state landing page (StateOverview) consumes the SAME index
+// for its district grouping, so there is ONE name-match seam (DRY) and both
+// pages get identical coverage.
+
+/** Name-bridge value: the enrichment fields a results-scheme winner needs,
+ *  resolved by (state, normalized AC name). Superset of `AcEnrichment` with
+ *  the canonical `entity_id` so a caller can re-key onto the canonical id. */
+export interface AcNameInfo {
+  entity_id: string;
+  district_name: string | null;
+  reservation: string | null;
+  eci_no: number | null;
+}
+
+/** Name-bridge key: canonical state slug + normalized AC name. Keying by
+ *  state too means same-named ACs in different states never collide. */
+function acNameKey(state: string, name: string): string {
+  return `${state}\u0000${slugify(name)}`;
+}
+
+/**
+ * Build a `(state, slug(name)) -> AcNameInfo` index from the canonical
+ * `AcEntity[]`. When two canonical rows share a (state, name) - e.g. the
+ * district-bearing `...-<serial>` row and a district-less `...-eci<NN>`
+ * ballot alias - the DISTRICT-BEARING row wins, so an alias never shadows the
+ * real district edge (mirrors the landing page's skip-null rule). A row whose
+ * name slugs to "" is skipped (no usable key). Pure + deterministic so the
+ * oracle exercises it with in-memory fixtures (no DuckDB spin-up).
+ */
+export function buildAcNameIndex(
+  acEntities: readonly AcEntity[],
+): Map<string, AcNameInfo> {
+  const index = new Map<string, AcNameInfo>();
+  for (const ac of acEntities) {
+    if (!slugify(ac.name)) continue;
+    const key = acNameKey(ac.state, ac.name);
+    const existing = index.get(key);
+    // Prefer the district-bearing row over a district-less alias sharing the
+    // same (state, name); otherwise last writer wins.
+    if (existing && existing.district_name != null && ac.district_name == null) {
+      continue;
+    }
+    index.set(key, {
+      entity_id: ac.entity_id,
+      district_name: ac.district_name,
+      reservation: ac.reservation,
+      eci_no: ac.eci_no,
+    });
+  }
+  return index;
+}
+
+/**
+ * Resolve one AC's canonical enrichment via the NAME bridge, or null when no
+ * `(state, name)` row matches (the caller then leaves the seat ungrouped ->
+ * "Other"). `state` is the canonical state slug (electoral.csv `state`, e.g.
+ * "andhra-pradesh"); `name` is the result-row AC display name.
+ */
+export function resolveAcByName(
+  index: ReadonlyMap<string, AcNameInfo>,
+  state: string,
+  name: string,
+): AcNameInfo | null {
+  return index.get(acNameKey(state, name)) ?? null;
 }
 
 /** Minimal PC shape `buildPcGrouping` keys on: the PC winner's canonical

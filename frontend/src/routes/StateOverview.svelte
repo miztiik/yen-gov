@@ -10,6 +10,10 @@
   import type { ConstituencyEntry } from "../lib/data";
   import type { District } from "../lib/view-models/districts";
   import { slugify } from "../lib/slug";
+  import {
+    resolveAcByName,
+    type AcNameInfo,
+  } from "../lib/elections/constituency-district-loader";
 
   /** One KPI tile spec consumed by the grid. `icon_name` is the
    *  TopicIcon registry key (kebab-case filename under public/icons/
@@ -152,46 +156,23 @@
   }
 
   /**
-   * Build a `slug(constituency name) -> district display name` index for ONE
-   * state, by joining that state's AC entity rows (`entity_id` + `name` from
-   * electoral.csv) to the universal membership enrichment (`entity_id ->
-   * district_name` from `loadAcEnrichment()`).
-   *
-   * Only district-bearing rows contribute: an AC whose enrichment has a null
-   * `district_name` (the `...-eci<NN>` ballot-number alias rows, or a
-   * re-delimited AC with no membership edge yet) is skipped, so it never
-   * shadows the real `...-<serial>` edge that carries the district. The key is
-   * the slug of the NAME because that is the only field the landing list and
-   * the canonical store share (see the block comment above).
-   */
-  export function buildAcNameDistrictIndex(
-    stateAcs: readonly { entity_id: string; name: string }[],
-    enrichment: ReadonlyMap<string, { district_name: string | null }>,
-  ): Map<string, string> {
-    const index = new Map<string, string>();
-    for (const ac of stateAcs) {
-      const district = enrichment.get(ac.entity_id)?.district_name;
-      if (!district) continue;
-      const key = slugify(ac.name);
-      if (key) index.set(key, district);
-    }
-    return index;
-  }
-
-  /**
-   * Resolve one constituency's district display name. PRIMARY = the universal
-   * name index (covers all 31 jurisdictions); FALLBACK = the legacy inline
-   * `district_id` (present in only 5 boundaries_sot files) resolved through
-   * the district name map, so the already-grouped states never regress while
-   * the universal index loads or for names that do not join. Returns null when
-   * neither resolves => the constituency lands in the trailing "Other" bucket.
+   * Resolve one constituency's district display name. PRIMARY = the shared
+   * `(state, slug(name))` name index (covers all 31 jurisdictions, built by
+   * `buildAcNameIndex` from the canonical AcEntity rows - the SAME seam the
+   * assembly event page uses); FALLBACK = the legacy inline `district_id`
+   * (present in only 5 boundaries_sot files) resolved through the district
+   * name map, so the already-grouped states never regress while the index
+   * loads or for names that do not join. Returns null when neither resolves
+   * => the constituency lands in the trailing "Other" bucket.
    */
   export function districtNameForConstituency(
     ac: ConstituencyEntry,
-    index: ReadonlyMap<string, string> | null,
+    index: ReadonlyMap<string, AcNameInfo> | null,
+    state: string | null,
     legacyName: ReadonlyMap<string, string>,
   ): string | null {
-    const universal = index?.get(slugify(ac.name));
+    const universal =
+      index && state ? resolveAcByName(index, state, ac.name)?.district_name : null;
     if (universal) return universal;
     if (ac.district_id) return legacyName.get(ac.district_id) ?? ac.district_id;
     return null;
@@ -257,21 +238,12 @@
   // Row 4) + the shared list tokens (rose SC/ST badge + RdYlBu margin band)
   // so the landing list speaks the SAME visual language as the event page.
   import {
-    loadAcEnrichment,
-    type AcEnrichment,
+    loadAcEntities,
+    buildAcNameIndex,
+    type AcEntity,
   } from "../lib/elections/constituency-district-loader";
   import ReservationBadge from "../lib/elections/ReservationBadge.svelte";
   import { marginBand } from "../lib/elections/constituency-list-tokens";
-  // Typed DuckDB-WASM read seam for the per-state AC name bridge (the loader
-  // exposes entity_id->district but not the AC name, so this reads
-  // electoral.csv's entity_id+name for the current state only).
-  import { query, registerCsvFile } from "../lib/duckdb";
-  import { csvColumnsClause } from "../lib/canonical/csv-columns";
-  import {
-    electoralEntitiesPath,
-    ENTITIES_ELECTORAL_GLOB,
-  } from "../lib/canonical/election-csv-paths";
-  import { DATA_BASE } from "../lib/paths";
   // PR-F (Phase 1.3b): StateOverview reads state-hub data through the
   // canonical Parquet store via DuckDB-WASM (view-models/state-overview.ts),
   // replacing the per-shard result.summary.json fetch. PR-G (Phase 1.3c)
@@ -444,15 +416,15 @@
   // visible regression that read as if the state were broken.
   let acs_status = $state<"loading" | "ready" | "failed">("loading");
   let districts = $state<District[] | null>(null);
-  // Row 6 district-grouping inputs. `ac_enrichment` is the global entity_id ->
-  // {district_name,...} membership map (cached singleton, shared with the
-  // event page); `state_ac_entities` is THIS state's AC (entity_id, name) rows
-  // from electoral.csv - the NAME bridge from the boundaries_sot list to the
-  // membership edge that carries the district. Both null until resolved;
-  // grouping falls back to the legacy inline district_id meanwhile so first
-  // paint is never blocked.
-  let ac_enrichment = $state<Map<string, AcEnrichment> | null>(null);
-  let state_ac_entities = $state<{ entity_id: string; name: string }[] | null>(null);
+  // Row 6 district-grouping input. `ac_entities` is the canonical AcEntity
+  // list (cached singleton, shared with the assembly event page) - each row
+  // carries {entity_id, name, state, district_name, reservation, eci_no}. The
+  // shared `buildAcNameIndex` keys it by (state, slug(name)) - the NAME bridge
+  // from the boundaries_sot landing list (which carries no entity_id) to the
+  // membership edge that holds the district. Null until resolved; grouping
+  // falls back to the legacy inline district_id meanwhile so first paint is
+  // never blocked.
+  let ac_entities = $state<AcEntity[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
 
   // Indicator sections on the state hub are now data-driven (P2.4 of the
@@ -509,7 +481,6 @@
     acs = null;
     acs_status = "loading";
     districts = null;
-    state_ac_entities = null;
     const sc = state_code;
     const ev = event;
     if (!sc) return; // wait for slug → code resolution
@@ -555,60 +526,29 @@
       d => { if (state_code === sc) districts = d; },
       () => { if (state_code === sc) districts = null; },
     );
-    // Row 6: this state's AC (entity_id, name) rows - the NAME bridge to the
-    // universal district membership (see `by_district`). Scoped to the state's
-    // canonical slug so AC names never collide across states. Non-fatal on
-    // failure (grouping falls back to the legacy inline district_id).
-    const slug_for_acs = states.slug(sc);
-    if (/^[a-z0-9-]+$/.test(slug_for_acs)) {
-      loadStateAcEntities(slug_for_acs).then(
-        rows => { if (state_code === sc) state_ac_entities = rows; },
-        () => { if (state_code === sc) state_ac_entities = []; },
-      );
-    } else {
-      state_ac_entities = [];
-    }
     // Awaited only to keep the existing fire-and-forget shape; per-promise
     // handlers above already mutated `acs`/`districts`/`acs_status`.
     void Promise.all([acs_p, districts_p]);
   });
 
-  // Universal AC->district membership map (loaded once per session; the loader
-  // is a cached singleton). Drives `by_district` so EVERY state's
-  // constituencies group, not just the 5 with an inline district_id.
+  // Canonical AcEntity list (loaded once per session; the loader is a cached
+  // singleton). Drives `by_district` via the shared (state, slug(name)) name
+  // index so EVERY state's constituencies group, not just the 5 with an inline
+  // district_id.
   $effect(() => {
-    if (ac_enrichment !== null) return;
-    loadAcEnrichment()
-      .then(m => { ac_enrichment = m; })
+    if (ac_entities !== null) return;
+    loadAcEntities()
+      .then(e => { ac_entities = e; })
       .catch(() => { /* non-fatal: grouping falls back to district_id */ });
   });
 
-  // Read THIS state's AC entity rows (entity_id + name) from canonical
-  // electoral.csv via the typed DuckDB-WASM seam (header + explicit columns,
-  // sniffer pinned off per the deploy-bug note in the loader). `entity_kind =
-  // 'ac'` spans every delimitation, but only rows that carry a membership
-  // district survive the join in `buildAcNameDistrictIndex`. `stateSlug` is
-  // regex-validated by the caller, so the interpolation is injection-safe.
-  async function loadStateAcEntities(
-    stateSlug: string,
-  ): Promise<{ entity_id: string; name: string }[]> {
-    const url = `${DATA_BASE}/${electoralEntitiesPath().replace(/^datasets\//, "")}`;
-    await registerCsvFile(url);
-    const cols = await csvColumnsClause(ENTITIES_ELECTORAL_GLOB);
-    return query<{ entity_id: string; name: string }>(
-      `SELECT entity_id, name
-         FROM read_csv('${url}', ${cols}, header=true, auto_detect=false)
-        WHERE entity_kind = 'ac' AND state = '${stateSlug}'`,
-    );
-  }
-
-  // slug(AC name) -> district display name for THIS state, joined from the
-  // universal membership map. Null until BOTH inputs resolve; `by_district`
-  // then falls back to the legacy inline district_id (5 states) so the first
-  // paint is never blocked.
-  const name_district_index = $derived.by<Map<string, string> | null>(() => {
-    if (!state_ac_entities || !ac_enrichment) return null;
-    return buildAcNameDistrictIndex(state_ac_entities, ac_enrichment);
+  // Shared (state, slug(name)) -> AcNameInfo index, built from the canonical
+  // AcEntity list (the ONE name bridge, also used by the assembly event page).
+  // Null until ac_entities resolves; `by_district` then falls back to the
+  // legacy inline district_id (5 states) so the first paint is never blocked.
+  const ac_name_index = $derived.by<Map<string, AcNameInfo> | null>(() => {
+    const ents = ac_entities;
+    return ents ? buildAcNameIndex(ents) : null;
   });
 
   // Map<eci_no, AcWinner> derived from the view-model. Keeps the template
@@ -859,7 +799,7 @@
     if (!acs) return [];
     const legacy_name = new Map((districts ?? []).map(d => [d.id, d.name]));
     return groupConstituenciesByDistrict(acs, ac_query, ac =>
-      districtNameForConstituency(ac, name_district_index, legacy_name),
+      districtNameForConstituency(ac, ac_name_index, current_slug, legacy_name),
     );
   });
 

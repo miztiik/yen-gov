@@ -11,7 +11,9 @@ import { describe, expect, it } from "vitest";
 import {
   buildAcEnrichmentMap,
   buildAcEntities,
+  buildAcNameIndex,
   buildPcGrouping,
+  resolveAcByName,
   type DistrictRow,
   type ElectoralAcEntityRow,
   type ElectoralAcRow,
@@ -290,5 +292,109 @@ describe("buildAcEntities + buildPcGrouping (Row-5 oracle, AP general fixture)",
     expect(ids.has("IN-AC-2008-telangana-7001")).toBe(false); // telangana
     // Exactly the 5 in-scope AP-2008 ACs (4 grouped under a PC + 1 orphan).
     expect(grouping.leaves.length).toBe(5);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Name-bridge oracle (fix/assembly-district-name-join): assembly RESULT
+// winners carry the RESULTS-scheme entity_id `IN-S<NN>-AC-<delim>-<eci_no>`,
+// which does NOT match the canonical electoral_id the district edge is keyed
+// on. The bridge is the AC NAME. This proves the entity_id-only join resolves
+// NOTHING for results-scheme winners, while the (state, name) bridge recovers
+// the district for every name-matching winner and leaves the rest null (the
+// component's "Other" bucket). Bounded in-memory AP fixture (no DuckDB).
+// ---------------------------------------------------------------------------
+
+const NB_MEMBERSHIP: MembershipRow[] = [
+  { electoral_id: "IN-AC-2008-andhra-pradesh-3166", lgd_district_id: "andhra-pradesh/dr-b-r-ambedkar-konaseema", is_primary: true },
+  { electoral_id: "IN-AC-2008-andhra-pradesh-3250", lgd_district_id: "andhra-pradesh/krishna", is_primary: true },
+];
+
+const NB_DISTRICTS: DistrictRow[] = [
+  { entity_id: "andhra-pradesh/dr-b-r-ambedkar-konaseema", name: "Dr. B.R. Ambedkar Konaseema" },
+  { entity_id: "andhra-pradesh/krishna", name: "Krishna" },
+];
+
+// Canonical electoral.csv AC rows. The `...-eci44` ALIAS of Amalapuram
+// (authoritative ballot serial, UPPERCASE name, NO membership district) must
+// NOT shadow the district-bearing `...-3166` row in the name index.
+const NB_ELECTORAL: ElectoralAcEntityRow[] = [
+  { entity_id: "IN-AC-2008-andhra-pradesh-3166", name: "Amalapuram", parent: null, state: "andhra-pradesh", delim_year: 2008, reservation: "SC", eci_no: 163 },
+  { entity_id: "IN-AC-2008-andhra-pradesh-3250", name: "Vijayawada West", parent: null, state: "andhra-pradesh", delim_year: 2008, reservation: "GEN", eci_no: 80 },
+  { entity_id: "IN-AC-2008-andhra-pradesh-eci44", name: "AMALAPURAM", parent: null, state: "andhra-pradesh", delim_year: 2008, reservation: "SC", eci_no: 44 },
+];
+
+// The Row-4 enrichment map is keyed by the CANONICAL electoral_id.
+const NB_ELECTORAL_ROWS: ElectoralAcRow[] = NB_ELECTORAL.map((e) => ({
+  entity_id: e.entity_id,
+  reservation: e.reservation,
+  eci_no: e.eci_no,
+}));
+
+// Assembly RESULT winners: RESULTS-scheme entity_id (state code + ballot
+// serial) that matches NO canonical electoral_id; only the NAME matches.
+// "Unmapped Seat" has no canonical name twin -> stays null.
+const NB_WINNERS: { entity_id: string; entity_name: string }[] = [
+  { entity_id: "IN-S01-AC-2008-44", entity_name: "Amalapuram" },
+  { entity_id: "IN-S01-AC-2008-80", entity_name: "Vijayawada West" },
+  { entity_id: "IN-S01-AC-2008-99", entity_name: "Unmapped Seat" },
+];
+
+describe("buildAcNameIndex + resolveAcByName (name-bridge oracle, results-id mismatch)", () => {
+  const acEntities = buildAcEntities(NB_MEMBERSHIP, NB_DISTRICTS, NB_ELECTORAL);
+  const enrich = buildAcEnrichmentMap(NB_MEMBERSHIP, NB_DISTRICTS, NB_ELECTORAL_ROWS);
+  const nameIndex = buildAcNameIndex(acEntities);
+
+  // The EXACT resolution the assembly page runs: entity_id FIRST (exact),
+  // then the (state, name) bridge on a miss.
+  const resolveMeta = (w: { entity_id: string; entity_name: string }) =>
+    enrich.get(w.entity_id) ??
+    resolveAcByName(nameIndex, "andhra-pradesh", w.entity_name) ??
+    null;
+
+  it("entity_id-only resolves NOTHING for results-scheme winners", () => {
+    for (const w of NB_WINNERS) {
+      expect(enrich.get(w.entity_id)).toBeUndefined();
+    }
+  });
+
+  it("the name bridge resolves the district for every name-matching winner", () => {
+    expect(resolveMeta(NB_WINNERS[0])?.district_name).toBe(
+      "Dr. B.R. Ambedkar Konaseema",
+    );
+    expect(resolveMeta(NB_WINNERS[1])?.district_name).toBe("Krishna");
+  });
+
+  it("carries reservation through the name bridge", () => {
+    expect(resolveMeta(NB_WINNERS[0])?.reservation).toBe("SC");
+  });
+
+  it("a winner with no canonical name twin stays null (-> Other bucket)", () => {
+    expect(resolveMeta(NB_WINNERS[2])).toBeNull();
+  });
+
+  it("a district-less ballot alias never shadows the real district edge", () => {
+    // "Amalapuram" (district-bearing 3166) and "AMALAPURAM" (district-less
+    // eci44 alias) slug to the same (state, name) key; the district-bearing
+    // row must win.
+    const info = resolveAcByName(nameIndex, "andhra-pradesh", "Amalapuram");
+    expect(info?.district_name).toBe("Dr. B.R. Ambedkar Konaseema");
+    expect(info?.entity_id).toBe("IN-AC-2008-andhra-pradesh-3166");
+  });
+
+  it("coverage rises from entity_id-only (0) to name-bridged (2 of 3)", () => {
+    const entityIdCoverage = NB_WINNERS.filter(
+      (w) => enrich.get(w.entity_id)?.district_name != null,
+    ).length;
+    const nameBridgedCoverage = NB_WINNERS.filter(
+      (w) => resolveMeta(w)?.district_name != null,
+    ).length;
+    expect(entityIdCoverage).toBe(0);
+    expect(nameBridgedCoverage).toBe(2);
+    expect(nameBridgedCoverage).toBeGreaterThan(entityIdCoverage);
+  });
+
+  it("keys by state so same-named ACs in other states never collide", () => {
+    expect(resolveAcByName(nameIndex, "telangana", "Amalapuram")).toBeNull();
   });
 });
