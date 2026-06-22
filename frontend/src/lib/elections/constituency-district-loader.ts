@@ -237,3 +237,260 @@ export async function loadAcEnrichment(): Promise<Map<string, AcEnrichment>> {
   });
   return enrichmentPromise;
 }
+
+// ===========================================================================
+// Row 5 - parliament PC -> AC -> District (TODO/20260622-election-
+// constituency-grouping-plan.md).
+// ===========================================================================
+//
+// The state-scoped GENERAL page groups its constituency list by PARLIAMENT
+// CONSTITUENCY (PC): each PC is a group whose HEADER carries the Lok Sabha
+// (MP) result and whose LEAVES are the PC's child ACs (each tagged with its
+// LGD district). The AC -> PC link is NATIVE in electoral.csv - every
+// `entity_kind='ac'` row's `parent` IS its PC `entity_id` (plan finding 5),
+// and a parliament PC winner's `entity_id` (NATIONAL-PC loader) is the SAME
+// electoral.csv PC id, so the join `AC.parent == PCwinner.entity_id` needs
+// ZERO new data.
+//
+// Row 4's `AcEnrichment` map is keyed by AC and carries only
+// {district_name, reservation, eci_no} - it does NOT carry the AC `name` or
+// its `parent` PC. This section ADDS the richer `AcEntity` (name +
+// parent_pc_id + state + delim_year) plus the pure `buildPcGrouping`, which
+// tags each state AC with its parent PC name (or null for a re-delimitation
+// orphan -> the component's "Other"/ungrouped path, never dropped per plan
+// 7.2). The Row 4 exports above stay byte-identical (Row 4 + Row 6 depend on
+// them).
+
+/** A full AC entity for the parliament PC -> AC -> District list. Superset
+ *  of `AcEnrichment` with the AC `name`, its parent PC id, the owning state
+ *  slug and the delimitation year (so a general page restricts to the live
+ *  delimitation and never mixes an old-delim AC into a current PC group). */
+export interface AcEntity {
+  /** AC electoral_id (e.g. "IN-AC-2008-andhra-pradesh-3166"). */
+  entity_id: string;
+  /** AC display name (e.g. "Gannavaram"). */
+  name: string;
+  /** Parent PC entity_id (electoral.csv `parent`), or null. Equals a PC
+   *  winner's `entity_id` at NATIONAL-PC scope, so the leaf groups under
+   *  that PC. */
+  parent_pc_id: string | null;
+  /** Owning state LGD slug (electoral.csv `state`), e.g. "andhra-pradesh". */
+  state: string;
+  /** Delimitation year (electoral.csv `delim_year`), or null. */
+  delim_year: number | null;
+  /** Resolved LGD district DISPLAY name (is_primary edge), or null - never a
+   *  raw slug (mirrors `buildAcEnrichmentMap`). */
+  district_name: string | null;
+  /** ECI reservation category "GEN" / "SC" / "ST", or null. */
+  reservation: string | null;
+  /** ECI ballot-order serial, or null. */
+  eci_no: number | null;
+}
+
+/** One `electoral.csv` AC row's fields needed to build an `AcEntity`. */
+export interface ElectoralAcEntityRow {
+  entity_id: string;
+  name: string;
+  /** electoral.csv `parent` (the PC entity_id for an AC row). */
+  parent: string | null;
+  /** electoral.csv `state` (LGD slug). */
+  state: string;
+  delim_year: number | null;
+  reservation: string | null;
+  eci_no: number | null;
+}
+
+/**
+ * Build the flat `AcEntity[]` list from the three canonical row sets. Pure +
+ * deterministic so the Row-5 oracle exercises it with in-memory fixtures
+ * (no DuckDB spin-up). The district resolution mirrors `buildAcEnrichmentMap`
+ * exactly: the is_primary edge -> display name, resolve-or-null, NEVER a raw
+ * slug.
+ */
+export function buildAcEntities(
+  membership: readonly MembershipRow[],
+  districts: readonly DistrictRow[],
+  electoralAcs: readonly ElectoralAcEntityRow[],
+): AcEntity[] {
+  // district slug -> display name
+  const districtName = new Map<string, string>();
+  for (const d of districts) districtName.set(d.entity_id, d.name);
+
+  // AC electoral_id -> primary-district display name (resolved only)
+  const acDistrict = new Map<string, string>();
+  for (const m of membership) {
+    if (!m.is_primary) continue;
+    const name = districtName.get(m.lgd_district_id);
+    if (name != null) acDistrict.set(m.electoral_id, name);
+  }
+
+  return electoralAcs.map((e) => ({
+    entity_id: e.entity_id,
+    name: e.name,
+    parent_pc_id: e.parent ?? null,
+    state: e.state,
+    delim_year: e.delim_year ?? null,
+    district_name: acDistrict.get(e.entity_id) ?? null,
+    reservation: e.reservation ?? null,
+    eci_no: e.eci_no ?? null,
+  }));
+}
+
+/** Minimal PC shape `buildPcGrouping` keys on: the PC winner's canonical
+ *  entity_id (the AC `parent` target) and its display name (the group key +
+ *  the `pc_group` stamped on each child leaf). A parliament `ElectionResultRow`
+ *  satisfies this via {entity_id, entity_name}. */
+export interface PcRef {
+  entity_id: string;
+  name: string;
+}
+
+/** One PC-mode leaf: a child AC tagged with its parent PC name (the group
+ *  key) and its own LGD district label. `pc_group` is null for a
+ *  re-delimitation orphan (parent PC absent from the supplied PCs) -> the
+ *  component's "Other"/ungrouped path (never dropped, plan 7.2). */
+export interface PcLeafEntity {
+  entity_id: string;
+  name: string;
+  pc_group: string | null;
+  district_name: string | null;
+  reservation: string | null;
+  eci_no: number | null;
+}
+
+/** The pure PC -> AC grouping result for one state's general page. */
+export interface PcGrouping {
+  /** One leaf per in-scope state AC (the live delimitation), each tagged
+   *  with its parent PC name or null (orphan). */
+  leaves: PcLeafEntity[];
+  /** Child-AC count per PC entity_id - feeds the group header's
+   *  `child_count`. Orphan leaves (null pc_group) are NOT counted. */
+  childCountByPcId: Map<string, number>;
+}
+
+/**
+ * Pure PC -> AC grouping for a state's general (parliament) page. Restricts
+ * `acEntities` to the given state AND delimitation, tags each AC with its
+ * parent PC name (from `pcs`, the state's PC winners) or null when the
+ * parent PC is not among them (a re-delimitation orphan -> the component's
+ * "Other" path), and counts children per PC. Never mutates input.
+ *
+ * `delimYear` pins the live delimitation so an old-delim AC (electoral.csv
+ * carries multiple delimitation cycles) never lands in a current PC group;
+ * pass null to disable the delimitation filter.
+ */
+export function buildPcGrouping(
+  pcs: readonly PcRef[],
+  acEntities: readonly AcEntity[],
+  stateSlug: string,
+  delimYear: number | null,
+): PcGrouping {
+  const pcIdToName = new Map<string, string>();
+  for (const p of pcs) pcIdToName.set(p.entity_id, p.name);
+
+  const leaves: PcLeafEntity[] = [];
+  const childCountByPcId = new Map<string, number>();
+  for (const ac of acEntities) {
+    if (ac.state !== stateSlug) continue;
+    if (delimYear != null && ac.delim_year !== delimYear) continue;
+    const pcName =
+      ac.parent_pc_id != null ? pcIdToName.get(ac.parent_pc_id) ?? null : null;
+    leaves.push({
+      entity_id: ac.entity_id,
+      name: ac.name,
+      pc_group: pcName,
+      district_name: ac.district_name,
+      reservation: ac.reservation,
+      eci_no: ac.eci_no,
+    });
+    if (pcName != null && ac.parent_pc_id != null) {
+      childCountByPcId.set(
+        ac.parent_pc_id,
+        (childCountByPcId.get(ac.parent_pc_id) ?? 0) + 1,
+      );
+    }
+  }
+  return { leaves, childCountByPcId };
+}
+
+// ---- Async loader (singleton-cached per page session) -----------------
+
+interface RawElectoralEntity {
+  entity_id: string;
+  name: string;
+  parent: string | null;
+  state: string;
+  // columns.json `integer` lifts to DuckDB BIGINT -> JS bigint.
+  delim_year: number | bigint | null;
+  reservation: string | null;
+  eci_no: number | bigint | null;
+}
+
+let acEntitiesPromise: Promise<AcEntity[]> | null = null;
+
+/** Reset the cache; for tests and HMR. Production never calls this. */
+export function _resetAcEntitiesCacheForTests(): void {
+  acEntitiesPromise = null;
+}
+
+/**
+ * Fetch + join the canonical entity CSVs into the flat `AcEntity[]` list
+ * (once per session, cached). Reuses the SAME read seam + pinned read
+ * options as `loadAcEnrichment` (auto_detect off; the columns map is
+ * authoritative). Callers default to an empty list until this resolves.
+ */
+export async function loadAcEntities(): Promise<AcEntity[]> {
+  if (acEntitiesPromise) return acEntitiesPromise;
+  acEntitiesPromise = (async () => {
+    await Promise.all([
+      registerCsvFile(MEMBERSHIP_URL),
+      registerCsvFile(GEO_URL),
+      registerCsvFile(ELECTORAL_URL),
+    ]);
+    const [membershipCols, geoCols, electoralCols] = await Promise.all([
+      csvColumnsClause(MEMBERSHIP_REL),
+      csvColumnsClause(GEO_REL),
+      csvColumnsClause(ELECTORAL_REL),
+    ]);
+
+    const membership = await query<RawMembership>(
+      `SELECT electoral_id, lgd_district_id, is_primary
+         FROM read_csv('${MEMBERSHIP_URL}', ${membershipCols}, ${READ_OPTS})
+        WHERE is_primary`,
+    );
+    const districts = await query<RawDistrict>(
+      `SELECT entity_id, name
+         FROM read_csv('${GEO_URL}', ${geoCols}, ${READ_OPTS})
+        WHERE entity_kind = 'district'`,
+    );
+    const electoralAcs = await query<RawElectoralEntity>(
+      `SELECT entity_id, name, parent, state, delim_year, reservation, eci_no
+         FROM read_csv('${ELECTORAL_URL}', ${electoralCols}, ${READ_OPTS})
+        WHERE entity_kind = 'ac'`,
+    );
+
+    return buildAcEntities(
+      membership.map((m) => ({
+        electoral_id: m.electoral_id,
+        lgd_district_id: m.lgd_district_id,
+        is_primary: Boolean(m.is_primary),
+      })),
+      districts,
+      electoralAcs.map((e) => ({
+        entity_id: e.entity_id,
+        name: e.name,
+        parent: e.parent ?? null,
+        state: e.state,
+        delim_year: e.delim_year == null ? null : Number(e.delim_year),
+        reservation: e.reservation ?? null,
+        eci_no: e.eci_no == null ? null : Number(e.eci_no),
+      })),
+    );
+  })();
+  // On failure, drop the cache so a later attempt re-fetches instead of
+  // permanently rejecting.
+  acEntitiesPromise.catch(() => {
+    acEntitiesPromise = null;
+  });
+  return acEntitiesPromise;
+}
