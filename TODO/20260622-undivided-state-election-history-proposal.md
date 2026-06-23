@@ -200,3 +200,24 @@ If you approve, I will turn this proposal into an execution-ready plan-doc (per 
 - [datasets/taxonomy/state_formation_events.json](../datasets/taxonomy/state_formation_events.json) - drives the union render + existence-guard.
 - [datasets/taxonomy/methodology_breaks.json](../datasets/taxonomy/methodology_breaks.json) - the delimitation "why" receipts (PC today; AC in PR-D).
 - [datasets/data/entities/boundary_layer.csv](../datasets/data/entities/boundary_layer.csv) - carries `delimitation_vintage` (the `{geometry_year}` token).
+
+---
+
+## 12. Appendix - coverage audit (scope for the FINAL data-backfill PR, PR-C)
+
+Audited 2026-06-23 (catalogue [election_events.json](../datasets/taxonomy/election_events.json) vs on-disk `data/datapoints/electoral/<state>_election_results.csv`, split by `period_label` prefix AcGen/LsGen). This is the gap inventory the final TCPD backfill PR closes. Full per-state ranges live in agent repo-memory (`/memories/repo/yen-gov-election-coverage-audit.md`); the actionable summary:
+
+**Assembly - two genuine anomalies to backfill (everything else is correct):**
+
+| State | On disk | Missing | Note |
+| --- | --- | --- | --- |
+| `IN-S01` Andhra Pradesh | 2014-2024 (n=3) | ~12 pre-2014 undivided-AP AE (1955-2009) | documented deferral; under residual `IN-S01` only, Telangana stays 3 |
+| `U08` Jammu & Kashmir | 2024 only (n=1) | ~10 (1962-2014) | shallow |
+
+Correctly shallow (NOT gaps): new states CG/JH/UK (n=5 from ~2002), TG (n=3 from 2014); assembly-less UTs A&N / Chandigarh / DNH-DD / Lakshadweep / Ladakh. All other long-standing states are deep (n=10-14).
+
+**Parliament - systemic gap nearly everywhere:** most states carry ~10-11 of ~16 LS elections; the **1967/1971/1977/1980/1984 cohort is missing almost everywhere**, and many NE states + UTs have nothing pre-1989. TCPD has all of it.
+
+**Source:** TCPD Lok Dhaba `All_States_AE.csv` (+ LS equivalent) - the same source the post-2014 slice already uses, so the backfill is incremental. Each row carries a `source_id` FK (Holy Law #9).
+
+**Status note (2026-06-23):** PR-A (the `MapCoverageNote` honesty caption) shipped in PR #1196; the caption was relocated below the national party legend in a follow-up. This appendix is the binding scope for the data-backfill PR that the user flagged as the LAST PR in this plan.

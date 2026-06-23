@@ -24,6 +24,16 @@ export interface MapCoverage {
   total: number;
 }
 
+/** The full coverage tuple a map component lifts to its parent so the
+ *  MapCoverageNote caption can render OUTSIDE the map card - e.g. below the
+ *  national party legend (per the ratified mockup) rather than inside the
+ *  map component's own DOM. */
+export interface MapCoverageEmit {
+  coverage: MapCoverage | null;
+  geometryYear: string | null;
+  onOldGeometry: boolean;
+}
+
 /** The countable noun in the caption. PC + AC both render "constituencies";
  *  admin choropleths render "districts". */
 export type MapUnit = "constituencies" | "districts";

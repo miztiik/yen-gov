@@ -85,8 +85,11 @@
     type IslandMarker,
   } from "./india-party-map-helpers";
   import { rewindCollectionForD3 } from "./geo-rewind";
-  import MapCoverageNote from "./MapCoverageNote.svelte";
-  import { computeCoverage, delimVintageFromPath } from "./map-coverage";
+  import {
+    computeCoverage,
+    delimVintageFromPath,
+    type MapCoverageEmit,
+  } from "./map-coverage";
 
   /**
    * One PC winner row, pre-shaped by the route for the join. The
@@ -137,6 +140,10 @@
      *  - it reads `boundary.join_property` + `feature.properties[that]`
      *  and matches against `row.unique_id` regardless of the shape. */
     boundary?: BoundaryEntry;
+    /** Emits the render-time coverage tuple (matched/total + vintage +
+     *  old-geometry flag) so the PARENT can render the MapCoverageNote
+     *  caption below the national party legend, not inside the map card. */
+    oncoverage?: (e: MapCoverageEmit) => void;
   }
   let {
     rows: input_rows,
@@ -147,6 +154,7 @@
     selected_party_id = DEFAULT_HIGHLIGHT_STATE.selected_party_id,
     min_margin = DEFAULT_HIGHLIGHT_STATE.min_margin,
     boundary = INDIA_PC,
+    oncoverage,
   }: Props = $props();
 
   // Responsive fit: project to the measured container width (clamped to
@@ -310,6 +318,15 @@
   // (INDIA_PC_BY_NAME) only for pre-2024 LS events; the numeric default
   // (INDIA_PC) means a current-vintage map, where the caption stays hidden.
   const on_old_geometry = $derived(boundary.id === INDIA_PC_BY_NAME.id);
+  // Lift coverage to the parent so the caption renders below the national
+  // party legend (ratified placement) rather than inside the map card.
+  $effect(() => {
+    oncoverage?.({
+      coverage,
+      geometryYear: geometry_year,
+      onOldGeometry: on_old_geometry,
+    });
+  });
   // small clickable square at its centroid so the island PC stays citizen-
   // visible. Scoped by name to the one far-flung seat - no mainland PC is
   // ever marked.
@@ -600,10 +617,3 @@
     </div>
   {/if}
 </div>
-
-<MapCoverageNote
-  {coverage}
-  unit="constituencies"
-  geometryYear={geometry_year}
-  onOldGeometry={on_old_geometry}
-/>
