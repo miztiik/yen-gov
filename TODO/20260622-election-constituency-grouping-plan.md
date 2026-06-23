@@ -1,7 +1,8 @@
 # Election Constituency Grouping + List Redesign Plan
 
-**Last Updated**: 2026-06-22
-**Level**: 4 (multi-file, structural-additive across the elections frontend + one data backfill). No Level-5 core-data-model change. ONE Level-5-style STOP trigger lives in Row 1 (Delhi source substitution).
+**Last Updated**: 2026-06-23
+**Status**: DELIVERED (all 7 rows merged to `main` + 2 browser-verify bug fixes). See Section 1a - Closure.
+**Level**: 4 (multi-file, structural-additive across the elections frontend + one data backfill). No Level-5 core-data-model change. ONE Level-5-style STOP trigger lived in Row 1 (Delhi source substitution) - resolved via committed Survey-of-India AC geometry (see Closure).
 
 ## Section 0 - Operating contract
 
@@ -57,13 +58,23 @@ The state assembly election page (e.g. `/andhra-pradesh/elections/assembly-2024`
 
 | Row | Lane | Wave | Title | Status | PR | Effort |
 | :-: | :-: | :-: | --- | --- | :-: | :-: |
-| 1 | DATA | 1 | Backfill Delhi AC->district membership (70 rows, LGD re-fetch) | [ ] PENDING | - | S |
-| 2 | LIST | 1 | Component rebuild: proportional strip + leading label + SC/ST badge + margin band + chevron/sort/search glyphs + Reserved filter + count; declares full SeatRow contract | [ ] PENDING | - | M |
-| 3 | LIST | 2 | Add `header_result` PC-mode rendering to the component | [ ] PENDING | - | S |
-| 4 | STATE | 2 | Assembly wiring: district + reservation on seat_rows, sort by eci_no (grouping lights up) | [ ] PENDING | - | M |
-| 5 | STATE | 3 | Parliament/general wiring: PC-grouped rows feeding header_result + child ACs | [ ] PENDING | - | M |
-| 6 | LANDING | 3 | Landing page migrate to universal membership CSV (5 -> 31 states) | [ ] PENDING | - | M |
-| 7 | NATIONAL | 4 | National page: mount grouped list State -> PC -> AC -> District | [ ] PENDING | - | M |
+| 1 | DATA | 1 | Backfill Delhi AC->district membership (70 rows) | [x] DONE | #1203 | S |
+| 2 | LIST | 1 | Component rebuild: proportional strip + leading label + SC/ST badge + margin band + chevron/sort/search glyphs + Reserved filter + count; declares full SeatRow contract | [x] DONE | #1188 | M |
+| 3 | LIST | 2 | Add `header_result` PC-mode rendering to the component | [x] DONE | #1191 | S |
+| 4 | STATE | 2 | Assembly wiring: district + reservation on seat_rows, sort by eci_no (grouping lights up) | [x] DONE | #1190, #1200 | M |
+| 5 | STATE | 3 | Parliament/general wiring: PC-grouped rows feeding header_result + child ACs | [x] DONE | #1192 | M |
+| 6 | LANDING | 3 | Landing page migrate to universal membership CSV (5 -> 31 states) | [x] DONE | #1193, #1197 | M |
+| 7 | NATIONAL | 4 | National page: mount grouped list State -> PC -> AC -> District | [x] DONE | #1195 | M |
+
+## Section 1a - Closure (2026-06-23)
+
+ALL 7 rows DONE + merged to `main`, delivered via 4 parallel waves of subagent PRs plus 2 bug-fix PRs surfaced by browser-verify. Notable deviations (user-ratified at execution time):
+
+- **Row 1 (Delhi) source.** The plan's LGD re-fetch (7.3) AND its ECI-Delimitation-2008 STOP-fallback were both set aside. LGD genuinely cannot supply Delhi's AC->district: its PRI super-file is empty (urban NCT, no panchayat villages) and the all-states LGD "Constituency Coverage" report omits Delhi (state 7) - confirmed across 4 LGD exports. Resolved instead from our COMMITTED Survey-of-India AC geometry `datasets/boundaries/electoral/delim=2024/ac/all.topojson`, whose features already carry `st_code`/`Dist_LGD`/`dist_name` per AC (a property read, NO spatial overlay). Each AC joins to a `geo.csv` district via its `Dist_LGD` code (the existing `lgd:<code>` alias). Added the missing `delhi/shahdara` district entity (LGD 671; present in `boundaries/in/districts/all.geojson`). #1203. `geo.csv`'s 3 stale Delhi entries (`central-north`/`old-delhi`/`outer-north`, used by no AC) left for a separate cleanup.
+- **Two bugs found in browser-verify** (not in the original plan): #1198 fixed a `registerCsvFile` TOCTOU race in `frontend/src/lib/duckdb.ts` (concurrent loaders double-registered the same CSV -> the second `registerFileURL` threw -> `loadAcEntities` rejected -> general/national PC lists rendered EMPTY). #1200 fixed the assembly enrichment short-circuit (`enrich.get(id) ?? nameBridge` returned a present-but-district-less ballot-alias row, never reaching the name bridge -> ~120/175 AP seats stranded); `resolveAssemblyAcMeta` now merges field-by-field. AP assembly verified at 23 districts / 7 "Other" (was 12 / 120).
+- **Row 7 composition** (persona debate, Jony+Gregor+Citizen -> one verdict): outer state accordion in `NationalElection.svelte` lazy-mounting the per-state PC-mode `StateEventConstituencyList`, one national search, a default-off `hide_controls` prop; all data-shaping in the Row-5 pure helpers.
+
+Agent execution lessons (the TOCTOU race; the `??`-on-non-null-but-district-less short-circuit; the urban-UT LGD-PRI gap -> read AC->district from the SoI AC topojson properties) distilled to `/memories/`.
 
 ## Section 1b - Parallel execution topology (LANES x WAVES)
 
