@@ -368,6 +368,19 @@ async function registerFilesAsView(
 
 const registeredCsvUrls = new Set<string>();
 
+// In-flight CSV registrations keyed by URL. `registerCsvFile` is called
+// concurrently for the SAME files by independent loaders (e.g. the AC
+// district enrichment map and the AC-entity name index both register
+// electoral.csv / membership.csv / geo.csv at once). The plain
+// `has() ... await ... add()` shape is a check-then-act race: two
+// concurrent callers both see `has(url) === false` and BOTH call
+// `db.registerFileURL(url, ...)`, and DuckDB-WASM throws on the second
+// registration of an already-registered name - rejecting one loader. The
+// completed `registeredCsvUrls` set is the fast path; this map collapses
+// the racing window so the underlying `registerFileURL` runs exactly once
+// per URL and every concurrent caller awaits the same promise.
+const inflightCsvRegistrations = new Map<string, Promise<void>>();
+
 /**
  * Register a CSV file URL with DuckDB-WASM so subsequent `read_csv(<url>,
  * columns={...})` SQL can fetch it via HTTP. Idempotent per session.
@@ -387,9 +400,19 @@ const registeredCsvUrls = new Set<string>();
  */
 export async function registerCsvFile(url: string): Promise<void> {
   if (registeredCsvUrls.has(url)) return;
-  const db = await (dbPromise ?? (dbPromise = bootDB()));
-  await db.registerFileURL(url, url, duckdb.DuckDBDataProtocol.HTTP, false);
-  registeredCsvUrls.add(url);
+  let registration = inflightCsvRegistrations.get(url);
+  if (!registration) {
+    registration = (async () => {
+      const db = await (dbPromise ?? (dbPromise = bootDB()));
+      await db.registerFileURL(url, url, duckdb.DuckDBDataProtocol.HTTP, false);
+      registeredCsvUrls.add(url);
+    })();
+    inflightCsvRegistrations.set(url, registration);
+    // On failure, drop the in-flight entry so a later attempt re-registers
+    // instead of permanently awaiting a rejected promise.
+    registration.catch(() => inflightCsvRegistrations.delete(url));
+  }
+  return registration;
 }
 
 // -----------------------------------------------------------------------------
@@ -578,5 +601,6 @@ export function __resetForTests(): void {
   connPromise = null;
   registeredViews.clear();
   registeredCsvUrls.clear();
+  inflightCsvRegistrations.clear();
   warnedLegacyMarkers.clear();
 }
