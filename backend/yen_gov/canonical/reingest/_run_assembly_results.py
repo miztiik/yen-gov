@@ -26,15 +26,23 @@ from yen_gov.canonical.reingest.elections import (
     ASSEMBLY_SUMMARY_FC,
 )
 
-# TCPD assembly compilation citation (vintage = operator snapshot window, the
-# same 2026-06-05 LGD/elections download window used across B2b.5.0).
-TCPD_AE_OWNER = "Trivedi Centre for Political Data, Ashoka University"
+# ECI assembly returns. Producer + title + url aligned to ECI (the issuing
+# authority) on 2026-06-23 to match the on-disk source.csv row
+# ``src-0c1b8f274551`` that PR #1014's rebrand already minted on disk; the
+# Trivedi Centre's Lok Dhaba is a redistribution channel, so the
+# citizen-facing pointer is ECI. (This writer was missed by PR #1014 and
+# still emitted the TCPD producer/title - it would have re-minted
+# ``src-1b7bc1c9d39a`` and regressed the cascaded FK. url is NOT part of the
+# source_id.) vintage = operator snapshot window (the same 2026-06-05
+# LGD/elections download window used across B2b.5.0). Variable names kept
+# (TCPD_AE_*) because they describe the upstream DATA-SHAPE origin (TCPD's
+# All_States_AE compilation), not the citation.
+TCPD_AE_OWNER = "Election Commission of India"
 TCPD_AE_TITLE = (
-    "Indian Assembly Elections - Constituency-wise candidate results "
-    "(TCPD compilation of ECI returns)"
+    "Indian Assembly Elections - Constituency-wise candidate results"
 )
 TCPD_AE_VINTAGE = "2026-06-05"
-TCPD_AE_URL = "https://tcpd.ashoka.edu.in/lok-dhaba/"
+TCPD_AE_URL = "https://www.eci.gov.in/"
 
 # The TN pilot (B2b.5.2). Fan-out across the other states lands in B2b.5.3.
 STATE_NAME_TCPD = "Tamil_Nadu"

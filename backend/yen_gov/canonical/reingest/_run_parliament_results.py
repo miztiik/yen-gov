@@ -40,7 +40,11 @@ from yen_gov.canonical.reingest.elections import (
 
 # Producer + title rebranded by PR #1014 (2026-06-14) via
 # ``tools/rebrand_tcpd_to_eci.py``: ECI is the issuing authority for the
-# returns; the Trivedi Centre's Lok Dhaba is a redistribution channel.
+# returns; the Trivedi Centre's Lok Dhaba is a redistribution channel. The
+# citizen-facing url was repointed from Lok Dhaba to the ECI domain on
+# 2026-06-23 (user directive: an ECI-attributed source points to ECI, since
+# TCPD itself sources from ECI). url is NOT part of the source_id, so the
+# repoint does not change the FK.
 # These constants MUST match the on-disk source.csv row
 # ``src-d4b15132ad0e`` so re-emit binds candidacies to the same source_id
 # the 1962-2008 historical files already use (FK closure).
@@ -51,7 +55,7 @@ TCPD_GE_TITLE = (
     "Indian General Elections (Lok Sabha) - Constituency-wise candidate results"
 )
 TCPD_GE_VINTAGE = "2026-06-05"
-TCPD_GE_URL = "https://tcpd.ashoka.edu.in/lok-dhaba/"
+TCPD_GE_URL = "https://www.eci.gov.in/"
 
 COVERAGE_RECEIPT = "datasets/_ops/parliament-coverage-2026-06-05.md"
 

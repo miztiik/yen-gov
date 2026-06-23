@@ -147,6 +147,32 @@ describe("dedupeToPills", () => {
     expect(pills[0].vintage_summary).toBe("AcGenMay2023 to AcGenMay2026");
   });
 
+  it("merges same-label pills from different series into one ECI pointer", () => {
+    // Two distinct ECI report series whose family overflows the label
+    // budget BOTH render as the bare "ECI" label. Showing "ECI . ECI" is
+    // redundant noise to the citizen, so they collapse to a single pill.
+    // The cross-series vintage range is dropped (the families differ).
+    const pills = dedupeToPills([
+      row(
+        "Election Commission of India",
+        "Indian General Elections (Lok Sabha) - Constituency-wise candidate results",
+        "2026-06-05",
+        "https://www.eci.gov.in/",
+      ),
+      row(
+        "Election Commission of India",
+        "General Election to Lok Sabha 2024 \u2014 Constituency Wise Detailed Result (Report 33)",
+        "2024",
+        "",
+      ),
+    ]);
+    expect(pills).toHaveLength(1);
+    expect(pills[0].label).toBe("ECI");
+    expect(pills[0].vintage_summary).toBe("");
+    expect(pills[0].url).toBe("https://www.eci.gov.in/");
+    expect(pills[0].count).toBe(2);
+  });
+
   it("keeps separate pills for different series under same publisher", () => {
     const pills = dedupeToPills([
       row("Reserve Bank of India", "State Finances: A Study of Budgets", "2025-26"),

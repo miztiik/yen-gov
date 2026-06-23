@@ -26,10 +26,10 @@ Inputs (read seam):
 - `datasets/taxonomy/lgd_states.json` via `eci_to_lgd_slug()` (eci_st_code ->
   on-disk LGD slug -- the canonical bridge for the assembly partition
   layout; one helper, also used by `eci_ls.py` and `eci_ae_panel.py`)
-- `datasets/data/entities/source.csv` (FK target; the writer UPSERTs the
-  mart citation row)
+- `datasets/data/entities/source.csv` (FK target; the propagated source_id
+  must resolve to a row here)
 - `datasets/elections/{parliament,assembly}/.../summary.csv` (per-PC / per-AC
-  winners)
+  winners, each carrying its ECI `source_id` which the mart propagates)
 
 Output (mart, byte-deterministic + idempotent):
 
@@ -68,30 +68,20 @@ from __future__ import annotations
 import csv
 import json
 import re
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path, PurePosixPath
 from typing import Iterable
 
 from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
-from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
 
 EVENT_SUMMARY_REL = PurePosixPath("datasets/data/marts/elections/event_summary.csv")
 EVENT_SUMMARY_FILE_CLASS = EVENT_SUMMARY_REL.as_posix()
 
 ELECTION_EVENTS_REL = PurePosixPath("datasets/taxonomy/election_events.json")
-SOURCE_CSV_REL = PurePosixPath("datasets/data/entities/source.csv")
 PARLIAMENT_GLOB = "datasets/elections/parliament/election=*/summary.csv"
 ASSEMBLY_BASE_REL = PurePosixPath("datasets/elections/assembly")
-
-MART_SOURCE_PRODUCER = "yen-gov"
-MART_SOURCE_TITLE = "Per-event election summary aggregate (event_summary.csv)"
-MART_SOURCE_VINTAGE = "2026-06-15"
-MART_SOURCE_URL = (
-    "https://github.com/miztiik/yen-gov/blob/main/"
-    "datasets/data/marts/elections/event_summary.csv"
-)
 
 
 @dataclass(frozen=True)
@@ -103,7 +93,10 @@ class EventSummaryMartResult:
     national_row_count: int
     state_row_count: int
     skipped_files: int
-    source_id: str
+    # Distinct ECI source_ids propagated from the underlying summary.csv
+    # rows (sorted). The mart no longer self-cites; provenance flows
+    # through from the per-PC / per-AC winners (Holy Law #9).
+    source_ids: tuple[str, ...]
 
 
 @dataclass
@@ -120,6 +113,9 @@ class _Agg:
     votes_polled_total: int = 0
     have_turnout: bool = False
     seats_by_party: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    # Tally of the underlying summary.csv source_ids so the mart row can
+    # propagate the dominant ECI citation instead of self-citing.
+    source_id_counts: Counter[str] = field(default_factory=Counter)
 
 
 def refresh_event_summary_mart(repo_root: Path) -> EventSummaryMartResult:
@@ -127,7 +123,6 @@ def refresh_event_summary_mart(repo_root: Path) -> EventSummaryMartResult:
     root = repo_root.resolve()
 
     catalogue = _load_catalogue(root / ELECTION_EVENTS_REL)
-    source_id = _ensure_mart_source(root / SOURCE_CSV_REL)
 
     parliament_files = sorted(root.glob(PARLIAMENT_GLOB))
 
@@ -214,20 +209,21 @@ def refresh_event_summary_mart(repo_root: Path) -> EventSummaryMartResult:
                 aggs[key] = agg
             _accumulate_summary_rows(path, agg)
 
-    rows = _agg_rows(aggs.values(), source_id=source_id)
+    rows = _agg_rows(aggs.values())
     out_path = root / EVENT_SUMMARY_REL
     out_path.parent.mkdir(parents=True, exist_ok=True)
     write_csv(path=out_path, file_class=EVENT_SUMMARY_FILE_CLASS, rows=rows)
 
     national_n = sum(1 for r in rows if r["scope"] == "national")
     state_n = sum(1 for r in rows if r["scope"] == "state")
+    source_ids = tuple(sorted({str(r["source_id"]) for r in rows}))
     return EventSummaryMartResult(
         out_path=out_path,
         row_count=len(rows),
         national_row_count=national_n,
         state_row_count=state_n,
         skipped_files=skipped,
-        source_id=source_id,
+        source_ids=source_ids,
     )
 
 
@@ -336,6 +332,9 @@ def _accumulate_summary_rows(path: Path, agg: _Agg) -> None:
             party_id = (row.get("winner_party_id") or "").strip()
             if party_id:
                 agg.seats_by_party[party_id] += 1
+            source_id = (row.get("source_id") or "").strip()
+            if source_id:
+                agg.source_id_counts[source_id] += 1
             electors = _int_or_none(row.get("electors"))
             votes_polled = _int_or_none(row.get("votes_polled"))
             if electors is not None and votes_polled is not None and electors > 0:
@@ -344,9 +343,7 @@ def _accumulate_summary_rows(path: Path, agg: _Agg) -> None:
                 agg.have_turnout = True
 
 
-def _agg_rows(
-    aggs: Iterable[_Agg], *, source_id: str
-) -> list[dict[str, object]]:
+def _agg_rows(aggs: Iterable[_Agg]) -> list[dict[str, object]]:
     out: list[dict[str, object]] = []
     for a in aggs:
         if a.seats_by_party:
@@ -378,7 +375,7 @@ def _agg_rows(
                 "turnout_pct": turnout_pct,
                 "runner_up_party_id": runner_up_party_id,
                 "runner_up_seats": runner_up_seats,
-                "source_id": source_id,
+                "source_id": _dominant_source_id(a),
             }
         )
     # write_csv sorts deterministically by PK columns (event_id, state_code).
@@ -386,40 +383,27 @@ def _agg_rows(
 
 
 # ---------------------------------------------------------------------------
-# source.csv UPSERT
+# source_id propagation
 # ---------------------------------------------------------------------------
 
 
-def _ensure_mart_source(source_csv_path: Path) -> str:
-    source_id = derive_source_id(
-        producer=MART_SOURCE_PRODUCER,
-        title=MART_SOURCE_TITLE,
-        vintage=MART_SOURCE_VINTAGE,
-    )
-    with source_csv_path.open(encoding="utf-8", newline="") as fh:
-        reader = csv.DictReader(fh)
-        fieldnames = list(reader.fieldnames or [])
-        all_rows = list(reader)
+def _dominant_source_id(agg: _Agg) -> str:
+    """Return the source_id the aggregated event_summary row should cite.
 
-    if any(r.get("source_id") == source_id for r in all_rows):
-        return source_id
-
-    new_row = {fn: "" for fn in fieldnames}
-    new_row["source_id"] = source_id
-    if "producer" in fieldnames:
-        new_row["producer"] = MART_SOURCE_PRODUCER
-    if "title" in fieldnames:
-        new_row["title"] = MART_SOURCE_TITLE
-    if "vintage" in fieldnames:
-        new_row["vintage"] = MART_SOURCE_VINTAGE
-    if "url" in fieldnames:
-        new_row["url"] = MART_SOURCE_URL
-    all_rows.append(new_row)
-    with source_csv_path.open("w", encoding="utf-8", newline="") as fh:
-        writer = csv.DictWriter(fh, fieldnames=fieldnames, lineterminator="\n")
-        writer.writeheader()
-        writer.writerows(all_rows)
-    return source_id
+    The per-PC / per-AC winners in summary.csv each carry the real ECI
+    `source_id`; an aggregate row propagates the MOST COMMON one (so the
+    citizen footer reads "ECI", never the derived mart file). Ties break
+    deterministically by source_id ascending. Raises when the underlying
+    rows carry no source_id at all - an aggregate row must never ship
+    without provenance (Holy Law #9).
+    """
+    if not agg.source_id_counts:
+        raise ValueError(
+            "event_summary: no source_id found in any summary.csv row for "
+            f"event_id={agg.event_id!r} state_code={agg.state_code!r}; every "
+            "observation row must carry a source_id FK (Holy Law #9)"
+        )
+    return min(agg.source_id_counts.items(), key=lambda kv: (-kv[1], kv[0]))[0]
 
 
 # ---------------------------------------------------------------------------

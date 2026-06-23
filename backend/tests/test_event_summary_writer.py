@@ -169,6 +169,7 @@ def _write_summary(
     winners: list[tuple[str, int, int]],
     state_slug: str,
     year: int,
+    source_id: str = "src-existing0001",
 ) -> None:
     """Write a minimal summary.csv with N winner rows.
 
@@ -177,12 +178,12 @@ def _write_summary(
     path.parent.mkdir(parents=True, exist_ok=True)
     lines = [SUMMARY_HEADER.rstrip()]
     for idx, (party_id, electors, votes_polled) in enumerate(winners, start=1):
-        # The writer only consults: winner_party_id, electors, votes_polled.
-        # All other columns are blank/zero for the fixture.
+        # The writer consults: winner_party_id, electors, votes_polled,
+        # source_id. All other columns are blank/zero for the fixture.
         lines.append(
             f"IN-FIX-{idx},{state_slug},{year},FIX-{idx},{electors},{votes_polled},"
             f"0.0,WINNER,{party_id},WP,1000,50.0,RUNNER,parties.IN.RU,RU,500,500,5.0,"
-            "src-existing0001,minor,"
+            f"{source_id},minor,"
         )
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -232,6 +233,7 @@ def test_writer_emits_rows_for_matched_events(repo_root: Path) -> None:
     assert nat["seats_contested"] == "30"
     assert nat["runner_up_party_id"] == "parties.IN.INC"
     assert nat["runner_up_seats"] == "10"
+    assert nat["source_id"] == "src-existing0001"
 
     # State assembly-2026 row
     st = next(r for r in rows if r["scope"] == "state")
@@ -245,6 +247,7 @@ def test_writer_emits_rows_for_matched_events(repo_root: Path) -> None:
     # tie-break inside the writer picks parties.IN.AIADMK first (sorted asc).
     assert st["runner_up_party_id"] == "parties.IN.AIADMK"
     assert st["runner_up_seats"] == "60"
+    assert st["source_id"] == "src-existing0001"
 
 
 def test_writer_is_idempotent(repo_root: Path) -> None:
@@ -264,8 +267,13 @@ def test_writer_is_idempotent(repo_root: Path) -> None:
     assert first_bytes == second_bytes
 
 
-def test_writer_upserts_source_row_once(repo_root: Path) -> None:
-    """source.csv gains exactly one row across multiple writer runs."""
+def test_writer_propagates_underlying_source_id(repo_root: Path) -> None:
+    """Mart rows cite the underlying ECI source_id; source.csv is untouched.
+
+    The mart no longer self-cites a derived "yen-gov" row - provenance
+    flows through from the per-PC / per-AC winners so the citizen footer
+    reads "ECI" (Holy Law #9; user directive 2026-06-23).
+    """
     _write_summary(
         repo_root / "datasets/elections/assembly/state=tamil-nadu/election=2026/summary.csv",
         winners=[("parties.IN.DMK", 1000, 800)] * 5,
@@ -273,19 +281,61 @@ def test_writer_upserts_source_row_once(repo_root: Path) -> None:
         year=2026,
     )
     source_path = repo_root / "datasets/data/entities/source.csv"
-    rows_before = list(csv.DictReader(source_path.open(encoding="utf-8")))
-    refresh_event_summary_mart(repo_root)
-    rows_after_1 = list(csv.DictReader(source_path.open(encoding="utf-8")))
-    refresh_event_summary_mart(repo_root)
-    rows_after_2 = list(csv.DictReader(source_path.open(encoding="utf-8")))
+    before = source_path.read_text(encoding="utf-8")
+    result = refresh_event_summary_mart(repo_root)
+    after = source_path.read_text(encoding="utf-8")
 
-    assert len(rows_after_1) == len(rows_before) + 1
-    assert len(rows_after_2) == len(rows_after_1)
-    # The appended row carries the deterministic mart source_id.
-    new_row = rows_after_1[-1]
-    assert new_row["producer"] == "yen-gov"
-    assert new_row["title"] == "Per-event election summary aggregate (event_summary.csv)"
-    assert new_row["source_id"].startswith("src-")
+    # The writer never mutates source.csv (no self-citation upsert).
+    assert before == after
+    # Every mart row propagates the underlying source_id.
+    rows = list(csv.DictReader((repo_root / EVENT_SUMMARY_REL).open(encoding="utf-8")))
+    assert rows, "expected at least one mart row"
+    assert all(r["source_id"] == "src-existing0001" for r in rows)
+    assert result.source_ids == ("src-existing0001",)
+
+
+def test_writer_picks_dominant_source_id_on_mixed_rows(repo_root: Path) -> None:
+    """When summary.csv rows cite >1 source, the mart propagates the most common."""
+    path = (
+        repo_root
+        / "datasets/elections/assembly/state=tamil-nadu/election=2026/summary.csv"
+    )
+    # 3 ACs cite src-existing0001 (the dominant source).
+    _write_summary(
+        path,
+        winners=[("parties.IN.DMK", 1000, 800)] * 3,
+        state_slug="tamil-nadu",
+        year=2026,
+        source_id="src-existing0001",
+    )
+    # 2 more ACs cite a different source; the mart must NOT pick this minority.
+    extra = (
+        "IN-FIX-9,tamil-nadu,2026,FIX-9,1000,800,0.0,WINNER,parties.IN.DMK,WP,"
+        "1000,50.0,RUNNER,parties.IN.RU,RU,500,500,5.0,src-existing0002,minor,\n"
+        "IN-FIX-10,tamil-nadu,2026,FIX-10,1000,800,0.0,WINNER,parties.IN.DMK,WP,"
+        "1000,50.0,RUNNER,parties.IN.RU,RU,500,500,5.0,src-existing0002,minor,\n"
+    )
+    with path.open("a", encoding="utf-8") as fh:
+        fh.write(extra)
+
+    result = refresh_event_summary_mart(repo_root)
+    rows = list(csv.DictReader((repo_root / EVENT_SUMMARY_REL).open(encoding="utf-8")))
+    st = next(r for r in rows if r["scope"] == "state")
+    assert st["source_id"] == "src-existing0001"
+    assert result.source_ids == ("src-existing0001",)
+
+
+def test_writer_raises_when_summary_rows_lack_source_id(repo_root: Path) -> None:
+    """An aggregate row must never ship without provenance (Holy Law #9)."""
+    _write_summary(
+        repo_root / "datasets/elections/assembly/state=tamil-nadu/election=2026/summary.csv",
+        winners=[("parties.IN.DMK", 1000, 800)] * 5,
+        state_slug="tamil-nadu",
+        year=2026,
+        source_id="",
+    )
+    with pytest.raises(ValueError, match="source_id"):
+        refresh_event_summary_mart(repo_root)
 
 
 def test_writer_turnout_is_event_scope_average(repo_root: Path) -> None:

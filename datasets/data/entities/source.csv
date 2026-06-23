@@ -25,7 +25,7 @@ src-0a33b06781c2,ramSeraph (Bhuvan mirror),Bhuvan J&K Villages (Census-2011 cada
 src-0a4cbc2df833,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S17 AcGenFeb2018,AcGenFeb2018,
 src-0c04cb845d7e,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S13 AcGenNov2024,AcGenNov2024,https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx
 src-0c15367b3cab,Wikipedia,United Progressive Alliance - coalition members at the 2019 Lok Sabha general election,2019-05,https://en.wikipedia.org/wiki/United_Progressive_Alliance
-src-0c1b8f274551,Election Commission of India,Indian Assembly Elections - Constituency-wise candidate results,2026-06-05,https://tcpd.ashoka.edu.in/lok-dhaba/
+src-0c1b8f274551,Election Commission of India,Indian Assembly Elections - Constituency-wise candidate results,2026-06-05,https://www.eci.gov.in/
 src-0e8c48e664a9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of West Bengal, 2011",2011,
 src-565b884e1837,NITI Aayog ICED,"Distribution RPO Compliance API (state-wise Renewable Purchase Obligation compliance, by segment)",2024-25,https://icedapi.niti.gov.in/energy/electricity/distribution/rpo
 src-0ebe2677f04a,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Kerala, 1982",1982,
@@ -429,7 +429,7 @@ src-d032a31fc06c,Election Commission of India,"Statistical Report on General Ele
 src-d0f07b935a17,Election Commission of India,Form 10 Detailed Results - NCT of Delhi Legislative Assembly Election 2025,2026-06-14,https://results.eci.gov.in/
 src-d3f934ea3334,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Meghalaya, 1988",1988,
 src-d46bfea67787,Wikipedia,List of Chief Ministers of Jharkhand,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Jharkhand
-src-d4b15132ad0e,Election Commission of India,Indian General Elections (Lok Sabha) - Constituency-wise candidate results,2026-06-05,https://tcpd.ashoka.edu.in/lok-dhaba/
+src-d4b15132ad0e,Election Commission of India,Indian General Elections (Lok Sabha) - Constituency-wise candidate results,2026-06-05,https://www.eci.gov.in/
 src-d5163ef3d822,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Bihar, 1977",1977,
 src-d58450b62404,DataMeet India Maps Project,datameet/maps Admin2 boundary bundle,operator-snapshot-2026-05,https://github.com/datameet/maps
 src-d5fb5fb008fc,Wikipedia,2020 Bihar Legislative Assembly election,2020-11,https://en.wikipedia.org/wiki/2020_Bihar_Legislative_Assembly_election
@@ -463,7 +463,6 @@ src-e51be8a1d3fe,Election Commission of India,"Statistical Report on General Ele
 src-e54f471501ac,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Chhattisgarh, 2003",2003,
 src-e75a1bafaff0,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Sikkim, 2004",2004,
 src-e7e597f4e81b,Wikipedia,List of Chief Ministers of Odisha,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Odisha
-src-e8594bcba166,yen-gov,Per-event election summary aggregate (event_summary.csv),2026-06-15,https://github.com/miztiik/yen-gov/blob/main/datasets/data/marts/elections/event_summary.csv
 src-e9565084cbd1,Association for Democratic Reforms (ADR / MyNeta),Lok Sabha 2014 Winners — Affidavit Analysis (MyNeta),2014,https://myneta.info/ls2014/
 src-e9ddf700849d,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tripura, 1998",1998,
 src-ea20b374916b,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Meghalaya, 2013",2013,

@@ -23,21 +23,29 @@
 -->
 <script lang="ts">
   import { link } from "../links";
+  import TopicIcon from "../TopicIcon.svelte";
 
   let { current }: { current: "general" | "assembly" } = $props();
 
   // The two routes. Both go through the `link.*` builders so the
   // deploy base (`/yen-gov/`) is always applied - a hardcoded
   // `/t/elections` literal would 404 on GitHub Pages reload/share.
+  //
+  // Glyphs follow the project-wide election convention (Party.svelte,
+  // CompareElections.svelte, PartyCurrentStrength.svelte): `landmark`
+  // for the national Parliament (Lok Sabha) surface, `flag` for the
+  // state Assembly (Vidhan Sabha) surface.
   const TABS = [
     {
       id: "general" as const,
       label: "General elections",
+      icon: "landmark",
       href: link.generalElections(),
     },
     {
       id: "assembly" as const,
       label: "Assembly elections",
+      icon: "flag",
       href: link.assemblyElections(),
     },
   ];
@@ -59,8 +67,8 @@
       data-testid={`elections-route-tab-${tab.id}`}
       data-active={active}
       class="
-        flex-1 text-center rounded-full border px-4 py-2 text-sm font-medium
-        transition-colors
+        flex-1 flex items-center justify-center gap-1.5 rounded-full border
+        px-4 py-2 text-sm font-medium transition-colors
       "
       class:bg-slate-900={active}
       class:text-white={active}
@@ -70,7 +78,8 @@
       class:bg-white={!active}
       class:hover:bg-slate-100={!active}
     >
-      {tab.label}
+      <TopicIcon name={tab.icon} cls="w-4 h-4 shrink-0" />
+      <span>{tab.label}</span>
     </a>
   {/each}
 </nav>

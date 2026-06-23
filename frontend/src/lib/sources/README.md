@@ -38,6 +38,13 @@ with the same `(producer, series_family)` collapse to one pill via
   citation detail)
 - `"Wikipedia"` when the producer's only series is its sole entry
 
+When two different series from the same publisher BOTH overflow the budget
+and shrink to the same bare label (e.g. an ECI Lok-Dhaba series + an ECI
+Report-33 series both render `"ECI"`), the pills merge into one so the
+citizen sees the publisher once - not `"ECI . ECI"`. A cross-series merge
+drops the vintage suffix (the bare label already hides the per-series
+detail, so a spliced vintage range would mislead).
+
 Multiple pills render plain-text middot-separated:
 
 ```
