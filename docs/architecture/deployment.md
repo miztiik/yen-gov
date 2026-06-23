@@ -1,6 +1,6 @@
 # Deployment
 
-**Last Updated**: 2026-06-17
+**Last Updated**: 2026-06-23
 
 yen-gov deploys as a single static bundle to GitHub Pages. There is no production backend (CLAUDE.md Holy Law #1). This page is the operator-level overview; the design rationale lives in [frontend/data-loading > production placement](frontend/data-loading.md#production-placement).
 
@@ -9,6 +9,7 @@ yen-gov deploys as a single static bundle to GitHub Pages. There is no productio
 | Workflow | Contract | Trigger | Publishes? |
 | -------- | -------- | ------- | ---------- |
 | [`deploy-site.yml`](../../.github/workflows/deploy-site.yml) | Public static citizen bundle. On PRs it runs frontend Vitest plus a verification build. On `main` push / manual dispatch it runs the same checks, deploys the artifact, then performs a live CSV smoke check. | every PR + push to main + manual dispatch | Yes - only after green `main` push / manual dispatch. |
+| [`post-merge-deploy.yml`](../../.github/workflows/post-merge-deploy.yml) | Bridges the auto-merge deploy gap (below): on a PR that merges into `main` it dispatches `deploy-site.yml` so the publish actually fires. | `pull_request: closed` (acts only when `merged == true` and base is `main`) | Indirectly - it triggers `deploy-site.yml`, which publishes. |
 | [`backend.yml`](../../.github/workflows/backend.yml) | Dev/operator tooling: ingest pipeline pytest, admin FastAPI route pytest, admin SPA svelte-check + vitest, and admin Playwright e2e (mocks `/api/*` via `page.route`). | push / PR with `paths:` filter on `backend/**`, `admin/**`, `datasets/**`, the workflow file itself + manual `workflow_dispatch` | No - everything here is dev-only (CLAUDE.md section 3) and never ships in `_site/`. |
 | [`indicator-add-gate.yml`](../../.github/workflows/indicator-add-gate.yml) | Governance gate for multi-indicator additions and ingest proposal pre-flight. It reads PR metadata / proposal files; it is not a publish prerequisite. | PRs touching indicator catalogue, ingest proposal, meadow, or related source paths | No. |
 | [`e2e-ac-full.yml`](../../.github/workflows/e2e-ac-full.yml) | Sentinel coverage for the full 31-state AC e2e matrix. It catches drift beyond the cheap/default checks and remains outside the Pages deploy path. | nightly schedule + path-filtered PRs + manual dispatch | No. |
@@ -20,6 +21,12 @@ The split mirrors the deployment reality: `deploy-site.yml` defends the public a
 The site build IS the verification, and on green main the same artifact is the deploy artifact. There is exactly one `bun run build` per workflow run - no throwaway build separate from the deploy build. Rapid-fire commits to main are batched naturally by `concurrency.cancel-in-progress: true` keyed on the ref: a 5-commit burst queues 5 runs, the in-progress ones get cancelled, only the latest completes and publishes. No cron, no preflight that has to dedupe-by-SHA, no second build at deploy time.
 
 The deploy step itself is one job (`deploy-pages`) gated by `if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'` and `needs: [frontend-vitest, frontend-build]`. PR runs evaluate that `if` to false and skip the deploy entirely; the gating jobs still run and report status on the PR.
+
+### The auto-merge deploy gap (why `post-merge-deploy.yml` exists)
+
+The "push to main publishes" contract above has a sharp edge. `auto-merge.yml` squash-merges PRs using the default `GITHUB_TOKEN`, and GitHub deliberately does **not** start new workflow runs from a push authored by the `GITHUB_TOKEN` (its recursive-run guard). So an auto-merged PR's push to `main` never fires `deploy-site.yml`'s `push:` trigger, and production silently drifts behind `main` - a whole feature can merge yet never publish (observed 2026-06-23: 17 commits merged, zero deploys; the public site stayed on the previous build for a day). Only a non-`GITHUB_TOKEN` push (a maintainer PAT / direct push) or a manual dispatch deployed.
+
+[`post-merge-deploy.yml`](../../.github/workflows/post-merge-deploy.yml) closes the gap. The `pull_request: closed` webhook **is** delivered for a native auto-merge completion, so it runs post-merge; it then calls `gh workflow run deploy-site.yml --ref main`. `workflow_dispatch` (with `repository_dispatch`) is the one documented exception to the `GITHUB_TOKEN`-no-trigger rule, so the dispatched run *does* start and publishes `main` through the existing, proven deploy path. No PAT or secret is needed - the built-in `GITHUB_TOKEN` with `actions: write` can dispatch a workflow in its own repo. Batching still holds: every dispatched deploy lands in `deploy-site.yml`'s `deploy site-refs/heads/main` concurrency group (`cancel-in-progress: true`), so a burst of merges collapses to a single final publish. To republish without a merge, dispatch `deploy-site.yml` on `main` manually.
 
 ### Why backend pytest is not in the publish gate
 
