@@ -881,7 +881,7 @@ def derive_event_summary(
         f"{result.out_path.relative_to(root_resolved).as_posix()} "
         f"({result.row_count} rows = {result.national_row_count} national "
         f"+ {result.state_row_count} state; skipped {result.skipped_files} "
-        f"unmatched files; source_id={result.source_id})"
+        f"unmatched files; sources={len(result.source_ids)})"
     )
 
 

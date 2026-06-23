@@ -96,7 +96,9 @@ export function summarizeVintages(vintages: readonly string[]): string {
   return "various";
 }
 
-/** Collapse SourceRow[] to PublisherPill[] grouped by (producer, series_family).
+/** Collapse SourceRow[] to PublisherPill[] grouped by (producer, series_family),
+ *  then merge any groups that render to the same display label so a publisher
+ *  whose series overflow the label budget shows once (not "ECI . ECI").
  *  Sorts output by count desc (most-cited first), then by label asc for stability. */
 export function dedupeToPills(rows: readonly SourceRow[]): PublisherPill[] {
   if (rows.length === 0) return [];
@@ -113,8 +115,15 @@ export function dedupeToPills(rows: readonly SourceRow[]): PublisherPill[] {
     }
   }
 
-  // Build one pill per group.
-  const pills: PublisherPill[] = [];
+  // Build one provisional pill per (producer x series_family) group,
+  // remembering the display label + every contributing row so that groups
+  // which render to the SAME label can merge below.
+  interface Provisional {
+    label: string;
+    family: string;
+    rows: SourceRow[];
+  }
+  const provisional: Provisional[] = [];
   for (const contributing of groups.values()) {
     const producer = contributing[0].producer;
     const family = seriesFamily(contributing[0].title);
@@ -129,21 +138,45 @@ export function dedupeToPills(rows: readonly SourceRow[]): PublisherPill[] {
       const candidate = `${pub} ${family}`;
       label = candidate.length <= PILL_LABEL_BUDGET ? candidate : pub;
     }
+    provisional.push({ label, family, rows: contributing });
+  }
 
-    // Vintage summary across contributing rows.
-    const vintage_summary = summarizeVintages(contributing.map((r) => r.vintage));
+  // Second-level collapse by display label. Two distinct series from the
+  // same publisher can BOTH overflow the label budget and shrink to the
+  // bare publisher abbreviation (e.g. an ECI Lok-Dhaba series + an ECI
+  // Report-33 series both render "ECI"). Showing "ECI . ECI" is redundant
+  // noise to the citizen, so pills that share an identical label merge into
+  // one. When the merge spans more than one distinct series_family the
+  // vintage range would splice unrelated series, so the vintage is dropped
+  // (the bare label already hides the per-series detail).
+  const byLabel = new Map<string, Provisional[]>();
+  for (const p of provisional) {
+    const existing = byLabel.get(p.label);
+    if (existing) {
+      existing.push(p);
+    } else {
+      byLabel.set(p.label, [p]);
+    }
+  }
+
+  const pills: PublisherPill[] = [];
+  for (const [label, group] of byLabel) {
+    const allRows = group.flatMap((p) => p.rows);
+    const distinctFamilies = new Set(group.map((p) => p.family));
+    const vintage_summary =
+      distinctFamilies.size > 1
+        ? ""
+        : summarizeVintages(allRows.map((r) => r.vintage));
 
     // Click target: first non-empty url among contributing rows.
     const url =
-      contributing
-        .map((r) => (r.url ?? "").trim())
-        .find((u) => u.length > 0) ?? null;
+      allRows.map((r) => (r.url ?? "").trim()).find((u) => u.length > 0) ?? null;
 
     pills.push({
       label,
       vintage_summary,
       url,
-      count: contributing.length,
+      count: allRows.length,
     });
   }
 
