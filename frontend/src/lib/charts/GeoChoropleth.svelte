@@ -50,6 +50,7 @@
   } from "geojson";
 
   import { DATA_BASE } from "../paths";
+  import { fetchGeometryJson } from "./geometry-cache";
   import { type Direction } from "../indicators";
   import {
     binnedSequential,
@@ -194,12 +195,10 @@
     const url = `${DATA_BASE}${topojson_path}`;
     (async () => {
       try {
-        const r = await fetch(url);
-        if (!r.ok) {
-          load_error = `topojson fetch failed: ${r.status} ${url}`;
-          return;
-        }
-        const topo = (await r.json()) as Topology;
+        // Row 3b: fetchGeometryJson caches the fetched + parsed JSON per
+        // URL (throws on a non-OK status, caught below) so revisiting this
+        // choropleth does not re-download the geometry.
+        const topo = (await fetchGeometryJson(url)) as Topology;
         const objectKeys = Object.keys(topo.objects ?? {});
         if (objectKeys.length === 0) {
           load_error = `topojson has no objects: ${url}`;

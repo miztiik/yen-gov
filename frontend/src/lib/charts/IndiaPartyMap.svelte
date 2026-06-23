@@ -72,6 +72,7 @@
   } from "geojson";
 
   import { DATA_BASE } from "../paths";
+  import { fetchGeometryJson } from "./geometry-cache";
   import { loadStates } from "../view-models/states";
   import {
     loadIndiaLeadingParties,
@@ -283,12 +284,10 @@
     const url = `${DATA_BASE}${TOPOJSON_PATH}`;
     (async () => {
       try {
-        const r = await fetch(url);
-        if (!r.ok) {
-          load_error = `topojson fetch failed: ${r.status} ${url}`;
-          return;
-        }
-        const topo = (await r.json()) as Topology;
+        // Row 3b: fetchGeometryJson caches the fetched + parsed country
+        // topojson per URL (throws on a non-OK status, caught below) so
+        // revisiting the home map does not re-download it.
+        const topo = (await fetchGeometryJson(url)) as Topology;
         // The combined country topojson carries TWO objects (`states` +
         // `districts`); decode the NAMED `states` object - objectKeys[0]
         // would be ambiguous and could yield the 785-district layer.
