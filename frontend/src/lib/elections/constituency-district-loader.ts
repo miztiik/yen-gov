@@ -420,6 +420,52 @@ export function resolveAcByName(
   return index.get(acNameKey(state, name)) ?? null;
 }
 
+/** The three enrichment fields an assembly seat row needs, resolved for a
+ *  single winner: the LGD district display name, the reservation category,
+ *  and the ECI ballot serial. Any field is null when unresolved. */
+export interface ResolvedAcMeta {
+  district_name: string | null;
+  reservation: string | null;
+  eci_no: number | null;
+}
+
+/**
+ * Resolve one assembly winner's {district, reservation, eci_no}, trying the
+ * exact `entity_id` enrichment FIRST and falling back to the `(state, name)`
+ * bridge whenever the entity_id lookup yields NO DISTRICT.
+ *
+ * WHY the fallback keys on a missing DISTRICT, not a missing ROW: an assembly
+ * RESULT winner carries the results-scheme entity_id
+ * `IN-AC-<delim>-<state>-eci<NN>` (the ECI ballot-alias form). That id IS
+ * present in `loadAcEnrichment`'s map - electoral.csv carries an
+ * `entity_kind='ac'` row for it - but the ballot-alias form has NO membership
+ * edge, so its `district_name` is null while its `reservation` + `eci_no` are
+ * populated. A plain `enrichment.get(id) ?? resolveAcByName(...)` therefore
+ * SHORT-CIRCUITS on the present-but-district-less row and never consults the
+ * name bridge, stranding every ballot-alias winner in the list's "Other"
+ * bucket. Falling back on a null `district_name` fixes that while still
+ * letting the exact entity_id row win for every field it actually carries
+ * (no regression for winners whose id resolves a real district edge).
+ */
+export function resolveAssemblyAcMeta(
+  enrichment: ReadonlyMap<string, AcEnrichment> | null,
+  nameIndex: ReadonlyMap<string, AcNameInfo> | null,
+  stateSlug: string,
+  winnerId: string,
+  winnerName: string,
+): ResolvedAcMeta {
+  const byId = enrichment?.get(winnerId) ?? null;
+  const byName =
+    byId?.district_name == null && nameIndex
+      ? resolveAcByName(nameIndex, stateSlug, winnerName)
+      : null;
+  return {
+    district_name: byId?.district_name ?? byName?.district_name ?? null,
+    reservation: byId?.reservation ?? byName?.reservation ?? null,
+    eci_no: byId?.eci_no ?? byName?.eci_no ?? null,
+  };
+}
+
 /** Minimal PC shape `buildPcGrouping` keys on: the PC winner's canonical
  *  entity_id (the AC `parent` target) and its display name (the group key +
  *  the `pc_group` stamped on each child leaf). A parliament `ElectionResultRow`

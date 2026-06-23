@@ -107,7 +107,7 @@
     loadAcEntities,
     buildPcGrouping,
     buildAcNameIndex,
-    resolveAcByName,
+    resolveAssemblyAcMeta,
     type AcEnrichment,
     type AcEntity,
     type AcNameInfo,
@@ -1159,20 +1159,27 @@
     for (const w of winners) {
       const pid = partyIdFor(w);
       const name_slug = slugify(w.entity_name);
-      const meta: AcEnrichment | AcNameInfo | null =
-        enrich?.get(w.entity_id) ??
-        (name_index
-          ? resolveAcByName(name_index, ac_state_slug, w.entity_name)
-          : null) ??
-        null;
+      // Resolve enrichment by entity_id FIRST, falling back to the
+      // (state, name) bridge whenever the entity_id lookup yields no
+      // DISTRICT - the results-scheme `-eci<NN>` winner id resolves a
+      // canonical row that carries reservation + eci_no but no district
+      // edge, so a plain `??` on the row would strand it ungrouped. See
+      // resolveAssemblyAcMeta for the field-by-field merge rationale.
+      const meta = resolveAssemblyAcMeta(
+        enrich,
+        name_index,
+        ac_state_slug,
+        w.entity_id,
+        w.entity_name,
+      );
       out.push({
         entity_id: w.entity_id,
         entity_name: w.entity_name,
-        district: meta?.district_name ?? null,
+        district: meta.district_name,
         // Prefer the result row's own ballot serial (reliable summary
         // value); fall back to electoral.csv via the loader.
-        eci_no: w.eci_no ?? meta?.eci_no ?? null,
-        reservation: meta?.reservation ?? null,
+        eci_no: w.eci_no ?? meta.eci_no,
+        reservation: meta.reservation,
         winner_party_short: w.party_short ?? "UNK",
         winner_party_id: pid,
         winner_color: fillForParty(pid, w),
