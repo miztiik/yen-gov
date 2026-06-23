@@ -13,6 +13,9 @@ from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_validator import validate_csv
 from yen_gov.canonical.seed import electoral_csv_from_snapshot as electoral
 from yen_gov.canonical.seed import electoral_district_membership_csv as membership
+from yen_gov.canonical.seed import (
+    electoral_district_membership_delhi_geometry as delhi_geometry,
+)
 
 # The LGD constituency-register snapshot citation (round-8c vintage = download date).
 LGD_SOURCE_OWNER = "Local Government Directory (Ministry of Panchayati Raj)"
@@ -79,8 +82,20 @@ def main() -> None:
     )
     validate_csv(path=membership_out, file_class=membership.FILE_CLASS, repo_root=repo_root)
 
+    # Delhi is an urban NCT with no Panchayati-Raj villages, so the LGD PRI join
+    # above emits 0 Delhi edges. Supplement them from the committed ramSeraph /
+    # Survey-of-India AC boundary geometry's per-AC district attribute (a
+    # property read, no spatial overlay). See the delhi_geometry module.
+    n_delhi = delhi_geometry.append_delhi_to_membership(
+        membership_csv=membership_out,
+        geo_csv=entities / "geo.csv",
+        ac_topojson=repo_root / delhi_geometry.AC_TOPOJSON_REL,
+    )
+    validate_csv(path=membership_out, file_class=membership.FILE_CLASS, repo_root=repo_root)
+
     n_el = len(electoral_out.read_text(encoding="utf-8").splitlines()) - 1
     n_mem = len(membership_out.read_text(encoding="utf-8").splitlines()) - 1
+    print(f"appended {n_delhi} Delhi AC->district edges (geometry-derived)")
     print(f"LGD source_id: {source_id}")
     print(f"wrote electoral.csv ({n_el} rows)")
     print(f"wrote electoral_district_membership.csv ({n_mem} rows)")
