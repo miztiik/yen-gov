@@ -1,0 +1,53 @@
+name: post-merge deploy
+
+# Republishes the public citizen site whenever a PR merges into `main`.
+#
+# WHY THIS EXISTS
+#   `auto-merge.yml` squash-merges PRs using the default `GITHUB_TOKEN`.
+#   GitHub deliberately does NOT start new workflow runs from a push that
+#   was authored by the `GITHUB_TOKEN` (the recursive-run guard), so the
+#   `push: branches: [main]` trigger in `deploy-site.yml` never fires for an
+#   auto-merged PR. The result was production silently drifting behind
+#   `main`: a whole feature could be merged yet never published (observed
+#   2026-06-23 - 17 commits merged, zero deploys).
+#
+# HOW THIS FIXES IT
+#   The `pull_request: closed` webhook IS delivered for a native auto-merge
+#   completion, so this workflow runs post-merge. It then asks
+#   `deploy-site.yml` to run via `workflow_dispatch`. `workflow_dispatch`
+#   (with `repository_dispatch`) is the ONE exception to the
+#   `GITHUB_TOKEN`-no-trigger rule, so the dispatched deploy run DOES start
+#   and publishes `main` through the existing, proven deploy path.
+#
+#   No PAT / secret is required - the built-in `GITHUB_TOKEN` with
+#   `actions: write` can dispatch a workflow in its own repository.
+#
+#   Batching is free: every dispatched `deploy-site.yml` run lands in that
+#   workflow's `deploy site-refs/heads/main` concurrency group
+#   (cancel-in-progress: true), so a burst of merges collapses to a single
+#   final publish of `main`.
+#
+# See docs/architecture/deployment.md and .github/workflows/deploy-site.yml.
+
+on:
+  pull_request:
+    types: [closed]
+
+# Only need permission to dispatch a workflow run in this repo.
+permissions:
+  actions: write
+
+jobs:
+  dispatch-deploy:
+    name: dispatch production deploy of main
+    # Fire only for a PR that actually MERGED into `main` (not a PR that was
+    # closed without merging, and not a PR targeting some other base).
+    if: >-
+      github.event.pull_request.merged == true
+      && github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch deploy-site.yml on main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy-site.yml --ref main --repo "${{ github.repository }}"
