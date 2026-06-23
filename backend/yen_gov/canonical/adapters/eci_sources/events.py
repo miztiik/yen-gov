@@ -76,8 +76,21 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S29", 2014): EventInfo("AcGenApr2014", False),  # Telangana
     ("S29", 2018): EventInfo("AcGenDec2018", False),  # Telangana
 
-    # Current Andhra Pradesh statewise AE panel backfill. Only post-split rows
-    # are eligible here; pre-2014 undivided Andhra Pradesh stays deferred.
+    # Andhra Pradesh statewise AE panel backfill. Post-split rows (2014+) plus
+    # the pre-bifurcation UNDIVIDED Andhra Pradesh cohorts on the 1976
+    # delimitation (DelimID 3, 1978-2004; 294 ACs that include the territory
+    # which became Telangana in 2014). Filed under residual S01 ONLY - never
+    # S29 (Telangana carries no pre-formation rows). Pre-1976-delimitation
+    # cohorts (1962/1967/1972, DelimID 1/2; 287-300 ACs) stay deferred
+    # project-wide pending delim-aware AC entities - the same line every
+    # other state's panel backfill draws.
+    ("S01", 1978): EventInfo("AcGenFeb1978", False),  # undivided Andhra Pradesh
+    ("S01", 1983): EventInfo("AcGenMay1983", False),  # undivided Andhra Pradesh
+    ("S01", 1985): EventInfo("AcGenMay1985", False),  # undivided Andhra Pradesh
+    ("S01", 1989): EventInfo("AcGenNov1989", False),  # undivided Andhra Pradesh
+    ("S01", 1994): EventInfo("AcGenDec1994", False),  # undivided Andhra Pradesh
+    ("S01", 1999): EventInfo("AcGenOct1999", False),  # undivided Andhra Pradesh
+    ("S01", 2004): EventInfo("AcGenMay2004", False),  # undivided Andhra Pradesh
     ("S01", 2014): EventInfo("AcGenMay2014", False),  # Andhra Pradesh
 
     # Chhattisgarh statewise AE panel backfill. 2008/2013/2018 are November

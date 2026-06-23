@@ -258,6 +258,7 @@ parties.IN.ABJS,assembly,AcGenMar1995,maharashtra,1995,0,0.004867,3,1875,3852426
 parties.IN.ABJS,assembly,AcGenMar1998,gujarat,1998,0,0.006347,4,1034,16292114,src-841460ac0eb1,computed_from_canonical_electoral_rows
 parties.IN.ABJS,assembly,AcGenMay1996,haryana,1996,0,0.01558,3,1180,7573734,src-1d2f2cd20bea,computed_from_canonical_electoral_rows
 parties.IN.ABJS,assembly,AcGenMay1996,west-bengal,1996,0,0.000133,1,49,36788753,src-b03564ebb111,computed_from_canonical_electoral_rows
+parties.IN.ABJS,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.010602,4,3792,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.ABJS,assembly,AcGenMay2014,andhra-pradesh,2014,0,0.00049,1,142,28952127,src-254843fef7c2,computed_from_canonical_electoral_rows
 parties.IN.ABJS,assembly,AcGenNov1998,delhi,1998,0,0.001713,1,70,4087426,src-6c33137ae640,computed_from_canonical_electoral_rows
 parties.IN.ABJS,assembly,AcGenNov1998,madhya-pradesh,1998,0,0.001672,1,444,26553385,src-9e1d103bc77f,computed_from_canonical_electoral_rows
@@ -337,6 +338,7 @@ parties.IN.ACDP,parliament,LsGenJun2024,tamil-nadu,2024,0,0.019139,4,8377,437691
 parties.IN.ACDP,parliament,LsGenJun2024,telangana,2024,0,0.003409,1,751,22031832,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
 parties.IN.ADJP,parliament,LsGenJun2024,punjab,2024,0,0.01016,1,1376,13542849,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
 parties.IN.ADK,assembly,AcGenDec1984,tamil-nadu,1984,132,37.03142,155,8030809,21686473,src-6591ed259187,computed_from_canonical_electoral_rows
+parties.IN.ADK,assembly,AcGenFeb1978,andhra-pradesh,1978,0,0.192014,9,38691,20150093,src-551a9c4b4ed0,computed_from_canonical_electoral_rows
 parties.IN.ADK,assembly,AcGenFeb1978,karnataka,1978,0,0.178072,7,22310,12528663,src-5ea8e5f3b5d7,computed_from_canonical_electoral_rows
 parties.IN.ADK,assembly,AcGenFeb1990,puducherry,1990,3,18.168079,13,76337,420171,src-3da08e761d1a,computed_from_canonical_electoral_rows
 parties.IN.ADK,assembly,AcGenFeb1991,tamil-nadu,1991,164,44.396612,168,10940966,24643696,src-80f8486f3490,computed_from_canonical_electoral_rows
@@ -456,6 +458,7 @@ parties.IN.AIADMK,assembly,AcGenApr2011,puducherry,2011,5,13.979474,10,95960,686
 parties.IN.AIADMK,assembly,AcGenApr2021,kerala,2021,0,0.049803,1,10376,20833888,src-8e74145fe7dc,computed_from_canonical_electoral_rows
 parties.IN.AIADMK,assembly,AcGenApr2021,puducherry,2021,0,4.138725,5,34623,836562,src-a52f0799d8fe,computed_from_canonical_electoral_rows
 parties.IN.AIADMK,assembly,AcGenApr2021,tamil-nadu,2021,66,33.287504,191,15390974,46236492,src-4c63b70dbcf5,computed_from_canonical_electoral_rows
+parties.IN.AIADMK,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.045769,2,14251,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.AIADMK,assembly,AcGenDec1994,karnataka,1994,1,0.244847,4,50696,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.AIADMK,assembly,AcGenFeb1996,tamil-nadu,1996,4,21.478944,168,5831383,27149300,src-401ec179ced9,computed_from_canonical_electoral_rows
 parties.IN.AIADMK,assembly,AcGenMay1983,karnataka,1983,1,0.125655,1,16234,12919459,src-88c6bccce8b6,computed_from_canonical_electoral_rows
@@ -473,6 +476,7 @@ parties.IN.AIADMK,assembly,AcGenMay2016,tamil-nadu,2016,134,40.773525,232,176162
 parties.IN.AIADMK,assembly,AcGenMay2018,karnataka,2018,0,0.001488,1,545,36627978,src-f3b63ed575e8,computed_from_canonical_electoral_rows
 parties.IN.AIADMK,assembly,AcGenMay2026,puducherry,2026,1,1.085161,2,9399,866139,src-9b0bb5164d79,computed_from_canonical_electoral_rows
 parties.IN.AIADMK,assembly,AcGenMay2026,tamil-nadu,2026,47,21.211012,172,10462146,49324125,src-3da941c21223,computed_from_canonical_electoral_rows
+parties.IN.AIADMK,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.021859,5,7281,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.AIADMK,assembly,AcGenOct1999,maharashtra,1999,0,0.011295,3,3711,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.AIADMK,assembly,AcGenOct2009,maharashtra,2009,0,0.005713,2,2587,45284495,src-5b2670ea594e,computed_from_canonical_electoral_rows
 parties.IN.AIADMK,assembly,AcGenSep1999,karnataka,1999,1,0.179366,13,39865,22225499,src-1a69f6c8f902,computed_from_canonical_electoral_rows
@@ -771,6 +775,7 @@ parties.IN.AIMF,parliament,LsGenOct1999,uttar-pradesh,1999,0,0.001155,1,628,5434
 parties.IN.AIMIM,assembly,AcGenApr2014,telangana,2014,7,3.736588,20,726702,19448279,src-a2c894c590c3,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenApr2021,tamil-nadu,2021,0,0.006778,3,3134,46236492,src-4c63b70dbcf5,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenApr2021,west-bengal,2021,0,0.01799,6,10852,60322833,src-8444a948b2a8,computed_from_canonical_electoral_rows
+parties.IN.AIMIM,assembly,AcGenDec1994,andhra-pradesh,1994,1,0.696403,20,216838,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenDec2018,telangana,2018,7,2.71117,8,561089,20695458,src-b186201797e9,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenDec2019,jharkhand,2019,0,0.920512,11,138527,15048908,src-b869a5538281,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenDec2022,gujarat,2022,0,0.290867,12,92576,31827572,src-b954b3907d29,computed_from_canonical_electoral_rows
@@ -780,10 +785,12 @@ parties.IN.AIMIM,assembly,AcGenFeb2022,uttar-pradesh,2022,0,0.46399,81,427627,92
 parties.IN.AIMIM,assembly,AcGenFeb2022,uttarakhand,2022,0,0.016924,1,910,5377007,src-7310fa0f34b6,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenFeb2025,delhi,2025,0,0.7697,2,73032,9488376,src-876bf921c339,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenMay1991,uttar-pradesh,1991,0,0.001742,1,652,37424765,src-7bfa105ca7d0,computed_from_canonical_electoral_rows
+parties.IN.AIMIM,assembly,AcGenMay2004,andhra-pradesh,2004,4,1.048895,7,375165,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenMay2014,andhra-pradesh,2014,0,0.036032,15,10432,28952127,src-254843fef7c2,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenMay2016,tamil-nadu,2016,0,0.023814,2,10289,43205158,src-980ece2fb2f9,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenMay2023,karnataka,2023,0,0.018182,2,7119,39155182,src-6bda0daa4ff0,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenMay2026,west-bengal,2026,0,0.08759,9,55841,63753070,src-fa1aba648c1e,computed_from_canonical_electoral_rows
+parties.IN.AIMIM,assembly,AcGenNov1989,andhra-pradesh,1989,4,1.988654,35,571757,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenNov2015,bihar,2015,0,0.210513,6,80248,38120124,src-cfea7c9e8ffd,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenNov2020,bihar,2020,5,1.241833,20,523279,42137619,src-06e18fc9a280,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenNov2023,madhya-pradesh,2023,0,0.087269,3,37956,43493222,src-b353edd3cdf7,computed_from_canonical_electoral_rows
@@ -792,6 +799,7 @@ parties.IN.AIMIM,assembly,AcGenNov2023,telangana,2023,7,2.215786,9,519379,234399
 parties.IN.AIMIM,assembly,AcGenNov2024,jharkhand,2024,0,0.042048,3,7504,17846387,src-da5e656dc5cc,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenNov2024,maharashtra,2024,1,0.851706,16,550138,64592503,src-0c04cb845d7e,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenNov2025,bihar,2025,5,1.853308,28,930504,50207733,src-a6ff45d1f5fb,computed_from_canonical_electoral_rows
+parties.IN.AIMIM,assembly,AcGenOct1999,andhra-pradesh,1999,4,1.081402,5,360211,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenOct1999,maharashtra,1999,0,0.003162,1,1039,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenOct2009,maharashtra,2009,0,0.024702,2,11186,45284495,src-5b2670ea594e,computed_from_canonical_electoral_rows
 parties.IN.AIMIM,assembly,AcGenOct2014,maharashtra,2014,2,0.925523,24,489614,52901326,src-02161604057c,computed_from_canonical_electoral_rows
@@ -960,6 +968,7 @@ parties.IN.AJBP,assembly,AcGenFeb2000,haryana,2000,0,0.006089,3,466,7652560,src-
 parties.IN.AJBP,assembly,AcGenFeb2000,odisha,2000,0,0.003958,1,559,14124469,src-c03df2072e66,computed_from_canonical_electoral_rows
 parties.IN.AJBP,assembly,AcGenMar1998,gujarat,1998,0,0.001228,1,200,16292114,src-841460ac0eb1,computed_from_canonical_electoral_rows
 parties.IN.AJBP,assembly,AcGenNov1998,madhya-pradesh,1998,1,0.5546,78,147265,26553385,src-9e1d103bc77f,computed_from_canonical_electoral_rows
+parties.IN.AJBP,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.106654,99,35526,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.AJBP,assembly,AcGenOct1999,arunachal-pradesh,1999,0,0.103273,1,425,411532,src-b51ea4c83cb8,computed_from_canonical_electoral_rows
 parties.IN.AJBP,assembly,AcGenOct1999,maharashtra,1999,0,0.001604,1,527,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.AJBP,assembly,AcGenSep1999,karnataka,1999,0,0.003707,3,824,22225499,src-1a69f6c8f902,computed_from_canonical_electoral_rows
@@ -1086,6 +1095,7 @@ parties.IN.ANC,assembly,AcGenDec2009,jharkhand,2009,0,0.00933,2,959,10279009,src
 parties.IN.ANC,assembly,AcGenDec2013,delhi,2013,0,0.002096,1,165,7873704,src-606ae1d0586b,computed_from_canonical_electoral_rows
 parties.IN.ANC,assembly,AcGenDec2018,telangana,2018,0,0.012215,12,2528,20695458,src-b186201797e9,computed_from_canonical_electoral_rows
 parties.IN.ANC,assembly,AcGenFeb2012,uttar-pradesh,2012,0,0.003512,3,2663,75830976,src-5c0c9c3de1ed,computed_from_canonical_electoral_rows
+parties.IN.ANC,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.018377,5,6573,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.ANC,assembly,AcGenMay2008,karnataka,2008,0,0.020133,10,5266,26156305,src-8dcd54ec3033,computed_from_canonical_electoral_rows
 parties.IN.ANC,assembly,AcGenMay2013,karnataka,2013,0,0.017134,10,5372,31352454,src-4d8c80f8c8fe,computed_from_canonical_electoral_rows
 parties.IN.ANC,assembly,AcGenMay2014,andhra-pradesh,2014,0,0.004991,5,1445,28952127,src-254843fef7c2,computed_from_canonical_electoral_rows
@@ -1498,6 +1508,7 @@ parties.IN.BJP,assembly,AcGenDec1984,arunachal-pradesh,1984,1,7.691007,6,17283,2
 parties.IN.BJP,assembly,AcGenDec1984,manipur,1984,0,0.712892,12,6163,864507,src-3ccbc5a99757,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenDec1984,tamil-nadu,1984,0,0.250802,15,54390,21686473,src-6591ed259187,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenDec1985,assam,1985,0,1.065479,37,79068,7420889,src-421cf8d49abb,computed_from_canonical_electoral_rows
+parties.IN.BJP,assembly,AcGenDec1994,andhra-pradesh,1994,3,3.888892,280,1210878,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenDec1994,karnataka,1994,40,16.986643,223,3517119,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenDec2002,gujarat,2002,127,49.853326,182,10194353,20448692,src-fd5fcb61c787,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenDec2003,chhattisgarh,2003,50,39.259192,90,3789914,9653571,src-e54f471501ac,computed_from_canonical_electoral_rows
@@ -1621,9 +1632,11 @@ parties.IN.BJP,assembly,AcGenMay1982,haryana,1982,6,7.669605,24,376604,4910344,s
 parties.IN.BJP,assembly,AcGenMay1982,himachal-pradesh,1982,29,35.156964,67,545037,1550296,src-8fbed42aa70c,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay1982,kerala,1982,0,2.753689,69,263331,9562844,src-0ebe2677f04a,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay1982,west-bengal,1982,0,0.578076,52,129994,22487343,src-56fb5ea6721a,computed_from_canonical_electoral_rows
+parties.IN.BJP,assembly,AcGenMay1983,andhra-pradesh,1983,3,2.758256,80,582464,21117111,src-da0a49db65ee,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay1983,delhi,1983,19,36.830357,49,654074,1775910,src-21e0449c2af1,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay1983,karnataka,1983,18,7.932933,110,1024892,12919459,src-88c6bccce8b6,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay1983,tripura,1983,0,0.062351,4,578,927006,src-9e936fa78de5,computed_from_canonical_electoral_rows
+parties.IN.BJP,assembly,AcGenMay1985,andhra-pradesh,1985,8,1.621972,10,372978,22995337,src-03ba17dd691c,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay1985,gujarat,1985,11,14.956054,124,1379120,9221149,src-d6182f5de7f8,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay1985,himachal-pradesh,1985,7,30.607821,57,502252,1640927,src-d99566133a22,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay1985,karnataka,1985,2,3.880811,116,571280,14720634,src-a1fd482c2f5b,computed_from_canonical_electoral_rows
@@ -1639,6 +1652,7 @@ parties.IN.BJP,assembly,AcGenMay2001,puducherry,2001,1,4.645499,5,22164,477107,s
 parties.IN.BJP,assembly,AcGenMay2001,tamil-nadu,2001,4,3.19343,21,895352,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay2001,west-bengal,2001,0,5.191246,266,1901351,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay2002,goa,2002,17,35.56798,39,226350,636387,src-fe07acd6d598,computed_from_canonical_electoral_rows
+parties.IN.BJP,assembly,AcGenMay2004,andhra-pradesh,2004,2,2.633688,27,942008,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay2004,sikkim,2004,0,0.339501,4,667,196465,src-e75a1bafaff0,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay2006,kerala,2006,0,4.749905,136,738244,15542289,src-b71794c93281,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay2006,puducherry,2006,0,3.070288,27,17356,565289,src-557fb8688652,computed_from_canonical_electoral_rows
@@ -1661,6 +1675,7 @@ parties.IN.BJP,assembly,AcGenMay2026,puducherry,2026,4,12.190076,10,105583,86613
 parties.IN.BJP,assembly,AcGenMay2026,tamil-nadu,2026,1,2.974252,33,1467024,49324125,src-3da941c21223,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenMay2026,west-bengal,2026,207,45.840622,293,29224804,63753070,src-fa1aba648c1e,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenNov1987,nagaland,1987,0,0.190959,2,926,484921,src-a024b7a7a8d0,computed_from_canonical_electoral_rows
+parties.IN.BJP,assembly,AcGenNov1989,andhra-pradesh,1989,5,1.781871,12,512305,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenNov1989,goa,1989,0,0.393689,7,1985,504205,src-7ea6a6c915d1,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenNov1989,karnataka,1989,4,4.135369,118,755032,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenNov1989,uttar-pradesh,1989,57,11.613136,275,4522867,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
@@ -1702,6 +1717,7 @@ parties.IN.BJP,assembly,AcGenNov2023,telangana,2023,8,13.889585,110,3255711,2343
 parties.IN.BJP,assembly,AcGenNov2024,jharkhand,2024,21,33.180391,68,5921501,17846387,src-da5e656dc5cc,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenNov2024,maharashtra,2024,132,26.773463,149,17293650,64592503,src-0c04cb845d7e,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenNov2025,bihar,2025,89,20.078865,101,10081143,50207733,src-a6ff45d1f5fb,computed_from_canonical_electoral_rows
+parties.IN.BJP,assembly,AcGenOct1999,andhra-pradesh,1999,12,3.673056,24,1223481,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenOct1999,arunachal-pradesh,1999,0,10.826862,23,44556,411532,src-b51ea4c83cb8,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenOct1999,maharashtra,1999,56,14.536767,117,4776301,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.BJP,assembly,AcGenOct2004,arunachal-pradesh,2004,9,19.698074,39,91312,463558,src-bf043e077c7a,computed_from_canonical_electoral_rows
@@ -2025,6 +2041,7 @@ parties.IN.BJS,assembly,AcGenMar1971,tamil-nadu,1971,0,0.060393,5,9516,15756801,
 parties.IN.BJS,assembly,AcGenMar1972,gujarat,1972,3,9.286051,100,643032,6924709,src-059813a80709,computed_from_canonical_electoral_rows
 parties.IN.BJS,assembly,AcGenMar1972,maharashtra,1972,5,6.254162,122,947266,15146171,src-4bea2515fd9d,computed_from_canonical_electoral_rows
 parties.IN.BJS,assembly,AcGenMay1991,uttar-pradesh,1991,0,0.003535,7,1323,37424765,src-7bfa105ca7d0,computed_from_canonical_electoral_rows
+parties.IN.BJS,assembly,AcGenNov1989,andhra-pradesh,1989,0,0.001123,1,323,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.BJS,assembly,AcGenNov1989,uttar-pradesh,1989,0,0.004858,4,1892,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
 parties.IN.BJS,assembly,AcGenNov1993,rajasthan,1993,0,0.003736,2,629,16835069,src-ff0e2853d3c7,computed_from_canonical_electoral_rows
 parties.IN.BJS,assembly,AcGenNov1993,uttar-pradesh,1993,0,0.008654,14,4324,49966339,src-d72503dc3f96,computed_from_canonical_electoral_rows
@@ -2276,11 +2293,13 @@ parties.IN.BRKP_D,parliament,LsGenJun2024,rajasthan,2024,0,0.014937,1,4961,33211
 parties.IN.BRM,parliament,LsGenJun2024,uttar-pradesh,2024,0,0.003816,1,3358,87997543,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
 parties.IN.BRMNP,parliament,LsGenJun2024,bihar,2024,0,0.002845,1,1237,43480859,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
 parties.IN.BRMNP,parliament,LsGenJun2024,maharashtra,2024,0,0.002077,1,1189,57248402,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
+parties.IN.BRP,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.001301,1,405,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.BRP,assembly,AcGenDec1994,karnataka,1994,1,0.132286,2,27390,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.BRP,assembly,AcGenDec2017,gujarat,2017,0,0.002315,5,695,30018086,src-953e9d223ef8,computed_from_canonical_electoral_rows
 parties.IN.BRP,assembly,AcGenFeb1990,madhya-pradesh,1990,0,0.006666,5,1325,19876841,src-8b743f01b7a6,computed_from_canonical_electoral_rows
 parties.IN.BRP,assembly,AcGenFeb1990,maharashtra,1990,0,1.14059,43,338685,29693838,src-68d6a0109259,computed_from_canonical_electoral_rows
 parties.IN.BRP,assembly,AcGenMay1991,uttar-pradesh,1991,0,0.012037,10,4505,37424765,src-7bfa105ca7d0,computed_from_canonical_electoral_rows
+parties.IN.BRP,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.001515,1,542,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.BRP,assembly,AcGenNov1989,karnataka,1989,0,0.042984,3,7848,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.BRP,assembly,AcGenNov1989,uttar-pradesh,1989,0,0.000321,1,125,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
 parties.IN.BRP,assembly,AcGenNov1993,delhi,1993,0,0.002225,1,79,3551248,src-33d259753407,computed_from_canonical_electoral_rows
@@ -2302,6 +2321,7 @@ parties.IN.BRRTD,parliament,LsGenJun2024,maharashtra,2024,0,0.000996,1,570,57248
 parties.IN.BRRTD,parliament,LsGenJun2024,punjab,2024,0,0.030488,3,4129,13542849,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
 parties.IN.BRS,assembly,AcGenApr2014,telangana,2014,63,34.040678,119,6620326,19448279,src-a2c894c590c3,computed_from_canonical_electoral_rows
 parties.IN.BRS,assembly,AcGenDec2018,telangana,2018,88,46.873807,119,9700749,20695458,src-b186201797e9,computed_from_canonical_electoral_rows
+parties.IN.BRS,assembly,AcGenMay2004,andhra-pradesh,2004,26,6.684647,54,2390940,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.BRS,parliament,LsGenMay2004,andhra-pradesh,2004,5,6.826685,22,2441405,35762670,src-6e952de88bcd,computed_from_canonical_electoral_rows
 parties.IN.BRS,parliament,LsGenMay2009,telangana,2009,2,15.343401,9,2582326,16830206,src-9be18d311190,computed_from_canonical_electoral_rows
 parties.IN.BRS,parliament,LsGenMay2014,telangana,2014,11,34.665513,17,6736270,19432195,src-85c74b162cce,computed_from_canonical_electoral_rows
@@ -2342,6 +2362,7 @@ parties.IN.BSP,assembly,AcGenApr2021,kerala,2021,0,0.210657,61,43888,20833888,sr
 parties.IN.BSP,assembly,AcGenApr2021,puducherry,2021,0,0.006694,1,56,836562,src-a52f0799d8fe,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenApr2021,tamil-nadu,2021,0,0.219147,162,101326,46236492,src-4c63b70dbcf5,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenApr2021,west-bengal,2021,0,0.391407,162,236108,60322833,src-8444a948b2a8,computed_from_canonical_electoral_rows
+parties.IN.BSP,assembly,AcGenDec1994,andhra-pradesh,1994,0,1.316229,235,409832,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenDec1994,karnataka,1994,1,0.775684,77,160607,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenDec2002,gujarat,2002,0,0.324857,34,66429,20448692,src-fd5fcb61c787,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenDec2003,chhattisgarh,2003,2,4.447411,54,429334,9653571,src-e54f471501ac,computed_from_canonical_electoral_rows
@@ -2412,6 +2433,7 @@ parties.IN.BSP,assembly,AcGenMay1996,haryana,1996,0,5.436724,67,411763,7573734,s
 parties.IN.BSP,assembly,AcGenMay1996,west-bengal,1996,0,0.18444,48,67853,36788753,src-b03564ebb111,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenMay2001,tamil-nadu,2001,0,0.070078,17,19648,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenMay2001,west-bengal,2001,0,0.205643,38,75319,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
+parties.IN.BSP,assembly,AcGenMay2004,andhra-pradesh,2004,1,1.232173,160,440719,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenMay2006,kerala,2006,0,0.685993,107,106619,15542289,src-b71794c93281,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenMay2006,puducherry,2006,0,0.195829,15,1107,565289,src-557fb8688652,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenMay2006,tamil-nadu,2006,0,0.786068,164,259336,32991555,src-7b4f21307492,computed_from_canonical_electoral_rows
@@ -2429,6 +2451,7 @@ parties.IN.BSP,assembly,AcGenMay2023,karnataka,2023,0,0.205235,54,80360,39155182
 parties.IN.BSP,assembly,AcGenMay2026,kerala,2026,0,0.146918,50,31727,21595055,src-920426012b16,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenMay2026,tamil-nadu,2026,0,0.040629,36,20040,49324125,src-3da941c21223,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenMay2026,west-bengal,2026,0,0.050421,30,32145,63753070,src-fa1aba648c1e,computed_from_canonical_electoral_rows
+parties.IN.BSP,assembly,AcGenNov1989,andhra-pradesh,1989,0,0.220264,82,63328,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenNov1989,karnataka,1989,0,0.043028,5,7856,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenNov1989,uttar-pradesh,1989,13,9.408938,372,3664417,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenNov1993,delhi,1993,0,1.880916,55,66796,3551248,src-33d259753407,computed_from_canonical_electoral_rows
@@ -2462,6 +2485,7 @@ parties.IN.BSP,assembly,AcGenNov2023,telangana,2023,0,1.25723,83,294694,23439945
 parties.IN.BSP,assembly,AcGenNov2024,jharkhand,2024,0,0.472942,15,84403,17846387,src-da5e656dc5cc,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenNov2024,maharashtra,2024,0,0.287216,104,185520,64592503,src-0c04cb845d7e,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenNov2025,bihar,2025,1,1.296762,81,651075,50207733,src-a6ff45d1f5fb,computed_from_canonical_electoral_rows
+parties.IN.BSP,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.175529,48,58468,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenOct1999,maharashtra,1999,0,0.394723,83,129693,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenOct2004,maharashtra,2004,0,3.9958,272,1671429,41829645,src-071f67ad16c1,computed_from_canonical_electoral_rows
 parties.IN.BSP,assembly,AcGenOct2009,haryana,2009,1,6.73435,86,639096,9490092,src-fe5c0a56f686,computed_from_canonical_electoral_rows
@@ -2691,6 +2715,7 @@ parties.IN.BSP_A,assembly,AcGenFeb2012,uttar-pradesh,2012,0,0.007213,9,5470,7583
 parties.IN.BSP_A,assembly,AcGenJan2007,punjab,2007,0,0.185711,31,23477,12641706,src-eec71199419f,computed_from_canonical_electoral_rows
 parties.IN.BSP_A,assembly,AcGenJan2012,punjab,2012,0,0.085624,17,11903,13901424,src-1af4a6a43fd6,computed_from_canonical_electoral_rows
 parties.IN.BSP_A,assembly,AcGenMay1996,haryana,1996,0,0.016597,3,1257,7573734,src-1d2f2cd20bea,computed_from_canonical_electoral_rows
+parties.IN.BSP_A,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.006539,1,2339,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.BSP_A,assembly,AcGenOct2014,maharashtra,2014,0,0.001255,2,664,52901326,src-02161604057c,computed_from_canonical_electoral_rows
 parties.IN.BSP_A,parliament,LsGenFeb1998,chandigarh,1998,0,0.362858,1,1026,282755,src-7e1f7d152977,computed_from_canonical_electoral_rows
 parties.IN.BSP_A,parliament,LsGenFeb1998,haryana,1998,0,0.077044,1,5819,7552804,src-7e1f7d152977,computed_from_canonical_electoral_rows
@@ -2781,6 +2806,7 @@ parties.IN.CPI,assembly,AcGenDec1977,tripura,1977,0,0.835165,10,6266,750271,src-
 parties.IN.CPI,assembly,AcGenDec1984,manipur,1984,1,4.147103,17,35852,864507,src-3ccbc5a99757,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenDec1984,tamil-nadu,1984,2,2.616963,17,567527,21686473,src-6591ed259187,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenDec1985,assam,1985,0,1.208656,21,89693,7420889,src-421cf8d49abb,computed_from_canonical_electoral_rows
+parties.IN.CPI,assembly,AcGenDec1994,andhra-pradesh,1994,19,3.394016,21,1056789,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenDec1994,karnataka,1994,0,0.226122,8,46819,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenDec2002,gujarat,2002,0,0.018172,1,3716,20448692,src-fd5fcb61c787,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenDec2003,chhattisgarh,2003,0,1.075001,18,103776,9653571,src-e54f471501ac,computed_from_canonical_electoral_rows
@@ -2803,6 +2829,7 @@ parties.IN.CPI,assembly,AcGenFeb1962,maharashtra,1962,6,5.903461,56,647390,10966
 parties.IN.CPI,assembly,AcGenFeb1967,maharashtra,1967,10,4.869054,41,651077,13371735,src-ba67b2879885,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenFeb1974,odisha,1974,7,4.865157,14,279738,5749825,src-2067d9d88f92,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenFeb1974,uttar-pradesh,1974,16,2.450295,40,672881,27461219,src-94d607058787,computed_from_canonical_electoral_rows
+parties.IN.CPI,assembly,AcGenFeb1978,andhra-pradesh,1978,6,2.488584,31,501452,20150093,src-551a9c4b4ed0,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenFeb1978,assam,1978,5,4.092581,35,211384,5165053,src-022a83aa5fe3,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenFeb1978,karnataka,1978,3,1.185817,6,148567,12528663,src-5ea8e5f3b5d7,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenFeb1978,maharashtra,1978,1,1.47814,48,301056,20367221,src-701a81e72fbb,computed_from_canonical_electoral_rows
@@ -2914,9 +2941,11 @@ parties.IN.CPI,assembly,AcGenMay1982,haryana,1982,0,0.746221,15,36642,4910344,sr
 parties.IN.CPI,assembly,AcGenMay1982,himachal-pradesh,1982,0,1.712125,20,26543,1550296,src-8fbed42aa70c,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay1982,kerala,1982,13,8.416628,25,804869,9562844,src-0ebe2677f04a,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay1982,west-bengal,1982,7,1.812842,12,407660,22487343,src-56fb5ea6721a,computed_from_canonical_electoral_rows
+parties.IN.CPI,assembly,AcGenMay1983,andhra-pradesh,1983,4,2.785154,48,588144,21117111,src-da0a49db65ee,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay1983,delhi,1983,0,0.247817,2,4401,1775910,src-21e0449c2af1,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay1983,karnataka,1983,3,1.247668,7,161192,12919459,src-88c6bccce8b6,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay1983,tripura,1983,0,0.825992,1,7657,927006,src-9e936fa78de5,computed_from_canonical_electoral_rows
+parties.IN.CPI,assembly,AcGenMay1985,andhra-pradesh,1985,11,2.686332,15,617731,22995337,src-03ba17dd691c,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay1985,gujarat,1985,0,0.260412,15,24013,9221149,src-d6182f5de7f8,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay1985,himachal-pradesh,1985,0,1.643461,16,26968,1640927,src-d99566133a22,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay1985,karnataka,1985,3,0.903548,7,133008,14720634,src-a1fd482c2f5b,computed_from_canonical_electoral_rows
@@ -2933,6 +2962,7 @@ parties.IN.CPI,assembly,AcGenMay2001,puducherry,2001,0,1.851786,2,8835,477107,sr
 parties.IN.CPI,assembly,AcGenMay2001,tamil-nadu,2001,5,1.586136,8,444710,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay2001,west-bengal,2001,7,1.788989,13,655237,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay2002,goa,2002,0,0.12571,3,800,636387,src-fe07acd6d598,computed_from_canonical_electoral_rows
+parties.IN.CPI,assembly,AcGenMay2004,andhra-pradesh,2004,6,1.526148,12,545867,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay2006,kerala,2006,17,8.090327,24,1257422,15542289,src-b71794c93281,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay2006,puducherry,2006,1,3.062858,1,17314,565289,src-557fb8688652,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay2006,tamil-nadu,2006,6,1.611746,10,531740,32991555,src-7b4f21307492,computed_from_canonical_electoral_rows
@@ -2952,6 +2982,7 @@ parties.IN.CPI,assembly,AcGenMay2026,assam,2026,0,0.035163,3,7618,21664898,src-0
 parties.IN.CPI,assembly,AcGenMay2026,kerala,2026,8,6.642836,24,1434524,21595055,src-920426012b16,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay2026,tamil-nadu,2026,2,0.661924,5,326488,49324125,src-3da941c21223,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenMay2026,west-bengal,2026,0,0.153237,16,97693,63753070,src-fa1aba648c1e,computed_from_canonical_electoral_rows
+parties.IN.CPI,assembly,AcGenNov1989,andhra-pradesh,1989,8,2.639113,19,758770,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenNov1989,goa,1989,0,0.571593,7,2882,504205,src-7ea6a6c915d1,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenNov1989,karnataka,1989,0,0.591694,18,108031,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenNov1989,uttar-pradesh,1989,6,1.558268,68,606885,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
@@ -2996,6 +3027,7 @@ parties.IN.CPI,assembly,AcGenOct1977,odisha,1977,1,3.569366,25,183485,5140549,sr
 parties.IN.CPI,assembly,AcGenOct1977,puducherry,1977,1,5.522424,8,12464,225698,src-7e80e86be4a1,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenOct1977,punjab,1977,7,6.590411,18,372711,5655353,src-ebf510d59dea,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenOct1977,tamil-nadu,1977,5,2.904786,32,496955,17108146,src-be9e304342b6,computed_from_canonical_electoral_rows
+parties.IN.CPI,assembly,AcGenOct1999,andhra-pradesh,1999,0,1.620253,45,539700,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenOct1999,maharashtra,1999,0,0.154526,19,50772,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenOct2004,maharashtra,2004,0,0.141627,15,59242,41829645,src-071f67ad16c1,computed_from_canonical_electoral_rows
 parties.IN.CPI,assembly,AcGenOct2009,haryana,2009,0,0.117365,8,11138,9490092,src-fe5c0a56f686,computed_from_canonical_electoral_rows
@@ -3233,6 +3265,7 @@ parties.IN.CPIM,assembly,AcGenDec1977,tripura,1977,51,47.003283,55,352652,750271
 parties.IN.CPIM,assembly,AcGenDec1984,manipur,1984,0,0.091382,2,790,864507,src-3ccbc5a99757,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenDec1984,tamil-nadu,1984,5,2.755736,16,597622,21686473,src-6591ed259187,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenDec1985,assam,1985,2,4.483075,39,332684,7420889,src-421cf8d49abb,computed_from_canonical_electoral_rows
+parties.IN.CPIM,assembly,AcGenDec1994,andhra-pradesh,1994,15,2.96499,16,923204,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenDec1994,karnataka,1994,1,0.492543,13,101982,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenDec2002,gujarat,2002,0,0.14977,1,30626,20448692,src-fd5fcb61c787,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenDec2003,chhattisgarh,2003,0,0.285086,6,27521,9653571,src-e54f471501ac,computed_from_canonical_electoral_rows
@@ -3253,6 +3286,7 @@ parties.IN.CPIM,assembly,AcGenDec2022,gujarat,2022,0,0.02626,5,8358,31827572,src
 parties.IN.CPIM,assembly,AcGenFeb1967,maharashtra,1967,1,1.084998,11,145083,13371735,src-ba67b2879885,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenFeb1974,odisha,1974,3,1.175688,8,67600,5749825,src-2067d9d88f92,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenFeb1974,uttar-pradesh,1974,2,0.707387,36,194257,27461219,src-94d607058787,computed_from_canonical_electoral_rows
+parties.IN.CPIM,assembly,AcGenFeb1978,andhra-pradesh,1978,8,2.710965,22,546262,20150093,src-551a9c4b4ed0,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenFeb1978,assam,1978,11,5.622111,27,290385,5165053,src-022a83aa5fe3,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenFeb1978,karnataka,1978,0,0.501897,10,62881,12528663,src-5ea8e5f3b5d7,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenFeb1978,maharashtra,1978,9,1.693938,12,345008,20367221,src-701a81e72fbb,computed_from_canonical_electoral_rows
@@ -3352,9 +3386,11 @@ parties.IN.CPIM,assembly,AcGenMay1982,haryana,1982,0,0.379118,5,18616,4910344,sr
 parties.IN.CPIM,assembly,AcGenMay1982,himachal-pradesh,1982,0,0.170032,3,2636,1550296,src-8fbed42aa70c,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay1982,kerala,1982,26,18.804009,51,1798198,9562844,src-0ebe2677f04a,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay1982,west-bengal,1982,174,38.489967,209,8655371,22487343,src-56fb5ea6721a,computed_from_canonical_electoral_rows
+parties.IN.CPIM,assembly,AcGenMay1983,andhra-pradesh,1983,5,2.013102,28,425109,21117111,src-da0a49db65ee,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay1983,delhi,1983,0,0.059237,1,1052,1775910,src-21e0449c2af1,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay1983,karnataka,1983,3,0.892607,4,115320,12919459,src-88c6bccce8b6,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay1983,tripura,1983,37,46.775102,56,433608,927006,src-9e936fa78de5,computed_from_canonical_electoral_rows
+parties.IN.CPIM,assembly,AcGenMay1985,andhra-pradesh,1985,11,2.306333,12,530349,22995337,src-03ba17dd691c,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay1985,gujarat,1985,0,0.179403,7,16543,9221149,src-d6182f5de7f8,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay1985,himachal-pradesh,1985,0,0.487834,7,8005,1640927,src-d99566133a22,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay1985,karnataka,1985,2,0.864997,7,127333,14720634,src-a1fd482c2f5b,computed_from_canonical_electoral_rows
@@ -3371,6 +3407,7 @@ parties.IN.CPIM,assembly,AcGenMay2001,puducherry,2001,0,1.238925,3,5911,477107,s
 parties.IN.CPIM,assembly,AcGenMay2001,tamil-nadu,2001,6,1.678963,8,470736,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay2001,west-bengal,2001,143,36.59304,211,13402603,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay2002,goa,2002,0,0.139852,3,890,636387,src-fe07acd6d598,computed_from_canonical_electoral_rows
+parties.IN.CPIM,assembly,AcGenMay2004,andhra-pradesh,2004,9,1.836076,14,656721,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay2004,sikkim,2004,0,0.073295,1,144,196465,src-e75a1bafaff0,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay2006,kerala,2006,61,30.448417,85,4732381,15542289,src-b71794c93281,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay2006,puducherry,2006,0,1.920434,3,10856,565289,src-557fb8688652,computed_from_canonical_electoral_rows
@@ -3392,6 +3429,7 @@ parties.IN.CPIM,assembly,AcGenMay2026,kerala,2026,26,21.76922,77,4701075,2159505
 parties.IN.CPIM,assembly,AcGenMay2026,puducherry,2026,0,0.034752,1,301,866139,src-9b0bb5164d79,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay2026,tamil-nadu,2026,2,0.595686,5,293817,49324125,src-3da941c21223,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenMay2026,west-bengal,2026,1,4.451795,195,2838156,63753070,src-fa1aba648c1e,computed_from_canonical_electoral_rows
+parties.IN.CPIM,assembly,AcGenNov1989,andhra-pradesh,1989,6,2.461435,15,707686,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenNov1989,goa,1989,0,0.020825,1,105,504205,src-7ea6a6c915d1,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenNov1989,karnataka,1989,0,0.536206,7,97900,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenNov1989,uttar-pradesh,1989,2,0.366565,8,142763,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
@@ -3436,6 +3474,7 @@ parties.IN.CPIM,assembly,AcGenOct1977,odisha,1977,1,0.879653,4,45219,5140549,src
 parties.IN.CPIM,assembly,AcGenOct1977,punjab,1977,8,3.503654,8,198144,5655353,src-ebf510d59dea,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenOct1977,tamil-nadu,1977,12,2.793026,20,477835,17108146,src-be9e304342b6,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenOct1979,sikkim,1979,0,0.333154,2,241,72339,src-6051c0ba2605,computed_from_canonical_electoral_rows
+parties.IN.CPIM,assembly,AcGenOct1999,andhra-pradesh,1999,2,1.704496,48,567761,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenOct1999,maharashtra,1999,2,0.63923,23,210030,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenOct1999,sikkim,1999,0,0.194216,2,398,204927,src-a1279a1e23c6,computed_from_canonical_electoral_rows
 parties.IN.CPIM,assembly,AcGenOct2004,maharashtra,2004,3,0.620534,16,259567,41829645,src-071f67ad16c1,computed_from_canonical_electoral_rows
@@ -3650,6 +3689,7 @@ parties.IN.CPIMLL,assembly,AcGenApr2019,odisha,2019,0,0.041274,10,9670,23428552,
 parties.IN.CPIMLL,assembly,AcGenApr2021,assam,2021,0,0.137354,4,26403,19222600,src-44984d9c7550,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenApr2021,tamil-nadu,2021,0,0.011106,12,5135,46236492,src-4c63b70dbcf5,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenApr2021,west-bengal,2021,0,0.02975,12,17946,60322833,src-8444a948b2a8,computed_from_canonical_electoral_rows
+parties.IN.CPIMLL,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.009773,5,3043,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenDec2003,chhattisgarh,2003,0,0.050634,5,4888,9653571,src-e54f471501ac,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenDec2003,delhi,2003,0,0.027566,4,1244,4512872,src-731874b4f970,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenDec2003,rajasthan,2003,0,0.031449,5,7164,22780055,src-a403cedd49aa,computed_from_canonical_electoral_rows
@@ -3707,6 +3747,7 @@ parties.IN.CPIMLL,assembly,AcGenMay2001,kerala,2001,0,0.035553,4,5595,15736923,s
 parties.IN.CPIMLL,assembly,AcGenMay2001,puducherry,2001,0,0.054495,3,260,477107,src-f4e05ebbff66,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenMay2001,tamil-nadu,2001,0,0.050076,12,14040,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenMay2001,west-bengal,2001,0,0.142112,25,52050,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
+parties.IN.CPIMLL,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.187312,11,66997,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenMay2006,kerala,2006,0,0.001383,1,215,15542289,src-b71794c93281,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenMay2006,puducherry,2006,0,0.049709,4,281,565289,src-557fb8688652,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenMay2006,tamil-nadu,2006,0,0.024537,10,8095,32991555,src-7b4f21307492,computed_from_canonical_electoral_rows
@@ -3724,6 +3765,7 @@ parties.IN.CPIMLL,assembly,AcGenMay2026,assam,2026,0,0.134605,3,29162,21664898,s
 parties.IN.CPIMLL,assembly,AcGenMay2026,kerala,2026,0,0.001213,1,262,21595055,src-920426012b16,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenMay2026,tamil-nadu,2026,0,0.001036,1,511,49324125,src-3da941c21223,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenMay2026,west-bengal,2026,0,0.070041,8,44653,63753070,src-fa1aba648c1e,computed_from_canonical_electoral_rows
+parties.IN.CPIMLL,assembly,AcGenNov1989,andhra-pradesh,1989,0,0.029477,3,8475,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenNov1998,delhi,1998,0,0.009811,1,401,4087426,src-6c33137ae640,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenNov1998,madhya-pradesh,1998,0,0.005657,3,1502,26553385,src-9e1d103bc77f,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenNov1998,rajasthan,1998,0,0.012493,3,2353,18834911,src-ee56712946b8,computed_from_canonical_electoral_rows
@@ -3740,6 +3782,7 @@ parties.IN.CPIMLL,assembly,AcGenNov2020,bihar,2020,12,3.164794,19,1333569,421376
 parties.IN.CPIMLL,assembly,AcGenNov2023,rajasthan,2023,0,0.006121,2,2438,39830823,src-bdf8cace4996,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenNov2024,jharkhand,2024,2,1.888685,4,337062,17846387,src-da5e656dc5cc,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenNov2025,bihar,2025,2,2.839387,20,1425592,50207733,src-a6ff45d1f5fb,computed_from_canonical_electoral_rows
+parties.IN.CPIMLL,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.047473,7,15813,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenOct2009,haryana,2009,0,0.003382,1,321,9490092,src-fe5c0a56f686,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenOct2014,haryana,2014,0,0.002993,2,372,12426968,src-fea3ca50a5e2,computed_from_canonical_electoral_rows
 parties.IN.CPIMLL,assembly,AcGenOct2014,maharashtra,2014,0,0.003367,2,1781,52901326,src-02161604057c,computed_from_canonical_electoral_rows
@@ -3978,6 +4021,7 @@ parties.IN.DMK,assembly,AcGenApr2011,puducherry,2011,2,10.860752,10,74552,686435
 parties.IN.DMK,assembly,AcGenApr2021,puducherry,2021,6,18.51124,13,154858,836562,src-a52f0799d8fe,computed_from_canonical_electoral_rows
 parties.IN.DMK,assembly,AcGenApr2021,tamil-nadu,2021,133,37.697713,188,17430100,46236492,src-4c63b70dbcf5,computed_from_canonical_electoral_rows
 parties.IN.DMK,assembly,AcGenDec1984,tamil-nadu,1984,24,29.33981,167,6362770,21686473,src-6591ed259187,computed_from_canonical_electoral_rows
+parties.IN.DMK,assembly,AcGenFeb1978,andhra-pradesh,1978,0,0.032491,2,6547,20150093,src-551a9c4b4ed0,computed_from_canonical_electoral_rows
 parties.IN.DMK,assembly,AcGenFeb1978,karnataka,1978,0,0.131195,3,16437,12528663,src-5ea8e5f3b5d7,computed_from_canonical_electoral_rows
 parties.IN.DMK,assembly,AcGenFeb1990,puducherry,1990,9,24.068058,18,101127,420171,src-3da08e761d1a,computed_from_canonical_electoral_rows
 parties.IN.DMK,assembly,AcGenFeb1991,tamil-nadu,1991,2,22.462816,176,5535668,24643696,src-80f8486f3490,computed_from_canonical_electoral_rows
@@ -4022,6 +4066,7 @@ parties.IN.DMM,assembly,AcGenFeb1990,madhya-pradesh,1990,0,0.018147,6,3607,19876
 parties.IN.DMM,assembly,AcGenFeb1990,maharashtra,1990,0,0.058052,33,17238,29693838,src-68d6a0109259,computed_from_canonical_electoral_rows
 parties.IN.DMM,assembly,AcGenFeb1990,rajasthan,1990,0,0.00149,1,221,14828623,src-4b69e709f7aa,computed_from_canonical_electoral_rows
 parties.IN.DMM,assembly,AcGenMay1991,uttar-pradesh,1991,0,0.004235,3,1585,37424765,src-7bfa105ca7d0,computed_from_canonical_electoral_rows
+parties.IN.DMM,assembly,AcGenNov1989,andhra-pradesh,1989,0,0.010389,8,2987,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.DMM,assembly,AcGenNov1989,karnataka,1989,0,0.024926,3,4551,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.DMM,assembly,AcGenNov1989,uttar-pradesh,1989,0,0.004075,3,1587,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
 parties.IN.DMM,assembly,AcGenNov1993,uttar-pradesh,1993,0,0.001243,1,621,49966339,src-d72503dc3f96,computed_from_canonical_electoral_rows
@@ -4368,6 +4413,7 @@ parties.IN.ICJ,assembly,AcGenDec1984,tamil-nadu,1984,0,0.507787,36,110121,216864
 parties.IN.ICJ,assembly,AcGenFeb1985,uttar-pradesh,1985,5,2.274481,169,669031,29414672,src-bdcfe935f24b,computed_from_canonical_electoral_rows
 parties.IN.ICJ,assembly,AcGenMar1985,bihar,1985,0,0.313897,47,76352,24323868,src-1ff7577f66bf,computed_from_canonical_electoral_rows
 parties.IN.ICJ,assembly,AcGenMar1985,odisha,1985,0,0.005966,1,468,7845050,src-fad57435c58f,computed_from_canonical_electoral_rows
+parties.IN.ICJ,assembly,AcGenMay1983,andhra-pradesh,1983,1,0.565286,86,119372,21117111,src-da0a49db65ee,computed_from_canonical_electoral_rows
 parties.IN.ICJ,assembly,AcGenMay1983,karnataka,1983,0,0.108998,29,14082,12919459,src-88c6bccce8b6,computed_from_canonical_electoral_rows
 parties.IN.ICJ,assembly,AcGenMay1985,rajasthan,1985,0,0.646472,21,74176,11473975,src-2fc8ad08c280,computed_from_canonical_electoral_rows
 parties.IN.ICJ,assembly,AcGenNov1989,uttar-pradesh,1989,0,0.003887,1,1514,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
@@ -4390,6 +4436,7 @@ parties.IN.ICS,assembly,AcGenMar1995,maharashtra,1995,0,0.168582,18,64945,385242
 parties.IN.ICS,assembly,AcGenMay1982,haryana,1982,0,0.008105,2,398,4910344,src-ed27abce4b67,computed_from_canonical_electoral_rows
 parties.IN.ICS,assembly,AcGenMay1982,kerala,1982,5,4.812721,15,460233,9562844,src-0ebe2677f04a,computed_from_canonical_electoral_rows
 parties.IN.ICS,assembly,AcGenMay1982,west-bengal,1982,4,3.937926,28,885535,22487343,src-56fb5ea6721a,computed_from_canonical_electoral_rows
+parties.IN.ICS,assembly,AcGenMay1983,andhra-pradesh,1983,0,0.209726,9,44288,21117111,src-da0a49db65ee,computed_from_canonical_electoral_rows
 parties.IN.ICS,assembly,AcGenMay1983,delhi,1983,0,0.087504,4,1554,1775910,src-21e0449c2af1,computed_from_canonical_electoral_rows
 parties.IN.ICS,assembly,AcGenMay1983,karnataka,1983,0,0.137924,19,17819,12919459,src-88c6bccce8b6,computed_from_canonical_electoral_rows
 parties.IN.ICS,assembly,AcGenMay1983,tripura,1983,0,0.058252,3,540,927006,src-9e936fa78de5,computed_from_canonical_electoral_rows
@@ -4492,6 +4539,7 @@ parties.IN.IJP,assembly,AcGenFeb2005,jharkhand,2005,0,0.031958,5,3237,10128820,s
 parties.IN.IJP,assembly,AcGenFeb2007,uttarakhand,2007,0,0.044603,6,1683,3773300,src-48e68e28ee85,computed_from_canonical_electoral_rows
 parties.IN.IJP,assembly,AcGenFeb2012,uttar-pradesh,2012,0,0.146919,92,111410,75830976,src-5c0c9c3de1ed,computed_from_canonical_electoral_rows
 parties.IN.IJP,assembly,AcGenJan2012,uttarakhand,2012,0,0.024234,3,1030,4250314,src-90eb6961f25f,computed_from_canonical_electoral_rows
+parties.IN.IJP,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.003805,2,1361,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.IJP,assembly,AcGenMay2006,tamil-nadu,2006,0,0.004453,4,1469,32991555,src-7b4f21307492,computed_from_canonical_electoral_rows
 parties.IN.IJP,assembly,AcGenMay2006,west-bengal,2006,0,0.019302,6,7607,39410835,src-4cf8378fae18,computed_from_canonical_electoral_rows
 parties.IN.IJP,assembly,AcGenMay2008,karnataka,2008,0,0.002443,1,639,26156305,src-8dcd54ec3033,computed_from_canonical_electoral_rows
@@ -4536,6 +4584,7 @@ parties.IN.IML,assembly,AcGenFeb1991,tamil-nadu,1991,0,0.030913,1,7618,24643696,
 parties.IN.IML,assembly,AcGenJan1980,kerala,1980,5,3.513448,11,335223,9541139,src-33ba3556a8f4,computed_from_canonical_electoral_rows
 parties.IN.IML,assembly,AcGenMay1982,kerala,1982,4,3.24826,12,310626,9562844,src-0ebe2677f04a,computed_from_canonical_electoral_rows
 parties.IN.IML,assembly,AcGenMay1991,uttar-pradesh,1991,0,0.055768,6,20871,37424765,src-7bfa105ca7d0,computed_from_canonical_electoral_rows
+parties.IN.IML,assembly,AcGenNov1989,andhra-pradesh,1989,0,0.001416,1,407,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.IML,assembly,AcGenNov1989,uttar-pradesh,1989,0,0.005816,2,2265,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
 parties.IN.IML,parliament,LsGenJun1991,tamil-nadu,1991,0,0.127112,1,31387,24692334,src-b38e5d2db7f2,computed_from_canonical_electoral_rows
 parties.IN.IML,parliament,LsGenNov1989,rajasthan,1989,0,0.004806,1,687,14293693,src-7011f3395a15,computed_from_canonical_electoral_rows
@@ -4574,6 +4623,7 @@ parties.IN.INC,assembly,AcGenDec1984,arunachal-pradesh,1984,21,43.072398,30,9679
 parties.IN.INC,assembly,AcGenDec1984,manipur,1984,30,29.821505,60,257809,864507,src-3ccbc5a99757,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenDec1984,tamil-nadu,1984,61,16.276081,73,3529708,21686473,src-6591ed259187,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenDec1985,assam,1985,25,23.231758,125,1724003,7420889,src-421cf8d49abb,computed_from_canonical_electoral_rows
+parties.IN.INC,assembly,AcGenDec1994,andhra-pradesh,1994,26,33.851168,294,10540182,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenDec1994,karnataka,1994,34,26.952032,221,5580473,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenDec2002,gujarat,2002,51,39.284195,180,8033104,20448692,src-fd5fcb61c787,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenDec2003,chhattisgarh,2003,37,36.709255,90,3543754,9653571,src-e54f471501ac,computed_from_canonical_electoral_rows
@@ -4598,6 +4648,7 @@ parties.IN.INC,assembly,AcGenFeb1967,gujarat,1967,93,45.964844,168,2933059,63810
 parties.IN.INC,assembly,AcGenFeb1967,maharashtra,1967,203,47.028781,270,6288564,13371735,src-ba67b2879885,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenFeb1974,odisha,1974,69,37.441453,135,2152818,5749825,src-2067d9d88f92,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenFeb1974,uttar-pradesh,1974,215,32.293647,403,8868229,27461219,src-94d607058787,computed_from_canonical_electoral_rows
+parties.IN.INC,assembly,AcGenFeb1978,andhra-pradesh,1978,30,17.006621,257,3426850,20150093,src-551a9c4b4ed0,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenFeb1978,arunachal-pradesh,1978,0,0.452864,1,720,158988,src-96c4dc2f932f,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenFeb1978,assam,1978,26,23.62394,126,1220189,5165053,src-022a83aa5fe3,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenFeb1978,karnataka,1978,2,7.994093,212,1001553,12528663,src-5ea8e5f3b5d7,computed_from_canonical_electoral_rows
@@ -4713,9 +4764,11 @@ parties.IN.INC,assembly,AcGenMay1982,haryana,1982,36,37.579791,90,1845297,491034
 parties.IN.INC,assembly,AcGenMay1982,himachal-pradesh,1982,31,42.523428,67,659239,1550296,src-8fbed42aa70c,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay1982,kerala,1982,20,11.896377,35,1137632,9562844,src-0ebe2677f04a,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay1982,west-bengal,1982,49,35.732465,249,8035282,22487343,src-56fb5ea6721a,computed_from_canonical_electoral_rows
+parties.IN.INC,assembly,AcGenMay1983,andhra-pradesh,1983,60,33.578964,294,7090907,21117111,src-da0a49db65ee,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay1983,delhi,1983,33,47.496101,55,843488,1775910,src-21e0449c2af1,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay1983,karnataka,1983,82,40.415152,221,5221419,12919459,src-88c6bccce8b6,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay1983,tripura,1983,12,30.513179,45,282859,927006,src-9e936fa78de5,computed_from_canonical_electoral_rows
+parties.IN.INC,assembly,AcGenMay1985,andhra-pradesh,1985,50,37.254905,290,8566891,22995337,src-03ba17dd691c,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay1985,gujarat,1985,149,55.554389,182,5122753,9221149,src-d6182f5de7f8,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay1985,himachal-pradesh,1985,58,55.459688,68,910053,1640927,src-d99566133a22,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay1985,karnataka,1985,65,40.823384,223,6009461,14720634,src-a1fd482c2f5b,computed_from_canonical_electoral_rows
@@ -4732,6 +4785,7 @@ parties.IN.INC,assembly,AcGenMay2001,puducherry,2001,11,22.783149,21,108700,4771
 parties.IN.INC,assembly,AcGenMay2001,tamil-nadu,2001,7,2.483137,14,696205,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay2001,west-bengal,2001,26,7.9756,60,2921151,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay2002,goa,2002,16,38.416561,40,244478,636387,src-fe07acd6d598,computed_from_canonical_electoral_rows
+parties.IN.INC,assembly,AcGenMay2004,andhra-pradesh,2004,185,38.564086,234,13793461,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay2004,sikkim,2004,1,26.126282,28,51329,196465,src-e75a1bafaff0,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay2006,kerala,2006,24,24.09416,77,3744784,15542289,src-b71794c93281,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenMay2006,puducherry,2006,10,29.908772,16,169071,565289,src-557fb8688652,computed_from_canonical_electoral_rows
@@ -4756,6 +4810,7 @@ parties.IN.INC,assembly,AcGenMay2026,west-bengal,2026,2,2.944707,280,1877341,637
 parties.IN.INC,assembly,AcGenNov1977,nagaland,1977,15,20.189911,37,65616,324994,src-7c6b30f97b01,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenNov1982,nagaland,1982,24,32.080968,60,140420,437705,src-6733e3732548,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenNov1987,nagaland,1987,34,39.841335,60,193199,484921,src-a024b7a7a8d0,computed_from_canonical_electoral_rows
+parties.IN.INC,assembly,AcGenNov1989,andhra-pradesh,1989,181,47.093347,287,13539785,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenNov1989,goa,1989,20,40.523398,40,204321,504205,src-7ea6a6c915d1,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenNov1989,karnataka,1989,178,43.762635,221,7990142,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenNov1989,mizoram,1989,23,34.847108,34,93561,268490,src-70f27d85923d,computed_from_canonical_electoral_rows
@@ -4809,6 +4864,7 @@ parties.IN.INC,assembly,AcGenOct1977,puducherry,1977,2,17.431701,22,39343,225698
 parties.IN.INC,assembly,AcGenOct1977,punjab,1977,17,33.588248,96,1899534,5655353,src-ebf510d59dea,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenOct1977,tamil-nadu,1977,27,17.503562,198,2994535,17108146,src-be9e304342b6,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenOct1979,sikkim,1979,0,2.040393,12,1476,72339,src-6051c0ba2605,computed_from_canonical_electoral_rows
+parties.IN.INC,assembly,AcGenOct1999,andhra-pradesh,1999,91,40.60782,293,13526309,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenOct1999,arunachal-pradesh,1999,52,51.781392,59,213097,411532,src-b51ea4c83cb8,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenOct1999,maharashtra,1999,75,27.200068,249,8937043,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.INC,assembly,AcGenOct1999,sikkim,1999,0,3.665696,31,7512,204927,src-a1279a1e23c6,computed_from_canonical_electoral_rows
@@ -5176,6 +5232,7 @@ parties.IN.INCP,assembly,AcGenNov2018,madhya-pradesh,2018,0,0.000307,1,117,38138
 parties.IN.INCP,parliament,LsGenMay2019,karnataka,2019,0,0.057586,3,20235,35138682,src-8beec592f488,computed_from_canonical_electoral_rows
 parties.IN.INCP,parliament,LsGenMay2019,tamil-nadu,2019,0,0.001982,1,860,43383467,src-8beec592f488,computed_from_canonical_electoral_rows
 parties.IN.INC_I,assembly,AcGenApr1979,mizoram,1979,5,23.880023,25,39115,163798,src-dceaba6acddd,computed_from_canonical_electoral_rows
+parties.IN.INC_I,assembly,AcGenFeb1978,andhra-pradesh,1978,175,39.246568,290,7908220,20150093,src-551a9c4b4ed0,computed_from_canonical_electoral_rows
 parties.IN.INC_I,assembly,AcGenFeb1978,assam,1978,8,8.780607,115,453523,5165053,src-022a83aa5fe3,computed_from_canonical_electoral_rows
 parties.IN.INC_I,assembly,AcGenFeb1978,karnataka,1978,149,44.248584,214,5543756,12528663,src-5ea8e5f3b5d7,computed_from_canonical_electoral_rows
 parties.IN.INC_I,assembly,AcGenFeb1978,maharashtra,1978,62,18.339802,203,3735308,20367221,src-701a81e72fbb,computed_from_canonical_electoral_rows
@@ -5241,6 +5298,7 @@ parties.IN.IND,assembly,AcGenDec1984,arunachal-pradesh,1984,4,33.325472,23,74888
 parties.IN.IND,assembly,AcGenDec1984,manipur,1984,21,43.118911,55,372766,864507,src-3ccbc5a99757,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenDec1984,tamil-nadu,1984,4,7.46973,220,1619921,21686473,src-6591ed259187,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenDec1985,assam,1985,92,61.501728,126,4563975,7420889,src-421cf8d49abb,computed_from_canonical_electoral_rows
+parties.IN.IND,assembly,AcGenDec1994,andhra-pradesh,1994,12,8.659015,285,2696143,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenDec1994,karnataka,1994,18,9.658046,217,1999718,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenDec2002,gujarat,2002,2,5.720224,129,1169711,20448692,src-fd5fcb61c787,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenDec2003,chhattisgarh,2003,0,7.115937,81,686942,9653571,src-e54f471501ac,computed_from_canonical_electoral_rows
@@ -5265,6 +5323,7 @@ parties.IN.IND,assembly,AcGenFeb1967,gujarat,1967,5,10.187864,124,650097,6381092
 parties.IN.IND,assembly,AcGenFeb1967,maharashtra,1967,16,14.56971,212,1948223,13371735,src-ba67b2879885,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenFeb1974,odisha,1974,7,13.058102,123,750818,5749825,src-2067d9d88f92,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenFeb1974,uttar-pradesh,1974,5,10.25354,394,2815747,27461219,src-94d607058787,computed_from_canonical_electoral_rows
+parties.IN.IND,assembly,AcGenFeb1978,andhra-pradesh,1978,15,9.195034,239,1852808,20150093,src-551a9c4b4ed0,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenFeb1978,arunachal-pradesh,1978,5,27.226583,21,43287,158988,src-96c4dc2f932f,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenFeb1978,assam,1978,15,25.66963,122,1325850,5165053,src-022a83aa5fe3,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenFeb1978,karnataka,1978,10,7.508199,181,940677,12528663,src-5ea8e5f3b5d7,computed_from_canonical_electoral_rows
@@ -5395,9 +5454,11 @@ parties.IN.IND,assembly,AcGenMay1982,haryana,1982,16,26.54425,90,1303414,4910344
 parties.IN.IND,assembly,AcGenMay1982,himachal-pradesh,1982,6,14.231927,59,220637,1550296,src-8fbed42aa70c,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay1982,kerala,1982,33,24.62804,127,2355141,9562844,src-0ebe2677f04a,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay1982,west-bengal,1982,11,6.986588,222,1571098,22487343,src-56fb5ea6721a,computed_from_canonical_electoral_rows
+parties.IN.IND,assembly,AcGenMay1983,andhra-pradesh,1983,219,55.994388,293,11824397,21117111,src-da0a49db65ee,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay1983,delhi,1983,0,7.424588,53,131854,1775910,src-21e0449c2af1,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay1983,karnataka,1983,22,15.467025,197,1998256,12919459,src-88c6bccce8b6,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay1983,tripura,1983,3,8.89347,53,82443,927006,src-9e936fa78de5,computed_from_canonical_electoral_rows
+parties.IN.IND,assembly,AcGenMay1985,andhra-pradesh,1985,9,9.100267,280,2092637,22995337,src-03ba17dd691c,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay1985,gujarat,1985,8,9.284743,155,856160,9221149,src-d6182f5de7f8,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay1985,himachal-pradesh,1985,2,8.27843,57,135843,1640927,src-d99566133a22,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay1985,karnataka,1985,13,9.46716,201,1393626,14720634,src-a1fd482c2f5b,computed_from_canonical_electoral_rows
@@ -5414,6 +5475,7 @@ parties.IN.IND,assembly,AcGenMay2001,puducherry,2001,2,10.773684,26,51402,477107
 parties.IN.IND,assembly,AcGenMay2001,tamil-nadu,2001,3,6.164785,229,1728440,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay2001,west-bengal,2001,9,5.047849,218,1848830,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay2002,goa,2002,1,6.47012,24,41175,636387,src-fe07acd6d598,computed_from_canonical_electoral_rows
+parties.IN.IND,assembly,AcGenMay2004,andhra-pradesh,2004,11,6.568609,261,2349436,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay2004,sikkim,2004,0,1.756038,11,3450,196465,src-e75a1bafaff0,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay2006,kerala,2006,5,6.027973,128,936885,15542289,src-b71794c93281,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenMay2006,puducherry,2006,3,13.916068,25,78666,565289,src-557fb8688652,computed_from_canonical_electoral_rows
@@ -5438,6 +5500,7 @@ parties.IN.IND,assembly,AcGenMay2026,west-bengal,2026,0,0.572692,178,365109,6375
 parties.IN.IND,assembly,AcGenNov1977,nagaland,1977,9,28.740531,45,93405,324994,src-7c6b30f97b01,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenNov1982,nagaland,1982,12,35.908431,52,157173,437705,src-6733e3732548,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenNov1987,nagaland,1987,7,20.608924,40,99937,484921,src-a024b7a7a8d0,computed_from_canonical_electoral_rows
+parties.IN.IND,assembly,AcGenNov1989,andhra-pradesh,1989,15,6.584673,268,1893156,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenNov1989,goa,1989,2,13.950278,35,70338,504205,src-7ea6a6c915d1,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenNov1989,karnataka,1989,12,8.11967,213,1482482,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenNov1989,mizoram,1989,2,10.187716,38,27353,268490,src-70f27d85923d,computed_from_canonical_electoral_rows
@@ -5491,6 +5554,7 @@ parties.IN.IND,assembly,AcGenOct1977,puducherry,1977,3,6.146266,15,13872,225698,
 parties.IN.IND,assembly,AcGenOct1977,punjab,1977,2,9.583098,110,541958,5655353,src-ebf510d59dea,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenOct1977,tamil-nadu,1977,1,4.549482,193,778332,17108146,src-be9e304342b6,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenOct1979,sikkim,1979,1,16.502855,31,11938,72339,src-6051c0ba2605,computed_from_canonical_electoral_rows
+parties.IN.IND,assembly,AcGenOct1999,andhra-pradesh,1999,5,4.782448,250,1593015,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenOct1999,arunachal-pradesh,1999,2,11.868336,22,48842,411532,src-b51ea4c83cb8,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenOct1999,maharashtra,1999,12,9.485325,254,3116564,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.IND,assembly,AcGenOct1999,sikkim,1999,1,1.940203,9,3976,204927,src-a1279a1e23c6,computed_from_canonical_electoral_rows
@@ -5908,6 +5972,7 @@ parties.IN.INPT,assembly,AcGenFeb2003,tripura,2003,6,12.456371,18,189186,1518789
 parties.IN.INPT,assembly,AcGenFeb2008,tripura,2008,1,6.207938,11,116761,1880834,src-4a2b60a351cb,computed_from_canonical_electoral_rows
 parties.IN.INPT,assembly,AcGenFeb2013,tripura,2013,0,7.587333,12,167078,2202065,src-7f65a924cccc,computed_from_canonical_electoral_rows
 parties.IN.INPT,assembly,AcGenFeb2018,tripura,2018,0,0.689602,13,16554,2400515,src-22b61f1fd6b4,computed_from_canonical_electoral_rows
+parties.IN.INPT,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.003333,1,1192,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.INSAF,parliament,LsGenJun2024,jharkhand,2024,0,0.009688,1,1674,17279192,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
 parties.IN.INSAF,parliament,LsGenJun2024,west-bengal,2024,0,0.006782,3,4107,60554535,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
 parties.IN.INYJP,parliament,LsGenJun2024,telangana,2024,0,0.003844,2,847,22031832,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
@@ -5960,6 +6025,7 @@ parties.IN.IUML,assembly,AcGenApr2014,telangana,2014,0,0.00545,5,1060,19448279,s
 parties.IN.IUML,assembly,AcGenApr2021,kerala,2021,15,8.273026,25,1723593,20833888,src-8e74145fe7dc,computed_from_canonical_electoral_rows
 parties.IN.IUML,assembly,AcGenApr2021,tamil-nadu,2021,0,0.480709,3,222263,46236492,src-4c63b70dbcf5,computed_from_canonical_electoral_rows
 parties.IN.IUML,assembly,AcGenApr2021,west-bengal,2021,0,0.003932,4,2372,60322833,src-8444a948b2a8,computed_from_canonical_electoral_rows
+parties.IN.IUML,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.000385,1,120,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.IUML,assembly,AcGenDec1994,karnataka,1994,0,0.003917,2,811,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.IUML,assembly,AcGenDec2003,rajasthan,2003,0,0.000448,1,102,22780055,src-a403cedd49aa,computed_from_canonical_electoral_rows
 parties.IN.IUML,assembly,AcGenDec2009,jharkhand,2009,0,0.014155,2,1455,10279009,src-6d8e0cb444b5,computed_from_canonical_electoral_rows
@@ -6008,6 +6074,7 @@ parties.IN.IUML,assembly,AcGenMay2001,assam,2001,0,0.011558,5,1230,10641987,src-
 parties.IN.IUML,assembly,AcGenMay2001,kerala,2001,16,7.586254,21,1193843,15736923,src-99bc11843e59,computed_from_canonical_electoral_rows
 parties.IN.IUML,assembly,AcGenMay2001,tamil-nadu,2001,0,0.108773,1,30497,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.IUML,assembly,AcGenMay2001,west-bengal,2001,0,0.07558,7,27682,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
+parties.IN.IUML,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.015016,2,5371,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.IUML,assembly,AcGenMay2006,kerala,2006,7,7.303287,21,1135098,15542289,src-b71794c93281,computed_from_canonical_electoral_rows
 parties.IN.IUML,assembly,AcGenMay2006,west-bengal,2006,0,0.03719,6,14657,39410835,src-4cf8378fae18,computed_from_canonical_electoral_rows
 parties.IN.IUML,assembly,AcGenMay2008,karnataka,2008,0,0.017204,5,4500,26156305,src-8dcd54ec3033,computed_from_canonical_electoral_rows
@@ -6146,6 +6213,7 @@ parties.IN.JD,assembly,AcGenApr1991,west-bengal,1991,1,0.676098,9,209388,3097004
 parties.IN.JD,assembly,AcGenApr1996,assam,1996,0,0.575785,34,52355,9092801,src-3d6e606da97b,computed_from_canonical_electoral_rows
 parties.IN.JD,assembly,AcGenApr1996,kerala,1996,4,4.120653,13,587716,14262692,src-6308bd3d63d5,computed_from_canonical_electoral_rows
 parties.IN.JD,assembly,AcGenApr1996,puducherry,1996,1,4.42327,6,20360,460293,src-276913fe2487,computed_from_canonical_electoral_rows
+parties.IN.JD,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.089694,1,27928,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.JD,assembly,AcGenDec1994,karnataka,1994,115,33.539705,221,6944464,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.JD,assembly,AcGenFeb1990,bihar,1990,122,25.613752,276,8212666,32063503,src-45e29dbc0a0b,computed_from_canonical_electoral_rows
 parties.IN.JD,assembly,AcGenFeb1990,gujarat,1990,70,29.364297,147,3725148,12685977,src-f02858df5f42,computed_from_canonical_electoral_rows
@@ -6180,6 +6248,7 @@ parties.IN.JD,assembly,AcGenMay1991,haryana,1991,3,4.487981,25,277380,6180507,sr
 parties.IN.JD,assembly,AcGenMay1991,uttar-pradesh,1991,92,18.842173,374,7051639,37424765,src-7bfa105ca7d0,computed_from_canonical_electoral_rows
 parties.IN.JD,assembly,AcGenMay1996,haryana,1996,0,0.84422,47,63939,7573734,src-1d2f2cd20bea,computed_from_canonical_electoral_rows
 parties.IN.JD,assembly,AcGenMay1996,west-bengal,1996,0,0.287308,5,105697,36788753,src-b03564ebb111,computed_from_canonical_electoral_rows
+parties.IN.JD,assembly,AcGenNov1989,andhra-pradesh,1989,1,0.373546,4,107398,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.JD,assembly,AcGenNov1989,goa,1989,0,1.397249,6,7045,504205,src-7ea6a6c915d1,computed_from_canonical_electoral_rows
 parties.IN.JD,assembly,AcGenNov1989,karnataka,1989,24,27.077876,209,4943854,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.JD,assembly,AcGenNov1989,uttar-pradesh,1989,208,29.711457,356,11571462,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
@@ -6321,6 +6390,7 @@ parties.IN.JDS,assembly,AcGenMay2001,assam,2001,0,0.01588,5,1690,10641987,src-ff
 parties.IN.JDS,assembly,AcGenMay2001,kerala,2001,3,2.944801,10,463421,15736923,src-99bc11843e59,computed_from_canonical_electoral_rows
 parties.IN.JDS,assembly,AcGenMay2001,tamil-nadu,2001,0,0.229936,34,64468,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.JDS,assembly,AcGenMay2001,west-bengal,2001,0,0.077925,2,28541,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
+parties.IN.JDS,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.010803,5,3864,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.JDS,assembly,AcGenMay2006,kerala,2006,5,2.440348,8,379286,15542289,src-b71794c93281,computed_from_canonical_electoral_rows
 parties.IN.JDS,assembly,AcGenMay2006,puducherry,2006,0,0.629236,1,3557,565289,src-557fb8688652,computed_from_canonical_electoral_rows
 parties.IN.JDS,assembly,AcGenMay2006,tamil-nadu,2006,0,0.071618,1,23628,32991555,src-7b4f21307492,computed_from_canonical_electoral_rows
@@ -6342,6 +6412,7 @@ parties.IN.JDS,assembly,AcGenNov2010,bihar,2010,0,0.792626,114,230326,29058604,s
 parties.IN.JDS,assembly,AcGenNov2013,madhya-pradesh,2013,0,0.004032,4,1365,33852504,src-599f7493d18f,computed_from_canonical_electoral_rows
 parties.IN.JDS,assembly,AcGenNov2018,madhya-pradesh,2018,0,0.002753,2,1050,38138186,src-549efa82d0e1,computed_from_canonical_electoral_rows
 parties.IN.JDS,assembly,AcGenNov2020,bihar,2020,0,0.043859,22,18481,42137619,src-06e18fc9a280,computed_from_canonical_electoral_rows
+parties.IN.JDS,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.023429,23,7804,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.JDS,assembly,AcGenOct1999,maharashtra,1999,2,1.513016,25,497127,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.JDS,assembly,AcGenOct2004,maharashtra,2004,0,0.580258,34,242720,41829645,src-071f67ad16c1,computed_from_canonical_electoral_rows
 parties.IN.JDS,assembly,AcGenOct2009,haryana,2009,0,0.003045,2,289,9490092,src-fe5c0a56f686,computed_from_canonical_electoral_rows
@@ -6789,6 +6860,7 @@ parties.IN.JNP_JP,assembly,AcGenMay1980,maharashtra,1980,17,8.610586,111,1511042
 parties.IN.JNP_JP,assembly,AcGenMay1980,punjab,1980,0,1.292277,8,80805,6252916,src-bdc330ee39f2,computed_from_canonical_electoral_rows
 parties.IN.JNP_JP,assembly,AcGenMay1980,rajasthan,1980,8,7.340434,76,679193,9252764,src-36cc682d1b2a,computed_from_canonical_electoral_rows
 parties.IN.JNP_JP,assembly,AcGenMay1980,uttar-pradesh,1980,4,2.88768,239,745549,25818273,src-9ce4fd3d9d7f,computed_from_canonical_electoral_rows
+parties.IN.JNP_JP,assembly,AcGenNov1989,andhra-pradesh,1989,0,0.062707,24,18029,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.JNP_JP,assembly,AcGenNov1989,goa,1989,0,0.04879,3,246,504205,src-7ea6a6c915d1,computed_from_canonical_electoral_rows
 parties.IN.JNP_JP,assembly,AcGenNov1989,karnataka,1989,2,11.33942,217,2070341,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.JNP_JP,assembly,AcGenNov1989,uttar-pradesh,1989,1,0.742446,119,289154,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
@@ -6825,6 +6897,7 @@ parties.IN.JP,assembly,AcGenApr1996,puducherry,1996,0,0.150339,8,692,460293,src-
 parties.IN.JP,assembly,AcGenApr2004,karnataka,2004,0,2.009354,155,504932,25129066,src-cbafd828698c,computed_from_canonical_electoral_rows
 parties.IN.JP,assembly,AcGenApr2004,odisha,2004,0,0.047374,4,8022,16933456,src-edd45a80fe58,computed_from_canonical_electoral_rows
 parties.IN.JP,assembly,AcGenApr2014,telangana,2014,0,0.002854,1,555,19448279,src-a2c894c590c3,computed_from_canonical_electoral_rows
+parties.IN.JP,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.029467,24,9175,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.JP,assembly,AcGenDec1994,karnataka,1994,0,0.163703,36,33895,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.JP,assembly,AcGenDec2003,delhi,2003,0,0.0039,2,176,4512872,src-731874b4f970,computed_from_canonical_electoral_rows
 parties.IN.JP,assembly,AcGenDec2003,rajasthan,2003,0,0.018806,6,4284,22780055,src-a403cedd49aa,computed_from_canonical_electoral_rows
@@ -6853,6 +6926,7 @@ parties.IN.JP,assembly,AcGenMay2001,kerala,2001,0,0.001805,1,284,15736923,src-99
 parties.IN.JP,assembly,AcGenMay2001,puducherry,2001,0,0.0262,1,125,477107,src-f4e05ebbff66,computed_from_canonical_electoral_rows
 parties.IN.JP,assembly,AcGenMay2001,tamil-nadu,2001,0,0.090554,16,25389,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.JP,assembly,AcGenMay2001,west-bengal,2001,0,0.006408,2,2347,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
+parties.IN.JP,assembly,AcGenMay2004,andhra-pradesh,2004,2,0.856492,37,306347,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.JP,assembly,AcGenMay2006,tamil-nadu,2006,0,0.016065,5,5300,32991555,src-7b4f21307492,computed_from_canonical_electoral_rows
 parties.IN.JP,assembly,AcGenMay2011,west-bengal,2011,0,0.004847,2,2309,47638132,src-0e8c48e664a9,computed_from_canonical_electoral_rows
 parties.IN.JP,assembly,AcGenNov1993,delhi,1993,0,0.20359,20,7230,3551248,src-33d259753407,computed_from_canonical_electoral_rows
@@ -6970,6 +7044,7 @@ parties.IN.JSP,assembly,AcGenDec1984,arunachal-pradesh,1984,0,0.376029,3,845,224
 parties.IN.JSP,assembly,AcGenDec1984,manipur,1984,4,6.076296,21,52530,864507,src-3ccbc5a99757,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenDec1984,tamil-nadu,1984,3,2.275031,16,493374,21686473,src-6591ed259187,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenDec1985,assam,1985,0,1.442913,87,107077,7420889,src-421cf8d49abb,computed_from_canonical_electoral_rows
+parties.IN.JSP,assembly,AcGenFeb1978,andhra-pradesh,1978,60,28.84618,270,5812532,20150093,src-551a9c4b4ed0,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenFeb1978,arunachal-pradesh,1978,17,42.082421,29,66906,158988,src-96c4dc2f932f,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenFeb1978,assam,1978,53,27.55449,117,1423204,5165053,src-022a83aa5fe3,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenFeb1978,karnataka,1978,59,37.945901,222,4754114,12528663,src-5ea8e5f3b5d7,computed_from_canonical_electoral_rows
@@ -6999,9 +7074,11 @@ parties.IN.JSP,assembly,AcGenMay1982,haryana,1982,1,3.201894,59,157224,4910344,s
 parties.IN.JSP,assembly,AcGenMay1982,himachal-pradesh,1982,2,4.752834,49,73683,1550296,src-8fbed42aa70c,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenMay1982,kerala,1982,4,4.037993,13,386147,9562844,src-0ebe2677f04a,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenMay1982,west-bengal,1982,0,0.83386,93,187513,22487343,src-56fb5ea6721a,computed_from_canonical_electoral_rows
+parties.IN.JSP,assembly,AcGenMay1983,andhra-pradesh,1983,1,0.963569,43,203478,21117111,src-da0a49db65ee,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenMay1983,delhi,1983,1,3.700751,36,65722,1775910,src-21e0449c2af1,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenMay1983,karnataka,1983,95,33.068861,193,4272318,12919459,src-88c6bccce8b6,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenMay1983,tripura,1983,0,0.055555,5,515,927006,src-9e936fa78de5,computed_from_canonical_electoral_rows
+parties.IN.JSP,assembly,AcGenMay1985,andhra-pradesh,1985,3,0.757593,5,174211,22995337,src-03ba17dd691c,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenMay1985,gujarat,1985,14,19.252894,141,1775338,9221149,src-d6182f5de7f8,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenMay1985,himachal-pradesh,1985,0,2.087296,7,34251,1640927,src-d99566133a22,computed_from_canonical_electoral_rows
 parties.IN.JSP,assembly,AcGenMay1985,karnataka,1985,139,43.604066,205,6418795,14720634,src-a1fd482c2f5b,computed_from_canonical_electoral_rows
@@ -7221,6 +7298,7 @@ parties.IN.LJNSP,assembly,AcGenMay2001,kerala,2001,0,0.011355,3,1787,15736923,sr
 parties.IN.LJNSP,assembly,AcGenMay2001,puducherry,2001,0,0.167887,7,801,477107,src-f4e05ebbff66,computed_from_canonical_electoral_rows
 parties.IN.LJNSP,assembly,AcGenMay2001,tamil-nadu,2001,0,0.033313,10,9340,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.LJNSP,assembly,AcGenMay2001,west-bengal,2001,0,0.007784,4,2851,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
+parties.IN.LJNSP,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.06025,4,21550,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.LJNSP,assembly,AcGenNov2003,madhya-pradesh,2003,0,0.11254,30,28698,25500290,src-6e6cad8b2a5a,computed_from_canonical_electoral_rows
 parties.IN.LJNSP,assembly,AcGenOct2004,maharashtra,2004,0,0.07215,33,30180,41829645,src-071f67ad16c1,computed_from_canonical_electoral_rows
 parties.IN.LJNSP,parliament,LsGenMay2004,andaman-and-nicobar,2004,0,0.449212,1,691,153825,src-6e952de88bcd,computed_from_canonical_electoral_rows
@@ -7353,8 +7431,10 @@ parties.IN.LKD,assembly,AcGenMay1980,uttar-pradesh,1980,0,0.267586,4,69086,25818
 parties.IN.LKD,assembly,AcGenMay1982,haryana,1982,31,23.871016,65,1172149,4910344,src-ed27abce4b67,computed_from_canonical_electoral_rows
 parties.IN.LKD,assembly,AcGenMay1982,himachal-pradesh,1982,0,1.45269,30,22521,1550296,src-8fbed42aa70c,computed_from_canonical_electoral_rows
 parties.IN.LKD,assembly,AcGenMay1982,west-bengal,1982,0,0.099438,16,22361,22487343,src-56fb5ea6721a,computed_from_canonical_electoral_rows
+parties.IN.LKD,assembly,AcGenMay1983,andhra-pradesh,1983,0,0.918118,33,193880,21117111,src-da0a49db65ee,computed_from_canonical_electoral_rows
 parties.IN.LKD,assembly,AcGenMay1983,delhi,1983,2,4.153645,6,73765,1775910,src-21e0449c2af1,computed_from_canonical_electoral_rows
 parties.IN.LKD,assembly,AcGenMay1983,karnataka,1983,0,0.529031,26,68348,12919459,src-88c6bccce8b6,computed_from_canonical_electoral_rows
+parties.IN.LKD,assembly,AcGenMay1985,andhra-pradesh,1985,0,0.06537,15,15032,22995337,src-03ba17dd691c,computed_from_canonical_electoral_rows
 parties.IN.LKD,assembly,AcGenMay1985,himachal-pradesh,1985,1,1.435469,3,23555,1640927,src-d99566133a22,computed_from_canonical_electoral_rows
 parties.IN.LKD,assembly,AcGenMay1985,karnataka,1985,0,0.366112,32,53894,14720634,src-a1fd482c2f5b,computed_from_canonical_electoral_rows
 parties.IN.LKD,assembly,AcGenMay1985,puducherry,1985,0,0.08816,3,266,301724,src-8800ca7de63c,computed_from_canonical_electoral_rows
@@ -7385,6 +7465,7 @@ parties.IN.LKD_B,assembly,AcGenFeb1990,madhya-pradesh,1990,0,0.090578,44,18004,1
 parties.IN.LKD_B,assembly,AcGenFeb1990,maharashtra,1990,0,0.03033,29,9006,29693838,src-68d6a0109259,computed_from_canonical_electoral_rows
 parties.IN.LKD_B,assembly,AcGenFeb1990,puducherry,1990,0,0.05593,4,235,420171,src-3da08e761d1a,computed_from_canonical_electoral_rows
 parties.IN.LKD_B,assembly,AcGenFeb1990,rajasthan,1990,0,0.176085,28,26111,14828623,src-4b69e709f7aa,computed_from_canonical_electoral_rows
+parties.IN.LKD_B,assembly,AcGenNov1989,andhra-pradesh,1989,0,0.008695,5,2500,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.LKD_B,assembly,AcGenNov1989,karnataka,1989,0,0.026356,15,4812,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.LKD_B,assembly,AcGenNov1989,uttar-pradesh,1989,2,1.192814,204,464555,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
 parties.IN.LKHAP,parliament,LsGenJun2024,jharkhand,2024,0,0.3596,12,62136,17279192,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
@@ -7574,7 +7655,10 @@ parties.IN.MARP,assembly,AcGenOct2014,maharashtra,2014,0,0.000187,1,99,52901326,
 parties.IN.MBCOI,parliament,LsGenJun2024,uttar-pradesh,2024,0,0.002375,1,2090,87997543,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
 parties.IN.MBMP,parliament,LsGenJun2024,west-bengal,2024,0,0.000997,1,604,60554535,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
 parties.IN.MBT,assembly,AcGenApr2014,telangana,2014,0,0.283228,6,55083,19448279,src-a2c894c590c3,computed_from_canonical_electoral_rows
+parties.IN.MBT,assembly,AcGenDec1994,andhra-pradesh,1994,2,0.490833,9,152830,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.MBT,assembly,AcGenDec2018,telangana,2018,0,0.107473,4,22242,20695458,src-b186201797e9,computed_from_canonical_electoral_rows
+parties.IN.MBT,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.196504,7,70285,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
+parties.IN.MBT,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.365036,12,121592,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.MBT,assembly,AcGenOct2014,maharashtra,2014,0,0.006176,5,3267,52901326,src-02161604057c,computed_from_canonical_electoral_rows
 parties.IN.MBT,assembly,AcGenOct2019,maharashtra,2019,0,0.004343,1,2395,55149929,src-558e9e7bac87,computed_from_canonical_electoral_rows
 parties.IN.MBT,parliament,LsGenMay1996,andhra-pradesh,1996,0,0.257048,2,78335,30474862,src-8edc505f253c,computed_from_canonical_electoral_rows
@@ -7891,6 +7975,7 @@ parties.IN.NCP,assembly,AcGenNov2020,bihar,2020,0,0.22506,81,94835,42137619,src-
 parties.IN.NCP,assembly,AcGenNov2024,jharkhand,2024,0,0.048486,3,8653,17846387,src-da5e656dc5cc,computed_from_canonical_electoral_rows
 parties.IN.NCP,assembly,AcGenNov2024,maharashtra,2024,41,9.003367,58,5815500,64592503,src-0c04cb845d7e,computed_from_canonical_electoral_rows
 parties.IN.NCP,assembly,AcGenNov2025,bihar,2025,0,0.00969,1,4865,50207733,src-a6ff45d1f5fb,computed_from_canonical_electoral_rows
+parties.IN.NCP,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.023468,21,7817,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.NCP,assembly,AcGenOct1999,arunachal-pradesh,1999,4,8.739782,21,35967,411532,src-b51ea4c83cb8,computed_from_canonical_electoral_rows
 parties.IN.NCP,assembly,AcGenOct1999,maharashtra,1999,58,22.599435,223,7425427,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.NCP,assembly,AcGenOct2004,arunachal-pradesh,2004,2,4.243913,10,19673,463558,src-bf043e077c7a,computed_from_canonical_electoral_rows
@@ -8103,6 +8188,7 @@ parties.IN.NPP,assembly,AcGenApr2019,arunachal-pradesh,2019,5,14.562044,30,90347
 parties.IN.NPP,assembly,AcGenApr2021,assam,2021,0,0.055383,5,10646,19222600,src-44984d9c7550,computed_from_canonical_electoral_rows
 parties.IN.NPP,assembly,AcGenApr2021,tamil-nadu,2021,0,0.002567,3,1187,46236492,src-4c63b70dbcf5,computed_from_canonical_electoral_rows
 parties.IN.NPP,assembly,AcGenApr2021,west-bengal,2021,0,0.006432,3,3880,60322833,src-8444a948b2a8,computed_from_canonical_electoral_rows
+parties.IN.NPP,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.002784,3,867,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.NPP,assembly,AcGenDec2013,rajasthan,2013,4,4.252675,134,1312402,30860626,src-484300621f4c,computed_from_canonical_electoral_rows
 parties.IN.NPP,assembly,AcGenFeb1990,manipur,1990,1,0.784051,5,7762,989987,src-b2eeb28b5a24,computed_from_canonical_electoral_rows
 parties.IN.NPP,assembly,AcGenFeb1995,manipur,1995,2,2.65427,5,30417,1145965,src-dbe5e5b8729b,computed_from_canonical_electoral_rows
@@ -8397,6 +8483,7 @@ parties.IN.PRBP,assembly,AcGenDec2002,gujarat,2002,0,0.023429,5,4791,20448692,sr
 parties.IN.PRBP,assembly,AcGenDec2007,gujarat,2007,0,0.016867,7,3624,21485372,src-542153f504f1,computed_from_canonical_electoral_rows
 parties.IN.PRBP,assembly,AcGenDec2018,telangana,2018,0,0.008335,3,1725,20695458,src-b186201797e9,computed_from_canonical_electoral_rows
 parties.IN.PRBP,assembly,AcGenFeb2002,punjab,2002,0,0.005756,2,592,10284686,src-fb26420035f0,computed_from_canonical_electoral_rows
+parties.IN.PRBP,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.004236,1,1515,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.PRBP,assembly,AcGenNov2003,madhya-pradesh,2003,0,0.008172,3,2084,25500290,src-6e6cad8b2a5a,computed_from_canonical_electoral_rows
 parties.IN.PRBP,assembly,AcGenNov2008,madhya-pradesh,2008,0,0.015204,6,3835,25223132,src-f1c44ad28edb,computed_from_canonical_electoral_rows
 parties.IN.PRBP,assembly,AcGenNov2013,madhya-pradesh,2013,0,0.000629,1,213,33852504,src-599f7493d18f,computed_from_canonical_electoral_rows
@@ -8675,6 +8762,7 @@ parties.IN.RJD,assembly,AcGenMay2001,kerala,2001,0,0.003311,1,521,15736923,src-9
 parties.IN.RJD,assembly,AcGenMay2001,puducherry,2001,0,0.035422,1,169,477107,src-f4e05ebbff66,computed_from_canonical_electoral_rows
 parties.IN.RJD,assembly,AcGenMay2001,tamil-nadu,2001,0,0.004059,3,1138,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.RJD,assembly,AcGenMay2001,west-bengal,2001,0,0.069846,2,25582,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
+parties.IN.RJD,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.007619,8,2725,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.RJD,assembly,AcGenMay2006,kerala,2006,0,0.001724,1,268,15542289,src-b71794c93281,computed_from_canonical_electoral_rows
 parties.IN.RJD,assembly,AcGenMay2006,west-bengal,2006,1,0.078862,2,31080,39410835,src-4cf8378fae18,computed_from_canonical_electoral_rows
 parties.IN.RJD,assembly,AcGenMay2011,tamil-nadu,2011,0,0.012338,6,4546,36845373,src-56c66222c3c2,computed_from_canonical_electoral_rows
@@ -8698,6 +8786,7 @@ parties.IN.RJD,assembly,AcGenNov2015,bihar,2015,80,18.351223,101,6995509,3812012
 parties.IN.RJD,assembly,AcGenNov2020,bihar,2020,75,23.105819,144,9736242,42137619,src-06e18fc9a280,computed_from_canonical_electoral_rows
 parties.IN.RJD,assembly,AcGenNov2024,jharkhand,2024,4,3.4398,7,613880,17846387,src-da5e656dc5cc,computed_from_canonical_electoral_rows
 parties.IN.RJD,assembly,AcGenNov2025,bihar,2025,25,22.996567,143,11546055,50207733,src-a6ff45d1f5fb,computed_from_canonical_electoral_rows
+parties.IN.RJD,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.006022,7,2006,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.RJD,assembly,AcGenOct1999,maharashtra,1999,0,0.022641,11,7439,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.RJD,assembly,AcGenOct2009,haryana,2009,0,0.0502,3,4764,9490092,src-fe5c0a56f686,computed_from_canonical_electoral_rows
 parties.IN.RJD,assembly,AcGenOct2009,maharashtra,2009,0,0.00382,2,1730,45284495,src-5b2670ea594e,computed_from_canonical_electoral_rows
@@ -8922,6 +9011,7 @@ parties.IN.RPI,assembly,AcGenApr2006,assam,2006,0,0.004818,1,587,12183969,src-5d
 parties.IN.RPI,assembly,AcGenApr2007,uttar-pradesh,2007,0,0.012375,12,6455,52163417,src-5230abac31bb,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenApr2009,odisha,2009,0,0.060332,5,10718,17765071,src-bc1c6cb7e993,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenApr2014,telangana,2014,0,0.001121,1,218,19448279,src-a2c894c590c3,computed_from_canonical_electoral_rows
+parties.IN.RPI,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.006192,5,1928,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenDec1994,karnataka,1994,0,0.022009,11,4557,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenDec2002,gujarat,2002,0,0.025816,6,5279,20448692,src-fd5fcb61c787,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenDec2003,chhattisgarh,2003,0,0.056052,5,5411,9653571,src-e54f471501ac,computed_from_canonical_electoral_rows
@@ -8932,6 +9022,7 @@ parties.IN.RPI,assembly,AcGenDec2018,telangana,2018,0,0.016361,7,3386,20695458,s
 parties.IN.RPI,assembly,AcGenFeb1967,gujarat,1967,0,0.081397,4,5194,6381092,src-b34454befb7d,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenFeb1967,maharashtra,1967,5,6.65865,79,890377,13371735,src-ba67b2879885,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenFeb1974,uttar-pradesh,1974,0,0.310882,52,85372,27461219,src-94d607058787,computed_from_canonical_electoral_rows
+parties.IN.RPI,assembly,AcGenFeb1978,andhra-pradesh,1978,0,0.002481,1,500,20150093,src-551a9c4b4ed0,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenFeb1978,karnataka,1978,1,0.179133,3,22443,12528663,src-5ea8e5f3b5d7,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenFeb1978,maharashtra,1978,2,1.058009,25,215487,20367221,src-701a81e72fbb,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenFeb1985,maharashtra,1985,0,1.004024,54,220230,21934742,src-cbd0cce08734,computed_from_canonical_electoral_rows
@@ -8971,12 +9062,14 @@ parties.IN.RPI,assembly,AcGenMay1996,haryana,1996,0,0.005466,1,414,7573734,src-1
 parties.IN.RPI,assembly,AcGenMay2001,puducherry,2001,0,0.007545,1,36,477107,src-f4e05ebbff66,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenMay2001,tamil-nadu,2001,0,0.006595,2,1849,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenMay2001,west-bengal,2001,0,0.014588,4,5343,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
+parties.IN.RPI,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.004258,3,1523,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenMay2008,karnataka,2008,0,0.10461,4,27362,26156305,src-8dcd54ec3033,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenMay2011,tamil-nadu,2011,0,0.006161,3,2270,36845373,src-56c66222c3c2,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenMay2011,west-bengal,2011,0,0.006184,2,2946,47638132,src-0e8c48e664a9,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenMay2013,karnataka,2013,0,0.039863,6,12498,31352454,src-4d8c80f8c8fe,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenMay2014,andhra-pradesh,2014,0,0.000826,1,239,28952127,src-254843fef7c2,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenMay2016,tamil-nadu,2016,0,0.002618,5,1131,43205158,src-980ece2fb2f9,computed_from_canonical_electoral_rows
+parties.IN.RPI,assembly,AcGenNov1989,andhra-pradesh,1989,0,0.00159,1,457,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenNov1989,karnataka,1989,0,0.074329,9,13571,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenNov1989,uttar-pradesh,1989,0,0.064787,21,25232,38946128,src-a4526341e90d,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenNov1993,delhi,1993,0,0.022668,7,805,3551248,src-33d259753407,computed_from_canonical_electoral_rows
@@ -8998,6 +9091,7 @@ parties.IN.RPI,assembly,AcGenOct1977,delhi,1977,0,0.003421,1,51,1490959,src-d623
 parties.IN.RPI,assembly,AcGenOct1977,haryana,1977,0,0.054431,4,2058,3780959,src-ed5cdfa10c00,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenOct1977,punjab,1977,0,0.092832,5,5250,5655353,src-ebf510d59dea,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenOct1977,tamil-nadu,1977,0,0.021651,4,3704,17108146,src-be9e304342b6,computed_from_canonical_electoral_rows
+parties.IN.RPI,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.014632,8,4874,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenOct1999,maharashtra,1999,1,0.689299,10,226481,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenOct2004,maharashtra,2004,0,0.14949,4,62531,41829645,src-071f67ad16c1,computed_from_canonical_electoral_rows
 parties.IN.RPI,assembly,AcGenOct2009,haryana,2009,0,0.000643,1,61,9490092,src-fe5c0a56f686,computed_from_canonical_electoral_rows
@@ -9084,6 +9178,7 @@ parties.IN.RPIA,assembly,AcGenApr2014,telangana,2014,0,0.078629,9,15292,19448279
 parties.IN.RPIA,assembly,AcGenApr2016,assam,2016,0,0.013813,2,2337,16919364,src-a94ea3c673d8,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenApr2021,tamil-nadu,2021,0,0.005429,19,2510,46236492,src-4c63b70dbcf5,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenApr2021,west-bengal,2021,0,0.009182,8,5539,60322833,src-8444a948b2a8,computed_from_canonical_electoral_rows
+parties.IN.RPIA,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.002338,1,728,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenDec2003,chhattisgarh,2003,0,0.026312,6,2540,9653571,src-e54f471501ac,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenDec2007,gujarat,2007,0,0.052222,10,11220,21485372,src-542153f504f1,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenDec2012,gujarat,2012,0,0.033924,14,9301,27417045,src-419098a2fee9,computed_from_canonical_electoral_rows
@@ -9102,6 +9197,7 @@ parties.IN.RPIA,assembly,AcGenJun2024,andhra-pradesh,2024,0,0.007665,2,2586,3373
 parties.IN.RPIA,assembly,AcGenJun2024,odisha,2024,0,0.018956,2,4761,25115874,src-ff4d01017475,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenMar2012,goa,2012,0,0.006715,1,57,848861,src-02d2060701af,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenMar2017,manipur,2017,0,0.223888,1,3712,1657975,src-de4f2a7d0a0c,computed_from_canonical_electoral_rows
+parties.IN.RPIA,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.002673,1,956,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenMay2006,puducherry,2006,0,0.009022,1,51,565289,src-557fb8688652,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenMay2006,west-bengal,2006,0,0.003294,1,1298,39410835,src-4cf8378fae18,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenMay2008,karnataka,2008,0,0.029687,10,7765,26156305,src-8dcd54ec3033,computed_from_canonical_electoral_rows
@@ -9128,6 +9224,7 @@ parties.IN.RPIA,assembly,AcGenNov2018,madhya-pradesh,2018,0,0.025507,12,9728,381
 parties.IN.RPIA,assembly,AcGenNov2020,bihar,2020,0,0.000543,1,229,42137619,src-06e18fc9a280,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenNov2023,madhya-pradesh,2023,0,0.00821,4,3571,43493222,src-b353edd3cdf7,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenNov2024,maharashtra,2024,0,0.01342,3,8668,64592503,src-0c04cb845d7e,computed_from_canonical_electoral_rows
+parties.IN.RPIA,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.005269,2,1755,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenOct2004,maharashtra,2004,1,0.492892,20,206175,41829645,src-071f67ad16c1,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenOct2009,haryana,2009,0,0.005142,3,488,9490092,src-fe5c0a56f686,computed_from_canonical_electoral_rows
 parties.IN.RPIA,assembly,AcGenOct2009,maharashtra,2009,0,0.855008,79,387186,45284495,src-5b2670ea594e,computed_from_canonical_electoral_rows
@@ -9226,6 +9323,7 @@ parties.IN.RPI_D,parliament,LsGenMay1996,madhya-pradesh,1996,0,0.043935,1,10072,
 parties.IN.RPI_D,parliament,LsGenMay2004,maharashtra,2004,0,0.006919,1,2370,34253278,src-6e952de88bcd,computed_from_canonical_electoral_rows
 parties.IN.RPI_D,parliament,LsGenMay2009,madhya-pradesh,2009,0,0.002864,1,558,19484608,src-9be18d311190,computed_from_canonical_electoral_rows
 parties.IN.RPI_D,parliament,LsGenMay2009,maharashtra,2009,0,0.014195,2,5251,36991311,src-9be18d311190,computed_from_canonical_electoral_rows
+parties.IN.RPI_K,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.012622,4,3930,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.RPI_K,assembly,AcGenDec1994,karnataka,1994,0,0.002159,3,447,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.RPI_K,assembly,AcGenFeb1995,gujarat,1995,0,0.009103,3,1643,18048194,src-d032a31fc06c,computed_from_canonical_electoral_rows
 parties.IN.RPI_K,assembly,AcGenMar1995,maharashtra,1995,0,0.165457,13,63741,38524263,src-b96bca4d5290,computed_from_canonical_electoral_rows
@@ -9235,6 +9333,7 @@ parties.IN.RPI_K,assembly,AcGenNov1993,uttar-pradesh,1993,0,0.0007,1,350,4996633
 parties.IN.RPI_KH,assembly,AcGenDec2002,gujarat,2002,0,0.001619,1,331,20448692,src-fd5fcb61c787,computed_from_canonical_electoral_rows
 parties.IN.RPI_KH,assembly,AcGenDec2007,gujarat,2007,0,0.00565,1,1214,21485372,src-542153f504f1,computed_from_canonical_electoral_rows
 parties.IN.RPI_KH,assembly,AcGenDec2018,telangana,2018,0,0.031079,2,6432,20695458,src-b186201797e9,computed_from_canonical_electoral_rows
+parties.IN.RPI_KH,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.016862,5,6031,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.RPI_KH,assembly,AcGenMay2014,andhra-pradesh,2014,0,0.004943,3,1431,28952127,src-254843fef7c2,computed_from_canonical_electoral_rows
 parties.IN.RPI_KH,assembly,AcGenNov1998,madhya-pradesh,1998,0,0.005969,2,1585,26553385,src-9e1d103bc77f,computed_from_canonical_electoral_rows
 parties.IN.RPI_KH,assembly,AcGenNov2013,madhya-pradesh,2013,0,0.004992,1,1690,33852504,src-599f7493d18f,computed_from_canonical_electoral_rows
@@ -9265,6 +9364,7 @@ parties.IN.RPI_S,assembly,AcGenFeb1996,tamil-nadu,1996,0,0.001042,2,283,27149300
 parties.IN.RPI_S,parliament,LsGenJun2024,tamil-nadu,2024,0,0.000592,1,259,43769106,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
 parties.IN.RPI_S,parliament,LsGenMay1996,tamil-nadu,1996,0,0.007654,1,2081,27188941,src-8edc505f253c,computed_from_canonical_electoral_rows
 parties.IN.RPK,assembly,AcGenFeb1974,uttar-pradesh,1974,0,0.497137,87,136520,27461219,src-94d607058787,computed_from_canonical_electoral_rows
+parties.IN.RPK,assembly,AcGenFeb1978,andhra-pradesh,1978,0,0.265493,13,53497,20150093,src-551a9c4b4ed0,computed_from_canonical_electoral_rows
 parties.IN.RPK,assembly,AcGenFeb1978,karnataka,1978,0,0.126071,7,15795,12528663,src-5ea8e5f3b5d7,computed_from_canonical_electoral_rows
 parties.IN.RPK,assembly,AcGenFeb1978,maharashtra,1978,2,1.411744,23,287533,20367221,src-701a81e72fbb,computed_from_canonical_electoral_rows
 parties.IN.RPK,assembly,AcGenFeb1985,maharashtra,1985,0,0.518046,16,113632,21934742,src-cbd0cce08734,computed_from_canonical_electoral_rows
@@ -9277,6 +9377,7 @@ parties.IN.RPK,assembly,AcGenMay1980,madhya-pradesh,1980,1,0.331824,13,40092,120
 parties.IN.RPK,assembly,AcGenMay1980,maharashtra,1980,1,1.363557,42,239286,17548655,src-1ab4290c6901,computed_from_canonical_electoral_rows
 parties.IN.RPK,assembly,AcGenMay1980,uttar-pradesh,1980,0,0.161819,26,41779,25818273,src-9ce4fd3d9d7f,computed_from_canonical_electoral_rows
 parties.IN.RPK,assembly,AcGenMay1991,haryana,1991,0,0.003285,2,203,6180507,src-57ddd8c183e5,computed_from_canonical_electoral_rows
+parties.IN.RPK,assembly,AcGenNov1989,andhra-pradesh,1989,0,0.002988,3,859,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.RPK,assembly,AcGenNov1989,karnataka,1989,0,0.003659,3,668,18257909,src-a7d1336ded8d,computed_from_canonical_electoral_rows
 parties.IN.RPK,assembly,AcGenOct1977,delhi,1977,0,0.090143,2,1344,1490959,src-d623fb55f089,computed_from_canonical_electoral_rows
 parties.IN.RPK,assembly,AcGenOct1977,haryana,1977,0,0.030416,1,1150,3780959,src-ed5cdfa10c00,computed_from_canonical_electoral_rows
@@ -9340,6 +9441,7 @@ parties.IN.RP_K,parliament,LsGenMay2019,chhattisgarh,2019,0,0.011062,1,1506,1361
 parties.IN.RRP,assembly,AcGenFeb1962,gujarat,1962,0,0.016562,2,862,5204825,src-e3bfe1902b4e,computed_from_canonical_electoral_rows
 parties.IN.RRP,assembly,AcGenFeb1962,maharashtra,1962,0,0.007149,3,784,10966279,src-a6ca5a69db75,computed_from_canonical_electoral_rows
 parties.IN.RRP,assembly,AcGenFeb1974,uttar-pradesh,1974,0,0.044911,17,12333,27461219,src-94d607058787,computed_from_canonical_electoral_rows
+parties.IN.RRP,assembly,AcGenFeb1978,andhra-pradesh,1978,0,0.003032,1,611,20150093,src-551a9c4b4ed0,computed_from_canonical_electoral_rows
 parties.IN.RRP,assembly,AcGenFeb1990,bihar,1990,0,0.000215,1,69,32063503,src-45e29dbc0a0b,computed_from_canonical_electoral_rows
 parties.IN.RRP,assembly,AcGenFeb1990,madhya-pradesh,1990,0,0.016069,5,3194,19876841,src-8b743f01b7a6,computed_from_canonical_electoral_rows
 parties.IN.RRP,assembly,AcGenJun1977,rajasthan,1977,0,0.003876,1,320,8256019,src-395f973d4b88,computed_from_canonical_electoral_rows
@@ -9736,6 +9838,7 @@ parties.IN.SAP,assembly,AcGenApr2006,assam,2006,0,0.01351,2,1646,12183969,src-5d
 parties.IN.SAP,assembly,AcGenApr2007,uttar-pradesh,2007,0,0.026866,16,14014,52163417,src-5230abac31bb,computed_from_canonical_electoral_rows
 parties.IN.SAP,assembly,AcGenApr2011,assam,2011,0,0.021909,5,3028,13820576,src-efde9ed05ca4,computed_from_canonical_electoral_rows
 parties.IN.SAP,assembly,AcGenApr2014,odisha,2014,0,0.006831,2,1471,21532680,src-4f3e1970eaf3,computed_from_canonical_electoral_rows
+parties.IN.SAP,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.08612,16,26815,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.SAP,assembly,AcGenDec2002,gujarat,2002,0,0.329674,26,67414,20448692,src-fd5fcb61c787,computed_from_canonical_electoral_rows
 parties.IN.SAP,assembly,AcGenDec2008,rajasthan,2008,0,0.008743,4,2097,23984658,src-50c93d074c18,computed_from_canonical_electoral_rows
 parties.IN.SAP,assembly,AcGenDec2009,jharkhand,2009,0,0.07133,10,7332,10279009,src-6d8e0cb444b5,computed_from_canonical_electoral_rows
@@ -10061,6 +10164,7 @@ parties.IN.SHS,assembly,AcGenNov2018,madhya-pradesh,2018,0,0.167024,81,63700,381
 parties.IN.SHS,assembly,AcGenNov2020,bihar,2020,0,0.047926,22,20195,42137619,src-06e18fc9a280,computed_from_canonical_electoral_rows
 parties.IN.SHS,assembly,AcGenNov2023,rajasthan,2023,0,0.145171,1,57823,39830823,src-bdf8cace4996,computed_from_canonical_electoral_rows
 parties.IN.SHS,assembly,AcGenNov2024,maharashtra,2024,57,12.380585,81,7996930,64592503,src-0c04cb845d7e,computed_from_canonical_electoral_rows
+parties.IN.SHS,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.00813,8,2708,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.SHS,assembly,AcGenOct1999,maharashtra,1999,69,17.326187,161,5692812,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.SHS,assembly,AcGenOct2004,maharashtra,2004,62,19.965873,163,8351654,41829645,src-071f67ad16c1,computed_from_canonical_electoral_rows
 parties.IN.SHS,assembly,AcGenOct2009,maharashtra,2009,44,16.272744,160,7369030,45284495,src-5b2670ea594e,computed_from_canonical_electoral_rows
@@ -10177,6 +10281,7 @@ parties.IN.SJP_M,assembly,AcGenOct1999,maharashtra,1999,1,0.133519,5,43870,32856
 parties.IN.SJP_M,assembly,AcGenOct2004,maharashtra,2004,0,0.061837,4,25866,41829645,src-071f67ad16c1,computed_from_canonical_electoral_rows
 parties.IN.SJP_M,parliament,LsGenMay1996,maharashtra,1996,0,0.020394,3,5784,28361236,src-8edc505f253c,computed_from_canonical_electoral_rows
 parties.IN.SJP_R,assembly,AcGenApr2007,uttar-pradesh,2007,0,0.016157,9,8428,52163417,src-5230abac31bb,computed_from_canonical_electoral_rows
+parties.IN.SJP_R,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.001053,1,328,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.SJP_R,assembly,AcGenDec2002,gujarat,2002,0,0.050835,3,10395,20448692,src-fd5fcb61c787,computed_from_canonical_electoral_rows
 parties.IN.SJP_R,assembly,AcGenDec2003,chhattisgarh,2003,0,0.007034,3,679,9653571,src-e54f471501ac,computed_from_canonical_electoral_rows
 parties.IN.SJP_R,assembly,AcGenDec2003,delhi,2003,0,0.020187,4,911,4512872,src-731874b4f970,computed_from_canonical_electoral_rows
@@ -10205,6 +10310,7 @@ parties.IN.SJP_R,assembly,AcGenMar2012,goa,2012,0,0.128172,5,1088,848861,src-02d
 parties.IN.SJP_R,assembly,AcGenMay2001,assam,2001,0,0.022035,8,2345,10641987,src-ff8f98360b1b,computed_from_canonical_electoral_rows
 parties.IN.SJP_R,assembly,AcGenMay2001,kerala,2001,0,0.001633,1,257,15736923,src-99bc11843e59,computed_from_canonical_electoral_rows
 parties.IN.SJP_R,assembly,AcGenMay2001,west-bengal,2001,0,0.011729,3,4296,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
+parties.IN.SJP_R,assembly,AcGenMay2004,andhra-pradesh,2004,0,0.005566,1,1991,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.SJP_R,assembly,AcGenMay2011,west-bengal,2011,0,0.000386,1,184,47638132,src-0e8c48e664a9,computed_from_canonical_electoral_rows
 parties.IN.SJP_R,assembly,AcGenNov1998,delhi,1998,0,0.035915,9,1468,4087426,src-6c33137ae640,computed_from_canonical_electoral_rows
 parties.IN.SJP_R,assembly,AcGenNov1998,madhya-pradesh,1998,0,0.040172,12,10667,26553385,src-9e1d103bc77f,computed_from_canonical_electoral_rows
@@ -10340,6 +10446,7 @@ parties.IN.SP,assembly,AcGenApr2016,assam,2016,0,0.011655,4,1972,16919364,src-a9
 parties.IN.SP,assembly,AcGenApr2019,andhra-pradesh,2019,0,0.004136,1,1299,31409811,src-3a8323bb177d,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenApr2019,odisha,2019,0,0.017342,5,4063,23428552,src-aac3ba0f570d,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenApr2021,tamil-nadu,2021,0,0.00035,1,162,46236492,src-4c63b70dbcf5,computed_from_canonical_electoral_rows
+parties.IN.SP,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.035016,24,10903,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenDec1994,karnataka,1994,0,0.31635,40,65501,20705203,src-955b91b8705e,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenDec2002,gujarat,2002,0,0.323644,48,66181,20448692,src-fd5fcb61c787,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenDec2003,chhattisgarh,2003,0,0.952031,52,91905,9653571,src-e54f471501ac,computed_from_canonical_electoral_rows
@@ -10394,6 +10501,7 @@ parties.IN.SP,assembly,AcGenMay1996,haryana,1996,0,0.914291,26,69246,7573734,src
 parties.IN.SP,assembly,AcGenMay2001,assam,2001,1,1.031969,23,109822,10641987,src-ff8f98360b1b,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenMay2001,tamil-nadu,2001,0,0.075995,13,21307,28037314,src-edde438a4885,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenMay2001,west-bengal,2001,0,0.05646,11,20679,36626099,src-06ef30dd9958,computed_from_canonical_electoral_rows
+parties.IN.SP,assembly,AcGenMay2004,andhra-pradesh,2004,1,0.266766,19,95416,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenMay2006,tamil-nadu,2006,0,0.206016,63,67968,32991555,src-7b4f21307492,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenMay2006,west-bengal,2006,0,0.181265,32,71438,39410835,src-4cf8378fae18,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenMay2008,karnataka,2008,0,0.928805,120,242941,26156305,src-8dcd54ec3033,computed_from_canonical_electoral_rows
@@ -10432,6 +10540,7 @@ parties.IN.SP,assembly,AcGenNov2023,madhya-pradesh,2023,0,0.392238,28,170597,434
 parties.IN.SP,assembly,AcGenNov2023,rajasthan,2023,0,0.005561,1,2215,39830823,src-bdf8cace4996,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenNov2024,jharkhand,2024,0,0.639855,7,114191,17846387,src-da5e656dc5cc,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenNov2024,maharashtra,2024,2,0.382391,7,246996,64592503,src-0c04cb845d7e,computed_from_canonical_electoral_rows
+parties.IN.SP,assembly,AcGenOct1999,andhra-pradesh,1999,0,0.02614,18,8707,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenOct1999,maharashtra,1999,2,0.692827,15,227640,32856693,src-4f1bf04ee531,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenOct2004,maharashtra,2004,0,1.127012,95,471425,41829645,src-071f67ad16c1,computed_from_canonical_electoral_rows
 parties.IN.SP,assembly,AcGenOct2009,haryana,2009,0,0.156848,24,14885,9490092,src-fe5c0a56f686,computed_from_canonical_electoral_rows
@@ -10668,12 +10777,14 @@ parties.IN.SSD,parliament,LsGenNov1989,uttar-pradesh,1989,0,0.024598,2,9596,3901
 parties.IN.SSD,parliament,LsGenOct1999,bihar,1999,0,0.01833,3,6535,35652429,src-84efcb6e2cc4,computed_from_canonical_electoral_rows
 parties.IN.SSD,parliament,LsGenOct1999,uttar-pradesh,1999,0,0.023542,4,12795,54348992,src-84efcb6e2cc4,computed_from_canonical_electoral_rows
 parties.IN.SSF,parliament,LsGenJun2024,punjab,2024,0,0.007288,1,987,13542849,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
+parties.IN.SSP,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.001461,1,455,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.SSP,assembly,AcGenFeb1967,gujarat,1967,0,0.366395,14,23380,6381092,src-b34454befb7d,computed_from_canonical_electoral_rows
 parties.IN.SSP,assembly,AcGenFeb1967,maharashtra,1967,4,4.610217,48,616466,13371735,src-ba67b2879885,computed_from_canonical_electoral_rows
 parties.IN.SSP,assembly,AcGenMar1995,maharashtra,1995,0,0.003034,3,1169,38524263,src-b96bca4d5290,computed_from_canonical_electoral_rows
 parties.IN.SSP,assembly,AcGenMar1995,odisha,1995,0,0.005975,1,945,15815009,src-ef2fd78befd5,computed_from_canonical_electoral_rows
 parties.IN.SSP,assembly,AcGenMay1985,sikkim,1985,30,62.201593,32,60371,97057,src-074f7c65aaea,computed_from_canonical_electoral_rows
 parties.IN.SSP,assembly,AcGenMay2004,sikkim,2004,0,0.04581,1,90,196465,src-e75a1bafaff0,computed_from_canonical_electoral_rows
+parties.IN.SSP,assembly,AcGenNov1989,andhra-pradesh,1989,0,0.001454,1,418,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
 parties.IN.SSP,assembly,AcGenNov1989,sikkim,1989,32,70.407652,32,94078,133619,src-733047d7201b,computed_from_canonical_electoral_rows
 parties.IN.SSP,assembly,AcGenNov1993,rajasthan,1993,0,0.002934,3,494,16835069,src-ff0e2853d3c7,computed_from_canonical_electoral_rows
 parties.IN.SSP,assembly,AcGenNov1993,uttar-pradesh,1993,0,0.001993,4,996,49966339,src-d72503dc3f96,computed_from_canonical_electoral_rows
@@ -10929,6 +11040,7 @@ parties.IN.SWJP,parliament,LsGenMay2014,west-bengal,2014,0,0.010342,1,5340,51631
 parties.IN.SWJP,parliament,LsGenMay2019,west-bengal,2019,0,0.00332,1,1899,57206976,src-8beec592f488,computed_from_canonical_electoral_rows
 parties.IN.SWNTRABYKT,parliament,LsGenJun2024,gujarat,2024,0,0.036764,3,10721,29161987,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
 parties.IN.SWNTRABYKT,parliament,LsGenJun2024,uttar-pradesh,2024,0,0.002296,1,2020,87997543,src-bfb4e7fb9785,computed_from_canonical_electoral_rows
+parties.IN.SWP,assembly,AcGenDec1994,andhra-pradesh,1994,0,0.002293,3,714,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.SWP,assembly,AcGenOct2009,maharashtra,2009,1,0.777531,14,352101,45284495,src-5b2670ea594e,computed_from_canonical_electoral_rows
 parties.IN.SWP,assembly,AcGenOct2014,maharashtra,2014,0,0.659541,11,348906,52901326,src-02161604057c,computed_from_canonical_electoral_rows
 parties.IN.SWP,assembly,AcGenOct2019,maharashtra,2019,1,0.401881,5,221637,55149929,src-558e9e7bac87,computed_from_canonical_electoral_rows
@@ -10957,10 +11069,16 @@ parties.IN.TDK,parliament,LsGenMay2004,tamil-nadu,2004,0,0.088276,2,25348,287145
 parties.IN.TDK,parliament,LsGenOct1999,tamil-nadu,1999,0,0.092574,7,25209,27231279,src-84efcb6e2cc4,computed_from_canonical_electoral_rows
 parties.IN.TDP,assembly,AcGenApr2014,telangana,2014,15,14.548547,72,2829442,19448279,src-a2c894c590c3,computed_from_canonical_electoral_rows
 parties.IN.TDP,assembly,AcGenApr2019,andhra-pradesh,2019,23,39.174601,175,12304668,31409811,src-3a8323bb177d,computed_from_canonical_electoral_rows
+parties.IN.TDP,assembly,AcGenDec1994,andhra-pradesh,1994,216,44.14014,251,13743842,31136834,src-623761f2fc7f,computed_from_canonical_electoral_rows
 parties.IN.TDP,assembly,AcGenDec2018,telangana,2018,2,3.507267,13,725845,20695458,src-b186201797e9,computed_from_canonical_electoral_rows
 parties.IN.TDP,assembly,AcGenJun2024,andhra-pradesh,2024,135,45.601606,144,15384576,33736917,src-dd198808d341,computed_from_canonical_electoral_rows
+parties.IN.TDP,assembly,AcGenMay1983,andhra-pradesh,1983,1,0.213438,1,45072,21117111,src-da0a49db65ee,computed_from_canonical_electoral_rows
+parties.IN.TDP,assembly,AcGenMay1985,andhra-pradesh,1985,202,46.207229,250,10625508,22995337,src-03ba17dd691c,computed_from_canonical_electoral_rows
 parties.IN.TDP,assembly,AcGenMay1985,puducherry,1985,0,0.413623,1,1248,301724,src-8800ca7de63c,computed_from_canonical_electoral_rows
+parties.IN.TDP,assembly,AcGenMay2004,andhra-pradesh,2004,47,37.587524,267,13444168,35767634,src-ae24cca39d34,computed_from_canonical_electoral_rows
 parties.IN.TDP,assembly,AcGenMay2014,andhra-pradesh,2014,102,44.614245,165,12916773,28952127,src-254843fef7c2,computed_from_canonical_electoral_rows
+parties.IN.TDP,assembly,AcGenNov1989,andhra-pradesh,1989,74,36.544816,241,10506982,28750951,src-7c5cb1f74bce,computed_from_canonical_electoral_rows
+parties.IN.TDP,assembly,AcGenOct1999,andhra-pradesh,1999,180,43.871136,269,14613307,33309616,src-77dabfb1437b,computed_from_canonical_electoral_rows
 parties.IN.TDP,parliament,LsGenFeb1998,andhra-pradesh,1998,12,31.97433,35,10199463,31898911,src-7e1f7d152977,computed_from_canonical_electoral_rows
 parties.IN.TDP,parliament,LsGenJun1991,andhra-pradesh,1991,13,32.26249,35,8223271,25488643,src-b38e5d2db7f2,computed_from_canonical_electoral_rows
 parties.IN.TDP,parliament,LsGenJun2024,andhra-pradesh,2024,16,37.730843,16,12775270,33858957,src-bfb4e7fb9785,computed_from_canonical_electoral_rows

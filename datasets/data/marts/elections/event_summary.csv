@@ -24,6 +24,7 @@ assembly-1977,S24,state,assembly,1977-06-10,parties.IN.JP,352,425,45.4029,partie
 assembly-1977,S25,state,assembly,1977-06-14,parties.IN.CPIM,178,294,55.1452,parties.IN.JP,29,src-e8594bcba166
 assembly-1977,U05,state,assembly,1977-10-06,parties.IN.JP,46,56,54.4058,parties.IN.INC,10,src-e8594bcba166
 assembly-1977,U07,state,assembly,1977-10-06,parties.IN.ADK,14,30,73.4675,parties.IN.JP,7,src-e8594bcba166
+assembly-1978,S01,state,assembly,1978-02-01,parties.IN.INC_I,175,294,70.9852,parties.IN.JP,60,src-e8594bcba166
 assembly-1978,S02,state,assembly,1978-02-25,parties.IN.JP,17,30,66.2323,parties.IN.PPA,8,src-e8594bcba166
 assembly-1978,S03,state,assembly,1978-02-25,parties.IN.JP,53,126,64.7754,parties.IN.INC,26,src-e8594bcba166
 assembly-1978,S10,state,assembly,1978-02-01,parties.IN.INC_I,150,224,69.9154,parties.IN.JP,58,src-e8594bcba166
@@ -50,6 +51,7 @@ assembly-1982,S08,state,assembly,1982-05-19,parties.IN.INC,31,68,70.1008,parties
 assembly-1982,S11,state,assembly,1982-05-19,parties.IN.IND,33,140,70.8161,parties.IN.CPIM,26,src-e8594bcba166
 assembly-1982,S17,state,assembly,1982-11-10,parties.IN.INC,24,60,73.3847,parties.IN.NND,24,src-e8594bcba166
 assembly-1982,S25,state,assembly,1982-05-19,parties.IN.CPIM,174,294,75.0921,parties.IN.INC,49,src-e8594bcba166
+assembly-1983,S01,state,assembly,1983-05-01,parties.IN.IND,219,294,66.3086,parties.IN.INC,60,src-e8594bcba166
 assembly-1983,S03,state,assembly,1983-02-20,parties.IN.INC,91,109,29.9902,parties.IN.IND,10,src-e8594bcba166
 assembly-1983,S10,state,assembly,1983-05-01,parties.IN.JP,95,224,64.0461,parties.IN.INC,82,src-e8594bcba166
 assembly-1983,S15,state,assembly,1983-02-17,parties.IN.INC,25,60,69.3541,parties.IN.AHL,15,src-e8594bcba166
@@ -59,6 +61,7 @@ assembly-1984,S02,state,assembly,1984-12-01,parties.IN.INC,21,30,70.434,parties.
 assembly-1984,S14,state,assembly,1984-12-27,parties.IN.INC,30,60,85.284,parties.IN.IND,21,src-e8594bcba166
 assembly-1984,S16,state,assembly,1984-04-25,parties.IN.INC,20,30,72.4629,parties.IN.PPC,8,src-e8594bcba166
 assembly-1984,S22,state,assembly,1984-12-01,parties.IN.ADK,131,234,70.1223,parties.IN.INC,61,src-e8594bcba166
+assembly-1985,S01,state,assembly,1985-05-01,parties.IN.TDP,202,294,66.4248,parties.IN.INC,50,src-e8594bcba166
 assembly-1985,S03,state,assembly,1985-12-01,parties.IN.IND,92,126,75.0898,parties.IN.INC,25,src-e8594bcba166
 assembly-1985,S04,state,assembly,1985-03-05,parties.IN.INC,195,324,55.3519,parties.IN.LKD,47,src-e8594bcba166
 assembly-1985,S06,state,assembly,1985-05-01,parties.IN.INC,148,182,47.81,parties.IN.JP,14,src-e8594bcba166
@@ -79,6 +82,7 @@ assembly-1987,S17,state,assembly,1987-11-18,parties.IN.INC,34,60,83.4162,parties
 assembly-1987,S25,state,assembly,1987-04-10,parties.IN.CPIM,186,294,74.1442,parties.IN.INC,40,src-e8594bcba166
 assembly-1988,S15,state,assembly,1988-02-02,parties.IN.INC,22,60,75.1831,parties.IN.HPU,19,src-e8594bcba166
 assembly-1988,S23,state,assembly,1988-02-02,parties.IN.CPIM,26,60,84.6127,parties.IN.INC,25,src-e8594bcba166
+assembly-1989,S01,state,assembly,1989-11-01,parties.IN.INC,181,294,67.7309,parties.IN.TDP,74,src-e8594bcba166
 assembly-1989,S05,state,assembly,1989-11-22,parties.IN.INC,20,40,68.694,parties.IN.MAG,18,src-e8594bcba166
 assembly-1989,S10,state,assembly,1989-11-01,parties.IN.INC,178,224,63.7853,parties.IN.JD,24,src-e8594bcba166
 assembly-1989,S16,state,assembly,1989-11-22,parties.IN.INC,23,40,80.4505,parties.IN.MNF,14,src-e8594bcba166
@@ -113,6 +117,7 @@ assembly-1993,S20,state,assembly,1993-11-11,parties.IN.BJP,95,199,59.4019,partie
 assembly-1993,S23,state,assembly,1993-02-15,parties.IN.CPIM,44,60,80.0846,parties.IN.INC,10,src-e8594bcba166
 assembly-1993,S24,state,assembly,1993-11-01,parties.IN.BJP,177,423,55.8091,parties.IN.SP,109,src-e8594bcba166
 assembly-1993,U05,state,assembly,1993-11-06,parties.IN.BJP,49,70,60.6994,parties.IN.INC,14,src-e8594bcba166
+assembly-1994,S01,state,assembly,1994-12-01,parties.IN.TDP,216,294,69.6183,parties.IN.INC,26,src-e8594bcba166
 assembly-1994,S05,state,assembly,1994-11-16,parties.IN.INC,18,40,69.9936,parties.IN.MAG,12,src-e8594bcba166
 assembly-1994,S10,state,assembly,1994-12-01,parties.IN.JD,115,224,67.1475,parties.IN.BJP,40,src-e8594bcba166
 assembly-1994,S21,state,assembly,1994-11-16,parties.IN.SDF,19,32,79.6613,parties.IN.SSP,10,src-e8594bcba166
@@ -139,6 +144,7 @@ assembly-1998,S17,state,assembly,1998-02-23,parties.IN.INC,53,60,21.955,parties.
 assembly-1998,S20,state,assembly,1998-11-25,parties.IN.INC,153,200,62.5064,parties.IN.BJP,33,src-e8594bcba166
 assembly-1998,S23,state,assembly,1998-02-16,parties.IN.CPIM,38,60,79.0347,parties.IN.INC,13,src-e8594bcba166
 assembly-1998,U05,state,assembly,1998-11-25,parties.IN.INC,52,70,48.5502,parties.IN.BJP,15,src-e8594bcba166
+assembly-1999,S01,state,assembly,1999-10-01,parties.IN.TDP,180,294,67.0829,parties.IN.INC,91,src-e8594bcba166
 assembly-1999,S02,state,assembly,1999-10-03,parties.IN.INC,52,59,67.7117,parties.IN.NCP,4,src-e8594bcba166
 assembly-1999,S05,state,assembly,1999-06-04,parties.IN.INC,21,40,63.5401,parties.IN.BJP,10,src-e8594bcba166
 assembly-1999,S10,state,assembly,1999-09-11,parties.IN.INC,132,224,64.8274,parties.IN.BJP,44,src-e8594bcba166
@@ -168,6 +174,7 @@ assembly-2003,S20,state,assembly,2003-12-01,parties.IN.BJP,120,200,67.141,partie
 assembly-2003,S23,state,assembly,2003-02-26,parties.IN.CPIM,38,60,78.6237,parties.IN.INC,13,src-e8594bcba166
 assembly-2003,S26,state,assembly,2003-12-01,parties.IN.BJP,50,90,71.2774,parties.IN.INC,37,src-e8594bcba166
 assembly-2003,U05,state,assembly,2003-12-01,parties.IN.INC,47,70,53.4174,parties.IN.BJP,20,src-e8594bcba166
+assembly-2004,S01,state,assembly,2004-05-01,parties.IN.INC,185,294,69.9061,parties.IN.TDP,46,src-e8594bcba166
 assembly-2004,S02,state,assembly,2004-10-07,parties.IN.INC,31,57,70.6755,parties.IN.IND,13,src-e8594bcba166
 assembly-2004,S10,state,assembly,2004-04-26,parties.IN.BJP,79,224,65.1236,parties.IN.INC,65,src-e8594bcba166
 assembly-2004,S13,state,assembly,2004-10-01,parties.IN.NCP,71,288,63.4111,parties.IN.INC,69,src-e8594bcba166
