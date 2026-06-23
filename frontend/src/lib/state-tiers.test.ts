@@ -1,11 +1,63 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import {
   tierMembers,
   resolvePeerSet,
   nonEmptyTierIds,
   tiersForState,
+  fetchStateTiers,
+  _resetStateTiersCacheForTesting,
   type StateTiersFile,
 } from "./state-tiers";
+
+describe("fetchStateTiers - session cache (perf plan Row 4)", () => {
+  beforeEach(() => {
+    _resetStateTiersCacheForTesting();
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  it("fetches state_tiers.json once across repeat calls", async () => {
+    const hits: string[] = [];
+    vi.stubGlobal(
+      "fetch",
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      vi.fn(async (url: string) => {
+        hits.push(url);
+        return new Response(
+          JSON.stringify({ $schema: "", $schema_version: "1.0", sources: [], tiers: [] }),
+          { status: 200 },
+        );
+      }) as any,
+    );
+    const a = await fetchStateTiers();
+    const b = await fetchStateTiers();
+    expect(hits).toHaveLength(1);
+    expect(b).toBe(a);
+  });
+
+  it("evicts the cache on failure so a retry re-fetches", async () => {
+    let n = 0;
+    vi.stubGlobal(
+      "fetch",
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      vi.fn(async () => {
+        n += 1;
+        return n === 1
+          ? new Response("x", { status: 500 })
+          : new Response(
+              JSON.stringify({ $schema: "", $schema_version: "1.0", sources: [], tiers: [] }),
+              { status: 200 },
+            );
+      }) as any,
+    );
+    await expect(fetchStateTiers()).rejects.toThrow(/state_tiers\.json failed/);
+    const ok = await fetchStateTiers();
+    expect(ok.tiers).toEqual([]);
+    expect(n).toBe(2);
+  });
+});
 
 const FIXTURE: StateTiersFile = {
   $schema: "https://yen-gov.github.io/schemas/state-tiers.schema.json",
