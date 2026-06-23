@@ -67,6 +67,10 @@
     ac_winners_shim: AcWinner[];
     ac_fills_override: Record<number, string>;
     ac_opacities_override: Record<number, number>;
+    /** PR-B: ECI state codes whose AC features to draw as the "undivided"
+     * union (e.g. ["S01","S29"] for a pre-2014 Andhra Pradesh event), with
+     * a name-slug winner join. Undefined = default single-state eci join. */
+    ac_historical_states?: string[];
     /** Equal-seats arm: null while the scope-doc fetch is in-flight,
      * true/false once resolved. */
     has_ac_equal_seats: boolean | null;
@@ -113,6 +117,7 @@
     ac_winners_shim,
     ac_fills_override,
     ac_opacities_override,
+    ac_historical_states,
     has_ac_equal_seats,
     ac_tile_layout,
     ac_tile_layout_error,
@@ -201,6 +206,7 @@
           height="420px"
           fillsOverride={ac_fills_override}
           opacitiesOverride={ac_opacities_override}
+          historical_states={ac_historical_states}
         />
       </div>
     {:else}

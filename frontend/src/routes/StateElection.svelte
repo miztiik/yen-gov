@@ -160,6 +160,23 @@
         : "ac",
   );
 
+  // PR-B: an UNDIVIDED Andhra Pradesh assembly event (residual S01, polled
+  // before the 2014 bifurcation) covered the territory that later became
+  // Telangana. Render the AC choropleth over the UNION of today's AP + TG
+  // constituency polygons (the "territory of the time"). StateAcMapD3 joins
+  // by name-slug there (the pre-2014 results are 1976-delim while the only
+  // geometry on disk is 2008-delim, so eci_no does not line up) and the
+  // coverage caption surfaces the redrawn-seat shortfall. The 2014 event is
+  // already the residual 175-AC AP slice, so the threshold is year < 2014.
+  const ac_historical_states = $derived<string[] | undefined>(
+    state_code === "S01" &&
+      body === "ac" &&
+      event_row != null &&
+      event_row.polled_on < "2014-01-01"
+      ? ["S01", "S29"]
+      : undefined,
+  );
+
   const states_loading = $derived(!states.isLoaded);
   const catalogue_loading = $derived(
     catalogue === null && catalogue_error === null,
@@ -1584,6 +1601,7 @@
             {ac_tile_layout_error}
             {ac_tile_rows}
             {onAcTileSelect}
+            {ac_historical_states}
             {pc_winners}
             {pc_delim_year}
             {pc_boundary}
