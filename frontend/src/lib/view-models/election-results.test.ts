@@ -64,6 +64,7 @@ import {
   loadElectionResults,
   projectAsConstituencyRanks,
   projectAsWinnersByEntity,
+  _resetElectionResultsCacheForTesting,
   _slugToStateCodeForTests,
   type ElectionResultRow,
 } from "./election-results";
@@ -84,6 +85,36 @@ beforeEach(() => {
     id === "elections.dim_parties" ? "dim_parties" : "noop",
   );
   mockedClause.mockResolvedValue("columns={MOCKED}");
+  // Row 5: clear the bounded-id result cache so each test re-runs its
+  // mocked query (the cache otherwise leaks rows across `it()` blocks
+  // that call loadElectionResults with the same scope).
+  _resetElectionResultsCacheForTesting();
+});
+
+describe("loadElectionResults - bounded-id result cache (perf plan Row 5)", () => {
+  it("caches rows by scope: same scope runs the query once, a new scope re-runs", async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    mockedQuery.mockResolvedValue([
+      {
+        entity_id: "IN-PC-1",
+        state_slug: "tamil-nadu",
+        eci_no: 1,
+        delim_year: 2024,
+        entity_name: "Chennai",
+        reservation: "GEN",
+        party_id: null,
+        margin_pct: 5,
+        turnout_pct: 60,
+      },
+    ] as any);
+    await loadElectionResults({ event: "general-2024" });
+    await loadElectionResults({ event: "general-2024" });
+    // National-PC runs ONE query; the second load is served from cache.
+    expect(mockedQuery).toHaveBeenCalledTimes(1);
+    // A different event is a distinct cache key -> the query runs again.
+    await loadElectionResults({ event: "general-2019" });
+    expect(mockedQuery).toHaveBeenCalledTimes(2);
+  });
 });
 
 // --------------------------------------------------------------------
