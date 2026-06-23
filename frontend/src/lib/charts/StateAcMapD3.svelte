@@ -80,6 +80,9 @@
   import type { AcWinner } from "../view-models/state-overview";
   import { loadAcLgdLookup } from "../view-models/ac-crosswalk";
   import { rewindCollectionForD3 } from "./geo-rewind";
+  import { slugify } from "../slug";
+  import MapCoverageNote from "./MapCoverageNote.svelte";
+  import { computeCoverage, delimVintageFromPath } from "./map-coverage";
   import {
     DEFAULT_HIGHLIGHT_STATE,
     NEUTRAL_HEX_FALLBACK,
@@ -130,6 +133,17 @@
     highlight_mode?: HighlightMode;
     selected_party_id?: string | null;
     min_margin?: MinMargin;
+    /**
+     * PR-B (undivided / historical render). A non-empty list of ECI state
+     * codes (e.g. ["S01","S29"] for an undivided Andhra Pradesh event whose
+     * results predate the 2014 bifurcation) makes the map draw the UNION of
+     * those states' AC features and join winners by constituency NAME slug
+     * instead of eci_no (the numbering does not survive a delimitation
+     * change). Unmatched seats render grey; the shortfall shows in the
+     * coverage caption. Undefined/empty = the default single-state eci_no
+     * join (behaviour unchanged).
+     */
+    historical_states?: string[];
   }
   let {
     state: state_code,
@@ -141,6 +155,7 @@
     highlight_mode = DEFAULT_HIGHLIGHT_STATE.mode,
     selected_party_id = DEFAULT_HIGHLIGHT_STATE.selected_party_id,
     min_margin = DEFAULT_HIGHLIGHT_STATE.min_margin,
+    historical_states,
   }: Props = $props();
 
   // Responsive fit: project to the measured container width (clamped to
@@ -192,6 +207,30 @@
   const name_by_eci = $derived.by(() => {
     const m = new Map<number, string>();
     for (const r of rows ?? []) m.set(r.eci_no, r.name);
+    return m;
+  });
+
+  // PR-B: undivided / historical render. `render_states` is the set of ECI
+  // state codes whose AC features to draw (the union for an undivided
+  // event; just `state` otherwise). `name_join` switches the per-feature
+  // winner lookup from eci_no to constituency-name slug, since the eci_no
+  // numbering does not survive a delimitation change.
+  const render_states = $derived(
+    historical_states && historical_states.length
+      ? historical_states
+      : [state_code],
+  );
+  const name_join = $derived(
+    !!(historical_states && historical_states.length),
+  );
+  // name-slug -> eci_no, so a historical feature resolves to a winner by
+  // its constituency name (the persisted ~60% of pre-delimitation seats).
+  const eci_by_name_slug = $derived.by(() => {
+    const m = new Map<string, number>();
+    for (const r of rows ?? []) {
+      const k = slugify(r.name);
+      if (k && !m.has(k)) m.set(k, r.eci_no);
+    }
     return m;
   });
 
@@ -298,7 +337,10 @@
   // design: the Svelte-5 quirk requires the `$state` write to originate
   // inside the onMount / $effect IIFE, so this helper never touches
   // `collection` - the caller assigns the value it returns.
-  async function fetchStateAcCollection(sc: string): Promise<Collection> {
+  async function fetchStateAcCollection(
+    sc: string,
+    filter_states?: readonly string[],
+  ): Promise<Collection> {
     const e = STATE_AC[sc];
     if (!e?.geojson_local_path) {
       throw new Error(`no AC geometry path for ${sc}`);
@@ -324,13 +366,17 @@
     } else {
       fc = raw as Collection;
     }
-    const features = fc.features.filter(
-      (f) =>
+    const keep = new Set(
+      filter_states && filter_states.length ? filter_states : [sc],
+    );
+    const features = fc.features.filter((f) =>
+      keep.has(
         String(
           (f.properties as Record<string, unknown> | null)?.[
             STATE_FILTER_PROPERTY
           ] ?? "",
-        ) === sc,
+        ),
+      ),
     );
     // A plain-GeoJSON AC layer (post map-geometry rip) carries RFC 7946
     // counter-clockwise-exterior winding; d3-geo wants clockwise exteriors.
@@ -351,12 +397,13 @@
   // function do NOT (observed during PR-5 development, Svelte v5.x).
   onMount(() => {
     const sc = state_code;
+    const states = render_states;
     if (!STATE_AC[sc]?.geojson_local_path) return;
     const my_token = ++fetch_token;
     let cancelled = false;
     (async () => {
       try {
-        const fc = await fetchStateAcCollection(sc);
+        const fc = await fetchStateAcCollection(sc, states);
         if (cancelled || my_token !== fetch_token) return;
         collection = fc;
       } catch (err) {
@@ -375,6 +422,7 @@
   let initial_load_done = false;
   $effect(() => {
     const sc = state_code;
+    const states = render_states;
     if (!initial_load_done) {
       initial_load_done = true;
       return;
@@ -386,7 +434,7 @@
     let cancelled = false;
     (async () => {
       try {
-        const fc = await fetchStateAcCollection(sc);
+        const fc = await fetchStateAcCollection(sc, states);
         if (cancelled || my_token !== fetch_token) return;
         collection = fc;
       } catch (err) {
@@ -494,6 +542,26 @@
   // the placeholder reserves space (no layout shift when the map paints).
   const wrapper_aspect = $derived(
     projection_path ? `${projection_path.w}/${projection_path.h}` : "640/480",
+  );
+
+  // PR-B coverage caption: in name-join mode, how many rendered AC features
+  // bound a winner by name slug (the persisted seats) vs total on screen.
+  // Auto-hides outside name-join mode (onOldGeometry=false).
+  const ac_coverage = $derived.by(() => {
+    if (!name_join || !collection) return null;
+    return computeCoverage(
+      collection.features.map((f) =>
+        slugify(
+          String(
+            (f.properties as Record<string, unknown> | null)?.ac_name ?? "",
+          ),
+        ),
+      ),
+      (k) => eci_by_name_slug.has(String(k)),
+    );
+  });
+  const ac_geometry_year = $derived(
+    delimVintageFromPath(STATE_AC[state_code]?.geojson_local_path),
   );
 
   // Pre-compute per-AC fill + opacity from rows. Keyed by eci_no; the
@@ -717,7 +785,11 @@
       >
         <g bind:this={zoom_group_el}>
           {#each collection.features as f, i (i)}
-            {@const eci = featureEci(f.properties ?? undefined, join_property, rl)}
+            {@const eci = name_join
+              ? (eci_by_name_slug.get(
+                  slugify(String(f.properties?.ac_name ?? "")),
+                ) ?? null)
+              : featureEci(f.properties ?? undefined, join_property, rl)}
             {@const p = paintForEci(eci)}
             <path
               d={safePath(f, pp.path)}
@@ -774,4 +846,11 @@
       </div>
     {/if}
   </div>
+
+  <MapCoverageNote
+    coverage={ac_coverage}
+    unit="constituencies"
+    geometryYear={ac_geometry_year}
+    onOldGeometry={name_join}
+  />
 {/if}
