@@ -81,8 +81,11 @@
   import { loadAcLgdLookup } from "../view-models/ac-crosswalk";
   import { rewindCollectionForD3 } from "./geo-rewind";
   import { slugify } from "../slug";
-  import MapCoverageNote from "./MapCoverageNote.svelte";
-  import { computeCoverage, delimVintageFromPath } from "./map-coverage";
+  import {
+    computeCoverage,
+    delimVintageFromPath,
+    type MapCoverageEmit,
+  } from "./map-coverage";
   import {
     DEFAULT_HIGHLIGHT_STATE,
     NEUTRAL_HEX_FALLBACK,
@@ -144,6 +147,9 @@
      * join (behaviour unchanged).
      */
     historical_states?: string[];
+    /** Lifts the render-time coverage tuple to the parent so the caption
+     *  renders below the per-state party legend (not inside the map card). */
+    oncoverage?: (e: MapCoverageEmit) => void;
   }
   let {
     state: state_code,
@@ -156,6 +162,7 @@
     selected_party_id = DEFAULT_HIGHLIGHT_STATE.selected_party_id,
     min_margin = DEFAULT_HIGHLIGHT_STATE.min_margin,
     historical_states,
+    oncoverage,
   }: Props = $props();
 
   // Responsive fit: project to the measured container width (clamped to
@@ -563,6 +570,25 @@
   const ac_geometry_year = $derived(
     delimVintageFromPath(STATE_AC[state_code]?.geojson_local_path),
   );
+  // Lift coverage to the parent (StateEventMap -> StateElection) so the
+  // caption renders below the per-state party legend instead of inside the
+  // map card.
+  $effect(() => {
+    oncoverage?.({
+      coverage: ac_coverage,
+      geometryYear: ac_geometry_year,
+      onOldGeometry: name_join,
+    });
+    // Clear on unmount (e.g. the parent switches to the hex / equal-seats
+    // arm) so the parent never shows a stale caption for a map that is no
+    // longer drawn.
+    return () =>
+      oncoverage?.({
+        coverage: null,
+        geometryYear: null,
+        onOldGeometry: false,
+      });
+  });
 
   // Pre-compute per-AC fill + opacity from rows. Keyed by eci_no; the
   // per-feature paint resolution looks it up via the feature's
@@ -846,11 +872,4 @@
       </div>
     {/if}
   </div>
-
-  <MapCoverageNote
-    coverage={ac_coverage}
-    unit="constituencies"
-    geometryYear={ac_geometry_year}
-    onOldGeometry={name_join}
-  />
 {/if}

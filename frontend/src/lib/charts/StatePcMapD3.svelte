@@ -70,8 +70,11 @@
     type PcCellPaint,
   } from "./india-pc-map-helpers";
   import { rewindCollectionForD3 } from "./geo-rewind";
-  import MapCoverageNote from "./MapCoverageNote.svelte";
-  import { computeCoverage, delimVintageFromPath } from "./map-coverage";
+  import {
+    computeCoverage,
+    delimVintageFromPath,
+    type MapCoverageEmit,
+  } from "./map-coverage";
 
   /** Per-PC winner row, pre-shaped by the route for the join. Mirrors
    *  the IndiaPcMapD3 shape verbatim so the route can reuse the same
@@ -121,6 +124,9 @@
      *  + `feature.properties[that]` and matches against `row.unique_id`
      *  regardless of the shape. */
     boundary?: BoundaryEntry;
+    /** Lifts the render-time coverage tuple to the parent so the caption
+     *  renders below the per-state party legend (not inside the map card). */
+    oncoverage?: (e: MapCoverageEmit) => void;
   }
   let {
     state: state_code,
@@ -133,6 +139,7 @@
     selected_party_id = DEFAULT_HIGHLIGHT_STATE.selected_party_id,
     min_margin = DEFAULT_HIGHLIGHT_STATE.min_margin,
     boundary = INDIA_PC,
+    oncoverage,
   }: Props = $props();
 
   // Responsive fit: project to the measured container width (clamped to
@@ -325,6 +332,25 @@
   // (INDIA_PC_BY_NAME) only for pre-2024 LS events; the numeric default
   // (INDIA_PC) means a current-vintage map, where the caption stays hidden.
   const on_old_geometry = $derived(boundary.id === INDIA_PC_BY_NAME.id);
+  // Lift coverage to the parent (StateEventMap -> StateElection) so the
+  // caption renders below the per-state party legend instead of inside the
+  // map card.
+  $effect(() => {
+    oncoverage?.({
+      coverage,
+      geometryYear: geometry_year,
+      onOldGeometry: on_old_geometry,
+    });
+    // Clear on unmount (e.g. the parent switches to the hex / equal-seats
+    // arm, or navigates to a PC event with no on-disk geometry) so the
+    // parent never shows a stale caption for a map that is no longer drawn.
+    return () =>
+      oncoverage?.({
+        coverage: null,
+        geometryYear: null,
+        onOldGeometry: false,
+      });
+  });
 
   const cell_paint = $derived.by<Map<string, PcCellPaint>>(() => {
     const cell_rows: PcCellRow[] = [];
@@ -560,10 +586,3 @@
     </div>
   {/if}
 </div>
-
-<MapCoverageNote
-  {coverage}
-  unit="constituencies"
-  geometryYear={geometry_year}
-  onOldGeometry={on_old_geometry}
-/>
