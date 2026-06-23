@@ -78,6 +78,90 @@
         ]
       },
       {
+        "event_id": "assembly-1978",
+        "kind": "assembly",
+        "display": "Andhra Pradesh Assembly \u00b7 1978",
+        "polled_on": "1978-02-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "Undivided Andhra Pradesh (294 ACs, incl. the territory that became Telangana in June 2014). Ingested from All_States_AE.csv (TCPD Lok Dhaba) via the statewise AE panel path (DelimID=3, 1976 delimitation). Filed under residual S01 only; Telangana carries no pre-2014 rows. Month token from the TCPD panel.",
+        "event_id_aliases": [
+          "AcGenFeb1978"
+        ]
+      },
+      {
+        "event_id": "assembly-1983",
+        "kind": "assembly",
+        "display": "Andhra Pradesh Assembly \u00b7 1983",
+        "polled_on": "1983-05-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "Undivided Andhra Pradesh (294 ACs, incl. the territory that became Telangana in June 2014). Ingested from All_States_AE.csv (TCPD Lok Dhaba) via the statewise AE panel path (DelimID=3, 1976 delimitation). Filed under residual S01 only; Telangana carries no pre-2014 rows. Month token from the TCPD panel.",
+        "event_id_aliases": [
+          "AcGenMay1983"
+        ]
+      },
+      {
+        "event_id": "assembly-1985",
+        "kind": "assembly",
+        "display": "Andhra Pradesh Assembly \u00b7 1985",
+        "polled_on": "1985-05-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "Undivided Andhra Pradesh (294 ACs, incl. the territory that became Telangana in June 2014). Ingested from All_States_AE.csv (TCPD Lok Dhaba) via the statewise AE panel path (DelimID=3, 1976 delimitation). Filed under residual S01 only; Telangana carries no pre-2014 rows. Month token from the TCPD panel.",
+        "event_id_aliases": [
+          "AcGenMay1985"
+        ]
+      },
+      {
+        "event_id": "assembly-1989",
+        "kind": "assembly",
+        "display": "Andhra Pradesh Assembly \u00b7 1989",
+        "polled_on": "1989-11-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "Undivided Andhra Pradesh (294 ACs, incl. the territory that became Telangana in June 2014). Ingested from All_States_AE.csv (TCPD Lok Dhaba) via the statewise AE panel path (DelimID=3, 1976 delimitation). Filed under residual S01 only; Telangana carries no pre-2014 rows. Month token from the TCPD panel.",
+        "event_id_aliases": [
+          "AcGenNov1989"
+        ]
+      },
+      {
+        "event_id": "assembly-1994",
+        "kind": "assembly",
+        "display": "Andhra Pradesh Assembly \u00b7 1994",
+        "polled_on": "1994-12-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "Undivided Andhra Pradesh (294 ACs, incl. the territory that became Telangana in June 2014). Ingested from All_States_AE.csv (TCPD Lok Dhaba) via the statewise AE panel path (DelimID=3, 1976 delimitation). Filed under residual S01 only; Telangana carries no pre-2014 rows. Month token from the TCPD panel.",
+        "event_id_aliases": [
+          "AcGenDec1994"
+        ]
+      },
+      {
+        "event_id": "assembly-1999",
+        "kind": "assembly",
+        "display": "Andhra Pradesh Assembly \u00b7 1999",
+        "polled_on": "1999-10-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "Undivided Andhra Pradesh (294 ACs, incl. the territory that became Telangana in June 2014). Ingested from All_States_AE.csv (TCPD Lok Dhaba) via the statewise AE panel path (DelimID=3, 1976 delimitation). Filed under residual S01 only; Telangana carries no pre-2014 rows. Month token from the TCPD panel.",
+        "event_id_aliases": [
+          "AcGenOct1999"
+        ]
+      },
+      {
+        "event_id": "assembly-2004",
+        "kind": "assembly",
+        "display": "Andhra Pradesh Assembly \u00b7 2004",
+        "polled_on": "2004-05-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "Undivided Andhra Pradesh (294 ACs, incl. the territory that became Telangana in June 2014). Ingested from All_States_AE.csv (TCPD Lok Dhaba) via the statewise AE panel path (DelimID=3, 1976 delimitation). Filed under residual S01 only; Telangana carries no pre-2014 rows. Month token from the TCPD panel.",
+        "event_id_aliases": [
+          "AcGenMay2004"
+        ]
+      },
+      {
         "event_id": "general-2009",
         "kind": "parliament",
         "display": "Andhra Pradesh - Parliament 2009",
