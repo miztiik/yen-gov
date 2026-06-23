@@ -26,6 +26,7 @@
   import { onMount } from "svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
+  import TableSkeleton from "../lib/TableSkeleton.svelte";
   import {
     fetchElectionEvents,
     listEventsForState,
@@ -133,11 +134,10 @@
       Couldn't load: {catalogue_error}
     </div>
   {:else if catalogue == null}
-    <div
-      class="text-sm text-slate-400"
-      data-testid="state-elections-landing-loading"
-    >
-      Loading...
+    <div data-testid="state-elections-landing-loading">
+      <!-- Known shape (a list of election events) -> table skeleton
+           instead of a frozen "Loading..." (perf plan Row 7). -->
+      <TableSkeleton rows={6} />
     </div>
   {:else if state_code == null}
     <div

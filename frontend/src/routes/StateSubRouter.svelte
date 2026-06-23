@@ -60,6 +60,7 @@
   // URL, not a dead `/s/...` 404.
 
   import { onMount } from "svelte";
+  import Skeleton from "../lib/Skeleton.svelte";
   import {
     resolveStateSub,
     type AcRow,
@@ -255,7 +256,11 @@
   </PageContainer>
 {:else if resolved === null}
   <PageContainer width="narrow">
-    <p class="text-sm text-slate-500">Loading...</p>
+    <!-- Dispatcher: the resolved kind (district / AC / 404) is not yet
+         known, so a content shape would be a guess. A single silent
+         shimmer (perf plan Row 7, Jony's dispatcher carve-out) - motion,
+         no frozen "Loading..." text, no mis-shaped placeholder. -->
+    <Skeleton height="2rem" />
   </PageContainer>
 {:else if resolved.kind === "district"}
   <District params={{ state: params.state, district_slug: params.position2 }} />
