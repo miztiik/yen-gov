@@ -66,13 +66,30 @@ Rows are PRs. Status starts `[ ] PENDING`, flips to `[x] DONE` with the merged P
 
 | Row | Title | Status | PR | Parallel-group | Depends-on | Effort | Risk |
 | :-: | --- | :-: | :-: | :-: | :-: | :-: | :-: |
-| 1 | Delete dead `maplibre-gl` dependency | [ ] PENDING | - | A | none | XS | Low |
-| 2 | Gate `prewarmDB()` + lazy-import isolated dev routes | [ ] PENDING | - | B | none | M | Med (router boundary - see ESCALATE) |
-| 3 | Boundary-geometry session cache in `boundaries.ts` | [ ] PENDING | - | A | none | S | Low (highest VALUE) |
-| 4 | Module-promise caches on the 5 uncached reference loaders | [ ] PENDING | - | A | none | M | Low |
-| 5 | Query-result cache at the view-model loader boundary | [ ] PENDING | - | A | none | M | Low-Med |
-| 6 | ChartShell seam + 3 content-shaped skeleton primitives | [ ] PENDING | - | C | none | M | Low (additive) |
-| 7 | Adopt skeletons + delete bespoke loaders (no blank page) | [ ] PENDING | - | D | Row 6 | L | Low-Med |
+| 1 | Delete dead `maplibre-gl` dependency | [x] COLLAPSED no-op | - | A | none | XS | Low |
+| 2 | Gate `prewarmDB()` + lazy-import isolated dev routes | [ ] BLOCKED-NEEDS-DECISION | - | B | none | M | Med (router boundary - see ESCALATE) |
+| 3 | Boundary-geometry session cache in `boundaries.ts` | [x] DONE | #1208 | A | none | S | Low (highest VALUE) |
+| 3b | Map-component geometry cache (5 d3 charts) | [x] DONE | #1210 | A | Row 3 | S | Low (discovered) |
+| 4 | Module-promise caches on the uncached reference loaders | [x] DONE | #1211 | A | none | M | Low |
+| 5 | Query-result cache at the view-model loader boundary | [x] DONE | #1212 | A | none | M | Low-Med |
+| 6 | ChartShell seam + 3 content-shaped skeleton primitives | [x] DONE | #1213 | C | none | M | Low (additive) |
+| 7 | Adopt skeletons + delete bespoke loaders (no blank page) | [x] DONE (slice 1) | #1214 | D | Row 6 | L | Low-Med |
+
+### Execution outcome (2026-06-23, autonomous run)
+
+6 PRs merged (#1208, #1210, #1211, #1212, #1213, #1214). Per-row receipts:
+
+- **Row 1 - COLLAPSED no-op.** `maplibre-gl` was already absent from `frontend/package.json` + `frontend/bun.lock`, `frontend/src/lib/maplibre/` already deleted, zero importers (a prior PR shipped it). The ~40 remaining matches are accurate historical comments (kept). Receipt: `git grep -i maplibre frontend/package.json frontend/bun.lock` -> empty.
+- **Row 3 - DONE #1208.** Session cache on `loadBoundaryFromPath` (folded into the existing `_resetCachesForTesting` hook). Covers the district-choropleth / silhouette / `boundaries/sources.ts` consumers.
+- **Row 3b - DONE #1210 (discovered mid-Row-3).** The 5 d3 map components (`IndiaPartyMap`, `StateAcMapD3`, `IndiaPcMapD3`, `StatePcMapD3`, `GeoChoropleth`) fetch geometry via their OWN `fetch(url)`, bypassing `loadBoundaryFromPath`. New `charts/geometry-cache.ts` (`fetchGeometryJson`, URL-keyed) routes all 5 through one cache. Browser-verified: the AC topojson is fetched ONCE and NOT re-fetched on back-navigation (the headline 0.5-10 MB win).
+- **Row 4 - DONE #1211.** Audit correction: 4 of the 6 flagged loaders were ALREADY cached; only `fetchTopicCatalogue` + `fetchStateTiers` were genuinely uncached. Both now session-cached.
+- **Row 5 - DONE #1212.** Bounded-id row cache on the 3 `run*Query` functions in `election-results.ts` (keyed by event/state/eci_no), NOT a blanket `query()` SQL memo (the Fowler-converged mechanism).
+- **Row 6 - DONE #1213.** 3 content-shaped primitives (`KpiGridSkeleton`, `TableSkeleton`, `MapFrameSkeleton`). NOTE: `ChartShell` already exposes a `loading_slot` snippet seam, so no `ChartShell` change was needed.
+- **Row 7 - DONE #1214 (slice 1).** Adopted skeletons on the reported blank Constituency AC page (a loading branch where there was none) + the 3 frozen-`Loading...`-text routes + Home's bespoke pulse. Deferred to a slice 2 (noted in the PR): the 4 map components' blank-box loading, `District.svelte`, `StateTopic.svelte`, `Explore.svelte`.
+- **Row 2 - BLOCKED-NEEDS-DECISION.** The `prewarmDB()` gate was built but browser-verified INEFFECTIVE: `ScopePicker.svelte` (always mounted in the `LeftRail` shell) calls `loadStates()` on mount, which boots DuckDB (`registerCsvFile` + `query`) on EVERY page including `/about`, regardless of the route gate. Making `/about` skip the ~5.2 MB wasm boot requires deferring/replacing the scope picker's eager state load - a citizen-facing UX change (Jony + Citizen authority) outside Row 2's declared `main.ts` + `router.svelte.ts` scope. The inert gate was discarded; NOT shipped (zero value alone). DECISION NEEDED:
+  - **(A)** Defer `ScopePicker`'s `loadStates()` to dropdown-open (states populate on interaction) + keep the gate.
+  - **(B)** Load the 36-row states list without DuckDB (lightweight fetch + parse) so the picker never boots the engine.
+  - **(C)** Drop Row 2 (accept DuckDB boots on all pages; the pure-chrome-only session that benefits is rare).
 
 **Scheduling.** Group A = Rows 1, 3, 4, 5 (four agents at once - zero shared files between them). Group B = Row 2 (owns [main.ts](../frontend/src/main.ts) + [router.svelte.ts](../frontend/src/lib/router.svelte.ts) - the risk hotspot; one careful reviewer). Group C = Row 6 (owns [ChartShell.svelte](../frontend/src/lib/charts/ChartShell.svelte) + new primitive files). A, B, C all run in parallel. The ONLY serialization line is **Row 6 -> Row 7** (primitives must exist before adoption). Row 7 itself shards three ways (7a maps / 7b tables / 7c KPI/route bodies) once Row 6 lands.
 
