@@ -84,6 +84,8 @@
     MARGIN_FILL_OPACITY,
   } from "../lib/elections/election-map-coloring";
   import MarginLegend from "../lib/elections/MarginLegend.svelte";
+  import MapCoverageNote from "../lib/charts/MapCoverageNote.svelte";
+  import type { MapCoverageEmit } from "../lib/charts/map-coverage";
   import {
     buildPartyKeyToPid,
     hiddenPidSet,
@@ -523,6 +525,11 @@
   const pc_boundary = $derived(
     pc_delim_year === 2008 ? INDIA_PC_BY_NAME : INDIA_PC,
   );
+
+  // Coverage of the PC choropleth's join, lifted from IndiaPcMapD3 so the
+  // honesty caption renders below the national party legend (not inside the
+  // map card). Null until the Constituencies arm mounts + emits.
+  let pc_coverage = $state<MapCoverageEmit | null>(null);
 
   // Pre-2009 LS events (1962 / 1989 / 1991 / ... / 2004) have NO PC-level
   // boundary layer (pcDelimYearForLsEvent -> null), so pc_winners is empty
@@ -1261,6 +1268,7 @@
             fillsOverride={pc_fills_override}
             opacitiesOverride={pc_opacities_override}
             boundary={pc_boundary}
+            oncoverage={(e) => (pc_coverage = e)}
           />
         </div>
       {:else}
@@ -1324,6 +1332,18 @@
         </p>
       {/if}
     </section>
+
+    <!-- Coverage caption: below the national party legend (ratified
+         placement). Only on the Constituencies arm; auto-hides on the
+         current-vintage map via MapCoverageNote's own onOldGeometry gate. -->
+    {#if map_view === "constituencies" && pc_coverage}
+      <MapCoverageNote
+        coverage={pc_coverage.coverage}
+        geometryYear={pc_coverage.geometryYear}
+        onOldGeometry={pc_coverage.onOldGeometry}
+        unit="constituencies"
+      />
+    {/if}
 
     <!-- Seat semicircle (#10). One dot per Parliament seat, coloured by
          winning party, with a majority midline + symbol-ring legend.
