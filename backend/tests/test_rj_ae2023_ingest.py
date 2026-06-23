@@ -58,9 +58,12 @@ EXPECTED_BY_RAW = {
 }
 TOLERANCE = 2  # per CLAUDE.md section 10 + brief stop-condition.
 
-# RJ-2023 IndiaVotes citation triple; matches the values
+# RJ-2023 citation triple; matches the values
 # ``tools/elections_rj_ae2023_ingest/__main__.py`` writes to source.csv.
-SOURCE_PRODUCER = "IndiaVotes"
+# Producer is ECI (the issuing authority); IndiaVotes is the redistribution
+# channel the ingest scrapes (user directive 2026-06-23: election sources
+# cite ECI only).
+SOURCE_PRODUCER = "Election Commission of India"
 SOURCE_TITLE = "Rajasthan Vidhan Sabha 2023"
 SOURCE_VINTAGE = "2023-11"
 

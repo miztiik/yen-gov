@@ -58,8 +58,9 @@ The `tools/elections_rj_ae2023_ingest/` tool consumes `results.csv` +
 `datasets/elections/assembly/state=rajasthan/election=2023/candidacies.csv`
 + `summary.csv`. The provenance source row lands in
 `datasets/data/entities/source.csv` keyed by the
-`(producer="IndiaVotes", title="Rajasthan Vidhan Sabha 2023", vintage="2023-11")`
-triple per ADR-0032.
+`(producer="Election Commission of India", title="Rajasthan Vidhan Sabha 2023", vintage="2023-11")`
+triple per ADR-0032 (ECI is the issuing authority; IndiaVotes is the
+redistribution channel scraped here - user directive 2026-06-23).
 
 ## Why a sibling tool and not an extension of `elections_parity_indiavotes/`
 

@@ -68,11 +68,17 @@ OUT_DIR = (
 STATE_SLUG = "rajasthan"
 ELECTION_YEAR = 2023
 
-# Citation triple for the IndiaVotes RJ 2023 source (ADR-0032 / Holy Law #9).
-SOURCE_PRODUCER = "IndiaVotes"
+# Citation triple for the RJ 2023 results (ADR-0032 / Holy Law #9). ECI is
+# the issuing authority for the constituency results; IndiaVotes (scraped
+# upstream) is a redistribution channel, so per the issuing-authority rule
+# (PR #1014 TCPD->ECI precedent + user directive 2026-06-23: election
+# sources cite ECI only) the producer is ECI and the citation url points to
+# the ECI domain. The scrape itself still reads the IndiaVotes master /
+# per-AC URLs.
+SOURCE_PRODUCER = "Election Commission of India"
 SOURCE_TITLE = "Rajasthan Vidhan Sabha 2023"
 SOURCE_VINTAGE = "2023-11"
-SOURCE_URL = "https://www.indiavotes.com/vidhan-sabha/rajasthan/2023"
+SOURCE_URL = "https://www.eci.gov.in/"
 
 # 18-column canonical shape; matches the 2018 RJ candidacies template
 # byte-identically (header order is the column-contract; the validator's
