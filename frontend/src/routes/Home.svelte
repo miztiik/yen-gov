@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
+  import MapFrameSkeleton from "../lib/MapFrameSkeleton.svelte";
   import { fetchTopicCatalogue, indicatorPathForArtifact, type TopicCatalogue } from "../lib/catalogue";
   import { loadIndicator } from "../lib/canonical/indicator-from-canonical";
   import IndiaPartyMap from "../lib/charts/IndiaPartyMap.svelte";
@@ -286,15 +287,13 @@
     {:else}
       <!--
         Bootstrap skeleton: catalogue + URL not yet resolved, so the
-        PR-2 default-theme rotation has nothing to pick from. Hide the
-        header + dropdown entirely until `theme` resolves rather than
-        flash a half-built chrome (cleanest single-frame placeholder).
+        PR-2 default-theme rotation has nothing to pick from. A map-frame
+        skeleton at the final dimensions (perf plan Row 7) telegraphs "a
+        map is coming" with zero layout shift, instead of a bare pulse box.
       -->
-      <div
-        class="h-[440px] bg-slate-50 rounded animate-pulse"
-        data-testid="home-map-loading"
-        aria-hidden="true"
-      ></div>
+      <div data-testid="home-map-loading" aria-hidden="true">
+        <MapFrameSkeleton height="440px" />
+      </div>
     {/if}
   </section>
 

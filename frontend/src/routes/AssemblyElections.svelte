@@ -19,6 +19,7 @@
 <script lang="ts">
   import ElectionsRouteTabs from "../lib/elections/ElectionsRouteTabs.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
+  import TableSkeleton from "../lib/TableSkeleton.svelte";
   import {
     loadAssemblyElections,
     type AssemblyCardViewModel,
@@ -60,8 +61,10 @@
       Couldn't load: {err}
     </div>
   {:else if cards == null}
-    <div class="text-sm text-slate-400" data-testid="assembly-elections-loading">
-      Loading...
+    <div data-testid="assembly-elections-loading">
+      <!-- Known shape (a grid of election cards) -> table skeleton
+           instead of a frozen "Loading..." (perf plan Row 7). -->
+      <TableSkeleton rows={6} />
     </div>
   {:else}
     <ul

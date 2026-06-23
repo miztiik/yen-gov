@@ -33,6 +33,9 @@
   import PartySymbolGlyph from "../lib/PartySymbolGlyph.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
+  import KpiGridSkeleton from "../lib/KpiGridSkeleton.svelte";
+  import MapFrameSkeleton from "../lib/MapFrameSkeleton.svelte";
+  import TableSkeleton from "../lib/TableSkeleton.svelte";
   import { route } from "../lib/router.svelte";
   import { findConstituencyBySlug } from "../lib/elections/constituency-lookup";
   import YearPillStrip from "../lib/elections/YearPillStrip.svelte";
@@ -524,6 +527,16 @@
         </p>
       </div>
     {/if}
+  {:else if loaderResult.status === "loading"}
+    <!-- Perf plan Row 7: the AC drill-down was a blank white page for the
+         5-10s DuckDB cold-load window (the reported
+         /<state>/elections/<event>/ac/<ac> pain). Show content-shaped
+         skeletons at the final layout - no blank page, zero layout shift. -->
+    <div data-testid="constituency-loading" class="space-y-4">
+      <KpiGridSkeleton count={4} />
+      <MapFrameSkeleton height="320px" />
+      <TableSkeleton rows={6} />
+    </div>
   {:else if loaderResult.status === "failed"}
     <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900 space-y-2">
       <p>{loaderResult.reason}</p>
