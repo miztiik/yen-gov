@@ -333,9 +333,67 @@ interface ConstituencySummaryRow {
   winner_age: number | null;
 }
 
+// -------------------- Row 5: bounded-id result cache --------------------
+//
+// The 3 run*Query functions execute deterministic SQL keyed by their
+// bounded args (event, state, eci_no). The custom router full-remounts
+// every component on navigation, so Home -> State -> back re-ran the same
+// SQL from scratch. Cache the resolved rows by bounded id (NOT a blanket
+// query() memo - that would be an unbounded SQL-string key space; the fix
+// belongs at this bounded-id loader boundary). Immutable per deploy
+// (deploy = bundle-hash change = full reload), so the cached promise has a
+// zero staleness window by construction (CLAUDE.md Holy Law #5). Evict on
+// failure so a transient error retries on the next call.
+const electionRowsCache = new Map<string, Promise<ElectionResultRow[]>>();
+
+/** Test-only: clear the cached election-result rows so module state does
+ *  not leak across vitest `it()` blocks. NOT for production use. */
+export function _resetElectionResultsCacheForTesting(): void {
+  electionRowsCache.clear();
+}
+
+function cachedRows(
+  key: string,
+  run: () => Promise<ElectionResultRow[]>,
+): Promise<ElectionResultRow[]> {
+  const hit = electionRowsCache.get(key);
+  if (hit) return hit;
+  const p = run();
+  electionRowsCache.set(key, p);
+  p.catch(() => {
+    electionRowsCache.delete(key);
+  });
+  return p;
+}
+
+async function runNationalPcQuery(event: string): Promise<ElectionResultRow[]> {
+  return cachedRows(`national|${event}`, () => runNationalPcQueryUncached(event));
+}
+
+async function runStateAcQuery(
+  event: string,
+  state_code: string,
+): Promise<ElectionResultRow[]> {
+  return cachedRows(
+    `state-ac|${event}|${state_code}`,
+    () => runStateAcQueryUncached(event, state_code),
+  );
+}
+
+async function runConstituencyQuery(
+  event: string,
+  state_code: string,
+  eci_no: number,
+): Promise<ElectionResultRow[]> {
+  return cachedRows(
+    `constituency|${event}|${state_code}|${eci_no}`,
+    () => runConstituencyQueryUncached(event, state_code, eci_no),
+  );
+}
+
 // -------------------- NATIONAL-PC dispatch --------------------
 
-async function runNationalPcQuery(
+async function runNationalPcQueryUncached(
   event: string,
 ): Promise<ElectionResultRow[]> {
   const sumPath = parliamentSummaryPath(event);
@@ -404,7 +462,7 @@ async function runNationalPcQuery(
 
 // -------------------- STATE-AC dispatch --------------------
 
-async function runStateAcQuery(
+async function runStateAcQueryUncached(
   event: string,
   state_code: string,
 ): Promise<ElectionResultRow[]> {
@@ -481,7 +539,7 @@ async function runStateAcQuery(
 
 // -------------------- CONSTITUENCY dispatch --------------------
 
-async function runConstituencyQuery(
+async function runConstituencyQueryUncached(
   event: string,
   state_code: string,
   eci_no: number,
