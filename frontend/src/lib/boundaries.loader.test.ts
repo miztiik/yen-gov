@@ -8,7 +8,12 @@
 // the on-disk corpus.
 
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { loadBoundaryFromPath, loadBoundaryData, boundaryRelPaths } from "./boundaries";
+import {
+  loadBoundaryFromPath,
+  loadBoundaryData,
+  boundaryRelPaths,
+  _resetCachesForTesting,
+} from "./boundaries";
 
 // Three-feature tiny GeoJSON used as the fallback payload.
 const TINY_GEOJSON = {
@@ -70,6 +75,10 @@ function mockFetch(impl: (url: string) => Promise<Response>): void {
 
 beforeEach(() => {
   vi.spyOn(console, "warn").mockImplementation(() => {});
+  // Row 3: clear the session boundary cache so each test starts cold
+  // (module-level cache state otherwise leaks across `it()` blocks that
+  // reuse the same (path, object) key).
+  _resetCachesForTesting();
 });
 
 afterEach(() => {
@@ -258,5 +267,63 @@ describe("loadBoundaryData - public entry point + district filter", () => {
     expect(fc).not.toBeNull();
     expect(fc!.features).toHaveLength(2);
     expect(fc!.features.every(f => Number(f.properties?.state_lgd) === 33)).toBe(true);
+  });
+});
+
+describe("loadBoundaryFromPath - session cache (perf plan Row 3)", () => {
+  it("does not re-fetch the same (path, object) within a session", async () => {
+    const fetchedUrls: string[] = [];
+    mockFetch(async url => {
+      fetchedUrls.push(url);
+      return new Response(JSON.stringify(TINY_GEOJSON), { status: 200 });
+    });
+    const first = await loadBoundaryFromPath("states/all.geojson", "state");
+    const second = await loadBoundaryFromPath("states/all.geojson", "state");
+    // One network fetch total; the second call is served from the cache.
+    expect(fetchedUrls).toHaveLength(1);
+    expect(first.format).toBe("geojson");
+    expect(second.fc!.features).toHaveLength(3);
+    // Same cached promise -> identical resolved object reference.
+    expect(second.fc).toBe(first.fc);
+  });
+
+  it("caches a null (absent-file) result so a missing file is not re-probed", async () => {
+    const fetchedUrls: string[] = [];
+    mockFetch(async url => {
+      fetchedUrls.push(url);
+      return new Response("nope", { status: 404 });
+    });
+    const a = await loadBoundaryFromPath(
+      "villages/state=tamil-nadu/district=603/all.geojson",
+      "village",
+    );
+    const b = await loadBoundaryFromPath(
+      "villages/state=tamil-nadu/district=603/all.geojson",
+      "village",
+    );
+    expect(a.fc).toBeNull();
+    expect(b.fc).toBeNull();
+    // Single probe; the cached null short-circuits the second mount.
+    expect(fetchedUrls).toHaveLength(1);
+  });
+
+  it("keys the cache on object name (distinct objects fetch separately)", async () => {
+    const topoFetches: string[] = [];
+    mockFetch(async url => {
+      if (url.endsWith(".topojson")) {
+        topoFetches.push(url);
+        return new Response(JSON.stringify(TINY_COUNTRY_TOPOJSON), { status: 200 });
+      }
+      throw new Error("geojson should not be fetched when topojson decodes");
+    });
+    const states1 = await loadBoundaryFromPath("country/all.geojson", "country", "states");
+    const states2 = await loadBoundaryFromPath("country/all.geojson", "country", "states");
+    const districts = await loadBoundaryFromPath("country/all.geojson", "country", "districts");
+    // "states" is cached after the first call (2 calls -> 1 fetch); the
+    // "districts" object is a distinct key -> a second fetch. Net 2.
+    expect(topoFetches).toHaveLength(2);
+    expect(states1.fc!.features).toHaveLength(2);
+    expect(states2.fc).toBe(states1.fc);
+    expect(districts.fc!.features).toHaveLength(3);
   });
 });

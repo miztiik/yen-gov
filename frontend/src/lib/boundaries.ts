@@ -189,9 +189,11 @@ export function joinKeyFor(level: GeoLevel): string | null {
 
 /** Test-only — retained as a no-op for caller compatibility. */
 export function _resetCachesForTesting(): void {
-  // No internal caches after T.0d — villages-index reader was retired.
-  // Kept as a stub so existing test setup code (resetting between cases)
-  // doesn't break.
+  // Row 3: clear the session boundary-geometry cache so module-level state
+  // does not leak across vitest `it()` blocks. (The T.0d villages-index
+  // reader cache was retired; the boundary geometry cache is the only
+  // internal cache now.)
+  boundaryCache.clear();
 }
 
 /**
@@ -246,6 +248,48 @@ export function pathHasTopojson(baseGeoRelPath: string): boolean {
   return baseGeoRelPath === "country/all.geojson";
 }
 
+// Session-scoped boundary-geometry cache (perf plan Row 3). The fetched +
+// decoded result for a given (baseGeoRelPath, objectName) is immutable
+// within a session: the boundary corpus changes only on deploy, and a
+// deploy changes the bundle hash and forces a full page reload (a fresh
+// module instance), so the cached promise has a ZERO staleness window by
+// construction - structural, not a TTL band-aid (CLAUDE.md Holy Law #5).
+// Without it, navigating state -> back -> state re-downloads 0.5-10 MB of
+// geometry on every map mount (the router full-remounts every component).
+// A null result is cached too, so a genuinely absent file is not
+// re-probed on every mount (the 404-as-null contract). Mirrors the
+// Map + promise pattern proven in state-silhouette.ts.
+const boundaryCache = new Map<
+  string,
+  Promise<{ fc: BoundaryFeatureCollection | null; format: "topojson" | "geojson" | null }>
+>();
+
+/**
+ * Public boundary loader - session-cached wrapper around
+ * `loadBoundaryFromPathUncached`. The cache key is
+ * `(baseGeoRelPath, objectName)` because `objectName` selects which named
+ * object is decoded from the (shared) country topojson, so two object
+ * names off the same file are distinct results. `label` is perf-mark-only
+ * and is intentionally NOT part of the key. The wrapped impl never
+ * rejects (it returns `{ fc: null }` on any failure), but the `.catch`
+ * eviction keeps an unexpected throw from pinning the cache.
+ */
+export function loadBoundaryFromPath(
+  baseGeoRelPath: string,
+  label: string,
+  objectName?: string,
+): Promise<{ fc: BoundaryFeatureCollection | null; format: "topojson" | "geojson" | null }> {
+  const key = `${baseGeoRelPath}|${objectName ?? ""}`;
+  const cached = boundaryCache.get(key);
+  if (cached) return cached;
+  const p = loadBoundaryFromPathUncached(baseGeoRelPath, label, objectName);
+  boundaryCache.set(key, p);
+  p.catch(() => {
+    boundaryCache.delete(key);
+  });
+  return p;
+}
+
 /**
  * Fetch one boundary partition by its base relative path.
  *
@@ -275,7 +319,7 @@ export function pathHasTopojson(baseGeoRelPath: string): boolean {
  * surfaced in perf-mark names and fallback warnings (typically the
  * GeoLevel string).
  */
-export async function loadBoundaryFromPath(
+async function loadBoundaryFromPathUncached(
   baseGeoRelPath: string,
   label: string,
   objectName?: string,
