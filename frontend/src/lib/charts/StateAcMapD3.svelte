@@ -66,6 +66,7 @@
   import type { Topology, GeometryCollection } from "topojson-specification";
 
   import { DATA_BASE } from "../paths";
+  import { fetchGeometryJson } from "./geometry-cache";
   import { STATE_AC } from "../boundaries/sources";
   import { renderTooltipCard } from "../boundaries/tooltip-card";
   import { recoverEciNo } from "../boundaries/ac-key-recovery";
@@ -353,11 +354,11 @@
       throw new Error(`no AC geometry path for ${sc}`);
     }
     const url = `${DATA_BASE}/${e.geojson_local_path}`;
-    const r = await fetch(url);
-    if (!r.ok) {
-      throw new Error(`ac geometry fetch failed: ${r.status} ${url}`);
-    }
-    const raw = (await r.json()) as Topology | Collection;
+    // Row 3b: cache the fetched + parsed geometry per URL so revisiting
+    // this state's AC map does not re-download the (large) geometry file.
+    // fetchGeometryJson throws on a non-OK status, matching the previous
+    // explicit `!r.ok` throw (the caller's try/catch handles it).
+    const raw = (await fetchGeometryJson(url)) as Topology | Collection;
     let fc: Collection;
     if (e.geojson_local_path.endsWith(".topojson")) {
       const topo = raw as Topology;

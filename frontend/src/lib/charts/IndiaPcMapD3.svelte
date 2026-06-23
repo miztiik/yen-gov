@@ -60,6 +60,7 @@
   } from "geojson";
 
   import { DATA_BASE } from "../paths";
+  import { fetchGeometryJson } from "./geometry-cache";
   import { INDIA_PC, INDIA_PC_BY_NAME, type BoundaryEntry } from "../boundaries/sources";
   import { renderTooltipCard } from "../boundaries/tooltip-card";
   import { symbolAssetUrl } from "../boundaries/symbol-asset";
@@ -239,23 +240,20 @@
     const url = `${DATA_BASE}/${GEOMETRY_PATH}`;
     (async () => {
       try {
-        const r = await fetch(url);
-        if (cancelled) return;
-        if (!r.ok) {
-          load_error = `geojson fetch failed: ${r.status} ${url}`;
-          return;
-        }
         // Post map-geometry rip the PC layer ships a plain GeoJSON
         // FeatureCollection (no topojson decode step). It carries RFC 7946
         // (counter-clockwise-exterior) winding; d3-geo wants clockwise
         // exteriors, so rewind before projecting or every polygon paints
         // the whole viewBox (the map renders as one solid block).
-        const fc = (await r.json()) as Collection;
+        // Row 3b: fetchGeometryJson caches the fetched + parsed JSON per
+        // URL (throws on a non-OK status, caught below) so revisiting this
+        // map does not re-download the geometry.
+        const fc = (await fetchGeometryJson(url)) as Collection;
+        if (cancelled) return;
         if (fc?.type !== "FeatureCollection" || !Array.isArray(fc.features)) {
           load_error = `geojson is not a FeatureCollection: ${url}`;
           return;
         }
-        if (cancelled) return;
         collection = rewindCollectionForD3(fc);
       } catch (err) {
         if (cancelled) return;
