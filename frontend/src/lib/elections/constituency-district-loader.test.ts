@@ -14,6 +14,7 @@ import {
   buildAcNameIndex,
   buildPcGrouping,
   resolveAcByName,
+  resolveAssemblyAcMeta,
   type DistrictRow,
   type ElectoralAcEntityRow,
   type ElectoralAcRow,
@@ -396,5 +397,125 @@ describe("buildAcNameIndex + resolveAcByName (name-bridge oracle, results-id mis
 
   it("keys by state so same-named ACs in other states never collide", () => {
     expect(resolveAcByName(nameIndex, "telangana", "Amalapuram")).toBeNull();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// resolveAssemblyAcMeta regression (chore/verify-assembly-grouping): the REAL
+// assembly winner id shape. Unlike the name-bridge oracle above (which modeled
+// winners with the results-scheme `IN-S<NN>-AC-<delim>-<eci_no>` id that MISSES
+// the enrichment map entirely), production assembly winners carry the CANONICAL
+// `-eci<NN>` ballot-alias id. That id IS present in `loadAcEnrichment`'s map -
+// electoral.csv ships an `entity_kind='ac'` row for it - but the ballot-alias
+// form has NO membership edge, so its `district_name` is null while reservation
+// + eci_no are populated. The old `enrich.get(id) ?? nameBridge` therefore
+// SHORT-CIRCUITED on the present-but-district-less row and stranded ~120/175 AP
+// seats in the "All constituencies" bucket. resolveAssemblyAcMeta falls back on
+// a NULL district (not a null row), recovering the district via the name bridge.
+// ---------------------------------------------------------------------------
+
+const AM_MEMBERSHIP: MembershipRow[] = [
+  { electoral_id: "IN-AC-2008-andhra-pradesh-3166", lgd_district_id: "andhra-pradesh/dr-b-r-ambedkar-konaseema", is_primary: true },
+  { electoral_id: "IN-AC-2008-andhra-pradesh-3250", lgd_district_id: "andhra-pradesh/krishna", is_primary: true },
+];
+
+const AM_DISTRICTS: DistrictRow[] = [
+  { entity_id: "andhra-pradesh/dr-b-r-ambedkar-konaseema", name: "Dr. B.R. Ambedkar Konaseema" },
+  { entity_id: "andhra-pradesh/krishna", name: "Krishna" },
+];
+
+// electoral.csv carries BOTH forms per AC: the district-bearing `-<serial>`
+// row AND the district-LESS `-eci<NN>` ballot-alias row (UPPERCASE name).
+const AM_ELECTORAL: ElectoralAcEntityRow[] = [
+  { entity_id: "IN-AC-2008-andhra-pradesh-3166", name: "Amalapuram", parent: null, state: "andhra-pradesh", delim_year: 2008, reservation: "SC", eci_no: 163 },
+  { entity_id: "IN-AC-2008-andhra-pradesh-eci44", name: "AMALAPURAM", parent: null, state: "andhra-pradesh", delim_year: 2008, reservation: "SC", eci_no: 44 },
+  { entity_id: "IN-AC-2008-andhra-pradesh-3250", name: "Vijayawada West", parent: null, state: "andhra-pradesh", delim_year: 2008, reservation: "GEN", eci_no: 80 },
+];
+
+describe("resolveAssemblyAcMeta (eci-alias winner regression)", () => {
+  const enrich = buildAcEnrichmentMap(
+    AM_MEMBERSHIP,
+    AM_DISTRICTS,
+    AM_ELECTORAL.map((e) => ({
+      entity_id: e.entity_id,
+      reservation: e.reservation,
+      eci_no: e.eci_no,
+    })),
+  );
+  const nameIndex = buildAcNameIndex(
+    buildAcEntities(AM_MEMBERSHIP, AM_DISTRICTS, AM_ELECTORAL),
+  );
+
+  it("the eci-alias id is present in enrichment but carries a NULL district (the trap)", () => {
+    const row = enrich.get("IN-AC-2008-andhra-pradesh-eci44");
+    expect(row).toBeDefined();
+    expect(row?.district_name).toBeNull();
+    expect(row?.reservation).toBe("SC");
+  });
+
+  it("recovers the district via the name bridge despite the district-less entity_id hit", () => {
+    const meta = resolveAssemblyAcMeta(
+      enrich,
+      nameIndex,
+      "andhra-pradesh",
+      "IN-AC-2008-andhra-pradesh-eci44",
+      "AMALAPURAM",
+    );
+    expect(meta.district_name).toBe("Dr. B.R. Ambedkar Konaseema");
+    // reservation comes from the authoritative eci-alias row (byId wins).
+    expect(meta.reservation).toBe("SC");
+  });
+
+  it("a plain `?? ` on the row would have stranded the eci-alias winner (proves the bug)", () => {
+    // The OLD logic: enrich.get(id) ?? nameBridge. The eci-alias row is
+    // non-null, so `??` returns it verbatim and the district stays null.
+    const oldLogic =
+      enrich.get("IN-AC-2008-andhra-pradesh-eci44") ??
+      resolveAcByName(nameIndex, "andhra-pradesh", "AMALAPURAM");
+    expect(oldLogic?.district_name).toBeNull(); // the regression
+    // The fixed resolver recovers it.
+    expect(
+      resolveAssemblyAcMeta(
+        enrich,
+        nameIndex,
+        "andhra-pradesh",
+        "IN-AC-2008-andhra-pradesh-eci44",
+        "AMALAPURAM",
+      ).district_name,
+    ).toBe("Dr. B.R. Ambedkar Konaseema");
+  });
+
+  it("the entity_id-first path still wins when the id resolves a real district (no regression)", () => {
+    const meta = resolveAssemblyAcMeta(
+      enrich,
+      nameIndex,
+      "andhra-pradesh",
+      "IN-AC-2008-andhra-pradesh-3250",
+      "Vijayawada West",
+    );
+    expect(meta.district_name).toBe("Krishna");
+    expect(meta.reservation).toBe("GEN");
+  });
+
+  it("a winner with neither an enrichment district nor a name twin stays null (Other bucket)", () => {
+    const meta = resolveAssemblyAcMeta(
+      enrich,
+      nameIndex,
+      "andhra-pradesh",
+      "IN-AC-2008-andhra-pradesh-eci99",
+      "Nowhere Seat",
+    );
+    expect(meta).toEqual({ district_name: null, reservation: null, eci_no: null });
+  });
+
+  it("null enrichment / null index degrade gracefully", () => {
+    expect(
+      resolveAssemblyAcMeta(null, null, "andhra-pradesh", "x", "Amalapuram"),
+    ).toEqual({ district_name: null, reservation: null, eci_no: null });
+    // With only the name index, an absent enrichment still name-bridges.
+    expect(
+      resolveAssemblyAcMeta(null, nameIndex, "andhra-pradesh", "x", "AMALAPURAM")
+        .district_name,
+    ).toBe("Dr. B.R. Ambedkar Konaseema");
   });
 });
