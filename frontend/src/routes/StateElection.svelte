@@ -84,6 +84,8 @@
   import StateEventConstituencyList from "../lib/elections/StateEventConstituencyList.svelte";
   import StateEventHero from "../lib/elections/StateEventHero.svelte";
   import StateEventMap from "../lib/elections/StateEventMap.svelte";
+  import MapCoverageNote from "../lib/charts/MapCoverageNote.svelte";
+  import type { MapCoverageEmit } from "../lib/charts/map-coverage";
   import {
     marginShade,
     resolveWinnerBaseColours,
@@ -148,6 +150,12 @@
     .catch((e) => (catalogue_error = String(e)));
 
   const state_code = $derived(states.codeFromSlug(params.state));
+  // C: the active per-state map (AC or PC) lifts its render-time coverage
+  // tuple here so the caption renders below the per-state party legend,
+  // mirroring the national pattern (PR #1199). The map components clear this
+  // (emit null) on unmount, so the hex / equal-seats arm and no-geometry PC
+  // events never show a stale caption.
+  let map_coverage = $state<MapCoverageEmit | null>(null);
   const state_name = $derived(state_code ? states.name(state_code) : "");
   const event_row = $derived<ElectionEventRow | null>(
     findEvent(catalogue, state_code, params.event),
@@ -1617,6 +1625,7 @@
             bind:color_mode
             bind:ac_view
             bind:pc_view
+            oncoverage={(e) => (map_coverage = e)}
           />
         {/if}
       {/if}
@@ -1636,6 +1645,21 @@
         total_seats={kpis.total_seats}
         bind:hidden_parties
       />
+
+      <!-- C: per-state coverage caption, relocated from inside the map card
+           to directly below the party legend (mirrors the national pattern,
+           PR #1199). The map clears its tuple on unmount, so the hex /
+           equal-seats arm and no-geometry PC events show nothing here;
+           MapCoverageNote also auto-hides when there is no shortfall, so
+           current-geometry states render nothing. -->
+      {#if map_coverage}
+        <MapCoverageNote
+          coverage={map_coverage.coverage}
+          unit="constituencies"
+          geometryYear={map_coverage.geometryYear}
+          onOldGeometry={map_coverage.onOldGeometry}
+        />
+      {/if}
 
       <!-- Seat semicircle (#10): one dot per seat, coloured by winning
            party, majority midline + symbol-ring legend. Shares

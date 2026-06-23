@@ -53,6 +53,7 @@
   } from "../view-models/election-tile-layout";
   import type { AcWinner } from "../view-models/state-overview";
   import type { BoundaryEntry } from "../boundaries/sources";
+  import type { MapCoverageEmit } from "../charts/map-coverage";
 
   type ColorMode = "winner" | "margin";
   type AcView = "map" | "hex";
@@ -108,6 +109,9 @@
     color_mode: ColorMode;
     ac_view: AcView;
     pc_view: AcView;
+    /** Lifts the active map's coverage tuple to the route so the caption
+     *  renders below the per-state party legend (not inside the map card). */
+    oncoverage?: (e: MapCoverageEmit) => void;
   }
 
   let {
@@ -138,6 +142,7 @@
     color_mode = $bindable<ColorMode>("winner"),
     ac_view = $bindable<AcView>("map"),
     pc_view = $bindable<AcView>("map"),
+    oncoverage,
   }: Props = $props();
 </script>
 
@@ -207,6 +212,7 @@
           fillsOverride={ac_fills_override}
           opacitiesOverride={ac_opacities_override}
           historical_states={ac_historical_states}
+          {oncoverage}
         />
       </div>
     {:else}
@@ -339,6 +345,7 @@
             fillsOverride={pc_fills_override}
             opacitiesOverride={pc_opacities_override}
             boundary={pc_boundary}
+            {oncoverage}
           />
         </div>
       {:else}
