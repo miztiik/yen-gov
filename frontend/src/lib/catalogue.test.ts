@@ -1,11 +1,52 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import {
   displayForArtifact,
   indicatorPathForArtifact,
   resolvePeerSetDefault,
+  fetchTopicCatalogue,
+  _resetTopicCatalogueCacheForTesting,
   type CatalogueArtifact,
   type CatalogueTopic,
 } from "./catalogue";
+
+describe("fetchTopicCatalogue - session cache (perf plan Row 4)", () => {
+  beforeEach(() => {
+    _resetTopicCatalogueCacheForTesting();
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  it("fetches topics.json once across repeat calls", async () => {
+    const topicsHits: string[] = [];
+    vi.stubGlobal(
+      "fetch",
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      vi.fn(async (url: string) => {
+        if (url.includes("/taxonomy/topics.json")) {
+          topicsHits.push(url);
+          return new Response(
+            JSON.stringify({ $schema: "", $schema_version: "1.0", sources: [], topics: [] }),
+            { status: 200 },
+          );
+        }
+        if (url.includes("/grapher/topic_render.json")) {
+          return new Response(
+            JSON.stringify({ $schema: "", $schema_version: "1.0", topics: [] }),
+            { status: 200 },
+          );
+        }
+        throw new Error(`unexpected fetch: ${url}`);
+      }) as any,
+    );
+    const a = await fetchTopicCatalogue();
+    const b = await fetchTopicCatalogue();
+    // topics.json fetched once; the second call is served from the cache.
+    expect(topicsHits).toHaveLength(1);
+    expect(b).toBe(a);
+  });
+});
 
 describe("displayForArtifact", () => {
   it("returns the explicit display when present", () => {

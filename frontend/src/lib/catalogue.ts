@@ -119,16 +119,37 @@ export interface TopicCatalogue {
  *  `applyGrapherOverlay()`. The canonical fields remain as a transitional
  *  fallback until A3c deletes them from `topic-catalogue.schema.json` v2.0.
  *  Parity is locked by `grapher/catalogue.parity.test.ts`. */
-export async function fetchTopicCatalogue(): Promise<TopicCatalogue> {
-  const res = await fetch(`${DATA_BASE}/taxonomy/topics.json`);
-  if (!res.ok) {
-    throw new Error(
-      `fetch /taxonomy/topics.json failed: ${res.status} ${res.statusText}`,
-    );
-  }
-  const raw = (await res.json()) as TopicCatalogue;
-  const grapher = await fetchGrapherTopicCatalogue();
-  return applyGrapherOverlay(raw, grapher);
+let _topicCatalogueCache: Promise<TopicCatalogue> | null = null;
+
+/** Test-only: clear the cached topic catalogue so module state does not
+ *  leak across vitest `it()` blocks. NOT for production use. */
+export function _resetTopicCatalogueCacheForTesting(): void {
+  _topicCatalogueCache = null;
+}
+
+export function fetchTopicCatalogue(): Promise<TopicCatalogue> {
+  // Row 4: session cache. fetchTopicCatalogue is called on Home / Topic /
+  // State pages; without this it re-fetched topics.json AND re-ran the
+  // grapher overlay on every navigation. Immutable per deploy (deploy =
+  // bundle-hash change = full reload), so the cached promise has a zero
+  // staleness window by construction (Holy Law #5). Evict on failure so a
+  // transient error retries on the next call.
+  if (_topicCatalogueCache) return _topicCatalogueCache;
+  _topicCatalogueCache = (async () => {
+    const res = await fetch(`${DATA_BASE}/taxonomy/topics.json`);
+    if (!res.ok) {
+      throw new Error(
+        `fetch /taxonomy/topics.json failed: ${res.status} ${res.statusText}`,
+      );
+    }
+    const raw = (await res.json()) as TopicCatalogue;
+    const grapher = await fetchGrapherTopicCatalogue();
+    return applyGrapherOverlay(raw, grapher);
+  })();
+  _topicCatalogueCache.catch(() => {
+    _topicCatalogueCache = null;
+  });
+  return _topicCatalogueCache;
 }
 
 /**

@@ -44,15 +44,33 @@ export interface StateTiersFile {
   tiers: StateTier[];
 }
 
-/** Fetch the state-tier reference. Validated against state-tiers.schema.json v1.0. */
-export async function fetchStateTiers(): Promise<StateTiersFile> {
-  const res = await fetch(`${DATA_BASE}/taxonomy/state_tiers.json`);
-  if (!res.ok) {
-    throw new Error(
-      `fetch /taxonomy/state_tiers.json failed: ${res.status} ${res.statusText}`,
-    );
-  }
-  return (await res.json()) as StateTiersFile;
+let _stateTiersCache: Promise<StateTiersFile> | null = null;
+
+/** Test-only: clear the cached state-tier reference so module state does
+ *  not leak across vitest `it()` blocks. NOT for production use. */
+export function _resetStateTiersCacheForTesting(): void {
+  _stateTiersCache = null;
+}
+
+/** Fetch the state-tier reference. Validated against state-tiers.schema.json v1.0.
+ *  Row 4: session-cached (immutable per deploy; zero staleness window by
+ *  construction, Holy Law #5). Evicts on failure so a transient error
+ *  retries on the next call. */
+export function fetchStateTiers(): Promise<StateTiersFile> {
+  if (_stateTiersCache) return _stateTiersCache;
+  _stateTiersCache = (async () => {
+    const res = await fetch(`${DATA_BASE}/taxonomy/state_tiers.json`);
+    if (!res.ok) {
+      throw new Error(
+        `fetch /taxonomy/state_tiers.json failed: ${res.status} ${res.statusText}`,
+      );
+    }
+    return (await res.json()) as StateTiersFile;
+  })();
+  _stateTiersCache.catch(() => {
+    _stateTiersCache = null;
+  });
+  return _stateTiersCache;
 }
 
 /**
