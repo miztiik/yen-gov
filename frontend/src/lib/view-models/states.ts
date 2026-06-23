@@ -60,9 +60,8 @@
 //                             bridges the string-key/int-property gap
 //                             automatically.
 
-import { query, registerCsvFile } from "../duckdb";
 import { DATA_BASE } from "../paths";
-import { csvColumnsClause } from "../canonical/csv-columns";
+import { parseCsvLine } from "../canonical/canonical-entity-translation";
 
 export interface StateRow {
   /** Canonical entity_id (e.g. "IN-S22"). Synthesised as 'IN-' || eci_code. */
@@ -102,14 +101,6 @@ export interface StateRow {
   iso_3166_2: string | null;
 }
 
-interface RawStateRow {
-  entity_id: string | null;
-  eci_code: string | null;
-  display_name: string | null;
-  lgd_code: string | null;
-  iso_3166_2: string | null;
-}
-
 const GEO_CSV_PATH = "datasets/data/entities/geo.csv";
 
 let cached: Promise<StateRow[]> | null = null;
@@ -134,44 +125,72 @@ export async function loadStates(): Promise<StateRow[]> {
 }
 
 async function loadStatesUncached(): Promise<StateRow[]> {
+  // Perf plan Row 2 (option B): read the 36-row states list with a plain
+  // fetch + JS parse instead of DuckDB-WASM. ScopePicker.svelte is mounted
+  // in the LeftRail shell on EVERY page and calls loadStates() on mount;
+  // routing that through DuckDB booted the ~5.2 MB wasm engine even on pure
+  // chrome/docs pages (/about, /settings, /docs/*) that never otherwise
+  // query. A 36-row CSV does not need an analytics engine - parse it in JS
+  // so chrome pages stay light and the dropdown populates instantly. Data /
+  // map routes still boot DuckDB for their own content; that is unchanged.
   const url = `${DATA_BASE}/${GEO_CSV_PATH.replace(/^datasets\//, "")}`;
-  const [clause] = await Promise.all([
-    csvColumnsClause(GEO_CSV_PATH),
-    registerCsvFile(url),
-  ]);
-  // `regexp_extract(aliases, '<re>', 1)` pulls the matched capture group
-  // out of the geo.csv pipe-delimited aliases column. ECI matches
-  // `[SU][0-9]+` (no other token has this shape); LGD matches the
-  // `lgd:` prefix; ISO matches `IN-` followed by 2-3 uppercase letters
-  // (the long-form name tokens never start with `IN-`). NULLIF '' guards
-  // against rows whose aliases column is empty.
-  const sql = `
-    SELECT
-      'IN-' || regexp_extract(aliases, '([SU][0-9]+)', 1)        AS entity_id,
-      NULLIF(regexp_extract(aliases, '([SU][0-9]+)', 1), '')     AS eci_code,
-      name                                                        AS display_name,
-      NULLIF(regexp_extract(aliases, 'lgd:([0-9]+)', 1), '')     AS lgd_code,
-      NULLIF(regexp_extract(aliases, '(IN-[A-Z]{2,3})', 1), '')  AS iso_3166_2
-    FROM read_csv('${url}', ${clause})
-    WHERE entity_kind = 'state'
-    ORDER BY eci_code
-  `;
-  const rows = await query<RawStateRow>(sql);
-  return rows
-    .filter((r) => r.entity_id && r.eci_code && r.display_name && r.lgd_code)
-    .map((r) => {
-      const display_name = r.display_name as string;
-      const lgd_code = r.lgd_code as string;
-      return {
-        entity_id: r.entity_id as string,
-        eci_code: r.eci_code as string,
-        display_name,
-        boundary_join_name: display_name,
-        boundary_join_key: lgd_code,
-        lgd_code,
-        iso_3166_2: r.iso_3166_2 ?? null,
-      };
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`states: fetch failed: ${res.status} ${res.statusText} (${url})`);
+  }
+  return parseStatesCsv(await res.text());
+}
+
+/**
+ * Pure geo.csv text -> StateRow[] builder. Exported for unit tests so the
+ * parse semantics can be asserted without a fetch. Mirrors the retired
+ * DuckDB SQL exactly: keep `entity_kind = 'state'` rows, extract the ECI /
+ * LGD / ISO codes from the pipe-delimited `aliases` column with the same
+ * patterns the SQL `regexp_extract` calls used, drop rows missing
+ * eci_code / display_name / lgd_code, and sort by eci_code (string order,
+ * matching the SQL `ORDER BY eci_code`).
+ */
+export function parseStatesCsv(csv: string): StateRow[] {
+  const lines = csv.split(/\r?\n/);
+  if (lines.length < 2) return [];
+  const header = parseCsvLine(lines[0]);
+  const idxKind = header.indexOf("entity_kind");
+  const idxName = header.indexOf("name");
+  const idxAliases = header.indexOf("aliases");
+  if (idxKind < 0 || idxName < 0 || idxAliases < 0) {
+    throw new Error(
+      "states: geo.csv header missing required columns (entity_kind, name, aliases)",
+    );
+  }
+  const rows: StateRow[] = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line) continue;
+    const cells = parseCsvLine(line);
+    if (cells[idxKind] !== "state") continue;
+    const aliases = cells[idxAliases] ?? "";
+    // Same patterns the retired SQL `regexp_extract` used (first match).
+    const eci_code = aliases.match(/[SU][0-9]+/)?.[0] ?? null;
+    const display_name = cells[idxName] || null;
+    const lgd_code = aliases.match(/lgd:([0-9]+)/)?.[1] ?? null;
+    const iso_3166_2 = aliases.match(/IN-[A-Z]{2,3}/)?.[0] ?? null;
+    // Mirror the SQL projection's filter: entity_id is 'IN-' || eci_code,
+    // so requiring eci_code also covers entity_id.
+    if (!eci_code || !display_name || !lgd_code) continue;
+    rows.push({
+      entity_id: `IN-${eci_code}`,
+      eci_code,
+      display_name,
+      boundary_join_name: display_name,
+      boundary_join_key: lgd_code,
+      lgd_code,
+      iso_3166_2,
     });
+  }
+  rows.sort((a, b) =>
+    a.eci_code < b.eci_code ? -1 : a.eci_code > b.eci_code ? 1 : 0,
+  );
+  return rows;
 }
 
 /**

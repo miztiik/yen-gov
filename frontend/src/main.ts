@@ -87,19 +87,19 @@ app.innerHTML = `
 `;
 mount(LeftRail, { target: document.getElementById("rail")! });
 
-// Kick off the DuckDB-WASM boot in parallel with route hydration. Every
-// citizen-facing surface that surfaces a choropleth (Home, /t/<topic>,
-// /<state>, /<state>/t/<topic>) eventually calls registerCsvAsTable /
-// registerTable / query against the WASM singleton; if we wait until the
-// first such call to start the ~5 MB wasm download + worker spawn +
-// instantiate, every choropleth pays a 1-2s cold-boot delay serially.
-// Prewarming here moves that work onto the browser's idle-network budget
-// while topic-catalogue + Svelte hydration are doing their own fetches.
-// Idempotent (the singleton promise dedupes); safe to call
-// unconditionally. Routes that genuinely never touch DuckDB (e.g.
-// /about, /disclaimer) pay only the bundle download, which has happened
-// already because main.ts imported the module.
-prewarmDB();
+// Perf plan Row 2: the DuckDB-WASM prewarm (the ~5.2 MB wasm boot + worker
+// spawn + instantiate) is GATED on the matched route's `needsDB`
+// capability via the router's `onResolve` hook below, instead of firing
+// unconditionally at module load. Data + map routes (Home, /t/<topic>,
+// /<state>, /<state>/t/<topic>, elections, ...) still prewarm in parallel
+// with route hydration so the choropleth never pays the cold boot
+// serially; pure chrome/docs routes (/about, /disclaimer, /settings,
+// /docs/*) no longer download the wasm at all. This pairs with the
+// states-loader-off-DuckDB change (option B) - with the scope picker no
+// longer querying, the prewarm gate is the only remaining boot trigger,
+// so gating it makes chrome routes fully DuckDB-free. Idempotent (the
+// singleton promise dedupes), so a citizen who lands on a chrome route
+// then navigates to a data route prewarms on that navigation.
 
 // Route params are slugs (e.g. `tamil-nadu`, `167-mylapore`). Each page
 // resolves the slug to its underlying ECI id via the lib/states.svelte
@@ -131,13 +131,19 @@ prewarmDB();
 // closes the strangler-fig.
 startRouter({
   target: document.getElementById("route")!,
+  // Perf plan Row 2: gate the DuckDB-WASM prewarm on the matched route's
+  // `needsDB` flag. Default is prewarm (undefined / true); only the pure
+  // chrome/docs routes set `needsDB: false` and skip the wasm boot.
+  onResolve: r => {
+    if (r.needsDB !== false) prewarmDB();
+  },
   routes: [
     // === 1. Root + chrome literals (single-segment, MUST come before
     //        the 1-segment Grammar A `/:state` catch-all). ===
     { pattern: "/", component: Home, crumbs: homeCrumbs },
-    { pattern: "/settings", component: Settings, crumbs: settingsCrumbs },
-    { pattern: "/about", component: About, crumbs: aboutCrumbs },
-    { pattern: "/disclaimer", component: Disclaimer, crumbs: disclaimerCrumbs },
+    { pattern: "/settings", component: Settings, needsDB: false, crumbs: settingsCrumbs },
+    { pattern: "/about", component: About, needsDB: false, crumbs: aboutCrumbs },
+    { pattern: "/disclaimer", component: Disclaimer, needsDB: false, crumbs: disclaimerCrumbs },
     // Topic Front Door (P3.3, ADR-0022).
     { pattern: "/t", component: TopicIndex, crumbs: topicIndexCrumbs },
     // Generic indicator Compare (P4) — sits alongside the more-specific
@@ -243,6 +249,7 @@ startRouter({
       pattern: "/docs/indicator/:topic/:id",
       component: IndicatorDoc,
       parse: ({ topic, id }) => ({ indicator_id: `${topic}/${id}`, topic, id }),
+      needsDB: false,
       crumbs: indicatorDocCrumbs,
     },
     // Per-counting-method documentation page (2026-06-09 redesign,
@@ -256,6 +263,7 @@ startRouter({
       pattern: "/docs/lab/:method",
       component: CountingMethodDoc,
       parse: ({ method }) => ({ method }),
+      needsDB: false,
       crumbs: countingMethodDocCrumbs,
     },
 
@@ -375,5 +383,5 @@ startRouter({
     // state slug equals a chrome literal.
     { pattern: "/:state", component: StateOverview, crumbs: stateOverviewCrumbs },
   ],
-  notFound: { pattern: "*", component: NotFound, crumbs: notFoundCrumbs },
+  notFound: { pattern: "*", component: NotFound, needsDB: false, crumbs: notFoundCrumbs },
 });

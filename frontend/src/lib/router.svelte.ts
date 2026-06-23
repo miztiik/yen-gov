@@ -34,6 +34,14 @@ export interface Route {
   // so the chain re-renders when the state catalogue async-loads). Returns
   // a `Crumb[]` consumed by `lib/Breadcrumb.svelte`.
   crumbs?: (params: Record<string, unknown>) => Crumb[];
+  // Perf plan Row 2: route capability flag. `false` opts a route OUT of
+  // the DuckDB-WASM prewarm (the ~5.2 MB wasm boot) - set on pure
+  // chrome/docs routes that never query (about, disclaimer, settings,
+  // /docs/*). Defaults to prewarm (undefined / true) so data + map routes
+  // are unaffected. Consumed by main.ts via the `onResolve` hook. Pairs
+  // with the states-loader-off-DuckDB change (option B) so chrome routes
+  // have NO DuckDB boot trigger at all.
+  needsDB?: boolean;
 }
 
 interface Compiled {
@@ -101,6 +109,12 @@ export function startRouter(opts: {
   target: HTMLElement;
   routes: Route[];
   notFound: Route;
+  // Perf plan Row 2: invoked with the matched route on every render
+  // (before mount). main.ts uses it to gate the DuckDB-WASM prewarm on
+  // the route's `needsDB` capability so pure chrome/docs routes do not pay
+  // the ~5.2 MB wasm boot. Kept as a callback (not a direct prewarmDB
+  // import) so the router stays decoupled from the data layer.
+  onResolve?: (route: Route) => void;
 }): void {
   const compiled = compile(opts.routes);
   let current: ReturnType<typeof mount> | null = null;
@@ -115,6 +129,7 @@ export function startRouter(opts: {
     // so the chain re-runs when the async-loaded catalogues (e.g. states)
     // resolve. main.ts is the writer of these; notFound has none.
     route.crumbs = matched.route.crumbs ?? null;
+    opts.onResolve?.(matched.route);
     opts.target.innerHTML = "";
     current = mount(matched.route.component, {
       target: opts.target,
