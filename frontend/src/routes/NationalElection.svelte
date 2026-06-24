@@ -81,9 +81,12 @@
   import PageContainer from "../lib/layout/PageContainer.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import {
-    marginShade,
+    marginShadeBanded,
+    computeMarginBands,
     resolveWinnerBaseColours,
     MARGIN_FILL_OPACITY,
+    WINNER_FILL_OPACITY,
+    type MarginBands,
   } from "../lib/elections/election-map-coloring";
   import MarginLegend from "../lib/elections/MarginLegend.svelte";
   import MapCoverageNote from "../lib/charts/MapCoverageNote.svelte";
@@ -479,6 +482,19 @@
     hidden_parties = next;
   }
 
+  // Bulk mute/unmute for the AllianceTotals per-alliance toggle: fold every
+  // member key of a force (or the Others bucket) into `hidden_parties` in a
+  // single pass, so muting a whole alliance recedes all its parties across
+  // the seat arc + maps at once. Visual-only (no seat recompute).
+  function toggleAllianceHidden(keys: string[], hide: boolean): void {
+    const next = new Set(hidden_parties);
+    for (const k of keys) {
+      if (hide) next.add(k);
+      else next.delete(k);
+    }
+    hidden_parties = next;
+  }
+
   // Reset mute set on event change so muting "BJP" on general-2024
   // does not silently carry to general-2019 when the citizen navigates
   // between events.
@@ -591,6 +607,14 @@
     resolveWinnerBaseColours(pc_winners),
   );
 
+  // Per-election competitiveness BANDS (quantile-classed winning margins).
+  // Drives Margin-mode depth on the PC map + equal-seats hex AND the
+  // MarginLegend, so the legend's depths match the seats. Mirrors
+  // StateElection.margin_bands.
+  const pc_bands = $derived<MarginBands>(
+    computeMarginBands(pc_winners.map((w) => w.margin_pct)),
+  );
+
   // PC map per-uid overrides: mute by party_id, and the Margin-mode shading
   // (each seat = its winning party's hue, paled toward a knife-edge). Both win
   // via the IndiaPcMapD3 `fillsOverride` / `opacitiesOverride` precedence path.
@@ -600,9 +624,10 @@
       if (hidden_pids.has(w.party_id)) {
         out[w.unique_id] = "#cbd5e1"; // slate-300 recede
       } else if (color_mode === "margin") {
-        out[w.unique_id] = marginShade(
+        out[w.unique_id] = marginShadeBanded(
           pc_base.get(w.party_id) ?? "#94a3b8",
           w.margin_pct,
+          pc_bands,
         );
       }
     }
@@ -614,9 +639,12 @@
       if (hidden_pids.has(w.party_id)) {
         out[w.unique_id] = 0.18; // recede opacity (matches RECEDE_OPACITY)
       } else if (color_mode === "margin") {
-        // Magnitude is carried by the fill's lightness, so hold opacity flat
+        // Magnitude is carried by the band lightness, so hold opacity flat
         // and high (no second ramp that would fade close races into the page).
         out[w.unique_id] = MARGIN_FILL_OPACITY;
+      } else {
+        // Winner mode: flat + solid so every seat reads at full party strength.
+        out[w.unique_id] = WINNER_FILL_OPACITY;
       }
     }
     return out;
@@ -703,16 +731,16 @@
           t.fill;
         return {
           ...t,
-          fill: marginShade(base, t.margin_pct ?? null),
+          fill: marginShadeBanded(base, t.margin_pct ?? null, pc_bands),
           opacity: MARGIN_FILL_OPACITY,
         };
       }
-      // back-compat: also honour pc_fills_override if it was computed
-      // for any reason (defensive belt-and-braces against future
-      // override sources).
+      // Winner mode: solid party fill at flat opacity (no margin fade).
       const override = pc_fills_override[uid];
-      if (override != null) return { ...t, fill: override };
-      return t;
+      if (override != null) {
+        return { ...t, fill: override, opacity: WINNER_FILL_OPACITY };
+      }
+      return { ...t, opacity: WINNER_FILL_OPACITY };
     }),
   );
 
@@ -1270,7 +1298,7 @@
             Each constituency is filled with the winning party's colour.
           </p>
         {:else}
-          <MarginLegend />
+          <MarginLegend bands={pc_bands} />
         {/if}
         <div data-testid="national-event-map-pc">
           <IndiaPcMapD3
@@ -1288,7 +1316,7 @@
             Each hexagon is one seat in Parliament, coloured by the winning party.
           </p>
         {:else}
-          <MarginLegend />
+          <MarginLegend bands={pc_bands} />
         {/if}
         <div data-testid="national-event-map-hex">
           {#if tile_layout_error}
@@ -1386,7 +1414,11 @@
         party_id: w.party_id,
         party_short: w.party_short,
         party_eci_code: w.party_eci_code,
+        brand_colour_hex: w.brand_colour_hex,
+        brand_colour_confidence: w.brand_colour_confidence,
       }))}
+      hidden_keys={hidden_parties}
+      onToggleForce={toggleAllianceHidden}
     />
 
     {#if EVENTS_WITH_SEIZURES.has(event)}

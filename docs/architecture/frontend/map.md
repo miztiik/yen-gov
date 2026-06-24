@@ -110,7 +110,7 @@ When Psephlab is active, the per-AC fill map is recomputed from `engine.run(actu
 
 Party color comes from the 3-tier resolver ([`colors/resolver.ts`](../../../frontend/src/lib/colors/resolver.ts)): a canonical brand colour per party, with per-party user overrides from `localStorage` and (in shared scenarios) from the URL fragment. The map's `$derived` paint map rebuilds when overrides change.
 
-Margin shading uses opacity, not hue: a 51%–49% AC paints the winning party at ~30% opacity; a 70%+ landslide paints at ~95%. This keeps the map honest — the eye reads a tied AC as "barely won" rather than as a confident block of color.
+Margin vs Winner mode (election mounts). Winner mode paints each seat its winning party's colour FLAT + solid (`WINNER_FILL_OPACITY`). Margin mode keeps that party hue but encodes the winning margin as the DEPTH of the hue, classed into per-election competitiveness bands (quantile-classed margins, adaptive 4-8 bands) at a flat high opacity (`MARGIN_FILL_OPACITY`): a knife-edge band is a pale tint of the party colour, the safest band is the full hue. (This replaced the earlier margin-as-OPACITY ramp.) Both the Winner|Margin recolour and the party-mute recede reach the d3-geo renderers through the per-seat `fillsOverride` / `opacitiesOverride` props (keyed by `eci_no` / `unique_id`), computed in the election route + `StateEventMap`. Full doctrine, the quantile-band rationale and the data-driven legend: [colours.md](colours.md#election-margin-mode-shading).
 
 ## Home default theme (day-of-year rotation)
 
