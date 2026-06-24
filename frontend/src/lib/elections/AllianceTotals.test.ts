@@ -14,7 +14,12 @@ function makeLookup(map: Record<string, string>): AllianceLookup {
 const W = (
   party_id: string | null,
   party_short: string | null,
-): WinnerInput => ({ party_id, party_short });
+  opts: Partial<WinnerInput> = {},
+): WinnerInput => ({ party_id, party_short, ...opts });
+
+/** Repeat a winner row `n` times (one row per won seat). */
+const seats = (n: number, w: WinnerInput): WinnerInput[] =>
+  Array.from({ length: n }, () => w);
 
 describe("partyKey", () => {
   it("returns party_id verbatim when present", () => {
@@ -52,74 +57,154 @@ describe("deriveAllianceBreakdown", () => {
     "parties.IN.INC": "INDIA",
     "parties.IN.JDU": "NDA",
     "parties.IN.SP": "INDIA",
-    // CPI(M) intentionally absent -> Others
+    // CPI(M) / DMK / IND intentionally absent -> unaligned
   });
 
-  it("renders alliance-first totals NDA 11 / INDIA 7 / Others 2", () => {
-    // 11 NDA seats (8 BJP + 3 JDU), 7 INDIA (5 INC + 2 SP), 2 Others (CPM)
+  it("ranks declared alliances as forces; small unaligned falls to Others", () => {
+    // NDA 11 (8 BJP + 3 JDU), INDIA 7 (5 INC + 2 SP), CPM 2 (unaligned).
     const winners: WinnerInput[] = [
-      ...Array.from({ length: 8 }, () => W("parties.IN.BJP", "BJP")),
-      ...Array.from({ length: 3 }, () => W("parties.IN.JDU", "JDU")),
-      ...Array.from({ length: 5 }, () => W("parties.IN.INC", "INC")),
-      ...Array.from({ length: 2 }, () => W("parties.IN.SP", "SP")),
-      ...Array.from({ length: 2 }, () => W("parties.IN.CPM", "CPI(M)")),
+      ...seats(8, W("parties.IN.BJP", "BJP")),
+      ...seats(3, W("parties.IN.JDU", "JDU")),
+      ...seats(5, W("parties.IN.INC", "INC")),
+      ...seats(2, W("parties.IN.SP", "SP")),
+      ...seats(2, W("parties.IN.CPM", "CPI(M)")),
     ];
     const out = deriveAllianceBreakdown(winners, lookup);
-    expect(out.rows).toEqual([
-      { alliance: "NDA", seats: 11 },
-      { alliance: "INDIA", seats: 7 },
-      { alliance: "Others", seats: 2 },
+    expect(out.forces.map((f) => [f.name, f.seats, f.kind])).toEqual([
+      ["NDA", 11, "alliance"],
+      ["INDIA", 7, "alliance"],
     ]);
+    // CPM (2) is smaller than the smallest declared alliance (INDIA 7),
+    // so it stays in the residual bucket.
+    expect(out.others.map((p) => [p.party_short, p.seats])).toEqual([
+      ["CPI(M)", 2],
+    ]);
+    expect(out.others_seats).toBe(2);
+    expect(out.total_seats).toBe(20);
+    expect(out.majority_threshold).toBe(11);
     expect(out.has_any).toBe(true);
   });
 
-  it("orders declared alliances by seats desc; Others always last", () => {
+  it("promotes a large non-aligned party above the smallest declared alliance into its own force (TN-2026 fix)", () => {
+    // The largest party is in NEITHER alliance. It must surface as the
+    // rank-1 force, NOT be buried inside Others.
     const winners: WinnerInput[] = [
-      W("parties.IN.SP", "SP"), // INDIA 1
-      W("parties.IN.CPM", "CPI(M)"), // Others 1
-      ...Array.from({ length: 5 }, () => W("parties.IN.BJP", "BJP")), // NDA 5
+      ...seats(8, W("parties.IN.BJP", "BJP")),
+      ...seats(5, W("parties.IN.INC", "INC")),
+      ...seats(13, W("parties.IN.DMK", "DMK")), // unaligned, biggest
     ];
     const out = deriveAllianceBreakdown(winners, lookup);
-    expect(out.rows.map((r) => r.alliance)).toEqual(["NDA", "INDIA", "Others"]);
+    expect(out.forces.map((f) => [f.name, f.seats, f.kind])).toEqual([
+      ["DMK", 13, "party"],
+      ["NDA", 8, "alliance"],
+      ["INDIA", 5, "alliance"],
+    ]);
+    expect(out.forces[0]!.members).toHaveLength(1);
+    expect(out.others).toEqual([]);
+    expect(out.others_seats).toBe(0);
   });
 
-  it("buckets parties under each alliance and sorts within by seats desc", () => {
+  it("keeps genuinely small unaligned parties in Others", () => {
     const winners: WinnerInput[] = [
-      ...Array.from({ length: 3 }, () => W("parties.IN.JDU", "JDU")),
-      ...Array.from({ length: 8 }, () => W("parties.IN.BJP", "BJP")),
+      ...seats(8, W("parties.IN.BJP", "BJP")),
+      ...seats(5, W("parties.IN.INC", "INC")),
+      ...seats(1, W("parties.IN.IND", "IND")), // below the smallest alliance
     ];
     const out = deriveAllianceBreakdown(winners, lookup);
-    const nda = out.by_alliance.get("NDA");
-    expect(nda).toBeDefined();
-    expect(nda!.map((p) => p.party_short)).toEqual(["BJP", "JDU"]);
-    expect(nda!.map((p) => p.seats)).toEqual([8, 3]);
+    expect(out.forces.map((f) => f.name)).toEqual(["NDA", "INDIA"]);
+    expect(out.others.map((p) => [p.party_short, p.seats])).toEqual([
+      ["IND", 1],
+    ]);
+    expect(out.others_seats).toBe(1);
   });
 
-  it("has_any=false when every party falls under Others (no alliances)", () => {
-    const winners: WinnerInput[] = [
-      ...Array.from({ length: 5 }, () => W("parties.IN.CPM", "CPI(M)")),
-    ];
-    const empty_lookup = makeLookup({});
-    const out = deriveAllianceBreakdown(winners, empty_lookup);
+  it("computes the majority threshold as floor(total/2)+1", () => {
+    const even = deriveAllianceBreakdown(
+      [
+        ...seats(12, W("parties.IN.BJP", "BJP")),
+        ...seats(8, W("parties.IN.INC", "INC")),
+      ],
+      lookup,
+    );
+    expect(even.total_seats).toBe(20);
+    expect(even.majority_threshold).toBe(11);
+
+    const odd = deriveAllianceBreakdown(
+      [
+        ...seats(11, W("parties.IN.BJP", "BJP")),
+        ...seats(10, W("parties.IN.INC", "INC")),
+      ],
+      lookup,
+    );
+    expect(odd.total_seats).toBe(21);
+    expect(odd.majority_threshold).toBe(11);
+  });
+
+  it("has_any=false and promotes nobody when no party is in a declared alliance", () => {
+    const winners: WinnerInput[] = seats(5, W("parties.IN.CPM", "CPI(M)"));
+    const out = deriveAllianceBreakdown(winners, makeLookup({}));
     expect(out.has_any).toBe(false);
-    expect(out.rows).toEqual([{ alliance: "Others", seats: 5 }]);
+    expect(out.forces).toEqual([]);
+    expect(out.others.map((p) => [p.party_short, p.seats])).toEqual([
+      ["CPI(M)", 5],
+    ]);
+    expect(out.others_seats).toBe(5);
   });
 
-  it("omits Others entirely when every party is allied", () => {
+  it("breaks seat ties deterministically by name ascending", () => {
     const winners: WinnerInput[] = [
-      W("parties.IN.BJP", "BJP"),
-      W("parties.IN.INC", "INC"),
+      ...seats(5, W("parties.IN.BJP", "BJP")), // NDA 5
+      ...seats(5, W("parties.IN.INC", "INC")), // INDIA 5
     ];
     const out = deriveAllianceBreakdown(winners, lookup);
-    expect(out.rows.map((r) => r.alliance)).toEqual(["NDA", "INDIA"]);
+    expect(out.forces.map((f) => f.name)).toEqual(["INDIA", "NDA"]);
+  });
+
+  it("sorts member parties within an alliance by seats desc", () => {
+    const winners: WinnerInput[] = [
+      ...seats(3, W("parties.IN.JDU", "JDU")),
+      ...seats(8, W("parties.IN.BJP", "BJP")),
+    ];
+    const out = deriveAllianceBreakdown(winners, lookup);
+    const nda = out.forces.find((f) => f.name === "NDA");
+    expect(nda?.members.map((p) => p.party_short)).toEqual(["BJP", "JDU"]);
+    expect(nda?.members.map((p) => p.seats)).toEqual([8, 3]);
+  });
+
+  it("threads brand colour + the page mute key onto each member", () => {
+    const winners: WinnerInput[] = seats(
+      2,
+      W("parties.IN.BJP", "BJP", {
+        party_eci_code: "369",
+        brand_colour_hex: "#ea580c",
+        brand_colour_confidence: "high",
+      }),
+    );
+    const out = deriveAllianceBreakdown(winners, lookup);
+    const bjp = out.forces[0]!.members[0]!;
+    expect(bjp.brand_colour_hex).toBe("#ea580c");
+    expect(bjp.brand_colour_confidence).toBe("high");
+    // mute_key matches the page's hidden_parties key space
+    // (party_eci_code ?? party_short).
+    expect(bjp.mute_key).toBe("369");
+    expect(out.forces[0]!.mute_keys).toEqual(["369"]);
+  });
+
+  it("falls back to party_short for the mute key when no eci code", () => {
+    const winners: WinnerInput[] = seats(1, W("parties.IN.DMK", "DMK"));
+    const out = deriveAllianceBreakdown(winners, lookup);
+    // DMK is unaligned and alone -> no declared alliance, so it stays in
+    // Others with mute_key = party_short.
+    expect(out.others[0]!.mute_key).toBe("DMK");
   });
 
   it("treats null-party-id winners via partyKey fallback", () => {
-    const winners: WinnerInput[] = [
-      { party_id: null, party_short: "BJP", party_eci_code: "BJP" },
-      { party_id: null, party_short: "BJP", party_eci_code: "BJP" },
-    ];
+    const winners: WinnerInput[] = seats(2, {
+      party_id: null,
+      party_short: "BJP",
+      party_eci_code: "BJP",
+    });
     const out = deriveAllianceBreakdown(winners, lookup);
-    expect(out.rows).toEqual([{ alliance: "NDA", seats: 2 }]);
+    expect(out.forces.map((f) => [f.name, f.seats])).toEqual([["NDA", 2]]);
   });
 });
