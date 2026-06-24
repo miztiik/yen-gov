@@ -60,6 +60,7 @@
   import ChoroplethLegend from "./ChoroplethLegend.svelte";
   import MapTooltip from "./MapTooltip.svelte";
   import SourceLine from "./SourceLine.svelte";
+  import MapFrameSkeleton from "../MapFrameSkeleton.svelte";
   import {
     deriveDomain,
     rowsByFeatureKey,
@@ -522,7 +523,9 @@
         />
       {/if}
     {:else}
-      <div class="geo-choropleth__loading">Loading map...</div>
+      <div class="geo-choropleth__loading-frame">
+        <MapFrameSkeleton height="100%" />
+      </div>
     {/if}
   </div>
 
@@ -599,7 +602,6 @@
   .geo-choropleth__symbol:hover {
     stroke-width: 1.5;
   }
-  .geo-choropleth__loading,
   .geo-choropleth__error {
     display: flex;
     align-items: center;
@@ -609,6 +611,9 @@
     font-size: 12px;
     padding: 24px;
     text-align: center;
+  }
+  .geo-choropleth__loading-frame {
+    height: 100%;
   }
   .geo-choropleth__error {
     color: var(--neg);

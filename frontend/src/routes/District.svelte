@@ -33,6 +33,7 @@
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
+  import Skeleton from "../lib/Skeleton.svelte";
   import { route } from "../lib/router.svelte";
 
   interface Props {
@@ -81,7 +82,13 @@
       Could not load districts: <code>{load_error}</code>
     </div>
   {:else if states_loading || districts_loading}
-    <p class="text-sm text-slate-500">Loading...</p>
+    <div data-testid="district-loading" class="space-y-4">
+      <div class="space-y-2">
+        <Skeleton width="16rem" height="1.75rem" />
+        <Skeleton width="22rem" height="1rem" />
+      </div>
+      <Skeleton height="8rem" />
+    </div>
   {:else if !state_code}
     <div class="space-y-2">
       <p class="text-sm">

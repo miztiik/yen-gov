@@ -5,6 +5,7 @@
   import { link } from "../lib/links";
   import PageContainer from "../lib/layout/PageContainer.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
+  import Skeleton from "../lib/Skeleton.svelte";
   import {
     ALL_PRESETS,
     PRESET_GROUPS,
@@ -148,7 +149,10 @@
   </header>
 
   {#if loading}
-    <div class="text-slate-500">Loading data…</div>
+    <div data-testid="explore-loading" class="space-y-4">
+      <Skeleton height="8rem" />
+      <Skeleton height="12rem" />
+    </div>
   {:else if error}
     <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900">
       Failed to load: <code>{error}</code>

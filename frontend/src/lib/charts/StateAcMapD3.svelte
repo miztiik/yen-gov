@@ -99,6 +99,7 @@
     acStrokeForHighlight,
     type AcCellInput,
   } from "./state-ac-map-helpers";
+  import MapFrameSkeleton from "../MapFrameSkeleton.svelte";
 
   interface Props {
     state: string;
@@ -796,8 +797,8 @@
         Map error: <code>{load_error}</code>
       </div>
     {:else if !collection || !projection_path}
-      <div class="absolute inset-0 flex items-center justify-center text-xs text-slate-500">
-        Loading map...
+      <div class="absolute inset-0">
+        <MapFrameSkeleton height="100%" />
       </div>
     {:else}
       {@const pp = projection_path}

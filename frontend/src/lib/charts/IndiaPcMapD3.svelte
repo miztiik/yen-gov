@@ -91,6 +91,7 @@
     delimVintageFromPath,
     type MapCoverageEmit,
   } from "./map-coverage";
+  import MapFrameSkeleton from "../MapFrameSkeleton.svelte";
 
   /**
    * One PC winner row, pre-shaped by the route for the join. The
@@ -524,10 +525,8 @@
       Map error: <code>{load_error}</code>
     </div>
   {:else if !collection || !projection_path}
-    <div
-      class="absolute inset-0 flex items-center justify-center text-xs text-slate-500"
-    >
-      Loading map...
+    <div class="absolute inset-0">
+      <MapFrameSkeleton height="100%" />
     </div>
   {:else}
     {@const pp = projection_path}
