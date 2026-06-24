@@ -70,3 +70,26 @@ export function resolveSlugFromCode(
   }
   return code.toLowerCase();
 }
+
+/**
+ * Bare 2-letter ISO 3166-2 subdivision code for an ECI state code
+ * (e.g. "S22" -> "TN", "S13" -> "MH"), derived by stripping the "IN-"
+ * prefix from the entry's `iso_3166_2` ("IN-TN" -> "TN"). Returns null
+ * when the code is unknown, the store has not loaded yet, or the entry
+ * carries no ISO code.
+ *
+ * Powers the in-hex state label on multi-state tile cartograms (the
+ * national PC atlas) - the US-style 2-letter tilegram convention. Pure
+ * so it is vitest-pinnable without the Svelte-5 runes store; the
+ * reactive wrapper (`states.code2`) just feeds it the loaded entries.
+ */
+export function resolveTwoLetterCode(
+  entries: readonly StateEntry[],
+  code: string | null | undefined,
+): string | null {
+  if (!code) return null;
+  const iso = entries.find(s => s.eci_code === code)?.iso_3166_2;
+  if (!iso) return null;
+  const m = /^IN-([A-Z]{2,3})$/.exec(iso);
+  return m ? m[1] : null;
+}

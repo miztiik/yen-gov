@@ -138,6 +138,13 @@ Per [ADR-0048](../../reference/decision-index.md), election surfaces carry a seg
 
 The cartogram is grain-agnostic: the same primitive renders AC tiles (state surface) and PC tiles (national `/t/elections/:event` atlas), dispatched from the row's `entity_kind`. The toggle and `TileCartogram` are fenced to **election mounts only** in v1 — equal-sizing welfare indicators is misleading and is rejected on doctrinal grounds (Hans + Max veto; see [schema-is-the-design-system.md](../../concepts/schema-is-the-design-system.md)).
 
+### In-hex state code (multi-state boards only)
+
+On a **multi-state** board (today only the national 545-seat PC atlas) each hex is stamped with its state's bare 2-letter ISO 3166-2 code (`MH`, `TN`, `UP`...) centred in the tile - the US-style tilegram convention, so a citizen finds a state's seat-cluster without hovering. On a **single-state** board (every state AC cartogram) the codes are suppressed, because every tile would carry the same code and that is pure noise (Jony: remove what is not essential).
+
+The rule lives in the data, not in any one mount: `withStateCodes(rows, isoForEci)` in `frontend/src/lib/view-models/election-tile-layout.ts` parses each tile's state code from its `unit_id` (robust across both `IN-S13-AC-2008-1` and `IN-PC-2008-S13-1` shapes via `stateCodeFromUnitId`), counts the distinct states, and stamps the `TileRow.code` field only when that count is `> 1`. The 2-letter code is resolved from the canonical states store (`states.code2` -> `state_iso_seed.csv`, `IN-MH` -> `MH`), so no state list is hardcoded. `TileCartogram.svelte` stays purely presentational: it draws a `<text>` label (white glyph + dark halo, non-interactive) iff a row carries a `code`. A caller that does not run `withStateCodes` (the dev sandbox, single-state mounts) renders label-free, unchanged.
+
+
 ## Future overlays (v2+)
 
 The user explicitly called out non-election overlays. The following are designed for but not implemented in v1:

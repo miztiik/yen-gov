@@ -24,7 +24,11 @@
 
 import { describe, expect, it } from "vitest";
 import type { StateEntry } from "./data";
-import { resolveCodeFromSlug, resolveSlugFromCode } from "./states-lookup";
+import {
+  resolveCodeFromSlug,
+  resolveSlugFromCode,
+  resolveTwoLetterCode,
+} from "./states-lookup";
 
 // Synthetic fixture mirroring the 3 entities that carry `legacy_id`
 // today plus 2 control rows without one. Real entity catalogue carries
@@ -104,5 +108,29 @@ describe("resolveSlugFromCode (F2 round-trip)", () => {
   it("idempotent on the canonical slug itself", () => {
     expect(resolveSlugFromCode(FIXTURE, "nct-of-delhi")).toBe("nct-of-delhi");
     expect(resolveSlugFromCode(FIXTURE, "tamil-nadu")).toBe("tamil-nadu");
+  });
+});
+
+describe("resolveTwoLetterCode (in-hex tilegram state label)", () => {
+  it("strips the IN- prefix from iso_3166_2 to a bare 2-letter code", () => {
+    expect(resolveTwoLetterCode(FIXTURE, "S22")).toBe("TN");
+    expect(resolveTwoLetterCode(FIXTURE, "S10")).toBe("KA");
+    expect(resolveTwoLetterCode(FIXTURE, "S01")).toBe("AP");
+    expect(resolveTwoLetterCode(FIXTURE, "U05")).toBe("DL");
+    expect(resolveTwoLetterCode(FIXTURE, "U03")).toBe("JK");
+  });
+
+  it("returns null for an unknown / empty / nullish code", () => {
+    expect(resolveTwoLetterCode(FIXTURE, "S99")).toBeNull();
+    expect(resolveTwoLetterCode(FIXTURE, "")).toBeNull();
+    expect(resolveTwoLetterCode(FIXTURE, null)).toBeNull();
+    expect(resolveTwoLetterCode(FIXTURE, undefined)).toBeNull();
+  });
+
+  it("returns null when the entry carries no iso_3166_2", () => {
+    const noIso: readonly StateEntry[] = [
+      { eci_code: "S99", iso_3166_2: "", name: "Stateless", kind: "state" },
+    ];
+    expect(resolveTwoLetterCode(noIso, "S99")).toBeNull();
   });
 });

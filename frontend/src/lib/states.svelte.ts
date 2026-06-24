@@ -22,6 +22,7 @@ import { fetchStates, type StateEntry } from "./data";
 import {
   resolveCodeFromSlug,
   resolveSlugFromCode,
+  resolveTwoLetterCode,
 } from "./states-lookup";
 
 let entries = $state<StateEntry[]>([]);
@@ -61,6 +62,15 @@ export const states = {
    */
   codeFromSlug(slug: string | null | undefined): string | null {
     return resolveCodeFromSlug(entries, slug);
+  },
+  /**
+   * Bare 2-letter ISO 3166-2 code for a state code (e.g. "S22" -> "TN"),
+   * or null when unknown / not yet loaded. Reactive (reads the loaded
+   * `entries`). Powers the in-hex label on multi-state tile cartograms
+   * via `withStateCodes` - the US-style 2-letter tilegram convention.
+   */
+  code2(code: string | null | undefined): string | null {
+    return resolveTwoLetterCode(entries, code);
   },
   /** All known states (reactive; empty until loaded). */
   get all(): readonly StateEntry[] {

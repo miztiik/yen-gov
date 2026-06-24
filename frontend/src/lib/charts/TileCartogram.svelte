@@ -97,6 +97,10 @@
   const HEX_W = Math.sqrt(3) * S; // flat width
   const ROW_H = 1.5 * S; // vertical centre spacing
   const PAD = S;
+  // In-hex 2-letter state label (US-style tilegram). Sized to fit two
+  // upper-case glyphs inside the flat hex width (HEX_W ~= 1.73*S); only
+  // drawn when the tile carries a `code` (multi-state cartograms only).
+  const CODE_FONT = S * 0.78;
 
   const bounds = $derived.by(() => {
     if (tiles.length === 0) return { minQ: 0, maxQ: 0, minR: 0, maxR: 0 };
@@ -197,6 +201,9 @@
       return {
         tile: t,
         points: hexPoints(cx, cy),
+        cx,
+        cy,
+        code: t.code ?? null,
         fill,
         opacity,
         recede_stroke,
@@ -288,6 +295,31 @@
         onclick={() => onSelect?.(r.tile.unit_id)}
         onmouseenter={(e) => onEnter(e, r.tile)}
       ></polygon>
+      {#if r.code}
+        <!--
+          In-hex 2-letter state label (US-style tilegram). White glyph
+          with a dark halo (paint-order:stroke) so it reads on any party
+          fill AND on the light "pending" grey. Non-interactive so the
+          hover / click still lands on the hex underneath.
+        -->
+        <text
+          x={r.cx}
+          y={r.cy}
+          text-anchor="middle"
+          dominant-baseline="central"
+          font-size={CODE_FONT}
+          font-weight="700"
+          fill="#ffffff"
+          stroke="#0f172a"
+          stroke-width={CODE_FONT * 0.16}
+          stroke-opacity="0.55"
+          paint-order="stroke"
+          stroke-linejoin="round"
+          pointer-events="none"
+          class="select-none"
+          data-tile-code={r.code}
+        >{r.code}</text>
+      {/if}
     {/each}
   </svg>
 
