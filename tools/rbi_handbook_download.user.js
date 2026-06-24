@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         yen-gov - RBI Handbook (Indian States) bulk stager
 // @namespace    yen-gov
-// @version      3.0.0
+// @version      3.1.0
 // @description  Config-driven BULK downloader for the RBI Handbook of Statistics on Indian States. Grabs EVERY table on the loaded edition page (fiscal, industry, agriculture, prices, environment, state domestic product, health, socio-demographic - ~182 in 2025, ~125 in 2016). Runs inside your own trusted RBI browser session (the F5 anti-bot CAPTCHA is already satisfied - nothing is bypassed). Reads each table's XLSX link + RBI caption + table number LIVE from the page, auto-detects the single-year edition, validates each file is a real XLSX, and saves it as <year>_t<NNN>_<rbi-name>.xlsx under a year folder. Controls in the Tampermonkey menu.
 // @author       yen-gov
+// @updateURL    https://raw.githubusercontent.com/miztiik/yen-gov/main/tools/rbi_handbook_download.user.js
+// @downloadURL  https://raw.githubusercontent.com/miztiik/yen-gov/main/tools/rbi_handbook_download.user.js
 // @match        https://www.rbi.org.in/*
 // @match        https://rbidocs.rbi.org.in/*
 // @connect      rbidocs.rbi.org.in
@@ -55,6 +57,16 @@
 
 (function () {
   "use strict";
+
+  // Running script version, surfaced in the UI + logs so you can confirm the
+  // active code matches the file. Tampermonkey caches by @version, so it MUST
+  // be bumped on every change (else an update silently keeps the old code).
+  // Sourced from GM_info so it never drifts from the metadata header.
+  const VERSION =
+    (typeof GM_info !== "undefined" &&
+      GM_info.script &&
+      GM_info.script.version) ||
+    "3.1.0";
 
   // ======================================================================
   // CONFIG - edit here. Everything below is mechanism.
@@ -366,7 +378,7 @@
       "color:#fff;font:12px/1.4 system-ui,sans-serif;padding:6px 10px;display:flex;" +
       "align-items:center;gap:10px;box-shadow:0 -2px 12px rgba(0,0,0,.4);";
     const title = document.createElement("span");
-    title.textContent = `yen-gov RBI HBS ${getYear()}`;
+    title.textContent = `yen-gov RBI HBS ${getYear()} v${VERSION}`;
     title.style.cssText = "flex:0 0 auto;font-weight:600;";
     const btn = document.createElement("button");
     btn.textContent = "Download ALL tables";
@@ -407,7 +419,7 @@
   registerMenu();
   log(
     EVENTS.INIT,
-    `ready - edition ${getYear()}${detectYear() ? " (auto)" : ""}, ` +
+    `v${VERSION} ready - edition ${getYear()}${detectYear() ? " (auto)" : ""}, ` +
       `delay ${getDelayMs() / 1000}s, grab-all=${CONFIG.GRAB_ALL}`
   );
 })();
