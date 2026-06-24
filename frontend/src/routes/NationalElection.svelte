@@ -54,10 +54,12 @@
     hasLayoutForScope,
     selectLayout,
     buildTileRows,
+    withStateCodes,
     type TileLayoutRow,
     type TileRow,
     type TileWinnerInput,
   } from "../lib/view-models/election-tile-layout";
+  import { states } from "../lib/states.svelte";
   import {
     loadElectionResults,
     type ElectionResultRow,
@@ -671,11 +673,20 @@
     tile_layout == null ? [] : buildTileRows(tile_layout, hex_winners),
   );
 
+  // Stamp each hex with its 2-letter state code (MH / TN / UP...) for the
+  // US-style in-hex label. `withStateCodes` only applies codes when the
+  // board spans >1 state (always true for the national PC atlas), so the
+  // single-state cartograms elsewhere stay label-free. Reactive on the
+  // states store - the codes fill in once `state_iso_seed.csv` loads.
+  const coded_tile_rows = $derived<TileRow[]>(
+    withStateCodes(raw_tile_rows, (eci) => states.code2(eci)),
+  );
+
   // Re-skin tiles for the Margin-mode party-hue shading + party-mute recede.
   // The fill is the winner's party hue paled by margin (marginShade); opacity
   // stays flat + high in Margin mode so close races don't fade into the page.
   const tile_rows = $derived<TileRow[]>(
-    raw_tile_rows.map((t) => {
+    coded_tile_rows.map((t) => {
       if (t.pending) return t;
       // The tile's unit_id final two segments are `<state>-<eci>`.
       const parts = t.unit_id.split("-");

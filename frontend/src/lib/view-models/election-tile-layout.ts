@@ -110,6 +110,17 @@ export interface TileRow {
    * `winner_party_id`.
    */
   margin_pct?: number | null;
+  /**
+   * Optional 2-letter label drawn centred inside the hex (US-style
+   * tilegram convention - cf. state postal codes on a hex map). Stamped
+   * by `withStateCodes` ONLY for multi-state cartograms (the national PC
+   * atlas), where it reads `MH` / `TN` / `UP` so the citizen finds a
+   * state without hovering. Left null on single-state cartograms (every
+   * tile would carry the same code = noise) and on any caller that does
+   * not run `withStateCodes`, so the presentational `<TileCartogram>`
+   * renders label-free exactly as before. Purely presentational.
+   */
+  code?: string | null;
 }
 
 const NEUTRAL_FILL = "#e2e8f0"; // slate-200 — "results pending" / no winner.
@@ -285,5 +296,62 @@ export function buildTileRows(
       winner_party_id: pid,
       margin_pct: w.margin_pct,
     };
+  });
+}
+
+/**
+ * Parse the ECI state code (`S##` / `U##`) embedded in a tile `unit_id`.
+ *
+ * Robust across both layout grains because each `unit_id` carries exactly
+ * one state segment:
+ *   - AC: `IN-S13-AC-2008-1`  -> `S13`
+ *   - PC: `IN-PC-2008-S13-1`  -> `S13`
+ *
+ * Returns null when no state segment is present (e.g. synthetic dev
+ * fixtures). Pure - does not depend on the row's `scope`, which is the
+ * per-state code on disk but `"national"` in some test fixtures.
+ */
+export function stateCodeFromUnitId(unit_id: string): string | null {
+  for (const seg of unit_id.split("-")) {
+    if (/^[SU]\d{1,2}$/.test(seg)) return seg;
+  }
+  return null;
+}
+
+/**
+ * Stamp a 2-letter state code (`MH`, `TN`, `UP`...) onto each tile for the
+ * in-hex label, US-style tilegram convention.
+ *
+ * The codes are applied ONLY when the tile set spans more than one state
+ * (the national PC atlas). On a single-state cartogram every hex would
+ * carry the same code - pure noise - so the codes are omitted and the
+ * board renders label-free. This keeps the rule in the data, not in any
+ * one mount: a renderer shows codes iff the rows carry them.
+ *
+ * `isoForEci` resolves an ECI state code (`"S13"`) to its ISO 3166-2
+ * subdivision code (`"IN-MH"`); the `IN-` prefix is stripped to the bare
+ * 2-letter code. Backed by the canonical states store (`states.code2`),
+ * so no state list is hardcoded here. Codes that fail to resolve (store
+ * not yet loaded, unknown code) leave that tile label-free.
+ *
+ * Returns a new array; input rows are not mutated.
+ */
+export function withStateCodes(
+  rows: readonly TileRow[],
+  isoForEci: (eciCode: string) => string | null | undefined,
+): TileRow[] {
+  const distinct = new Set<string>();
+  for (const r of rows) {
+    const sc = stateCodeFromUnitId(r.unit_id);
+    if (sc) distinct.add(sc);
+  }
+  if (distinct.size <= 1) {
+    return rows.map((r) => ({ ...r, code: null }));
+  }
+  return rows.map((r) => {
+    const sc = stateCodeFromUnitId(r.unit_id);
+    const iso = sc ? isoForEci(sc) : null;
+    const code = iso ? iso.replace(/^IN-/, "") : null;
+    return { ...r, code };
   });
 }

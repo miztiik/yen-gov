@@ -9,6 +9,8 @@ import { describe, it, expect } from "vitest";
 import {
   selectLayout,
   buildTileRows,
+  stateCodeFromUnitId,
+  withStateCodes,
   type ElectionTileLayoutDoc,
   type TileLayoutRow,
   type TileWinnerInput,
@@ -114,5 +116,71 @@ describe("buildTileRows", () => {
     expect(rows).toHaveLength(1);
     expect(rows[0].unit_id).toBe("IN-PC-2008-S13-1");
     expect(rows[0].pending).toBe(false);
+  });
+});
+
+describe("stateCodeFromUnitId", () => {
+  it("parses the state segment from an AC unit_id", () => {
+    expect(stateCodeFromUnitId("IN-S13-AC-2008-1")).toBe("S13");
+    expect(stateCodeFromUnitId("IN-U05-AC-2008-3")).toBe("U05");
+  });
+
+  it("parses the state segment from a PC unit_id (different position)", () => {
+    expect(stateCodeFromUnitId("IN-PC-2008-S13-1")).toBe("S13");
+    expect(stateCodeFromUnitId("IN-PC-2008-S01-25")).toBe("S01");
+  });
+
+  it("returns null when no state segment is present", () => {
+    expect(stateCodeFromUnitId("synthetic-tile-7")).toBeNull();
+    expect(stateCodeFromUnitId("")).toBeNull();
+  });
+});
+
+describe("withStateCodes (US-style in-hex 2-letter label)", () => {
+  const iso = (eci: string): string | null =>
+    ({ S13: "IN-MH", S01: "IN-AP", S22: "IN-TN" })[eci] ?? null;
+
+  function pcTile(state: string, eci: number, q: number): TileLayoutRow {
+    return tile({
+      layout_kind: "pc",
+      scope: "national",
+      unit_id: `IN-PC-2008-${state}-${eci}`,
+      eci_no: eci,
+      q,
+      r: 0,
+      label: `${state}-${eci}`,
+      source_id: "boundaries/electoral/delim=2024/pc/all.geojson",
+    });
+  }
+
+  it("stamps each tile's 2-letter state code when the board spans >1 state", () => {
+    const rows = buildTileRows(
+      [pcTile("S13", 1, 0), pcTile("S01", 1, 1), pcTile("S22", 1, 2)],
+      [],
+    );
+    const coded = withStateCodes(rows, iso);
+    expect(coded.map((r) => r.code)).toEqual(["MH", "AP", "TN"]);
+  });
+
+  it("omits codes on a single-state board (every tile would read the same)", () => {
+    const rows = buildTileRows(
+      selectLayout(doc, { layout_kind: "ac", scope: "S13", delim_year: 2008 }),
+      [],
+    );
+    const coded = withStateCodes(rows, iso);
+    expect(coded.every((r) => r.code == null)).toBe(true);
+  });
+
+  it("leaves a tile label-free when its state code does not resolve", () => {
+    const rows = buildTileRows([pcTile("S13", 1, 0), pcTile("S99", 1, 1)], []);
+    const coded = withStateCodes(rows, iso);
+    expect(coded.find((r) => r.unit_id.includes("S13"))!.code).toBe("MH");
+    expect(coded.find((r) => r.unit_id.includes("S99"))!.code).toBeNull();
+  });
+
+  it("does not mutate the input rows", () => {
+    const rows = buildTileRows([pcTile("S13", 1, 0), pcTile("S01", 1, 1)], []);
+    withStateCodes(rows, iso);
+    expect(rows.every((r) => r.code === undefined)).toBe(true);
   });
 });
