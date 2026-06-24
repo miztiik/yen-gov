@@ -46,6 +46,7 @@
   } from "../charts/StatePcMapD3.svelte";
   import TileCartogram from "../charts/TileCartogram.svelte";
   import MarginLegend from "./MarginLegend.svelte";
+  import type { MarginBands } from "./election-map-coloring";
   import { link } from "../links";
   import type {
     TileLayoutRow,
@@ -105,6 +106,9 @@
     equal_seats_loading: boolean;
     /** State_slug for the PC map's name-slug join (delim=2008 only). */
     state_slug: string;
+    /** Per-election competitiveness bands (quantile-classed margins) for the
+     *  active body; fed to the MarginLegend so its depths match the seats. */
+    margin_bands: MarginBands;
     /** Bindable UI state ---------------------------------------------- */
     color_mode: ColorMode;
     ac_view: AcView;
@@ -139,6 +143,7 @@
     onPcTileSelect,
     equal_seats_loading,
     state_slug,
+    margin_bands,
     color_mode = $bindable<ColorMode>("winner"),
     ac_view = $bindable<AcView>("map"),
     pc_view = $bindable<AcView>("map"),
@@ -241,7 +246,7 @@
         Each constituency is filled with the winning party's colour.
       </p>
     {:else}
-      <MarginLegend />
+      <MarginLegend bands={margin_bands} />
     {/if}
   </section>
 {:else if body === "pc"}
@@ -374,7 +379,7 @@
           Each constituency is filled with the winning party's colour.
         </p>
       {:else}
-        <MarginLegend />
+        <MarginLegend bands={margin_bands} />
       {/if}
       {#if pc_view === "map" && has_pc_equal_seats !== true}
         <p

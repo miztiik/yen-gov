@@ -3,10 +3,17 @@ import {
   MARGIN_CAP_PP,
   MARGIN_FILL_OPACITY,
   MARGIN_PENDING_FILL,
+  WINNER_FILL_OPACITY,
+  MIN_MARGIN_BANDS,
+  MAX_MARGIN_BANDS,
   circularHueDistance,
+  computeMarginBands,
   deconflictPalette,
+  marginBandIndex,
+  marginBandLegendStops,
   marginLegendStops,
   marginShade,
+  marginShadeBanded,
   resolveWinnerBaseColours,
   type PaletteEntry,
 } from "./election-map-coloring";
@@ -218,5 +225,132 @@ describe("marginLegendStops", () => {
     for (let i = 1; i < ramp.length; i++) {
       expect(lum(ramp[i - 1].hex)).toBeGreaterThan(lum(ramp[i].hex));
     }
+  });
+});
+
+describe("computeMarginBands", () => {
+  it("returns no bands for an all-empty / null margin set", () => {
+    expect(computeMarginBands([]).nBands).toBe(0);
+    expect(computeMarginBands([null, undefined, Number.NaN]).nBands).toBe(0);
+  });
+
+  it("clamps the band count to [MIN, MAX] sized by seat count", () => {
+    // 234 seats -> floor(234/8)=29 -> clamped to MAX
+    const many = computeMarginBands(
+      Array.from({ length: 234 }, (_, i) => i * 0.3 + 1),
+    );
+    expect(many.nBands).toBe(MAX_MARGIN_BANDS);
+    // 40 seats -> floor(40/8)=5 bands
+    const mid = computeMarginBands(Array.from({ length: 40 }, (_, i) => i + 1));
+    expect(mid.nBands).toBe(5);
+    // 12 seats -> floor(12/8)=1 -> raised to MIN
+    const few = computeMarginBands(Array.from({ length: 12 }, (_, i) => i + 1));
+    expect(few.nBands).toBe(MIN_MARGIN_BANDS);
+  });
+
+  it("emits ascending upper edges ending at the max margin", () => {
+    const b = computeMarginBands([1, 2, 3, 4, 5, 6, 7, 8, 40]);
+    expect(b.upperEdges.length).toBe(b.nBands);
+    for (let i = 1; i < b.upperEdges.length; i++) {
+      expect(b.upperEdges[i]).toBeGreaterThan(b.upperEdges[i - 1]);
+    }
+    expect(b.upperEdges[b.upperEdges.length - 1]).toBe(40);
+  });
+
+  it("treats margins as magnitudes (sign ignored)", () => {
+    expect(computeMarginBands([-1, -2, -3, -40])).toEqual(
+      computeMarginBands([1, 2, 3, 40]),
+    );
+  });
+
+  it("merges tied quantile edges so every band is reachable", () => {
+    // all-identical margins collapse to a single reachable band
+    const b = computeMarginBands(Array.from({ length: 20 }, () => 5));
+    expect(b.nBands).toBe(1);
+    expect(b.upperEdges).toEqual([5]);
+  });
+});
+
+describe("marginShadeBanded", () => {
+  // 5 bands over margins 1..40
+  const bands = computeMarginBands(Array.from({ length: 40 }, (_, i) => i + 1));
+
+  it("returns the FULL party hue for a top-band (safest) seat", () => {
+    expect(marginShadeBanded(BJP, 40, bands)).toBe(BJP);
+  });
+
+  it("paled the SAME hue for a closest-band seat (not white / grey)", () => {
+    const pale = marginShadeBanded(BJP, 1, bands);
+    expect(lum(pale)).toBeGreaterThan(lum(BJP));
+    expect(circularHueDistance(hue(pale), hue(BJP))).toBeLessThan(12);
+  });
+
+  it("steps monotonically darker from the closest to the safest band", () => {
+    const shades = [1, 9, 17, 25, 40].map((m) => marginShadeBanded(INC, m, bands));
+    expect(new Set(shades).size).toBe(bands.nBands);
+    for (let i = 1; i < shades.length; i++) {
+      expect(lum(shades[i])).toBeLessThan(lum(shades[i - 1]));
+    }
+  });
+
+  it("is RELATIVE to the election (same margin, different distributions)", () => {
+    const tight = computeMarginBands(
+      Array.from({ length: 40 }, (_, i) => i * 0.2 + 0.1),
+    ); // 0.1..7.9
+    const wide = computeMarginBands(
+      Array.from({ length: 40 }, (_, i) => i + 1),
+    ); // 1..40
+    // a 7pp seat is "safe" (deep) in the tight election, "close" (pale) in the wide one
+    expect(lum(marginShadeBanded(BJP, 7, tight))).toBeLessThan(
+      lum(marginShadeBanded(BJP, 7, wide)),
+    );
+  });
+
+  it("returns the pending slate for null margin, bad hex, or no bands", () => {
+    expect(marginShadeBanded(BJP, null, bands)).toBe(MARGIN_PENDING_FILL);
+    expect(marginShadeBanded("", 10, bands)).toBe(MARGIN_PENDING_FILL);
+    expect(marginShadeBanded(BJP, 10, computeMarginBands([]))).toBe(
+      MARGIN_PENDING_FILL,
+    );
+  });
+});
+
+describe("marginBandIndex", () => {
+  const bands = computeMarginBands([1, 2, 3, 4, 5, 6, 7, 8]); // 4 bands
+
+  it("maps a margin to 0 (closest) .. nBands-1 (safest)", () => {
+    expect(marginBandIndex(0.5, bands)).toBe(0);
+    expect(marginBandIndex(100, bands)).toBe(bands.nBands - 1);
+  });
+});
+
+describe("marginBandLegendStops", () => {
+  it("emits one labelled swatch per band (light -> dark) plus a pending row", () => {
+    const bands = computeMarginBands(
+      Array.from({ length: 40 }, (_, i) => i + 1),
+    );
+    const stops = marginBandLegendStops(bands);
+    expect(stops).toHaveLength(bands.nBands + 1);
+    const ramp = stops.filter((s) => !s.pending);
+    expect(ramp).toHaveLength(bands.nBands);
+    for (let i = 1; i < ramp.length; i++) {
+      expect(lum(ramp[i - 1].hex)).toBeGreaterThan(lum(ramp[i].hex));
+    }
+    expect(stops[stops.length - 1].pending).toBe(true);
+    // every band label carries a pp range (house rule: colour never the only signal)
+    for (const s of ramp) expect(s.label).toMatch(/pp/);
+  });
+
+  it("collapses to just the pending row when there are no bands", () => {
+    const stops = marginBandLegendStops(computeMarginBands([]));
+    expect(stops).toHaveLength(1);
+    expect(stops[0].pending).toBe(true);
+  });
+});
+
+describe("WINNER_FILL_OPACITY", () => {
+  it("is a flat, near-solid constant for Winner mode", () => {
+    expect(WINNER_FILL_OPACITY).toBeGreaterThan(0.8);
+    expect(WINNER_FILL_OPACITY).toBeLessThanOrEqual(1);
   });
 });

@@ -14,21 +14,33 @@
   no party/data dependency. Decision: docs/architecture/frontend/colours.md.
 -->
 <script lang="ts">
-  import { marginLegendStops } from "./election-map-coloring";
+  import {
+    marginLegendStops,
+    marginBandLegendStops,
+    type MarginBands,
+  } from "./election-map-coloring";
 
   interface Props {
     /** Extra classes for the wrapper (spacing only). */
     class?: string;
+    /** Per-election competitiveness bands (quantile-classed margins). When
+     *  provided, the legend shows one swatch per band labelled with its real pp
+     *  range; when omitted it falls back to the fixed illustrative bands. */
+    bands?: MarginBands;
   }
-  let { class: klass = "" }: Props = $props();
+  let { class: klass = "", bands }: Props = $props();
 
-  const stops = marginLegendStops();
+  const stops = $derived(
+    bands ? marginBandLegendStops(bands) : marginLegendStops(),
+  );
 </script>
 
 <div class="space-y-1 {klass}" data-testid="margin-legend">
   <p class="text-xs text-slate-500">
     Each seat shows its winning party's colour; deeper = safer seat, pale = won
-    by a whisker. Shades below are illustrative.
+    by a whisker.{bands
+      ? " Bands split this election's seats into equal-sized groups by margin."
+      : " Shades below are illustrative."}
   </p>
   <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-slate-600">
     {#each stops as s (s.label)}
