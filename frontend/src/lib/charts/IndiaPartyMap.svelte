@@ -106,8 +106,13 @@
      *  stay in the per-event cohort (`link.stateElection(code, event)`).
      *  When omitted (Home page), default behaviour applies. */
     onSelect?: (eciCode: string) => void;
+    /** Party ids muted via the PartyBar (NationalElection click-to-mute). A
+     *  state whose LEADING party is in this set recedes to a neutral grey at
+     *  low opacity. Default: nothing muted - the Home page passes no prop, so
+     *  its map is never receded. */
+    hiddenPids?: ReadonlySet<string>;
   }
-  let { event, onSelect: onSelectProp }: Props = $props();
+  let { event, onSelect: onSelectProp, hiddenPids = new Set<string>() }: Props = $props();
 
   // Hand-pinned constants - the combined country topojson's `states`
   // object carries the same `State_LGD` join key the deleted
@@ -227,6 +232,22 @@
       const pid = partyIdFor(t.party);
       out[t.join_key] =
         palette.get(pid)?.hex ?? getPartyColor(pid, rowFor(t.party)).hex;
+    }
+    return out;
+  });
+
+  // Leading-party id per state (boundary join key -> `parties.IN.<SLUG>`),
+  // mirroring the `fills` top-party pick. Drives the mute recede: a state
+  // whose leading party is muted is greyed + dimmed.
+  const leading_pid_by_key = $derived.by<Record<string, string>>(() => {
+    const out: Record<string, string> = {};
+    if (result.status !== "ok") return out;
+    const per_state = result.data.per_state;
+    for (const s of states_taxonomy ?? []) {
+      const loaded = per_state[s.eci_code];
+      if (!loaded) continue;
+      const top = loaded.party_totals.find((p) => p.seats_won > 0);
+      if (top) out[s.boundary_join_key] = partyIdFor(top);
     }
     return out;
   });
@@ -355,8 +376,19 @@
         ),
   );
 
+  // Neutral recede fill for a state whose leading party is muted (slate-300;
+  // matches the per-PC map mute recede).
+  const MUTED_FILL = "#cbd5e1";
+  function isKeyMuted(key: string): boolean {
+    const pid = leading_pid_by_key[key];
+    return pid != null && hiddenPids.has(pid);
+  }
   function fillForKey(key: string): string {
+    if (isKeyMuted(key)) return MUTED_FILL;
     return fills[key] ?? NO_DATA_FILL;
+  }
+  function opacityForKey(key: string): number {
+    return isKeyMuted(key) ? 0.3 : 1;
   }
 
   // True once the loader has settled AND at least one rendered feature
@@ -538,6 +570,7 @@
           <path
             d={projection_path.path(f) ?? ""}
             fill={key ? fillForKey(key) : NO_DATA_FILL}
+            fill-opacity={key ? opacityForKey(key) : 1}
             stroke="#cbd5e1"
             stroke-width="0.5"
             class="india-party-map__feature"
@@ -558,6 +591,7 @@
             width={12}
             height={12}
             fill={fillForKey(m.key)}
+            fill-opacity={opacityForKey(m.key)}
             stroke="#0f172a"
             stroke-width="1.25"
             class="india-party-map__island-marker"

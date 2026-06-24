@@ -171,4 +171,57 @@ test.describe("national event view (PR-W3c rebuild)", () => {
       page.getByTestId("national-event-top-parties-reset"),
     ).toHaveCount(0);
   });
+
+  test("party-mute recedes the states map + the scatter, not only the per-PC arms", async ({
+    page,
+  }) => {
+    // Regression: muting a party via the PartyBar must recede that party's
+    // marks on the "Winning party by state" choropleth (IndiaPartyMap) AND
+    // the "Turnout vs winning margin" scatter. Both surfaces previously
+    // ignored the mute (IndiaPartyMap "owns its own fills"; the scatter
+    // projected every winner). The recede idiom is slate-300 (#cbd5e1) at a
+    // low fill-opacity - 0.3 on the big state polygons, 0.15 on the dots.
+    await page.goto("/t/elections/general-2024");
+
+    await expect(page.getByTestId("party-bar-row").first()).toBeVisible({
+      timeout: 30_000,
+    });
+    await expect(page.getByTestId("national-event-map-states")).toBeVisible({
+      timeout: 30_000,
+    });
+
+    const recededState = page
+      .getByTestId("national-event-map-states")
+      .locator('path[fill="#cbd5e1"][fill-opacity="0.3"]');
+    const recededDot = page
+      .getByTestId("scatter-chart")
+      .locator('circle[fill="#cbd5e1"][fill-opacity="0.15"]');
+
+    // Nothing receded before the mute.
+    await expect(recededState).toHaveCount(0);
+    await expect(recededDot).toHaveCount(0);
+
+    // Mute the top party (first PartyBar row).
+    await page.getByTestId("party-bar-row").first().click();
+    await expect(
+      page.getByTestId("national-event-top-parties-reset"),
+    ).toBeVisible();
+
+    // Both surfaces now carry receded marks for the muted party.
+    await expect
+      .poll(async () => recededState.count(), { timeout: 30_000 })
+      .toBeGreaterThan(0);
+    await expect
+      .poll(async () => recededDot.count(), { timeout: 30_000 })
+      .toBeGreaterThan(0);
+
+    // Un-muting clears the recede on both surfaces.
+    await page.getByTestId("national-event-top-parties-reset").click();
+    await expect
+      .poll(async () => recededState.count(), { timeout: 10_000 })
+      .toBe(0);
+    await expect
+      .poll(async () => recededDot.count(), { timeout: 10_000 })
+      .toBe(0);
+  });
 });
