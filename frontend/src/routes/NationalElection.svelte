@@ -18,11 +18,13 @@
   //                         per-PC arms (it does NOT apply to the States
   //                         arm whose IndiaPartyMap owns its own fills).
   //   4. Top-parties      - PartyBar with click-to-mute, top 10 parties
-  //                         by national seat count. Muting recedes
-  //                         matching cells on the Constituencies +
-  //                         Equal-seats arms; the States arm carries the
-  //                         mute on the PartyBar swatch only (IndiaPartyMap
-  //                         loads its own fills and does not accept overrides).
+  //                         by national seat count. Muting recedes the
+  //                         matching marks on EVERY data surface: the
+  //                         Constituencies + Equal-seats arms (fills /
+  //                         opacities override), the States arm (IndiaPartyMap
+  //                         `hiddenPids` - states led by a muted party grey
+  //                         out), and the Scatter (`muted_pids` - muted dots
+  //                         recede).
   //   5. Scatter          - turnout vs margin, radius = absolute vote gap.
   //
   // Renamed from `NationalElectionsAtlas.svelte` in PR-W3c. The pre-W3c
@@ -1205,11 +1207,12 @@
          national PC layout (545 hex tiles). The Winner|Margin sub-
          toggle applies to the Constituencies + Equal-seats arms only;
          the States arm is driven by IndiaPartyMap which owns its own
-         per-state fills and does not accept overrides.
+         per-state fills (no Winner|Margin override).
 
-         Party-mute (PartyBar click) applies via fillsOverride +
-         opacitiesOverride on the per-PC arms; the States arm carries
-         the mute visually on the PartyBar swatch only. -->
+         Party-mute (PartyBar click) recedes the matching marks on EVERY
+         surface: the per-PC arms via fillsOverride + opacitiesOverride,
+         the States arm via IndiaPartyMap's `hiddenPids` (states led by a
+         muted party grey out), and the Scatter via `muted_pids`. -->
     <section class="space-y-2" data-testid="national-event-map">
       <div class="flex flex-wrap items-center justify-between gap-2">
         <h2 class="text-sm font-medium text-slate-700">
@@ -1290,6 +1293,7 @@
           <IndiaPartyMap
             event={event}
             onSelect={(code) => navigate(link.stateElection(code, event))}
+            hiddenPids={hidden_pids}
           />
         </div>
       {:else if map_view === "constituencies"}
@@ -1466,6 +1470,7 @@
         onFiltersChange={(next) => (scatter_filters = next)}
         onDotClick={onScatterDotClick}
         lock_body={true}
+        muted_pids={hidden_pids}
       />
     </section>
 

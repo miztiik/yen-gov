@@ -74,6 +74,11 @@
      *  national-event) the icon does NOT render. Defaults to false.
      *  TODO/20260612 Row A.6. */
     show_delim_caveat?: boolean;
+    /** Party ids muted via the PartyBar (click-to-mute). Dots whose winning
+     *  party is in this set recede to a neutral grey at low opacity - kept
+     *  for context, NOT dropped (mirrors the per-PC map mute recede).
+     *  Default: nothing muted. */
+    muted_pids?: ReadonlySet<string>;
   }
 
   let {
@@ -86,6 +91,7 @@
     honesty_caption,
     lock_body = false,
     show_delim_caveat = false,
+    muted_pids = new Set<string>(),
   }: Props = $props();
 
   // ---- Responsive width (TODO/20260612 Row A.4) ----------------------
@@ -106,6 +112,10 @@
   // (Row B: electors -> margin_votes), individual dots stay legible at
   // 540+ per chart.
   const MAX_R = 10;
+  // Neutral recede fill for a muted-party dot (slate-300; matches the per-PC
+  // map mute recede). Paired with a low fill-opacity so muted dots stay as
+  // faint context without competing with the live parties.
+  const MUTED_FILL = "#cbd5e1";
 
   const inner_w = $derived(Math.max(0, effective_width - MARGIN_LEFT - MARGIN_RIGHT));
   const inner_h = $derived(Math.max(0, height - MARGIN_TOP - MARGIN_BOTTOM));
@@ -379,14 +389,15 @@
           {@const cy = Number.isFinite(cy_raw) ? cy_raw : 0}
           {@const mv = Math.max(0, d.margin_votes ?? 0)}
           {@const r = Math.max(MIN_R, r_scale(mv))}
-          {@const fill = getPartyColor(d.winner_party_id).hex}
+          {@const muted = muted_pids.has(d.winner_party_id)}
+          {@const fill = muted ? MUTED_FILL : getPartyColor(d.winner_party_id).hex}
           {@const is_hover = hover != null && hover.entity_id === d.entity_id && hover.event_id === d.event_id}
           <circle
             {cx}
             {cy}
             {r}
             {fill}
-            fill-opacity={is_hover ? 1 : 0.55}
+            fill-opacity={muted ? 0.15 : is_hover ? 1 : 0.55}
             stroke={is_hover ? "#0f172a" : "none"}
             stroke-width={is_hover ? 1.5 : 0}
             class="cursor-pointer"
