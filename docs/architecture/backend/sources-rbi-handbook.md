@@ -1,8 +1,9 @@
 # RBI Handbook of Statistics ingest (`canonical/adapters/rbi_handbook`)
 
-**Last Updated**: 2026-06-17
+**Last Updated**: 2026-06-24
 **Module**: [`backend/yen_gov/canonical/adapters/rbi_handbook/`](../../../backend/yen_gov/canonical/adapters/rbi_handbook/)
 **CLI**: `python -m yen_gov ingest-rbi-hbs`
+**Staging tools**: [`tools/rbi_handbook_download.user.js`](../../../tools/rbi_handbook_download.user.js) (browser userscript, whole-edition bulk) + [`tools/rbi_handbook_stage.py`](../../../tools/rbi_handbook_stage.py) (single-table CLI) - see [Staging tools](#staging-tools)
 **Owner**: data layer (Hans + Max own shape; Gregor owns the spec contract; Fowler owns the write seam)
 **See also**: [data-spine](../../concepts/data-spine.md), [csv-column-contract](../data/csv-column-contract.md), [data-provenance](../../concepts/data-provenance.md), [goal-frameworks](../../concepts/goal-frameworks.md), [identifiers](../../reference/identifiers.md)
 
@@ -30,7 +31,7 @@ The pipeline is **local-file only** - there is no network fetcher (deleted in th
 
 1. **Download** the table you want from the RBI Handbook of Statistics on Indian States listing page:
    <https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+States>
-   The "Social and Demographic Indicators" section is the first cohort's home; each table is its own small XLSX (15-50 KB).
+   The "Social and Demographic Indicators" section is the first cohort's home; each table is its own small XLSX (15-50 KB). Two operator helpers automate this download and its validation - the browser userscript grabs a whole edition, the `rbi_handbook_stage.py` CLI grabs one table by URL; see [Staging tools](#staging-tools).
 2. **Stage** each XLSX into a local staging directory under the filename the spec declares in `staging_filename` (e.g. `table-total-fertility-rate.xlsx`). The staging dir is operator input, never a committed contract surface.
 3. **Run** the ingester:
    ```
@@ -44,6 +45,43 @@ The pipeline is **local-file only** - there is no network fetcher (deleted in th
 5. Run `python -m yen_gov validate --root .` (Tier-B) before committing.
 
 The run is **idempotent**: the canonical writer skip-writes byte-identical output, so re-running with the same edition leaves a clean `git status`.
+
+## Staging tools
+
+Two helpers under `tools/` automate the download + stage step (1-2 above). Both validate that every saved file is a real XLSX (ZIP `PK\x03\x04` magic) so the RBI edge anti-bot HTML interstitial can never masquerade as a staged table, and neither imports backend code (the `tools/` layer rule) - they only PRODUCE the local files that `ingest-rbi-hbs --staging-dir` later reads. CLI tests live in [`backend/tests/test_rbi_handbook_stage_tool.py`](../../../backend/tests/test_rbi_handbook_stage_tool.py).
+
+### Why a userscript, and why it is not a bypass
+
+The RBI document host (`rbidocs.rbi.org.in`) sits behind an F5 BIG-IP anti-bot layer that serves a CAPTCHA to scripted clients; a person browsing `rbi.org.in` clears that check naturally. Both tools rely on an ALREADY-cleared session - they automate the clicks a human would otherwise make, and do not solve, forge, or skip the CAPTCHA. The CLI sends a browser User-Agent + an `rbi.org.in` Referer for the same reason (the edge serves HTML to a bare request); if the edge still returns the interstitial, the tool FAILS LOUD rather than stage a fake file.
+
+### `rbi_handbook_download.user.js` - bulk, whole edition
+
+A Tampermonkey / Greasemonkey userscript (matches `rbi.org.in` + `rbidocs.rbi.org.in`). Use it when you want a WHOLE edition - the listing page carries ~182 tables in 2025, ~125 in 2016 - and you decide locally what to ingest.
+
+- Install in Tampermonkey, open the Handbook listing page, select an edition tab, then click **Download ALL tables** on the on-page bar (or the matching Tampermonkey menu command).
+- It scrapes every `.XLSX` link on the loaded page, reads each table's RBI caption + number live, fetches and validates each via `GM_xmlhttpRequest`, then saves `Downloads/rbi/handbook-states/<year>/<year>_t<NNN>_<rbi-name>.xlsx`.
+- The edition **year is auto-detected** from the active archive tab (override from the menu if detection fails). Files are named from the RBI **caption** - the stable cross-edition identity - with the zero-padded table number as a within-edition correlator only (table numbers drift across editions, captions do not).
+- A configurable delay (default 5s; about 15 min for a full edition) paces the run so the F5 edge stays warm. For the `<year>` subfolder, set the Tampermonkey Downloads mode to "Browser API" and whitelist `xlsx`; otherwise it saves flat (the filename still carries year + number + name).
+- When done, move `Downloads/rbi/handbook-states/` into the repo's ephemeral `.runtime/` scratch tier and point `ingest-rbi-hbs --staging-dir` at the year folder.
+
+### `rbi_handbook_stage.py` - single table by URL
+
+A standalone CLI (argparse + stdlib `urllib`, no third-party deps) for staging ONE table - refreshing a single series, or any headless run without a browser session.
+
+```
+python tools/rbi_handbook_stage.py \
+  --url "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/2T_...XLSX" \
+  --year 2024-25 \
+  --rename table-birth-rate.xlsx
+```
+
+- `--url` is the table's "Document" link from the Handbook page; `--year` becomes a path segment so editions coexist; `--rename` must equal the spec's `staging_filename`.
+- It writes `<staging-root>/<year>/<rename>` (root defaults to an ephemeral path under `.runtime/`), atomically (`.partial` then replace) and **idempotently** - a re-run skips when a valid XLSX is already staged unless `--force`.
+- Transient edge failures (abrupt connection close, HTTP 429/503, or an HTML body) are retried (`--retries`, default 5; `--retry-delay-seconds`, default 6); any other HTTP error fails immediately. On success it prints the exact `ingest-rbi-hbs --staging-dir ...` follow-up.
+
+### Reconciling bulk filenames with `staging_filename`
+
+The userscript archives a whole edition under RBI-caption filenames (`<year>_t<NNN>_<rbi-name>.xlsx`), whereas `ingest-rbi-hbs` matches each table by the spec's `staging_filename` (e.g. `table-total-fertility-rate.xlsx`). So for a bulk archive, rename (or copy) the specific tables you intend to ingest to their `staging_filename` before running the ingester - or use `rbi_handbook_stage.py --rename` per table to stage them directly under the expected name.
 
 ## The reusable spec (extend without code)
 
