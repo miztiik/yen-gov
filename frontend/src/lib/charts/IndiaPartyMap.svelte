@@ -94,6 +94,7 @@
     hasNoDataFeature,
     type IslandMarker,
   } from "./india-party-map-helpers";
+  import MapFrameSkeleton from "../MapFrameSkeleton.svelte";
 
   interface Props {
     /** Force every state to a single cohort. When omitted, each state's
@@ -502,8 +503,8 @@
       Map error: <code>{load_error}</code>
     </div>
   {:else if !collection || !projection_path}
-    <div class="absolute inset-0 flex items-center justify-center text-xs text-slate-500">
-      Loading map...
+    <div class="absolute inset-0">
+      <MapFrameSkeleton height="100%" />
     </div>
   {:else}
     <svg

@@ -53,6 +53,7 @@
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
+  import Skeleton from "../lib/Skeleton.svelte";
   import { route } from "../lib/router.svelte";
   import {
     fetchElectionEvents,
@@ -141,7 +142,17 @@
       Failed to load topic catalogue: <code>{load_error}</code>
     </div>
   {:else if catalogue_loading || states_loading}
-    <p class="text-sm text-slate-500">Loading…</p>
+    <div data-testid="state-topic-loading" class="space-y-4">
+      <div class="space-y-2">
+        <Skeleton width="18rem" height="1.75rem" />
+        <Skeleton width="26rem" height="1rem" />
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <Skeleton height="9rem" />
+        <Skeleton height="9rem" />
+        <Skeleton height="9rem" />
+      </div>
+    </div>
   {:else if !state_code}
     <div class="space-y-2">
       <p class="text-sm">
@@ -198,7 +209,7 @@
     {#if election_artifacts.length > 0}
       <section class="space-y-3" data-testid="election-topic-section">
         {#if election_catalogue === null}
-          <p class="text-sm text-slate-500">Loading election data…</p>
+          <Skeleton height="7rem" />
         {:else if election_default_row === null}
           <div class="rounded border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
             No election data ingested for {state_name} yet.
