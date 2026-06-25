@@ -701,7 +701,18 @@
   );
 
   const raw_tile_rows = $derived<TileRow[]>(
-    tile_layout == null ? [] : buildTileRows(tile_layout, hex_winners),
+    tile_layout == null
+      ? []
+      : buildTileRows(tile_layout, hex_winners, {
+          // Parent-state line on each hex card (R-A row 1). Mirror the
+          // reactive `states.code2` usage below: reading the store here makes
+          // this derived re-run + the line fill in once states load. Return
+          // null (not the raw code) until resolved so we never flash "S13".
+          stateNameForCode: (code) => {
+            const n = states.name(code);
+            return n && n !== code ? n : null;
+          },
+        }),
   );
 
   // Stamp each hex with its 2-letter state code (MH / TN / UP...) for the

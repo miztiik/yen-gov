@@ -208,7 +208,14 @@ function marginToOpacity(margin_pct: number | null): number {
 export function buildTileRows(
   tiles: readonly TileLayoutRow[],
   winners: readonly TileWinnerInput[],
-  opts: { selected_unit_id?: string | null } = {},
+  opts: {
+    selected_unit_id?: string | null;
+    /** Resolve a tile's ECI state code (e.g. "S13") to its display name
+     *  (e.g. "Tamil Nadu") for the card's parent-state line (R-A row 1).
+     *  Injected by the caller (which holds the reactive states store) so
+     *  buildTileRows stays pure / node-testable. Absent -> no parent line. */
+    stateNameForCode?: (code: string) => string | null;
+  } = {},
 ): TileRow[] {
   const byUnit = new Map<string, TileWinnerInput>();
   for (const w of winners) byUnit.set(w.unit_id, w);
@@ -253,6 +260,12 @@ export function buildTileRows(
   const selected = opts.selected_unit_id ?? null;
 
   return tiles.map((t) => {
+    // Parent-state line for the card (R-A row 1). Resolved from the tile's
+    // ECI state code via the caller-injected resolver so this fn stays pure;
+    // absent resolver -> null -> blank parent line (back-compat).
+    const stateCode = stateCodeFromUnitId(t.unit_id);
+    const parentLabel =
+      opts.stateNameForCode && stateCode ? opts.stateNameForCode(stateCode) : null;
     const w = byUnit.get(t.unit_id);
     if (!w) {
       return {
@@ -265,6 +278,7 @@ export function buildTileRows(
         tooltip_html: renderTooltipCard({
           title: t.label,
           grain: t.layout_kind === "pc" ? "PC" : "AC",
+          parentLabel,
           partyShort: "",
           pending: true,
         }),
@@ -287,6 +301,7 @@ export function buildTileRows(
       tooltip_html: renderTooltipCard({
         title: t.label,
         grain: t.layout_kind === "pc" ? "PC" : "AC",
+        parentLabel,
         partyShort: w.party_short,
         partyColorHex: fill,
         marginPct: w.margin_pct,
