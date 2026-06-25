@@ -9,6 +9,9 @@
 
 import { describe, it, expect } from "vitest";
 
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
 import {
   buildGroups,
   buildPartyStrip,
@@ -433,5 +436,134 @@ describe("buildGroups - assembly mode (strip) vs PC mode (header result)", () =>
     const margin = buildGroups(rows, "margin", { PC: header });
     expect(ballot[0].rows.map((r) => r.eci_no)).toEqual([1, 2]);
     expect(margin[0].rows.map((r) => r.margin_pct)).toEqual([2, 12]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Row 3 (Option-E margin-bar) STRUCTURAL oracle. The project does NOT install
+// `@testing-library/svelte` (node-env vitest, no Svelte mount - see the
+// readFileSync precedent in state-event-heading-harmony.test.ts /
+// StateElection.section-order.test.ts), so the rendered-markup oracle is
+// asserted against the component SOURCE. HTML comments are stripped first so
+// the descriptive "the old <table> / justify-between layout is GONE" prose in
+// the source comments can never satisfy an absence assertion. The assertions
+// are scoped to the constituency LIST region (from the shared-ruler <ul>
+// onward); the sticky search/filter/sort TOOLBAR above it legitimately keeps
+// its own `flex ... justify-between` chrome and is out of scope for the rip.
+// ---------------------------------------------------------------------------
+
+const COMPONENT_SRC = readFileSync(
+  resolve(__dirname, "./StateEventConstituencyList.svelte"),
+  "utf8",
+);
+
+// Everything from the shared-ruler <ul> to the end of the file = the ripped
+// list render, with HTML comments removed.
+const LIST_SRC = COMPONENT_SRC.slice(
+  COMPONENT_SRC.indexOf("grid ${GRID_COLS}"),
+).replace(/<!--[\s\S]*?-->/g, "");
+
+describe("StateEventConstituencyList.svelte - Option-E 6-track subgrid render (Row 3)", () => {
+  it("ORACLE (a): the list parent consumes the shared GRID_COLS ruler", () => {
+    // The 6-track ruler is declared ONCE on the parent <ul> via the R2 token,
+    // never re-hardcoded here, so the renderer + the Row 4 rail share it.
+    expect(COMPONENT_SRC).toContain("grid ${GRID_COLS}");
+  });
+
+  it("ORACLE (a): every list row is a `col-span-full grid grid-cols-subgrid` row", () => {
+    // The group <li>, the header <button>, and the leaf <a> are each a
+    // full-span subgrid row (>= 3 occurrences), so they align track-for-track.
+    const rows = LIST_SRC.match(/col-span-full grid grid-cols-subgrid/g) ?? [];
+    expect(rows.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("ORACLE (a): NO `justify-between` and NO dashed result table survive in the list render", () => {
+    expect(LIST_SRC).not.toContain("justify-between");
+    expect(LIST_SRC).not.toContain("<table");
+    expect(LIST_SRC).not.toContain("<thead");
+    expect(LIST_SRC).not.toContain("<tbody");
+    expect(LIST_SRC).not.toContain("<td");
+  });
+
+  it("ORACLE (b): the AC leaf is a WHOLE-ROW <a href={r.href}> with an arrow-up-right jump glyph + a map-pin district cell", () => {
+    // The whole row is the link (carries the row testid on the <a>).
+    expect(LIST_SRC).toMatch(
+      /<a\b[\s\S]*?href=\{r\.href\}[\s\S]*?data-testid="state-event-constituency-row"/,
+    );
+    expect(LIST_SRC).toContain('name="arrow-up-right"');
+    expect(LIST_SRC).toContain('name="map-pin"');
+    expect(LIST_SRC).toContain(
+      'data-testid="state-event-constituency-leaf-district"',
+    );
+  });
+
+  it("ORACLE (c): a null-district leaf renders 'District pending' (no dashed cell); the pending bucket header reads 'data pending'", () => {
+    expect(LIST_SRC).toContain("District pending");
+    expect(LIST_SRC).toContain("data pending");
+    // The unlinked-AC bucket reuses the shared PENDING_GROUP label, never a
+    // bespoke dashed table.
+    expect(LIST_SRC).toContain("PENDING_GROUP");
+  });
+
+  it("ORACLE (e): assembly-mode leaves carry the per-AC winner chip + share + signed margin (PC-mode leaves leave tracks 4-6 empty)", () => {
+    // Tracks 4-6 are gated on !pc_mode (assembly only).
+    expect(LIST_SRC).toContain("{#if !pc_mode}");
+    expect(LIST_SRC).toContain("r.winner_party_short");
+    expect(LIST_SRC).toContain("r.winner_color");
+  });
+
+  it("consumes the R2 typed-token + margin-bar helpers on both the PC header and the assembly leaf", () => {
+    expect(LIST_SRC).toContain("fmtShare(");
+    expect(LIST_SRC).toContain("fmtMarginSigned(");
+    expect(LIST_SRC).toContain("marginBarSegment(");
+  });
+});
+
+describe("Row 3 ORACLE (d): buildGroups is a bijection - every input leaf renders, nothing dropped", () => {
+  it("PC mode: the multiset of rendered leaves == the input, and the orphans pool in the PENDING bucket", () => {
+    const rows: GLeaf[] = [
+      gleaf({ entity_name: "AC-1", pc_group: "PC-A", district: "D1", eci_no: 1 }),
+      gleaf({ entity_name: "AC-2", pc_group: "PC-A", district: "D1", eci_no: 2 }),
+      gleaf({ entity_name: "AC-3", pc_group: "PC-B", district: "D2", eci_no: 3 }),
+      gleaf({ entity_name: "AC-orphan-1", pc_group: null, district: "D3", eci_no: 4 }),
+      gleaf({ entity_name: "AC-orphan-2", pc_group: null, district: null, eci_no: 5 }),
+    ];
+    const headers: Record<string, GroupHeaderResult> = {
+      "PC-A": { chip: "X", color: "#000000", share: null, margin: null, child_count: 2 },
+    };
+    const groups = buildGroups(rows, "ballot", headers);
+
+    const rendered = groups.flatMap((g) => g.rows.map((r) => r.entity_id));
+    // Bijection: every input id appears exactly once across all groups
+    // (including the pending bucket) - nothing dropped, nothing duplicated.
+    expect(rendered).toHaveLength(rows.length);
+    expect(rendered.slice().sort()).toEqual(rows.map((r) => r.entity_id).slice().sort());
+    // The two null-pc_group orphans pool into the one pending bucket.
+    const pendingGroup = groups.find((g) => g.group_key === PENDING_GROUP);
+    expect(pendingGroup?.rows.map((r) => r.entity_name)).toEqual([
+      "AC-orphan-1",
+      "AC-orphan-2",
+    ]);
+  });
+
+  it("assembly mode: the multiset of rendered leaves == the input (null-district leaf still renders)", () => {
+    const rows: GLeaf[] = [
+      gleaf({ entity_name: "AC-1", district: "Guntur", eci_no: 1 }),
+      gleaf({ entity_name: "AC-2", district: "Krishna", eci_no: 2 }),
+      gleaf({ entity_name: "AC-3", district: null, eci_no: 3 }),
+    ];
+    const groups = buildGroups(rows, "ballot");
+    const rendered = groups.flatMap((g) => g.rows.map((r) => r.entity_id));
+    expect(rendered).toHaveLength(rows.length);
+    expect(rendered.slice().sort()).toEqual(rows.map((r) => r.entity_id).slice().sort());
+  });
+
+  it("ORACLE (e, logic): assembly-mode leaves keep their winner data for the per-AC chip", () => {
+    const rows: GLeaf[] = [
+      gleaf({ entity_name: "AC-1", district: "D", winner_party_short: "TDP", margin_pct: 5, eci_no: 1 }),
+    ];
+    const groups = buildGroups(rows, "ballot");
+    expect(groups[0].mode).toBe("assembly");
+    expect(groups[0].rows[0].winner_party_short).toBe("TDP");
   });
 });

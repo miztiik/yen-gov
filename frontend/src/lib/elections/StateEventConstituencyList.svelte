@@ -56,8 +56,20 @@
   state-event-constituency-reserved-option,
   state-event-constituency-sort, state-event-constituency-count,
   state-event-constituency-strip-label. Row 3 ADDS (PC mode):
-  state-event-constituency-pc-header, state-event-constituency-pc-leaves,
-  state-event-constituency-leaf-district.
+  state-event-constituency-pc-header, state-event-constituency-leaf-district.
+
+  Row 3 (Option-E margin-bar, 2026-06-25) RIPS the flex `justify-between`
+  PC header AND the dashed result <table> and REPLACES both with a single
+  6-track CSS subgrid (the shared GRID_COLS ruler from
+  ./constituency-list-tokens): every group header and every AC leaf is a
+  `grid grid-cols-subgrid col-span-full` row, so the PC header, the AC
+  leaf, and (Row 4) the national state rail align column-for-column on ONE
+  ruler. The per-group `state-event-constituency-pc-leaves` <ul> wrapper is
+  GONE (the leaves are flattened into the subgrid; no test referenced it).
+  The AC leaf is now a WHOLE-ROW <a> link (Tailwind `group`) carrying a
+  trailing arrow-up-right jump glyph + a map-pin district cell; unlinked
+  ACs pool in the PENDING_GROUP bucket (muted "data pending", never a
+  dashed cell). Both share AND signed-margin tokens now render below 640px.
 -->
 <script lang="ts">
   import TopicIcon from "../TopicIcon.svelte";
@@ -66,8 +78,13 @@
     applyFilters,
     buildGroups,
     distinctDistrictCount,
+    fmtMarginSigned,
+    fmtShare,
     formatCountLine,
+    GRID_COLS,
     marginBand,
+    marginBarSegment,
+    PENDING_GROUP,
     type ConstituencyGroup,
     type GroupHeaderResult,
     type ReservationKind,
@@ -188,6 +205,13 @@
   const has_eci = $derived(
     seat_rows.some((r) => r.eci_no !== null && r.eci_no !== undefined),
   );
+
+  // PC mode for the WHOLE call: when group_headers is supplied every leaf is
+  // navigation + its LGD district (the result lives on the PC header, and the
+  // state-level result on the Row 4 rail), so the per-AC result columns
+  // (tracks 4-6) stay EMPTY on the leaf. Mirrors the token module's `pc_mode`
+  // switch in buildGroups so the renderer and the grouping never disagree.
+  const pc_mode = $derived(group_headers != null);
 
   // Name + Reserved filter, AND-composed.
   const filtered = $derived.by<readonly SeatRow[]>(() =>
@@ -313,186 +337,203 @@
         <code class="rounded bg-slate-100 px-1">{search_q}</code>.
       </p>
     {:else}
-      <ul class="divide-y border-y">
+      <!-- Option-E subgrid (Row 3 rip-and-replace): ONE 6-track ruler
+           (GRID_COLS) is declared on this parent <ul>; every group header and
+           every leaf is a `grid grid-cols-subgrid col-span-full` row, so the
+           PC header, the AC leaf, and (Row 4) the national state rail align
+           column-for-column on the SAME ruler. The old flex `justify-between`
+           PC header and the dashed result <table> are GONE: share + margin
+           live in fixed tracks that never shift, and both stay visible below
+           640px. Tracks: 1 twist | 2 name | 3 context | 4 party | 5 share |
+           6 margin+bar. Horizontal padding is kept OFF the subgrid rows on
+           purpose - a subgrid item's inline padding shifts its own tracks out
+           of alignment; the inset lives on this root grid instead. -->
+      <ul class={`grid ${GRID_COLS} gap-x-2 divide-y border-y px-1`}>
         {#each groups as g (g.group_key)}
           {@const open = isExpanded(g.group_key) || single_group}
-          <li data-testid="state-event-constituency-district-row">
+          {@const pending = g.group_key === PENDING_GROUP}
+          <li
+            data-testid="state-event-constituency-district-row"
+            class="col-span-full grid grid-cols-subgrid divide-y"
+          >
             {#if !single_group}
               <button
                 type="button"
-                class="flex w-full items-center justify-between gap-3 px-2 py-2 text-left text-sm hover:bg-slate-50"
+                class={`col-span-full grid grid-cols-subgrid items-center py-2 text-left text-sm hover:bg-slate-50 ${
+                  open ? "bg-slate-50" : ""
+                }`}
                 data-testid="state-event-constituency-district-toggle"
                 aria-expanded={open}
                 onclick={() => toggleDistrict(g.group_key)}
               >
-                <span class="flex min-w-0 items-center gap-2">
-                  <TopicIcon
-                    name={open ? "chevron-down" : "chevron-right"}
-                    cls="h-4 w-4 shrink-0 text-slate-400"
-                  />
-                  <span class="truncate font-medium text-slate-800">{g.group_key}</span>
-                  {#if g.mode === "pc" && g.header_result}
+                <!-- track 1: expand/collapse twist -->
+                <TopicIcon
+                  name={open ? "chevron-down" : "chevron-right"}
+                  cls="col-start-1 h-4 w-4 shrink-0 justify-self-center text-slate-400"
+                />
+                {#if g.mode === "pc" && g.header_result}
+                  {@const hbar = marginBarSegment(g.header_result.margin)}
+                  {@const hhex = marginBand(g.header_result.margin)?.hex}
+                  <!-- PC mode: the GROUP HEADER carries the PC's parliament
+                       (MP) result across tracks 2-6 (name + badge, child-AC
+                       count, party chip, share, signed margin + bar). -->
+                  <span class="col-start-2 flex min-w-0 items-center gap-1.5 pl-1">
+                    <span class="truncate font-medium text-slate-800">{g.group_key}</span>
                     <ReservationBadge
                       reservation={g.header_result.reservation}
                       cls="shrink-0 align-middle"
                     />
-                    <span class="shrink-0 text-xs tabular-nums text-slate-500">
-                      {fmtInt(g.header_result.child_count)}
-                    </span>
-                  {:else}
-                    <span class="shrink-0 text-xs tabular-nums text-slate-500">
-                      {fmtInt(g.rows.length)}
-                    </span>
-                  {/if}
-                </span>
-                {#if g.mode === "pc" && g.header_result}
-                  {@const hband = marginBand(g.header_result.margin)}
-                  <!-- PC mode: the GROUP HEADER carries the PC's parliament
-                       (MP) result - party chip + share + margin band - in
-                       place of the assembly proportional party strip. -->
-                  <span
-                    class="flex min-w-0 items-center gap-2"
-                    data-testid="state-event-constituency-pc-header"
-                  >
-                    <span
-                      class="inline-block rounded px-1.5 py-0.5 text-xs font-medium text-white"
-                      style={`background-color:${g.header_result.color};`}
-                    >{g.header_result.chip}</span>
-                    <span class="hidden shrink-0 text-xs tabular-nums text-slate-600 sm:inline">
-                      {fmtPct(g.header_result.share)}
-                    </span>
-                    <span class="inline-flex shrink-0 items-center justify-end gap-1 tabular-nums">
-                      {#if hband}
-                        <span
-                          aria-hidden="true"
-                          class="inline-block h-2 w-2 rounded-sm"
-                          style={`background-color:${hband.hex};`}
-                          title={hband.label}
-                        ></span>
-                      {/if}
-                      <span
-                        class="text-xs font-semibold"
-                        style={hband ? `color:${hband.hex};` : ""}
-                      >{fmtPct(g.header_result.margin)}</span>
-                    </span>
                   </span>
-                {:else if g.strip}
-                  <span class="flex min-w-0 items-center gap-2">
-                    <!-- Proportional segmented party strip: one segment per
-                         winning party, width proportional to seats won. -->
+                  <span class="col-start-3 truncate text-xs tabular-nums text-slate-500">
+                    {fmtInt(g.header_result.child_count)} Assembly seats
+                  </span>
+                  <span
+                    class="col-start-4 inline-block justify-self-start rounded px-1.5 py-0.5 text-xs font-medium text-white"
+                    style={`background-color:${g.header_result.color};`}
+                    data-testid="state-event-constituency-pc-header"
+                  >{g.header_result.chip}</span>
+                  <span class="col-start-5 justify-self-end text-xs tabular-nums text-slate-600">
+                    {fmtShare(g.header_result.share)}
+                  </span>
+                  <span class="col-start-6 flex items-center justify-end gap-1.5 tabular-nums">
                     <span
                       aria-hidden="true"
-                      class="flex h-2.5 w-16 overflow-hidden rounded-sm border border-slate-200 sm:w-24"
+                      class="inline-block h-1.5 w-8 shrink-0 overflow-hidden rounded-sm bg-slate-100"
                     >
-                      {#each g.strip.segments as seg (seg.party_id)}
-                        <span
-                          class="h-full"
-                          style={`width:${seg.pct}%;background-color:${seg.color};`}
-                          title={`${seg.party_short} ${seg.count}`}
-                        ></span>
-                      {/each}
+                      <span
+                        class="block h-full"
+                        style={`width:${hbar.pct}%;background-color:${hbar.hex};`}
+                      ></span>
                     </span>
                     <span
-                      class="shrink-0 text-xs font-semibold tabular-nums text-slate-700"
-                      data-testid="state-event-constituency-strip-label"
-                    >{g.strip.leader_label}</span>
+                      class="text-xs font-semibold"
+                      style={hhex ? `color:${hhex};` : ""}
+                    >{fmtMarginSigned(g.header_result.margin)}</span>
                   </span>
+                {:else if pending}
+                  <!-- Pending bucket: the SAME header shape, but the PC result
+                       is not known yet, so tracks 5-6 read a muted "data
+                       pending" instead of a dashed result cell. -->
+                  <span class="col-start-2 flex min-w-0 items-center gap-1.5 pl-1">
+                    <span class="truncate font-medium text-slate-500">{PENDING_GROUP}</span>
+                  </span>
+                  <span class="col-start-3 truncate text-xs tabular-nums text-slate-500">
+                    {fmtInt(g.rows.length)} Assembly seats
+                  </span>
+                  <span class="justify-self-end text-xs italic text-slate-400 [grid-column:5/-1]">
+                    data pending
+                  </span>
+                {:else}
+                  <!-- Assembly mode: district name + the proportional party
+                       strip glance (the per-AC result chips live on the leaves
+                       below). -->
+                  <span class="col-start-2 flex min-w-0 items-center gap-1.5 pl-1">
+                    <span class="truncate font-medium text-slate-800">{g.group_key}</span>
+                    <span class="shrink-0 text-xs tabular-nums text-slate-500">{fmtInt(g.rows.length)}</span>
+                  </span>
+                  {#if g.strip}
+                    <span class="flex min-w-0 items-center justify-end gap-2 [grid-column:3/-1]">
+                      <!-- Proportional segmented party strip: one segment per
+                           winning party, width proportional to seats won. -->
+                      <span
+                        aria-hidden="true"
+                        class="flex h-2.5 w-16 shrink-0 overflow-hidden rounded-sm border border-slate-200 sm:w-24"
+                      >
+                        {#each g.strip.segments as seg (seg.party_id)}
+                          <span
+                            class="h-full"
+                            style={`width:${seg.pct}%;background-color:${seg.color};`}
+                            title={`${seg.party_short} ${seg.count}`}
+                          ></span>
+                        {/each}
+                      </span>
+                      <span
+                        class="shrink-0 text-xs font-semibold tabular-nums text-slate-700"
+                        data-testid="state-event-constituency-strip-label"
+                      >{g.strip.leader_label}</span>
+                    </span>
+                  {/if}
                 {/if}
               </button>
             {/if}
 
             {#if open}
-              {#if g.mode === "pc"}
-                <!-- PC mode: leaves render as navigation + a district label
-                     only (no per-AC result chip, no per-leaf strip cell).
-                     Each leaf is a child AC of this PC, tagged with its LGD
-                     district. -->
-                <ul class="divide-y" data-testid="state-event-constituency-pc-leaves">
-                  {#each g.rows as r (r.entity_id)}
-                    <li
-                      class="flex items-center justify-between gap-3 py-2 pl-6 pr-2 text-sm hover:bg-slate-50"
-                      data-testid="state-event-constituency-row"
-                    >
-                      <span class="flex min-w-0 items-center gap-1">
-                        <a
-                          class="truncate text-sky-700 hover:underline"
-                          href={r.href}
-                          data-testid="state-event-constituency-link"
-                        >{r.entity_name}</a>
-                        <ReservationBadge reservation={r.reservation} cls="shrink-0 align-middle" />
-                      </span>
-                      {#if r.district}
-                        <span
-                          class="shrink-0 truncate text-xs text-slate-500"
-                          data-testid="state-event-constituency-leaf-district"
-                        >-&gt; {r.district}</span>
-                      {/if}
-                    </li>
-                  {/each}
-                </ul>
-              {:else}
-              <table class="w-full text-sm">
-                <thead class="text-left text-xs uppercase text-slate-500">
-                  <tr>
-                    {#if has_eci}
-                      <th class="py-1 pl-6 pr-2 text-right">eci</th>
+              {#each g.rows as r (r.entity_id)}
+                <!-- Leaf: the WHOLE row is the AC link (Tailwind `group`), so
+                     the entire band is clickable; track 2 carries a muted
+                     arrow-up-right jump glyph that brightens on hover. Tracks
+                     4-6 stay EMPTY in PC mode (the result lives on the PC
+                     header) and carry the per-AC chip + share + margin in
+                     assembly mode. -->
+                <a
+                  href={r.href}
+                  class="group col-span-full grid grid-cols-subgrid items-center py-2 text-sm hover:bg-slate-50"
+                  data-testid="state-event-constituency-row"
+                >
+                  <!-- track 1: leaf connector (depth 2) -->
+                  <span
+                    aria-hidden="true"
+                    class="col-start-1 block h-px w-2.5 justify-self-center bg-slate-300"
+                  ></span>
+                  <!-- track 2: ballot-number prefix + AC name + badge + jump glyph -->
+                  <span class="col-start-2 flex min-w-0 items-center gap-1 pl-5">
+                    {#if has_eci && r.eci_no !== null && r.eci_no !== undefined}
+                      <span class="shrink-0 text-xs tabular-nums text-slate-400">{r.eci_no}</span>
                     {/if}
-                    <th class={has_eci ? "py-1" : "py-1 pl-6"}>Constituency</th>
-                    <th class="py-1">Winner</th>
-                    <th class="hidden py-1 text-right sm:table-cell">Share</th>
-                    <th class="py-1 pr-2 text-right">Margin</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y">
-                  {#each g.rows as r (r.entity_id)}
-                    {@const band = marginBand(r.margin_pct)}
-                    <tr
-                      class="hover:bg-slate-50"
-                      data-testid="state-event-constituency-row"
-                    >
-                      {#if has_eci}
-                        <td class="py-2 pl-6 pr-2 text-right tabular-nums text-slate-400">
-                          {r.eci_no ?? ""}
-                        </td>
-                      {/if}
-                      <td class={has_eci ? "py-2" : "py-2 pl-6"}>
-                        <a
-                          class="text-sky-700 hover:underline"
-                          href={r.href}
-                          data-testid="state-event-constituency-link"
-                        >{r.entity_name}</a>
-                        <ReservationBadge reservation={r.reservation} cls="ml-1 align-middle" />
-                      </td>
-                      <td class="py-2">
+                    <span
+                      class="truncate text-sky-700 group-hover:underline"
+                      data-testid="state-event-constituency-link"
+                    >{r.entity_name}</span>
+                    <ReservationBadge reservation={r.reservation} cls="shrink-0 align-middle" />
+                    <TopicIcon
+                      name="arrow-up-right"
+                      cls="h-3.5 w-3.5 shrink-0 text-slate-300 group-hover:text-sky-600"
+                    />
+                  </span>
+                  <!-- track 3: LGD district (map-pin) or pending fallback;
+                       drops UNDER the name on < 640px so the result columns
+                       keep their width on a phone. -->
+                  <span
+                    class="col-start-3 flex min-w-0 items-center gap-1 text-xs text-slate-500 max-sm:col-start-2 max-sm:row-start-2 max-sm:pl-5"
+                    data-testid="state-event-constituency-leaf-district"
+                  >
+                    {#if r.district}
+                      <TopicIcon name="map-pin" cls="h-3 w-3 shrink-0 text-slate-400" />
+                      <span class="truncate">{r.district}</span>
+                    {:else}
+                      <span class="truncate italic text-slate-400">District pending</span>
+                    {/if}
+                  </span>
+                  {#if !pc_mode}
+                    {@const lbar = marginBarSegment(r.margin_pct)}
+                    {@const lhex = marginBand(r.margin_pct)?.hex}
+                    <!-- tracks 4-6: per-AC winner chip + share + signed margin
+                         + bar (assembly mode only). -->
+                    <span
+                      class="col-start-4 inline-block justify-self-start rounded px-1.5 py-0.5 text-xs font-medium text-white"
+                      style={`background-color:${r.winner_color};`}
+                    >{r.winner_party_short}</span>
+                    <span class="col-start-5 justify-self-end text-xs tabular-nums text-slate-600">
+                      {fmtShare(r.winner_share_pct)}
+                    </span>
+                    <span class="col-start-6 flex items-center justify-end gap-1.5 tabular-nums">
+                      <span
+                        aria-hidden="true"
+                        class="inline-block h-1.5 w-8 shrink-0 overflow-hidden rounded-sm bg-slate-100"
+                      >
                         <span
-                          class="inline-block rounded px-1.5 py-0.5 text-xs font-medium text-white"
-                          style={`background-color:${r.winner_color};`}
-                        >{r.winner_party_short}</span>
-                      </td>
-                      <td class="hidden py-2 text-right tabular-nums sm:table-cell">
-                        {fmtPct(r.winner_share_pct)}
-                      </td>
-                      <td class="py-2 pr-2 text-right">
-                        <span class="inline-flex items-center justify-end gap-1 tabular-nums">
-                          {#if band}
-                            <span
-                              aria-hidden="true"
-                              class="inline-block h-2 w-2 rounded-sm"
-                              style={`background-color:${band.hex};`}
-                              title={band.label}
-                            ></span>
-                          {/if}
-                          <span
-                            class="font-semibold"
-                            style={band ? `color:${band.hex};` : ""}
-                          >{fmtPct(r.margin_pct)}</span>
-                        </span>
-                      </td>
-                    </tr>
-                  {/each}
-                </tbody>
-              </table>
-              {/if}
+                          class="block h-full"
+                          style={`width:${lbar.pct}%;background-color:${lbar.hex};`}
+                        ></span>
+                      </span>
+                      <span
+                        class="text-xs font-semibold"
+                        style={lhex ? `color:${lhex};` : ""}
+                      >{fmtMarginSigned(r.margin_pct)}</span>
+                    </span>
+                  {/if}
+                </a>
+              {/each}
             {/if}
           </li>
         {/each}
