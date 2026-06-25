@@ -3,7 +3,7 @@
   // (standard-map-hover-card plan, Row 2). Chrome ONLY: it computes the
   // fixed-size card's on-screen position (with container edge-flip + clamp via
   // the pure `computeHoverCardPosition` helper) and renders the card HTML
-  // string from `renderTooltipCard`. NO business logic - the 256x140 card, the
+  // string from `renderTooltipCard`. NO business logic - the 224x120 card, the
   // left party bar, and all content live INSIDE the `html` string so any map
   // surface can render the identical card via `{@html}`.
   //
