@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         yen-gov - RBI Handbook (Indian States) bulk stager
 // @namespace    yen-gov
-// @version      3.1.0
-// @description  Config-driven BULK downloader for the RBI Handbook of Statistics on Indian States. Grabs EVERY table on the loaded edition page (fiscal, industry, agriculture, prices, environment, state domestic product, health, socio-demographic - ~182 in 2025, ~125 in 2016). Runs inside your own trusted RBI browser session (the F5 anti-bot CAPTCHA is already satisfied - nothing is bypassed). Reads each table's XLSX link + RBI caption + table number LIVE from the page, auto-detects the single-year edition, validates each file is a real XLSX, and saves it as <year>_t<NNN>_<rbi-name>.xlsx under a year folder. Controls in the Tampermonkey menu.
+// @version      3.2.0
+// @description  Config-driven BULK downloader for the RBI Handbook of Statistics on Indian States. Grabs EVERY table on the loaded edition page (fiscal, industry, agriculture, prices, environment, state domestic product, health, socio-demographic - ~182 in 2025, ~125 in 2016), modern .xlsx AND legacy .xls alike (the 2016 edition and the 2017 INDUSTRY section are served as .xls - v3.1 silently skipped all 148 of them). Runs inside your own trusted RBI browser session (the F5 anti-bot CAPTCHA is already satisfied - nothing is bypassed). Reads each table's XLS/XLSX link + RBI caption + table number LIVE from the page, auto-detects the single-year edition, validates each file is a real workbook (ZIP or OLE2 magic), and saves it as <year>_t<NNN>_<rbi-name>.<xls|xlsx> under a year folder. 'Download ALL editions' sweeps every archive year in one click. Controls in the Tampermonkey menu.
 // @author       yen-gov
 // @updateURL    https://raw.githubusercontent.com/miztiik/yen-gov/main/tools/rbi_handbook_download.user.js
 // @downloadURL  https://raw.githubusercontent.com/miztiik/yen-gov/main/tools/rbi_handbook_download.user.js
@@ -66,7 +66,7 @@
     (typeof GM_info !== "undefined" &&
       GM_info.script &&
       GM_info.script.version) ||
-    "3.1.0";
+    "3.2.0";
 
   // ======================================================================
   // CONFIG - edit here. Everything below is mechanism.
@@ -122,9 +122,18 @@
   // ======================================================================
   // mechanism
   // ======================================================================
-  const ZIP_MAGIC = [0x50, 0x4b, 0x03, 0x04]; // "PK\x03\x04" = real .xlsx
-  const XLSX_MIME =
+  // A genuine workbook is either a ZIP container (modern .xlsx) or an OLE2 /
+  // CFBF compound document (legacy .xls). RBI serves the 2016 edition - and
+  // the 2017 INDUSTRY section - as legacy .xls; everything 2018+ is .xlsx.
+  // The F5 CAPTCHA interstitial is HTML ("<!DOCTYPE..."), so matching either
+  // binary magic is what distinguishes a real download from a blocked one.
+  const FILE_MAGICS = [
+    [0x50, 0x4b, 0x03, 0x04], // "PK\x03\x04" - ZIP / OOXML .xlsx
+    [0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1], // OLE2 / CFBF legacy .xls
+  ];
+  const MIME_XLSX =
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+  const MIME_XLS = "application/vnd.ms-excel";
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   // Edition year: prefer the page's active archive tab (a.year.active = the
@@ -151,10 +160,19 @@
     if (panelLog) panelLog.textContent = line; // strip shows the latest line only
   }
 
-  function isXlsx(buf) {
-    if (!buf || buf.byteLength < 4) return false;
-    const head = new Uint8Array(buf.slice(0, 4));
-    return ZIP_MAGIC.every((b, i) => head[i] === b);
+  function isWorkbook(buf) {
+    if (!buf || buf.byteLength < 8) return false;
+    const head = new Uint8Array(buf.slice(0, 8));
+    return FILE_MAGICS.some((sig) => sig.every((b, i) => head[i] === b));
+  }
+
+  // Real download extension, preserved from the RBI URL so legacy .xls files
+  // are named honestly (and parsed by the right reader downstream).
+  function extFor(url) {
+    return /\.XLSX(\?|$)/i.test(url) ? "xlsx" : "xls";
+  }
+  function mimeFor(ext) {
+    return ext === "xls" ? MIME_XLS : MIME_XLSX;
   }
 
   // Slugify an RBI caption into a stable, filesystem-safe identity segment.
@@ -183,11 +201,13 @@
     return { num: null, name: txt.slice(0, 60) };
   }
 
-  // Read the loaded edition page; return every XLSX table as {num, name, url},
-  // de-duplicated, optionally filtered by table number.
+  // Read the loaded edition page; return every workbook table as
+  // {num, name, url}, de-duplicated, optionally filtered by table number.
+  // Matches BOTH .xls and .xlsx - RBI mixes them across editions/sections,
+  // and the .XLSX?-only filter in v3.1 silently dropped every legacy .xls.
   function scrapeAll() {
     const anchors = Array.from(document.querySelectorAll("a")).filter((a) =>
-      /\.XLSX(\?|$)/i.test(a.href)
+      /\.XLSX?(\?|$)/i.test(a.href)
     );
     const seen = new Set();
     const tables = [];
@@ -218,11 +238,11 @@
         timeout: 120_000,
         onload: (res) => {
           if (res.status !== 200) return reject(new Error(`HTTP ${res.status}`));
-          if (!isXlsx(res.response))
+          if (!isWorkbook(res.response))
             return reject(
               new Error(
-                "not an XLSX (F5 CAPTCHA/HTML) - open rbidocs.rbi.org.in once, " +
-                  "clear the check, then retry"
+                "not a workbook (F5 CAPTCHA/HTML) - open rbidocs.rbi.org.in " +
+                  "once, clear the check, then retry"
               )
             );
           resolve(res.response);
@@ -244,8 +264,10 @@
 
   // Save validated bytes. Prefer GM_download (keeps the year subfolder);
   // fall back to a flat anchor save (filename still fully prefixed).
-  function saveFile(buf, subpath, filename) {
-    const objectUrl = URL.createObjectURL(new Blob([buf], { type: XLSX_MIME }));
+  function saveFile(buf, subpath, filename, mime) {
+    const objectUrl = URL.createObjectURL(
+      new Blob([buf], { type: mime || MIME_XLSX })
+    );
     const revoke = () => setTimeout(() => URL.revokeObjectURL(objectUrl), 30_000);
     if (CONFIG.USE_GM_DOWNLOAD && typeof GM_download === "function") {
       return new Promise((resolve) => {
@@ -258,8 +280,8 @@
             log(
               EVENTS.SETTING,
               "for <year> subfolders enable GM_download: Tampermonkey > " +
-                "Settings > Downloads -> Mode 'Browser API' + whitelist 'xlsx' " +
-                "(saving flat for now)"
+                "Settings > Downloads -> Mode 'Browser API' + whitelist " +
+                "'xls,xlsx' (saving flat for now)"
             );
           }
           anchorSave(objectUrl, filename);
@@ -292,12 +314,11 @@
 
   let running = false;
   let whitelistHintShown = false;
-  async function startRun() {
-    if (running) {
-      log(EVENTS.RUN_START, "already running; ignoring");
-      return;
-    }
-    running = true;
+
+  // Download every table on the CURRENTLY loaded edition page. Pure worker -
+  // no run-guard, no year switching - so both the single-edition button and
+  // the all-editions sweep reuse it. Returns {ok, total}.
+  async function downloadEditionOnce() {
     const year = getYear();
     const delayMs = getDelayMs();
     const source = detectYear() ? "auto-detected" : "override/default";
@@ -312,13 +333,14 @@
     for (let i = 0; i < tables.length; i++) {
       const { num, name, url } = tables[i];
       const tnum = num ? "t" + String(num).padStart(3, "0") : "t000";
-      const filename = `${year}_${tnum}_${slugify(name)}.xlsx`;
+      const ext = extFor(url);
+      const filename = `${year}_${tnum}_${slugify(name)}.${ext}`;
       const subpath =
         `${CONFIG.DOWNLOAD_SUBDIR}/${CONFIG.HANDBOOK_DIR}/${year}/${filename}`;
       log(EVENTS.SCRAPE, `(${i + 1}/${tables.length}) ${tnum} ${name}`);
       try {
         const buf = await fetchValidate(url);
-        const via = await saveFile(buf, subpath, filename);
+        const via = await saveFile(buf, subpath, filename, mimeFor(ext));
         ok++;
         log(
           EVENTS.DOWNLOAD_OK,
@@ -337,7 +359,90 @@
       `${ok}/${tables.length} saved to Downloads/${CONFIG.DOWNLOAD_SUBDIR}/` +
         `${CONFIG.HANDBOOK_DIR}/${year}/ - move that into the repo .runtime/`
     );
-    running = false;
+    return { ok, total: tables.length };
+  }
+
+  async function startRun() {
+    if (running) {
+      log(EVENTS.RUN_START, "already running; ignoring");
+      return;
+    }
+    running = true;
+    try {
+      await downloadEditionOnce();
+    } finally {
+      running = false;
+    }
+  }
+
+  // Year tabs are <a class="year">2017</a> wired to the site's own
+  // GetYear(...) AJAX. Return the four-digit ones in page order.
+  function yearTabs() {
+    return Array.from(document.querySelectorAll("a.year"))
+      .map((a) => ({ el: a, year: (a.innerText || "").trim() }))
+      .filter((t) => /^20\d{2}$/.test(t.year));
+  }
+
+  // Switch the page to one archive edition (clicks the tab, firing the site's
+  // GetYear AJAX) and wait until that edition has fully rendered: the active
+  // tab must read <year> AND the workbook-link count must hold steady across
+  // two polls (the listing is one innerHTML swap, so a stable count = done).
+  async function switchToYear(tab) {
+    tab.el.click();
+    const deadline = Date.now() + 25_000;
+    let last = -1;
+    let stable = 0;
+    while (Date.now() < deadline) {
+      await sleep(600);
+      const active = detectYear();
+      const count = document.querySelectorAll(
+        'a[href*="/rdocs/Publications/DOCs/"]'
+      ).length;
+      if (active === tab.year && count > 0) {
+        if (count === last) {
+          if (++stable >= 2) return true;
+        } else {
+          stable = 0;
+          last = count;
+        }
+      }
+    }
+    return false;
+  }
+
+  // Sweep EVERY archive edition: switch to each year tab and download all of
+  // its tables. One click captures the whole publication, oldest .xls years
+  // included.
+  async function downloadAllYears() {
+    if (running) {
+      log(EVENTS.RUN_START, "already running; ignoring");
+      return;
+    }
+    running = true;
+    try {
+      const tabs = yearTabs();
+      log(
+        EVENTS.RUN_START,
+        `ALL editions: ${tabs.map((t) => t.year).join(", ")}`
+      );
+      let grand = 0;
+      for (const tab of tabs) {
+        log(EVENTS.RUN_START, `switching to edition ${tab.year} ...`);
+        const ready = await switchToYear(tab);
+        if (!ready) {
+          log(
+            EVENTS.DOWNLOAD_FAIL,
+            `edition ${tab.year}: did not load in time; skipped`
+          );
+          continue;
+        }
+        const { ok } = await downloadEditionOnce();
+        grand += ok;
+      }
+      log(EVENTS.RUN_DONE, `ALL editions complete - ${grand} file(s) saved`);
+    } finally {
+      running = false;
+    }
   }
 
   function setYear() {
@@ -381,11 +486,17 @@
     title.textContent = `yen-gov RBI HBS ${getYear()} v${VERSION}`;
     title.style.cssText = "flex:0 0 auto;font-weight:600;";
     const btn = document.createElement("button");
-    btn.textContent = "Download ALL tables";
+    btn.textContent = "This edition";
     btn.style.cssText =
       "flex:0 0 auto;background:#2a6df4;color:#fff;border:0;border-radius:6px;" +
       "padding:5px 12px;cursor:pointer;font:12px system-ui,sans-serif;";
     btn.addEventListener("click", startRun);
+    const allBtn = document.createElement("button");
+    allBtn.textContent = "ALL editions";
+    allBtn.style.cssText =
+      "flex:0 0 auto;background:#1f8b4c;color:#fff;border:0;border-radius:6px;" +
+      "padding:5px 12px;cursor:pointer;font:12px system-ui,sans-serif;";
+    allBtn.addEventListener("click", downloadAllYears);
     panelLog = document.createElement("span");
     panelLog.style.cssText =
       "flex:1 1 auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" +
@@ -396,7 +507,7 @@
       "flex:0 0 auto;background:transparent;color:#cdd9ee;border:1px solid #2a6df4;" +
       "border-radius:4px;padding:3px 9px;cursor:pointer;font:11px system-ui,sans-serif;";
     hide.addEventListener("click", () => bar.remove());
-    bar.append(title, btn, panelLog, hide);
+    bar.append(title, btn, allBtn, panelLog, hide);
     document.body.appendChild(bar);
   }
 
@@ -405,6 +516,10 @@
       GM_openInTab(CONFIG.SITE_URL, { active: true })
     );
     GM_registerMenuCommand("Download ALL tables (this edition)", startRun);
+    GM_registerMenuCommand(
+      "Download ALL editions (every year)",
+      downloadAllYears
+    );
     GM_registerMenuCommand(
       `Set edition/year override (now: ${getYearOverride() || "auto=" + getYear()})`,
       setYear
@@ -415,11 +530,23 @@
     );
   }
 
-  buildPanel();
-  registerMenu();
-  log(
-    EVENTS.INIT,
-    `v${VERSION} ready - edition ${getYear()}${detectYear() ? " (auto)" : ""}, ` +
-      `delay ${getDelayMs() / 1000}s, grab-all=${CONFIG.GRAB_ALL}`
-  );
+  // Only activate on the Handbook publication page. The @match is the whole
+  // rbi.org.in site so the script survives in-site navigations, but the panel
+  // + menu only mount here; the sibling State Finances script guards itself
+  // the same way, so the two never both paint a panel on one page.
+  function isHandbookPage() {
+    return /Handbook of Statistics on Indian States/i.test(
+      document.title || ""
+    );
+  }
+
+  if (isHandbookPage()) {
+    buildPanel();
+    registerMenu();
+    log(
+      EVENTS.INIT,
+      `v${VERSION} ready - edition ${getYear()}${detectYear() ? " (auto)" : ""}, ` +
+        `delay ${getDelayMs() / 1000}s, grab-all=${CONFIG.GRAB_ALL}`
+    );
+  }
 })();
