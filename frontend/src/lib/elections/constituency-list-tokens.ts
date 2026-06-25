@@ -172,6 +172,63 @@ export function buildPartyStrip(rows: readonly StripInput[]): PartyStrip {
 }
 
 // ---------------------------------------------------------------------------
+// Typed number tokens (share + signed margin) + Option-E margin bar + the
+// shared subgrid ruler. The renderer (Row 3) and the national rail (Row 4)
+// read these straight onto the SAME grid so the share + margin columns format
+// and align IDENTICALLY on every surface. null / undefined / NaN render the
+// shared em-dash "-".
+// ---------------------------------------------------------------------------
+
+/** One-decimal percent WITH the "%" suffix, e.g. fmtShare(45.04) -> "45.0%".
+ *  Unknown (null / undefined / NaN) -> "-". */
+export function fmtShare(n: number | null | undefined): string {
+  if (n === null || n === undefined || Number.isNaN(n)) return "-";
+  return `${n.toFixed(1)}%`;
+}
+
+/** One-decimal margin with a LEADING SIGN and NO "%", e.g.
+ *  fmtMarginSigned(15.9) -> "+15.9", fmtMarginSigned(-0.36) -> "-0.4" (standard
+ *  JS rounding; toFixed already carries the "-" for negatives). Unknown ->
+ *  "-". */
+export function fmtMarginSigned(n: number | null | undefined): string {
+  if (n === null || n === undefined || Number.isNaN(n)) return "-";
+  const fixed = n.toFixed(1);
+  return n >= 0 ? `+${fixed}` : fixed;
+}
+
+/** Clamp a number to [lo, hi] (no dependency). */
+function clamp(value: number, lo: number, hi: number): number {
+  return Math.min(Math.max(value, lo), hi);
+}
+
+/**
+ * The Option-E margin-bar segment for a winner's lead: a magnitude width on a
+ * FIXED 0..50pp scale (so a given lead reads the same bar length on every row)
+ * plus the shared marginBand() colour for that lead - the bar and the swatch
+ * can never drift because they call the SAME band function. An unknown margin
+ * yields a zero-width neutral segment (STRIP_OTHER_COLOR, the module's existing
+ * slate neutral - no new palette colour is introduced).
+ */
+export function marginBarSegment(
+  margin: number | null | undefined,
+): { pct: number; hex: string } {
+  if (margin === null || margin === undefined || Number.isNaN(margin)) {
+    return { pct: 0, hex: STRIP_OTHER_COLOR };
+  }
+  const band = marginBand(margin);
+  const hex = band ? band.hex : STRIP_OTHER_COLOR;
+  const pct = clamp((Math.min(Math.abs(margin), 50) / 50) * 100, 0, 100);
+  return { pct, hex };
+}
+
+/** The single 6-track subgrid ruler shared by the constituency list renderer
+ *  AND the national state rail: glyph | name | context | share | margin | bar.
+ *  Defining it ONCE here is what lets the nested rows align column-for-column
+ *  across both surfaces (grid-cols-subgrid children inherit this ruler). */
+export const GRID_COLS =
+  "grid-cols-[1.25rem_minmax(0,1fr)_minmax(0,max-content)_max-content_max-content_max-content]";
+
+// ---------------------------------------------------------------------------
 // Leaf ordering.
 // ---------------------------------------------------------------------------
 
@@ -335,13 +392,23 @@ export function groupKeyOf(
   return leaf.pc_group ?? leaf.district ?? fallback;
 }
 
+/** The unlinked-AC bucket label: in PC mode an AC whose parent PC is unknown
+ *  (`pc_group == null`) groups here, and this group is always forced to sort
+ *  LAST (never wedged mid-list). Assembly mode never produces it. */
+export const PENDING_GROUP = "Parliament seat pending";
+
 /**
  * Groups leaves into ordered ConstituencyGroups, attaching either an
  * assembly-mode party strip OR a PC-mode header result per group. PC mode is
  * selected PER GROUP by the presence of a `group_headers[group_key]` entry, so
  * one component instance can render assembly groups and PC groups from DATA
- * alone (schema-is-the-design-system). Groups are sorted by their key (locale
- * "en"); leaves are sorted by the given SortMode. Pure - never mutates input.
+ * alone (schema-is-the-design-system). In PC mode (a `group_headers` map is
+ * supplied) a leaf with no parent PC (`pc_group == null`) routes into the
+ * shared PENDING_GROUP bucket instead of the district / "All constituencies"
+ * fallback, and that bucket is forced to sort LAST; assembly mode (no
+ * `group_headers`) keeps the `pc_group -> district -> "All constituencies"`
+ * chain UNCHANGED. Groups are otherwise sorted by their key (locale "en");
+ * leaves are sorted by the given SortMode. Pure - never mutates input.
  */
 export function buildGroups<T extends GroupableLeaf>(
   rows: readonly T[],
@@ -349,9 +416,15 @@ export function buildGroups<T extends GroupableLeaf>(
   group_headers?: Record<string, GroupHeaderResult> | null,
   fallback = "All constituencies",
 ): ConstituencyGroup<T>[] {
+  // PC mode for this call IFF the caller supplies a group-header map. In PC
+  // mode an unlinked AC (`pc_group == null`) pools into PENDING_GROUP (the
+  // district is NOT a PC-mode grouping fallback - so a 70/70 all-pending state
+  // collapses into ONE bucket); assembly mode keeps the
+  // `pc_group -> district -> "All constituencies"` chain via groupKeyOf.
+  const pc_mode = group_headers != null;
   const by_key = new Map<string, T[]>();
   for (const r of rows) {
-    const key = groupKeyOf(r, fallback);
+    const key = pc_mode ? r.pc_group ?? PENDING_GROUP : groupKeyOf(r, fallback);
     const list = by_key.get(key);
     if (list) list.push(r);
     else by_key.set(key, [r]);
@@ -367,6 +440,13 @@ export function buildGroups<T extends GroupableLeaf>(
       strip: header ? null : buildPartyStrip(groupRows),
     });
   }
-  out.sort((a, b) => a.group_key.localeCompare(b.group_key, "en"));
+  // Sort by key (locale "en"), but force PENDING_GROUP to the very end
+  // regardless of localeCompare (D5 - the unlinked-AC bucket is never wedged
+  // mid-list, even ahead of a group whose key sorts after it alphabetically).
+  out.sort((a, b) => {
+    if (a.group_key === PENDING_GROUP) return b.group_key === PENDING_GROUP ? 0 : 1;
+    if (b.group_key === PENDING_GROUP) return -1;
+    return a.group_key.localeCompare(b.group_key, "en");
+  });
   return out;
 }
