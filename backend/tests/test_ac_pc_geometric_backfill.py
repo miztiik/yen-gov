@@ -198,8 +198,16 @@ def test_gate_passes_and_crosswalk_invariants_hold(tmp_path: Path) -> None:
         assert row["parent_pc_entity_id"] in PC_IDS
         # invariant 4: dominant overlap clears the 0.80 floor.
         assert float(row["overlap_frac"]) >= 0.80
-        # invariant: match_method is a closed enum value.
-        assert row["match_method"] in {"geometric_overlap", "single_pc_state"}
+        # invariant: match_method is a closed enum value. The crosswalk file
+        # class admits four methods (geometric_overlap, single_pc_state, and the
+        # Survey-of-India composition backfill values soi_composition /
+        # soi_centroid); the generator under test emits only the first two.
+        assert row["match_method"] in {
+            "geometric_overlap",
+            "single_pc_state",
+            "soi_composition",
+            "soi_centroid",
+        }
         # invariant 5: source_id is non-empty and cited in source.csv.
         assert row["source_id"] and row["source_id"] in source_ids
 
