@@ -83,16 +83,37 @@ describe("buildTileRows", () => {
     const r1 = rows.find((r) => r.unit_id === "IN-S13-AC-2008-1")!;
     expect(r1.pending).toBe(false);
     expect(r1.fill).toMatch(/^#[0-9a-f]{6}$/i);
-    expect(r1.tooltip_html).toContain("Winner: INC");
-    expect(r1.tooltip_html).toContain("25.0%");
+    // Row 5: the hex tooltip is now the shared hover card (byte-identical to
+    // the PC / AC map card) - grain chip + party short + 3-band margin value.
+    expect(r1.tooltip_html).toContain('class="yen-tip"');
+    expect(r1.tooltip_html).toContain(">AC</span>"); // [AC] grain chip
+    expect(r1.tooltip_html).toContain(">INC</span>"); // winning party short
+    expect(r1.tooltip_html).toContain("+25.0%"); // signed 3-band margin value
+    expect(r1.tooltip_html).not.toContain("Winner:");
+    expect(r1.tooltip_html).not.toContain("Margin:");
   });
 
-  it("renders an unmatched tile in the neutral pending style", () => {
+  it("renders an unmatched tile as the neutral pending card", () => {
     const rows = buildTileRows(acTiles, [winners[0]]); // only AC-1 has a winner
     const r2 = rows.find((r) => r.unit_id === "IN-S13-AC-2008-2")!;
     expect(r2.pending).toBe(true);
     expect(r2.fill).toBe("#e2e8f0");
-    expect(r2.tooltip_html).toContain("Results pending");
+    // Pending -> the shared card: grain chip + affordance, but no margin value.
+    expect(r2.tooltip_html).toContain('class="yen-tip"');
+    expect(r2.tooltip_html).toContain(">AC</span>");
+    expect(r2.tooltip_html).toContain("Click to view");
+    expect(r2.tooltip_html).not.toMatch(/\+\d/); // no margin value when pending
+    expect(r2.tooltip_html).not.toContain("Results pending");
+  });
+
+  it("emits the shared card with no legacy Winner:/Margin: text", () => {
+    const rows = buildTileRows(acTiles, winners);
+    for (const r of rows) {
+      expect(r.tooltip_html).toContain('class="yen-tip"');
+      expect(r.tooltip_html).not.toContain("Winner:");
+      expect(r.tooltip_html).not.toContain("Margin:");
+      expect(r.tooltip_html).not.toContain("Results pending");
+    }
   });
 
   it("maps larger margins to higher opacity", () => {
@@ -116,6 +137,7 @@ describe("buildTileRows", () => {
     expect(rows).toHaveLength(1);
     expect(rows[0].unit_id).toBe("IN-PC-2008-S13-1");
     expect(rows[0].pending).toBe(false);
+    expect(rows[0].tooltip_html).toContain(">PC</span>"); // grain chip derived from layout_kind
   });
 });
 
