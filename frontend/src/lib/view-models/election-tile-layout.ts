@@ -24,6 +24,7 @@ import {
   resolvePartyPalette,
   type PartyRowForResolver,
 } from "../colors/resolver";
+import { renderTooltipCard } from "../boundaries/tooltip-card";
 
 export interface TileLayoutRow {
   layout_kind: "ac" | "pc";
@@ -188,12 +189,6 @@ export function selectLayout(
   );
 }
 
-function escapeHtml(s: string): string {
-  return s.replace(/[&<>"']/g, (c) =>
-    c === "&" ? "&amp;" : c === "<" ? "&lt;" : c === ">" ? "&gt;" : c === '"' ? "&quot;" : "&#39;",
-  );
-}
-
 // Map margin% -> opacity in [0.35, 0.95]; >=30% saturates. Mirrors
 // StateAcMap.svelte so the tile cartogram and the geographic map agree.
 function marginToOpacity(margin_pct: number | null): number {
@@ -267,9 +262,12 @@ export function buildTileRows(
         label: t.label,
         fill: NEUTRAL_FILL,
         opacity: NEUTRAL_OPACITY,
-        tooltip_html:
-          `<div class="font-semibold">${t.eci_no}. ${escapeHtml(t.label)}</div>` +
-          `<div class="text-slate-500">Results pending</div>`,
+        tooltip_html: renderTooltipCard({
+          title: t.label,
+          grain: t.layout_kind === "pc" ? "PC" : "AC",
+          partyShort: "",
+          pending: true,
+        }),
         selected: t.unit_id === selected,
         pending: true,
         winner_party_id: null,
@@ -279,7 +277,6 @@ export function buildTileRows(
     const pid = pidByUnit.get(t.unit_id) ?? partyIdFor(w);
     const fill =
       palette.get(pid)?.hex ?? getPartyColor(pid, rowMap.get(pid) ?? null).hex;
-    const marginLabel = w.margin_pct == null ? "—" : `${w.margin_pct.toFixed(1)}%`;
     return {
       unit_id: t.unit_id,
       q: t.q,
@@ -287,10 +284,13 @@ export function buildTileRows(
       label: t.label,
       fill,
       opacity: marginToOpacity(w.margin_pct),
-      tooltip_html:
-        `<div class="font-semibold">${t.eci_no}. ${escapeHtml(t.label)}</div>` +
-        `<div class="text-slate-600">Winner: ${escapeHtml(w.party_short)}</div>` +
-        `<div class="text-slate-500">Margin: ${marginLabel}</div>`,
+      tooltip_html: renderTooltipCard({
+        title: t.label,
+        grain: t.layout_kind === "pc" ? "PC" : "AC",
+        partyShort: w.party_short,
+        partyColorHex: fill,
+        marginPct: w.margin_pct,
+      }),
       selected: t.unit_id === selected,
       pending: false,
       winner_party_id: pid,
