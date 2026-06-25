@@ -1335,7 +1335,7 @@
           {:else}
             <TileCartogram
               tiles={tile_rows}
-              height="520px"
+              height="960px"
               onSelect={onTileSelect}
             />
           {/if}
