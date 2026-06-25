@@ -31,18 +31,19 @@ inside the open families above.
 
 ## Inventory
 
-The 30 glyphs listed below are the file set this directory carries. The
+The 32 glyphs listed below are the file set this directory carries. The
 21 originally migrated under U3 (plan chunk U3, 2026-06-05; the set was
 unchanged from the prior `frontend/src/lib/icons/` location — only the
 on-disk home moved per plan section 21.10) plus `chevron-right` (added
 under U2b, 2026-06-05) for the `Breadcrumb` separator glyph between
-ascend crumbs (see [`frontend/src/lib/Breadcrumb.svelte`](../../src/lib/Breadcrumb.svelte); the breadcrumb spine was renamed to its current shared form in PR-W1d, 2026-06-10), plus `wikipedia` (added under PR-3 D4 of [`TODO/20260615-party-page-citizen-fixes-plan.md`](../../../TODO/20260615-party-page-citizen-fixes-plan.md)) for the Gallagher "learn more" link, plus `wheat` (added 2026-06-16) for the `agriculture` topic card's glyph on the home Topic Front Door, plus `arrow-left-right` (added 2026-06-17) for the compare-page Flips KPI card glyph per [PR4 of the election-compare UX overhaul plan](../../../TODO/20260617-election-compare-ux-overhaul-plan.md), plus `trophy` (added 2026-06-18) for the party-page chart captions' peak-seats celebration mark per [Row D of the party-page polish + CDN config plan](../../../TODO/20260617-party-page-polish-and-cdn-config-plan.md), plus `calendar-range` (added 2026-06-18) for the party-page "Active" KPI tile's election-span glyph per the same plan's follow-up UX fixes, plus `chevron-down` + `search` + `arrow-up-down` (added 2026-06-22) for the constituency-list expand/collapse twisty (chevron-down when a district fold is open), the name-search magnifier, and the ballot/margin sort toggle per Row 2 of [`TODO/20260622-election-constituency-grouping-plan.md`](../../../TODO/20260622-election-constituency-grouping-plan.md). The original Party-page consumer (PartyAboutCard) was RIP'd in Wave-F F6 in favour of the CC BY-SA puzzle-globe served as a static brand asset from [`../brands/wikipedia.svg`](../brands/LICENCES.md); the W glyph survives here for the sole remaining consumer (`GallagherDisproportionality.svelte`).
+ascend crumbs (see [`frontend/src/lib/Breadcrumb.svelte`](../../src/lib/Breadcrumb.svelte); the breadcrumb spine was renamed to its current shared form in PR-W1d, 2026-06-10), plus `wikipedia` (added under PR-3 D4 of [`TODO/20260615-party-page-citizen-fixes-plan.md`](../../../TODO/20260615-party-page-citizen-fixes-plan.md)) for the Gallagher "learn more" link, plus `wheat` (added 2026-06-16) for the `agriculture` topic card's glyph on the home Topic Front Door, plus `arrow-left-right` (added 2026-06-17) for the compare-page Flips KPI card glyph per [PR4 of the election-compare UX overhaul plan](../../../TODO/20260617-election-compare-ux-overhaul-plan.md), plus `trophy` (added 2026-06-18) for the party-page chart captions' peak-seats celebration mark per [Row D of the party-page polish + CDN config plan](../../../TODO/20260617-party-page-polish-and-cdn-config-plan.md), plus `calendar-range` (added 2026-06-18) for the party-page "Active" KPI tile's election-span glyph per the same plan's follow-up UX fixes, plus `chevron-down` + `search` + `arrow-up-down` (added 2026-06-22) for the constituency-list expand/collapse twisty (chevron-down when a district fold is open), the name-search magnifier, and the ballot/margin sort toggle per Row 2 of [`TODO/20260622-election-constituency-grouping-plan.md`](../../../TODO/20260622-election-constituency-grouping-plan.md), plus `arrow-up-right` + `map-pin` (added 2026-06-25) for the constituency-list redesign (R1) - the AC jump affordance and the district-context glyph respectively. The original Party-page consumer (PartyAboutCard) was RIP'd in Wave-F F6 in favour of the CC BY-SA puzzle-globe served as a static brand asset from [`../brands/wikipedia.svg`](../brands/LICENCES.md); the W glyph survives here for the sole remaining consumer (`GallagherDisproportionality.svelte`).
 
 | Icon | Family | Source URL | Licence | Attribution | Modifications |
 | --- | --- | --- | --- | --- | --- |
 | activity | Lucide | https://lucide.dev/icons/activity | ISC | | none |
 | arrow-left-right | Lucide | https://lucide.dev/icons/arrow-left-right | ISC | | none |
 | arrow-up-down | Lucide | https://lucide.dev/icons/arrow-up-down | ISC | | none |
+| arrow-up-right | Lucide | https://lucide.dev/icons/arrow-up-right | ISC | | none |
 | bar-chart | Lucide | https://lucide.dev/icons/bar-chart-3 | ISC | | none |
 | calendar-range | Lucide | https://lucide.dev/icons/calendar-range | ISC | | rect converted to a rounded-rect path (the icon-registry allowlist has no rect width/height/rx attrs); inner paths byte-identical to upstream |
 | car | Lucide | https://lucide.dev/icons/car | ISC | | none |
@@ -57,6 +58,7 @@ ascend crumbs (see [`frontend/src/lib/Breadcrumb.svelte`](../../src/lib/Breadcru
 | heart-pulse | Lucide | https://lucide.dev/icons/heart-pulse | ISC | | none |
 | info | Lucide | https://lucide.dev/icons/info | ISC | | none |
 | landmark | Lucide | https://lucide.dev/icons/landmark | ISC | | none |
+| map-pin | Lucide | https://lucide.dev/icons/map-pin | ISC | | none |
 | search | Lucide | https://lucide.dev/icons/search | ISC | | none |
 | settings | Lucide | https://lucide.dev/icons/settings | ISC | | none |
 | shield | Lucide | https://lucide.dev/icons/shield | ISC | | none |

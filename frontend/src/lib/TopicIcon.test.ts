@@ -112,6 +112,9 @@ describe("TopicIcon helpers", () => {
         // ballot order <-> by-margin with this Lucide arrow-up-down glyph.
         // See TODO/20260622-election-constituency-grouping-plan.md.
         "arrow-up-down",
+        // R1 (2026-06-25): the constituency-list redesign uses this Lucide
+        // arrow-up-right glyph for the AC jump affordance.
+        "arrow-up-right",
         "bar-chart",
         // Row B (2026-06-18): the "Active" KPI tile on the party page
         // labels its election-span range with this Lucide calendar-range
@@ -134,6 +137,9 @@ describe("TopicIcon helpers", () => {
         "heart-pulse",
         "info",
         "landmark",
+        // R1 (2026-06-25): the constituency-list redesign uses this Lucide
+        // map-pin glyph for district context.
+        "map-pin",
         // Row 2 (2026-06-22): the constituency-list name search uses this
         // Lucide search (magnifier) glyph. See
         // TODO/20260622-election-constituency-grouping-plan.md.
