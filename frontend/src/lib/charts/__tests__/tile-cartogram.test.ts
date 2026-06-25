@@ -106,6 +106,20 @@ describe("buildTileRows", () => {
     expect(r2.tooltip_html).not.toContain("Results pending");
   });
 
+  it("renders the parent-state line when a stateNameForCode resolver is given", () => {
+    const rows = buildTileRows(acTiles, winners, {
+      stateNameForCode: (code) => (code === "S13" ? "Maharashtra" : null),
+    });
+    const r1 = rows.find((r) => r.unit_id === "IN-S13-AC-2008-1")!;
+    expect(r1.tooltip_html).toContain("Maharashtra"); // parent-state row (R-A row 1)
+  });
+
+  it("omits the parent-state line when no resolver is given (back-compat)", () => {
+    const rows = buildTileRows(acTiles, winners);
+    const r1 = rows.find((r) => r.unit_id === "IN-S13-AC-2008-1")!;
+    expect(r1.tooltip_html).not.toContain("Maharashtra");
+  });
+
   it("emits the shared card with no legacy Winner:/Margin: text", () => {
     const rows = buildTileRows(acTiles, winners);
     for (const r of rows) {
