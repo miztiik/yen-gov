@@ -31,7 +31,7 @@ The LGD snapshot lacks `parent_pc_lgd_code` for ~382 live-delim (2008) ACs acros
 
 **Safety - a per-row double-lock.** A gap AC is emitted only when `overlap_frac >= 0.80` AND the winning PC unambiguously beats the runner-up AND one of: (Tier A) the geometry's own seat name matches the electoral seat name, or (Tier B) the AC's state passed the per-state 95% LGD-agreement bar. Vintage-renumbered states (post-2014 AP/TG, post-2023 Assam) fail the number match but pass Tier-A name-lock. Anything satisfying neither lock is LEFT OUT.
 
-**Result.** 316 of 382 gap ACs filled by the geometric pass (NULL-parent count `382 -> 66`); a logical single-PC-state rule then resolves 4 more (`66 -> 62`, section 6.1); a Survey-of-India composition backfill then resolves 34 more (`62 -> 28`, section 6.2); the 28 residual stay NULL (section 6). Regenerate with `python -m yen_gov seed-ac-pc-geometric-backfill` (prints the gate + coverage).
+**Result.** 316 of 382 gap ACs filled by the geometric pass (NULL-parent count `382 -> 66`); a logical single-PC-state rule then resolves 4 more (`66 -> 62`, section 6.1); a Survey-of-India composition backfill then resolves 34 more (`62 -> 28`, section 6.2); a composition + name-alias pass then resolves 10 more (`28 -> 18`, section 6.3); the 18 residual stay NULL (section 6). Regenerate with `python -m yen_gov seed-ac-pc-geometric-backfill` (prints the gate + coverage).
 
 ## 4. Provenance - electoral data always cites ECI
 
@@ -56,7 +56,7 @@ Because the snapshot writer NEVER emits the ECI-keyed rows, **a naive full regen
 
 Before shipping any `electoral.csv` edit, diff it field-by-field against `origin/main` and confirm the change is confined to the intended cells.
 
-## 6. Residual coverage gap (28 ACs) + data needed to close it
+## 6. Residual coverage gap (18 ACs) + data needed to close it
 
 After P0b, the single-PC-state rule (section 6.1), and the Survey-of-India composition backfill (section 6.2), 28 of the 382 gap ACs remain NULL. They fall into two buckets:
 
@@ -70,12 +70,10 @@ The full residual seat list (for a follow-up pass), by state:
 | State | Count | Residual ACs |
 | --- | --- | --- |
 | jammu-and-kashmir | 13 | Bishnah(SC), Channapora, Ganderbal, Habbakadal, Hazratbal, Inderwal, Kishtwar, Mendhar(ST), Padder - Nagseni, Pahalgam, Poonch Haveli, Suchetgarh(SC), Surankote(ST) |
-| andhra-pradesh | 9 | Anakapalli, Bhimli, Elamanchili, Payakaraopeta, Rajamundry Rural, Sattenapalli, Unguturu, V.Madugula, Vijaywada West |
 | assam | 3 | Amguri, Patacharkuchi, Thowra |
 | gujarat | 2 | Bapunagar, Jamalpur-Khadia |
-| uttar-pradesh | 1 | Sisamau |
 
-**To close the gap:** acquire the ECI 2008 Delimitation Order PC-wise AC composition (the de-jure table) for the affected states, add the resolved pairs to `ac_pc_geometric_backfill.csv` (or a sibling de-jure crosswalk) with a `match_method` that records the de-jure source, re-run the surgical applier, and confirm the NULL-parent delim-2008 AC count drops below 28. Residuals that still cannot be sourced stay NULL -> "data pending". Never lower the 0.80 overlap bar or the 95% agreement gate to force coverage.
+**To close the gap:** acquire the ECI 2008 Delimitation Order PC-wise AC composition (the de-jure table) for the affected states, add the resolved pairs to `ac_pc_geometric_backfill.csv` (or a sibling de-jure crosswalk) with a `match_method` that records the de-jure source, re-run the surgical applier, and confirm the NULL-parent delim-2008 AC count drops below 18. Residuals that still cannot be sourced stay NULL -> "data pending". Never lower the 0.80 overlap bar or the 95% agreement gate to force coverage.
 
 ### 6.1 Autonomous-resolvability analysis (2026-06-25)
 
@@ -99,14 +97,24 @@ The user supplied the `datta07/INDIAN-SHAPEFILES` corpus (Survey-of-India-derive
 
 **Two earlier geometric errors corrected.** The official composition overturned two assignments bare geometry had gotten wrong: BANKIPUR (central Patna) -> Patna Sahib, not Hajipur; KALKAJI (Delhi) -> South Delhi, not East Delhi. This is exactly why the de-jure attribute, not centroid inference, is authoritative for these dense-urban seats (section 6.1).
 
-**The remaining 28 - why these sources do not resolve them.**
+**The remaining 28 at that point - why the datta07 / shijithpk sources do not resolve them.** (Andhra Pradesh + Uttar Pradesh were subsequently closed from a dedicated source - see section 6.3.)
 
 - **Jammu & Kashmir (13)** - our roster is the CURRENT 2022 delimitation (90 ACs / 5 PCs). The current-vintage AC geometry (shijithpk 2024) carries NO AC->PC composition; the shijithpk LS file is only a partial supplement (changed borders plus a "Rest of J&K" residual); and datta07's J&K is the SUPERSEDED old delimitation (107 ACs). No source provides the complete current-2024 J&K AC->PC composition.
-- **Andhra Pradesh (9)** - our roster is the undivided pre-2014 AP (293 rows of the ~294-seat assembly), but datta07's AP is the current post-bifurcation 175-seat assembly, so the remaining 9 fail to bridge on vintage plus name-spelling (e.g. our `VIJAYWADA WEST` vs the source's `VIJAYAWADA WEST`).
+- **Andhra Pradesh (9)** - the datta07 AP file is the current post-bifurcation 175-seat assembly with a different schema (no `PC_NAME` attribute) and name-spelling drift, so it could not bridge our undivided pre-2014 AP roster. RESOLVED in section 6.3 from the AP 2024 open-data composition.
 - **Assam (3)** - datta07's Assam agrees with LGD at only 92.3% (post-2023 re-delimitation), below the 95% gate, so it is excluded as vintage-suspect.
-- **Uttar Pradesh (1: Sisamau) + Gujarat (2: Bapunagar, Jamalpur-Khadia)** - name-spelling mismatches between the register and the Survey-of-India label; recoverable with a name-reconciliation pass (no new source needed).
+- **Uttar Pradesh (1: Sisamau)** - a one-character spelling gap against datta07 (`Sishamau`). RESOLVED in section 6.3.
+- **Gujarat (2: Bapunagar, Jamalpur-Khadia)** - see section 6.3.
 
-These 28 stay NULL -> "data pending". The 0.80 overlap bar and the 95% agreement gate are not lowered to force coverage (Holy Law #5).
+### 6.3 Composition + name-alias backfill (AP open data; 2026-06-25)
+
+A follow-up pass closed 10 more residuals - all 9 Andhra Pradesh seats and Uttar Pradesh's Sisamau - by reading an official AC->PC composition table and bridging our register's spelling to it with a VERIFIED name alias (`match_method=composition_alias`, `overlap_frac=1.0`, `source_id` still the ECI 2008 Delimitation Order). NULL-parent count `28 -> 18`.
+
+- **Andhra Pradesh (9).** The user supplied `satishvmadala/andhrapradesh_opendata_locations` - an AP open-data constituencies file (`Final_Andhra_Constituencies_2024.json` + geojson) that lists each Assembly seat with its `loksabha_constituency_name` (the parent PC): a de-jure composition table for AP. It agreed with our existing AP parents at **98.4%**. Each of the 9 was bridged by a verified name match, cross-checked by district: Bhimli->Visakhapatnam, Rajamundry Rural->Rajahmundry, Unguturu->Eluru, Vijaywada West->Vijayawada, Sattenapalli->Narasaraopet, and Madugula / Anakapalli / Elamanchili / Payakaraopeta->Anakapalle (the source spells the PC "Anakapalli", our register "Anakapalle" - a one-word PC alias). datta07's AP file could not do this (post-bifurcation roster, no `PC_NAME`); the dedicated AP open-data source could.
+- **Uttar Pradesh (1).** `Sisamau` is spelled `Sishamau` in the datta07 UP file, whose `PC_NAME` attribute places it in the **Kanpur** PC - a one-character alias.
+
+**Gujarat (2) still open.** `Bapunagar` and `Jamalpur-Khadia` are Ahmedabad-city Assembly seats. datta07's Gujarat file is INCOMPLETE - it ships 165 of the state's 182 ACs and omits the Ahmedabad-city block (`AC_NO` ~45-56, which includes both of these seats), so there is no record to alias to. Closing them needs a complete Gujarat AC->PC source (DataMeet's assembly-constituency set, or the ECI 2008 Gujarat delimitation composition).
+
+The remaining 18 (J&K 13, Assam 3, Gujarat 2) stay NULL -> "data pending". The 0.80 overlap bar and the 95% agreement gate are not lowered to force coverage (Holy Law #5).
 
 ## 7. CLI
 
