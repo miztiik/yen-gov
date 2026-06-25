@@ -69,6 +69,7 @@
   import { fetchGeometryJson } from "./geometry-cache";
   import { STATE_AC } from "../boundaries/sources";
   import { renderTooltipCard } from "../boundaries/tooltip-card";
+  import HoverCardShell from "./HoverCardShell.svelte";
   import { recoverEciNo } from "../boundaries/ac-key-recovery";
   import { parseReservation } from "../boundaries/ac-reservation";
   import { symbolAssetUrl } from "../boundaries/symbol-asset";
@@ -79,6 +80,7 @@
   import { navigate } from "../url";
   import { link } from "../links";
   import type { AcWinner } from "../view-models/state-overview";
+  import { loadStates } from "../view-models/states";
   import { loadAcLgdLookup } from "../view-models/ac-crosswalk";
   import { rewindCollectionForD3 } from "./geo-rewind";
   import { slugify } from "../slug";
@@ -172,7 +174,32 @@
   // height derives from the projected content bounds (no letterboxing).
   const MAX_MAP_W = 1200;
   let container_w = $state(0);
+  let container_h = $state(0);
   const DEFAULT_FILL = "#e2e8f0"; // slate-200; matches MapChoropleth default
+
+  // Parent-state label for the hover card (R-D parent row). The AC feature
+  // `st_name` is border-sliver contaminated (a single AC feature can carry a
+  // neighbouring state's name, and some carry none), so resolve the page
+  // state's clean citizen-facing display name from the reliable `state_code`
+  // prop via the canonical states loader (cached; plain fetch, no DuckDB
+  // boot) rather than the geometry properties.
+  let state_name = $state<string | null>(null);
+  $effect(() => {
+    const sc = state_code;
+    let cancelled = false;
+    loadStates()
+      .then((states) => {
+        if (cancelled) return;
+        state_name =
+          states.find((s) => s.eci_code === sc)?.display_name ?? null;
+      })
+      .catch(() => {
+        if (!cancelled) state_name = null;
+      });
+    return () => {
+      cancelled = true;
+    };
+  });
 
   interface Row {
     eci_no: number;
@@ -682,7 +709,9 @@
     const r = row_by_eci.get(eci);
     if (!r) return null;
     return renderTooltipCard({
-      title: `${r.eci_no}. ${r.name}`,
+      title: r.name,
+      grain: "AC",
+      parentLabel: state_name,
       reservation: parseReservation(props),
       candidateName: r.winner_candidate_name,
       partyShort: r.winner_party_short,
@@ -711,12 +740,12 @@
   ): void {
     hover_eci = eci;
     hover_html = tooltipForFeature(props, eci);
-    hover_x = e.offsetX + 12;
-    hover_y = e.offsetY + 12;
+    hover_x = e.offsetX;
+    hover_y = e.offsetY;
   }
   function onFeatureMove(e: MouseEvent): void {
-    hover_x = e.offsetX + 12;
-    hover_y = e.offsetY + 12;
+    hover_x = e.offsetX;
+    hover_y = e.offsetY;
   }
   function onFeatureLeave(): void {
     hover_eci = null;
@@ -785,6 +814,7 @@
 {:else}
   <div
     bind:clientWidth={container_w}
+    bind:clientHeight={container_h}
     class="relative w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50"
     style="aspect-ratio:{wrapper_aspect};"
     data-component="state-ac-map-d3"
@@ -838,13 +868,14 @@
       </svg>
 
       {#if hover_html}
-        <div
-          class="absolute pointer-events-none bg-white border border-slate-200 rounded shadow px-2 py-1 text-xs leading-tight max-w-xs"
-          style="left: {hover_x}px; top: {hover_y}px;"
-          data-testid="state-ac-map-d3-tooltip"
-        >
-          {@html hover_html}
-        </div>
+        <HoverCardShell
+          x={hover_x}
+          y={hover_y}
+          html={hover_html}
+          containerW={container_w}
+          containerH={container_h}
+          testid="state-ac-map-d3-tooltip"
+        />
       {/if}
 
       <!--

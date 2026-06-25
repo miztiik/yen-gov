@@ -63,6 +63,7 @@
   import { fetchGeometryJson } from "./geometry-cache";
   import { INDIA_PC, INDIA_PC_BY_NAME, type BoundaryEntry } from "../boundaries/sources";
   import { renderTooltipCard } from "../boundaries/tooltip-card";
+  import HoverCardShell from "./HoverCardShell.svelte";
   import { symbolAssetUrl } from "../boundaries/symbol-asset";
   import {
     resolvePartyPalette,
@@ -164,6 +165,7 @@
   // height derives from the projected content bounds (no letterboxing).
   const MAX_MAP_W = 1200;
   let container_w = $state(0);
+  let container_h = $state(0);
   const DEFAULT_FILL = "#e2e8f0"; // slate-200; J&K placeholders + unmapped
   const JOIN_PROPERTY = boundary.join_property; // "unique_id"
   // `boundary` ships `.geojson` as the canonical snapshot path. Post the
@@ -412,17 +414,17 @@
       // hover still shows the PC name.
       if (!ls_seat_name) return null;
       return renderTooltipCard({
-        title: state_ut_name
-          ? `${ls_seat_name} (${state_ut_name})`
-          : ls_seat_name,
-        partyShort: "Pending",
-        partyColorHex: null,
+        title: ls_seat_name,
+        grain: "PC",
+        parentLabel: state_ut_name,
+        partyShort: "",
+        pending: true,
       });
     }
     return renderTooltipCard({
-      title: state_ut_name
-        ? `${r.pc_eci_no}. ${r.pc_name} (${state_ut_name})`
-        : `${r.pc_eci_no}. ${r.pc_name}`,
+      title: r.pc_name,
+      grain: "PC",
+      parentLabel: state_ut_name,
       candidateName: r.winner_candidate_name,
       partyShort: r.party_short,
       partyColorHex: party_colors.get(r.unique_id) ?? null,
@@ -456,12 +458,12 @@
   ): void {
     hover_uid = uid;
     hover_html = tooltipForUid(props, uid);
-    hover_x = e.offsetX + 12;
-    hover_y = e.offsetY + 12;
+    hover_x = e.offsetX;
+    hover_y = e.offsetY;
   }
   function onFeatureMove(e: MouseEvent): void {
-    hover_x = e.offsetX + 12;
-    hover_y = e.offsetY + 12;
+    hover_x = e.offsetX;
+    hover_y = e.offsetY;
   }
   function onFeatureLeave(): void {
     hover_uid = null;
@@ -513,6 +515,7 @@
 
 <div
   bind:clientWidth={container_w}
+  bind:clientHeight={container_h}
   class="relative w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50"
   style="aspect-ratio:{wrapper_aspect};"
   data-component="india-pc-map-d3"
@@ -580,13 +583,14 @@
     </svg>
 
     {#if hover_html}
-      <div
-        class="absolute pointer-events-none bg-white border border-slate-200 rounded shadow px-2 py-1 text-xs leading-tight max-w-xs"
-        style="left: {hover_x}px; top: {hover_y}px;"
-        data-testid="india-pc-map-d3-tooltip"
-      >
-        {@html hover_html}
-      </div>
+      <HoverCardShell
+        x={hover_x}
+        y={hover_y}
+        html={hover_html}
+        containerW={container_w}
+        containerH={container_h}
+        testid="india-pc-map-d3-tooltip"
+      />
     {/if}
 
     <!-- +/-/home button trio: same visual language as IndiaPartyMap +
