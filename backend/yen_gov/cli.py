@@ -885,6 +885,104 @@ def derive_event_summary(
     )
 
 
+@app.command("seed-ac-pc-geometric-backfill")
+def seed_ac_pc_geometric_backfill(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    min_agreement: float = typer.Option(
+        0.95,
+        "--min-agreement",
+        help="GATE: geometric-vs-LGD agreement floor on already-linked ACs.",
+    ),
+    min_overlap: float = typer.Option(
+        0.80,
+        "--min-overlap",
+        help="Per-row: minimum winning-PC overlap fraction for a gap AC.",
+    ),
+) -> None:
+    """Geometric AC->PC parent backfill crosswalk for NULL-parent 2008 ACs (P0a).
+
+    Spatial-joins the in-repo 2008-delim AC + PC boundary layers (a PC is the
+    union of whole ACs, so each AC's parent PC is the polygon it lies inside),
+    validates against the LGD-resolved parents, and - only if that gate passes -
+    writes `datasets/data/entities/ac_pc_geometric_backfill.csv` plus its
+    `source.csv` provenance row. A low agreement STOPS the run (writes nothing).
+    """
+    from yen_gov.canonical.seed.ac_pc_geometric_backfill import generate
+
+    root_resolved = root.resolve()
+    result = generate(
+        repo_root=root_resolved,
+        min_agreement=min_agreement,
+        min_overlap=min_overlap,
+    )
+
+    typer.echo(
+        "seed-ac-pc-geometric-backfill: LGD-agreement "
+        f"{result.agreement_matched}/{result.agreement_total} = "
+        f"{100 * result.agreement_rate:.2f}% (gate {100 * min_agreement:.0f}%); "
+        f"name-confirmed pipeline rate {100 * result.name_confirmed_rate:.2f}%"
+    )
+    disagreeing = sorted(
+        (
+            (slug, ok, tot)
+            for slug, (ok, tot) in result.per_state_agreement.items()
+            if tot and ok / tot < min_agreement
+        ),
+        key=lambda t: t[1] / t[2] if t[2] else 0.0,
+    )
+    if disagreeing:
+        typer.echo(
+            "  per-state below gate (vintage mismatch -> Tier-A name-lock only): "
+            + ", ".join(f"{s} {ok}/{tot}" for s, ok, tot in disagreeing)
+        )
+
+    if result.status != "ok":
+        typer.echo(
+            "  STOPPED: agreement below gate; wrote nothing. The decode/bridge "
+            "is unreliable - do NOT ship; investigate before retrying."
+        )
+        raise typer.Exit(1)
+
+    typer.echo(
+        f"  filled {result.emitted}/{result.gap_total} gap ACs; "
+        f"residual {result.residual} stay NULL ('data pending')"
+    )
+    if result.emitted_per_state:
+        typer.echo(
+            "  emitted per state: "
+            + ", ".join(
+                f"{s}={n}" for s, n in sorted(result.emitted_per_state.items())
+            )
+        )
+    if result.residual_per_state:
+        typer.echo(
+            "  residual per state: "
+            + ", ".join(
+                f"{s}={n}" for s, n in sorted(result.residual_per_state.items())
+            )
+        )
+    for ac_name, pc_name, frac in result.samples:
+        typer.echo(f"    {ac_name} -> {pc_name} (overlap {frac:.2f})")
+    if result.out_path is not None:
+        typer.echo(
+            "  wrote "
+            f"{result.out_path.relative_to(root_resolved).as_posix()} "
+            f"(source_id {result.source_id})"
+        )
+    if result.source_path is not None:
+        typer.echo(
+            f"  cited {result.source_path.relative_to(root_resolved).as_posix()}"
+        )
+
+
 def _read_long_csv(path: Path) -> list[dict[str, object]]:
     """Read a 4-column long-format CSV (entity_id, time, value, source_id).
 
