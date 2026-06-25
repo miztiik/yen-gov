@@ -24,6 +24,12 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8"]
 admin = ["fastapi>=0.115", "httpx2>=2.3", "uvicorn[standard]>=0.30"]
+# Build-time-only geometry stack for the geometric AC->PC parent backfill
+# generator (backend/yen_gov/canonical/seed/ac_pc_geometric_backfill.py, Row
+# P0a). shapely 2.x ships a built-in STRtree spatial index (no rtree needed).
+# The committed pipeline that READS the crosswalk CSV does NOT need shapely;
+# only this local generator does.
+geo = ["shapely>=2.0"]
 
 [project.scripts]
 yen-gov = "yen_gov.cli:app"
