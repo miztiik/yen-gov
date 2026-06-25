@@ -15,7 +15,7 @@
 
 /** Every field beyond the winner identity is optional so callers can adopt
  *  the card incrementally as their view-models gain columns. The fixed
- *  256x140 card renders the same for every surface (PC / AC map, hex
+ *  224x120 card renders the same for every surface (PC / AC map, hex
  *  cartogram); only the text / bar colour / symbol / margin change. */
 export interface TooltipCardModel {
   /** Constituency name, e.g. "Tindivanam" (AC) or
@@ -115,15 +115,15 @@ export function readableText(bgHex: string): string {
   return luma > 0.6 ? "#0f172a" : "#ffffff";
 }
 
-/** Fixed card chrome: 256x140, white surface, slate-200 hairline, shadow,
- *  14px radius clipping the left accent bar, pointer-events off so the
+/** Fixed card chrome: 224x120, white surface, slate-200 hairline, shadow,
+ *  12px radius clipping the left accent bar, pointer-events off so the
  *  cursor still reaches the map underneath. */
 const CARD_STYLE = [
   "box-sizing:border-box",
   "position:relative",
-  "width:256px",
-  "height:140px",
-  "border-radius:14px",
+  "width:224px",
+  "height:120px",
+  "border-radius:12px",
   "overflow:hidden",
   "background:#ffffff",
   `border:1px solid ${BORDER_HEX}`,
@@ -138,7 +138,7 @@ const CARD_STYLE = [
 function grainChip(grain: "PC" | "AC" | undefined): string {
   if (grain !== "PC" && grain !== "AC") return "";
   return (
-    `<span style="flex-shrink:0;font-size:10px;font-weight:700;` +
+    `<span style="flex-shrink:0;font-size:9px;font-weight:700;` +
     `text-transform:uppercase;letter-spacing:0.04em;color:#475569;` +
     `background:#f1f5f9;border-radius:4px;padding:1px 4px">${grain}</span>`
   );
@@ -150,7 +150,7 @@ function reservationTag(reservation: string | null | undefined): string {
   const r = reservation.trim().toUpperCase();
   if (r !== "SC" && r !== "ST") return "";
   return (
-    `<span style="flex-shrink:0;font-size:10px;font-weight:600;` +
+    `<span style="flex-shrink:0;font-size:9px;font-weight:600;` +
     `text-transform:uppercase;letter-spacing:0.04em;color:#be123c;` +
     `background:#ffe4e6;border-radius:4px;padding:1px 4px">${r}</span>`
   );
@@ -169,13 +169,13 @@ function symbolToken(
   if (!pending && symbolAsset != null && symbolAsset.trim().length > 0) {
     const src = safeAssetPath(symbolAsset);
     if (src) {
-      return `<img src="${escapeHtml(src)}" alt="" width="18" height="18" style="display:block;width:18px;height:18px;flex-shrink:0;object-fit:contain" />`;
+      return `<img src="${escapeHtml(src)}" alt="" width="15" height="15" style="display:block;width:15px;height:15px;flex-shrink:0;object-fit:contain" />`;
     }
     // Rejected path -> fall through to the disc (never emit an <img>).
   }
   const disc = pending ? NEUTRAL_HEX : accentHex;
   return (
-    `<span style="display:inline-block;width:18px;height:18px;flex-shrink:0;` +
+    `<span style="display:inline-block;width:15px;height:15px;flex-shrink:0;` +
     `border-radius:9999px;background:${disc};box-shadow:inset 0 0 0 1px ${BORDER_HEX}"></span>`
   );
 }
@@ -199,7 +199,7 @@ function marginValue(marginPct: number | null | undefined): string {
     weight = 700;
   }
   return (
-    `<span style="flex-shrink:0;font-size:13px;font-weight:${weight};` +
+    `<span style="flex-shrink:0;font-size:12px;font-weight:${weight};` +
     `color:${color};font-variant-numeric:tabular-nums">+${abs.toFixed(1)}%</span>`
   );
 }
@@ -217,28 +217,28 @@ export function renderTooltipCard(model: TooltipCardModel): string {
 
   // Row 1: parent state.
   const parent = model.parentLabel ? escapeHtml(model.parentLabel) : "";
-  const row1 = `<div style="display:flex;align-items:center;min-width:0;font-size:11px;font-weight:500;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${parent}</div>`;
+  const row1 = `<div style="display:flex;align-items:center;min-width:0;font-size:10px;font-weight:500;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${parent}</div>`;
 
   // Row 2: grain chip + constituency name + reservation badge.
-  const name = `<span style="flex:1 1 auto;min-width:0;font-size:14px;font-weight:600;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(model.title)}</span>`;
-  const row2 = `<div style="display:flex;align-items:center;gap:6px;min-width:0">${grainChip(model.grain)}${name}${reservationTag(model.reservation)}</div>`;
+  const name = `<span style="flex:1 1 auto;min-width:0;font-size:12px;font-weight:600;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(model.title)}</span>`;
+  const row2 = `<div style="display:flex;align-items:center;gap:5px;min-width:0">${grainChip(model.grain)}${name}${reservationTag(model.reservation)}</div>`;
 
   // Row 3: divider.
   const row3 = `<div style="display:flex;align-items:center"><span style="display:block;width:100%;height:1px;background:${BORDER_HEX}"></span></div>`;
 
   // Row 4: party symbol + party short + 3-band margin value.
-  const party = `<span style="flex:1 1 auto;min-width:0;font-size:13px;font-weight:600;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(model.partyShort)}</span>`;
+  const party = `<span style="flex:1 1 auto;min-width:0;font-size:12px;font-weight:600;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(model.partyShort)}</span>`;
   const margin = pending ? "" : marginValue(model.marginPct);
-  const row4 = `<div style="display:flex;align-items:center;gap:8px;min-width:0">${symbolToken(model.symbolAsset, accent, pending)}${party}${margin}</div>`;
+  const row4 = `<div style="display:flex;align-items:center;gap:6px;min-width:0">${symbolToken(model.symbolAsset, accent, pending)}${party}${margin}</div>`;
 
   // Row 5: winning candidate (the one extra field, R-F).
   const candidate = pending || !model.candidateName ? "" : escapeHtml(model.candidateName);
-  const row5 = `<div style="display:flex;align-items:center;min-width:0;font-size:12px;font-weight:400;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${candidate}</div>`;
+  const row5 = `<div style="display:flex;align-items:center;min-width:0;font-size:11px;font-weight:400;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${candidate}</div>`;
 
   // Row 6: affordance (R-G: text only, no arrow / chevron).
-  const row6 = `<div style="display:flex;align-items:flex-end;font-size:11px;font-weight:500;color:#94a3b8">Click to view</div>`;
+  const row6 = `<div style="display:flex;align-items:flex-end;font-size:10px;font-weight:500;color:#94a3b8">Click to view</div>`;
 
-  const content = `<div style="position:relative;height:100%;box-sizing:border-box;padding:14px 14px 14px 18px;display:grid;grid-template-rows:14px 20px 9px 20px 16px 1fr">${row1}${row2}${row3}${row4}${row5}${row6}</div>`;
+  const content = `<div style="position:relative;height:100%;box-sizing:border-box;padding:12px 12px 12px 16px;display:grid;grid-template-rows:12px 17px 8px 18px 14px 1fr">${row1}${row2}${row3}${row4}${row5}${row6}</div>`;
 
   return `<div class="yen-tip" style="${CARD_STYLE}">${bar}${content}</div>`;
 }

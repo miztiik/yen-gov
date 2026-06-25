@@ -8,8 +8,8 @@ import { describe, it, expect } from "vitest";
 
 import { computeHoverCardPosition } from "../hover-card-position";
 
-const CARD_W = 256;
-const CARD_H = 140;
+const CARD_W = 224;
+const CARD_H = 120;
 const OFFSET = 12;
 
 describe("computeHoverCardPosition", () => {

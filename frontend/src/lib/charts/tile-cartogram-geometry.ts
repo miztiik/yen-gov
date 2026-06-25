@@ -34,7 +34,8 @@ export interface HexMetrics {
   ROW_H: number;
   /** Outer padding = S. */
   PAD: number;
-  /** In-hex 2-letter code font size = 0.78 * S. */
+  /** In-hex 2-letter code font size = 0.5 * S (kept small so the 2-letter
+   *  code reads as a label, not a fill, inside the enlarged hex). */
   codeFont: number;
 }
 
@@ -49,7 +50,7 @@ export function hexMetrics(S: number): HexMetrics {
     HEX_W: Math.sqrt(3) * S,
     ROW_H: 1.5 * S,
     PAD: S,
-    codeFont: S * 0.78,
+    codeFont: S * 0.5,
   };
 }
 
