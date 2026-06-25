@@ -352,11 +352,19 @@
         {#each groups as g (g.group_key)}
           {@const open = isExpanded(g.group_key) || single_group}
           {@const pending = g.group_key === PENDING_GROUP}
+          <!-- The single-group auto-expand hides a redundant header (e.g. a
+               lone district name) and renders its leaves flat. The pending
+               bucket is the ONE exception: its "Parliament seat pending" title
+               is meaningful context (D5), so it is NEVER suppressed - a
+               whole-state all-pending event (Delhi 70/70) collapses to ONE
+               PENDING_GROUP group and must keep its header. The leaves still
+               auto-expand via `open` above. -->
+          {@const hide_header = single_group && !pending}
           <li
             data-testid="state-event-constituency-district-row"
             class="col-span-full grid grid-cols-subgrid divide-y"
           >
-            {#if !single_group}
+            {#if !hide_header}
               <button
                 type="button"
                 class={`col-span-full grid grid-cols-subgrid items-center py-2 text-left text-sm hover:bg-slate-50 ${

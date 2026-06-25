@@ -567,3 +567,62 @@ describe("Row 3 ORACLE (d): buildGroups is a bijection - every input leaf render
     expect(groups[0].rows[0].winner_party_short).toBe("TDP");
   });
 });
+
+// ---------------------------------------------------------------------------
+// R6 fidelity fix: a WHOLE-STATE all-pending event (every Assembly seat has a
+// null parent PC, e.g. Delhi 70/70 on /t/elections/general-2024) collapses to
+// a SINGLE group whose key is PENDING_GROUP. The pre-existing single-group
+// auto-expand (groups.length === 1 && !force_expand_all && mode !== "pc") was
+// hiding that group's header, so the visible "Parliament seat pending" title
+// (design decision D5) never showed and Delhi's leaves rendered with no
+// pending context. The renderer now special-cases PENDING_GROUP via a derived
+// `hide_header = single_group && !pending`, so the title ALWAYS renders even
+// as the only group, while `open` keeps the leaves auto-expanded. Asserted
+// against the buildGroups data shape (all-pending -> one bucket) + the
+// component SOURCE (no Svelte mount in this dir - see the Row 3 oracle above);
+// the live DOM render is covered by the national-event-view e2e smoke.
+// ---------------------------------------------------------------------------
+describe("StateEventConstituencyList.svelte - whole-state all-pending keeps the pending header (R6)", () => {
+  it("DATA: all-null-pc_group rows in PC mode collapse into ONE PENDING_GROUP group holding every leaf", () => {
+    // Delhi-shaped: every AC is unlinked (pc_group null) across >1 district,
+    // group_headers is supplied (PC mode for the whole call) but carries NO
+    // entry for the pending bucket.
+    const rows: GLeaf[] = Array.from({ length: 6 }, (_, i) =>
+      gleaf({
+        entity_name: `AC-${i + 1}`,
+        pc_group: null,
+        district: i % 2 ? "North" : "Central",
+        eci_no: i + 1,
+      }),
+    );
+    const groups = buildGroups(rows, "ballot", {}); // PC mode (empty header map); all unlinked
+
+    // Exactly ONE group == the pending bucket, holding every input leaf.
+    expect(groups).toHaveLength(1);
+    expect(groups[0].group_key).toBe(PENDING_GROUP);
+    // The bucket has NO header_result, so it is assembly-mode - which is what
+    // trips the single-group auto-expand (mode !== "pc") and used to hide it.
+    expect(groups[0].mode).toBe("assembly");
+    expect(groups[0].rows).toHaveLength(rows.length);
+    // The visible title the header paints is the shared PENDING_GROUP label.
+    expect(PENDING_GROUP).toBe("Parliament seat pending");
+  });
+
+  it("RENDER: the single-group header-hide is decoupled from PENDING_GROUP so the title is never suppressed", () => {
+    // Header visibility is now gated on `hide_header`, which EXCLUDES the
+    // pending bucket: hide only a NORMAL single group (e.g. a lone district),
+    // never the all-pending bucket.
+    expect(LIST_SRC).toContain("hide_header = single_group && !pending");
+    // The header <button> renders on !hide_header, NOT the raw single_group,
+    // so the pending bucket keeps its header in the single-group case.
+    expect(LIST_SRC).toContain("{#if !hide_header}");
+    expect(LIST_SRC).not.toMatch(/\{#if !single_group\}/);
+    // The pending branch still paints the PENDING_GROUP title text, so the
+    // rendered header reads "Parliament seat pending".
+    expect(LIST_SRC).toContain("{PENDING_GROUP}");
+    // The leaves stay auto-expanded for the single group (open keeps its
+    // `|| single_group` arm), so Delhi's 70 leaves still render under it.
+    expect(LIST_SRC).toContain("isExpanded(g.group_key) || single_group");
+  });
+});
+
