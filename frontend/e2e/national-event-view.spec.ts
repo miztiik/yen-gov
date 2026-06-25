@@ -225,3 +225,162 @@ test.describe("national event view (PR-W3c rebuild)", () => {
       .toBe(0);
   });
 });
+
+// R5 of TODO/20260625-election-constituency-list-redesign-plan.md
+// (2026-06-25). Smoke for the redesigned NATIONAL constituency list. The
+// per-state rail and the embedded PC-mode StateEventConstituencyList ride
+// ONE shared 6-track grid-cols-subgrid ruler (GRID_COLS), so the citizen
+// reads aligned columns down the State -> Parliament-seat -> Assembly-seat
+// hierarchy. This pins the contract DOM-measured live during R5:
+//   - the rail <ul> carries the explicit GRID_COLS ruler; rows are
+//     grid-cols-subgrid children of it;
+//   - PC-header groups render on the subgrid (parliament result chip);
+//   - Assembly-seat leaves are whole-row <a> jump links (arrow-up-right
+//     glyph) with a map-pin district cell;
+//   - the "Parliament seat pending" bucket (ACs not yet backfilled to a
+//     parent PC - the deferred P0b data row) renders AND is sorted LAST so
+//     it never wedges mid-list.
+//
+// DOM-click bypass (page.evaluate(... .click())): the live India choropleth
+// keeps re-laying-out paths, so Playwright's actionability check on the
+// state-toggle never settles. Clicking in page context sidesteps it - the
+// proven idiom from the election-map specs.
+test.describe("national constituency list - subgrid + pending bucket (R5)", () => {
+  test.describe.configure({ timeout: 90_000 });
+
+  let trap: ReturnType<typeof attachPageErrorTrap> | null = null;
+  test.beforeEach(({ page }) => {
+    trap = attachPageErrorTrap(page);
+  });
+  test.afterEach(() => {
+    const errors = trap?.getErrors() ?? [];
+    expect(
+      errors,
+      `Page emitted runtime errors:\n${errors.join("\n")}`,
+    ).toEqual([]);
+  });
+
+  test("Telangana: PC subgrid groups, AC-leaf jump links, pending bucket last", async ({
+    page,
+  }) => {
+    await page.goto("/t/elections/general-2024", {
+      waitUntil: "load",
+      timeout: 30_000,
+    });
+
+    // Data-arrival oracle: the per-state rail mounts once the winners +
+    // AC-entity loaders resolve (cold DuckDB-WASM worker -> 45s budget).
+    const stateRow = page
+      .getByTestId("national-event-constituency-state-row")
+      .first();
+    await expect(stateRow).toBeVisible({ timeout: 45_000 });
+
+    // The rail <ul> carries the explicit GRID_COLS ruler; each state row is a
+    // grid-cols-subgrid child of it. MarginLegend (the only other block in
+    // the section) renders no <ul>, so .first() is the rail.
+    const railUl = page
+      .getByTestId("national-event-constituency-list")
+      .locator("ul")
+      .first();
+    await expect(railUl).toHaveClass(/grid-cols-\[/);
+    await expect(stateRow).toHaveClass(/grid-cols-subgrid/);
+
+    // Expand Telangana (DOM-click bypass for the animating India map).
+    await page.evaluate(() => {
+      const b = Array.from(
+        document.querySelectorAll(
+          '[data-testid="national-event-constituency-state-toggle"]',
+        ),
+      ).find((x) =>
+        /Telangana/i.test(x.querySelector(".col-start-2")?.textContent ?? ""),
+      );
+      (b as HTMLButtonElement | undefined)?.click();
+    });
+
+    // Scope to Telangana's row (a state may auto-expand; never assume the
+    // first open panel is ours).
+    const telanganaRow = page
+      .getByTestId("national-event-constituency-state-row")
+      .filter({ hasText: "Telangana" });
+    const panel = telanganaRow.getByTestId(
+      "national-event-constituency-state-panel",
+    );
+    await expect(panel).toBeVisible({ timeout: 15_000 });
+
+    // The embedded PC-mode list: PC headers carry the parliament result chip
+    // and ride grid-cols-subgrid too.
+    await expect(
+      panel.getByTestId("state-event-constituency-pc-header").first(),
+    ).toBeVisible({ timeout: 15_000 });
+    await expect(
+      panel.getByTestId("state-event-constituency-district-row").first(),
+    ).toHaveClass(/grid-cols-subgrid/);
+
+    // Expand the "Bhongir" PC -> its Assembly-seat leaves render.
+    await page.evaluate(() => {
+      const rows = Array.from(
+        document.querySelectorAll(
+          '[data-testid="national-event-constituency-state-row"]',
+        ),
+      );
+      const row = rows.find((r) =>
+        /Telangana/i.test(
+          r.querySelector(
+            '[data-testid="national-event-constituency-state-toggle"] .col-start-2',
+          )?.textContent ?? "",
+        ),
+      );
+      const p = row?.querySelector(
+        '[data-testid="national-event-constituency-state-panel"]',
+      );
+      const t = Array.from(
+        p?.querySelectorAll(
+          '[data-testid="state-event-constituency-district-toggle"]',
+        ) ?? [],
+      ).find((x) =>
+        /Bhongir/i.test(x.querySelector(".col-start-2")?.textContent ?? ""),
+      );
+      (t as HTMLButtonElement | undefined)?.click();
+    });
+
+    const leaf = panel.getByTestId("state-event-constituency-row").first();
+    await expect(leaf).toBeVisible({ timeout: 15_000 });
+    // The leaf is a whole-row anchor (not a button/div) -> navigation.
+    await expect(leaf).toHaveJSProperty("tagName", "A");
+    await expect(leaf).toHaveAttribute("href", /\/telangana\/ac\//);
+    // Trailing jump glyph + map-pin district cell.
+    await expect(
+      leaf.locator('svg[data-icon-name="arrow-up-right"]'),
+    ).toHaveCount(1);
+    await expect(
+      leaf.getByTestId("state-event-constituency-leaf-district"),
+    ).toBeVisible();
+
+    // The "Parliament seat pending" bucket renders AND is the LAST group
+    // (sorted last so the not-yet-backfilled ACs never wedge mid-list).
+    const headers = await page.evaluate(() => {
+      const rows = Array.from(
+        document.querySelectorAll(
+          '[data-testid="national-event-constituency-state-row"]',
+        ),
+      );
+      const row = rows.find((r) =>
+        /Telangana/i.test(
+          r.querySelector(
+            '[data-testid="national-event-constituency-state-toggle"] .col-start-2',
+          )?.textContent ?? "",
+        ),
+      );
+      const p = row?.querySelector(
+        '[data-testid="national-event-constituency-state-panel"]',
+      );
+      return Array.from(
+        p?.querySelectorAll(
+          '[data-testid="state-event-constituency-district-toggle"] .col-start-2',
+        ) ?? [],
+      ).map((s) => (s.textContent ?? "").trim());
+    });
+    expect(headers.some((h) => /Parliament seat pending/i.test(h))).toBe(true);
+    expect(headers[headers.length - 1]).toMatch(/Parliament seat pending/i);
+  });
+});
