@@ -1,6 +1,0 @@
-# IndiaVotes scraper HTML cache (gitignored per CLAUDE.md section 3
-# ephemeral tier; not contract-surface). Re-fetched on demand by
-# `python -m tools.scrape_indiavotes_parties`. See ../README.md for the
-# 7-day cache window and politeness rules.
-*
-!.gitignore
