@@ -28,7 +28,8 @@ Columns (per ``datasets/data/_schema/columns.json`` after 0c):
 - ``entity_kind`` (``ac | pc``)
 - ``delim_year``  (v1: 2008)
 - ``state``       (FK -> ``entities/geo.csv.entity_id``; the LGD state slug)
-- ``parent``      (AC -> its PC entity_id; PC -> its state slug)
+- ``parent``      (AC -> its PC entity_id, resolved LGD-first then via the P0b
+                    geometric backfill crosswalk, NULL-last; PC -> its state slug)
 - ``eci_no``      (the natural ECI ballot serial, folded; NULL only if the PRI
                     lacked an ECI code for that constituency)
 - ``aliases``     (pipe-delimited synonyms; nullable)
@@ -52,6 +53,12 @@ FILE_CLASS = "datasets/data/entities/electoral.csv"
 # v1 freezes the delimitation at the in-force 2008 cycle (plan section 3).
 DELIM_YEAR_V1 = 2008
 
+# Row P0b: the geometric AC->PC backfill crosswalk (a sibling of the emitted
+# ``electoral.csv``) supplies a parent PC for a NULL-parent AC when the LGD
+# snapshot carried no ``parent_pc_lgd_code``. Resolution order is LGD-first,
+# crosswalk-second, NULL-last - the crosswalk NEVER overrides an LGD parent.
+CROSSWALK_FILENAME = "ac_pc_geometric_backfill.csv"
+
 
 def _read_csv_rows(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8", newline="") as fh:
@@ -65,6 +72,21 @@ def _state_slug_index(state_codes_csv: Path) -> dict[str, str]:
     return out
 
 
+def _crosswalk_parent_index(crosswalk_csv: Path) -> dict[str, str]:
+    """Map ``ac_entity_id -> parent_pc_entity_id`` from the P0b backfill crosswalk.
+
+    Returns an empty mapping when the crosswalk file is absent (e.g. the unit
+    test fixtures, or a fresh checkout before P0a ran), so the AC loop simply
+    falls through to NULL-last.
+    """
+    if not crosswalk_csv.exists():
+        return {}
+    return {
+        r["ac_entity_id"]: r["parent_pc_entity_id"]
+        for r in _read_csv_rows(crosswalk_csv)
+    }
+
+
 def _entity_id(kind: str, state_slug: str, lgd_code: str, delim_year: int) -> str:
     tag = "AC" if kind == "ac" else "PC"
     return f"IN-{tag}-{delim_year}-{state_slug}-{lgd_code}"
@@ -76,8 +98,16 @@ def emit(
     state_codes_csv: Path,
     out_path: Path,
     delim_year: int = DELIM_YEAR_V1,
+    crosswalk_csv: Path | None = None,
 ) -> Path:
     """Emit ``out_path`` from the LGD constituency snapshot; return the path.
+
+    Args:
+        crosswalk_csv: optional P0b geometric AC->PC backfill crosswalk. When
+            ``None`` it defaults to ``ac_pc_geometric_backfill.csv`` next to
+            ``out_path``; a missing file is treated as an empty crosswalk. An
+            AC whose LGD ``parent_pc_lgd_code`` is empty falls back to this
+            crosswalk (LGD-first, crosswalk-second, NULL-last).
 
     Raises:
         FileNotFoundError: a required input is missing.
@@ -91,6 +121,9 @@ def emit(
         raise FileNotFoundError(state_codes_csv)
 
     state_slug_by_code = _state_slug_index(state_codes_csv)
+    crosswalk_parent = _crosswalk_parent_index(
+        crosswalk_csv if crosswalk_csv is not None else out_path.parent / CROSSWALK_FILENAME
+    )
     snapshot = _read_csv_rows(constituencies_csv)
 
     # PC pass first so AC rows can resolve their parent PC entity_id.
@@ -148,6 +181,11 @@ def emit(
                     f"ac {r['lgd_code']} (state {state_code}) references unknown "
                     f"parent PC lgd_code={parent_pc_code!r}"
                 )
+        # Row P0b: LGD-first, crosswalk-second, NULL-last. Only consult the
+        # geometric backfill when the LGD snapshot left the parent unresolved;
+        # the crosswalk never overrides a parent the LGD snapshot supplied.
+        if parent is None:
+            parent = crosswalk_parent.get(entity_id)
         rows.append(
             {
                 "entity_id": entity_id,
