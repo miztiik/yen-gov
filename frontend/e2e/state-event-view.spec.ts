@@ -512,3 +512,80 @@ test.describe("state event seat-flow (G5)", () => {
   });
 });
 
+// R5 of TODO/20260625-election-constituency-list-redesign-plan.md
+// (2026-06-25). Smoke for the ASSEMBLY arm of the redesigned constituency
+// list. D11: the per-AC winner chip + share + signed margin now render on
+// the SAME 6-track grid-cols-subgrid as the national PC list, and the old
+// dashed result <table> is GONE. Verified live on Maharashtra assembly-2019
+// (266 ACs across 35 districts on disk).
+test.describe("state assembly constituency list - subgrid winner chips (R5)", () => {
+  test.describe.configure({ timeout: 90_000 });
+
+  let trap: ReturnType<typeof attachPageErrorTrap> | null = null;
+  test.beforeEach(({ page }) => {
+    trap = attachPageErrorTrap(page);
+  });
+  test.afterEach(() => {
+    const errors = trap?.getErrors() ?? [];
+    expect(
+      errors,
+      `Page emitted runtime errors:\n${errors.join("\n")}`,
+    ).toEqual([]);
+  });
+
+  test("maharashtra assembly-2019: per-AC chip + share + margin on subgrid, no dashed table", async ({
+    page,
+  }) => {
+    await page.goto("/maharashtra/elections/assembly-2019", {
+      waitUntil: "load",
+      timeout: 30_000,
+    });
+
+    const section = page.getByTestId("state-event-constituency-table");
+    await expect(section).toBeVisible({ timeout: 30_000 });
+
+    // Data-arrival oracle: the district groups mount once the canonical
+    // per-AC loader resolves (cold worker -> 45s budget).
+    const group = page
+      .getByTestId("state-event-constituency-district-row")
+      .first();
+    await expect(group).toBeVisible({ timeout: 45_000 });
+
+    // Subgrid system: the list <ul> carries the GRID_COLS ruler and each
+    // group row is a grid-cols-subgrid child.
+    await expect(section.locator("ul").first()).toHaveClass(/grid-cols-\[/);
+    await expect(group).toHaveClass(/grid-cols-subgrid/);
+
+    // The dashed result <table> is GONE - the list section holds no table.
+    await expect(section.locator("table")).toHaveCount(0);
+
+    // Expand the first collapsed district -> per-AC leaves render.
+    await page.evaluate(() => {
+      const sec = document.querySelector(
+        '[data-testid="state-event-constituency-table"]',
+      );
+      const t = Array.from(
+        sec?.querySelectorAll(
+          '[data-testid="state-event-constituency-district-toggle"]',
+        ) ?? [],
+      ).find((x) => x.getAttribute("aria-expanded") === "false");
+      (t as HTMLButtonElement | undefined)?.click();
+    });
+
+    const leaf = section.getByTestId("state-event-constituency-row").first();
+    await expect(leaf).toBeVisible({ timeout: 15_000 });
+
+    // Whole-row anchor + trailing jump glyph (assembly leaves navigate too).
+    await expect(leaf).toHaveJSProperty("tagName", "A");
+    await expect(
+      leaf.locator('svg[data-icon-name="arrow-up-right"]'),
+    ).toHaveCount(1);
+
+    // D11: a per-AC winner chip (track 4) + share (track 5) + signed margin
+    // (track 6) all on the SAME row.
+    await expect(leaf.locator(".col-start-4")).not.toBeEmpty();
+    await expect(leaf).toContainText(/%/);
+    await expect(leaf).toContainText(/[+-]\d/);
+  });
+});
+
