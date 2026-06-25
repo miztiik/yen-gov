@@ -229,7 +229,10 @@ IN-AC-2008-nagaland-eci54,IN-PC-2008-nagaland-195,1,geometric_overlap,1,src-7cd5
 IN-AC-2008-odisha-eci12,IN-PC-2008-odisha-293,2,geometric_overlap,1,src-7cd5269de2e7
 IN-AC-2008-puducherry-eci10,IN-PC-2008-puducherry-542,1,geometric_overlap,1,src-7cd5269de2e7
 IN-AC-2008-puducherry-eci13,IN-PC-2008-puducherry-542,1,geometric_overlap,0.8885,src-7cd5269de2e7
+IN-AC-2008-puducherry-eci14,IN-PC-2008-puducherry-542,1,single_pc_state,1,src-7cd5269de2e7
+IN-AC-2008-puducherry-eci15,IN-PC-2008-puducherry-542,1,single_pc_state,1,src-7cd5269de2e7
 IN-AC-2008-puducherry-eci7,IN-PC-2008-puducherry-542,1,geometric_overlap,0.9869,src-7cd5269de2e7
+IN-AC-2008-puducherry-eci8,IN-PC-2008-puducherry-542,1,single_pc_state,1,src-7cd5269de2e7
 IN-AC-2008-punjab-eci46,IN-PC-2008-punjab-12,6,geometric_overlap,0.9532,src-7cd5269de2e7
 IN-AC-2008-rajasthan-eci101,IN-PC-2008-rajasthan-47,13,geometric_overlap,1,src-7cd5269de2e7
 IN-AC-2008-rajasthan-eci127,IN-PC-2008-rajasthan-63,16,geometric_overlap,1,src-7cd5269de2e7
@@ -245,6 +248,7 @@ IN-AC-2008-rajasthan-eci54,IN-PC-2008-rajasthan-58,7,geometric_overlap,1,src-7cd
 IN-AC-2008-rajasthan-eci55,IN-PC-2008-rajasthan-58,7,geometric_overlap,0.9144,src-7cd5269de2e7
 IN-AC-2008-sikkim-eci25,IN-PC-2008-sikkim-192,1,geometric_overlap,1,src-7cd5269de2e7
 IN-AC-2008-sikkim-eci27,IN-PC-2008-sikkim-192,1,geometric_overlap,1,src-7cd5269de2e7
+IN-AC-2008-sikkim-eci32,IN-PC-2008-sikkim-192,1,single_pc_state,1,src-7cd5269de2e7
 IN-AC-2008-tamil-nadu-eci17,IN-PC-2008-tamil-nadu-506,2,geometric_overlap,0.9632,src-7cd5269de2e7
 IN-AC-2008-tamil-nadu-eci192,IN-PC-2008-tamil-nadu-519,32,geometric_overlap,0.8413,src-7cd5269de2e7
 IN-AC-2008-telangana-eci105,IN-PC-2008-telangana-450,15,geometric_overlap,1,src-7cd5269de2e7

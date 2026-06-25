@@ -952,7 +952,8 @@ def seed_ac_pc_geometric_backfill(
         raise typer.Exit(1)
 
     typer.echo(
-        f"  filled {result.emitted}/{result.gap_total} gap ACs; "
+        f"  filled {result.emitted}/{result.gap_total} gap ACs "
+        f"({result.single_pc} by the single-PC-state rule); "
         f"residual {result.residual} stay NULL ('data pending')"
     )
     if result.emitted_per_state:
