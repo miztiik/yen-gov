@@ -105,15 +105,24 @@ Rows are PRs. Phase 0 (data) and Phase 1 (UI) are INDEPENDENT and run concurrent
 
 | Row | Title | Phase / Wave | Depends on | Status | PR | Effort |
 |-----|-------|--------------|------------|--------|----|--------|
-| R1 | Add `arrow-up-right` + `map-pin` icon glyphs | P1 / A | - | [ ] PENDING | - | S |
-| R2 | Token module: typed tokens + margin-bar + pending grouping + `GRID_COLS` | P1 / A | - | [ ] PENDING | - | M |
-| R3 | Rip + replace the shared list renderer to the subgrid (Option E) | P1 / B | R1, R2 | [ ] PENDING | - | L |
-| R4 | National state rail + one-time top hint on the shared `GRID_COLS` | P1 / C | R2, R3 | [ ] PENDING | - | M |
-| R5 | Browser-verify + e2e smoke + alignment proof | P1 / D | R3, R4, P0b | [ ] PENDING | - | M |
-| P0a | Source + commit the 382-AC -> PC backfill crosswalk | P0 / A | - | [ ] PENDING | - | L |
-| P0b | Wire crosswalk into the seed writer + regenerate `electoral.csv` | P0 / B | P0a | [ ] PENDING | - | M |
+| R1 | Add `arrow-up-right` + `map-pin` icon glyphs | P1 / A | - | [x] DONE | #1227 | S |
+| R2 | Token module: typed tokens + margin-bar + pending grouping + `GRID_COLS` | P1 / A | - | [x] DONE | #1228 | M |
+| R3 | Rip + replace the shared list renderer to the subgrid (Option E) | P1 / B | R1, R2 | [x] DONE | #1229 | L |
+| R4 | National state rail + one-time top hint on the shared `GRID_COLS` | P1 / C | R2, R3 | [x] DONE | #1230 | M |
+| R5 | Browser-verify + e2e smoke + alignment proof | P1 / D | R3, R4 (P0b deferred) | [x] DONE | #1231 | M |
+| R6 | Show pending-bucket header on whole-state all-pending case (D5 fidelity follow-up) | P1 / D | R3 | [x] DONE | #1232 | S |
+| P0a | Source + commit the 382-AC -> PC backfill crosswalk | P0 / A | - | [!] BLOCKED-NEEDS-SIGNOFF | - | L |
+| P0b | Wire crosswalk into the seed writer + regenerate `electoral.csv` | P0 / B | P0a | [ ] BLOCKED (P0a) | - | M |
 
 **Concurrency model (no idle time; NEVER waits on remote CI or gh merges).** Two independent lanes run concurrently - the UI lane (R1, R2 -> R3 -> R4 -> R5) and the DATA lane (P0a -> P0b) - each in its OWN git worktree. Dispatch {R1, R2, P0a} at once. A dependent row branches off its parent's LOCAL branch tip (stacked), so R3 starts the instant R1+R2 pass LOCAL gates - it does NOT wait for their PRs to merge remotely. Each finished row pushes, opens a PR, and is set to auto-merge so remote CI + the squash-merge happen in the background while the orchestrator immediately advances to the next unblocked row. When a parent PR finally merges, the open child branches are rebased onto origin/main (mechanical; the rows touch disjoint files). The only synchronization point is a true data dependency - never a CI run, never a merge round-trip.
+
+### Scope-change ledger
+
+Per CLAUDE.md section 10 (STOP-AND-SURFACE). Intent-only, agent-authored neutral prose; no verbatim user quotes.
+
+| Row | Date | Intent (what changed, why, what it overrode) | signoff |
+|-----|------|----------------------------------------------|---------|
+| P0a / P0b | 2026-06-25 | The Hans + Max authority personas independently converged that the most verifiable, reproducible, network-free source for the 382 AC->PC parent links is an in-repo GEOMETRIC spatial join: a Parliament constituency is by 2008 delimitation the union of whole Assembly constituencies, so each AC's parent PC is the PC polygon that contains it. Both boundary layers already ship in-repo (`datasets/boundaries/electoral/delim=2024/ac/all.topojson` + `.../pc/all.geojson`, 2008-delim geometry, covering every gap state incl. Delhi). This was preferred over autonomously fetching/parsing the ECI 2008 Delimitation Order (per-state scanned PDFs) or scraping indiavotes, both of which risk fabricating WRONG AC->PC governance facts when run unattended. Adopting geometry as the source-of-record SUBSTITUTES the user-ratified ECI/indiavotes source (decision D12) and changes the cited `source_id` (Holy Law #9), so per section 10 it is surfaced for sign-off rather than swapped silently. Two clean options were prepared: (1) geometry = source-of-record with ECI/indiavotes retained as the de-jure cross-check oracle; (2) ECI Order = source-of-record (transcribed per state) with geometry as the validator. The UI lane (R1-R6) shipped independently and renders every unmapped AC honestly as "Parliament seat pending" / "data pending", so nothing false is asserted while this decision is pending. | PENDING |
 
 ---
 
