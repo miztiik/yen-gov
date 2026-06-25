@@ -12,12 +12,17 @@ import { describe, it, expect } from "vitest";
 import {
   buildGroups,
   buildPartyStrip,
+  fmtShare,
+  fmtMarginSigned,
   marginBand,
+  marginBarSegment,
   reservationKind,
   sortLeaves,
   applyFilters,
   distinctDistrictCount,
   formatCountLine,
+  GRID_COLS,
+  PENDING_GROUP,
   STRIP_OTHER_COLOR,
   type GroupHeaderResult,
   type StripInput,
@@ -140,6 +145,62 @@ describe("marginBand - RdYlBu bands (shared with StateOverview)", () => {
     expect(marginBand(null)).toBeNull();
     expect(marginBand(undefined)).toBeNull();
     expect(marginBand(Number.NaN)).toBeNull();
+  });
+});
+
+describe("fmtShare + fmtMarginSigned - typed number tokens", () => {
+  it("ORACLE: fmtShare is one-decimal percent WITH the % suffix", () => {
+    expect(fmtShare(45.04)).toBe("45.0%");
+    expect(fmtShare(0)).toBe("0.0%");
+    expect(fmtShare(100)).toBe("100.0%");
+  });
+  it("ORACLE: fmtMarginSigned is one-decimal, LEADING SIGN, NO % (standard JS rounding)", () => {
+    expect(fmtMarginSigned(15.9)).toBe("+15.9");
+    expect(fmtMarginSigned(-0.36)).toBe("-0.4");
+    expect(fmtMarginSigned(0)).toBe("+0.0");
+  });
+  it("both render the shared em-dash for null / undefined / NaN", () => {
+    expect(fmtShare(null)).toBe("-");
+    expect(fmtShare(undefined)).toBe("-");
+    expect(fmtShare(Number.NaN)).toBe("-");
+    expect(fmtMarginSigned(null)).toBe("-");
+    expect(fmtMarginSigned(undefined)).toBe("-");
+    expect(fmtMarginSigned(Number.NaN)).toBe("-");
+  });
+});
+
+describe("marginBarSegment - magnitude bar on a fixed 0..50pp scale + shared band hue", () => {
+  it("ORACLE: a 0.36pp nail-biter paints the RED band and reads shorter than a 15.9pp lead", () => {
+    const tight = marginBarSegment(0.36);
+    const wide = marginBarSegment(15.9);
+    // Reuses marginBand() - 0.36 < 5 -> the red nail-biter band (no new palette).
+    expect(tight.hex).toBe("#d7191c");
+    expect(tight.hex).toBe(marginBand(0.36)?.hex);
+    // Magnitude width: a tighter lead is a shorter bar.
+    expect(tight.pct).toBeLessThan(wide.pct);
+    expect(tight.pct).toBeCloseTo((0.36 / 50) * 100, 6);
+    expect(wide.pct).toBeCloseTo((15.9 / 50) * 100, 6);
+  });
+  it("clamps the magnitude to 100% at >= 50pp and treats sign as magnitude", () => {
+    expect(marginBarSegment(50).pct).toBe(100);
+    expect(marginBarSegment(80).pct).toBe(100);
+    expect(marginBarSegment(-12).pct).toBeCloseTo((12 / 50) * 100, 6);
+  });
+  it("an unknown margin is a zero-width neutral segment (existing slate, no new palette)", () => {
+    expect(marginBarSegment(null)).toEqual({ pct: 0, hex: STRIP_OTHER_COLOR });
+    expect(marginBarSegment(undefined)).toEqual({ pct: 0, hex: STRIP_OTHER_COLOR });
+    expect(marginBarSegment(Number.NaN)).toEqual({ pct: 0, hex: STRIP_OTHER_COLOR });
+  });
+});
+
+describe("GRID_COLS - the shared 6-track subgrid ruler", () => {
+  it("is the single 6-track ruler the renderer + national rail share", () => {
+    expect(GRID_COLS).toBe(
+      "grid-cols-[1.25rem_minmax(0,1fr)_minmax(0,max-content)_max-content_max-content_max-content]",
+    );
+    // 6 tracks: glyph | name | context | share | margin | bar.
+    const tracks = GRID_COLS.replace("grid-cols-[", "").replace(/\]$/, "").split("_");
+    expect(tracks).toHaveLength(6);
   });
 });
 
@@ -308,25 +369,58 @@ describe("buildGroups - assembly mode (strip) vs PC mode (header result)", () =>
     expect(g.rows.map((r) => r.winner_party_short)).toContain("YSRCP");
   });
 
-  it("keys on pc_group, else district, else the shared fallback; sorts groups + applies PC mode only where a header exists", () => {
+  it("PC mode: pc_group keys the group; null pc_group pools into PENDING (district ignored); PC mode only where a header exists", () => {
     const rows: GLeaf[] = [
       gleaf({ entity_name: "AC-b", pc_group: "PC-Z", district: "D2", eci_no: 5 }),
       gleaf({ entity_name: "AC-a", pc_group: "PC-A", district: "D1", eci_no: 9 }),
-      gleaf({ entity_name: "AC-c", district: "D-only", eci_no: 1 }),
-      gleaf({ entity_name: "AC-d", eci_no: 2 }),
+      gleaf({ entity_name: "AC-c", district: "D-only", eci_no: 1 }), // null pc_group + a real district
+      gleaf({ entity_name: "AC-d", eci_no: 2 }),                      // null pc_group + no district
     ];
     const header: GroupHeaderResult = { chip: "X", color: "#000000", share: null, margin: null, child_count: 1 };
     const groups = buildGroups(rows, "ballot", { "PC-A": header });
 
-    // Group keys: pc_group overrides district overrides the fallback; sorted
-    // by key (locale "en").
-    expect(groups.map((g) => g.group_key)).toEqual(["All constituencies", "D-only", "PC-A", "PC-Z"]);
+    // pc_group keys the PC groups; BOTH null-pc_group leaves pool into the one
+    // PENDING bucket (district is NOT a PC-mode fallback); PENDING sorts LAST.
+    expect(groups.map((g) => g.group_key)).toEqual(["PC-A", "PC-Z", PENDING_GROUP]);
     // ONLY the group with a header entry is PC mode; everything else stays
-    // assembly mode (mixed lists degrade gracefully).
+    // assembly mode (a PC group with no header, and the pending bucket).
     expect(groups.find((g) => g.group_key === "PC-A")?.mode).toBe("pc");
     expect(groups.find((g) => g.group_key === "PC-Z")?.mode).toBe("assembly");
-    expect(groups.find((g) => g.group_key === "D-only")?.mode).toBe("assembly");
-    expect(groups.find((g) => g.group_key === "All constituencies")?.mode).toBe("assembly");
+    expect(groups.find((g) => g.group_key === PENDING_GROUP)?.mode).toBe("assembly");
+    // The pending bucket holds BOTH unlinked ACs regardless of their district.
+    expect(groups.find((g) => g.group_key === PENDING_GROUP)?.rows.map((r) => r.entity_name)).toEqual(["AC-c", "AC-d"]);
+  });
+
+  it("PC mode: a null-pc_group leaf lands in 'Parliament seat pending', forced LAST even past a 'Zzz' group that sorts after it", () => {
+    const rows: GLeaf[] = [
+      gleaf({ entity_name: "Linked", pc_group: "Zzz", district: "DistX", eci_no: 1 }),
+      gleaf({ entity_name: "Unlinked", pc_group: null, district: "Nizamabad", eci_no: 2 }),
+    ];
+    const header: GroupHeaderResult = { chip: "Z", color: "#000000", share: null, margin: null, child_count: 1 };
+    const groups = buildGroups(rows, "ballot", { Zzz: header });
+
+    // "Zzz" localeCompare-sorts AFTER "Parliament seat pending", yet PENDING is
+    // forced to the very end (D5 - never wedged mid-list).
+    expect(PENDING_GROUP).toBe("Parliament seat pending");
+    expect(groups.map((g) => g.group_key)).toEqual(["Zzz", PENDING_GROUP]);
+    expect(groups[groups.length - 1].group_key).toBe(PENDING_GROUP);
+    // The unlinked AC (null pc_group, but a real district) is in PENDING.
+    expect(groups.find((g) => g.group_key === PENDING_GROUP)?.rows.map((r) => r.entity_name)).toEqual(["Unlinked"]);
+  });
+
+  it("assembly mode (no group_headers) is UNCHANGED - null keys fall back to 'All constituencies', PENDING_GROUP never appears", () => {
+    const rows: GLeaf[] = [
+      gleaf({ entity_name: "AC-1", district: "Guntur", eci_no: 1 }),
+      gleaf({ entity_name: "AC-2", district: "Krishna", eci_no: 2 }),
+      gleaf({ entity_name: "AC-orphan", eci_no: 3 }), // null pc_group + null district
+    ];
+    const groups = buildGroups(rows, "ballot"); // assembly mode - no headers
+
+    // The both-null leaf still uses the "All constituencies" fallback (NOT
+    // PENDING); groups sort purely by localeCompare; every group is assembly.
+    expect(groups.map((g) => g.group_key)).toEqual(["All constituencies", "Guntur", "Krishna"]);
+    expect(groups.every((g) => g.mode === "assembly")).toBe(true);
+    expect(groups.some((g) => g.group_key === PENDING_GROUP)).toBe(false);
   });
 
   it("PC-mode leaves re-sort by margin when the sort mode flips (shared sortLeaves path)", () => {
