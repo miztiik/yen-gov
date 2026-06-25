@@ -31,7 +31,7 @@ The LGD snapshot lacks `parent_pc_lgd_code` for ~382 live-delim (2008) ACs acros
 
 **Safety - a per-row double-lock.** A gap AC is emitted only when `overlap_frac >= 0.80` AND the winning PC unambiguously beats the runner-up AND one of: (Tier A) the geometry's own seat name matches the electoral seat name, or (Tier B) the AC's state passed the per-state 95% LGD-agreement bar. Vintage-renumbered states (post-2014 AP/TG, post-2023 Assam) fail the number match but pass Tier-A name-lock. Anything satisfying neither lock is LEFT OUT.
 
-**Result.** 316 of 382 gap ACs filled (NULL-parent count `382 -> 66`); the 66 residual stay NULL (section 6). Regenerate with `python -m yen_gov seed-ac-pc-geometric-backfill` (prints the gate + coverage).
+**Result.** 316 of 382 gap ACs filled by the geometric pass (NULL-parent count `382 -> 66`); a logical single-PC-state rule then resolves 4 more (`66 -> 62`, section 6.1); the 62 residual stay NULL (section 6). Regenerate with `python -m yen_gov seed-ac-pc-geometric-backfill` (prints the gate + coverage).
 
 ## 4. Provenance - electoral data always cites ECI
 
@@ -56,15 +56,14 @@ Because the snapshot writer NEVER emits the ECI-keyed rows, **a naive full regen
 
 Before shipping any `electoral.csv` edit, diff it field-by-field against `origin/main` and confirm the change is confined to the intended cells.
 
-## 6. Residual coverage gap (66 ACs) + data needed to close it
+## 6. Residual coverage gap (62 ACs) + data needed to close it
 
-After P0b, 66 of the 382 gap ACs remain NULL. They fall into three buckets:
+After P0b and the single-PC-state rule (section 6.1), 62 of the 382 gap ACs remain NULL. They fall into two buckets:
 
 | Bucket | States (count) | Why geometry cannot resolve them | Data needed to fix |
 | --- | --- | --- | --- |
 | Vintage mismatch | jammu-and-kashmir (13), andhra-pradesh (12), assam (3) | The electoral roster is the 2008 vintage but the seat set changed (J&K post-2022 90-seat re-delimitation; AP post-2014 bifurcation + rename/renumber; Assam post-2023 re-delimitation), so neither the seat number nor the name bridges cleanly. | The matching-vintage ECI Delimitation Order PC->AC composition for that state. |
-| Dense-urban straddle | delhi (13), maharashtra (6), west-bengal (5), uttar-pradesh (4), puducherry (3), gujarat (2), bihar (1), goa (1), jharkhand (1), rajasthan (1) | Metro-core ACs straddle two PCs under the simplified PC boundary, so no PC clears the 0.80 dominant-overlap bar (and Delhi has no LGD fallback at all). | The ECI 2008 Delimitation Order PC-wise AC composition table (de-jure assignment), OR unsimplified PC boundary geometry. |
-| Non-territorial seat | sikkim (1) | The Sangha seat is elected by monasteries state-wide and has no contiguous geography, so spatial containment is undefined. | Manual assignment to the Sikkim PC per the Delimitation Order. |
+| Dense-urban straddle | delhi (13), maharashtra (6), west-bengal (5), uttar-pradesh (4), gujarat (2), bihar (1), goa (1), jharkhand (1), rajasthan (1) | Metro-core ACs straddle two PCs under the simplified PC boundary, so no PC clears the 0.80 dominant-overlap bar (and Delhi has no LGD fallback at all). | The ECI 2008 Delimitation Order PC-wise AC composition table (de-jure assignment), OR unsimplified PC boundary geometry. |
 
 The full residual seat list (for a follow-up pass), by state:
 
@@ -77,15 +76,25 @@ The full residual seat list (for a follow-up pass), by state:
 | west-bengal | 5 | Barrackpur, Bhatpara, Bijpur, Howrah Madhya, Jadavpur |
 | uttar-pradesh | 4 | Allahabad South, Lucknow North, Lucknow West, Sisamau |
 | assam | 3 | Amguri, Patacharkuchi, Thowra |
-| puducherry | 3 | Indira Nagar, Oupalam, Raj Bhavan |
 | gujarat | 2 | Bapunagar, Jamalpur-Khadia |
 | bihar | 1 | Bankipur |
 | goa | 1 | Mormugao |
 | jharkhand | 1 | Jamshedpur West |
 | rajasthan | 1 | Hawamahal |
-| sikkim | 1 | Sangha |
 
-**To close the gap:** acquire the ECI 2008 Delimitation Order PC-wise AC composition (the de-jure table) for the affected states, add the resolved pairs to `ac_pc_geometric_backfill.csv` (or a sibling de-jure crosswalk) with a `match_method` that records the de-jure source, re-run the surgical applier, and confirm the NULL-parent delim-2008 AC count drops below 66. Residuals that still cannot be sourced stay NULL -> "data pending". Never lower the 0.80 overlap bar or the 95% agreement gate to force coverage.
+**To close the gap:** acquire the ECI 2008 Delimitation Order PC-wise AC composition (the de-jure table) for the affected states, add the resolved pairs to `ac_pc_geometric_backfill.csv` (or a sibling de-jure crosswalk) with a `match_method` that records the de-jure source, re-run the surgical applier, and confirm the NULL-parent delim-2008 AC count drops below 62. Residuals that still cannot be sourced stay NULL -> "data pending". Never lower the 0.80 overlap bar or the 95% agreement gate to force coverage.
+
+### 6.1 Autonomous-resolvability analysis (2026-06-25)
+
+Of the original 66 residuals, **4 are resolvable with logical certainty and no geometry**: a state/UT with EXACTLY ONE Parliament constituency means every Assembly seat in it composes that one PC. This `single_pc_state` rule (section 3; `match_method=single_pc_state`, `overlap_frac=1.0`) closes Puducherry's 3 seats (Indira Nagar, Oupalam, Raj Bhavan -> `IN-PC-2008-puducherry-542`) and the non-territorial Sikkim Sangha seat (-> `IN-PC-2008-sikkim-192`), dropping the NULL-parent count `66 -> 62`.
+
+A **centroid / interior-point-in-polygon** method (assign each straddling AC to the PC that contains its `representative_point()`) was evaluated for the remaining 62 and measured at **95.38% agreement** vs the LGD parent on the already-linked ACs - about equal to the area-overlap method, and above the 95% gate. It was nonetheless **REJECTED** for bulk-resolving the residual straddlers, because:
+
+- The error does not spread evenly - it **concentrates on exactly these hard, near-PC-boundary dense-urban seats**, which are precisely the residuals. A 95% aggregate hides a much higher error rate on the specific seats that remain.
+- The per-row name-match lock confirms an AC's **identity** (which seat it is), not its **parent** (which PC it belongs to), so a confident name match gives no assurance the centroid landed in the correct PC.
+- A concrete wrong assignment was found: **BANKIPUR** (central Patna) resolves by centroid to the **Hajipur** PC instead of **Patna Sahib** - a real, citizen-visible error.
+
+Therefore the remaining **62** require the **ECI de-jure PC-wise AC composition** (the 2008 Delimitation Order assignment table) for safe resolution. Geometry alone must not assert them, and lowering the 0.80 overlap bar or the 95% agreement gate to force coverage is forbidden (Holy Law #5 - structural fix, not a band-aid).
 
 ## 7. CLI
 

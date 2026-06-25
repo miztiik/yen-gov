@@ -2667,10 +2667,10 @@ IN-AC-2008-puducherry-4119,Villianur,ac,2008,puducherry,IN-PC-2008-puducherry-54
 IN-AC-2008-puducherry-4120,Yanam,ac,2008,puducherry,IN-PC-2008-puducherry-542,30,,GEN
 IN-AC-2008-puducherry-eci10,KAMARAJ NAGAR,ac,2008,puducherry,IN-PC-2008-puducherry-542,10,,GEN
 IN-AC-2008-puducherry-eci13,MUTHIALPET,ac,2008,puducherry,IN-PC-2008-puducherry-542,13,,GEN
-IN-AC-2008-puducherry-eci14,RAJ BHAVAN,ac,2008,puducherry,,14,,GEN
-IN-AC-2008-puducherry-eci15,OUPALAM,ac,2008,puducherry,,15,,GEN
+IN-AC-2008-puducherry-eci14,RAJ BHAVAN,ac,2008,puducherry,IN-PC-2008-puducherry-542,14,,GEN
+IN-AC-2008-puducherry-eci15,OUPALAM,ac,2008,puducherry,IN-PC-2008-puducherry-542,15,,GEN
 IN-AC-2008-puducherry-eci7,KADIRGAMAM,ac,2008,puducherry,IN-PC-2008-puducherry-542,7,,GEN
-IN-AC-2008-puducherry-eci8,INDIRA NAGAR,ac,2008,puducherry,,8,,GEN
+IN-AC-2008-puducherry-eci8,INDIRA NAGAR,ac,2008,puducherry,IN-PC-2008-puducherry-542,8,,GEN
 IN-AC-2008-punjab-156,Ajnala,ac,2008,punjab,IN-PC-2008-punjab-11,11,,GEN
 IN-AC-2008-punjab-157,Amritsar central,ac,2008,punjab,IN-PC-2008-punjab-11,17,,GEN
 IN-AC-2008-punjab-158,Amritsar East,ac,2008,punjab,IN-PC-2008-punjab-11,18,,GEN
@@ -16757,7 +16757,7 @@ IN-AC-2008-jammu-and-kashmir-eci90,MENDHAR(ST),ac,2008,jammu-and-kashmir,,90,,ST
 IN-AC-2008-odisha-eci12,Rourkela,ac,2008,odisha,IN-PC-2008-odisha-293,12,,GEN
 IN-AC-2008-sikkim-eci25,UPPER TADONG,ac,2008,sikkim,IN-PC-2008-sikkim-192,25,,GEN
 IN-AC-2008-sikkim-eci27,GANGTOK (BL),ac,2008,sikkim,IN-PC-2008-sikkim-192,27,,GEN
-IN-AC-2008-sikkim-eci32,SANGHA,ac,2008,sikkim,,32,,GEN
+IN-AC-2008-sikkim-eci32,SANGHA,ac,2008,sikkim,IN-PC-2008-sikkim-192,32,,GEN
 IN-AC-2008-telangana-eci17,Nizamabad (Urban),ac,2008,telangana,IN-PC-2008-telangana-439,17,,GEN
 IN-AC-2008-telangana-eci22,Dharmapuri,ac,2008,telangana,IN-PC-2008-telangana-441,22,,SC
 IN-AC-2008-telangana-eci56,Tandur,ac,2008,telangana,IN-PC-2008-telangana-417,56,,GEN

@@ -49,6 +49,13 @@ Safety (HARD validation gate + per-row double-lock):
    the whole state). Seats that satisfy neither lock are LEFT OUT (stay NULL ->
    "data pending"), never guessed.
 
+After the geometric pass, a SINGLE-PC-STATE fallback resolves any AC still NULL
+whose state/UT has EXACTLY ONE Parliament constituency: by the 2008 Order every
+Assembly seat in such a state composes that sole PC, so the link is logically
+certain (``match_method="single_pc_state"``, ``overlap_frac=1.0``) and needs no
+geometry. This closes e.g. Puducherry and the non-territorial Sikkim Sangha
+seat. It is driven off the PC-per-state count, never a hardcoded seat list.
+
 This module needs ``shapely>=2.0`` (declared as the ``geo`` optional extra in
 ``backend/pyproject.toml``). It is a BUILD-time generator only; the committed
 pipeline that READS the crosswalk CSV does not import shapely.
@@ -85,6 +92,7 @@ SOURCE_FILE_CLASS = "datasets/data/entities/source.csv"
 TOPOJSON_OBJECT = "ac"
 DELIM_YEAR = 2008
 MATCH_METHOD = "geometric_overlap"
+SINGLE_PC_METHOD = "single_pc_state"
 
 # Defaults for the two safety knobs (overridable from the CLI for diagnosis).
 DEFAULT_MIN_AGREEMENT = 0.95  # GATE: geometric-vs-LGD agreement on filled ACs
@@ -125,6 +133,7 @@ class BackfillResult:
     per_state_agreement: dict[str, tuple[int, int]] = field(default_factory=dict)
     name_confirmed_rate: float = 0.0
     emitted: int = 0
+    single_pc: int = 0
     residual: int = 0
     gap_total: int = 0
     emitted_per_state: dict[str, int] = field(default_factory=dict)
@@ -247,6 +256,7 @@ class _ElectoralIndex:
     ac_key_dups: set[tuple[str, str]]
     pc_by_key: dict[tuple[str, str], str]  # (slug, eci_no) -> pc entity_id
     pc_eci_of: dict[str, str]  # pc entity_id -> eci_no
+    pc_ids_by_state: dict[str, list[str]]  # state slug -> pc entity_ids
     ac_null: set[str]  # NULL-parent gap AC entity_ids
     ac_parent: dict[str, str]  # filled AC entity_id -> LGD parent pc entity_id
     name_norm: dict[str, str]  # AC entity_id -> normalised name
@@ -281,9 +291,11 @@ def _load_electoral(electoral_csv: Path) -> _ElectoralIndex:
 
     pc_by_key: dict[tuple[str, str], str] = {}
     pc_eci_of: dict[str, str] = {}
+    pc_ids_by_state: dict[str, list[str]] = defaultdict(list)
     for r in pc_rows:
         eci = (r.get("eci_no") or "").strip()
         pc_eci_of[r["entity_id"]] = eci
+        pc_ids_by_state[r["state"]].append(r["entity_id"])
         if eci:
             pc_by_key[(r["state"], eci)] = r["entity_id"]
 
@@ -292,6 +304,7 @@ def _load_electoral(electoral_csv: Path) -> _ElectoralIndex:
         ac_key_dups=ac_key_dups,
         pc_by_key=pc_by_key,
         pc_eci_of=pc_eci_of,
+        pc_ids_by_state=dict(pc_ids_by_state),
         ac_null=ac_null,
         ac_parent=ac_parent,
         name_norm=name_norm,
@@ -559,6 +572,39 @@ def generate(
             }
         )
 
+    # --- single-PC-state fallback (logical certainty; NO geometry).
+    # A state/UT with EXACTLY ONE Parliament constituency means every Assembly
+    # seat in it composes that one PC (2008 Delimitation Order). So any AC still
+    # NULL after the geometric pass whose state has a single PC resolves to that
+    # PC with certainty - overlap_frac is definitionally 1.0. Driven off the
+    # PC-per-state count, never a hardcoded seat list, so it generalises to
+    # every single-PC state/UT (Puducherry, Sikkim, Mizoram, Nagaland, ...).
+    single_pc_by_state = {
+        slug: pcs[0] for slug, pcs in idx.pc_ids_by_state.items() if len(pcs) == 1
+    }
+    geometric_emitted = {r["ac_entity_id"] for r in rows}
+    single_pc_count = 0
+    for ac_id in sorted(idx.ac_null):
+        if ac_id in geometric_emitted:
+            continue
+        pc_id = single_pc_by_state.get(idx.state_of.get(ac_id, ""))
+        if pc_id is None:
+            continue
+        eci = idx.pc_eci_of.get(pc_id)
+        if not eci:
+            continue
+        rows.append(
+            {
+                "ac_entity_id": ac_id,
+                "parent_pc_entity_id": pc_id,
+                "parent_pc_eci_no": int(eci),
+                "match_method": SINGLE_PC_METHOD,
+                "overlap_frac": 1.0,
+                "source_id": source_id,
+            }
+        )
+        single_pc_count += 1
+
     emitted_ids = {r["ac_entity_id"] for r in rows}
     residual = idx.ac_null - emitted_ids
     emitted_per_state: dict[str, int] = defaultdict(int)
@@ -593,6 +639,7 @@ def generate(
         per_state_agreement=per_state,
         name_confirmed_rate=name_confirmed_rate,
         emitted=len(rows),
+        single_pc=single_pc_count,
         residual=len(residual),
         gap_total=len(idx.ac_null),
         emitted_per_state=dict(emitted_per_state),

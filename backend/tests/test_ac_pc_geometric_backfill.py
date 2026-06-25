@@ -18,7 +18,8 @@ crosswalk CSV:
 - every ``parent_pc_entity_id`` is a PC entity;
 - no already-parented AC is ever emitted;
 - ``overlap_frac >= 0.80`` on every emitted row;
-- ``match_method`` is the single closed value ``geometric_overlap``;
+- ``match_method`` is a closed enum value (``geometric_overlap`` or
+  ``single_pc_state``);
 - ``source_id`` is non-empty and present in the cited ``source.csv``;
 - the emitted CSV passes the real column/FK contract validator.
 
@@ -197,8 +198,8 @@ def test_gate_passes_and_crosswalk_invariants_hold(tmp_path: Path) -> None:
         assert row["parent_pc_entity_id"] in PC_IDS
         # invariant 4: dominant overlap clears the 0.80 floor.
         assert float(row["overlap_frac"]) >= 0.80
-        # invariant: match_method is the single closed value.
-        assert row["match_method"] == "geometric_overlap"
+        # invariant: match_method is a closed enum value.
+        assert row["match_method"] in {"geometric_overlap", "single_pc_state"}
         # invariant 5: source_id is non-empty and cited in source.csv.
         assert row["source_id"] and row["source_id"] in source_ids
 
@@ -291,3 +292,109 @@ def test_low_agreement_gate_stops_and_writes_nothing(tmp_path: Path) -> None:
     assert result.out_path is None
     # Nothing was written: the crosswalk file must not exist.
     assert not (root / backfill.OUT_REL).exists()
+
+
+# ---------------------------------------------------------------------------
+# Single-PC-state fallback: a NULL AC in a state/UT with EXACTLY ONE PC resolves
+# to that sole PC by logical certainty (no geometry); overlap_frac == 1.0.
+# ---------------------------------------------------------------------------
+def _stage_single_pc_repo(tmp_path: Path) -> Path:
+    """A minimal repo with ONE single-PC state: a geometry-bridged FILLED AC (so
+    the LGD-agreement gate opens) and a geometry-less NULL AC (so it can only be
+    resolved by the single-PC-state fallback, never by the spatial join)."""
+    entities = tmp_path / "datasets" / "data" / "entities"
+    entities.mkdir(parents=True)
+    ac_dir = tmp_path / "datasets" / "boundaries" / "electoral" / "delim=2024" / "ac"
+    pc_dir = tmp_path / "datasets" / "boundaries" / "electoral" / "delim=2024" / "pc"
+    ac_dir.mkdir(parents=True)
+    pc_dir.mkdir(parents=True)
+
+    (entities / "geo.csv").write_text(
+        "entity_id,name,parent,entity_kind,aliases,census_2001_code,census_2011_code\n"
+        "solostate,Solostate,IN,ut,S09,,\n",
+        encoding="utf-8",
+    )
+    (entities / "source.csv").write_text(
+        "source_id,producer,title,vintage,url\n", encoding="utf-8"
+    )
+    # one PC (eci 1); one FILLED AC (eci 11, parent = the PC); one NULL AC (eci 21).
+    (entities / "electoral.csv").write_text(
+        "entity_id,name,entity_kind,delim_year,state,parent,eci_no,aliases,reservation\n"
+        "IN-PC-2008-solostate-901,SoloPc,pc,2008,solostate,,1,,GEN\n"
+        "IN-AC-2008-solostate-101,SoloFilled,ac,2008,solostate,IN-PC-2008-solostate-901,11,,GEN\n"
+        "IN-AC-2008-solostate-eci21,SoloGap,ac,2008,solostate,,21,,GEN\n",
+        encoding="utf-8",
+    )
+    # AC TopoJSON: ONLY the filled AC has geometry (a square inside the PC); the
+    # gap AC is deliberately absent so it cannot resolve via the spatial join.
+    (ac_dir / "all.topojson").write_text(
+        json.dumps(
+            {
+                "type": "Topology",
+                "objects": {
+                    "ac": {
+                        "type": "GeometryCollection",
+                        "geometries": [
+                            {
+                                "type": "Polygon",
+                                "arcs": [[0]],
+                                "properties": {
+                                    "state_ut_code": "S09",
+                                    "ac_no": 11,
+                                    "ac_name": "SoloFilled",
+                                },
+                            }
+                        ],
+                    }
+                },
+                "arcs": [[[0, 0], [5, 0], [5, 5], [0, 5], [0, 0]]],
+            }
+        ),
+        encoding="utf-8",
+    )
+    # PC GeoJSON: one big square that fully contains the filled AC.
+    (pc_dir / "all.geojson").write_text(
+        json.dumps(
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "properties": {"unique_id": "S09_1"},
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [[[0, 0], [10, 0], [10, 10], [0, 10], [0, 0]]],
+                        },
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    return tmp_path
+
+
+def test_single_pc_state_fallback_resolves_sole_pc(tmp_path: Path) -> None:
+    root = _stage_single_pc_repo(tmp_path)
+    result = backfill.generate(repo_root=root, write=True)
+
+    assert result.status == "ok"  # the one filled AC opens the agreement gate
+    assert result.single_pc == 1
+    assert result.emitted == 1  # zero geometric rows; exactly one single-PC row
+    assert result.residual == 0
+
+    rows = _read_rows(root / backfill.OUT_REL)
+    assert len(rows) == 1
+    row = rows[0]
+    assert row["ac_entity_id"] == "IN-AC-2008-solostate-eci21"
+    assert row["parent_pc_entity_id"] == "IN-PC-2008-solostate-901"
+    assert row["match_method"] == "single_pc_state"
+    assert float(row["overlap_frac"]) == 1.0
+    assert int(row["parent_pc_eci_no"]) == 1
+
+    # the single-PC row closes the column + FK + enum contract too.
+    validate_csv(
+        path=root / backfill.OUT_REL,
+        file_class=backfill.FILE_CLASS,
+        repo_root=root,
+    )
