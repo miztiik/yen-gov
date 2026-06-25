@@ -983,6 +983,51 @@ def seed_ac_pc_geometric_backfill(
         )
 
 
+@app.command("apply-ac-pc-geometric-backfill")
+def apply_ac_pc_geometric_backfill(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Surgically write the P0b geometric crosswalk parents into electoral.csv (P0b).
+
+    The committed electoral.csv is a historical multi-source artifact (LGD
+    snapshot base + a retired legacy backfill of the ECI-keyed gap ACs), so a
+    full snapshot regen would DROP the gap rows. This command instead reads the
+    crosswalk `datasets/data/entities/ac_pc_geometric_backfill.csv` and sets
+    `parent` for exactly its ACs whose parent is currently empty, preserving
+    every other byte (LGD-first, crosswalk-second, NULL-last). Idempotent.
+    """
+    from yen_gov.canonical.seed.apply_ac_pc_backfill import (
+        CROSSWALK_FILENAME,
+        ELECTORAL_FILENAME,
+        apply_backfill,
+    )
+
+    entities = root.resolve() / "datasets" / "data" / "entities"
+    result = apply_backfill(
+        electoral_csv=entities / ELECTORAL_FILENAME,
+        crosswalk_csv=entities / CROSSWALK_FILENAME,
+    )
+    typer.echo(
+        "apply-ac-pc-geometric-backfill: filled "
+        f"{result.filled} AC parents from the crosswalk "
+        f"(already linked {result.already_linked}; "
+        f"crosswalk {result.crosswalk_rows} rows)"
+    )
+    if result.missing:
+        typer.echo(
+            f"  WARNING: {len(result.missing)} crosswalk ac_entity_id absent "
+            f"from electoral.csv: {', '.join(result.missing[:10])}"
+        )
+
+
 def _read_long_csv(path: Path) -> list[dict[str, object]]:
     """Read a 4-column long-format CSV (entity_id, time, value, source_id).
 
