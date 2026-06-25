@@ -229,17 +229,20 @@ def test_emitted_crosswalk_passes_contract_validator(tmp_path: Path) -> None:
     )
 
 
-def test_provenance_row_is_yen_gov_derived(tmp_path: Path) -> None:
+def test_provenance_row_cites_eci_delimitation(tmp_path: Path) -> None:
     root = _stage_repo(tmp_path)
     result = backfill.generate(repo_root=root, write=True)
 
     by_id = {r["source_id"]: r for r in _read_rows(root / backfill.SOURCE_REL)}
     assert result.source_id in by_id
     row = by_id[result.source_id]
-    assert row["producer"] == "yen-gov"
-    # The title honestly discloses the two in-repo boundary layers it joins.
-    assert "Assembly" in row["title"] and "PC" in row["title"]
-    assert row["vintage"] == "2008-delimitation"
+    # Public-facing electoral data always cites ECI. The AC->PC linkage is a
+    # de-jure delimitation fact whose authority is the ECI 2008 Delimitation
+    # Order; the geometric join is the recovery METHOD (disclosed per-row via
+    # match_method + overlap_frac), not the origin.
+    assert row["producer"] == "Election Commission of India"
+    assert "Delimitation" in row["title"] and "2008" in row["title"]
+    assert row["vintage"] == "2008"
 
 
 # ---------------------------------------------------------------------------

@@ -91,18 +91,18 @@ DEFAULT_MIN_AGREEMENT = 0.95  # GATE: geometric-vs-LGD agreement on filled ACs
 DEFAULT_MIN_OVERLAP = 0.80  # per-row: winning PC must cover >= 80% of the AC
 DEFAULT_MIN_STATE_FILLED = 20  # Tier-B state-trust needs this many filled ACs
 
-# Provenance triple for the derived crosswalk (Holy Law #9 / section 12). The
-# crosswalk is a yen-gov geometric INFERENCE from the two in-repo boundary
-# layers - neither boundary publisher (ramSeraph AC src-a1dd899f902d, shijithpk
-# PC src-2af556fe59e0) published the AC->PC linkage, so attributing it to them
-# would be dishonest; producer is yen-gov, the title discloses both inputs +
-# the method, vintage is the delimitation the linkage encodes.
-SOURCE_PRODUCER = "yen-gov"
-SOURCE_TITLE = (
-    "Geometric AC-to-PC parent overlay (in-repo spatial join of ramSeraph "
-    "LGD-keyed Assembly boundaries + shijithpk Lok Sabha PC boundaries)"
-)
-SOURCE_VINTAGE = "2008-delimitation"
+# Provenance triple for the backfilled AC->PC parent link (Holy Law #9 /
+# section 12). The linkage - which Assembly seat composes which Parliament seat
+# - is a DELIMITATION fact whose de-jure authority is the Election Commission of
+# India's 2008 Delimitation Order. Per the project rule that public-facing
+# electoral data always cites ECI (see
+# docs/architecture/data/electoral-constituency-linkage.md), the source IS that
+# Order - NOT the boundary publishers and NOT yen-gov. The in-repo geometric
+# spatial join is the RECOVERY METHOD, not the origin; it is disclosed per-row
+# via match_method="geometric_overlap" + overlap_frac and in the doc above.
+SOURCE_PRODUCER = "Election Commission of India"
+SOURCE_TITLE = "Delimitation of Parliamentary and Assembly Constituencies Order, 2008"
+SOURCE_VINTAGE = "2008"
 SOURCE_URL = ""
 
 _ECI_CODE_RE = re.compile(r"^[SU]\d{2}$")

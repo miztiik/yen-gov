@@ -1,6 +1,6 @@
 # How to ship a PR
 
-**Last Updated**: 2026-05-30
+**Last Updated**: 2026-06-25
 
 The end-to-end runbook for taking a worker branch from "ready to commit" to "merged + cleaned up". Covers the 2-commit-then-squash pattern, the 5-gate Definition of Done, and the post-merge cleanup that closes the loop. This is the procedural counterpart to [CLAUDE.md](../../CLAUDE.md) §8 (Git Hygiene) + §9 (Definition of Done) + §13 (UI Verification).
 
@@ -130,12 +130,15 @@ For any change touching `frontend/` or `admin/` runtime. Open the affected route
 ## Merge
 
 ```powershell
+# Preferred - arm auto-merge and move on (merges once required checks pass):
+gh pr merge NNN --auto --squash --delete-branch
+# Or merge immediately when the checks are already green:
 gh pr merge NNN --squash --delete-branch
 ```
 
 Both commits squash to one entry on `main`. The merged-to-main commit contains the correct `PR #NNN` reference inline.
 
-**Do NOT use `--auto`** in this repo: `enablePullRequestAutoMerge` is not enabled until repo settings turn it on, and `--auto` will return a GraphQL error. Use plain `--squash --delete-branch`.
+**Auto-merge IS enabled in this repo.** `--auto` arms the merge: GitHub completes the squash + branch delete server-side once the required checks (vitest + build citizen site + pytest) pass, so you can fire-and-forget and start the next row without watching CI. (Historical note, superseded 2026-06: `enablePullRequestAutoMerge` was off before mid-2026 and older guidance said to avoid `--auto`; it now works - verified across the 2026-06-25 constituency-redesign batch of 10 PRs.) Because `--auto` merges server-side, it also sidesteps the multi-worktree cosmetic error in the Pre-flight table (gh never runs its local `git switch main` cleanup).
 
 ## Post-merge cleanup
 

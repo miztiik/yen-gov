@@ -4,6 +4,8 @@
 **Level**: 4 (structural; crosses `frontend/` + `backend/`/`datasets/`; rip-and-replace of the shared constituency-list renderer plus a data backfill)
 **Supersedes UI of**: [TODO/20260622-election-constituency-grouping-plan.md](20260622-election-constituency-grouping-plan.md) (Row 2/3 grouping; this plan rips its flex layout and replaces it with a CSS subgrid).
 
+**Status**: COMPLETE + DISTILLED (2026-06-25). All 10 PRs merged (UI R1-R6 = #1227-#1232 + stamp #1233; data P0a #1234 + P0b #1235 + stamp #1236). Durable findings distilled per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md) to [docs/architecture/data/electoral-constituency-linkage.md](../docs/architecture/data/electoral-constituency-linkage.md) - the geometric backfill method + caveats, the `electoral.csv` multi-source / surgical-application engineering notes, the "public-facing electoral data always cites ECI" provenance rule, and the enumerated 66-AC residual coverage table; agent execution lessons to `/memories/lessons-2026-06-25-yen-gov-constituency-orchestration.md`. Open follow-up: close the residual 66 ACs from the ECI 2008 Delimitation Order PC-wise AC composition (see the coverage table in the linkage doc). Sections below are the per-PR audit ledger.
+
 ---
 
 ## Section 0 - Operating contract
