@@ -1101,8 +1101,8 @@ IN-AC-2008-gujarat-2867,Pardi,ac,2008,gujarat,IN-PC-2008-gujarat-359,180,,GEN
 IN-AC-2008-gujarat-2868,Umbergaon,ac,2008,gujarat,IN-PC-2008-gujarat-359,182,,GEN
 IN-AC-2008-gujarat-2869,Valsad,ac,2008,gujarat,IN-PC-2008-gujarat-359,179,,GEN
 IN-AC-2008-gujarat-2870,Vansda,ac,2008,gujarat,IN-PC-2008-gujarat-359,177,,GEN
-IN-AC-2008-gujarat-eci49,BAPUNAGAR,ac,2008,gujarat,,49,,GEN
-IN-AC-2008-gujarat-eci52,JAMALPUR-KHADIA,ac,2008,gujarat,,52,,GEN
+IN-AC-2008-gujarat-eci49,BAPUNAGAR,ac,2008,gujarat,IN-PC-2008-gujarat-334,49,,GEN
+IN-AC-2008-gujarat-eci52,JAMALPUR-KHADIA,ac,2008,gujarat,IN-PC-2008-gujarat-335,52,,GEN
 IN-AC-2008-gujarat-eci68,RAJKOT EAST,ac,2008,gujarat,IN-PC-2008-gujarat-354,68,,GEN
 IN-AC-2008-gujarat-eci79,JAMNAGAR SOUTH,ac,2008,gujarat,IN-PC-2008-gujarat-345,79,,GEN
 IN-AC-2008-haryana-344,Ambala Cantt.,ac,2008,haryana,IN-PC-2008-haryana-30,4,,GEN
@@ -16741,19 +16741,19 @@ IN-AC-2008-maharashtra-eci187,COLABA,ac,2008,maharashtra,IN-PC-2008-maharashtra-
 IN-AC-2008-maharashtra-eci212,PARVATI,ac,2008,maharashtra,IN-PC-2008-maharashtra-397,212,,GEN
 IN-AC-2008-maharashtra-eci215,KASBA PETH,ac,2008,maharashtra,IN-PC-2008-maharashtra-397,215,,GEN
 IN-AC-2008-maharashtra-eci249,SOLAPUR CITY CENTRAL,ac,2008,maharashtra,IN-PC-2008-maharashtra-406,249,,GEN
-IN-AC-2008-jammu-and-kashmir-eci18,GANDERBAL,ac,2008,jammu-and-kashmir,,18,,GEN
-IN-AC-2008-jammu-and-kashmir-eci19,HAZRATBAL,ac,2008,jammu-and-kashmir,,19,,GEN
-IN-AC-2008-jammu-and-kashmir-eci21,HABBAKADAL,ac,2008,jammu-and-kashmir,,21,,GEN
-IN-AC-2008-jammu-and-kashmir-eci23,CHANNAPORA,ac,2008,jammu-and-kashmir,,23,,GEN
-IN-AC-2008-jammu-and-kashmir-eci47,PAHALGAM,ac,2008,jammu-and-kashmir,,47,,GEN
-IN-AC-2008-jammu-and-kashmir-eci48,INDERWAL,ac,2008,jammu-and-kashmir,,48,,GEN
-IN-AC-2008-jammu-and-kashmir-eci49,KISHTWAR,ac,2008,jammu-and-kashmir,,49,,GEN
-IN-AC-2008-jammu-and-kashmir-eci50,PADDER - NAGSENI,ac,2008,jammu-and-kashmir,,50,,GEN
-IN-AC-2008-jammu-and-kashmir-eci72,BISHNAH(SC),ac,2008,jammu-and-kashmir,,72,,SC
-IN-AC-2008-jammu-and-kashmir-eci73,SUCHETGARH(SC),ac,2008,jammu-and-kashmir,,73,,SC
-IN-AC-2008-jammu-and-kashmir-eci88,SURANKOTE(ST),ac,2008,jammu-and-kashmir,,88,,ST
-IN-AC-2008-jammu-and-kashmir-eci89,POONCH HAVELI,ac,2008,jammu-and-kashmir,,89,,GEN
-IN-AC-2008-jammu-and-kashmir-eci90,MENDHAR(ST),ac,2008,jammu-and-kashmir,,90,,ST
+IN-AC-2008-jammu-and-kashmir-eci18,GANDERBAL,ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-5,18,,GEN
+IN-AC-2008-jammu-and-kashmir-eci19,HAZRATBAL,ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-5,19,,GEN
+IN-AC-2008-jammu-and-kashmir-eci21,HABBAKADAL,ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-5,21,,GEN
+IN-AC-2008-jammu-and-kashmir-eci23,CHANNAPORA,ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-5,23,,GEN
+IN-AC-2008-jammu-and-kashmir-eci47,PAHALGAM,ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-1,47,,GEN
+IN-AC-2008-jammu-and-kashmir-eci48,INDERWAL,ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-6,48,,GEN
+IN-AC-2008-jammu-and-kashmir-eci49,KISHTWAR,ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-6,49,,GEN
+IN-AC-2008-jammu-and-kashmir-eci50,PADDER - NAGSENI,ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-6,50,,GEN
+IN-AC-2008-jammu-and-kashmir-eci72,BISHNAH(SC),ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-3,72,,SC
+IN-AC-2008-jammu-and-kashmir-eci73,SUCHETGARH(SC),ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-3,73,,SC
+IN-AC-2008-jammu-and-kashmir-eci88,SURANKOTE(ST),ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-1,88,,ST
+IN-AC-2008-jammu-and-kashmir-eci89,POONCH HAVELI,ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-1,89,,GEN
+IN-AC-2008-jammu-and-kashmir-eci90,MENDHAR(ST),ac,2008,jammu-and-kashmir,IN-PC-2008-jammu-and-kashmir-1,90,,ST
 IN-AC-2008-odisha-eci12,Rourkela,ac,2008,odisha,IN-PC-2008-odisha-293,12,,GEN
 IN-AC-2008-sikkim-eci25,UPPER TADONG,ac,2008,sikkim,IN-PC-2008-sikkim-192,25,,GEN
 IN-AC-2008-sikkim-eci27,GANGTOK (BL),ac,2008,sikkim,IN-PC-2008-sikkim-192,27,,GEN
