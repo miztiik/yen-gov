@@ -130,13 +130,13 @@ Rows are PRs. Status starts `[ ] PENDING`, flips to `[x] DONE` with the merged P
 
 | Row | Title | Status | PR | Effort |
 | - | - | - | - | - |
-| 1 | Fixed card: rewrite `renderTooltipCard` (bar, grain, margin bands, candidate, click-to-view, disc fallback) | [ ] PENDING | - | M |
-| 2 | `HoverCardShell` + pure `hover-card-position` helper (fixed size + viewport edge-flip) | [ ] PENDING | - | M |
-| 3 | Adopt shell in the 3 d3 maps; drop number; pass grain + parentLabel + accent | [ ] PENDING | - | M |
-| 4 | Adopt shell in `TileCartogram` chrome only (buildTileRows untouched) | [ ] PENDING | - | S |
-| 5 | Switch `buildTileRows` -> `renderTooltipCard`; retire "Winner:/Margin:" asserts | [ ] PENDING | - | M |
-| 6 | Hex SVG: remove label halo + promote `S` / `height` to knobs | [ ] PENDING | - | S |
-| 7 | Non-drift guard contract test | [ ] PENDING | - | S |
+| 1 | Fixed card: rewrite `renderTooltipCard` (bar, grain, margin bands, candidate, click-to-view, disc fallback) | [x] DONE | #1244 | M |
+| 2 | `HoverCardShell` + pure `hover-card-position` helper (fixed size + viewport edge-flip) | [x] DONE | #1243 | M |
+| 3 | Adopt shell in the 3 d3 maps; drop number; pass grain + parentLabel + accent | [x] DONE | #1246 | M |
+| 4 | Adopt shell in `TileCartogram` chrome only (buildTileRows untouched) | [x] DONE | #1245 | S |
+| 5 | Switch `buildTileRows` -> `renderTooltipCard`; retire "Winner:/Margin:" asserts | [x] DONE | #1248 | M |
+| 6 | Hex SVG: remove label halo + promote `S` / `height` to knobs | [x] DONE | #1247 | S |
+| 7 | Non-drift guard contract test | [x] DONE | #1249 | S |
 
 ### Section 1.1 - Parallel wave schedule (dependency DAG)
 
@@ -237,6 +237,24 @@ When this plan is in context and the instruction is "implement it", execute as t
 ### Wave dispatch for this plan (parallel)
 
 Per section 1.1: dispatch Wave 1 {Row 1, Row 2} concurrently; on both merged, dispatch Wave 2 {Row 3, Row 4}; then Wave 3 {Row 5, Row 6}; then Wave 4 {Row 7}. Within a wave the rows touch disjoint files, so concurrent subagent PRs do not conflict. Rebase each next-wave branch onto the advancing `main` before its gates.
+
+---
+
+## Plan complete
+
+Closed 2026-06-25. All 7 rows merged to `main` via the parallel wave schedule (4 waves, worktree-per-subagent, auto-merge). Distillation map:
+
+- Row 1 (fixed card renderer) -> PR #1244. The design contract (R-A..R-J, section 0.1) + the renderer `frontend/src/lib/boundaries/tooltip-card.ts` are the live source of truth.
+- Row 2 (HoverCardShell + pure position helper) -> PR #1243.
+- Row 3 (3 d3 maps adopt the shell; leading number dropped; grain chip) -> PR #1246.
+- Row 4 (TileCartogram chrome swap, content-neutral) -> PR #1245.
+- Row 5 (hex tooltip -> shared card) -> PR #1248. FOLLOW-UP: `parentLabel` is omitted on the hex card (optional field renders a blank parent-state line); wiring a sync state-code->name lookup is a future minor row.
+- Row 6 (hex labels halo-free + size knob) -> PR #1247. Default cartogram `height` 520->960; `NationalElection.svelte` mount bumped to 960.
+- Row 7 (non-drift single-source guard) -> PR #1249. `frontend/src/contracts/tooltip-card-single-source.contract.test.ts` fences the card to one renderer + one chrome.
+
+Agent-craft lessons (parallel bun-cache contention; subagent stall on slow bun install/build; `bun x vitest` cwd mis-resolution; worktree-per-subagent isolation) distilled to `/memories/`. The hover-card design contract (section 0.1) remains here as the audit ledger.
+
+Plan-doc remains as the audit ledger; do not edit further. New work starts a new plan-doc.
 
 ---
 
