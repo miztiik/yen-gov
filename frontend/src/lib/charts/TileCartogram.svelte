@@ -34,6 +34,7 @@
     type HighlightMode,
     type MinMargin,
   } from "./map-highlight-utils";
+  import HoverCardShell from "./HoverCardShell.svelte";
 
   interface LegendEntry {
     label: string;
@@ -324,13 +325,13 @@
   </svg>
 
   {#if tip}
-    <div
-      class="pointer-events-none absolute z-10 rounded bg-white px-2 py-1 text-xs shadow-lg ring-1 ring-slate-200"
-      style:left={`${tip.x + 12}px`}
-      style:top={`${tip.y + 12}px`}
-    >
-      {@html tip.html}
-    </div>
+    <HoverCardShell
+      x={tip.x}
+      y={tip.y}
+      html={tip.html}
+      containerW={host?.clientWidth ?? 0}
+      containerH={host?.clientHeight ?? 0}
+    />
   {/if}
 
   {#if legend.length > 0}
