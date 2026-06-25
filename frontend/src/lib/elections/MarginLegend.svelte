@@ -27,8 +27,14 @@
      *  provided, the legend shows one swatch per band labelled with its real pp
      *  range; when omitted it falls back to the fixed illustrative bands. */
     bands?: MarginBands;
+    /** When true, prepend a single one-time hint line introducing the
+     *  Parliament-seat -> Assembly-seat -> District nesting used by the
+     *  national + state constituency lists. Mounted ONCE above a list (never
+     *  per row); every MAP call site omits it (default false) so the map
+     *  legends are unchanged. */
+    nesting_hint?: boolean;
   }
-  let { class: klass = "", bands }: Props = $props();
+  let { class: klass = "", bands, nesting_hint = false }: Props = $props();
 
   const stops = $derived(
     bands ? marginBandLegendStops(bands) : marginLegendStops(),
@@ -36,6 +42,17 @@
 </script>
 
 <div class="space-y-1 {klass}" data-testid="margin-legend">
+  {#if nesting_hint}
+    <!-- One-time hierarchy hint (D3/D10): the ONLY place the Parliament-seat
+         -> Assembly-seat -> District nesting is spelled out, paired once. No
+         per-row PC/AC tags anywhere else. -->
+    <p
+      class="text-xs font-medium text-slate-600"
+      data-testid="margin-legend-nesting-hint"
+    >
+      Parliament seats hold Assembly seats, grouped by District.
+    </p>
+  {/if}
   <p class="text-xs text-slate-500">
     Each seat shows its winning party's colour; deeper = safer seat, pale = won
     by a whisker.{bands

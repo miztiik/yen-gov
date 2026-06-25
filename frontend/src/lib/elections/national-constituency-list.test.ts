@@ -13,6 +13,9 @@
 
 import { describe, it, expect } from "vitest";
 
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
 import {
   buildNationalStateGroups,
   buildPcGrouping,
@@ -174,5 +177,86 @@ describe("filterNationalBranches", () => {
   it("a non-matching query hides every branch", () => {
     const out = filterNationalBranches(BRANCHES, "zzz-no-such-seat", "All");
     expect(out).toEqual([]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Row 4 (TODO/20260625-election-constituency-list-redesign-plan.md) STRUCTURAL
+// oracle. The project does NOT install `@testing-library/svelte` (node-env
+// vitest, no Svelte mount), so the rendered-markup oracle is asserted against
+// the route + component SOURCE (the readFileSync precedent used by
+// StateEventConstituencyList.test.ts). HTML comments are stripped first so the
+// descriptive "the old floating rail is GONE" prose in the source comments can
+// never satisfy an absence assertion. The rail assertions are scoped to the
+// state-accordion region (from the `{#each nat_branches}` loop onward); the
+// sticky search/filter TOOLBAR above it legitimately keeps its own
+// `flex ... justify-between` chrome and is out of scope for the rip.
+// ---------------------------------------------------------------------------
+
+const NATIONAL_SRC = readFileSync(
+  resolve(__dirname, "../../routes/NationalElection.svelte"),
+  "utf8",
+);
+
+const MARGIN_LEGEND_SRC = readFileSync(
+  resolve(__dirname, "./MarginLegend.svelte"),
+  "utf8",
+);
+
+// Everything from the rail's shared-ruler <ul> to the end of the file = the R4
+// rail render, with HTML comments removed (so the descriptive prose in the
+// source comments can't satisfy an absence assertion).
+const RAIL_SRC = NATIONAL_SRC.slice(
+  NATIONAL_SRC.indexOf("grid ${GRID_COLS}"),
+).replace(/<!--[\s\S]*?-->/g, "");
+
+describe("NationalElection state rail - R4 shared-ruler subgrid render", () => {
+  it("ORACLE: the state rail rides the SHARED GRID_COLS ruler as subgrid rows", () => {
+    // The parent <ul> consumes the R2 token (never a re-hardcoded template),
+    // and the state <li> + toggle <button> are grid-cols-subgrid rows so they
+    // align track-for-track with the embedded PC/AC list.
+    expect(RAIL_SRC).toContain("grid ${GRID_COLS}");
+    expect(RAIL_SRC).toContain("grid-cols-subgrid");
+  });
+
+  it("ORACLE: the rail copy is EXPLICIT - '{n} Parliament seats' + '{won} of {total}'", () => {
+    // Parliament-seat count (NOT a bare "N seats") + "won of total" (NOT the
+    // old "won/total" leader_label form).
+    expect(RAIL_SRC).toContain("Parliament seats");
+    expect(RAIL_SRC).toContain("{strip.leader_count} of {strip.total}");
+  });
+
+  it("ORACLE: the old floating `flex justify-between` rail is GONE", () => {
+    // The max-w-[55%] / min-w-[60px] floating bar + the "/"-form leader_label
+    // are deleted; no justify-between survives in the rail render.
+    expect(RAIL_SRC).not.toContain("justify-between");
+    expect(RAIL_SRC).not.toContain("min-w-[60px]");
+    expect(RAIL_SRC).not.toContain("max-w-[55%]");
+    expect(RAIL_SRC).not.toContain("leader_label");
+  });
+
+  it("ORACLE: a heavier between-state divider + a tinted open state panel", () => {
+    // The state <ul> divider is darker than the in-list hairline; the open
+    // state panel is tinted bg-slate-50.
+    expect(RAIL_SRC).toContain("divide-slate-300");
+    expect(RAIL_SRC).toContain("bg-slate-50 pl-2 pb-3");
+  });
+
+  it("ORACLE: the one-time nesting hint mounts ONCE above the list (not per state)", () => {
+    // The hint is mounted via MarginLegend with the nesting_hint flag, and it
+    // sits OUTSIDE the per-state {#each} loop (so exactly once, never per row).
+    const mountIdx = NATIONAL_SRC.indexOf("nesting_hint={true}");
+    const eachIdx = NATIONAL_SRC.indexOf("{#each nat_branches as branch");
+    expect(mountIdx).toBeGreaterThan(-1);
+    expect(mountIdx).toBeLessThan(eachIdx);
+  });
+
+  it("ORACLE: MarginLegend renders the paired Parliament/Assembly nesting line", () => {
+    // The ONE place the seat hierarchy is spelled out (paired, once); no
+    // per-row PC/AC tags anywhere else.
+    expect(MARGIN_LEGEND_SRC).toContain(
+      "Parliament seats hold Assembly seats, grouped by District.",
+    );
+    expect(MARGIN_LEGEND_SRC).toContain("nesting_hint");
   });
 });

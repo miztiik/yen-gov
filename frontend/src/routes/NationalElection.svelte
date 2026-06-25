@@ -122,6 +122,7 @@
   } from "../lib/elections/constituency-district-loader";
   import {
     buildPartyStrip,
+    GRID_COLS,
     type GroupHeaderResult,
     type PartyStrip,
     type ReservationKind,
@@ -1499,6 +1500,12 @@
             data-testid="national-event-constituency-loading"
           >Loading constituencies...</p>
         {:else}
+          <!-- R4 one-time top hint (D3/D10): the shared RdYlBu margin legend
+               (it explains the margin bars in every PC header) PLUS a single
+               line introducing the Parliament-seat -> Assembly-seat ->
+               District nesting. Mounted ONCE here, above the list and never
+               per state - the only place the seat hierarchy is spelled out. -->
+          <MarginLegend nesting_hint={true} class="pb-1" />
           <!-- Sticky national controls: ONE search (magnifier glyph) + ONE
                Reserved filter across every state. -->
           <div
@@ -1558,57 +1565,88 @@
               <code class="rounded bg-slate-100 px-1">{nat_search_q}</code>.
             </p>
           {:else}
-            <ul class="divide-y border-y">
+            <!-- R4 (TODO/20260625-election-constituency-list-redesign-plan.md):
+                 the state rail rides the SAME 6-track GRID_COLS ruler as the
+                 embedded PC/AC list, so each state row's leading-party chip,
+                 "won of total" cell, and seat-dominance bar line up
+                 column-for-column with that state's nested Parliament-seat
+                 headers + Assembly-seat leaves. A heavier slate-300 divider
+                 separates states (vs the in-list hairline); the open panel is
+                 tinted bg-slate-50. The shared px-1 origin + the panel's -mr-1
+                 give the embedded list the SAME right edge so the result
+                 columns share an x across the embed boundary. The old floating
+                 `flex justify-between` rail (max-w-[55%] / min-w-[60px] bar) is
+                 GONE. -->
+            <ul class={`grid ${GRID_COLS} gap-x-2 divide-y divide-slate-300 border-y px-1`}>
               {#each nat_branches as branch (branch.state_code)}
                 {@const open = isNatExpanded(branch.state_code, branch.auto_expand)}
                 {@const strip = natStripFor(branch)}
-                <li data-testid="national-event-constituency-state-row">
+                <li
+                  data-testid="national-event-constituency-state-row"
+                  class="col-span-full grid grid-cols-subgrid"
+                >
                   <button
                     type="button"
-                    class="flex w-full items-center justify-between gap-3 px-2 py-2 text-left text-sm hover:bg-slate-50"
+                    class={`col-span-full grid grid-cols-subgrid items-center py-2 text-left text-sm hover:bg-slate-50 ${
+                      open ? "bg-slate-50" : ""
+                    }`}
                     data-testid="national-event-constituency-state-toggle"
                     aria-expanded={open}
                     onclick={() => toggleNatState(branch.state_code)}
                   >
-                    <span class="flex min-w-0 items-center gap-2">
-                      <TopicIcon
-                        name={open ? "chevron-down" : "chevron-right"}
-                        cls="h-4 w-4 shrink-0 text-slate-400"
-                      />
+                    <!-- track 1: expand/collapse twist -->
+                    <TopicIcon
+                      name={open ? "chevron-down" : "chevron-right"}
+                      cls="col-start-1 h-4 w-4 shrink-0 justify-self-center text-slate-400"
+                    />
+                    <!-- track 2: state name -->
+                    <span class="col-start-2 flex min-w-0 items-center pl-1">
                       <span class="truncate font-medium text-slate-800"
                         >{branch.state_name}</span
                       >
-                      <span
-                        class="shrink-0 text-xs tabular-nums text-slate-400"
-                        >{branch.pcs.length}
-                        {branch.pcs.length === 1 ? "seat" : "seats"}</span
-                      >
                     </span>
+                    <!-- track 3: parliament-seat count (EXPLICIT copy: "N
+                         Parliament seats", never a bare "N seats"). -->
+                    <span
+                      class="col-start-3 truncate text-xs tabular-nums text-slate-500"
+                      >{branch.pcs.length} Parliament seats</span
+                    >
                     {#if strip.segments.length > 0}
+                      <!-- track 4: leading-party chip (brand colour). -->
                       <span
-                        class="flex min-w-0 max-w-[55%] items-center gap-2"
+                        class="col-start-4 inline-block justify-self-start rounded px-1.5 py-0.5 text-xs font-medium text-white"
+                        style={`background-color:${strip.segments[0].color};`}
+                        >{strip.leader_short}</span
                       >
-                        <span
-                          class="hidden h-2.5 min-w-[60px] flex-1 overflow-hidden rounded-full sm:flex"
-                          aria-hidden="true"
-                        >
-                          {#each strip.segments as seg (seg.party_id)}
-                            <span
-                              style={`width:${seg.pct}%;background:${seg.color}`}
-                              title={`${seg.party_short} ${seg.count}`}
-                            ></span>
-                          {/each}
-                        </span>
-                        <span
-                          class="shrink-0 text-xs font-medium tabular-nums text-slate-600"
-                          >{strip.leader_label}</span
-                        >
+                      <!-- track 5: "won of total" (EXPLICIT copy: "8 of 17",
+                           never "8/17") - aligns under each PC header's share. -->
+                      <span
+                        class="col-start-5 justify-self-end text-xs tabular-nums text-slate-600"
+                        >{strip.leader_count} of {strip.total}</span
+                      >
+                      <!-- track 6: seat-dominance bar (proportional party
+                           strip) - aligns under each PC header's margin bar. -->
+                      <span
+                        aria-hidden="true"
+                        class="col-start-6 flex h-2.5 w-16 shrink-0 items-center justify-self-end overflow-hidden rounded-sm border border-slate-200"
+                      >
+                        {#each strip.segments as seg (seg.party_id)}
+                          <span
+                            class="h-full"
+                            style={`width:${seg.pct}%;background-color:${seg.color};`}
+                            title={`${seg.party_short} ${seg.count}`}
+                          ></span>
+                        {/each}
                       </span>
                     {/if}
                   </button>
                   {#if open}
+                    <!-- Open state panel: tinted + right-edge-aligned with the
+                         rail (-mr-1 cancels the embedded list's own px-1) so the
+                         nested PC/AC result columns share an x with the rail;
+                         pl-2 keeps a subtle nesting indent on the left. -->
                     <div
-                      class="px-2 pb-3"
+                      class="col-span-full -mr-1 bg-slate-50 pl-2 pb-3"
                       data-testid="national-event-constituency-state-panel"
                     >
                       <StateEventConstituencyList
