@@ -21,6 +21,16 @@ The RBI Handbook ingest *pipeline and tooling* are built, tested, and on `main`.
 - SDG goal overlay scaffolding: [datasets/data/frameworks.csv](../datasets/data/frameworks.csv) + [datasets/data/goals.csv](../datasets/data/goals.csv) + [datasets/data/goal_indicators.csv](../datasets/data/goal_indicators.csv) + `seed-goals` CLI; SDG-3 subtree seeded, `goal_indicators.csv` header-only (no mappings yet).
 - Operator staging tooling: [tools/rbi_handbook_stage.py](../tools/rbi_handbook_stage.py) (single-table) + [tools/rbi_handbook_download.user.js](../tools/rbi_handbook_download.user.js) (Tampermonkey bulk grabber, v3.1.0) (PRs #1222/#1223/#1224). The userscript grabs every table on a loaded edition and saves `<year>_t<NNN>_<rbi-name>.xlsx`.
 
+### Related parallel work (do NOT redo - State Finances fiscal spine)
+
+A default-agent task on 2026-06-25 analysed the RBI *State Finances: A Study of Budgets* **e-STATES Database** - a DIFFERENT RBI publication from this plan's *Handbook of Statistics on Indian States* - and authored the per-state fiscal spine:
+
+- [docs/architecture/backend/sources-rbi-state-finances.md](../docs/architecture/backend/sources-rbi-state-finances.md) - source confirmation, supersede ruling, ingest shape, the indicator definitions, and a `(appendix, budget_head) -> indicator_id` crosswalk seed.
+- [docs/concepts/state-fiscal-health.md](../docs/concepts/state-fiscal-health.md) - the globally-recognised state fiscal-health indicator vocabulary.
+- [backend/inspect_rbi_state_finances_estates.py](../backend/inspect_rbi_state_finances_estates.py) - an inspector for the e-STATES workbook.
+
+**Consequence for this plan:** the fiscal candidates in Row R8 (GFD, revenue deficit, outstanding liabilities, and the own-tax / non-tax / devolution / grants / revenue-expenditure series) are owned by State Finances - mark them `defer - covered by State Finances e-STATES`, and move pension to e-STATES (retire HBS Table 171). The Handbook keeps only what State Finances lacks: the Union (central) GFD and the macro / banking / prices panel.
+
 ### Hard-coded scope (in-scope rows)
 
 Rows R6-R12 in the Status Reckoner. Nothing else.
@@ -116,7 +126,7 @@ Dependency sketch: `R6 -> R7 -> R9 -> {R10, R11}`; `R8` runs in parallel and fee
 - A decided keep/defer table for all 182 (a short markdown matrix in this plan or a sibling handover).
 - Specs added for the keepers; each cites a green pre-flight report.
 
-**Notes.** Candidate families worth an early look: fiscal (GFD, revenue deficit, outstanding liabilities), SDP/GSDP, the SDG-score table (Table 106). Many will be `defer` - that is fine; the point is an explicit, cited decision, not a blanket sweep.
+**Notes.** Candidate families worth an early look: fiscal (GFD, revenue deficit, outstanding liabilities), SDP/GSDP, the SDG-score table (Table 106). Many will be `defer` - that is fine; the point is an explicit, cited decision, not a blanket sweep. **Update (2026-06-25):** the fiscal items are now deferred to the State Finances e-STATES spine (see "Related parallel work" in Section 0 + [sources-rbi-state-finances](../docs/architecture/backend/sources-rbi-state-finances.md)); the remaining live `defer` candidates for this plan are SDP/GSDP and the SDG-score Table 106.
 
 ### R9 - Link SDG-3 goals to the landed indicators
 
