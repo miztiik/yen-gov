@@ -1,6 +1,6 @@
 # Electoral constituency linkage (AC <-> PC parent)
 
-**Last Updated**: 2026-06-25
+**Last Updated**: 2026-06-26
 
 How `datasets/data/entities/electoral.csv` models the Assembly-constituency (AC) -> Parliament-constituency (PC) parent linkage, how the 2008-delimitation gap was backfilled by an in-repo geometric spatial join, the provenance rule (public-facing electoral data always cites ECI), the engineering shape of `electoral.csv`, and the residual coverage gap with the data needed to close it.
 
@@ -31,7 +31,7 @@ The LGD snapshot lacks `parent_pc_lgd_code` for ~382 live-delim (2008) ACs acros
 
 **Safety - a per-row double-lock.** A gap AC is emitted only when `overlap_frac >= 0.80` AND the winning PC unambiguously beats the runner-up AND one of: (Tier A) the geometry's own seat name matches the electoral seat name, or (Tier B) the AC's state passed the per-state 95% LGD-agreement bar. Vintage-renumbered states (post-2014 AP/TG, post-2023 Assam) fail the number match but pass Tier-A name-lock. Anything satisfying neither lock is LEFT OUT.
 
-**Result.** 316 of 382 gap ACs filled by the geometric pass (NULL-parent count `382 -> 66`); a logical single-PC-state rule then resolves 4 more (`66 -> 62`, section 6.1); a Survey-of-India composition backfill then resolves 34 more (`62 -> 28`, section 6.2); a composition + name-alias pass then resolves 10 more (`28 -> 18`, section 6.3); the 18 residual stay NULL (section 6). Regenerate with `python -m yen_gov seed-ac-pc-geometric-backfill` (prints the gate + coverage).
+**Result.** The geometric pass filled 316 of the 382 gap ACs; further passes (section 6) closed all but 3, leaving only the Assam vintage-mismatch seats NULL (`382 -> 3`). Regenerate with `python -m yen_gov seed-ac-pc-geometric-backfill` (prints the gate + coverage).
 
 ## 4. Provenance - electoral data always cites ECI
 
@@ -39,7 +39,7 @@ The LGD snapshot lacks `parent_pc_lgd_code` for ~382 live-delim (2008) ACs acros
 
 The AC->PC linkage is a *de-jure delimitation fact* whose authority is the ECI 2008 Delimitation Order (`Delimitation of Parliamentary and Assembly Constituencies Order, 2008`, vintage `2008`, `source_id = src-7cd5269de2e7`). The in-repo geometric spatial join is the *recovery method*, not the origin - it is disclosed per-row on the crosswalk via `match_method=geometric_overlap` + `overlap_frac`, and in this doc. This honours Holy Law #9 by citing the source of the *fact* while keeping the method transparent.
 
-The boundary geometry's own publishers remain cited on the boundary artifacts (see [boundaries.md](boundaries.md)); they are the provenance of the *polygons*, not of the *electoral linkage*. An earlier iteration cited the crosswalk to a `yen-gov` "geometric inference" source; that was corrected to ECI on 2026-06-25 because the linkage is a delimitation fact ECI is the authority for, and electoral data must cite ECI uniformly.
+The boundary geometry's own publishers remain cited on the boundary artifacts (see [boundaries.md](boundaries.md)); they are the provenance of the *polygons*, not of the *electoral linkage*. Where a state was re-delimited after 2008, the linkage's de-jure instrument is that state's own order (e.g. J&K = the 2022 J&K Delimitation Commission order, which the 2008 Order excluded); the crosswalk `source_id` keeps the standing ECI symbol and `match_method` + section 6 record the specific instrument.
 
 ## 5. Engineering notes - `electoral.csv` is a multi-source artifact
 
@@ -56,65 +56,28 @@ Because the snapshot writer NEVER emits the ECI-keyed rows, **a naive full regen
 
 Before shipping any `electoral.csv` edit, diff it field-by-field against `origin/main` and confirm the change is confined to the intended cells.
 
-## 6. Residual coverage gap (18 ACs) + data needed to close it
+## 6. How the 382-seat gap was closed + the residual
 
-After P0b, the single-PC-state rule (section 6.1), and the Survey-of-India composition backfill (section 6.2), 28 of the 382 gap ACs remain NULL. They fall into two buckets:
+The 382 NULL-parent gap ACs were resolved in passes, each disclosed per-row on the crosswalk via `match_method` (+ `overlap_frac`). `source_id` is always the ECI delimitation authority (section 4); the recovery input is named by `match_method` and here, never cited as the source.
 
-| Bucket | States (count) | Why these are still unresolved | Data needed to fix |
-| --- | --- | --- | --- |
-| Vintage mismatch | jammu-and-kashmir (13), andhra-pradesh (9), assam (3) | The electoral roster is the 2008 vintage but the seat set changed (J&K post-2022 90-seat re-delimitation; AP post-2014 bifurcation + rename/renumber; Assam post-2023 re-delimitation), so neither the seat number nor the name bridges cleanly. | The matching-vintage ECI Delimitation Order PC->AC composition for that state. |
-| Name-spelling mismatch | uttar-pradesh (1), gujarat (2) | The seat resolves under the Survey-of-India composition (section 6.2) but its register name differs from the source label (e.g. SISAMAU; BAPUNAGAR), so the double-lock identity check abstains. | A name-reconciliation pass mapping the register names to the Survey-of-India / LGD seat names. |
-
-The full residual seat list (for a follow-up pass), by state:
-
-| State | Count | Residual ACs |
+| `match_method` | Rows | What it is |
 | --- | --- | --- |
-| jammu-and-kashmir | 13 | Bishnah(SC), Channapora, Ganderbal, Habbakadal, Hazratbal, Inderwal, Kishtwar, Mendhar(ST), Padder - Nagseni, Pahalgam, Poonch Haveli, Suchetgarh(SC), Surankote(ST) |
-| assam | 3 | Amguri, Patacharkuchi, Thowra |
-| gujarat | 2 | Bapunagar, Jamalpur-Khadia |
+| `geometric_overlap` | 316 | Spatial join: each AC -> the PC polygon it maximally overlaps (>= 0.80), double-locked by a per-row seat-name match or a per-state >= 95% LGD-agreement bar (section 3). |
+| `single_pc_state` | 4 | A state/UT with exactly one PC: every Assembly seat composes that sole PC (Puducherry x3, Sikkim Sangha). `overlap_frac=1`. |
+| `soi_composition` | 31 | The official `PC_NAME` AC->PC attribute on the Survey-of-India (datta07) Assembly shapefiles, double-locked against the AC's own centroid. `overlap_frac=1`. |
+| `soi_centroid` | 3 | AP seats lacking that attribute, resolved by centroid-in-PC after the state validated >= 98% vs LGD. `overlap_frac=1`. |
+| `composition_alias` | 10 | AP (9, satishvmadala open data) + UP (1, datta07): an official composition bridged by a verified name alias (e.g. `Sishamau` -> our SISAMAU; PC `Anakapalli` -> our Anakapalle). `overlap_frac=1`. |
+| `eci_delimitation_order` | 15 | Read straight from the ECI delimitation order's PC-wise AC table: Gujarat (2, 2008 Order Part B p146 - Bapunagar/Jamalpur-Khadia -> Ahmedabad East/West) + J&K (13, 2022 J&K Delimitation Commission order). Names match verbatim. `overlap_frac=1`. |
 
-**To close the gap:** acquire the ECI 2008 Delimitation Order PC-wise AC composition (the de-jure table) for the affected states, add the resolved pairs to `ac_pc_geometric_backfill.csv` (or a sibling de-jure crosswalk) with a `match_method` that records the de-jure source, re-run the surgical applier, and confirm the NULL-parent delim-2008 AC count drops below 18. Residuals that still cannot be sourced stay NULL -> "data pending". Never lower the 0.80 overlap bar or the 95% agreement gate to force coverage.
+**Doctrine.** Bare centroid inference is not used to bulk-resolve straddling seats: its error concentrates on exactly the hard, dense-urban, near-PC-boundary seats, and a name match confirms a seat's *identity*, not its *parent PC* (e.g. BANKIPUR centroids into Hajipur, not its true Patna Sahib). Such seats need an official de-jure composition. The 0.80 overlap bar and the 95% LGD-agreement gate are never lowered to force coverage (Holy Law #5). For a state re-delimited after 2008 the de-jure instrument is that state's own order (J&K = the 2022 J&K Delimitation Commission order; the 2008 Order excluded J&K); the crosswalk `source_id` keeps the standing ECI symbol while `match_method` + this section record the actual instrument (Holy Law #9).
 
-### 6.1 Autonomous-resolvability analysis (2026-06-25)
+### Residual: 3 Assam seats (delimitation-vintage mismatch)
 
-Of the original 66 residuals, **4 are resolvable with logical certainty and no geometry**: a state/UT with EXACTLY ONE Parliament constituency means every Assembly seat in it composes that one PC. This `single_pc_state` rule (section 3; `match_method=single_pc_state`, `overlap_frac=1.0`) closes Puducherry's 3 seats (Indira Nagar, Oupalam, Raj Bhavan -> `IN-PC-2008-puducherry-542`) and the non-territorial Sikkim Sangha seat (-> `IN-PC-2008-sikkim-192`), dropping the NULL-parent count `66 -> 62`.
+| State | Residual ACs | Why still NULL | How to close |
+| --- | --- | --- | --- |
+| assam | Amguri, Thowra, Patacharkuchi | Our Assam AC roster is the pre-2023 (1976-era) delimitation, but the 2024 Lok Sabha PCs and the 2023 Assam re-delimitation renumbered and renamed every seat - so these three old-numbered seats bridge to no current PC by number or name. | Migrate the Assam Assembly roster to the 2023 re-delimitation (126 new seats, new numbering) - a deliberate data-model change - after which the 2023 PC->AC composition links them directly. |
 
-A **centroid / interior-point-in-polygon** method (assign each straddling AC to the PC that contains its `representative_point()`) was evaluated for the remaining 62 and measured at **95.38% agreement** vs the LGD parent on the already-linked ACs - about equal to the area-overlap method, and above the 95% gate. It was nonetheless **REJECTED** for bulk-resolving the residual straddlers, because:
-
-- The error does not spread evenly - it **concentrates on exactly these hard, near-PC-boundary dense-urban seats**, which are precisely the residuals. A 95% aggregate hides a much higher error rate on the specific seats that remain.
-- The per-row name-match lock confirms an AC's **identity** (which seat it is), not its **parent** (which PC it belongs to), so a confident name match gives no assurance the centroid landed in the correct PC.
-- A concrete wrong assignment was found: **BANKIPUR** (central Patna) resolves by centroid to the **Hajipur** PC instead of **Patna Sahib** - a real, citizen-visible error.
-
-Therefore those straddlers require an official **de-jure PC-wise AC composition** (the 2008 Delimitation Order assignment table, or an equivalent published composition) for safe resolution rather than bare centroid inference. The Survey-of-India composition backfill in section 6.2 supplies exactly such an official composition and safely resolves 34 of the 62 (BANKIPUR among them, correctly). Geometry alone must not assert the rest, and lowering the 0.80 overlap bar or the 95% agreement gate to force coverage is forbidden (Holy Law #5 - structural fix, not a band-aid).
-
-### 6.2 Survey-of-India composition backfill (2026-06-25)
-
-The user supplied the `datta07/INDIAN-SHAPEFILES` corpus (Survey-of-India-derived state constituency shapefiles). For most states the ASSEMBLY-constituency file carries the OFFICIAL AC->PC composition as a `PC_NAME` attribute on each AC feature - a de-jure composition table, not merely polygons. Reading that attribute (rather than inferring it from geometry) resolved 34 of the 62 residuals and corrected two earlier geometric errors, dropping the NULL-parent delim-2008 AC count `62 -> 28`.
-
-**Method (double-locked).** A seat was admitted only when BOTH (a) the official `PC_NAME` attribute named a PC AND (b) the AC's own-geometry centroid fell inside that same PC polygon - the attribute and the geometry had to agree. 31 resolved this way (`match_method=soi_composition`). For Andhra Pradesh, 3 seats whose composition attribute was absent were resolved by centroid-in-PC alone (`match_method=soi_centroid`). All 34 carry `overlap_frac=1.0` (serialized `1`) to denote "wholly attributed by the Survey-of-India composition / containment", not a measured straddle fraction. The public `source_id` stays the ECI 2008 Delimitation Order (section 4): the linkage is a de-jure delimitation fact and electoral data always cites ECI; the Survey-of-India shapefiles are the recovery INPUT, credited via `match_method` and this section.
-
-**Per-state LGD validation.** Where an LGD ground-truth existed, the Survey-of-India composition was cross-checked against it before any seat in that state was admitted: Maharashtra 100%, Jharkhand 100%, Goa 100%, Uttar Pradesh 99.7%, Bihar 99.1%, West Bengal 98.9%, Rajasthan 97.5%. Delhi has no LGD AC ground-truth at all, so its 13 seats relied on the attribute-plus-centroid double-lock alone. Andhra Pradesh's 3 centroid seats validated at 98.3%.
-
-**Two earlier geometric errors corrected.** The official composition overturned two assignments bare geometry had gotten wrong: BANKIPUR (central Patna) -> Patna Sahib, not Hajipur; KALKAJI (Delhi) -> South Delhi, not East Delhi. This is exactly why the de-jure attribute, not centroid inference, is authoritative for these dense-urban seats (section 6.1).
-
-**The remaining 28 at that point - why the datta07 / shijithpk sources do not resolve them.** (Andhra Pradesh + Uttar Pradesh were subsequently closed from a dedicated source - see section 6.3.)
-
-- **Jammu & Kashmir (13)** - our roster is the CURRENT 2022 delimitation (90 ACs / 5 PCs). The current-vintage AC geometry (shijithpk 2024) carries NO AC->PC composition; the shijithpk LS file is only a partial supplement (changed borders plus a "Rest of J&K" residual); and datta07's J&K is the SUPERSEDED old delimitation (107 ACs). No source provides the complete current-2024 J&K AC->PC composition.
-- **Andhra Pradesh (9)** - the datta07 AP file is the current post-bifurcation 175-seat assembly with a different schema (no `PC_NAME` attribute) and name-spelling drift, so it could not bridge our undivided pre-2014 AP roster. RESOLVED in section 6.3 from the AP 2024 open-data composition.
-- **Assam (3)** - datta07's Assam agrees with LGD at only 92.3% (post-2023 re-delimitation), below the 95% gate, so it is excluded as vintage-suspect.
-- **Uttar Pradesh (1: Sisamau)** - a one-character spelling gap against datta07 (`Sishamau`). RESOLVED in section 6.3.
-- **Gujarat (2: Bapunagar, Jamalpur-Khadia)** - see section 6.3.
-
-### 6.3 Composition + name-alias backfill (AP open data; 2026-06-25)
-
-A follow-up pass closed 10 more residuals - all 9 Andhra Pradesh seats and Uttar Pradesh's Sisamau - by reading an official AC->PC composition table and bridging our register's spelling to it with a VERIFIED name alias (`match_method=composition_alias`, `overlap_frac=1.0`, `source_id` still the ECI 2008 Delimitation Order). NULL-parent count `28 -> 18`.
-
-- **Andhra Pradesh (9).** The user supplied `satishvmadala/andhrapradesh_opendata_locations` - an AP open-data constituencies file (`Final_Andhra_Constituencies_2024.json` + geojson) that lists each Assembly seat with its `loksabha_constituency_name` (the parent PC): a de-jure composition table for AP. It agreed with our existing AP parents at **98.4%**. Each of the 9 was bridged by a verified name match, cross-checked by district: Bhimli->Visakhapatnam, Rajamundry Rural->Rajahmundry, Unguturu->Eluru, Vijaywada West->Vijayawada, Sattenapalli->Narasaraopet, and Madugula / Anakapalli / Elamanchili / Payakaraopeta->Anakapalle (the source spells the PC "Anakapalli", our register "Anakapalle" - a one-word PC alias). datta07's AP file could not do this (post-bifurcation roster, no `PC_NAME`); the dedicated AP open-data source could.
-- **Uttar Pradesh (1).** `Sisamau` is spelled `Sishamau` in the datta07 UP file, whose `PC_NAME` attribute places it in the **Kanpur** PC - a one-character alias.
-
-**Gujarat (2) still open.** `Bapunagar` and `Jamalpur-Khadia` are Ahmedabad-city Assembly seats. datta07's Gujarat file is INCOMPLETE - it ships 165 of the state's 182 ACs and omits the Ahmedabad-city block (`AC_NO` ~45-56, which includes both of these seats), so there is no record to alias to. Closing them needs a complete Gujarat AC->PC source (DataMeet's assembly-constituency set, or the ECI 2008 Gujarat delimitation composition).
-
-The remaining 18 (J&K 13, Assam 3, Gujarat 2) stay NULL -> "data pending". The 0.80 overlap bar and the 95% agreement gate are not lowered to force coverage (Holy Law #5).
+Until then they stay NULL and the UI renders them honestly as "Parliament seat pending".
 
 ## 7. CLI
 
