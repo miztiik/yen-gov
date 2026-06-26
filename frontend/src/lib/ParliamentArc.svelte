@@ -10,7 +10,7 @@
 
   import type { PartyResult } from "./psephlab/types";
   import { partyColourHex } from "./psephlab/colour-bridge";
-  import PartySymbolGlyph from "./PartySymbolGlyph.svelte";
+  import PartySymbolGlyph, { glyphUrlFor } from "./PartySymbolGlyph.svelte";
   import { majorityFor } from "./electoral";
   import { orderArcParties } from "./parliament-arc-order";
   import {
@@ -70,11 +70,29 @@
   const inner_radius = $derived(max_radius * (ARC_R_INNER / ARC_R_OUTER));
   const majority = $derived(majorityFor(total_seats));
 
-  // Hover tooltip.
-  let hover = $state<{ x: number; y: number; label: string } | null>(null);
+  // Focused party - the seat bloc the citizen is pointing at (a seat dot or
+  // a legend chip). Drives BOTH the centre read-out and the dimming of every
+  // other party's dots. Null = nothing hovered; the centre then shows the
+  // chamber total ("N seats") so the empty middle is never blank.
+  let focused_pid = $state<string | null>(null);
 
   // Per-party legend, in the same (alliance-grouped or seats) order as the dots.
   const legend = $derived(orderActiveParties(parties));
+
+  // Party rendered in the chamber centre while hovered. Null = nothing
+  // focused, in which case the centre falls back to the chamber total. Its
+  // brand colour + curated symbol feed the seats / name / glyph read-out.
+  const focused_party = $derived(
+    focused_pid != null
+      ? parties.find((p) => p.party_eci_code === focused_pid) ?? null
+      : null,
+  );
+  const focused_colour = $derived(
+    focused_party ? partyColourHex(focused_party) : "#0f172a",
+  );
+  const focused_logo = $derived(
+    focused_party ? glyphUrlFor(focused_party.election_symbol_asset_path) : null,
+  );
 </script>
 
 <div class="relative pt-4">
@@ -100,29 +118,67 @@
     <!-- Seat dots -->
     {#each layout as d, i (i)}
       {@const muted = !!hidden_parties?.has(d.party_eci_code)}
+      {@const dimmed = focused_pid != null && d.party_eci_code !== focused_pid}
       <circle
         cx={d.x} cy={d.y} r={dot_radius}
         fill={d.fill}
-        opacity={muted ? 0.18 : 1}
+        opacity={muted ? 0.18 : dimmed ? 0.28 : 1}
         stroke="#fff" stroke-width="0.8"
         role="img" aria-label={d.party_short}
-        onmouseenter={() => (hover = { x: d.x, y: d.y, label: d.party_short })}
-        onmouseleave={() => (hover = null)}
+        onmouseenter={() => (focused_pid = d.party_eci_code)}
+        onmouseleave={() => (focused_pid = null)}
       />
     {/each}
-  </svg>
 
-  {#if hover}
-    <!-- Tooltip rides above the dot. The wrapping `pt-4` plus a -180% Y
-         translate keeps the bubble inside the rounded card even for the
-         topmost row of dots (where -130% used to bleed above the card edge). -->
-    <div
-      class="absolute pointer-events-none px-2 py-0.5 text-xs bg-slate-900 text-white rounded shadow whitespace-nowrap"
-      style:left="{(hover.x / ARC_W) * 100}%"
-      style:top="{(hover.y / ARC_H) * 100}%"
-      style:transform="translate(-50%, -180%)"
-    >{hover.label}</div>
-  {/if}
+    <!--
+      Centre read-out - painted in the empty middle of the chamber (the
+      "balance of power" idiom). SVG-native (not an HTML overlay) so it scales
+      with the responsive viewBox AND keeps the legend <ul> a direct
+      following-sibling of this <svg>, which the e2e seat-invariant specs rely
+      on (`following-sibling::ul[1]`). Carries no <circle>, so the dot-count
+      invariant is untouched. `pointer-events-none` so the text never steals
+      hover from the dots it sits over. Shows the hovered party (symbol +
+      seats + short name, in the party's colour) when focused, else the
+      chamber total ("N seats").
+    -->
+    {#if total_seats > 0}
+      <g data-testid="parliament-arc-focus" class="pointer-events-none">
+        {#if focused_party}
+          {#if focused_logo}
+            <image
+              href={focused_logo}
+              x={ARC_CX - 18} y={266}
+              width="36" height="36"
+              preserveAspectRatio="xMidYMid meet"
+              onerror={(e) => { (e.currentTarget as SVGImageElement).style.display = "none"; }}
+            />
+          {/if}
+          <text
+            x={ARC_CX} y={focused_logo ? 336 : 330}
+            text-anchor="middle" font-size="28" font-weight="800"
+            fill={focused_colour} class="tabular-nums"
+          >{focused_party.seats_won}</text>
+          <text
+            x={ARC_CX} y={focused_logo ? 354 : 348}
+            text-anchor="middle" font-size="13" font-weight="600"
+            fill={focused_colour}
+          >{focused_party.party_short}</text>
+        {:else}
+          <!-- Default (nothing hovered): the chamber total. -->
+          <text
+            x={ARC_CX} y={334}
+            text-anchor="middle" font-size="32" font-weight="800"
+            fill="#0f172a" class="tabular-nums"
+          >{total_seats}</text>
+          <text
+            x={ARC_CX} y={353}
+            text-anchor="middle" font-size="12" font-weight="600"
+            fill="#64748b"
+          >seats</text>
+        {/if}
+      </g>
+    {/if}
+  </svg>
 
   <!--
     Compact legend - symbol-ring chips (Jony verdict 2026-06-09, user
@@ -151,6 +207,10 @@
         title={clickable ? (muted ? `Click to show ${p.party_short}` : `Click to mute ${p.party_short}`) : undefined}
         onclick={() => onToggleHidden?.(p.party_eci_code)}
         onkeydown={(e) => { if (clickable && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); onToggleHidden?.(p.party_eci_code); } }}
+        onmouseenter={() => (focused_pid = p.party_eci_code)}
+        onmouseleave={() => (focused_pid = null)}
+        onfocus={() => (focused_pid = p.party_eci_code)}
+        onblur={() => (focused_pid = null)}
       >
         <span
           class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white shrink-0"
