@@ -71,6 +71,9 @@ export interface TileWinnerInput {
   party_short: string;
   /** Margin of victory as a percentage; null = unknown. */
   margin_pct: number | null;
+  /** Winner's share of all votes cast, in percent. Drives the FPTP
+   *  vote-share bar on the hex card; null = unknown (no bar). */
+  winner_share_pct?: number | null;
   /** PR-SYM-6f7: canonical `parties.IN.<SLUG>`. When absent, the resolver
    *  receives a derived `parties.IN.<UPPER(party_short)>` fallback so the
    *  anchor / algorithmic tiers stay identity-stable. */
@@ -305,6 +308,7 @@ export function buildTileRows(
         partyShort: w.party_short,
         partyColorHex: fill,
         marginPct: w.margin_pct,
+        winnerSharePct: w.winner_share_pct ?? null,
       }),
       selected: t.unit_id === selected,
       pending: false,

@@ -1,9 +1,6 @@
 import { describe, it, expect } from "vitest";
-import {
-  renderTooltipCard,
-  MARGIN_CLOSE_PP,
-  MARGIN_DECISIVE_PP,
-} from "./tooltip-card";
+import { renderTooltipCard } from "./tooltip-card";
+import { marginShade } from "../elections/election-map-coloring";
 
 describe("renderTooltipCard", () => {
   it("renders the name and a margin value with a leading +", () => {
@@ -42,7 +39,9 @@ describe("renderTooltipCard", () => {
     expect(html).toContain("&amp; B &lt;script&gt;");
   });
 
-  it("fills the accent bar with a valid hex and ignores an invalid colour", () => {
+  it("carries the party hue on the pill and ignores an invalid colour", () => {
+    // The party hue lives on the pill (and the share-bar segment), not the
+    // left accent bar (which is shaded by margin).
     const ok = renderTooltipCard({ title: "t", partyShort: "p", partyColorHex: "#ff0000" });
     expect(ok).toContain("background:#ff0000");
 
@@ -51,7 +50,7 @@ describe("renderTooltipCard", () => {
       partyShort: "p",
       partyColorHex: "red;content:url(x)",
     });
-    // Injection rejected; the bar falls back to the neutral grey.
+    // Injection rejected; identity falls back to the neutral grey.
     expect(bad).not.toContain("red;content");
     expect(bad).toContain("background:#cbd5e1");
   });
@@ -110,36 +109,55 @@ describe("renderTooltipCard", () => {
     expect(html).toContain("Tamil Nadu");
   });
 
-  it("colours the margin value by abs(margin) on the 3-band scale", () => {
-    // < MARGIN_CLOSE_PP -> amber-700.
-    const close = renderTooltipCard({ title: "t", partyShort: "p", marginPct: 3.2 });
-    expect(close).toMatch(/<span[^>]*color:#b45309[^>]*>\+3\.2%<\/span>/);
-
-    // MARGIN_CLOSE_PP .. < MARGIN_DECISIVE_PP -> slate-500.
-    const mid = renderTooltipCard({ title: "t", partyShort: "p", marginPct: 8 });
-    expect(mid).toMatch(/<span[^>]*color:#64748b[^>]*>\+8\.0%<\/span>/);
-
-    // >= MARGIN_DECISIVE_PP -> slate-900.
-    const decisive = renderTooltipCard({ title: "t", partyShort: "p", marginPct: 22 });
-    expect(decisive).toMatch(/<span[^>]*color:#0f172a[^>]*>\+22\.0%<\/span>/);
+  it("renders the margin value in neutral slate regardless of magnitude", () => {
+    // No party-independent band ramp any more: the margin-as-colour signal
+    // moved to the left accent bar (marginShade). The text is always slate.
+    for (const m of [3.2, 8, 22]) {
+      const html = renderTooltipCard({ title: "t", partyShort: "p", marginPct: m });
+      expect(html).toMatch(
+        new RegExp(`<span[^>]*color:#475569[^>]*>\\+${m.toFixed(1)}%<\\/span>`),
+      );
+    }
+    // The retired band colours never appear.
+    const any = renderTooltipCard({ title: "t", partyShort: "p", marginPct: 3.2 });
+    expect(any).not.toContain("#b45309"); // amber-700 (old "close")
   });
 
-  it("treats the band thresholds as closed-open intervals", () => {
-    // Exactly MARGIN_CLOSE_PP (5) is NOT close -> mid band.
-    const atClose = renderTooltipCard({
+  it("shades the left accent bar by margin via marginShade", () => {
+    const hex = "#2563eb";
+    const html = renderTooltipCard({
       title: "t",
       partyShort: "p",
-      marginPct: MARGIN_CLOSE_PP,
+      partyColorHex: hex,
+      marginPct: 18,
     });
-    expect(atClose).toMatch(/color:#64748b[^>]*>\+5\.0%/);
+    // The 4px left bar is filled with the choropleth's own margin shade.
+    expect(html).toContain(`background:${marginShade(hex, 18)}`);
+    // With no margin the bar is neutral, not the raw hue.
+    const noMargin = renderTooltipCard({ title: "t", partyShort: "p", partyColorHex: hex });
+    expect(noMargin).toMatch(/position:absolute;left:0;[^"]*background:#cbd5e1/);
+  });
 
-    // Exactly MARGIN_DECISIVE_PP (15) IS decisive.
-    const atDecisive = renderTooltipCard({
+  it("renders the FPTP vote-share bar from winnerSharePct and omits it when absent", () => {
+    const hex = "#2563eb";
+    const withBar = renderTooltipCard({
       title: "t",
       partyShort: "p",
-      marginPct: MARGIN_DECISIVE_PP,
+      partyColorHex: hex,
+      winnerSharePct: 34.6,
     });
-    expect(atDecisive).toMatch(/color:#0f172a[^>]*>\+15\.0%/);
+    // Track is the fixed neutral rest; the winner segment is the party hue
+    // sized to the share (no number).
+    expect(withBar).toContain("background:#94a3b8");
+    expect(withBar).toContain(`width:34.6%;background:${hex}`);
+
+    const noBar = renderTooltipCard({ title: "t", partyShort: "p", partyColorHex: hex });
+    expect(noBar).not.toContain("background:#94a3b8");
+  });
+
+  it("renders the winning party short inside a hued pill", () => {
+    const html = renderTooltipCard({ title: "t", partyShort: "BJP", partyColorHex: "#ff9933" });
+    expect(html).toMatch(/border-radius:9999px;background:#ff9933;color:#[0-9a-f]{6}[^>]*>BJP</);
   });
 
   it("renders the candidate name when provided", () => {
@@ -152,7 +170,7 @@ describe("renderTooltipCard", () => {
     expect(html).toContain("Shashi Tharoor");
   });
 
-  it("degrades to a party-hued disc (no <img>, no placeholder asset) for empty and malicious assets", () => {
+  it("degrades to a neutral disc (no <img>, no placeholder asset) for empty and malicious assets", () => {
     const assets: (string | null | undefined)[] = [
       "",
       "   ",
@@ -172,8 +190,9 @@ describe("renderTooltipCard", () => {
       });
       expect(html).not.toContain("<img");
       expect(html).not.toContain("party-symbols/");
-      // The party-hued disc carries identity instead of a broken image.
-      expect(html).toContain("background:#123456");
+      // The disc is neutral (the pill carries party identity, so the disc
+      // never repeats the hue); a broken image is never emitted.
+      expect(html).toContain("background:#f1f5f9");
     }
   });
 

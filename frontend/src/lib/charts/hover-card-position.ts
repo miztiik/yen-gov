@@ -19,7 +19,8 @@ export interface HoverCardPositionInput {
   /** Fixed card width (px). Default 224 (sized down from the plan's
    *  initial 256 per user, 2026-06-26). */
   cardW?: number;
-  /** Fixed card height (px). Default 120 (sized down from 140). */
+  /** Fixed card height (px). Default 150 (grew from 120 for the vote-share
+   *  bar + breathing room). */
   cardH?: number;
   /** Gap between the cursor and the card (px). Default 12. */
   offset?: number;
@@ -38,7 +39,7 @@ export function computeHoverCardPosition({
   containerW,
   containerH,
   cardW = 224,
-  cardH = 120,
+  cardH = 150,
   offset = 12,
 }: HoverCardPositionInput): HoverCardPosition {
   // Default anchor: bottom-right of the cursor.

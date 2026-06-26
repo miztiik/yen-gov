@@ -596,6 +596,7 @@
         brand_colour_hex: w.brand_colour_hex,
         brand_colour_confidence: w.brand_colour_confidence,
         margin_pct: w.margin_pct,
+        winner_share_pct: w.vote_share_pct ?? null,
         winner_candidate_name: w.winner_candidate_name,
         symbol_asset_path: w.symbol_asset_path,
       });
@@ -694,6 +695,7 @@
       party_key: w.party_eci_code,
       party_short: w.party_short,
       margin_pct: w.margin_pct,
+      winner_share_pct: w.winner_share_pct,
       party_id: w.party_id,
       brand_colour_hex: w.brand_colour_hex,
       brand_colour_confidence: w.brand_colour_confidence,
