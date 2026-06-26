@@ -31,7 +31,7 @@ The LGD snapshot lacks `parent_pc_lgd_code` for ~382 live-delim (2008) ACs acros
 
 **Safety - a per-row double-lock.** A gap AC is emitted only when `overlap_frac >= 0.80` AND the winning PC unambiguously beats the runner-up AND one of: (Tier A) the geometry's own seat name matches the electoral seat name, or (Tier B) the AC's state passed the per-state 95% LGD-agreement bar. Vintage-renumbered states (post-2014 AP/TG, post-2023 Assam) fail the number match but pass Tier-A name-lock. Anything satisfying neither lock is LEFT OUT.
 
-**Result.** The geometric pass filled 316 of the 382 gap ACs; further passes (section 6) closed all but 3, leaving only the Assam vintage-mismatch seats NULL (`382 -> 3`). Regenerate with `python -m yen_gov seed-ac-pc-geometric-backfill` (prints the gate + coverage).
+**Result.** The geometric pass filled 316 of the 382 gap ACs; six further passes (section 6) closed the rest, so every 2008-delimitation Assembly seat now has a parent PC (`382 -> 0`). Regenerate with `python -m yen_gov seed-ac-pc-geometric-backfill` (prints the gate + coverage).
 
 ## 4. Provenance - electoral data always cites ECI
 
@@ -56,7 +56,7 @@ Because the snapshot writer NEVER emits the ECI-keyed rows, **a naive full regen
 
 Before shipping any `electoral.csv` edit, diff it field-by-field against `origin/main` and confirm the change is confined to the intended cells.
 
-## 6. How the 382-seat gap was closed + the residual
+## 6. How the 382-seat gap was closed (now 100%)
 
 The 382 NULL-parent gap ACs were resolved in passes, each disclosed per-row on the crosswalk via `match_method` (+ `overlap_frac`). `source_id` is always the ECI delimitation authority (section 4); the recovery input is named by `match_method` and here, never cited as the source.
 
@@ -68,16 +68,15 @@ The 382 NULL-parent gap ACs were resolved in passes, each disclosed per-row on t
 | `soi_centroid` | 3 | AP seats lacking that attribute, resolved by centroid-in-PC after the state validated >= 98% vs LGD. `overlap_frac=1`. |
 | `composition_alias` | 10 | AP (9, satishvmadala open data) + UP (1, datta07): an official composition bridged by a verified name alias (e.g. `Sishamau` -> our SISAMAU; PC `Anakapalli` -> our Anakapalle). `overlap_frac=1`. |
 | `eci_delimitation_order` | 15 | Read straight from the ECI delimitation order's PC-wise AC table: Gujarat (2, 2008 Order Part B p146 - Bapunagar/Jamalpur-Khadia -> Ahmedabad East/West) + J&K (13, 2022 J&K Delimitation Commission order). Names match verbatim. `overlap_frac=1`. |
+| `district_composition` | 3 | The last 3 Assam seats, resolved to the PC that their already-linked same-district sibling seats unanimously compose (Amguri, Thowra -> Jorhat; Patacharkuchi -> Barpeta) - a de-jure 1976/2008 Assam composition the LGD snapshot lacked a `parent_pc_lgd_code` for on these `-eci`-keyed seats. `overlap_frac=1`. |
 
 **Doctrine.** Bare centroid inference is not used to bulk-resolve straddling seats: its error concentrates on exactly the hard, dense-urban, near-PC-boundary seats, and a name match confirms a seat's *identity*, not its *parent PC* (e.g. BANKIPUR centroids into Hajipur, not its true Patna Sahib). Such seats need an official de-jure composition. The 0.80 overlap bar and the 95% LGD-agreement gate are never lowered to force coverage (Holy Law #5). For a state re-delimited after 2008 the de-jure instrument is that state's own order (J&K = the 2022 J&K Delimitation Commission order; the 2008 Order excluded J&K); the crosswalk `source_id` keeps the standing ECI symbol while `match_method` + this section record the actual instrument (Holy Law #9).
 
-### Residual: 3 Assam seats (delimitation-vintage mismatch)
+### Residual: none - every 2008-delimitation Assembly seat now has a parent PC
 
-| State | Residual ACs | Why still NULL | How to close |
-| --- | --- | --- | --- |
-| assam | Amguri, Thowra, Patacharkuchi | Our Assam AC roster is the pre-2023 (1976-era) delimitation, but the 2024 Lok Sabha PCs and the 2023 Assam re-delimitation renumbered and renamed every seat - so these three old-numbered seats bridge to no current PC by number or name. | Migrate the Assam Assembly roster to the 2023 re-delimitation (126 new seats, new numbering) - a deliberate data-model change - after which the 2023 PC->AC composition links them directly. |
+The final 3 (Assam: Amguri, Thowra, Patacharkuchi) were closed via `district_composition` (2026-06-26). They are `delim_year=2008` seats the geometric / SoI passes had skipped because our catalogue carries their OLD (1976-era) names while the boundary topojson carries the NEW 2023 re-delimitation names - so neither number nor name bridged. They resolve unambiguously within the 2008 generation: every already-linked same-district sibling composes one PC (the whole Sivasagar block -> Jorhat; the Bajali/Barpeta cluster -> Barpeta), so these three do too.
 
-Until then they stay NULL and the UI renders them honestly as "Parliament seat pending".
+**Not done here (separate, deliberate):** modelling the **2023 Assam re-delimitation as its own `delim_year=2023` generation** (126 new seats). `electoral.csv` is append-only per `delim_year` (Assam already holds 1962/1967/1976/2008 side by side), so that is an additive migration that must come through the LGD snapshot + seed writer (`electoral_csv_from_snapshot.py`) - not a hand-edit, which a regen would drop (section 5). The boundary topojson already carries the 2023 geometry (`lgd_ac_id` 18001-18126); the LGD AC snapshot does not yet. Tracked for a future pipeline PR (the same path J&K-2022 will eventually take).
 
 ## 7. CLI
 
