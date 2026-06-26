@@ -591,6 +591,7 @@
           party_eci_code: w.party_eci_code,
           party_short: w.party_short ?? "UNK",
           margin_pct: w.margin_pct ?? 0,
+          winner_share_pct: w.vote_share_pct ?? null,
           turnout_pct: w.turnout_pct,
           winner_age: w.winner_age,
           winner_candidate_name: w.winner_candidate_name ?? null,
@@ -654,6 +655,7 @@
         brand_colour_hex: w.brand_colour_hex,
         brand_colour_confidence: w.brand_colour_confidence,
         margin_pct: w.margin_pct,
+        winner_share_pct: w.vote_share_pct ?? null,
         winner_candidate_name: w.winner_candidate_name,
         symbol_asset_path: w.symbol_asset_path,
       });

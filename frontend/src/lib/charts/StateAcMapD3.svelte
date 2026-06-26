@@ -208,6 +208,7 @@
     winner_party_eci_code: string | null;
     winner_party_short: string;
     margin_pct: number;
+    winner_share_pct: number | null;
     winner_candidate_name: string | null;
     symbol_asset_path: string | null;
     brand_colour_hex: string | null;
@@ -225,6 +226,7 @@
           winner_party_eci_code: w.party_eci_code,
           winner_party_short: w.party_short,
           margin_pct: w.margin_pct,
+          winner_share_pct: w.winner_share_pct ?? null,
           winner_candidate_name: w.winner_candidate_name ?? null,
           symbol_asset_path: w.symbol_asset_path ?? null,
           brand_colour_hex: w.brand_colour_hex ?? null,
@@ -718,6 +720,7 @@
       partyColorHex: party_colors.get(eci) ?? null,
       symbolAsset: symbolAssetUrl(r.symbol_asset_path),
       marginPct: r.margin_pct,
+      winnerSharePct: r.winner_share_pct,
     });
   }
 

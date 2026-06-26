@@ -60,6 +60,9 @@ export interface AcWinner {
   party_eci_code: string | null;
   party_short: string;
   margin_pct: number;
+  /** Winner's share of all votes cast, in percent. Feeds the FPTP
+   *  vote-share bar on the AC map hover card; null = unknown. */
+  winner_share_pct?: number | null;
   // PR-B8 colour-by modes. Both are nullable/optional: turnout is
   // conditionally emitted per event and winner age is affidavit-sourced
   // (dense ~2004+, null for older events). Coverage is gated downstream.
