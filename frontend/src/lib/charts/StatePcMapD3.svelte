@@ -92,6 +92,7 @@
     brand_colour_hex: string | null;
     brand_colour_confidence: "high" | "medium" | "low" | null;
     margin_pct: number;
+    winner_share_pct: number | null;
     winner_candidate_name: string | null;
     symbol_asset_path: string | null;
   }
@@ -424,6 +425,7 @@
       partyColorHex: party_colors.get(r.unique_id) ?? null,
       symbolAsset: symbolAssetUrl(r.symbol_asset_path),
       marginPct: r.margin_pct,
+      winnerSharePct: r.winner_share_pct,
     });
   }
 
